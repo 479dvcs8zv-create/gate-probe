@@ -1,0 +1,202 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2330'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2330'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;3</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/08/20</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;22:20:47</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃仁昭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-563-6688</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;ESMC德勒斯登晶圓廠舉行動土典禮</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+51&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/08/20
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:113/08/20
+2.公司名稱:台灣積體電路製造股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:不適用
+6.因應措施:不適用
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
+台積公司、羅伯特博世公司（Robert Bosch GmbH）、英飛凌科技
+股份公司（Infineon Technologies AG）及恩智浦半導體公司
+（NXP Semiconductors N.V.）合資成立之歐洲半導體製造公司（ESMC）
+今（20）日為其在德國德勒斯登的首座半導體晶圓廠舉行動土典禮，
+正式啟動初期土地準備階段。政府官員、客戶、供應商、業務夥伴及
+學術界貴賓受邀出席共襄盛舉，一同見證此歐盟首座採用鰭式場效電
+晶體（FinFET）技術提供專業積體電路製造服務之晶圓廠所締造的里程碑。
+
+本次動土典禮的與會貴賓包括歐盟執委會主席Ursula von der Leyen、
+德國聯邦總理Olaf Scholz、薩克森邦首長Michael Kretschmer和德勒
+斯登市長Dirk Hilbert。為展現對此專案所投入的支持，在本次動土典
+禮中，歐盟執委會主席von der Leyen宣布歐盟執委會已依據歐盟國家
+補助規則（EU State aid rules）通過一項50億歐元的德國補助措施，
+以支持ESMC半導體晶圓廠的建設工程和營運。
+
+台積公司董事長暨總裁魏哲家博士表示：「我們與共同夥伴博世、英飛
+凌和恩智浦一起合作興建這座德勒斯登晶圓廠以滿足快速成長的歐洲汽
+車和工業領域對於半導體的需求。藉由這座最先進的晶圓廠，我們將把
+台積公司先進的製造能力帶給我們的歐洲客戶和合作夥伴，刺激當地的
+經濟發展，並推動整個歐洲的技術往前邁進。」
+
+ESMC全面營運後預計採用台積公司28/22奈米平面互補金屬氧化物半導體
+（CMOS）及16/12奈米FinFET電晶體技術，月產能40,000片300mm（12吋）
+晶圓。藉由先進的FinFET技術，進一步強化歐洲半導體製造生態系統。
+總計投資金額預估超過100億歐元，包括股權注資、借債、以及歐盟和德
+國政府的大力支持。
+
+此座嶄新的晶圓廠預計創造約2,000個直接的高科技專業工作機會。此外，
+該廠創造的每一個直接工作機會可望於整個歐盟供應鏈中創造出許多間接
+的工作機會，進而提振當地經濟。ESMC將秉持台積公司永續發展及環境保
+護的標準，依循此項使命，ESMC及其合作夥伴致力於興建一座綠色晶圓廠
+，利用既有及先進的技術來優化資源保護，包括節能建築、水資源回收、
+以及取得LEED綠建築認證。
+
+ESMC的成立體現了台積大同盟的實力，該同盟是半導體產業創新的基石，
+推動突破性的進步，將台積公司的合作夥伴聚集在一起，實現新的合作水
+準。投資ESMC不僅展現了對此策略夥伴關係更深的承諾，也突顯了台積公
+司致力於在歐洲培育創新的堅定決心。興建工程預計今年稍晚開始。
+
+博世集團董事會主席Dr. Stefan Hartung表示：「ESMC這座晶圓廠將與博
+世的德勒斯登晶圓廠比鄰而立，所以我們將親眼見證它的誕生與成長。我
+們期待這座新廠的成立，也期待未來與共同夥伴台積公司、英飛凌和恩智
+浦的緊密合作。我們將在關鍵的產業中共同帶領歐洲往前邁出決定性的一
+步，並確保當地的工業廠商能夠取得先進的晶片。」
+
+英飛凌執行長Jochen Hanebeck表示：「我們在德勒斯登的共同投資再次彰
+顯了薩克森矽谷吸引國際半導體製造領導廠商的重大意義。ESMC在德勒斯登
+興建的最新一座半導體製造晶圓廠是當地的重大成功。我們為歐洲帶來應用
+於最現代數位晶片的一項特別重要的半導體技術。這項投資將創造更多的就
+業機會，並將長期強化薩克森矽谷、德國和整個歐洲的半導體生態系統。」
+
+恩智浦半導體總裁兼執行長Kurt Sievers表示：「德國和歐洲微電子產業今
+天締造了歷史性的里程碑，恩智浦很榮幸成為ESMC合資公司的一員，該公司
+提供創新的半導體解決方案和製造能力，專注於歐洲的主要市場：汽車和工
+業領域的自動化和電氣化。今天在德勒斯登舉行的台積公司歐洲首座晶圓廠
+動土典禮是邁向歐洲數位主權重要且務實的一步。」</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2330'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

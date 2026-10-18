@@ -1,0 +1,278 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2330'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2330'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='114'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;8</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;114/08/12</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;20:05:56</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃仁昭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-563-6688</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准機器設備、不動產及資本化租賃資產資本預算案</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+20&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;114/08/12
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:
+(1) 先進製程產能機器設備
+(2) 先進封裝、成熟及/或特殊製程產能機器設備
+(3) 不動產及資本化租賃資產
+2.事實發生日:114/8/12~114/8/12
+3.董事會通過日期: 民國114年8月12日
+4.其他核決日期: 不適用
+5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:
+(1) 先進製程產能機器設備 美金7,799佰萬元
+(2) 先進封裝、成熟及/或特殊製程產能機器設備 美金1,954佰萬元
+(3) 不動產及資本化租賃資產 美金10,904佰萬元
+6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關
+係人者，得免揭露其姓名）:
+預期交易相對人及其與公司之關係（實際交易相對人應依本公司訂單為準）：
+
+(1) 先進製程產能機器設備：
+    Applied Materials South East Asia Pte. Ltd.; ASM America, Inc.; 
+    ASML Hong Kong Ltd.; Carl Zeiss SMT GmbH; EBARA Corporation;
+    Hitachi High-Technologies; IMS Nanofabrication AG; KLA Corporation;
+    Lam Research International Sarl; Lasertec Corporation; 
+    Murata Machinery Taiwan, LTD.; NUFLARE TECHNOLOGY INC.; 
+    SCREEN Semiconductor Solutions Co., Ltd.; Tokyo Electron Ltd.
+    等51家公司；與公司關係：皆無。
+
+(2) 先進封裝、成熟及/或特殊製程產能機器設備： 
+    Applied Materials South East Asia Pte. Ltd.; ASM America, Inc.;
+    Lam Research International Sarl; Lasertec Corporation; 
+    Murata Machinery Taiwan, LTD.; Teradyne Asia Pte. Ltd.; 
+    Tokyo Electron Ltd. 
+    等35家公司；與公司關係：皆無。
+
+(3) 不動產及資本化租賃資產： 
+    ABM Building Services, LLC; ACCO Engineered Systems, Inc.; 
+    Accurate Technology Enterprise Co.; ACME Control System 
+    Corporation; Air Liquide Electronics US, LP; Allis Electric Co., 
+    Ltd.; Am-Power Machine International Enterprise Co., Ltd.; 
+    Apollo Sheet Metal, Inc.; Atlas Technology Corp.; Austin 
+    Commercial, L.P.; B and D Industries, Inc.; Banner Industries 
+    of N.E., Inc; Bechtel Corporation; BESTCHEN INTERNATIONAL 
+    COMPANY LTD.; BMWC Constructors, Inc.; BrandSafway Solutions, 
+    LLC; Brycon Corporation; Camfil Taiwan Co., Ltd.; Carollo 
+    Engineers, Inc.; Challentech International Corporation; Chang Chun 
+    Petrochemical Co., Ltd.; Chen Yuan International Co., Ltd.; Copper 
+    State Bolt and Nut Co.; Corbins, LLC; CTCI CORPORATION; CURRIE & 
+    BROWN, INC.; CYH TECHNOLOGY USA LLC; D.P. Electric, Inc.; Daifuku 
+    Intralogistics America; EnerMech Mechanical Services, Inc.; ENERTEK 
+    SUSTAINABLE DESIGN & TECHNOLOGY LTD.; Entegris Inc.; Exyte Trading
+    (Singapore) Pte.Ltd; F21 Design Build Team; FARO Technologies, Inc; 
+    Fastenal Company; Fisk Electric Company; Foresight Technologies, Inc.;
+    FU ENERGY CORP.; G2 Technology Corp.; GHA Technologies, Inc.; 
+    Great BIM Engineering Information Integration Co., Ltd.; Greenberry 
+    Industrial LLC; GREENFILTEC LTD.; Gudeng Equipment Co., Ltd.; H.K.B.
+    Inc dba Southwest Industrial Rigging; Handling Systems, Inc.; Hansen
+    Supply Company; Harder Mechanical Contractors, Inc.; Helix 
+    Electric, Inc.; Hitachi Energy USA Inc.; HMT System USA LLC; 
+    Hoffman Instrumentation Supply, Inc.; IES Communications, LLC; 
+    Independent Electric Supply, Inc.; Industrial Technology Research 
+    Institute; Intertek Testing Services Taiwan Ltd.; Jack B. Henderson 
+    Construction Company, Inc.; Jack's Mechanical Solutions, Inc.; 
+    Jacobs Project Management Company; Jensen Hughes, Inc.; Jing Yuan 
+    Technology Co., Ltd.; JT Thorpe Industrial, Inc.; Jung Chung 
+    Technology Corp.; Justrite Safety Group; KAEKO, Inc.; Kinetic 
+    Systems, Inc.; KRIS YAO ARTECH; KRUSS Scientific Instruments, Inc.; 
+    LayerZero Power Systems, Inc.; LI YEI ENTERPRISE CO., LTD.; 
+    Linde Gas & Equipment Inc.; Logical Systems, LLC; LSW Engineers 
+    Arizona, Incorporated; LUMAX INTERNATIONAL CORP., LTD.; 
+    M Consultants, LLC; Marketech International Corp.; Masthead 
+    International, Inc.; Mega Union Technology Incorporated; 
+    MEITEC, Inc.; METTLER TOLEDO LLC; Milling Machinery, Inc.; 
+    MornstAir Inc.; MSR-FSR, LLC; MTC-MERCURY TRADING CO., LTD.; 
+    MUAQUA ENGINEERING INC.; NAGASE (TAIWAN) CO., LTD.; 
+    OBR Cooling Towers, Inc; Okland Construction Company, Inc.; 
+    Organo Technology Co., Ltd.; Particle Measuring Systems, Inc.; 
+    Performance Contracting Inc.; Pfeiffer Vacuum Inc.; Port Plastics, 
+    Inc.; Prime Controls LP; PROLEX OA AND INTERIOR/PLANNING CO.,LTD.; 
+    Propersys Corporation; Pure Plastics LLC; Revolution Industrial, LLC;
+    Rosendin Electric, Inc.; S Plus C Design Consultant Co., Ltd; 
+    Schneider Electric USA, Inc.; SGC USA, INC; SHENG YI TECH & 
+    ANALYTICS CO., LTD.; Siemens Industry, Inc.; Southland Industries; 
+    SSOE Inc.; Streimer Sheet Metal Works, Inc.; Synergy Engineering 
+    Consultants; Taiwan Gleno Enterprise Co., Ltd.; TAIWAN POWER COMPANY;
+    Taiwan Puritic Corp.; TC Boiler, Inc.; Team Engineering Consulting Ltd.; 
+    Techgo Industrial Co., Ltd.; Technical Manufacturing Corporation; 
+    T-Group Architects and Planners; Trident Mechanical Services, LLC; 
+    UNITED INTEGRATED SERVICES (USA) CORP.; VERO VERIA CORPORATION; 
+    Versum Materials US, LLC; WAYNE ENTERPRISE, LTD.; Welmade Technology
+    Corporation; WITS America Corp.; World Wide Professional Solutions, 
+    LLC; Yu-Cheng Kids Enterprise Co. 
+    等154家公司；與公司關係：皆無。
+7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之
+所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期
+及移轉金額:
+不適用
+8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係
+人之取得及處分日期、價格及交易當時與公司之關係:
+不適用
+9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明
+認列情形）:
+不適用
+10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定
+事項:
+依訂單條件付款。
+11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及
+決策單位:
+比價及議價；廠商提供之報價單及市場行情；依本公司董事會核決辦理。
+12.專業估價者事務所或公司名稱及其估價金額:
+不適用
+13.專業估價師姓名:
+不適用
+14.專業估價師開業證書字號:
+不適用
+15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用
+16.是否尚未取得估價報告:否或不適用
+17.尚未取得估價報告之原因:
+不適用
+18.估價結果有重大差異時，其差異原因及會計師意見:
+不適用
+19.會計師事務所名稱:
+不適用
+20.會計師姓名:
+不適用
+21.會計師開業證書字號:
+不適用
+22.經紀人及經紀費用:
+不適用
+23.取得或處分之具體目的或用途:
+供生產、營運用。
+24.本次交易表示異議之董事之意見:
+無。
+25.本次交易為關係人交易:否
+26.監察人承認或審計委員會同意日期:
+不適用
+27.本次交易係向關係人取得不動產或其使用權資產:否
+28.依「公開發行公司取得或處分資產處理準則」第十六條規定
+評估之價格:不適用
+29.依前項評估之價格較交易價格為低者，依同準則第十七條規
+定評估之價格:不適用
+30.前已就同一件事件發布重大訊息日期: 不適用
+31.其他敘明事項:
+無。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2330'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
