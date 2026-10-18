@@ -1,0 +1,77 @@
+# gate_pipeline v4.18 scheduled consensus archiving (repository 479dvcs8zv-create/gate-probe).
+#
+# Put this file at .github/workflows/gate-pipeline-archive.yml. It uses the same program package as
+# gate-pipeline-collect (the newest gate_pipeline_v*.zip in the repository root).
+#
+# What it does: asks the Wayback Machine (Save Page Now, anonymous, no API keys) to archive a few
+# market-estimate pages for the stock, then checks each archived copy against the archive's own digest
+# and saves it. The archive's timestamp later proves the estimate existed before the official cutoff.
+# It only writes results/<code>/archive/<run id>/. It does not compute or judge anything.
+#
+# When it runs (UTC times; Taipei = UTC+8):
+#   - every day 09:17 Taipei on the 1st-10th of Jan/Apr/Jul/Oct (just before each quarter's cutoff)
+#   - every Monday 09:17 Taipei the rest of the time
+#   - or manually: Actions -> gate-pipeline-archive -> Run workflow
+name: gate-pipeline-archive
+
+on:
+  schedule:
+    - cron: "17 1 1-10 1,4,7,10 *"
+    - cron: "17 1 * * 1"
+  workflow_dispatch:
+    inputs:
+      co_id:
+        description: "Stock code, 4-6 digits (e.g. 2330)"
+        required: true
+        default: "2330"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gate-pipeline-collect
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unpack program package (newest gate_pipeline_v*.zip in the repository root)
+        run: |
+          ZIP=$(ls gate_pipeline_v*.zip 2>/dev/null | sort -V | tail -n 1)
+          if [ -z "$ZIP" ]; then echo "No gate_pipeline_v*.zip in the repository root"; exit 1; fi
+          echo "Using $ZIP sha256=$(sha256sum "$ZIP" | cut -d' ' -f1)"
+          echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
+          rm -rf gate_pipeline
+          unzip -q "$ZIP"
+          test -f gate_pipeline/ops/archive_consensus.py
+
+      - name: Verify program files (SHA-256)
+        working-directory: gate_pipeline
+        run: sha256sum --strict -c MANIFEST.sha256
+
+      - name: Archive market-estimate pages
+        env:
+          CO_ID: ${{ inputs.co_id || '2330' }}
+        run: |
+          OUT="results/${CO_ID}/archive/${GITHUB_RUN_ID}"
+          python gate_pipeline/ops/archive_consensus.py --co-id "$CO_ID" --out "$OUT"
+          sha256sum "$PIPELINE_ZIP" > "$OUT/pipeline_package.sha256"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          echo "CO_ID=$CO_ID" >> "$GITHUB_ENV"
+
+      - name: Save results (results/ folder only)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$OUT"
+          git commit -m "archive ${CO_ID} run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}"
+          git pull --rebase
+          git push
