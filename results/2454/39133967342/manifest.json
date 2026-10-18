@@ -1,0 +1,174 @@
+{
+  "collector_version": "4.21-collect",
+  "co_id": "2454",
+  "roc_years": [
+    113,
+    114,
+    115
+  ],
+  "started_at": "2026-10-18T13:59:37.816003+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "openssl": "OpenSSL 3.0.13 30 Jan 2024",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "github_actions": true,
+    "runner_os": "Linux",
+    "runner_environment": "github-hosted",
+    "github_repository": "479dvcs8zv-create/gate-probe",
+    "github_sha": "54f8448bb12535f6a82ac15a9aafc3af3686117a",
+    "github_run_id": "39133967342",
+    "github_run_attempt": "1",
+    "proxy_env_set": false
+  },
+  "mops_base": "https://mopsov.twse.com.tw",
+  "doc_base": "https://doc.twse.com.tw",
+  "delay_seconds": 3.0,
+  "retry_waits_seconds": [
+    10.0,
+    30.0
+  ],
+  "retry_budget": 25,
+  "requests": [
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "2454",
+        "roc_year": "113",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-18T13:59:37.822037+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/000_54e4d9f27ebe.bin",
+      "response_sha256": "54e4d9f27ebe060775eb4b60ceba0b73c6915cd7b1dabea62a0bbc1745aaa0e0",
+      "response_length": 93789,
+      "request_body_file": "requests/000_b8c831ef1f06.bin",
+      "request_body_sha256": "b8c831ef1f06a6b3c72121f8eeac92ee87be260a757a03f6a7d17d436f086c7a",
+      "peer_address": "163.29.17.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "2454",
+        "roc_year": "114",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-18T13:59:43.611984+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/001_7ddd5a5bc40c.bin",
+      "response_sha256": "7ddd5a5bc40c8c331258709c30a73a1fe87c617b7ca0641f52c9fa7b2f73623f",
+      "response_length": 81024,
+      "request_body_file": "requests/001_b098c29c1ab4.bin",
+      "request_body_sha256": "b098c29c1ab4b1ce09a88cdf017edc01756e70a8e3b08c0ffb3ace2ea1abc742",
+      "peer_address": "163.29.17.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "2454",
+        "roc_year": "115",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-18T13:59:48.463465+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/002_fdce32f48971.bin",
+      "response_sha256": "fdce32f48971c13504f01c210b48d444842410fc8f1453404dfb8a47e9c96fe7",
+      "response_length": 85933,
+      "request_body_file": "requests/002_05f311739134.bin",
+      "request_body_sha256": "05f3117391348e438014963f36c1eac12389125c0df035a3144065baf509bc5d",
+      "peer_address": "163.29.17.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "2454",
+        "roc_year": "113"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=2454&year=113&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-18T13:59:53.185932+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/003_fe73eff00cb2.bin",
+      "response_sha256": "fe73eff00cb2733b315dfeca8172e3d54facb8feb6f92b9a57c69948f57bf356",
+      "response_length": 8072,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "122.147.34.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": false,
+      "parse_failures": [
+        [
+          "ANNOUNCEMENT_CONTENT_MISMATCH",
+          "財報清單第 10 列：財務報告更(補)正為「」，無法確定原始申報時間"
+        ]
+      ]
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "2454",
+        "roc_year": "114"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=2454&year=114&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-18T13:59:57.950465+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/004_4a613a444e24.bin",
+      "response_sha256": "4a613a444e24f06dbcad8d01ea5bee643e625a744338c019fd4a0eae1cc5375d",
+      "response_length": 7869,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "122.147.34.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "2454",
+        "roc_year": "115"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=2454&year=115&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-18T14:00:01.979296+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/005_8f942ee52903.bin",
+      "response_sha256": "8f942ee52903f9ab13156e3bd8403aa953215f86afd64557667dd44427338f84",
+      "response_length": 5058,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "122.147.34.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    }
+  ],
+  "finished_at": "2026-10-18T14:00:02.748437+00:00"
+}

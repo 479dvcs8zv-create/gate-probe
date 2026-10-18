@@ -1,0 +1,1026 @@
+{
+  "co_id": "2454",
+  "roc_years": [
+    113,
+    114,
+    115
+  ],
+  "listings": {
+    "113": {
+      "items": 112,
+      "sha256": "54e4d9f27ebe060775eb4b60ceba0b73c6915cd7b1dabea62a0bbc1745aaa0e0",
+      "company_name": "聯發科",
+      "attempts": 1
+    },
+    "114": {
+      "items": 96,
+      "sha256": "7ddd5a5bc40c8c331258709c30a73a1fe87c617b7ca0641f52c9fa7b2f73623f",
+      "company_name": "聯發科",
+      "attempts": 1
+    },
+    "115": {
+      "items": 102,
+      "sha256": "fdce32f48971c13504f01c210b48d444842410fc8f1453404dfb8a47e9c96fe7",
+      "company_name": "聯發科",
+      "attempts": 1
+    }
+  },
+  "filings": {
+    "113": {
+      "failures": [
+        [
+          "ANNOUNCEMENT_CONTENT_MISMATCH",
+          "財報清單第 10 列：財務報告更(補)正為「」，無法確定原始申報時間"
+        ]
+      ],
+      "status": 200,
+      "error": null,
+      "attempts": 1
+    },
+    "114": {
+      "rows": [
+        [
+          "2025Q1",
+          "202501_2454_AI1.pdf",
+          "2025-05-14T14:54:43+08:00"
+        ],
+        [
+          "2025Q1",
+          "202501_2454_AIA.pdf",
+          "2025-05-14T14:55:14+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2454_AI1.pdf",
+          "2025-08-13T13:53:47+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2454_AIA.pdf",
+          "2025-08-13T13:54:02+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2454_AI1.pdf",
+          "2025-11-13T16:03:53+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2454_AIA.pdf",
+          "2025-11-13T16:04:51+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2454_AI1.pdf",
+          "2026-02-26T17:00:05+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2454_AI3.pdf",
+          "2026-02-26T17:00:49+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2454_AIA.pdf",
+          "2026-02-26T17:00:25+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2454_AIC.pdf",
+          "2026-02-26T17:01:12+08:00"
+        ]
+      ],
+      "sha256": "4a613a444e24f06dbcad8d01ea5bee643e625a744338c019fd4a0eae1cc5375d",
+      "attempts": 1
+    },
+    "115": {
+      "rows": [
+        [
+          "2026Q1",
+          "202601_2454_AI1.pdf",
+          "2026-05-14T17:05:13+08:00"
+        ],
+        [
+          "2026Q1",
+          "202601_2454_AIA.pdf",
+          "2026-05-14T17:05:35+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2454_AI1.pdf",
+          "2026-07-31T16:55:20+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2454_AIA.pdf",
+          "2026-07-31T16:55:54+08:00"
+        ]
+      ],
+      "sha256": "8f942ee52903f9ab13156e3bd8403aa953215f86afd64557667dd44427338f84",
+      "attempts": 1
+    }
+  },
+  "details": {},
+  "quarters": {
+    "2024Q1": {
+      "status": "PROVISIONAL",
+      "earliest": null,
+      "blocking": [
+        "財報申報（financial_report）尚未查詢",
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "清單中找不到可辨識的該季財務結果揭露"
+      ],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "review_record": false
+    },
+    "2024Q2": {
+      "status": "PROVISIONAL",
+      "earliest": null,
+      "blocking": [
+        "財報申報（financial_report）尚未查詢",
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "清單中找不到可辨識的該季財務結果揭露"
+      ],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "review_record": false
+    },
+    "2024Q3": {
+      "status": "PROVISIONAL",
+      "earliest": null,
+      "blocking": [
+        "財報申報（financial_report）尚未查詢",
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "清單中找不到可辨識的該季財務結果揭露"
+      ],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "review_record": false
+    },
+    "2024Q4": {
+      "status": "PROVISIONAL",
+      "earliest": null,
+      "blocking": [
+        "財報申報（financial_report）尚未查詢",
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "清單中找不到可辨識的該季財務結果揭露"
+      ],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "review_record": false
+    },
+    "2025Q1": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2025-05-14T14:54:43+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:2454:202501_2454_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202501_2454_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 13 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20250410:165554:1', 't05st01:2454:20250416:165548:1', 't05st01:2454:20250421:170954:1', 't05st01:2454:20250424:180827:1', 't05st01:2454:20250425:170212:1', 't05st01:2454:20250425:170230:2', 't05st01:2454:20250430:182435:1', 't05st01:2454:20250430:182537:1', 't05st01:2454:20250430:182628:2', 't05st01:2454:20250430:210228:3', 't05st01:2454:20250430:210305:4', 't05st01:2454:20250430:210334:1', 't05st01:2454:20250509:165618:1']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-05-14T14:54:43+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202501_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202501_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20250410:165554:1",
+          "announced_at": "2025-04-10T16:55:54+08:00",
+          "subject": "聯發科技114年3月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250416:165548:1",
+          "announced_at": "2025-04-16T16:55:48+08:00",
+          "subject": "本公司於114/4/30召開第一季財報暨營運線上說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250421:170954:1",
+          "announced_at": "2025-04-21T17:09:54+08:00",
+          "subject": "公告本公司114年第1季合併財務報告董事會預計召開日期為 114年04月30日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250424:180827:1",
+          "announced_at": "2025-04-24T18:08:27+08:00",
+          "subject": "代重要子公司MediaTek Investment Singapore Pte. Ltd.公告 辦理減資資本變更登記完成",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250425:170212:1",
+          "announced_at": "2025-04-25T17:02:12+08:00",
+          "subject": "代重要子公司立錡科技股份有限公司公告召集董事會 (代行股東會)",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250425:170230:2",
+          "announced_at": "2025-04-25T17:02:30+08:00",
+          "subject": "代重要子公司立錡科技股份有限公司公告董事會 (代行股東會)重要決議事項",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250430:182435:1",
+          "announced_at": "2025-04-30T18:24:35+08:00",
+          "subject": "公告本公司114年第1季合併財務報告業經董事會決議通過",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250430:182537:1",
+          "announced_at": "2025-04-30T18:25:37+08:00",
+          "subject": "本公司2025年第1季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250430:182628:2",
+          "announced_at": "2025-04-30T18:26:28+08:00",
+          "subject": "民國114年度第二季簡式合併財務預測公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250430:210228:3",
+          "announced_at": "2025-04-30T21:02:28+08:00",
+          "subject": "公告本公司董事會通過決議增資寰發股份有限公司",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250430:210305:4",
+          "announced_at": "2025-04-30T21:03:05+08:00",
+          "subject": "代子公司Digimoc Holdings Limited 公告取得金融資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250430:210334:1",
+          "announced_at": "2025-04-30T21:03:34+08:00",
+          "subject": "公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250509:165618:1",
+          "announced_at": "2025-05-09T16:56:18+08:00",
+          "subject": "聯發科技114年4月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2025-05-14T14:54:43+08:00",
+      "review_record": false
+    },
+    "2025Q2": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2025-08-13T13:53:47+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:2454:202502_2454_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202502_2454_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 11 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20250710:170009:1', 't05st01:2454:20250716:165645:1', 't05st01:2454:20250718:175540:1', 't05st01:2454:20250721:175130:1', 't05st01:2454:20250729:151514:2', 't05st01:2454:20250730:181917:1', 't05st01:2454:20250730:181959:1', 't05st01:2454:20250730:182143:2', 't05st01:2454:20250730:201006:3', 't05st01:2454:20250730:201028:3', 't05st01:2454:20250808:165610:1']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-08-13T13:53:47+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202502_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202502_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20250710:170009:1",
+          "announced_at": "2025-07-10T17:00:09+08:00",
+          "subject": "聯發科技114年6月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250716:165645:1",
+          "announced_at": "2025-07-16T16:56:45+08:00",
+          "subject": "本公司於114/7/30召開第二季財報暨營運線上說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250718:175540:1",
+          "announced_at": "2025-07-18T17:55:40+08:00",
+          "subject": "代子公司Gaintech Co. Limited及MTK Wireless Limited公告 董事會決議增資其子公司",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250721:175130:1",
+          "announced_at": "2025-07-21T17:51:30+08:00",
+          "subject": "公告本公司114年第2季合併財務報告董事會預計召開日期為 114年07月30日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250729:151514:2",
+          "announced_at": "2025-07-29T15:15:14+08:00",
+          "subject": "應證交所說明114年7月29日媒體新聞內容",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250730:181917:1",
+          "announced_at": "2025-07-30T18:19:17+08:00",
+          "subject": "公告本公司114年第2季合併財務報告業經董事會決議通過",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250730:181959:1",
+          "announced_at": "2025-07-30T18:19:59+08:00",
+          "subject": "本公司2025年第2季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250730:182143:2",
+          "announced_at": "2025-07-30T18:21:43+08:00",
+          "subject": "民國114年度第三季簡式合併財務預測公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250730:201006:3",
+          "announced_at": "2025-07-30T20:10:06+08:00",
+          "subject": "公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250730:201028:3",
+          "announced_at": "2025-07-30T20:10:28+08:00",
+          "subject": "代子公司LePower (HK) Limited公告處分有價證券",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20250808:165610:1",
+          "announced_at": "2025-08-08T16:56:10+08:00",
+          "subject": "聯發科技114年7月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2025-08-13T13:53:47+08:00",
+      "review_record": false
+    },
+    "2025Q3": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2025-11-13T16:03:53+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:2454:202503_2454_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202503_2454_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 13 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20251009:165558:1', 't05st01:2454:20251009:174040:2', 't05st01:2454:20251022:171154:1', 't05st01:2454:20251031:171018:1', 't05st01:2454:20251031:171118:3', 't05st01:2454:20251031:171222:2', 't05st01:2454:20251031:171533:1', 't05st01:2454:20251031:172005:2', 't05st01:2454:20251031:172128:1', 't05st01:2454:20251031:180345:5', 't05st01:2454:20251031:180445:3', 't05st01:2454:20251031:180538:4', 't05st01:2454:20251110:165607:1']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-11-13T16:03:53+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202503_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202503_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20251009:165558:1",
+          "announced_at": "2025-10-09T16:55:58+08:00",
+          "subject": "聯發科技114年9月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251009:174040:2",
+          "announced_at": "2025-10-09T17:40:40+08:00",
+          "subject": "本公司於114/10/31召開第三季財報暨營運線上說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251022:171154:1",
+          "announced_at": "2025-10-22T17:11:54+08:00",
+          "subject": "公告本公司114年第3季合併財務報告董事會預計召開日期為 114年10月31日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:171018:1",
+          "announced_at": "2025-10-31T17:10:18+08:00",
+          "subject": "公告本公司114年第3季合併財務報告業經董事會決議通過",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:171118:3",
+          "announced_at": "2025-10-31T17:11:18+08:00",
+          "subject": "公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:171222:2",
+          "announced_at": "2025-10-31T17:12:22+08:00",
+          "subject": "本公司2025年第3季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:171533:1",
+          "announced_at": "2025-10-31T17:15:33+08:00",
+          "subject": "民國114年度第四季簡式合併財務預測公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:172005:2",
+          "announced_at": "2025-10-31T17:20:05+08:00",
+          "subject": "董事會決議股利分派",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:172128:1",
+          "announced_at": "2025-10-31T17:21:28+08:00",
+          "subject": "公告本公司民國114年上半年度之現金股利除息基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:180345:5",
+          "announced_at": "2025-10-31T18:03:45+08:00",
+          "subject": "代子公司Gaintech Co. Limited依公開發行公司資金貸與 及背書保證處理準則第二十二條第一項第二款、第三款公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:180445:3",
+          "announced_at": "2025-10-31T18:04:45+08:00",
+          "subject": "公告處分金融資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251031:180538:4",
+          "announced_at": "2025-10-31T18:05:38+08:00",
+          "subject": "公告處分金融資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20251110:165607:1",
+          "announced_at": "2025-11-10T16:56:07+08:00",
+          "subject": "聯發科技114年10月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2025-11-13T16:03:53+08:00",
+      "review_record": false
+    },
+    "2025Q4": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2026-02-26T17:00:05+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:2454:202504_2454_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202504_2454_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 15 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20260102:172706:1', 't05st01:2454:20260109:165541:1', 't05st01:2454:20260121:165535:1', 't05st01:2454:20260123:172253:1', 't05st01:2454:20260126:172307:1', 't05st01:2454:20260204:180740:2', 't05st01:2454:20260204:180811:1', 't05st01:2454:20260204:180955:3', 't05st01:2454:20260204:181207:4', 't05st01:2454:20260204:181255:5', 't05st01:2454:20260209:183356:1', 't05st01:2454:20260210:165554:1', 't05st01:2454:20260225:174234:2', 't05st01:2454:20260225:174351:2', 't05st01:2454:20260225:174447:3']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-02-26T17:00:05+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202504_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202504_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20260102:172706:1",
+          "announced_at": "2026-01-02T17:27:06+08:00",
+          "subject": "公告本公司參與機構投資人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260109:165541:1",
+          "announced_at": "2026-01-09T16:55:41+08:00",
+          "subject": "聯發科技114年12月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260121:165535:1",
+          "announced_at": "2026-01-21T16:55:35+08:00",
+          "subject": "本公司於115/2/4召開第四季財報暨營運線上說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260123:172253:1",
+          "announced_at": "2026-01-23T17:22:53+08:00",
+          "subject": "‎(補充114/12/31公告) 代子公司翔發投資股份有限公司公告出售有價證券",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260126:172307:1",
+          "announced_at": "2026-01-26T17:23:07+08:00",
+          "subject": "代重要子公司MEDIATEK SINGAPORE PTE. LTD. 公告董事會決議股利分派",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260204:180740:2",
+          "announced_at": "2026-02-04T18:07:40+08:00",
+          "subject": "本公司2025年第4季與2025全年合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260204:180811:1",
+          "announced_at": "2026-02-04T18:08:11+08:00",
+          "subject": "公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260204:180955:3",
+          "announced_at": "2026-02-04T18:09:55+08:00",
+          "subject": "民國115年度第一季簡式合併財務預測公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260204:181207:4",
+          "announced_at": "2026-02-04T18:12:07+08:00",
+          "subject": "本公司及代子公司公告董事會核准取得無形資產案",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260204:181255:5",
+          "announced_at": "2026-02-04T18:12:55+08:00",
+          "subject": "公告本公司取得營業設備",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260209:183356:1",
+          "announced_at": "2026-02-09T18:33:56+08:00",
+          "subject": "公告處分金融資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260210:165554:1",
+          "announced_at": "2026-02-10T16:55:54+08:00",
+          "subject": "聯發科技115年1月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260225:174234:2",
+          "announced_at": "2026-02-25T17:42:34+08:00",
+          "subject": "公告本公司限制員工權利新股註銷完成變更登記事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260225:174351:2",
+          "announced_at": "2026-02-25T17:43:51+08:00",
+          "subject": "代重要子公司立錡科技股份有限公司公告董事會決議分派股利",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260225:174447:3",
+          "announced_at": "2026-02-25T17:44:47+08:00",
+          "subject": "代重要子公司立錡科技股份有限公司公告114年下半年度除息 基準日",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2026-02-26T17:00:05+08:00",
+      "review_record": false
+    },
+    "2026Q1": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2026-05-14T17:05:13+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:2454:202601_2454_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202601_2454_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 23 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20260410:165544:1', 't05st01:2454:20260416:165532:4', 't05st01:2454:20260417:172137:1', 't05st01:2454:20260417:172222:2', 't05st01:2454:20260417:172306:4', 't05st01:2454:20260420:172932:1', 't05st01:2454:20260420:174020:2', 't05st01:2454:20260420:174223:3', 't05st01:2454:20260421:173205:1', 't05st01:2454:20260428:172934:2', 't05st01:2454:20260430:175834:1', 't05st01:2454:20260430:175919:1', 't05st01:2454:20260430:180013:2', 't05st01:2454:20260430:180202:5', 't05st01:2454:20260430:180458:6', 't05st01:2454:20260504:172227:2', 't05st01:2454:20260505:170244:3', 't05st01:2454:20260505:170424:4', 't05st01:2454:20260508:165550:1', 't05st01:2454:20260508:172412:2', 't05st01:2454:20260508:172512:4', 't05st01:2454:20260508:172611:5', 't05st01:2454:20260508:172654:3']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-05-14T17:05:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202601_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202601_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20260410:165544:1",
+          "announced_at": "2026-04-10T16:55:44+08:00",
+          "subject": "聯發科技115年3月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260416:165532:4",
+          "announced_at": "2026-04-16T16:55:32+08:00",
+          "subject": "本公司於115/4/30召開第一季財報暨營運線上說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260417:172137:1",
+          "announced_at": "2026-04-17T17:21:37+08:00",
+          "subject": "代子公司MEDIATEK USA INC.公告取得使用權資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260417:172222:2",
+          "announced_at": "2026-04-17T17:22:22+08:00",
+          "subject": "代重要子公司聯發資本股份有限公司公告董事會決議分派股利",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260417:172306:4",
+          "announced_at": "2026-04-17T17:23:06+08:00",
+          "subject": "代重要子公司聯發資本股份有限公司公告董事會決議 盈餘轉增資發行新股",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260420:172932:1",
+          "announced_at": "2026-04-20T17:29:32+08:00",
+          "subject": "代重要子公司聯發資本股份有限公司公告114年度除權基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260420:174020:2",
+          "announced_at": "2026-04-20T17:40:20+08:00",
+          "subject": "代重要子公司聯發資本股份有限公司公告召集董事會(代行股東會)",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260420:174223:3",
+          "announced_at": "2026-04-20T17:42:23+08:00",
+          "subject": "代重要子公司聯發資本股份有限公司公告董事會(代行股東會) 重要決議事項",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260421:173205:1",
+          "announced_at": "2026-04-21T17:32:05+08:00",
+          "subject": "公告本公司115年第1季合併財務報告董事會預計召開日期為 115年04月30日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260428:172934:2",
+          "announced_at": "2026-04-28T17:29:34+08:00",
+          "subject": "代重要子公司立錡科技股份有限公司公告法人股東指派董事 暨選任董事長",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260430:175834:1",
+          "announced_at": "2026-04-30T17:58:34+08:00",
+          "subject": "公告本公司115年第1季合併財務報告業經董事會決議通過",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260430:175919:1",
+          "announced_at": "2026-04-30T17:59:19+08:00",
+          "subject": "公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260430:180013:2",
+          "announced_at": "2026-04-30T18:00:13+08:00",
+          "subject": "本公司2026年第1季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260430:180202:5",
+          "announced_at": "2026-04-30T18:02:02+08:00",
+          "subject": "民國115年度第二季簡式合併財務預測公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260430:180458:6",
+          "announced_at": "2026-04-30T18:04:58+08:00",
+          "subject": "代子公司旭徽聯芯公告取得金融資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260504:172227:2",
+          "announced_at": "2026-05-04T17:22:27+08:00",
+          "subject": "代重要子公司翔發投資股份有限公司公告董事會決議分派股利",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260505:170244:3",
+          "announced_at": "2026-05-05T17:02:44+08:00",
+          "subject": "代重要子公司立錡科技股份有限公司公告召集董事會(代行股東會)",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260505:170424:4",
+          "announced_at": "2026-05-05T17:04:24+08:00",
+          "subject": "代重要子公司立錡科技股份有限公司公告董事會(代行股東會) 重要決議事項",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260508:165550:1",
+          "announced_at": "2026-05-08T16:55:50+08:00",
+          "subject": "聯發科技115年4月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260508:172412:2",
+          "announced_at": "2026-05-08T17:24:12+08:00",
+          "subject": "本公司及代子公司公告取得無形資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260508:172512:4",
+          "announced_at": "2026-05-08T17:25:12+08:00",
+          "subject": "代重要子公司翔發投資股份有限公司公告召集董事會 (代行股東會)",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260508:172611:5",
+          "announced_at": "2026-05-08T17:26:11+08:00",
+          "subject": "代重要子公司翔發投資股份有限公司公告董事會(代行股東會) 重要決議事項",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260508:172654:3",
+          "announced_at": "2026-05-08T17:26:54+08:00",
+          "subject": "代重要子公司翔發投資股份有限公司公告114年度除息基準日",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2026-05-14T17:05:13+08:00",
+      "review_record": false
+    },
+    "2026Q2": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2026-07-31T16:55:20+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:2454:202602_2454_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202602_2454_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 10 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20260706:181709:3', 't05st01:2454:20260710:165543:5', 't05st01:2454:20260710:170359:1', 't05st01:2454:20260710:170412:2', 't05st01:2454:20260710:170615:2', 't05st01:2454:20260710:170627:3', 't05st01:2454:20260710:170640:4', 't05st01:2454:20260710:170650:1', 't05st01:2454:20260717:165551:1', 't05st01:2454:20260722:172949:1']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-07-31T16:55:20+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202602_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202602_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20260706:181709:3",
+          "announced_at": "2026-07-06T18:17:09+08:00",
+          "subject": "代重要子公司聯發資本(股)公司公告法人股東指派董事",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260710:165543:5",
+          "announced_at": "2026-07-10T16:55:43+08:00",
+          "subject": "聯發科技115年6月份自結合併營收淨額公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260710:170359:1",
+          "announced_at": "2026-07-10T17:03:59+08:00",
+          "subject": "代重要子公司Gaintech Co. Limited公告董事會決議發放股利",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260710:170412:2",
+          "announced_at": "2026-07-10T17:04:12+08:00",
+          "subject": "代重要子公司MediaTek Investment Singapore Pte. Ltd. 公告董事會決議發放股利",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260710:170615:2",
+          "announced_at": "2026-07-10T17:06:15+08:00",
+          "subject": "代重要子公司聯發資本股份有限公司公告召集董事會 (代行臨時股東會)",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260710:170627:3",
+          "announced_at": "2026-07-10T17:06:27+08:00",
+          "subject": "代重要子公司聯發資本股份有限公司公告董事會 (代行臨時股東會)重要決議事項",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260710:170640:4",
+          "announced_at": "2026-07-10T17:06:40+08:00",
+          "subject": "代重要子公司聯發資本(股)公司公告法人股東重新指派董事 暨任董事長",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260710:170650:1",
+          "announced_at": "2026-07-10T17:06:50+08:00",
+          "subject": "代重要子公司翔發投資(股)公司公告法人股東重新指派董事 暨任董事長",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260717:165551:1",
+          "announced_at": "2026-07-17T16:55:51+08:00",
+          "subject": "本公司於115/7/31召開第二季財報暨營運線上說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2454:20260722:172949:1",
+          "announced_at": "2026-07-22T17:29:49+08:00",
+          "subject": "公告本公司115年第2季合併財務報告董事會預計召開日期為 115年07月31日",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2026-07-31T16:55:20+08:00",
+      "review_record": false
+    },
+    "2026Q3": {
+      "status": "PROVISIONAL",
+      "earliest": null,
+      "blocking": [
+        "財報清單取得時間 2026-10-18T14:00:01.979296+00:00 不晚於最早事件，無法排除更早的申報",
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "清單中找不到可辨識的該季財務結果揭露"
+      ],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "review_record": false
+    }
+  },
+  "notes": [],
+  "detail_counts": {
+    "wanted": 0,
+    "fetched": 0,
+    "from_cache": 0,
+    "skipped_over_limit": 0
+  },
+  "clause_policy": {
+    "clauses": [
+      "20",
+      "6",
+      "8"
+    ],
+    "reviewer": "Gate Pipeline 擁有者（使用者本人）",
+    "decided_at": "2026-10-18T15:34:41+08:00"
+  },
+  "guidance": {
+    "version": "4.20-guidance",
+    "data_mode": "OFFICIAL_GUIDANCE",
+    "quarters": {},
+    "gate": {
+      "data_mode": "OFFICIAL_GUIDANCE",
+      "label": "Gate5B 官方財測模式（Python 預驗證，非正式 Gate PASS）",
+      "verified_quarters": 0,
+      "min_quarters": 8,
+      "result": "INSUFFICIENT",
+      "meaning": "比較的是公司自己在上一季公布的財測，不是市場共識"
+    },
+    "parse_failures": [],
+    "gate_result": {
+      "gate_name": "Gate5B_官方財測(OFFICIAL_GUIDANCE)",
+      "status": "not_connected",
+      "reasons": [
+        "無資料：沒有已驗證截止點的季度"
+      ],
+      "reject_codes": [
+        "DATA_NOT_CONNECTED"
+      ],
+      "raw_count": 0,
+      "evidence_count": 0
+    },
+    "provisional_quarters_excluded": [
+      "2024Q1",
+      "2024Q2",
+      "2024Q3",
+      "2024Q4",
+      "2025Q1",
+      "2025Q2",
+      "2025Q3",
+      "2025Q4",
+      "2026Q1",
+      "2026Q2",
+      "2026Q3"
+    ]
+  },
+  "recognition": {
+    "events_recognized": {},
+    "guidance_quarters_parsed": 0,
+    "notes": [
+      "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「董事會通過財報」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+    ]
+  }
+}
