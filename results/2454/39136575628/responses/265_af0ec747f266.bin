@@ -1,0 +1,218 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2454'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2454'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='115'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2454 
+聯發科          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;3</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;115/08/31</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;20:25:11</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;顧大為</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;(03)5670766</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司海外第一次無擔保轉換公司債完成訂價</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+51&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;115/08/31
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:115/08/31
+2.公司名稱:聯發科技股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:不適用
+6.因應措施:不適用
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
+
+本次發行業經金融監督管理委員會115年8月25日金管證發字第1150352832號函同意
+申報生效。
+一、募集海外公司債總額、債券每張金額、發行價格及預定發行日期：
+    (一)募集海外公司債總額：美金3,900,000仟元。
+    (二)債券每張面額：每張債券面額為美金200仟元或如超過美金200仟元、為美金
+        100仟元的整數倍數。
+    (三)發行價格：依面額之100%發行。
+    (四)預定發行日期：115/09/08。
+二、募集海外公司債之利率：票面利率為年利率0%。
+三、募集海外公司債償還方法及期限：
+    (一)償還方法：除本債券已贖回、買回並經註銷或業經債券持有人行使轉換權利
+        情況外，本債券於到期日，本公司依本債券面額加計年利率0%之收益率（簡稱
+        「到期贖回價格」），以美金將本債券全數贖回。到期贖回價格均將按固定匯
+        率換算為新臺幣，並以該新臺幣金額按當時匯率（上午十一時參考Taipei
+        Forex Inc.所顯示之定盤價資料制訂之匯率）換算為美金給付之。
+    (二)期限：自發行日起滿5年之日為到期日，預定到期日為民國120年9月8日。
+四、轉換辦法及重要約定事項：
+    (一)轉換標的：本公司新發行之普通股。
+    (二)轉換期間：除已提前贖回、買回並經註銷、債券持有人行使轉換權、法令規定
+        及受託契約另行約定之停止轉換期間(定義如後)外，暫定於本債券發行滿三個
+        月（不含發行日）之日之翌日起至(1)到期日前10日止或(2)債券持有人行使賣
+        回權之日或本公司行使提前贖回權之日前第5個營業日止，債券持有人得依有
+        關法令及受託契約之規定，向本公司請求將本債券轉換為本公司新發行之普通
+        股股份。
+        現行法令規定停止轉換期間如下，債券持有人於停止轉換期間不得請求轉換：
+        (1) 依中華民國法令或臺灣證券交易所規定之停止過戶之期間，惟不包括本
+            公司股東常會及股東臨時會之停止過戶期間。
+        (2) 如本公司辦理無償配股、配發現金股利或現金增資時，自本公司無償配
+            股停止過戶日、現金股利停止過戶日或現金增資認股停止過戶日前15個
+            營業日起，至權利分派基準日止。
+        (3) 如本公司辦理減資者，自本公司辦理減資之減資基準日起至減資換發股
+            票開始交易日前1日止。
+        (4) 如本公司辦理股票變更面額者，自本公司辦理股票變更面額之停止轉換
+            起始日至新股換發股票開始交易日前1日止。
+        (5) 前述中華民國停止過戶期間法令(包括臺灣證券交易所之規定)如有變更
+            時，應依修訂後之法令辦理。
+    (三)轉換價格：本債券之轉換價格為新臺幣4,513.75元，轉換價格以訂價日民國
+        115年8月31日於台灣證券交易所之普通股收盤價3,925元之115%訂定之。
+    (四)轉換價格調整：本債券發行後，轉換價格應依受託契約相關規定調整之。
+    (五)債券持有人賣回權：除下列任一情事發生者外，債券持有人不得要求本公司
+        於到期日前將其持有之本債券買回：
+        (1) 若本公司普通股於臺灣證券交易所終止上市或連續三十個營業日以上停
+            止交易時，債券持有人得要求本公司依本債券面額加計年利率0%之金額
+            ，將本債券全部而非部分買回。
+        (2) 若本公司有本債券受託契約（以下稱「受託契約」）所定義之控制權變
+            動之情事，債券持有人得要求本公司以提前賣回金額將持有之本債券全
+            部而非部分買回。
+        債券持有人行使前述賣回權，及本公司受理債券持有人之賣回請求，均應依
+        照受託契約約定之程序及付款日為之。提前賣回金額均將按固定匯率換算為
+        新臺幣，並以該新臺幣金額按當時匯率（上午十一時參考Taipei Forex Inc.
+        所顯示之定盤價資料制訂之匯率）換算為美金支付。
+    (六)本公司之提前贖回權:
+        本公司於下列任一情況發生時，得提前贖回本債券：
+        (1) 若超過90%之本債券已被贖回、轉換或買回並已註銷，本公司得依本債券
+            面額加計年利率0%之金額提前將尚流通在外之本債券全部贖回。
+        (2) 因中華民國稅務法令變更，致使本公司於發行日後因本債券而增加稅務
+            負擔、或必須支付額外之費用或增加成本時，本公司得依提前贖回金額
+            提前將尚流通在外之本債券全部贖回。倘債券持有人不參與贖回，該債
+            券持有人不得請求本公司負擔額外之稅賦或費用。
+        本公司提前贖回均應依照受託契約約定之程序及付款日為之。提前贖回金額
+        均將按固定匯率換算為新臺幣，並以該新臺幣金額按當時匯率（上午十一時
+        參考Taipei Forex Inc.所顯示之定盤價資料制訂之匯率）換算為美金支付。
+五、發行及交易地點：新加坡交易所。
+六、發行方式約定由特定人認購之情事:
+    (一)洽特定人認購之目的：長期策略合作。
+    (二)特定人認購之張數及總金額：
+    NVIDIA Corporation認購 17,500 張，金額美金 3,500,000 仟元。
+    (三)特定人與發行人之關係：非關係人。
+七、資金運用計畫及預計可能產生之效益: 本次籌資將用於支應外幣購料之資金需求。
+八、對股東權益之主要影響：如本債券於今年度全數轉換，股權之最大稀釋比例約
+    1.67%，不致對股東權益造成重大稀釋。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2454'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

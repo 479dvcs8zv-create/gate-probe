@@ -1,0 +1,190 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2454'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2454'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2454 
+聯發科          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;3</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/01/31</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;17:03:06</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;顧大為</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;(03)5670766</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司對重要子公司達發科技股份有限公司持股
+累積降低達百分之十以上</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+49&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/01/31
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.重要子公司、第七條第三項視同上市公司之子公司或擬於海外證券市場申請掛牌之子
+公司名稱:
+達發科技股份有限公司(下稱「達發科技」)
+2.發生緣由(降低持股(或出資額)比例或喪失控制力):降低持股比例
+3.降低持股(或出資額)比例之方式(請分別列示各次發生日期、發生原因、方式、降低持
+股比例、交易數量、每單位價格及交易總金額):
+(1)發生日期：112/10/17
+   發生原因：達發科技辦理股票初次上市前現金增資
+   方式：現金增資
+   降低持股比例：9.45%
+   交易數量：20,516,000股
+   每單位價格：新台幣434.84元
+   交易總金額：新台幣8,921,155,950元
+(2)發生日期：112/10/17
+   發生原因：配合達發科技上市，聯發科技提供老股辦理過額配售
+   方式：出售持股
+   降低持股比例：0.03%
+   交易數量：50,000股
+   每單位價格：新台幣434.84元
+   交易總金額：新台幣21,742,000元
+(3)發生日期：113/2/1~3/31
+   發生原因：達發科技辦理員工認股權憑證執行換發新股
+   方式：員工認股權憑證執行換發新股
+   降低持股比例：0.62%
+   交易數量：1,483,851股
+   每單位價格：新台幣67~137元
+   交易總金額：新台幣 121,730,717元
+4.喪失控制力之方式(請列示發生日期、發生原因及方式):不適用
+5.股權(或出資額)受讓對象或所洽特定對象(請分別列示各次交易對象):
+(1)員工及非特定人(競價拍賣及公開申購之認購對象)
+(2)非特定人(公開申購之認購對象)
+(3)員工
+6.與交易對象之關係(請分別列示各次交易對象與公司之關係):
+(1)除員工外，無
+(2)無
+(3)員工
+7.處分利益(或損失)(請分別列示各次處分損益)(若無處分損益請填寫不適用):不適用
+8.迄目前為止(含本次交易)，對重要子公司、第七條第三項視同上市公司之子公司或擬
+於海外證券市場申請掛牌之子公司累積降低持股比例:10.10%
+9.迄目前為止(含本次交易)，對重要子公司、第七條第三項視同上市公司之子公司或擬
+於海外證券市場申請掛牌之子公司持股比例:69.99%
+10.獨立專家姓名及其就歷次價格合理性之意見:
+國富浩華聯合會計師事務所林志隆會計師，歷次價格應屬合理允當
+11.獨立專家姓名及其就降低持股或喪失控制力對上市公司股東權益影響之意見:
+國富浩華聯合會計師事務所林志隆會計師，對股東權益並無重大不利之影響
+12.是否影響母公司繼續上市:否
+13.審計委員會決議日期:113/01/30
+14.審計委員會決議內容:同意通過
+15.董事會決議日期:113/01/31
+16.董事會決議內容:同意通過
+17.其他應敘明事項:無</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2454'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
