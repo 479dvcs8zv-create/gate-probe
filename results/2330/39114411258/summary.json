@@ -1,0 +1,1704 @@
+{
+  "co_id": "2330",
+  "roc_years": [
+    113,
+    114,
+    115
+  ],
+  "listings": {
+    "113": {
+      "items": 272,
+      "sha256": "b641007e2b9c077b8c75f6a5515876eeacdfe3882f127ce25c8427e20241470b",
+      "company_name": "台積電",
+      "attempts": 1
+    },
+    "114": {
+      "items": 248,
+      "sha256": "1a7ea5c990648b49d3bf118f80abbc59183a09c0628aeb2363eb676fdc5b813a",
+      "company_name": "台積電",
+      "attempts": 1
+    },
+    "115": {
+      "items": 153,
+      "sha256": "788be31d4cdbe13188fe376ca1eb2381f97282d89cdf42b6634dc57c3c6ccc5f",
+      "company_name": "台積電",
+      "attempts": 1
+    }
+  },
+  "filings": {
+    "113": {
+      "rows": [
+        [
+          "2024Q1",
+          "202401_2330_AI1.pdf",
+          "2024-05-15T14:25:29+08:00"
+        ],
+        [
+          "2024Q1",
+          "202401_2330_AIA.pdf",
+          "2024-05-15T14:25:56+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_2330_AI1.pdf",
+          "2024-08-14T15:09:10+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_2330_AIA.pdf",
+          "2024-08-14T15:09:47+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_2330_AI1.pdf",
+          "2024-11-14T18:03:20+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_2330_AIA.pdf",
+          "2024-11-14T18:03:52+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2330_AI1.pdf",
+          "2025-02-27T14:01:14+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2330_AI3.pdf",
+          "2025-02-27T14:03:03+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2330_AIA.pdf",
+          "2025-02-27T14:03:51+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2330_AIC.pdf",
+          "2025-02-27T14:04:32+08:00"
+        ]
+      ],
+      "sha256": "a82c59ce669f8c4cde3ca0683bb8e4a6151c4cdca5c03e9958f6f5435ff96d4a",
+      "attempts": 1
+    },
+    "114": {
+      "rows": [
+        [
+          "2025Q1",
+          "202501_2330_AI1.pdf",
+          "2025-05-15T13:40:15+08:00"
+        ],
+        [
+          "2025Q1",
+          "202501_2330_AIA.pdf",
+          "2025-05-15T13:40:41+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2330_AI1.pdf",
+          "2025-08-14T13:36:58+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2330_AIA.pdf",
+          "2025-08-14T13:37:33+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2330_AI1.pdf",
+          "2025-11-14T13:42:22+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2330_AIA.pdf",
+          "2025-11-14T13:42:38+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2330_AI1.pdf",
+          "2026-02-26T17:23:30+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2330_AI3.pdf",
+          "2026-02-26T17:24:39+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2330_AIA.pdf",
+          "2026-02-26T17:25:13+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2330_AIC.pdf",
+          "2026-02-26T17:25:40+08:00"
+        ]
+      ],
+      "sha256": "cfe39d9ba137ca012caf74ebddfdb30aba1f00b7d34e9141941a8649036f3878",
+      "attempts": 1
+    },
+    "115": {
+      "rows": [
+        [
+          "2026Q1",
+          "202601_2330_AI1.pdf",
+          "2026-05-15T14:43:02+08:00"
+        ],
+        [
+          "2026Q1",
+          "202601_2330_AIA.pdf",
+          "2026-05-15T14:43:22+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2330_AI1.pdf",
+          "2026-08-14T13:59:44+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2330_AIA.pdf",
+          "2026-08-14T14:00:15+08:00"
+        ]
+      ],
+      "sha256": "dc8d533ea747f62164aa452d4009cfe1477783145ec2db63d38672b7b8e77daa",
+      "attempts": 1
+    }
+  },
+  "details": {
+    "t05st01:2330:20240103:160807:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-01-18",
+      "attempts": 1
+    },
+    "t05st01:2330:20240110:141001:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-01-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20240118:154253:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-01-18",
+      "attempts": 1
+    },
+    "t05st01:2330:20240206:192110:4": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-02-06",
+      "attempts": 1
+    },
+    "t05st01:2330:20240329:180621:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-04-18",
+      "attempts": 1
+    },
+    "t05st01:2330:20240403:191214:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-03",
+      "attempts": 1
+    },
+    "t05st01:2330:20240403:191428:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-03",
+      "attempts": 1
+    },
+    "t05st01:2330:20240403:232325:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-03",
+      "attempts": 1
+    },
+    "t05st01:2330:20240404:210531:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-04",
+      "attempts": 1
+    },
+    "t05st01:2330:20240405:212303:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-05",
+      "attempts": 1
+    },
+    "t05st01:2330:20240408:190458:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20240408:193101:2": {
+      "ok": false,
+      "failures": [
+        [
+          "ANNOUNCEMENT_EVIDENCE_INCOMPLETE",
+          "詳細頁回應是空的"
+        ]
+      ],
+      "status": null,
+      "error": "TimeoutError: timed out",
+      "attempts": 3
+    },
+    "t05st01:2330:20240410:135059:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20240418:155142:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-18",
+      "attempts": 1
+    },
+    "t05st01:2330:20240510:155835:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-05-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20240701:183606:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-01",
+      "attempts": 1
+    },
+    "t05st01:2330:20240702:162001:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-02",
+      "attempts": 1
+    },
+    "t05st01:2330:20240702:175630:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-07-18",
+      "attempts": 3
+    },
+    "t05st01:2330:20240703:155816:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-03",
+      "attempts": 1
+    },
+    "t05st01:2330:20240710:134838:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-07-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20240718:151557:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-07-18",
+      "attempts": 1
+    },
+    "t05st01:2330:20240813:190706:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-08-13",
+      "attempts": 1
+    },
+    "t05st01:2330:20240927:143711:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-10-17",
+      "attempts": 1
+    },
+    "t05st01:2330:20241001:173847:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-01",
+      "attempts": 1
+    },
+    "t05st01:2330:20241004:054919:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-04",
+      "attempts": 1
+    },
+    "t05st01:2330:20241004:173716:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-04",
+      "attempts": 1
+    },
+    "t05st01:2330:20241007:174051:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-07",
+      "attempts": 1
+    },
+    "t05st01:2330:20241008:164933:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20241008:170258:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20241009:133757:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-09",
+      "attempts": 1
+    },
+    "t05st01:2330:20241009:164534:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-09",
+      "attempts": 1
+    },
+    "t05st01:2330:20241009:174816:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-09",
+      "attempts": 2
+    },
+    "t05st01:2330:20241017:154414:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-17",
+      "attempts": 1
+    },
+    "t05st01:2330:20241112:182708:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-11-12",
+      "attempts": 1
+    },
+    "t05st01:2330:20241230:143845:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-01-16",
+      "attempts": 1
+    },
+    "t05st01:2330:20250106:172544:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-06",
+      "attempts": 1
+    },
+    "t05st01:2330:20250107:164653:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-07",
+      "attempts": 1
+    },
+    "t05st01:2330:20250108:173216:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20250109:172547:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-09",
+      "attempts": 1
+    },
+    "t05st01:2330:20250110:140513:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-01-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20250116:154039:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-01-16",
+      "attempts": 1
+    },
+    "t05st01:2330:20250212:145717:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-02-12",
+      "attempts": 1
+    },
+    "t05st01:2330:20250328:172301:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-04-17",
+      "attempts": 1
+    },
+    "t05st01:2330:20250401:172733:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-01",
+      "attempts": 1
+    },
+    "t05st01:2330:20250407:161018:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-07",
+      "attempts": 1
+    },
+    "t05st01:2330:20250408:173657:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20250409:170627:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-09",
+      "attempts": 1
+    },
+    "t05st01:2330:20250410:140527:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-04-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20250410:175739:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20250417:152610:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-04-17",
+      "attempts": 1
+    },
+    "t05st01:2330:20250513:174017:4": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-05-13",
+      "attempts": 1
+    },
+    "t05st01:2330:20250627:164722:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-07-17",
+      "attempts": 1
+    },
+    "t05st01:2330:20250701:195954:1": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2025-07-01",
+      "attempts": 1
+    },
+    "t05st01:2330:20250701:200400:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-07-01",
+      "attempts": 1
+    },
+    "t05st01:2330:20250701:200621:4": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-07-01",
+      "attempts": 1
+    },
+    "t05st01:2330:20250702:171530:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-02",
+      "attempts": 1
+    },
+    "t05st01:2330:20250704:170907:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-04",
+      "attempts": 1
+    },
+    "t05st01:2330:20250710:142642:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-07-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20250710:190008:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20250710:190458:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20250717:154843:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-07-17",
+      "attempts": 1
+    },
+    "t05st01:2330:20250812:182044:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-08-12",
+      "attempts": 1
+    },
+    "t05st01:2330:20250926:171624:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-10-16",
+      "attempts": 1
+    },
+    "t05st01:2330:20251003:170518:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-03",
+      "attempts": 1
+    },
+    "t05st01:2330:20251007:190020:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-07",
+      "attempts": 1
+    },
+    "t05st01:2330:20251009:140110:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-10-09",
+      "attempts": 1
+    },
+    "t05st01:2330:20251009:171848:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-09",
+      "attempts": 1
+    },
+    "t05st01:2330:20251016:150648:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-10-16",
+      "attempts": 1
+    },
+    "t05st01:2330:20251111:181755:5": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-11-11",
+      "attempts": 1
+    },
+    "t05st01:2330:20251226:183412:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-01-15",
+      "attempts": 1
+    },
+    "t05st01:2330:20260102:165608:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-02",
+      "attempts": 1
+    },
+    "t05st01:2330:20260105:183313:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-05",
+      "attempts": 1
+    },
+    "t05st01:2330:20260106:182750:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2026-01-06",
+      "attempts": 1
+    },
+    "t05st01:2330:20260106:200522:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-06",
+      "attempts": 1
+    },
+    "t05st01:2330:20260107:181450:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-07",
+      "attempts": 1
+    },
+    "t05st01:2330:20260108:185124:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20260108:201746:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20260109:135104:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-01-09",
+      "attempts": 1
+    },
+    "t05st01:2330:20260109:175352:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-09",
+      "attempts": 1
+    },
+    "t05st01:2330:20260115:152105:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-01-15",
+      "attempts": 1
+    },
+    "t05st01:2330:20260210:181619:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-02-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20260327:180814:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-04-16",
+      "attempts": 1
+    },
+    "t05st01:2330:20260401:172647:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-01",
+      "attempts": 1
+    },
+    "t05st01:2330:20260407:180626:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-07",
+      "attempts": 1
+    },
+    "t05st01:2330:20260408:183402:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20260410:135036:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-04-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20260410:165348:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-10",
+      "attempts": 1
+    },
+    "t05st01:2330:20260416:153813:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-04-16",
+      "attempts": 1
+    },
+    "t05st01:2330:20260512:183304:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-05-12",
+      "attempts": 1
+    },
+    "t05st01:2330:20260629:185000:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-07-16",
+      "attempts": 1
+    },
+    "t05st01:2330:20260702:173613:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2026-07-02",
+      "attempts": 1
+    },
+    "t05st01:2330:20260708:193435:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20260713:135031:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-07-13",
+      "attempts": 1
+    },
+    "t05st01:2330:20260716:151231:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-07-16",
+      "attempts": 1
+    },
+    "t05st01:2330:20260811:184658:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-08-11",
+      "attempts": 1
+    },
+    "t05st01:2330:20260929:143916:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-10-15",
+      "attempts": 1
+    },
+    "t05st01:2330:20261008:135404:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-10-08",
+      "attempts": 1
+    },
+    "t05st01:2330:20261015:152138:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-10-15",
+      "attempts": 1
+    }
+  },
+  "quarters": {
+    "2024Q1": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-04-10T13:50:59+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20240410:135059:1",
+        "detail_verified": true,
+        "subject": "台積公司2024年3月營收報告"
+      },
+      "blocking": [
+        "季末到最早事件之間有 5 則未分類公告，需人工確認不含財務結果：['t05st01:2330:20240403:232325:3', 't05st01:2330:20240404:210531:2', 't05st01:2330:20240405:212303:1', 't05st01:2330:20240408:190458:1', 't05st01:2330:20240408:193101:2']"
+      ],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-04-10T13:50:59+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240410:135059:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年3月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-04-18T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240329:180621:2",
+          "detail_verified": true,
+          "subject": "公告本公司113年第一季法人說明會將於113年4月18日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-04-18T15:51:42+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240418:155142:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年第一季每股盈餘新台幣8.70元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-05-10T15:58:35+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240510:155835:3",
+          "detail_verified": true,
+          "subject": "本公司民國113年度第一季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-05-15T14:25:29+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202401_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202401_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20240403:191214:1",
+          "announced_at": "2024-04-03T19:12:14+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20240403:191428:2",
+          "announced_at": "2024-04-03T19:14:28+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告處分固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20240403:232325:3",
+          "announced_at": "2024-04-03T23:23:25+08:00",
+          "subject": "台積公司針對4月3日地震之說明",
+          "clause": "51",
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2330:20240404:210531:2",
+          "announced_at": "2024-04-04T21:05:31+08:00",
+          "subject": "台積公司針對4/3地震更新說明",
+          "clause": "51",
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2330:20240405:212303:1",
+          "announced_at": "2024-04-05T21:23:03+08:00",
+          "subject": "台積公司針對4/3地震更新說明",
+          "clause": "51",
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2330:20240408:190458:1",
+          "announced_at": "2024-04-08T19:04:58+08:00",
+          "subject": "TSMC Arizona與美國商務部宣布最高可達66億美元的晶片 法案直接補助，該公司並計畫在鳳凰城設立第三座先進晶圓廠",
+          "clause": "51",
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2330:20240408:193101:2",
+          "announced_at": "2024-04-08T19:31:01+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2024-05-15T14:25:29+08:00",
+      "review_record": false
+    },
+    "2024Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-07-10T13:48:38+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20240710:134838:1",
+        "detail_verified": true,
+        "subject": "台積公司2024年6月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-07-10T13:48:38+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240710:134838:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年6月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-07-18T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240702:175630:2",
+          "detail_verified": true,
+          "subject": "公告本公司113年第二季法人說明會將於113年7月18日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-07-18T15:15:57+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240718:151557:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年第二季每股盈餘新台幣9.56元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-08-13T19:07:06+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240813:190706:3",
+          "detail_verified": true,
+          "subject": "本公司民國113年度第二季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-08-14T15:09:10+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202402_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202402_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20240701:183606:1",
+          "announced_at": "2024-07-01T18:36:06+08:00",
+          "subject": "公告本公司與台灣力森諾科科技股份有限公司簽訂合約 購買其廠房及附屬設施",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20240702:162001:1",
+          "announced_at": "2024-07-02T16:20:01+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20240703:155816:1",
+          "announced_at": "2024-07-03T15:58:16+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2024-08-14T15:09:10+08:00",
+      "review_record": false
+    },
+    "2024Q3": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-10-09T13:37:57+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20241009:133757:1",
+        "detail_verified": true,
+        "subject": "台積公司2024年9月營收報告"
+      },
+      "blocking": [
+        "季末到最早事件之間有 1 則未分類公告，需人工確認不含財務結果：['t05st01:2330:20241004:054919:1']"
+      ],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-10-09T13:37:57+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20241009:133757:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年9月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-10-17T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240927:143711:2",
+          "detail_verified": true,
+          "subject": "公告本公司113年第三季法人說明會將於113年10月17日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-10-17T15:44:14+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20241017:154414:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年第三季每股盈餘新台幣12.54元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-11-12T18:27:08+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20241112:182708:2",
+          "detail_verified": true,
+          "subject": "本公司民國113年度第三季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-11-14T18:03:20+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202403_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202403_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20241001:173847:1",
+          "announced_at": "2024-10-01T17:38:47+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20241004:054919:1",
+          "announced_at": "2024-10-04T05:49:19+08:00",
+          "subject": "Amkor與台積公司擴大夥伴關係宣布亞利桑那州先進封裝 合作協議",
+          "clause": "51",
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2330:20241004:173716:2",
+          "announced_at": "2024-10-04T17:37:16+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20241007:174051:1",
+          "announced_at": "2024-10-07T17:40:51+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20241008:164933:1",
+          "announced_at": "2024-10-08T16:49:33+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20241008:170258:2",
+          "announced_at": "2024-10-08T17:02:58+08:00",
+          "subject": "公告本公司認購世界先進積體電路股份有限公司現金增資",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2024-11-14T18:03:20+08:00",
+      "review_record": false
+    },
+    "2024Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-01-10T14:05:13+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20250110:140513:1",
+        "detail_verified": true,
+        "subject": "台積公司2024年12月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-01-10T14:05:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250110:140513:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年12月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-01-16T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20241230:143845:1",
+          "detail_verified": true,
+          "subject": "公告本公司113年第四季法人說明會將於114年1月16日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-01-16T15:40:39+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250116:154039:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年第四季每股盈餘新台幣14.45元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-02-12T14:57:17+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250212:145717:2",
+          "detail_verified": true,
+          "subject": "本公司民國113年度合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-02-27T14:01:14+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202404_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202404_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20250106:172544:1",
+          "announced_at": "2025-01-06T17:25:44+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250107:164653:1",
+          "announced_at": "2025-01-07T16:46:53+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250108:173216:1",
+          "announced_at": "2025-01-08T17:32:16+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250109:172547:1",
+          "announced_at": "2025-01-09T17:25:47+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2025-02-27T14:01:14+08:00",
+      "review_record": false
+    },
+    "2025Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-04-10T14:05:27+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20250410:140527:2",
+        "detail_verified": true,
+        "subject": "台積公司2025年3月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-04-10T14:05:27+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250410:140527:2",
+          "detail_verified": true,
+          "subject": "台積公司2025年3月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-04-17T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250328:172301:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第一季法人說明會將於114年4月17日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-04-17T15:26:10+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250417:152610:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年第一季每股盈餘新台幣13.94元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-05-13T17:40:17+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250513:174017:4",
+          "detail_verified": true,
+          "subject": "本公司民國114年度第一季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-05-15T13:40:15+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202501_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202501_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20250401:172733:1",
+          "announced_at": "2025-04-01T17:27:33+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250407:161018:1",
+          "announced_at": "2025-04-07T16:10:18+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250408:173657:1",
+          "announced_at": "2025-04-08T17:36:57+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250409:170627:1",
+          "announced_at": "2025-04-09T17:06:27+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2025-05-15T13:40:15+08:00",
+      "review_record": false
+    },
+    "2025Q2": {
+      "status": "PROVISIONAL",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-07-10T14:26:42+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20250710:142642:1",
+        "detail_verified": true,
+        "subject": "台積公司2025年6月營收報告"
+      },
+      "blocking": [
+        "季末到最早事件之間有 1 則未分類公告，需人工確認不含財務結果：['t05st01:2330:20250701:195954:1']"
+      ],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-07-10T14:26:42+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250710:142642:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年6月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-07-17T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250627:164722:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第二季法人說明會將於114年7月17日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-07-17T15:48:43+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250717:154843:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年第二季每股盈餘新台幣15.36元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-08-12T18:20:44+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250812:182044:2",
+          "detail_verified": true,
+          "subject": "本公司民國114年度第二季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-08-14T13:36:58+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202502_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202502_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20250701:195954:1",
+          "announced_at": "2025-07-01T19:59:54+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation 公告股東臨時會重要決議",
+          "clause": "18",
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:2330:20250701:200400:2",
+          "announced_at": "2025-07-01T20:04:00+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation 公告其董事長異動",
+          "clause": "6",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250701:200621:4",
+          "announced_at": "2025-07-01T20:06:21+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation 公告其董事異動",
+          "clause": "6",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250702:171530:1",
+          "announced_at": "2025-07-02T17:15:30+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250704:170907:1",
+          "announced_at": "2025-07-04T17:09:07+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2025-08-14T13:36:58+08:00",
+      "review_record": false
+    },
+    "2025Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-10-09T14:01:10+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20251009:140110:1",
+        "detail_verified": true,
+        "subject": "台積公司2025年9月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-10-09T14:01:10+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20251009:140110:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年9月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-10-16T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250926:171624:2",
+          "detail_verified": true,
+          "subject": "公告本公司114年第三季法人說明會將於114年10月16日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-10-16T15:06:48+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20251016:150648:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年第三季每股盈餘新台幣17.44元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-11-11T18:17:55+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20251111:181755:5",
+          "detail_verified": true,
+          "subject": "本公司民國114年度第三季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-11-14T13:42:22+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202503_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202503_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20251003:170518:1",
+          "announced_at": "2025-10-03T17:05:18+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20251007:190020:1",
+          "announced_at": "2025-10-07T19:00:20+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2025-11-14T13:42:22+08:00",
+      "review_record": false
+    },
+    "2025Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-01-09T13:51:04+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20260109:135104:1",
+        "detail_verified": true,
+        "subject": "台積公司2025年12月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-01-09T13:51:04+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260109:135104:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年12月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-01-15T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20251226:183412:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第四季法人說明會將於115年1月15日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-01-15T15:21:05+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260115:152105:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年第四季每股盈餘新台幣19.50元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-02-10T18:16:19+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260210:181619:3",
+          "detail_verified": true,
+          "subject": "本公司民國114年度合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-02-26T17:23:30+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202504_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202504_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20260102:165608:1",
+          "announced_at": "2026-01-02T16:56:08+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260105:183313:1",
+          "announced_at": "2026-01-05T18:33:13+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260106:182750:1",
+          "announced_at": "2026-01-06T18:27:50+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation公告 Treasurer異動",
+          "clause": "8",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260106:200522:2",
+          "announced_at": "2026-01-06T20:05:22+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260107:181450:1",
+          "announced_at": "2026-01-07T18:14:50+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260108:185124:1",
+          "announced_at": "2026-01-08T18:51:24+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260108:201746:2",
+          "announced_at": "2026-01-08T20:17:46+08:00",
+          "subject": "本公司代子公司TSMC Arizona 公告取得不動產",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2026-02-26T17:23:30+08:00",
+      "review_record": false
+    },
+    "2026Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-04-10T13:50:36+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20260410:135036:1",
+        "detail_verified": true,
+        "subject": "台積公司2026年3月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-04-10T13:50:36+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260410:135036:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年3月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-04-16T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260327:180814:2",
+          "detail_verified": true,
+          "subject": "公告本公司115年第一季法人說明會將於115年4月16日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-04-16T15:38:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260416:153813:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年第一季每股盈餘新台幣22.08元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-05-12T18:33:04+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260512:183304:3",
+          "detail_verified": true,
+          "subject": "本公司民國115年度第一季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-05-15T14:43:02+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202601_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202601_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20260401:172647:1",
+          "announced_at": "2026-04-01T17:26:47+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260407:180626:1",
+          "announced_at": "2026-04-07T18:06:26+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260408:183402:1",
+          "announced_at": "2026-04-08T18:34:02+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2026-05-15T14:43:02+08:00",
+      "review_record": false
+    },
+    "2026Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-07-13T13:50:31+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20260713:135031:1",
+        "detail_verified": true,
+        "subject": "台積公司2026年6月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-07-13T13:50:31+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260713:135031:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年6月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-07-16T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260629:185000:1",
+          "detail_verified": true,
+          "subject": "公告本公司115年第二季法人說明會將於115年7月16日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-07-16T15:12:31+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260716:151231:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年第二季每股盈餘新台幣27.25元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-08-11T18:46:58+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260811:184658:2",
+          "detail_verified": true,
+          "subject": "本公司民國115年度第二季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-08-14T13:59:44+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202602_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202602_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20260702:173613:1",
+          "announced_at": "2026-07-02T17:36:13+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation公告其 Treasurer異動",
+          "clause": "8",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2330:20260708:193435:1",
+          "announced_at": "2026-07-08T19:34:35+08:00",
+          "subject": "本公司代子公司 Emerging Fund, L.P.公告處分有價證券",
+          "clause": "20",
+          "cleared_by": "human_review"
+        }
+      ],
+      "financial_report_status": "filed 2026-08-14T13:59:44+08:00",
+      "review_record": true
+    },
+    "2026Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-10-08T13:54:04+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20261008:135404:1",
+        "detail_verified": true,
+        "subject": "台積公司2026年9月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-10-08T13:54:04+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20261008:135404:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年9月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-10-15T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260929:143916:1",
+          "detail_verified": true,
+          "subject": "公告本公司115年第三季法人說明會將於115年10月15日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-10-15T15:21:38+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20261015:152138:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年第三季每股盈餘新台幣29.43元"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "not filed as of 2026-10-18T09:24:04.071079+00:00",
+      "review_record": false
+    }
+  },
+  "notes": [],
+  "clause_policy": {
+    "clauses": [
+      "20",
+      "6",
+      "8"
+    ],
+    "reviewer": "Gate Pipeline 擁有者（使用者本人）",
+    "decided_at": "2026-10-18T15:34:41+08:00"
+  }
+}
