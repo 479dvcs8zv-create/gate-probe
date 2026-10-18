@@ -1,0 +1,78 @@
+# gate_pipeline v4.14 one-click evidence collection (repository 479dvcs8zv-create/gate-probe).
+#
+# Put this file at .github/workflows/gate-pipeline-collect.yml. It needs the gate_pipeline/ folder
+# (from gate_pipeline_v4.14.zip) at the repository root.
+#
+# How to run: Actions -> gate-pipeline-collect -> Run workflow, enter the stock code and ROC years.
+#
+# What it does:
+#   1. Checks every program file in gate_pipeline/ against gate_pipeline/MANIFEST.sha256; stops if any differs.
+#   2. Runs gate_pipeline/ops/collect_evidence.py: official MOPS material-information listings, detail pages
+#      and the financial-report filing list (doc.twse.com.tw), 3-second pause between requests, then computes
+#      the Gate5B cutoff evidence for every finished quarter.
+#   3. Commits the raw responses, manifest.json and summary.json to results/<code>/<run id>/ ONLY.
+#      Nothing else in the repository is changed. No secrets or API keys are used.
+name: gate-pipeline-collect
+
+on:
+  workflow_dispatch:
+    inputs:
+      co_id:
+        description: "Stock code, 4-6 digits (e.g. 2330)"
+        required: true
+        default: "2330"
+      roc_years:
+        description: "ROC years, comma separated (e.g. 113,114,115)"
+        required: true
+        default: "113,114,115"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gate-pipeline-collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify program files (SHA-256)
+        working-directory: gate_pipeline
+        run: sha256sum --strict -c MANIFEST.sha256
+
+      - name: Collect official evidence
+        env:
+          CO_ID: ${{ inputs.co_id }}
+          ROC_YEARS: ${{ inputs.roc_years }}
+        run: |
+          OUT="results/${CO_ID}/${GITHUB_RUN_ID}"
+          python gate_pipeline/ops/collect_evidence.py --co-id "$CO_ID" --roc-years "$ROC_YEARS" \
+            --reviews gate_pipeline/contract/mops_real/reviews --out "$OUT"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+
+      - name: Save results (results/ folder only)
+        env:
+          CO_ID: ${{ inputs.co_id }}
+          ROC_YEARS: ${{ inputs.roc_years }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$OUT"
+          git commit -m "collect ${CO_ID} (${ROC_YEARS}) run ${GITHUB_RUN_ID}"
+          git push
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gate-pipeline-collect-${{ github.run_id }}
+          path: results/
+          if-no-files-found: warn
+          retention-days: 14
