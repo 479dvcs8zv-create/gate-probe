@@ -1,12 +1,14 @@
-# gate_pipeline v4.14 one-click evidence collection (repository 479dvcs8zv-create/gate-probe).
+# gate_pipeline v4.14.1 one-click evidence collection (repository 479dvcs8zv-create/gate-probe).
 #
-# Put this file at .github/workflows/gate-pipeline-collect.yml. It needs the gate_pipeline/ folder
-# (from gate_pipeline_v4.14.zip) at the repository root.
+# Put this file at .github/workflows/gate-pipeline-collect.yml. It needs the program package
+# gate_pipeline_vX.Y.zip uploaded as-is to the repository root (no need to unzip it). The newest
+# version (by version number) is used; its name and SHA-256 are recorded with the results.
 #
 # How to run: Actions -> gate-pipeline-collect -> Run workflow, enter the stock code and ROC years.
 #
 # What it does:
-#   1. Checks every program file in gate_pipeline/ against gate_pipeline/MANIFEST.sha256; stops if any differs.
+#   1. Unpacks the newest gate_pipeline_v*.zip and checks every program file against
+#      gate_pipeline/MANIFEST.sha256; stops if any differs.
 #   2. Runs gate_pipeline/ops/collect_evidence.py: official MOPS material-information listings, detail pages
 #      and the financial-report filing list (doc.twse.com.tw), 3-second pause between requests, then computes
 #      the Gate5B cutoff evidence for every finished quarter.
@@ -44,6 +46,16 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Unpack program package (newest gate_pipeline_v*.zip in the repository root)
+        run: |
+          ZIP=$(ls gate_pipeline_v*.zip 2>/dev/null | sort -V | tail -n 1)
+          if [ -z "$ZIP" ]; then echo "No gate_pipeline_v*.zip in the repository root"; exit 1; fi
+          echo "Using $ZIP sha256=$(sha256sum "$ZIP" | cut -d' ' -f1)"
+          echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
+          rm -rf gate_pipeline
+          unzip -q "$ZIP"
+          test -f gate_pipeline/MANIFEST.sha256
+
       - name: Verify program files (SHA-256)
         working-directory: gate_pipeline
         run: sha256sum --strict -c MANIFEST.sha256
@@ -56,6 +68,7 @@ jobs:
           OUT="results/${CO_ID}/${GITHUB_RUN_ID}"
           python gate_pipeline/ops/collect_evidence.py --co-id "$CO_ID" --roc-years "$ROC_YEARS" \
             --reviews gate_pipeline/contract/mops_real/reviews --out "$OUT"
+          sha256sum "$PIPELINE_ZIP" > "$OUT/pipeline_package.sha256"
           echo "OUT=$OUT" >> "$GITHUB_ENV"
 
       - name: Save results (results/ folder only)
@@ -66,7 +79,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- "$OUT"
-          git commit -m "collect ${CO_ID} (${ROC_YEARS}) run ${GITHUB_RUN_ID}"
+          git commit -m "collect ${CO_ID} (${ROC_YEARS}) run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}"
           git push
 
       - uses: actions/upload-artifact@v4
