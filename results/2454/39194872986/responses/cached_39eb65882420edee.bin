@@ -1,0 +1,241 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2454'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2454'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2454 
+聯發科          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;2</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/02/23</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;18:18:18</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;顧大為</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;(03)5670766</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議發行限制員工權利新股案</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/02/23
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.董事會決議日期:113/02/23
+2.預計發行價格:為無償發行配發予員工。
+3.預計發行總額(股):
+以不超過普通股24,000仟股，約當本公司已發行普通股股數1.5%，
+每股面額10元，共計為新台幣240,000仟元。於股東常會決議之日起
+一年內分次向主管機關申報辦理，惟每次申報辦理的發行額度(股數)
+不得超過預計發行總額(股)的35%，並於主管機關申報生效通知到達
+之日起一年內或二年內(依各次申報生效之發行辦法辦理)，視實際
+需求一次或分次發行。實際發行股數於獲主管機關核准後，依法另
+提董事會決議之，並公告實際發行股數。
+4.既得條件:
+4.1  員工自獲配限制員工權利新股後需於各既得日當日仍在職，且
+期間未曾有違反公司勞動契約、工作規則、競業禁止、保密協議或
+與公司間合約約定等情事，並達成所屬公司所設定個人績效評核指
+標與本公司績效指標； 既得期間為兩年，依各次申報生效之發行辦
+法辦理。各既得日可既得最高股數比例將依各次申報生效之發行辦
+法辦理。各既得日可既得之實際股份比例與股數須再依個人績效評
+核指標與本公司績效指標達成度所設定之既得比例計算，其中本公
+司績效指標為以各指標分別於單一年度獨立結算與跨年度累計結算
+可既得股數，計算結果到股為止，未滿一股者無條件捨去。
+4.2  個人績效評核指標為各既得日之最近一年度績效評核等第至少
+需為I(含)以上或等同本公司績效評核等第為I(含)以上之水準、工
+作成果達成所屬公司所設定之個人績效標準，並由公司與個別員工
+約定之。本公司績效指標以富時台灣證券交易所台灣50指數成分股
+之股東總報酬率排名(Relative Total Shareholder Return, RTSR)、
+營收成長率(Revenue Growth YOY%)、營業利益率(Operating Margin%)
+為三項指標，各指標分別設定門檻值及目標值，未達門檻值之既得
+股數比例為0%，達門檻值則既得股數比例為50%，達目標值則既得股
+數比例為100%，是否達到門檻值及目標值以無條件捨去法計算。績
+效達成介於門檻值及目標值之間以插補法計算既得比例；插補法計
+算以四捨五入至百分位計算。各項指標所占權重將依獲配員工類型
+而給予不同權重，而各指標所設定目標區間(門檻值-目標值)範圍說
+明如下表，惟單年度及跨年度各指標門檻值及目標值將由本公司與
+獲配員工個別於目標區間範圍內約定之。達成績效指標與水準之判
+定依各績效期間所對應經會計師查核簽證之合併財務報表為基礎。
+
+本公司績效指標
+1. 富時台灣證券交易所台灣50指數成分股之股東總報酬率排名(RTSR)
+指標權重: 40% (第一類型) / 25%(第二類型)
+目標區間:第25百分位~第50百分位(P25~P50)
+2. 營收成長率(Revenue Growth YOY%)
+指標權重: 30% (第一類型)/ 30% (第二類型)
+目標區間: 7%~12%
+3. 營業利益率(Operating Margin %)
+指標權重: 30% (第一類型)/ 45% (第二類型)
+目標區間: 15%~18%
+
+5.員工未符既得條件或發生繼承之處理方式:
+員工經獲配限制員工權利新股後，如遇有未達既得條件者，由本公
+司無償收回並予以註銷，其他各項情事處理方式，悉依本公司訂定
+申報生效之發行辦法辦理。
+6.其他發行條件:依發行辦法辦理。
+7.員工之資格條件:
+7.1 為保障股東權益，本公司將謹慎管理本獎勵計畫。適用對象以
+限制員工權利新股給與日當日已到職並符合一定績效表現之本公司
+與本公司從屬公司之全職員工為限(所稱「從屬公司」，係依公司法
+第三百六十九條之二、第三百六十九條之三、第三百六十九條之九
+第二項及第三百六十九條之十一標準認定之) ，且獲配員工資格將
+區分為以下兩種類型:
+ 1) 第一類型: 本公司事業部或本部副總經理(含)以上主管及從屬
+    公司相當職位主管；
+ 2) 第二類型: 關鍵人才且限於需符合以下條件之一者:
+  (a)與公司未來策略連結及發展具高度相關性；
+  (b)對公司營運具重大影響性；或
+  (c)關鍵核心技術人才等。
+7.2 具獲配資格之員工得獲配限制員工權利新股之數量將參酌年資
+、職級、工作績效、整體貢獻、特殊功績或其他管理上需參考之條
+件等因素擬定分配標準，每次由董事長核訂獲配名單及股數，並提
+報審計委員會同意，再提報董事會同意。惟具經理人身分之員工或
+具員工身分之董事者，應先經薪資報酬委員會同意，再提報董事會
+同意。
+7.3 持有本公司已發行普通股股數10%以上之個人，不符發放資格。
+薪資報酬委員會成員及不具員工身分之董事會成員，不符發放資格。
+7.4 任一員工被授予之限制員工權利新股數量，依發行人募集與發
+行有價證券處理準則規定辦理。
+8.辦理本次限制員工權利新股之必要理由:
+為連結股東價值、對焦未來成長策略目標，並提升全球人才競爭力
+、吸引與激勵關鍵人才，以共同創造公司及股東之利益，並確保公
+司員工利益與股東利益相結合。
+9.可能費用化之金額:
+本公司應衡量股票之公允價值，並於既得期間分年認列相關費用。
+民國113年擬提股東常會決議發行不超過24,000仟股之限制員工權利
+新股，暫估民國113年～117年之費用化金額分別為新臺幣 634,455
+仟元、2,087,524仟元、2,601,218仟元、2,186,987仟元及518,012
+仟元。
+10.對公司每股盈餘稀釋情形:
+依目前本公司已發行股數計算，暫估民國113年～117年每股盈餘最大
+可能減少金額為新臺幣0.28元、0.89元、1.11元、0.93元及0.22元，
+對本公司每股盈餘稀釋尚屬有限，故對股東權益尚無重大影響。
+11.其他對股東權益影響事項:無重大影響。
+12.員工獲配或認購新股後未達既得條件前受限制之權利:
+既得期間除繼承外，員工不得將該限制員工權利新股出售、質押、
+轉讓、贈與他人、設定負擔，或作其他方式之處分。其他權利受限
+制情形，依發行辦法辦理。
+13.其他重要約定事項(含股票信託保管等):
+本公司發行之限制員工權利新股，於既得條件達成前將以股票信託
+保管之方式辦理。
+14.其他應敘明事項:
+14.1 本次發行之限制員工權利新股所訂定之各項條件，如因主管機
+關指示、相關法令規則修正、或因應金融市場狀況或客觀環境需修
+訂或修正時，擬提請股東常會授權董事會或其授權之人全權處理。
+14.2 本次發行之限制員工權利新股，相關限制及重要約定事項或未
+盡事宜，悉依相關法令及本公司訂定之發行辦法辦理。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2454'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
