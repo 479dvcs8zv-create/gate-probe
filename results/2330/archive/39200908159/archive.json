@@ -1,0 +1,204 @@
+{
+  "archive_version": "4.28-archive",
+  "co_id": "2330",
+  "adr": "TSM",
+  "base_url": "https://web.archive.org",
+  "started_at": "2026-10-19T04:43:38.769539+00:00",
+  "targets": [
+    {
+      "id": "marketwatch_adr_estimates",
+      "vendor": "MarketWatch（FactSet 資料）",
+      "unit": "美元／ADR",
+      "url": "https://www.marketwatch.com/investing/stock/tsm/analystestimates",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-10-19T04:44:50.764032+00:00",
+        "http_status": null,
+        "error": "URLError: [Errno 111] Connection refused",
+        "headers": {},
+        "cdx_error": "URLError: [Errno 111] Connection refused"
+      },
+      "capture": null,
+      "status": "SAVE_FAILED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-19T04:43:38.769560+00:00",
+          "http_status": 520,
+          "error": null,
+          "headers": {},
+          "cdx_file": "cdx/marketwatch_adr_estimates_1.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-10-19T04:44:50.764032+00:00",
+          "http_status": null,
+          "error": "URLError: [Errno 111] Connection refused",
+          "headers": {},
+          "cdx_error": "URLError: [Errno 111] Connection refused"
+        }
+      ]
+    },
+    {
+      "id": "stockanalysis_adr_forecast",
+      "vendor": "StockAnalysis",
+      "unit": "新台幣（頁面標示財報幣別 TWD；每股或每 ADR 未寫）",
+      "url": "https://stockanalysis.com/stocks/tsm/forecast/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-10-19T04:47:08.206896+00:00",
+        "http_status": null,
+        "error": "URLError: [Errno 111] Connection refused",
+        "headers": {},
+        "cdx_error": "URLError: [Errno 111] Connection refused"
+      },
+      "capture": null,
+      "status": "SAVE_FAILED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-19T04:45:46.645632+00:00",
+          "http_status": null,
+          "error": "URLError: [Errno 111] Connection refused",
+          "headers": {},
+          "cdx_file": "cdx/stockanalysis_adr_forecast_1.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-10-19T04:47:08.206896+00:00",
+          "http_status": null,
+          "error": "URLError: [Errno 111] Connection refused",
+          "headers": {},
+          "cdx_error": "URLError: [Errno 111] Connection refused"
+        }
+      ]
+    },
+    {
+      "id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "美元／ADR",
+      "url": "https://finance.yahoo.com/quote/TSM/analysis/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-10-19T04:50:28.080096+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261019014822/https://finance.yahoo.com/quote/TSM/analysis/"
+        },
+        "cdx_file": "cdx/yahoo_adr_analysis_2.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "RECENT_CAPTURE_REUSED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-19T04:48:04.202373+00:00",
+          "http_status": null,
+          "error": "URLError: [Errno 111] Connection refused",
+          "headers": {},
+          "cdx_error": "URLError: _ssl.c:993: The handshake operation timed out"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-10-19T04:50:28.080096+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261019014822/https://finance.yahoo.com/quote/TSM/analysis/"
+          },
+          "cdx_file": "cdx/yahoo_adr_analysis_2.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ],
+      "capture_timestamp_from_headers": "20261019014822"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "新台幣／股",
+      "url": "https://finance.yahoo.com/quote/2330.TW/analysis/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-10-19T04:52:37.880616+00:00",
+        "http_status": null,
+        "error": "URLError: [Errno 111] Connection refused",
+        "headers": {},
+        "cdx_file": "cdx/yahoo_tw_analysis_2.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "SAVE_FAILED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-19T04:51:01.863056+00:00",
+          "http_status": null,
+          "error": "URLError: [Errno 111] Connection refused",
+          "headers": {},
+          "cdx_error": "URLError: [Errno 111] Connection refused"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-10-19T04:52:37.880616+00:00",
+          "http_status": null,
+          "error": "URLError: [Errno 111] Connection refused",
+          "headers": {},
+          "cdx_file": "cdx/yahoo_tw_analysis_2.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ]
+    },
+    {
+      "id": "nasdaq_api_forecast",
+      "vendor": "Nasdaq API",
+      "unit": "美元／ADR",
+      "url": "https://api.nasdaq.com/api/analyst/TSM/earnings-forecast",
+      "save": null,
+      "capture": null,
+      "status": "TIMEOUT"
+    },
+    {
+      "id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "unit": "美元／ADR",
+      "url": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+      "save": null,
+      "capture": null,
+      "status": "TIMEOUT"
+    }
+  ],
+  "notes": [
+    "時間上限 540 秒已到，部分網站未送出"
+  ],
+  "order_basis": [
+    {
+      "id": "marketwatch_adr_estimates",
+      "last_archived": null
+    },
+    {
+      "id": "stockanalysis_adr_forecast",
+      "last_archived": null
+    },
+    {
+      "id": "yahoo_adr_analysis",
+      "last_archived": "20261019014822"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "last_archived": "20261019015426"
+    },
+    {
+      "id": "nasdaq_api_forecast",
+      "last_archived": "20261019020624"
+    },
+    {
+      "id": "marketbeat_adr_earnings",
+      "last_archived": "20261019022843"
+    }
+  ],
+  "finished_at": "2026-10-19T04:52:58.881188+00:00"
+}

@@ -1,0 +1,1158 @@
+{
+  "audit_version": "4.28-snapshot-audit",
+  "data_mode": "MARKET_CONSENSUS_RESEARCH",
+  "gate_impact": "none",
+  "co_id": "2330",
+  "generated_at": "2026-10-19T04:58:06.630679+00:00",
+  "boundary_rule": {
+    "announced": "重大訊息原文記載的公告時間",
+    "conservative_midnight": "月營收公告當日 00:00（月營收申報系統上傳時間未查證時的保守界線）",
+    "status": "adopted",
+    "decided_at": "2026-10-19T11:10:00+08:00",
+    "decided_by": "Gate Pipeline 擁有者（使用者本人），Claude 對話中選擇「採用（推薦）」",
+    "effect": "公告當日 00:00 之後的存檔不算截止點前快照；公告時間照舊保留；季度狀態不因此改變"
+  },
+  "policy": "reviews/consensus_research_policy.json",
+  "counts": {
+    "ADOPTABLE": 4,
+    "PENDING": 6,
+    "NOT_ADOPTABLE": 0
+  },
+  "items": [
+    {
+      "fiscal_period": "2024Q4",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "capture_ts": "20250106225927",
+      "captured_at_tpe": "2025-01-07T06:59:27+08:00",
+      "period_label_raw": "Current Qtr. (Dec 2024)",
+      "basis": null,
+      "n_analysts": 6,
+      "coverage": "一般",
+      "avg": 2.23,
+      "low": 2.11,
+      "high": 2.43,
+      "verdict": "PENDING",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 yahoo_adr_analysis_00.json 有對應列：20250106225927、HTTP 200、摘要 UIDJTYYVYW55SKPPGK5R2CI7TAL466YU"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2025-01-07T06:59，嚴格早於快照界線 2025-01-10T00:00（2.7 天前；公告時間 2025-01-10T14:05）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 TSM"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「Current Qtr. (Dec 2024)」重新推導為 2024Q4，受審季度 2024Q4"
+        },
+        {
+          "check": "單位",
+          "result": "PASS",
+          "detail": "美元／ADR；官方公告同季寫明折合每單位 ADR 2.24 美元（t05st01:2330:20250116:154039:1），直接比較，不換匯"
+        },
+        {
+          "check": "頁面實際值對照",
+          "result": "INFO",
+          "detail": "同一份頁面列出的歷史實際 EPS 與官方每單位 ADR 美元 EPS：4 季相同"
+        },
+        {
+          "check": "口徑",
+          "result": "PENDING",
+          "detail": "頁面沒寫 GAAP 或調整後",
+          "category": "BASIS_UNSTATED"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "6 位，覆蓋品質：一般（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "INFO",
+          "detail": "只有這一筆存檔，無法判斷是否更新"
+        },
+        {
+          "check": "事後說法",
+          "result": "INFO",
+          "detail": "marketbeat_adr_earnings（20250227 存檔）說當時預估 2.16 USD；yahoo_adr_analysis（20250224 存檔）說當時預估 2.22 USD；快照實際是 2.23。事後說法不採用，只對照"
+        }
+      ],
+      "reasons": [
+        "口徑：頁面沒寫 GAAP 或調整後"
+      ],
+      "pending_categories": [
+        "BASIS_UNSTATED"
+      ],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20250106225927/https://finance.yahoo.com/quote/TSM/analysis/",
+        "original_url": "https://finance.yahoo.com/quote/TSM/analysis/",
+        "held_file": "yahoo_adr_analysis_2024Q4.bin",
+        "held_sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+        "archive_digest_sha1_b32": "UIDJTYYVYW55SKPPGK5R2CI7TAL466YU",
+        "cdx_responses": [
+          {
+            "file": "yahoo_adr_analysis_00.json",
+            "sha256": "58213e3d5baa7e0f6cec3b00acac6b205a0aa1f85b2b8b8e11356048b78b7903"
+          }
+        ],
+        "refetch": {
+          "source_id": "yahoo_adr_analysis",
+          "timestamp": "20250106225927",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+          "held_sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+          "status": "MATCHED",
+          "refetched_sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+          "refetched_at": "2026-10-19T04:17:52.558569+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2025-01-10T00:00:00+08:00",
+        "announced_at": "2025-01-10T14:05:13+08:00",
+        "official": {
+          "eps_twd_per_share": 14.45,
+          "eps_usd_per_adr": 2.24,
+          "revenue_twd_bn": 868.46,
+          "revenue_usd_bn": 26.88,
+          "document_id": "t05st01:2330:20250116:154039:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2024Q4",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "company",
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "capture_ts": "20250106225927",
+      "captured_at_tpe": "2025-01-07T06:59:27+08:00",
+      "period_label_raw": "Current Qtr. (Dec 2024)",
+      "basis": null,
+      "n_analysts": 22,
+      "coverage": "一般",
+      "avg": 854690000000.0,
+      "low": 844160000000.0,
+      "high": 873000000000.0,
+      "verdict": "ADOPTABLE",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 yahoo_adr_analysis_00.json 有對應列：20250106225927、HTTP 200、摘要 UIDJTYYVYW55SKPPGK5R2CI7TAL466YU"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2025-01-07T06:59，嚴格早於快照界線 2025-01-10T00:00（2.7 天前；公告時間 2025-01-10T14:05）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 （營收）"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「Current Qtr. (Dec 2024)」重新推導為 2024Q4，受審季度 2024Q4"
+        },
+        {
+          "check": "單位",
+          "result": "PASS",
+          "detail": "新台幣，公司合計營收；官方同季 868.46 十億新台幣（t05st01:2330:20250116:154039:1）"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "22 位，覆蓋品質：一般（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "INFO",
+          "detail": "只有這一筆存檔，無法判斷是否更新"
+        }
+      ],
+      "reasons": [],
+      "pending_categories": [],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20250106225927/https://finance.yahoo.com/quote/TSM/analysis/",
+        "original_url": "https://finance.yahoo.com/quote/TSM/analysis/",
+        "held_file": "yahoo_adr_analysis_2024Q4.bin",
+        "held_sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+        "archive_digest_sha1_b32": "UIDJTYYVYW55SKPPGK5R2CI7TAL466YU",
+        "cdx_responses": [
+          {
+            "file": "yahoo_adr_analysis_00.json",
+            "sha256": "58213e3d5baa7e0f6cec3b00acac6b205a0aa1f85b2b8b8e11356048b78b7903"
+          }
+        ],
+        "refetch": {
+          "source_id": "yahoo_adr_analysis",
+          "timestamp": "20250106225927",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+          "held_sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+          "status": "MATCHED",
+          "refetched_sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+          "refetched_at": "2026-10-19T04:17:52.558569+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2025-01-10T00:00:00+08:00",
+        "announced_at": "2025-01-10T14:05:13+08:00",
+        "official": {
+          "eps_twd_per_share": 14.45,
+          "eps_usd_per_adr": 2.24,
+          "revenue_twd_bn": 868.46,
+          "revenue_usd_bn": 26.88,
+          "document_id": "t05st01:2330:20250116:154039:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2025Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "source_id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "origin": "third_party_wayback",
+      "capture_ts": "20250227184442",
+      "captured_at_tpe": "2025-02-28T02:44:42+08:00",
+      "period_label_raw": "Q1 2025",
+      "basis": null,
+      "n_analysts": 1,
+      "coverage": "單一預估",
+      "avg": 2.01,
+      "low": 2.01,
+      "high": 2.01,
+      "verdict": "PENDING",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 marketbeat_adr_earnings_00.json 有對應列：20250227184442、HTTP 200、摘要 ZPSX6NFYSVHPMETUVPNXGL3MEZ7CJ5AZ"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2025-02-28T02:44，嚴格早於快照界線 2025-04-10T00:00（40.9 天前；公告時間 2025-04-10T14:05）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 TSM"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「Q1 2025」重新推導為 2025Q1，受審季度 2025Q1"
+        },
+        {
+          "check": "單位",
+          "result": "PASS",
+          "detail": "美元／ADR；官方公告同季寫明折合每單位 ADR 2.12 美元（t05st01:2330:20250417:152610:1），直接比較，不換匯"
+        },
+        {
+          "check": "頁面實際值對照",
+          "result": "INFO",
+          "detail": "同一份頁面列出的歷史實際 EPS 與官方每單位 ADR 美元 EPS：5 季相同"
+        },
+        {
+          "check": "口徑",
+          "result": "PENDING",
+          "detail": "頁面沒寫 GAAP 或調整後",
+          "category": "BASIS_UNSTATED"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "1 位，覆蓋品質：單一預估（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "INFO",
+          "detail": "只有這一筆存檔，無法判斷是否更新"
+        },
+        {
+          "check": "事後說法",
+          "result": "INFO",
+          "detail": "marketbeat_adr_earnings（20260609 存檔）說當時預估 2.03 USD；快照實際是 2.01。事後說法不採用，只對照"
+        }
+      ],
+      "reasons": [
+        "口徑：頁面沒寫 GAAP 或調整後"
+      ],
+      "pending_categories": [
+        "BASIS_UNSTATED"
+      ],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20250227184442/https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+        "original_url": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+        "held_file": "marketbeat_adr_earnings_2025Q1.bin",
+        "held_sha256": "9544264a644670d528516245faecd425c8cad70012476d35fb050f39bf7d651a",
+        "archive_digest_sha1_b32": "ZPSX6NFYSVHPMETUVPNXGL3MEZ7CJ5AZ",
+        "cdx_responses": [
+          {
+            "file": "marketbeat_adr_earnings_00.json",
+            "sha256": "cf8a163a459c91e145ee1fb1f52e0e4e1bcc307744c5b7cfe9e995be0a068ef9"
+          }
+        ],
+        "refetch": {
+          "source_id": "marketbeat_adr_earnings",
+          "timestamp": "20250227184442",
+          "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+          "held_sha256": "9544264a644670d528516245faecd425c8cad70012476d35fb050f39bf7d651a",
+          "status": "MATCHED",
+          "refetched_sha256": "9544264a644670d528516245faecd425c8cad70012476d35fb050f39bf7d651a",
+          "refetched_at": "2026-10-19T04:17:56.678754+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2025-04-10T00:00:00+08:00",
+        "announced_at": "2025-04-10T14:05:27+08:00",
+        "official": {
+          "eps_twd_per_share": 13.94,
+          "eps_usd_per_adr": 2.12,
+          "revenue_twd_bn": 839.25,
+          "revenue_usd_bn": 25.53,
+          "document_id": "t05st01:2330:20250417:152610:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2025Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "capture_ts": "20250224154350",
+      "captured_at_tpe": "2025-02-24T23:43:50+08:00",
+      "period_label_raw": "Current Qtr. (Mar 2025)",
+      "basis": null,
+      "n_analysts": 3,
+      "coverage": "少量",
+      "avg": 2.05,
+      "low": 2.02,
+      "high": 2.11,
+      "verdict": "PENDING",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 yahoo_adr_analysis_00.json 有對應列：20250224154350、HTTP 200、摘要 7LDANB6KIGTRX7KTELKZ4JHXJUCP3IWV"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2025-02-24T23:43，嚴格早於快照界線 2025-04-10T00:00（44.0 天前；公告時間 2025-04-10T14:05）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 TSM"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「Current Qtr. (Mar 2025)」重新推導為 2025Q1，受審季度 2025Q1"
+        },
+        {
+          "check": "單位",
+          "result": "PASS",
+          "detail": "美元／ADR；官方公告同季寫明折合每單位 ADR 2.12 美元（t05st01:2330:20250417:152610:1），直接比較，不換匯"
+        },
+        {
+          "check": "頁面實際值對照",
+          "result": "INFO",
+          "detail": "同一份頁面列出的歷史實際 EPS 與官方每單位 ADR 美元 EPS：4 季相同"
+        },
+        {
+          "check": "口徑",
+          "result": "PENDING",
+          "detail": "頁面沒寫 GAAP 或調整後",
+          "category": "BASIS_UNSTATED"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "3 位，覆蓋品質：少量（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "PASS",
+          "detail": "與更早的存檔相比有更新或間隔不長"
+        },
+        {
+          "check": "事後說法",
+          "result": "INFO",
+          "detail": "marketbeat_adr_earnings（20260609 存檔）說當時預估 2.03 USD；快照實際是 2.05。事後說法不採用，只對照"
+        }
+      ],
+      "reasons": [
+        "口徑：頁面沒寫 GAAP 或調整後"
+      ],
+      "pending_categories": [
+        "BASIS_UNSTATED"
+      ],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20250224154350/https://finance.yahoo.com/quote/TSM/analysis/",
+        "original_url": "https://finance.yahoo.com/quote/TSM/analysis/",
+        "held_file": "yahoo_adr_analysis_2025Q1.bin",
+        "held_sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+        "archive_digest_sha1_b32": "7LDANB6KIGTRX7KTELKZ4JHXJUCP3IWV",
+        "cdx_responses": [
+          {
+            "file": "yahoo_adr_analysis_00.json",
+            "sha256": "58213e3d5baa7e0f6cec3b00acac6b205a0aa1f85b2b8b8e11356048b78b7903"
+          }
+        ],
+        "refetch": {
+          "source_id": "yahoo_adr_analysis",
+          "timestamp": "20250224154350",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+          "held_sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+          "status": "MATCHED",
+          "refetched_sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+          "refetched_at": "2026-10-19T04:18:04.004307+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2025-04-10T00:00:00+08:00",
+        "announced_at": "2025-04-10T14:05:27+08:00",
+        "official": {
+          "eps_twd_per_share": 13.94,
+          "eps_usd_per_adr": 2.12,
+          "revenue_twd_bn": 839.25,
+          "revenue_usd_bn": 25.53,
+          "document_id": "t05st01:2330:20250417:152610:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2025Q1",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "company",
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "capture_ts": "20250224154350",
+      "captured_at_tpe": "2025-02-24T23:43:50+08:00",
+      "period_label_raw": "Current Qtr. (Mar 2025)",
+      "basis": null,
+      "n_analysts": 19,
+      "coverage": "一般",
+      "avg": 834100000000.0,
+      "low": 756850000000.0,
+      "high": 858000000000.0,
+      "verdict": "ADOPTABLE",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 yahoo_adr_analysis_00.json 有對應列：20250224154350、HTTP 200、摘要 7LDANB6KIGTRX7KTELKZ4JHXJUCP3IWV"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2025-02-24T23:43，嚴格早於快照界線 2025-04-10T00:00（44.0 天前；公告時間 2025-04-10T14:05）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 （營收）"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「Current Qtr. (Mar 2025)」重新推導為 2025Q1，受審季度 2025Q1"
+        },
+        {
+          "check": "單位",
+          "result": "PASS",
+          "detail": "新台幣，公司合計營收；官方同季 839.25 十億新台幣（t05st01:2330:20250417:152610:1）"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "19 位，覆蓋品質：一般（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "PASS",
+          "detail": "與更早的存檔相比有更新或間隔不長"
+        }
+      ],
+      "reasons": [],
+      "pending_categories": [],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20250224154350/https://finance.yahoo.com/quote/TSM/analysis/",
+        "original_url": "https://finance.yahoo.com/quote/TSM/analysis/",
+        "held_file": "yahoo_adr_analysis_2025Q1.bin",
+        "held_sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+        "archive_digest_sha1_b32": "7LDANB6KIGTRX7KTELKZ4JHXJUCP3IWV",
+        "cdx_responses": [
+          {
+            "file": "yahoo_adr_analysis_00.json",
+            "sha256": "58213e3d5baa7e0f6cec3b00acac6b205a0aa1f85b2b8b8e11356048b78b7903"
+          }
+        ],
+        "refetch": {
+          "source_id": "yahoo_adr_analysis",
+          "timestamp": "20250224154350",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+          "held_sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+          "status": "MATCHED",
+          "refetched_sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+          "refetched_at": "2026-10-19T04:18:04.004307+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2025-04-10T00:00:00+08:00",
+        "announced_at": "2025-04-10T14:05:27+08:00",
+        "official": {
+          "eps_twd_per_share": 13.94,
+          "eps_usd_per_adr": 2.12,
+          "revenue_twd_bn": 839.25,
+          "revenue_usd_bn": 25.53,
+          "document_id": "t05st01:2330:20250417:152610:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2025Q2",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "source_id": "nasdaq_api_forecast",
+      "vendor": "Nasdaq API",
+      "origin": "third_party_wayback",
+      "capture_ts": "20250612153906",
+      "captured_at_tpe": "2025-06-12T23:39:06+08:00",
+      "period_label_raw": "Jun 2025",
+      "basis": null,
+      "n_analysts": 4,
+      "coverage": "少量",
+      "avg": 2.32,
+      "low": 2.21,
+      "high": 2.37,
+      "verdict": "PENDING",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 nasdaq_api_forecast.json 有對應列：20250612153906、HTTP 200、摘要 ZSHU7E6YSAV2EUUWWDZVRRTWWACESILM"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PENDING",
+          "detail": "需在 Actions 再從 Wayback 取得一次核對；還沒有執行",
+          "category": "REFETCH"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2025-06-12T23:39，嚴格早於快照界線 2025-07-10T00:00（27.0 天前；公告時間 2025-07-10T14:26）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 TSM"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「Jun 2025」重新推導為 2025Q2，受審季度 2025Q2"
+        },
+        {
+          "check": "單位",
+          "result": "PENDING",
+          "detail": "頁面沒寫幣別，使用設定檔假設",
+          "category": "CURRENCY_ASSUMED"
+        },
+        {
+          "check": "口徑",
+          "result": "PENDING",
+          "detail": "頁面沒寫 GAAP 或調整後",
+          "category": "BASIS_UNSTATED"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "4 位，覆蓋品質：少量（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "INFO",
+          "detail": "只有這一筆存檔，無法判斷是否更新"
+        },
+        {
+          "check": "事後說法",
+          "result": "INFO",
+          "detail": "marketbeat_adr_earnings（20260609 存檔）說當時預估 2.13 USD；快照實際是 2.32。事後說法不採用，只對照"
+        }
+      ],
+      "reasons": [
+        "重新下載核對：需在 Actions 再從 Wayback 取得一次核對；還沒有執行",
+        "單位：頁面沒寫幣別，使用設定檔假設",
+        "口徑：頁面沒寫 GAAP 或調整後"
+      ],
+      "pending_categories": [
+        "BASIS_UNSTATED",
+        "CURRENCY_ASSUMED",
+        "REFETCH"
+      ],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20250612153906/https://api.nasdaq.com/api/analyst/TSM/earnings-forecast",
+        "original_url": "https://api.nasdaq.com/api/analyst/TSM/earnings-forecast",
+        "held_file": "nasdaq_api_forecast_2025Q2_20250612153906.bin",
+        "held_sha256": "0acb83ff443c6a003870e9c93b6b732c7a0e852c4ca29a4ab416c0f6ade46ea2",
+        "archive_digest_sha1_b32": "ZSHU7E6YSAV2EUUWWDZVRRTWWACESILM",
+        "cdx_responses": [
+          {
+            "file": "nasdaq_api_forecast.json",
+            "sha256": "46ae91f2291d3e64ff0048a1588ca320d000fe5d6d15ec597bf7127f8cf7f567"
+          }
+        ],
+        "refetch": null,
+        "snapshot_boundary": "2025-07-10T00:00:00+08:00",
+        "announced_at": "2025-07-10T14:26:42+08:00",
+        "official": {
+          "eps_twd_per_share": 15.36,
+          "eps_usd_per_adr": 2.47,
+          "revenue_twd_bn": 933.79,
+          "revenue_usd_bn": 30.07,
+          "document_id": "t05st01:2330:20250717:154843:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2025Q4",
+      "metric": "eps",
+      "currency": "TWD",
+      "quote": "TSM",
+      "source_id": "stockanalysis_adr_forecast",
+      "vendor": "StockAnalysis",
+      "origin": "third_party_wayback",
+      "capture_ts": "20251206120326",
+      "captured_at_tpe": "2025-12-06T20:03:26+08:00",
+      "period_label_raw": "2025-12-31",
+      "basis": null,
+      "n_analysts": 24,
+      "coverage": "一般",
+      "avg": 17.6422158,
+      "low": null,
+      "high": null,
+      "verdict": "PENDING",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 stockanalysis_adr_forecast_00.json 有對應列：20251206120326、HTTP 200、摘要 G3IY5LRWLEVNDZEWDCVGYYNQJ6JN774N"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2025-12-06T20:03，嚴格早於快照界線 2026-01-09T00:00（33.2 天前；公告時間 2026-01-09T13:51）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 TSM"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「2025-12-31」重新推導為 2025Q4，受審季度 2025Q4"
+        },
+        {
+          "check": "單位",
+          "result": "PENDING",
+          "detail": "TWD，ADR 報價頁上沒寫每股或每 ADR",
+          "category": "SHARE_BASIS_UNSTATED"
+        },
+        {
+          "check": "頁面實際值對照",
+          "result": "INFO",
+          "detail": "同一份頁面列出的歷史實際 EPS 與官方每股新台幣 EPS：4 季相同、2024Q4 頁面 13.8704／官方 14.45 不同"
+        },
+        {
+          "check": "口徑",
+          "result": "PENDING",
+          "detail": "頁面沒寫 GAAP 或調整後",
+          "category": "BASIS_UNSTATED"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "24 位，覆蓋品質：一般（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "INFO",
+          "detail": "只有這一筆存檔，無法判斷是否更新"
+        },
+        {
+          "check": "事後說法",
+          "result": "INFO",
+          "detail": "marketbeat_adr_earnings（20260609 存檔）說當時預估 2.82 USD；yahoo_adr_analysis（20261018 存檔）說當時預估 2.98 USD；yahoo_tw_analysis（20261019 存檔）說當時預估 18.15 TWD；快照實際是 17.6422。事後說法不採用，只對照"
+        }
+      ],
+      "reasons": [
+        "單位：TWD，ADR 報價頁上沒寫每股或每 ADR",
+        "口徑：頁面沒寫 GAAP 或調整後"
+      ],
+      "pending_categories": [
+        "BASIS_UNSTATED",
+        "SHARE_BASIS_UNSTATED"
+      ],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20251206120326/https://stockanalysis.com/stocks/tsm/forecast/?ref=labs.ainvest.com",
+        "original_url": "https://stockanalysis.com/stocks/tsm/forecast/?ref=labs.ainvest.com",
+        "held_file": "stockanalysis_adr_forecast_2025Q4.bin",
+        "held_sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+        "archive_digest_sha1_b32": "G3IY5LRWLEVNDZEWDCVGYYNQJ6JN774N",
+        "cdx_responses": [
+          {
+            "file": "stockanalysis_adr_forecast_00.json",
+            "sha256": "e19c2b4ef2d61d177ec2b852a6ba761caf66e6454d3c5238457fb1a031848c6d"
+          }
+        ],
+        "refetch": {
+          "source_id": "stockanalysis_adr_forecast",
+          "timestamp": "20251206120326",
+          "original": "https://stockanalysis.com/stocks/tsm/forecast/?ref=labs.ainvest.com",
+          "held_sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+          "status": "MATCHED",
+          "refetched_sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+          "refetched_at": "2026-10-19T04:18:07.703075+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2026-01-09T00:00:00+08:00",
+        "announced_at": "2026-01-09T13:51:04+08:00",
+        "official": {
+          "eps_twd_per_share": 19.5,
+          "eps_usd_per_adr": 3.14,
+          "revenue_twd_bn": 1046.09,
+          "revenue_usd_bn": 33.73,
+          "document_id": "t05st01:2330:20260115:152105:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2025Q4",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "company",
+      "source_id": "stockanalysis_adr_forecast",
+      "vendor": "StockAnalysis",
+      "origin": "third_party_wayback",
+      "capture_ts": "20251206120326",
+      "captured_at_tpe": "2025-12-06T20:03:26+08:00",
+      "period_label_raw": "2025-12-31",
+      "basis": null,
+      "n_analysts": 24,
+      "coverage": "一般",
+      "avg": 1026913000000.0,
+      "low": null,
+      "high": null,
+      "verdict": "ADOPTABLE",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 stockanalysis_adr_forecast_00.json 有對應列：20251206120326、HTTP 200、摘要 G3IY5LRWLEVNDZEWDCVGYYNQJ6JN774N"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2025-12-06T20:03，嚴格早於快照界線 2026-01-09T00:00（33.2 天前；公告時間 2026-01-09T13:51）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 （營收）"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「2025-12-31」重新推導為 2025Q4，受審季度 2025Q4"
+        },
+        {
+          "check": "單位",
+          "result": "PASS",
+          "detail": "新台幣，公司合計營收；官方同季 1046.09 十億新台幣（t05st01:2330:20260115:152105:1）"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "24 位，覆蓋品質：一般（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "INFO",
+          "detail": "只有這一筆存檔，無法判斷是否更新"
+        }
+      ],
+      "reasons": [],
+      "pending_categories": [],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20251206120326/https://stockanalysis.com/stocks/tsm/forecast/?ref=labs.ainvest.com",
+        "original_url": "https://stockanalysis.com/stocks/tsm/forecast/?ref=labs.ainvest.com",
+        "held_file": "stockanalysis_adr_forecast_2025Q4.bin",
+        "held_sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+        "archive_digest_sha1_b32": "G3IY5LRWLEVNDZEWDCVGYYNQJ6JN774N",
+        "cdx_responses": [
+          {
+            "file": "stockanalysis_adr_forecast_00.json",
+            "sha256": "e19c2b4ef2d61d177ec2b852a6ba761caf66e6454d3c5238457fb1a031848c6d"
+          }
+        ],
+        "refetch": {
+          "source_id": "stockanalysis_adr_forecast",
+          "timestamp": "20251206120326",
+          "original": "https://stockanalysis.com/stocks/tsm/forecast/?ref=labs.ainvest.com",
+          "held_sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+          "status": "MATCHED",
+          "refetched_sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+          "refetched_at": "2026-10-19T04:18:07.703075+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2026-01-09T00:00:00+08:00",
+        "announced_at": "2026-01-09T13:51:04+08:00",
+        "official": {
+          "eps_twd_per_share": 19.5,
+          "eps_usd_per_adr": 3.14,
+          "revenue_twd_bn": 1046.09,
+          "revenue_usd_bn": 33.73,
+          "document_id": "t05st01:2330:20260115:152105:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2026Q2",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "source_id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "origin": "third_party_wayback",
+      "capture_ts": "20260609090716",
+      "captured_at_tpe": "2026-06-09T17:07:16+08:00",
+      "period_label_raw": "Q2 2026",
+      "basis": null,
+      "n_analysts": 1,
+      "coverage": "單一預估",
+      "avg": 2.73,
+      "low": 2.73,
+      "high": 2.73,
+      "verdict": "PENDING",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 marketbeat_adr_earnings_00.json 有對應列：20260609090716、HTTP 200、摘要 GK2YIE4653MJ64WX3N6OADHLW5GBZIN2"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2026-06-09T17:07，嚴格早於快照界線 2026-07-13T00:00（33.3 天前；公告時間 2026-07-13T13:50）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 TSM"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「Q2 2026」重新推導為 2026Q2，受審季度 2026Q2"
+        },
+        {
+          "check": "單位",
+          "result": "PASS",
+          "detail": "美元／ADR；官方公告同季寫明折合每單位 ADR 4.31 美元（t05st01:2330:20260716:151231:1），直接比較，不換匯"
+        },
+        {
+          "check": "頁面實際值對照",
+          "result": "INFO",
+          "detail": "同一份頁面列出的歷史實際 EPS 與官方每單位 ADR 美元 EPS：8 季相同"
+        },
+        {
+          "check": "口徑",
+          "result": "PENDING",
+          "detail": "頁面沒寫 GAAP 或調整後",
+          "category": "BASIS_UNSTATED"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "1 位，覆蓋品質：單一預估（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "PASS",
+          "detail": "與更早的存檔相比有更新或間隔不長"
+        },
+        {
+          "check": "事後說法",
+          "result": "INFO",
+          "detail": "marketbeat_adr_earnings（20261019 存檔）說當時預估 3.82 USD；yahoo_adr_analysis（20261018 存檔）說當時預估 3.89 USD；yahoo_tw_analysis（20261019 存檔）說當時預估 24.23 TWD；快照實際是 2.73。事後說法不採用，只對照"
+        }
+      ],
+      "reasons": [
+        "口徑：頁面沒寫 GAAP 或調整後"
+      ],
+      "pending_categories": [
+        "BASIS_UNSTATED"
+      ],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20260609090716/https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+        "original_url": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+        "held_file": "marketbeat_adr_earnings_2026Q2.bin",
+        "held_sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+        "archive_digest_sha1_b32": "GK2YIE4653MJ64WX3N6OADHLW5GBZIN2",
+        "cdx_responses": [
+          {
+            "file": "marketbeat_adr_earnings_00.json",
+            "sha256": "cf8a163a459c91e145ee1fb1f52e0e4e1bcc307744c5b7cfe9e995be0a068ef9"
+          }
+        ],
+        "refetch": {
+          "source_id": "marketbeat_adr_earnings",
+          "timestamp": "20260609090716",
+          "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+          "held_sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+          "status": "MATCHED",
+          "refetched_sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+          "refetched_at": "2026-10-19T04:18:11.319199+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2026-07-13T00:00:00+08:00",
+        "announced_at": "2026-07-13T13:50:31+08:00",
+        "official": {
+          "eps_twd_per_share": 27.25,
+          "eps_usd_per_adr": 4.31,
+          "revenue_twd_bn": 1270.38,
+          "revenue_usd_bn": 40.2,
+          "document_id": "t05st01:2330:20260716:151231:1"
+        }
+      }
+    },
+    {
+      "fiscal_period": "2026Q2",
+      "metric": "revenue",
+      "currency": "USD",
+      "quote": "company",
+      "source_id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "origin": "third_party_wayback",
+      "capture_ts": "20260609090716",
+      "captured_at_tpe": "2026-06-09T17:07:16+08:00",
+      "period_label_raw": "Q2 2026",
+      "basis": null,
+      "n_analysts": null,
+      "coverage": "人數未知",
+      "avg": 39500000000.0,
+      "low": null,
+      "high": null,
+      "verdict": "ADOPTABLE",
+      "checks": [
+        {
+          "check": "原文完整性",
+          "result": "PASS",
+          "detail": "SHA-256 相符；重算 SHA-1 摘要 與封存索引相同"
+        },
+        {
+          "check": "封存索引對應",
+          "result": "PASS",
+          "detail": "CDX 回應 marketbeat_adr_earnings_00.json 有對應列：20260609090716、HTTP 200、摘要 GK2YIE4653MJ64WX3N6OADHLW5GBZIN2"
+        },
+        {
+          "check": "重新下載核對",
+          "result": "PASS",
+          "detail": "run 39197661828 再次從 Wayback 取得，位元組完全相同"
+        },
+        {
+          "check": "時間",
+          "result": "PASS",
+          "detail": "封存 2026-06-09T17:07，嚴格早於快照界線 2026-07-13T00:00（33.3 天前；公告時間 2026-07-13T13:50）"
+        },
+        {
+          "check": "股票代號",
+          "result": "PASS",
+          "detail": "頁面報價代號 （營收）"
+        },
+        {
+          "check": "目標期間",
+          "result": "PASS",
+          "detail": "頁面標籤「Q2 2026」重新推導為 2026Q2，受審季度 2026Q2"
+        },
+        {
+          "check": "單位",
+          "result": "PASS",
+          "detail": "美元營收；官方公告同季寫明以美元計算 40.2 十億美元（t05st01:2330:20260716:151231:1），不換匯"
+        },
+        {
+          "check": "人數",
+          "result": "INFO",
+          "detail": "未知，覆蓋品質：人數未知（只代表這個來源，不與其他來源加總；不設 Gate 最低人數）"
+        },
+        {
+          "check": "是否更新",
+          "result": "PASS",
+          "detail": "與更早的存檔相比有更新或間隔不長"
+        }
+      ],
+      "reasons": [],
+      "pending_categories": [],
+      "evidence": {
+        "wayback_url": "https://web.archive.org/web/20260609090716/https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+        "original_url": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+        "held_file": "marketbeat_adr_earnings_2026Q2.bin",
+        "held_sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+        "archive_digest_sha1_b32": "GK2YIE4653MJ64WX3N6OADHLW5GBZIN2",
+        "cdx_responses": [
+          {
+            "file": "marketbeat_adr_earnings_00.json",
+            "sha256": "cf8a163a459c91e145ee1fb1f52e0e4e1bcc307744c5b7cfe9e995be0a068ef9"
+          }
+        ],
+        "refetch": {
+          "source_id": "marketbeat_adr_earnings",
+          "timestamp": "20260609090716",
+          "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+          "held_sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+          "status": "MATCHED",
+          "refetched_sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+          "refetched_at": "2026-10-19T04:18:11.319199+00:00",
+          "run": "39197661828"
+        },
+        "snapshot_boundary": "2026-07-13T00:00:00+08:00",
+        "announced_at": "2026-07-13T13:50:31+08:00",
+        "official": {
+          "eps_twd_per_share": 27.25,
+          "eps_usd_per_adr": 4.31,
+          "revenue_twd_bn": 1270.38,
+          "revenue_usd_bn": 40.2,
+          "document_id": "t05st01:2330:20260716:151231:1"
+        }
+      }
+    }
+  ],
+  "pending_categories": {
+    "BASIS_UNSTATED": {
+      "kind": "rule",
+      "text": "頁面沒寫 GAAP／調整後（規則 2：維持待確認）"
+    },
+    "CURRENCY_ASSUMED": {
+      "kind": "rule",
+      "text": "頁面沒寫幣別，只有設定檔的假設（不能只憑網址推定）"
+    },
+    "REFETCH": {
+      "kind": "check",
+      "text": "尚未在 Actions 重新下載核對，或上次因網路／封存取不到而沒有完成"
+    },
+    "SHARE_BASIS_UNSTATED": {
+      "kind": "rule",
+      "text": "ADR 報價頁上的新台幣 EPS 沒寫每股或每 ADR（規則 4：維持待確認）"
+    }
+  },
+  "open_decisions": {},
+  "meaning": "ADOPTABLE＝研究上可採用的截止點前快照，不等於 Gate PASS；PENDING 依類別說明原因"
+}
