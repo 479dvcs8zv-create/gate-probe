@@ -1,0 +1,1199 @@
+{
+  "co_id": "5347",
+  "roc_years": [
+    113,
+    114,
+    115
+  ],
+  "revenue_rule": "require_announcement",
+  "market": {
+    "name": "上櫃公司",
+    "typek": "otc",
+    "quote_suffix": ".TWO",
+    "first_sample": true,
+    "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+  },
+  "listings": {
+    "113": {
+      "items": 72,
+      "sha256": "fb22c5e9d3368c6452d79df74bfe6dede7d962a1c32c41f8731aa4800215acca",
+      "company_name": "世界",
+      "market": "上櫃公司",
+      "typek": [
+        "otc"
+      ],
+      "attempts": 1
+    },
+    "114": {
+      "items": 63,
+      "sha256": "797d43bad46f09ed12770eda207234f7b52607d320ae942cd8fadeb8eccfcbf0",
+      "company_name": "世界",
+      "market": "上櫃公司",
+      "typek": [
+        "otc"
+      ],
+      "attempts": 1
+    },
+    "115": {
+      "items": 63,
+      "sha256": "78e04dff9fca52bd2def86ba648da0da278c9f2927a2a94ff2d9e72b5d37dec1",
+      "company_name": "世界",
+      "market": "上櫃公司",
+      "typek": [
+        "otc"
+      ],
+      "attempts": 1
+    }
+  },
+  "filings": {
+    "113": {
+      "rows": [
+        [
+          "2024Q1",
+          "202401_5347_AI1.pdf",
+          "2024-04-30T14:00:27+08:00"
+        ],
+        [
+          "2024Q1",
+          "202401_5347_AIA.pdf",
+          "2024-05-24T13:55:34+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_5347_AI1.pdf",
+          "2024-07-30T13:49:55+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_5347_AIA.pdf",
+          "2024-08-22T13:47:33+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_5347_AI1.pdf",
+          "2024-11-05T13:52:19+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_5347_AIA.pdf",
+          "2024-11-28T13:56:01+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_5347_AI1.pdf",
+          "2025-02-25T13:48:32+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_5347_AI3.pdf",
+          "2025-02-25T13:50:48+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_5347_AIA.pdf",
+          "2025-03-26T16:19:37+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_5347_AIC.pdf",
+          "2025-03-26T16:21:59+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "3bd7a3f24f7588b47dc5725906ff6f8bfa3b76f0ed942486cc47116f734b0afc",
+      "attempts": 1
+    },
+    "114": {
+      "rows": [
+        [
+          "2025Q1",
+          "202501_5347_AI1.pdf",
+          "2025-05-06T13:48:16+08:00"
+        ],
+        [
+          "2025Q1",
+          "202501_5347_AIA.pdf",
+          "2025-05-26T14:07:08+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_5347_AI1.pdf",
+          "2025-07-29T13:54:52+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_5347_AIA.pdf",
+          "2025-08-22T15:02:04+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_5347_AI1.pdf",
+          "2025-11-04T14:46:40+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_5347_AIA.pdf",
+          "2025-11-26T13:53:53+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_5347_AI1.pdf",
+          "2026-02-03T13:43:05+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_5347_AI3.pdf",
+          "2026-02-03T13:42:21+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_5347_AIA.pdf",
+          "2026-03-25T18:57:33+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_5347_AIC.pdf",
+          "2026-03-25T18:58:36+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "dcd2cc6710219df67a31c34f34c91938423e17a18c31f09baa6a0bfcaa0d23cf",
+      "attempts": 1
+    },
+    "115": {
+      "rows": [
+        [
+          "2026Q1",
+          "202601_5347_AI1.pdf",
+          "2026-05-05T13:47:41+08:00"
+        ],
+        [
+          "2026Q1",
+          "202601_5347_AIA.pdf",
+          "2026-05-29T15:37:27+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_5347_AI1.pdf",
+          "2026-08-04T13:42:59+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_5347_AIA.pdf",
+          "2026-08-28T14:06:48+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "7f1eea739f07ab2840905ec410d2544671f910ea55fdc2bb40598c4bd40f420f",
+      "attempts": 1
+    }
+  },
+  "details": {},
+  "quarters": {
+    "2024Q1": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2024-04-30T14:00:27+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202401_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202401_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 7 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20240412:201059:1', 't05st01:5347:20240419:174849:1', 't05st01:5347:20240429:190421:1', 't05st01:5347:20240429:190705:2', 't05st01:5347:20240429:190831:3', 't05st01:5347:20240430:065317:4', 't05st01:5347:20240430:065728:1']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2024-04-30T14:00:27+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202401_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202401_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20240412:201059:1",
+          "announced_at": "2024-04-12T20:10:59+08:00",
+          "subject": "公告本公司將於4月30日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240419:174849:1",
+          "announced_at": "2024-04-19T17:48:49+08:00",
+          "subject": "公告本公司將於113/04/29召開董事會通過 113年第一季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240429:190421:1",
+          "announced_at": "2024-04-29T19:04:21+08:00",
+          "subject": "本公司董事會同意發行民國113年限制員工權利新股案",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240429:190705:2",
+          "announced_at": "2024-04-29T19:07:05+08:00",
+          "subject": "本公司董事會決議變更民國一一三年股東常會召集事由",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240429:190831:3",
+          "announced_at": "2024-04-29T19:08:31+08:00",
+          "subject": "董事會通過資安長任命案",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240430:065317:4",
+          "announced_at": "2024-04-30T06:53:17+08:00",
+          "subject": "公告本公司董事會通過113年第一季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240430:065728:1",
+          "announced_at": "2024-04-30T06:57:28+08:00",
+          "subject": "公告董事會同意對子公司Vanguard Power Electronics Singapore Pte. Ltd.增資美金肆仟貳佰萬元",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2024-04-30T14:00:27+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-04-30T14:00:27+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2024Q2": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2024-07-30T13:49:55+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202402_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202402_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 10 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20240703:194759:1', 't05st01:5347:20240712:194329:1', 't05st01:5347:20240715:184157:1', 't05st01:5347:20240715:184413:2', 't05st01:5347:20240715:184743:3', 't05st01:5347:20240719:190433:1', 't05st01:5347:20240729:172823:1', 't05st01:5347:20240729:173640:2', 't05st01:5347:20240729:174452:3', 't05st01:5347:20240730:065339:4']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2024-07-30T13:49:55+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202402_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202402_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20240703:194759:1",
+          "announced_at": "2024-07-03T19:47:59+08:00",
+          "subject": "公告本公司參與機構投資人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240712:194329:1",
+          "announced_at": "2024-07-12T19:43:29+08:00",
+          "subject": "公告本公司將於7月30日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240715:184157:1",
+          "announced_at": "2024-07-15T18:41:57+08:00",
+          "subject": "本公司代重要子公司VIS Associates Inc.公告董事會 決議辦理現金減資事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240715:184413:2",
+          "announced_at": "2024-07-15T18:44:13+08:00",
+          "subject": "本公司代重要子公司VIS Associates Inc.公告 股東會重要決議",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240715:184743:3",
+          "announced_at": "2024-07-15T18:47:43+08:00",
+          "subject": "本公司代重要子公司VIS Associates Inc.公告 現金減資變更股本完成",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240719:190433:1",
+          "announced_at": "2024-07-19T19:04:33+08:00",
+          "subject": "公告本公司將於113/07/29召開董事會通過 113年第二季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240729:172823:1",
+          "announced_at": "2024-07-29T17:28:23+08:00",
+          "subject": "本公司董事會同意辦理現金增資發行新股",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240729:173640:2",
+          "announced_at": "2024-07-29T17:36:40+08:00",
+          "subject": "本公司董事會同意本公司及子公司機器設備及 相關廠務設備資本預算",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240729:174452:3",
+          "announced_at": "2024-07-29T17:44:52+08:00",
+          "subject": "本公司代子公司VSMC公告董事會通過同意 於新加坡取得土地使用權資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20240730:065339:4",
+          "announced_at": "2024-07-30T06:53:39+08:00",
+          "subject": "公告本公司董事會通過113年第二季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2024-07-30T13:49:55+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-07-30T13:49:55+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2024Q3": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2024-11-05T13:52:19+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202403_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202403_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 6 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20241018:181408:1', 't05st01:5347:20241018:181548:2', 't05st01:5347:20241025:162723:1', 't05st01:5347:20241028:184550:1', 't05st01:5347:20241104:194307:1', 't05st01:5347:20241105:064901:2']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2024-11-05T13:52:19+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202403_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202403_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20241018:181408:1",
+          "announced_at": "2024-10-18T18:14:08+08:00",
+          "subject": "本公司113年現金增資發行新股依法辦理催繳公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20241018:181548:2",
+          "announced_at": "2024-10-18T18:15:48+08:00",
+          "subject": "公告本公司將於11月5日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20241025:162723:1",
+          "announced_at": "2024-10-25T16:27:23+08:00",
+          "subject": "公告本公司將於113/11/04召開董事會通過 113年第三季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20241028:184550:1",
+          "announced_at": "2024-10-28T18:45:50+08:00",
+          "subject": "公告本公司113年現金增資收足股款暨現金增資基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20241104:194307:1",
+          "announced_at": "2024-11-04T19:43:07+08:00",
+          "subject": "本公司董事會同意本公司及子公司機器設備及 相關廠務設備資本預算",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20241105:064901:2",
+          "announced_at": "2024-11-05T06:49:01+08:00",
+          "subject": "公告本公司董事會通過113年第三季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2024-11-05T13:52:19+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-11-05T13:52:19+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2024Q4": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2025-02-25T13:48:32+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202404_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202404_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 6 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20250207:180440:1', 't05st01:5347:20250214:183121:1', 't05st01:5347:20250224:183624:1', 't05st01:5347:20250224:184134:2', 't05st01:5347:20250224:185029:3', 't05st01:5347:20250225:065128:4']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-02-25T13:48:32+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202404_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202404_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20250207:180440:1",
+          "announced_at": "2025-02-07T18:04:40+08:00",
+          "subject": "公告本公司將於2月25日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250214:183121:1",
+          "announced_at": "2025-02-14T18:31:21+08:00",
+          "subject": "公告本公司113年度第四季合併財務報告 之董事會預計召開日期為114年02月24日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250224:183624:1",
+          "announced_at": "2025-02-24T18:36:24+08:00",
+          "subject": "董事會決議股利分派",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250224:184134:2",
+          "announced_at": "2025-02-24T18:41:34+08:00",
+          "subject": "本公司董事會決議民國一一四年股東常會召開日期及 召集事由",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250224:185029:3",
+          "announced_at": "2025-02-24T18:50:29+08:00",
+          "subject": "依公開發行公司資金貸與及背書保證處理準則第二十二條 第一項第三款公告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250225:065128:4",
+          "announced_at": "2025-02-25T06:51:28+08:00",
+          "subject": "公告本公司董事會通過113年第四季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2025-02-25T13:48:32+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-02-25T13:48:32+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2025Q1": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2025-05-06T13:48:16+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202501_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202501_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 10 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20250401:165210:1', 't05st01:5347:20250407:181808:1', 't05st01:5347:20250407:182302:2', 't05st01:5347:20250411:161717:1', 't05st01:5347:20250418:150258:1', 't05st01:5347:20250423:190317:1', 't05st01:5347:20250425:144549:1', 't05st01:5347:20250505:185156:1', 't05st01:5347:20250505:185333:2', 't05st01:5347:20250506:065557:3']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-05-06T13:48:16+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202501_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202501_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20250401:165210:1",
+          "announced_at": "2025-04-01T16:52:10+08:00",
+          "subject": "公告本公司限制員工權利新股之增資基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250407:181808:1",
+          "announced_at": "2025-04-07T18:18:08+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告董事會決議辦理現金增資發行新股",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250407:182302:2",
+          "announced_at": "2025-04-07T18:23:02+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告現金增資基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250411:161717:1",
+          "announced_at": "2025-04-11T16:17:17+08:00",
+          "subject": "更正本公司董事會同意本公司及子公司機器設備及相關廠務設備 資本預算(對應原113/11/04公告)",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250418:150258:1",
+          "announced_at": "2025-04-18T15:02:58+08:00",
+          "subject": "公告本公司將於5月6日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250423:190317:1",
+          "announced_at": "2025-04-23T19:03:17+08:00",
+          "subject": "公告本公司董事會通過處分四川易科技有限公司股權",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250425:144549:1",
+          "announced_at": "2025-04-25T14:45:49+08:00",
+          "subject": "公告本公司114年度第一季合併財務報告 之董事會預計召開日期為114年05月05日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250505:185156:1",
+          "announced_at": "2025-05-05T18:51:56+08:00",
+          "subject": "本公司董事會同意本公司及子公司機器設備及 相關廠務設備資本預算",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250505:185333:2",
+          "announced_at": "2025-05-05T18:53:33+08:00",
+          "subject": "本公司董事會通過資本預算及代子公司VSMC公告取得 廠務設施使用權資產",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250506:065557:3",
+          "announced_at": "2025-05-06T06:55:57+08:00",
+          "subject": "公告本公司董事會通過114年第一季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2025-05-06T13:48:16+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-05-06T13:48:16+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2025Q2": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2025-07-29T13:54:52+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202502_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202502_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 7 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20250707:142225:1', 't05st01:5347:20250707:142605:2', 't05st01:5347:20250711:144414:1', 't05st01:5347:20250718:155426:1', 't05st01:5347:20250728:191027:1', 't05st01:5347:20250728:193454:2', 't05st01:5347:20250729:064708:3']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-07-29T13:54:52+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202502_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202502_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20250707:142225:1",
+          "announced_at": "2025-07-07T14:22:25+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告董事會決議辦理現金增資發行新股",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250707:142605:2",
+          "announced_at": "2025-07-07T14:26:05+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告現金增資基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250711:144414:1",
+          "announced_at": "2025-07-11T14:44:14+08:00",
+          "subject": "公告本公司將於7月29日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250718:155426:1",
+          "announced_at": "2025-07-18T15:54:26+08:00",
+          "subject": "公告本公司114年度第二季合併財務報告 之董事會預計召開日期為114年07月28日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250728:191027:1",
+          "announced_at": "2025-07-28T19:10:27+08:00",
+          "subject": "本公司董事會同意機器設備及相關廠務設備資本預算",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250728:193454:2",
+          "announced_at": "2025-07-28T19:34:54+08:00",
+          "subject": "公告本公司董事會決議辦理限制員工權利新股收回註銷 減資事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20250729:064708:3",
+          "announced_at": "2025-07-29T06:47:08+08:00",
+          "subject": "公告本公司董事會通過114年第二季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2025-07-29T13:54:52+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-07-29T13:54:52+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2025Q3": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2025-11-04T14:46:40+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202503_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202503_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 8 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20251007:175741:1', 't05st01:5347:20251007:180208:2', 't05st01:5347:20251017:193300:1', 't05st01:5347:20251023:191927:1', 't05st01:5347:20251031:185644:1', 't05st01:5347:20251103:174042:1', 't05st01:5347:20251104:065240:1', 't05st01:5347:20251104:141052:2']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-11-04T14:46:40+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202503_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202503_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20251007:175741:1",
+          "announced_at": "2025-10-07T17:57:41+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告董事會決議辦理現金增資發行新股",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20251007:180208:2",
+          "announced_at": "2025-10-07T18:02:08+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告現金增資基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20251017:193300:1",
+          "announced_at": "2025-10-17T19:33:00+08:00",
+          "subject": "公告本公司將於11月4日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20251023:191927:1",
+          "announced_at": "2025-10-23T19:19:27+08:00",
+          "subject": "公告本公司114年度第三季合併財務報告 之董事會預計召開日期為114年11月03日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20251031:185644:1",
+          "announced_at": "2025-10-31T18:56:44+08:00",
+          "subject": "公告本公司法人董事代表人異動",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20251103:174042:1",
+          "announced_at": "2025-11-03T17:40:42+08:00",
+          "subject": "本公司董事會同意本公司及子公司機器設備及相關廠務設備資本預算",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20251104:065240:1",
+          "announced_at": "2025-11-04T06:52:40+08:00",
+          "subject": "公告本公司董事會通過114年第三季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20251104:141052:2",
+          "announced_at": "2025-11-04T14:10:52+08:00",
+          "subject": "本公司於114/11/04召開第三季法人說明會",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2025-11-04T14:46:40+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-11-04T14:46:40+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2025Q4": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2026-02-03T13:42:21+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202504_5347_AI3.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs個體財報 202504_5347_AI3.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 9 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20260107:175035:1', 't05st01:5347:20260107:175702:2', 't05st01:5347:20260116:175702:1', 't05st01:5347:20260123:181802:1', 't05st01:5347:20260129:070023:2', 't05st01:5347:20260202:184334:1', 't05st01:5347:20260202:184907:2', 't05st01:5347:20260203:064819:3', 't05st01:5347:20260203:065221:1']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-02-03T13:42:21+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202504_5347_AI3.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs個體財報 202504_5347_AI3.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20260107:175035:1",
+          "announced_at": "2026-01-07T17:50:35+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告董事會決議辦理現金增資發行新股",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260107:175702:2",
+          "announced_at": "2026-01-07T17:57:02+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告現金增資基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260116:175702:1",
+          "announced_at": "2026-01-16T17:57:02+08:00",
+          "subject": "公告本公司將於2月3日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260123:181802:1",
+          "announced_at": "2026-01-23T18:18:02+08:00",
+          "subject": "公告本公司114年度第四季合併財務報告 之董事會預計召開日期為115年02月02日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260129:070023:2",
+          "announced_at": "2026-01-29T07:00:23+08:00",
+          "subject": "公告本公司海外第一次無擔保轉換公司債完成訂價",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260202:184334:1",
+          "announced_at": "2026-02-02T18:43:34+08:00",
+          "subject": "本公司董事會同意本公司機器設備及相關廠務設備資本預算",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260202:184907:2",
+          "announced_at": "2026-02-02T18:49:07+08:00",
+          "subject": "本公司董事會決議民國一一五年股東常會召開日期及 召集事由",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260203:064819:3",
+          "announced_at": "2026-02-03T06:48:19+08:00",
+          "subject": "公告本公司董事會通過114年第四季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260203:065221:1",
+          "announced_at": "2026-02-03T06:52:21+08:00",
+          "subject": "本公司董事會決議股利分派",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2026-02-03T13:42:21+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-02-03T13:42:21+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2026Q1": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2026-05-05T13:47:41+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202601_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202601_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 10 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20260407:191006:1', 't05st01:5347:20260407:191636:2', 't05st01:5347:20260417:185845:1', 't05st01:5347:20260417:190649:2', 't05st01:5347:20260417:192114:3', 't05st01:5347:20260417:192717:4', 't05st01:5347:20260426:162554:1', 't05st01:5347:20260504:173432:1', 't05st01:5347:20260505:063846:2', 't05st01:5347:20260505:064435:1']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-05-05T13:47:41+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202601_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202601_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20260407:191006:1",
+          "announced_at": "2026-04-07T19:10:06+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告董事會決議辦理現金增資發行新股",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260407:191636:2",
+          "announced_at": "2026-04-07T19:16:36+08:00",
+          "subject": "本公司代重要子公司VisionPower Semiconductor Manufacturing Company Pte. Ltd.公告現金增資基準日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260417:185845:1",
+          "announced_at": "2026-04-17T18:58:45+08:00",
+          "subject": "公告本公司將於5月5日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260417:190649:2",
+          "announced_at": "2026-04-17T19:06:49+08:00",
+          "subject": "本公司董事會同意發行民國115年限制員工權利新股案",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260417:192114:3",
+          "announced_at": "2026-04-17T19:21:14+08:00",
+          "subject": "本公司董事會決議變更民國一一五年股東常會召集事由",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260417:192717:4",
+          "announced_at": "2026-04-17T19:27:17+08:00",
+          "subject": "公告補充說明本公司董事會同意本公司及子公司VSMC向 台灣積體電路製造(股)公司取得無形資產 (對應原113/06/26公告)",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260426:162554:1",
+          "announced_at": "2026-04-26T16:25:54+08:00",
+          "subject": "公告本公司115年度第一季合併財務報告 之董事會預計召開日期為115年05月04日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260504:173432:1",
+          "announced_at": "2026-05-04T17:34:32+08:00",
+          "subject": "本公司董事會同意本公司及子公司機器設備及相關廠務設備資本預算",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260505:063846:2",
+          "announced_at": "2026-05-05T06:38:46+08:00",
+          "subject": "公告本公司董事會通過115年第一季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260505:064435:1",
+          "announced_at": "2026-05-05T06:44:35+08:00",
+          "subject": "依公開發行公司資金貸與及背書保證處理準則第二十二條 第一項第三款公告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2026-05-05T13:47:41+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-05-05T13:47:41+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2026Q2": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "financial_report",
+        "at": "2026-08-04T13:42:59+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t57sb01:5347:202602_5347_AI1.pdf",
+        "detail_verified": true,
+        "subject": "IFRSs合併財報 202602_5347_AI1.pdf"
+      },
+      "blocking": [
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "季末到最早事件之間有 7 則未分類公告，需人工確認不含財務結果：['t05st01:5347:20260709:165110:1', 't05st01:5347:20260709:202839:2', 't05st01:5347:20260717:142013:1', 't05st01:5347:20260724:192845:1', 't05st01:5347:20260803:180539:1', 't05st01:5347:20260803:181619:2', 't05st01:5347:20260804:065248:3']"
+      ],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-08-04T13:42:59+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:5347:202602_5347_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202602_5347_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:5347:20260709:165110:1",
+          "announced_at": "2026-07-09T16:51:10+08:00",
+          "subject": "本公司代子公司VIS Associates Inc.公告取得Sumitomo Mitsui Financial Group, Inc.之普通公司債",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260709:202839:2",
+          "announced_at": "2026-07-09T20:28:39+08:00",
+          "subject": "公告本公司海外第一次無擔保轉換公司債轉換價格調整",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260717:142013:1",
+          "announced_at": "2026-07-17T14:20:13+08:00",
+          "subject": "公告本公司將於8月4日召開線上法人說明會",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260724:192845:1",
+          "announced_at": "2026-07-24T19:28:45+08:00",
+          "subject": "公告本公司115年度第二季合併財務報告 之董事會預計召開日期為115年08月03日",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260803:180539:1",
+          "announced_at": "2026-08-03T18:05:39+08:00",
+          "subject": "本公司董事會同意本公司及子公司機器設備及相關廠務設備資本預算",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260803:181619:2",
+          "announced_at": "2026-08-03T18:16:19+08:00",
+          "subject": "公告本公司董事會決議辦理限制員工權利新股收回註銷 減資事宜",
+          "clause": null,
+          "cleared_by": null
+        },
+        {
+          "document_id": "t05st01:5347:20260804:065248:3",
+          "announced_at": "2026-08-04T06:52:48+08:00",
+          "subject": "公告本公司董事會通過115年第二季合併財務報告",
+          "clause": null,
+          "cleared_by": null
+        }
+      ],
+      "financial_report_status": "filed 2026-08-04T13:42:59+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-08-04T13:42:59+08:00",
+        "rule": "announced_time",
+        "note": "原文記載的公告時間"
+      },
+      "review_record": false
+    },
+    "2026Q3": {
+      "status": "PROVISIONAL",
+      "revenue_rule": "require_announcement",
+      "earliest": null,
+      "blocking": [
+        "財報清單取得時間 2026-10-19T06:52:32.213663+00:00 不晚於最早事件，無法排除更早的申報",
+        "重大訊息中找不到該季季末月份的營收公告；公司可能只透過每月營收申報系統揭露，該管道的揭露時間尚未查證，無法確認截止點早於營收揭露",
+        "清單中找不到可辨識的該季財務結果揭露"
+      ],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": null,
+      "review_record": false
+    }
+  },
+  "notes": [
+    "市場別「上櫃公司」是第一次真實樣本：解析器沿用上市格式的嚴格核對並通過，原始回應已保存，人工比對一次後再列為已驗證"
+  ],
+  "detail_counts": {
+    "wanted": 0,
+    "fetched": 0,
+    "from_cache": 0,
+    "skipped_over_limit": 0
+  },
+  "clause_policy": {
+    "clauses": [
+      "20",
+      "6",
+      "8"
+    ],
+    "reviewer": "Gate Pipeline 擁有者（使用者本人）",
+    "decided_at": "2026-10-18T15:34:41+08:00"
+  },
+  "guidance": {
+    "version": "4.23-guidance",
+    "data_mode": "OFFICIAL_GUIDANCE",
+    "quarters": {},
+    "gate": {
+      "data_mode": "OFFICIAL_GUIDANCE",
+      "label": "Gate5B 官方財測模式（Python 預驗證，非正式 Gate PASS）",
+      "verified_quarters": 0,
+      "min_quarters": 8,
+      "result": "INSUFFICIENT",
+      "meaning": "比較的是公司自己在上一季公布的財測，不是市場共識"
+    },
+    "parse_failures": [],
+    "gate_result": {
+      "gate_name": "Gate5B_官方財測(OFFICIAL_GUIDANCE)",
+      "status": "not_connected",
+      "reasons": [
+        "無資料：沒有已驗證截止點的季度"
+      ],
+      "reject_codes": [
+        "DATA_NOT_CONNECTED"
+      ],
+      "raw_count": 0,
+      "evidence_count": 0
+    },
+    "provisional_quarters_excluded": [
+      "2024Q1",
+      "2024Q2",
+      "2024Q3",
+      "2024Q4",
+      "2025Q1",
+      "2025Q2",
+      "2025Q3",
+      "2025Q4",
+      "2026Q1",
+      "2026Q2",
+      "2026Q3"
+    ]
+  },
+  "official_figures": {},
+  "recognition": {
+    "events_recognized": {},
+    "guidance_quarters_parsed": 0,
+    "notes": [
+      "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「董事會通過財報」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+    ]
+  }
+}
