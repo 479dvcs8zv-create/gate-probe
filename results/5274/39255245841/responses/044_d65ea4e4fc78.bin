@@ -1,0 +1,263 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='5274'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='5274'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='114'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 5274 
+信驊            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;3</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;114/11/05</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;16:21:09</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;吳俐俐</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;經理</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-5751185</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議通過分割實境遠端管理事業</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;114/11/05
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.併購種類(如合併、分割、收購或股份受讓):
+分割
+2.事實發生日:114/11/5
+3.參與併購公司名稱(如合併另一方公司、分割新設公司、收購或受讓股份標的公司之
+名稱:
+(1) 被分割公司: 信驊科技股份有限公司（以下簡稱「本公司」）
+(2) 受讓公司: 酷博樂股份有限公司（以下簡稱「酷博樂公司」）
+4.交易相對人(如合併另一方公司、分割讓與他公司、收購或受讓股份之交易對象):
+酷博樂公司；為本公司百分之百持股之子公司。
+5.交易相對人為關係人:是
+6.交易相對人與公司之關係(本公司轉投資持股達XX%之被投資公司)，並說明選定
+收購、受讓他公司股份之對象為關係企業或關係人之原因及是否不影響股東權益:
+酷博樂公司為本公司百分之百持有之子公司，且本案屬集團內組織調整，不影
+響股東權益。
+7.併購目的及條件，包括併購理由、對價條件及支付時點:
+為進行組織重組及專業分工，以提高經營效率及長期競爭力，將實境遠端管理
+（Reality Remote Management）事業（原Smart AV事業）之相關製造及營
+業（含資產、負債及營業以下簡稱「RRM事業」）分割移轉予本公司百分之百持
+有之酷博樂公司，並由酷博樂公司發行新股予本公司作為對價，分割基準日暫
+訂為民國114年12月31日。
+8.併購後預計產生之效益:
+本公司透過組織重組及專業分工，以提高經營效率及長期競爭力、增加企業價值，
+吸引更多優秀人才與策略夥伴。
+9.併購對每股淨值及每股盈餘之影響:
+對本公司合併財務報表之每股淨值及每股盈餘並無影響。
+10.併購之對價種類及資金來源:
+不適用。
+11.換股比例及其計算依據:
+(1)換股比例：本公司分割讓與之RRM事業之營業價值為新臺幣120,000仟元，按
+   每股新臺幣10元換取酷博樂公司新發行之普通股1股，本公司共換取酷博樂公
+   司普通股12,000仟股。若有不足換取一股者，由酷博樂公司於完成變更登記後
+   三十日內，按不足換取股份之營業價值，以現金乙次給付予本公司。
+(2)計算依據：前揭換股比例係參酌本公司擬分割讓與之資產及負債之帳面價值、
+   酷博樂公司每股淨值及分割換股比例之專家意見訂定之。
+12.本次交易會計師、律師或證券承銷商出具非合理性意見:否
+13.會計師或律師事務所名稱或證券承銷商公司名稱:
+正大聯合會計師事務所
+14.會計師或律師姓名:
+羅裕民會計師
+15.會計師或律師開業證書字號:
+臺省會證字第2740號
+16.獨立專家就本次併購換股比例、配發股東之現金或其他財產之合理性意見書內容
+(一、包含公開收購價格訂定所採用之方法、原則或計算方式及與國際慣用之市價法
+、成本法及現金流量折現法之比較。二、被收購公司與已上市櫃同業之財務狀況
+、獲利情形及本益比之比較情形。三、公開收購價格若參考鑑價機構之鑑價報告者
+，應說明該鑑價報告內容及結論。四、收購人融資償還計畫若係以被收購公司或合
+併後存續公司之資產或股份為擔保者，應說明對被收購公司或合併後存續公司財務
+業務健全性之影響評估):
+本次交易依我國已發布之相關解釋函之規定，採淨值法作為評價方法，將RRM事業
+單位於評價基準日114年9月30日之營業價值為新台幣120,000仟元，作為分割讓與
+營業價值交易價金計算基礎，酷博樂公司以每股發行金額10元，發行普通股12,000
+仟股予信驊公司作為全部對價，尚屬合理。本分割案為集團內部組織重組，對信驊
+公司股東權益並無影響。
+17.預定完成日程:
+分割基準日暫訂為民國114年12月31日，若有調整分割基準日之必要時，授權信驊公
+司審計委員會代表人及酷博樂公司董事長訂定之。
+18.既存或新設公司承受消滅(或分割)公司權利義務相關事項(註二):
+(1)自分割基準日起，信驊公司分割讓與之一切資產、負債及其截至分割基準日仍為
+   有效之一切權利義務，均由酷博樂公司依法概括承受；如需辦理相關手續，本公
+   司應配合之。
+(2)除本分割案讓與之負債與分割前本公司之債務係可分者外，酷博樂公司應就分割
+   前本公司所負債務於其受讓營業之出資範圍，依企業併購法第三十五條第七項規
+   定與本公司負連帶清償責任。但債權人之債權請求權，自分割基準日起二年內不
+   行使而消滅。
+19.參與合併公司之基本資料(註三):
+不適用
+20.分割之相關事項(含預定讓與既存公司或新設公司之營業、資產之評價價值；被
+分割公司或其股東所取得股份之總數、種類及數量；被分割公司資本減少時，其資
+本減少有關事項)(註：若非分割公告時，則不適用):
+(1)預定分割讓與之營業價值：以分割讓與之資產減負債計算，預計分割讓與之營業價
+   值為新臺幣120,000仟元。
+(2)預定分割讓與之資產：預計為新台幣142,662仟元。
+(3)預定分割讓與之負債：預計為新台幣22,662仟元。
+(4)前揭分割讓與之營業價值、資產及負債金額，暫以本公司民國114年9月30日經會計
+   師核閱之財務報表帳面價值為評估基礎，惟實際金額仍以分割基準日之帳面價值為
+   依據，分割基準日之營業價值與前述所列金額有差異時，得以現金調整之。
+(5)本分割案本公司擬分割讓與之營業價值，暫以114年9月30日經會計師核閱之財務報
+   表為評估基礎，預計擬分割淨資產之帳面價值為新臺幣120,000仟元，按每股新臺
+   幣10元換取酷博樂公司新發行普通股1股，本公司共換取酷博樂公司普通股12,000
+   仟股。
+21.併購股份未來移轉之條件及限制:
+無
+22.併購完成後之計畫(包含一、繼續經營公司業務之意願及計畫內容。二、是否發生
+解散、下市(櫃)、重大變更組織、資本、業務計畫、財務及生產、對公司重要人員
+、資產之安排或運用，或其他任何影響公司股東權益之重大事項):
+酷博樂公司為本公司百分之百持股之子公司，對本公司股東權益並無影響。
+23.其他重要約定事項:
+(1)分割計畫書之任何條款如與相關法令有所牴觸而歸於無效者，僅該牴觸之部份無效，
+   但其他條款依然有效。至於因牴觸相關法令而歸於無效之部分條款，逕依相關法令之
+   規定由本公司董事會授權其審計委員會代表人與酷博樂公司董事長於合法範圍內另行
+   議定之。
+(2)分割計畫書之任何條款如依相關主管機關之核示而有變更必要者，逕依相關主管機關
+   核示之內容或由本公司審計委員會代表人及酷博樂公司董事長另行依相關主管機關之
+   核示修訂之。
+24.其他與併購相關之重大事項:
+酷博樂公司為本公司百分之百持股之子公司，對本公司股東權益並無影響。
+25.本次交易，董事有無異議:否
+26.併購交易中涉及利害關係董事資訊(自然人董事姓名或法人董事名稱暨其代表人姓名
+、其自身或其代表之法人有利害關係之重要內容(包括但不限於實際或預計投資其他
+參加併購公司之方式、持股比率、交易價格、是否參與併購公司之經營及其他投資條件
+等情形)、其應迴避或不迴避理由、迴避情形、贊成或反對併購決議之理由):
+依企業併購法第五條第三項規定：「公司進行併購時，公司董事就併購交易有自身利
+害關係時，應向董事會及股東會說明其自身利害關係之重要內容及贊成或反對併購決
+議之理由。」本公司董事就相關事項說明如下：
+(1)本公司董事長林鴻明先生，係本公司董事長、本公司指派擔任酷博樂公司董事長。
+(2)本分割案係為集團組織調整，本公司董事長林鴻明先生雖同時擔任酷博樂公司董事
+   長，但為利整合集團資源並發揮經營綜效，就本分割案進行決議時，仍得行使表決
+   權，無須迴避。考量本公司的長遠發展策略、增強市場競爭力董事長林鴻明先生贊
+   成本分割案。
+27.是否涉及營運模式變更:否
+28.營運模式變更說明(註四):
+無
+29.過去一年及預計未來一年內與交易相對人交易情形(註五):
+不適用
+30.資金來源(註五):
+不適用
+31.其他敘明事項(註六):
+無
+註二、既存或新設公司承受消滅公司權利義務相關事項，包括庫藏股及已發行具有股權性質有
+　　　價證券之處理原則。
+註三：參與合併公司之基本資料包括公司名稱及所營業務之主要內容。
+註四：倘涉營運模式變更，請於欄位敘明包括營業範圍變更、產品線擴充/縮減、製程調整、產業
+　　　水平/垂直整合，或其他涉及營運架構調整事項。
+註五：非屬私募資金用以併購案件者，得填寫不適用。
+註六：若本案成就前，尚需經國內、外主管機關(如:投審會、公平交易委員會、反壟斷局或其他單位)核准或許可者，應予敘明相關事項。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='5274'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

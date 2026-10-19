@@ -1,0 +1,270 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 5274 
+信驊　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<form action='/mops/web/ajax_t05st01' name='t05st01_fm' id='t05st01_fm' method='post' onsubmit='return false;'>
+<input type='hidden' name='firstin' value='true' />
+<input type=hidden name=b_date value=>
+<input type=hidden name=e_date value=>
+<input type=hidden name=TYPEK>
+<input type=hidden name=year value=114>
+<input type=hidden name=month value=all>
+<input type=hidden name=type value=>
+<input type=hidden name=co_id>
+<input type=hidden name=spoke_date>
+<input type=hidden name=spoke_time>
+<input type=hidden name=seq_no>
+<input type='hidden' name='MEETING_STEP'>
+<input type='hidden' name='MODEL'>
+<input type='hidden' name='ITEM'>
+<input type=hidden name=e_month value=all>
+<input type='hidden' name='step' value='2'><input type='hidden' name='off' value='1'><center><b>請至財務及交易資訊重點專區參考公司相關<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb01";'  onclick='document.t05st01_fm.TYPEK.value="otc";document.t05st01_fm.co_id.value="5274";document.t05st01_fm.step.value="1";document.t05st01_fm.MEETING_STEP.value="0"; action="/mops/web/ajax_t211sb01";openWindow(this.form,"");'><font color='blue'><u>財務資訊</u></font></button>及<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb05";'  onclick='document.t05st01_fm.TYPEK.value="otc";document.t05st01_fm.co_id.value="5274";document.t05st01_fm.step.value="2";document.t05st01_fm.MODEL.value="2";document.t05st01_fm.ITEM.value="0"; action="/mops/web/ajax_t211sb05";openWindow(this.form,"");'><font color='blue'><u>交易資訊</u></font></button></b></center>
+<br>
+<table class='hasBorder'>
+<tr class='tblHead'><th>公司代號</th><th>公司名稱</th><th>發言日期</th><th>發言時間</th><th>主旨</th><th>&nbsp;</th></tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/02/06</td><td style='text-align:left !important;'>&nbsp;11:04:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;澄清114年02月06日經濟日報A03版及工商時報A03版資訊報導</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='110434';document.t05st01_fm.spoke_date.value='20250206';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/02/19</td><td style='text-align:left !important;'>&nbsp;17:01:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第4季財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170159';document.t05st01_fm.spoke_date.value='20250219';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/02/20</td><td style='text-align:left !important;'>&nbsp;13:45:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第4季財務報告董事會預計召開日期
+為114年02月27日(補充114/02/19公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134510';document.t05st01_fm.spoke_date.value='20250220';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/02/27</td><td style='text-align:left !important;'>&nbsp;17:00:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國113年度合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170054';document.t05st01_fm.spoke_date.value='20250227';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/02/27</td><td style='text-align:left !important;'>&nbsp;17:10:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171044';document.t05st01_fm.spoke_date.value='20250227';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/02/27</td><td style='text-align:left !important;'>&nbsp;17:13:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議召開民國114年股東常會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='171300';document.t05st01_fm.spoke_date.value='20250227';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/02/27</td><td style='text-align:left !important;'>&nbsp;17:15:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司副總經理退休</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='171501';document.t05st01_fm.spoke_date.value='20250227';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/03/17</td><td style='text-align:left !important;'>&nbsp;13:43:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加美林證券(BofA)舉辦之2025 Asia Tech Conference</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134336';document.t05st01_fm.spoke_date.value='20250317';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/03/21</td><td style='text-align:left !important;'>&nbsp;14:32:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議召開民國114年股東常會(新增其他議案)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143247';document.t05st01_fm.spoke_date.value='20250321';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/04/25</td><td style='text-align:left !important;'>&nbsp;14:00:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司114年第1季財務報告董事會預計召開日期
+為114年05月05日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140032';document.t05st01_fm.spoke_date.value='20250425';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/05/05</td><td style='text-align:left !important;'>&nbsp;16:17:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國114年第1季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161727';document.t05st01_fm.spoke_date.value='20250505';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/05/05</td><td style='text-align:left !important;'>&nbsp;16:22:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司副總經理晉升案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='162235';document.t05st01_fm.spoke_date.value='20250505';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/05/14</td><td style='text-align:left !important;'>&nbsp;14:26:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加櫃買中心與凱基證券合辦之TPEx & KGI Pre-Computex Taiwan Corporate Day(台北國際電腦展展前論壇)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='142602';document.t05st01_fm.spoke_date.value='20250514';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/05/27</td><td style='text-align:left !important;'>&nbsp;14:32:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司114年股東常會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143228';document.t05st01_fm.spoke_date.value='20250527';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/05/27</td><td style='text-align:left !important;'>&nbsp;14:33:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司114年現金股利配息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='143305';document.t05st01_fm.spoke_date.value='20250527';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/05/28</td><td style='text-align:left !important;'>&nbsp;15:14:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加UBS舉辦之「Asian Investment Conference 2025」</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='151400';document.t05st01_fm.spoke_date.value='20250528';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/06/10</td><td style='text-align:left !important;'>&nbsp;15:43:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加櫃買中心與凱基證券合辦之「2025 TPEx & KGI Corporate Day」</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='154300';document.t05st01_fm.spoke_date.value='20250610';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/07/28</td><td style='text-align:left !important;'>&nbsp;16:25:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司114年第2季財務報告董事會預計召開日期
+為114年08月05日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162531';document.t05st01_fm.spoke_date.value='20250728';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/08/05</td><td style='text-align:left !important;'>&nbsp;18:05:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國114年第2季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180550';document.t05st01_fm.spoke_date.value='20250805';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/08/05</td><td style='text-align:left !important;'>&nbsp;18:06:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='180622';document.t05st01_fm.spoke_date.value='20250805';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/08/20</td><td style='text-align:left !important;'>&nbsp;16:41:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股註銷完成變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164155';document.t05st01_fm.spoke_date.value='20250820';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/08/26</td><td style='text-align:left !important;'>&nbsp;14:40:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告修正本公司113年度股東會年報部分內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='144023';document.t05st01_fm.spoke_date.value='20250826';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/09/09</td><td style='text-align:left !important;'>&nbsp;15:55:30</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加美林證券(BofA)舉辦之2025 Asia Pacific Conference</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155530';document.t05st01_fm.spoke_date.value='20250909';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/09/26</td><td style='text-align:left !important;'>&nbsp;16:33:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加元大證券舉辦之座談會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163316';document.t05st01_fm.spoke_date.value='20250926';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/10/21</td><td style='text-align:left !important;'>&nbsp;17:05:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加國泰證券暨未來資產證券舉辦之投資人會議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170556';document.t05st01_fm.spoke_date.value='20251021';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/10/28</td><td style='text-align:left !important;'>&nbsp;15:04:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司114年第3季財務報告董事會預計召開日期
+為114年11月05日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150444';document.t05st01_fm.spoke_date.value='20251028';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/11/05</td><td style='text-align:left !important;'>&nbsp;15:55:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國114年第3季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155547';document.t05st01_fm.spoke_date.value='20251105';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/11/05</td><td style='text-align:left !important;'>&nbsp;16:02:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司第一屆提名委員會委員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='160201';document.t05st01_fm.spoke_date.value='20251105';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/11/05</td><td style='text-align:left !important;'>&nbsp;16:21:09</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議通過分割實境遠端管理事業</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='162109';document.t05st01_fm.spoke_date.value='20251105';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/11/05</td><td style='text-align:left !important;'>&nbsp;16:34:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司取得不動產之使&#12132;權資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='163459';document.t05st01_fm.spoke_date.value='20251105';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/11/13</td><td style='text-align:left !important;'>&nbsp;16:34:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加J.P. Morgan舉辦之「Global Technology, Media and Telecom Conference in Asia」</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163457';document.t05st01_fm.spoke_date.value='20251113';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/11/18</td><td style='text-align:left !important;'>&nbsp;16:08:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加Morgan Stanley主辦之「Twenty-Fourth Annual Asia Pacific Summit」</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160852';document.t05st01_fm.spoke_date.value='20251118';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/11/19</td><td style='text-align:left !important;'>&nbsp;17:12:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加財團法人中華民國證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171208';document.t05st01_fm.spoke_date.value='20251119';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/11/24</td><td style='text-align:left !important;'>&nbsp;16:00:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加花旗證券舉辦之花旗證券台灣產業論壇</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160050';document.t05st01_fm.spoke_date.value='20251124';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/12/01</td><td style='text-align:left !important;'>&nbsp;16:27:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加瑞銀證券所舉辦之UBS Global Technology and AI Conference</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162708';document.t05st01_fm.spoke_date.value='20251201';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/12/12</td><td style='text-align:left !important;'>&nbsp;15:59:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司營運長異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155901';document.t05st01_fm.spoke_date.value='20251212';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5274</td><td style='text-align:left !important;'>&nbsp;信驊</td><td style='text-align:left !important;'>&nbsp;114/12/12</td><td style='text-align:left !important;'>&nbsp;15:59:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司資訊安全主管異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='155951';document.t05st01_fm.spoke_date.value='20251212';document.t05st01_fm.co_id.value='5274';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+</table></form>
+
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
