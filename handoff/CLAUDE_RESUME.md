@@ -25,7 +25,7 @@
    5347（39259749526）、5274（之後一個 run）。完成後：
    - `python gate_pipeline/ops/slide_guidance.py --co-id 5347 --conference results/5347/conference --out …`，5274 同；
      有 `format_unknown` 就看原文頁面補寫法（不猜）。
-   - 用 scratchpad 的固定文字產生方式（逐頁 pdftotext＋一覽表原始回應 → `contract/mops_real/slides/<代號>/`）加 5347、5274 測試。
+   - 用 `tools/make_slide_fixtures.py <代號>`（在 repo 根目錄、已解壓 gate_pipeline 時執行；逐頁 pdftotext＋一覽表原始回應 → `gate_pipeline/contract/mops_real/slides/<代號>/`）加 5347、5274 測試。
    - 發 v4.38 後執行 gate-pipeline-slide-guidance（四家），結果在 `results/<代號>/slide_guidance/<run>/`。
 2. 年報探測：執行 gate-pipeline-annual-report-probe（co_id 8299、roc_years 114,115），看 step=9 送法是否正確；下載到年報後查
    生產據點、10% 以上客戶、市占率的頁碼（給正式網站 Gate 4）。
