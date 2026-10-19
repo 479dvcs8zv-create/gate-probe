@@ -1,0 +1,283 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='6488'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='6488'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='112'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 6488 
+環球晶          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;1</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;112/05/02</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;16:12:45</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;彭欣瑜</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;總經理室特別助理</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-5772255</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議發行新股與兆遠科技股份有限公司
+進行股份轉換案</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;112/05/02
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.併購種類(如合併、分割、收購或股份受讓):
+股份轉換
+2.事實發生日:112/5/2
+3.參與併購公司名稱(如合併另一方公司、分割新設公司、收購或受讓股份標的公司之
+名稱:
+收購公司：環球晶圓股份有限公司(以下簡稱環球晶公司或本公司)
+標的公司：兆遠科技股份有限公司(以下簡稱兆遠公司)
+4.交易相對人(如合併另一方公司、分割讓與他公司、收購或受讓股份之交易對象):
+兆遠公司
+5.交易相對人為關係人:是
+6.交易相對人與公司之關係(本公司轉投資持股達XX%之被投資公司)，並說明選定
+收購、受讓他公司股份之對象為關係企業或關係人之原因及是否不影響股東權益:
+本公司及兆遠公司分別為中美矽晶製品股份有限公司直接持有約51.17%及約31.61%股權之
+被投資公司，雙方公司為關聯企業。
+本公司與兆遠公司為雙方資源互補與協同合作、擴增產品線，以增加營運優勢，故以發行
+新股予兆遠公司股東為對價與兆遠公司進行股份轉換，由本公司取得兆遠公司100%股權，
+對本公司股東權&#64023;應無重大影響。
+7.併購目的及條件，包括併購理由、對價條件及支付時點:
+擴增本公司產品線，以增加營運優勢；本次股份轉換案之換股比例，為兆遠公司普通股每
+1股換發本公司新發行普通股0.02股。暫定股份轉換基準日為民國112年11月1日，若因實
+際情況有調整股份轉換基準日之必要，本公司董事會授權董事長代表本公司協商調整股份
+轉換基準日並公告之。
+8.併購後預計產生之效益:
+預期在雙方公司資源整合後，將能擴充本公司產品線、提升兆遠公司營運效率，增加雙方
+公司營運優勢並提升集團整體績效。
+9.併購對每股淨值及每股盈餘之影響:
+本次併購，期能結合雙方資源、提升營運優勢，長期而言對本公司每股淨值及每股盈餘均
+有正面之助益。
+10.併購之對價種類及資金來源:
+本公司預計增資發行新股共計普通股878,004股予換股基準日兆遠公司之持股股東，
+每股面額新台幣10元，共計新台幣8,780,040元。本公司確定應發行之普通股股份總數，
+以股份轉換基準日兆遠公司實際發行普通股股份總數，扣除應於股份轉換基準日或其他
+法令規定應予銷除之兆遠公司普通股股數後，按換股比例所核計之股份數為準；如有依
+據股份轉換契約中所約定應予調整換股比例之情事者，應由雙方董事會共同協商換股
+比例調整之。
+11.換股比例及其計算依據:
+本次股份轉換案之換股比例，為兆遠公司普通股每1股換發本公司新發行普通股0.02股。
+換股比例係參酌本公司及兆遠公司股票近期市場價格及公司財務業務資訊與未來發展等
+相關資料，並徵詢獨立專家之意見後由雙方協議訂定，該換股比例並業經獨立專家出具
+換股比例合理性意見書在案。
+12.本次交易會計師、律師或證券承銷商出具非合理性意見:否
+13.會計師或律師事務所名稱或證券承銷商公司名稱:
+勤信聯合會計師事務所
+14.會計師或律師姓名:
+黃勝平會計師
+15.會計師或律師開業證書字號:
+金管會證字第6756號
+16.獨立專家就本次併購換股比例、配發股東之現金或其他財產之合理性意見書內容
+(一、包含公開收購價格訂定所採用之方法、原則或計算方式及與國際慣用之市價法
+、成本法及現金流量折現法之比較。二、被收購公司與已上市櫃同業之財務狀況
+、獲利情形及本益比之比較情形。三、公開收購價格若參考鑑價機構之鑑價報告者
+，應說明該鑑價報告內容及結論。四、收購人融資償還計畫若係以被收購公司或合
+併後存續公司之資產或股份為擔保者，應說明對被收購公司或合併後存續公司財務
+業務健全性之影響評估):
+獨立專家換股比例合理性意見書，係參酌本公司及兆遠公司股票市價與財務資訊及市場
+客觀資料等，分別以市價法、市場法之可類比公司法(股價淨值比法)為基礎，計算出本
+公司普通股之每股價格為508.42元，兆遠公司普通股每股價格區間為7.35元~12.88元，
+依此計算換股比例合理區間為兆遠公司普通股1股換發本公司新發行普通股
+0.0145股~0.0253股，本次本公司因策略性考量，擬與兆遠公司進行股份轉換，雙方協議
+以兆遠公司普通股1股換發本公司增資發行普通股0.02股，此股份轉換比例經獨立專家
+審慎評估且介於前述換股比例合理區間內，尚屬允當合理。
+17.預定完成日程:
+暫定股份轉換基準日為民國112年11月1日，若因實際情況有調整股份轉換基準日之必
+要，由本公司董事會授權董事長代表本公司協商調整股份轉換基準日並公告之。
+18.既存或新設公司承受消滅(或分割)公司權利義務相關事項(註二):
+不適用
+19.參與合併公司之基本資料(註三):
+(1) 環球晶公司主要業務為半導體晶棒及晶圓之研發、設計與製造
+(2) 兆遠公司主要業務為鉭酸鋰/鈮酸鋰/砷化鎵基板製造與銷售
+20.分割之相關事項(含預定讓與既存公司或新設公司之營業、資產之評價價值；被
+分割公司或其股東所取得股份之總數、種類及數量；被分割公司資本減少時，其資
+本減少有關事項)(註：若非分割公告時，則不適用):
+不適用
+21.併購股份未來移轉之條件及限制:
+無
+22.併購完成後之計畫(包含一、繼續經營公司業務之意願及計畫內容。二、是否發生
+解散、下市(櫃)、重大變更組織、資本、業務計畫、財務及生產、對公司重要人員
+、資產之安排或運用，或其他任何影響公司股東權益之重大事項):
+本股份轉換案完成後，兆遠公司將成為本公司百分之百持股之子公司。兆遠公司擬於
+民國112年6月13日股東常會決議本股份轉換案。兆遠公司將於本股份轉換案取得相關
+主管機關核准後，依相關規定向財團法人中華民國證券櫃檯買賣中心申請有價證券
+終止櫃檯買賣，並向金融監督管理委員會申請停止公開發行。
+23.其他重要約定事項:
+1. 依據股份轉換契約，本案進行之先決條件包括但不限於兆遠公司之股東會決議通過
+本股份轉換案、兆遠公司依法請求股份收買之異議股份佔兆遠公司已發行普通股股份
+之比例不超過10%、取得相關主管機關之核准等。
+2. 本次股份轉換案之換股比例，為兆遠公司普通股每1股換發本公司新發行普通股
+0.02股。前述換股比例已考量雙方公司於股份轉換基準日前預計股利配發情事，
+故不因此而調整換股比例。
+24.其他與併購相關之重大事項:
+本股份轉換案完成後，兆遠公司將成為本公司百分之百持股之子公司。兆遠公司擬於
+民國112年6月13日股東常會決議本股份轉換案。兆遠公司將於本股份轉換案取得相關
+主管機關核准後，依相關規定向財團法人中華民國證券櫃檯買賣中心申請有價證券
+終止櫃檯買賣，並向金融監督管理委員會申請停止公開發行。
+25.本次交易，董事有無異議:否
+26.併購交易中涉及利害關係董事資訊(自然人董事姓名或法人董事名稱暨其代表人姓名
+、其自身或其代表之法人有利害關係之重要內容(包括但不限於實際或預計投資其他
+參加併購公司之方式、持股比率、交易價格、是否參與併購公司之經營及其他投資條件
+等情形)、其應迴避或不迴避理由、迴避情形、贊成或反對併購決議之理由):
+(1) 本公司董事長徐秀蘭女士，係兆遠公司之董事；徐秀蘭女士擔任董事長之中美
+矽晶製品股份有限公司(以下簡稱「中美晶公司」)，該公司直接持有兆遠公司
+13,877,460股普通股，持股比例為31.61%，並擔任兆遠公司之法人董事。
+(2) 本公司董事盧明光先生，係以本公司法人股東中美晶公司之代表人當選本公司
+董事；本公司法人股東中美晶公司與兆遠公司之關係則如前所述。
+(3) 本公司董事姚宕梁先生，係以本公司法人股東中美晶公司之代表人當選本公司
+董事；姚宕梁先生擔任兆遠公司之董事長，自身持有兆遠公司98,007股普通股。
+本公司法人股東中美晶公司與兆遠公司之關係則如前所述。
+(4) 考量本公司的長遠發展策略，本次股份轉換案將使雙方資源更有效整合，配合
+本公司大陸子公司昆山中辰矽晶有限公司收購兆遠公司子公司上海召業申凱電子材料
+有限公司案，使本公司得以進一步開拓市場，深化5G及衛星通訊產業布局，增強市場
+競爭力，董事徐秀蘭女士、盧明光先生、姚宕梁先生皆一致贊成本股份轉換案。
+
+以上所列之董事就本公司與兆遠公司進行本股份轉換案乙事，應可認有利害關係，
+基於本股份轉換案係符合本公司最大利益，前開董事參與本案討論及表決尚無致
+損害本公司利益之虞，惟為確保決議作成之客觀性，前開董事於討論與表決中仍
+自請迴避，未行使表決權。
+27.是否涉及營運模式變更:否
+28.營運模式變更說明(註四):
+不適用
+29.過去一年及預計未來一年內與交易相對人交易情形(註五):
+本公司大陸子公司昆山中辰矽晶有限公司於112年2月3日董事會決議通過收購兆遠
+公司子公司上海召業申凱電子材料有限公司(以下簡稱上海召凱)，該案已於112年
+4月23日完成上海召凱之股權移轉登記。
+30.資金來源(註五):
+不適用
+31.其他敘明事項(註六):
+(1)本股份轉換案依法尚須經兆遠公司之股東會決議通過。
+(2)換股比例之調整: 本次轉換股份案之換股比例已明訂於股份轉換契約，前述換股
+比例得調整之情況亦明訂於股份轉換契約第四條。
+(3)本次股份轉換，倘有兆遠公司之股東依法表示異議並請求買回其持股時，兆遠公司
+將依法令規定收買該異議股東所持有之股份。
+(4)本股份轉換暨發行新股增資案未盡之事宜，除股份轉換契約另有約定外，授權董事長
+或其指定之人單獨或共同代表本公司全權處理與本次股份轉換案有關之一切必要程序並
+採取相關必要之行為，包括但不限於準備、簽署及交付相關合約或文件及向主管機關
+提出申請或申報等，並得依最新法令規定及行政指導而逕行辦理該等事宜。另為踐行
+我國公司法之相關規定，本公司同意全權授權本公司審計委員會召集人代表本公司簽署
+股份轉換契約及其他相關文件與合約。
+註二、既存或新設公司承受消滅公司權利義務相關事項，包括庫藏股及已發行具有股權性質有
+　　　價證券之處理原則。
+註三：參與合併公司之基本資料包括公司名稱及所營業務之主要內容。
+註四：倘涉營運模式變更，請於欄位敘明包括營業範圍變更、產品線擴充/縮減、製程調整、產業
+　　　水平/垂直整合，或其他涉及營運架構調整事項。
+註五：非屬私募資金用以併購案件者，得填寫不適用。
+註六：若本案成就前，尚需經國內、外主管機關(如:投審會、公平交易委員會、反壟斷局或其他單位)核准或許可者，應予敘明相關事項。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='6488'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

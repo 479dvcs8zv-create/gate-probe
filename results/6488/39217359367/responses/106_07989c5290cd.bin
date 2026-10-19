@@ -1,0 +1,188 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='6488'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='6488'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='115'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 6488 
+環球晶          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;4</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;115/07/29</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;17:07:10</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;彭欣瑜</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;董事長特別助理</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-5772255</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司有價證券達公布注意交易資訊標準，故公告
+相關訊息，以利投資人區別瞭解。</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+53&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;115/07/29
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:115/07/29
+2.發生緣由:依財團法人中華民國證券櫃檯買賣中心通知辦理。
+3.財務業務資訊:
+一、基本資料
+(一)單月                     115年6月         114年6月        與去年同期增減
+營業收入(百萬元)              5,624            5,717            -1.63%
+稅前淨利(百萬元)            (3,889)            1,831          -312.43%
+歸屬母公司業主淨利(百萬元)   (3,955)            1,499           -363.84%
+每股盈餘(元)                 (8.27)             3.14          -363.38%
+
+(二)單季                    115年第1季      115年第1季        與去年同期增減
+營業收入(百萬元)             13,985           15,595            -10.32%
+稅前淨利(百萬元)              2,347            2,133             10.03%
+歸屬母公司業主淨利(百萬元)     1,896            1,456             30.22%
+每股盈餘(元)                  3.97              3.05             30.16%
+
+(三)最近四季累計       114年第2季至115年第1季
+營業收入(百萬元)             58,988
+稅前淨利(百萬元)              9,730
+歸屬母公司業主淨利(百萬元)     7,752
+每股盈餘(元)                  16.21
+每股面額：10元
+4.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
+重大訊息之查證暨公開處理程序 」第4條所列重大訊息之情事（如
+「有」，請說明）:有
+公告本公司115年第二季財務報告董事會預計召開日期
+為115年08月04日
+公告本公司義大利Novara廠火災事件說明
+5.有無「財團法人中華民國證券櫃檯買賣中心對有價證券上櫃公司
+重大訊息之查證暨公開處理程序」第11條所列重大訊息說明記者會
+之情事:
+無
+6.其他應敘明事項:
+
+註1：本公司本業營運狀況穩健，115年6月營收較115年5月營收成長達16%，
+115年第二季營收較115年第一季營收成長亦達8.8%，
+115年6月稅前淨損及每股虧損，係因持有之Siltronic AG股票價格
+下跌及本公司德國子公司以Siltronic AG股票為認股標的所發行之
+海外附認股權公司債相關評價損失影響所致，前述評價損失無關
+現金流動，亦不影響本公司本業之營運狀況。
+
+註2：以上115年6月及去年同期比較數之財務資料係本公司採IFRS會計準則
+編製之合併數，未經會計師查核(閱)，僅供投資人參考。
+
+註3：最近一季115年第1季係指單季數字，非為最近財務報告中之累計數字，
+且係本公司採IFRS下編製之合併數，業經會計師查核(閱)，僅供投資人參考。
+
+註4：最近四季累計係本公司114年第2季至115年第1季採IFRS編製之合併數，
+業經會計師查核(閱)，僅供投資人參考。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='6488'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

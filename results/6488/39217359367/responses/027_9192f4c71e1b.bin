@@ -1,0 +1,173 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='6488'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='6488'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='112'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 6488 
+環球晶          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;4</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;112/05/02</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;16:14:13</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;彭欣瑜</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;總經理室特別助理</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-5772255</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;環球晶圓發行新股與兆遠科技進行股份轉換</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+53&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;112/05/02
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:112/05/02
+2.公司名稱:環球晶圓股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:
+本公司與兆遠科技股份有限公司（4944）（下稱「兆遠科技」）於今日分別召開
+董事會，決議通過依據企業併購法等相關規定進行股份轉換，由環球晶圓發行新股
+為對價取得兆遠科技百分之百股權。
+
+本次股份轉換之換股比例為兆遠科技普通股每1股換發環球晶圓新發行普通股0.02股，
+環球晶圓預計增資發行普通股878,004股予兆遠科技之持股股東。兆遠科技預計於
+112年6月13日股東常會討論此案，俟兆遠科技股東會決議通過，且取得相關主管機關
+核准後，兆遠科技將依相關規定申請有價證券終止上櫃及申請停止公開發行，
+暫訂112年11月1日為股份轉換基準日。
+
+兆遠科技是台灣首家硬脆材料基板專業製造廠，為藍寶石基板供應商，然而在大陸
+供應商以低價搶佔市場，使產品價格快速崩跌，國內同業廠商在不堪長期虧損下已
+全數退出此市場。而兆遠科技在苦撐多年後，亦因不堪虧損，於111年停止藍寶石
+基板生產，並積極推動產品轉型，朝砷化鎵、鉭酸鋰、鈮酸鋰晶圓市場發展，
+以謀求公司永續經營。
+
+鉭酸鋰及鈮酸鋰基板為通訊產品關鍵材料，但考量未來要成功地開發相關市場，
+仍需投入為數可觀的資源來拓展行銷通路與產能建置，兆遠科技為保障股東權益，
+認為透過與環球晶圓股份轉換案，可與環球晶圓深化合作，提升營運效能及產品優勢，
+憑藉環球晶圓在傳統矽晶圓及化合物半導體領域豐富的研發製造經驗及完整的
+行銷通路，共同發展相關的產品與市場應用，打造有利雙方股東的最佳方案。
+
+本公司為國內半導體產業最大、全球第三大專業晶圓材料供應商，具有完整的
+半導體晶圓生產線，為全球客戶提供高品質的產品及服務。在半導體深耕多年，
+具備優異的營運管理經驗、綿密的全球銷售渠道，有機會透過組織業務重整，
+加速擴大砷化鎵、鉭酸鋰及鈮酸鋰晶圓產品應用與相關商機。
+6.因應措施:不適用
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
+本則重大訊息同時符合證券交易法施行細則第7條第9款所定
+對股東權益或證券價格有重大影響之事項):無</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='6488'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
