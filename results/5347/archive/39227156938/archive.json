@@ -1,0 +1,98 @@
+{
+  "archive_version": "4.32-archive",
+  "co_id": "5347",
+  "adr": null,
+  "typek": "otc",
+  "base_url": "https://web.archive.org",
+  "started_at": "2026-10-19T09:45:58.697529+00:00",
+  "targets": [
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "新台幣／股",
+      "url": "https://finance.yahoo.com/quote/5347.TWO/analysis/",
+      "save": {
+        "attempt": 1,
+        "sent_at": "2026-10-19T09:45:58.697551+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261019094636/https://finance.yahoo.com/quote/5347.TWO/analysis/"
+        },
+        "cdx_file": "cdx/yahoo_tw_analysis_1.json",
+        "cdx_sha256": "249b189048be86209046ec319bf6a7878702344e0bc3ca246fd3d08cd5fd4442",
+        "found_in_index": "20261019094636"
+      },
+      "capture": {
+        "timestamp": "20261019094636",
+        "captured_at_tpe": "2026-10-19T17:46:36+08:00",
+        "archive_url": "https://web.archive.org/web/20261019094636/https://finance.yahoo.com/quote/5347.TWO/analysis/",
+        "cdx_digest": "F2KQ7MARPKRJTFFUFN6N3VQDTKF7DKVN",
+        "digest_matched": true,
+        "file": "captures/yahoo_tw_analysis_20261019094636.bin",
+        "sha256": "8f59d725a336bf220023026bbffb9d9369f8a5cda2e8c7be8cea88e3b013eee1",
+        "length": 189633,
+        "content_type": "text/html; charset=utf-8",
+        "content_encoding": "gzip",
+        "sent_ts": "20261019094558",
+        "decoded_length": 957117,
+        "decoded_sha256": "ccd21e989d27ee27cc93ab8a7fd89fcad10ff37dea245ff7d7f4b6007ebd94c9",
+        "payload_compression": "gzip"
+      },
+      "status": "ARCHIVED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-19T09:45:58.697551+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261019094636/https://finance.yahoo.com/quote/5347.TWO/analysis/"
+          },
+          "cdx_file": "cdx/yahoo_tw_analysis_1.json",
+          "cdx_sha256": "249b189048be86209046ec319bf6a7878702344e0bc3ca246fd3d08cd5fd4442",
+          "found_in_index": "20261019094636"
+        }
+      ]
+    },
+    {
+      "id": "tradingview_tw_forecast",
+      "vendor": "TradingView",
+      "unit": "新台幣（頁面標示 TWD；GAAP／調整後未寫）",
+      "url": "https://tw.tradingview.com/symbols/TPEX-5347/forecast-actuals-and-estimates/",
+      "save": {
+        "attempt": 1,
+        "sent_at": "2026-10-19T09:48:04.095954+00:00",
+        "http_status": null,
+        "error": "URLError: timed out",
+        "headers": {},
+        "cdx_error": "URLError: _ssl.c:993: The handshake operation timed out"
+      },
+      "capture": null,
+      "status": "SAVE_FAILED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-19T09:48:04.095954+00:00",
+          "http_status": null,
+          "error": "URLError: timed out",
+          "headers": {},
+          "cdx_error": "URLError: _ssl.c:993: The handshake operation timed out"
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "skipped": [],
+  "order_basis": [
+    {
+      "id": "yahoo_tw_analysis",
+      "last_archived": null
+    },
+    {
+      "id": "tradingview_tw_forecast",
+      "last_archived": null
+    }
+  ],
+  "finished_at": "2026-10-19T09:51:09.270168+00:00"
+}

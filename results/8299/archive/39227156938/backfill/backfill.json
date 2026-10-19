@@ -1,0 +1,122 @@
+{
+  "backfill_version": "4.31-backfill",
+  "co_id": "8299",
+  "adr": null,
+  "base_url": "https://web.archive.org",
+  "window_days": 45,
+  "started_at": "2026-10-19T09:34:16.395572+00:00",
+  "cutoffs": {
+    "2023Q1": {
+      "at": "2023-04-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2023-04-01T00:00:00+08:00"
+    },
+    "2023Q2": {
+      "at": "2023-07-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2023-07-01T00:00:00+08:00"
+    },
+    "2023Q3": {
+      "at": "2023-10-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2023-10-01T00:00:00+08:00"
+    },
+    "2023Q4": {
+      "at": "2024-01-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2024-01-01T00:00:00+08:00"
+    },
+    "2024Q1": {
+      "at": "2024-04-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2024-04-01T00:00:00+08:00"
+    },
+    "2024Q2": {
+      "at": "2024-07-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2024-07-01T00:00:00+08:00"
+    },
+    "2024Q3": {
+      "at": "2024-10-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2024-10-01T00:00:00+08:00"
+    },
+    "2024Q4": {
+      "at": "2025-01-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2025-01-01T00:00:00+08:00"
+    },
+    "2025Q1": {
+      "at": "2025-04-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2025-04-01T00:00:00+08:00"
+    },
+    "2025Q2": {
+      "at": "2025-07-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2025-07-01T00:00:00+08:00"
+    },
+    "2025Q3": {
+      "at": "2025-10-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2025-10-01T00:00:00+08:00"
+    },
+    "2025Q4": {
+      "at": "2026-01-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2026-01-01T00:00:00+08:00"
+    },
+    "2026Q1": {
+      "at": "2026-04-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2026-04-01T00:00:00+08:00"
+    },
+    "2026Q2": {
+      "at": "2026-07-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2026-07-01T00:00:00+08:00"
+    },
+    "2026Q3": {
+      "at": "2026-10-01T00:00:00+08:00",
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "announced_at": "2026-10-01T00:00:00+08:00"
+    }
+  },
+  "sources": [
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "prefix": "finance.yahoo.com/quote/8299.TWO/analysis",
+      "unit": "新台幣／股",
+      "cdx": {
+        "file": "cdx/yahoo_tw_analysis.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "url": "https://web.archive.org/cdx/search/cdx?url=finance.yahoo.com%2Fquote%2F8299.TWO%2Fanalysis&matchType=prefix&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cdigest%2Cmimetype%2Clength&filter=statuscode%3A200&from=20230214160000&to=20260930160000&limit=2000",
+        "error": null,
+        "records": 0
+      },
+      "quarters": {
+        "2023Q1": null,
+        "2023Q2": null,
+        "2023Q3": null,
+        "2023Q4": null,
+        "2024Q1": null,
+        "2024Q2": null,
+        "2024Q3": null,
+        "2024Q4": null,
+        "2025Q1": null,
+        "2025Q2": null,
+        "2025Q3": null,
+        "2025Q4": null,
+        "2026Q1": null,
+        "2026Q2": null,
+        "2026Q3": null
+      },
+      "samples": []
+    }
+  ],
+  "refetch": [],
+  "notes": [],
+  "requests": 1,
+  "finished_at": "2026-10-19T09:34:28.645059+00:00"
+}

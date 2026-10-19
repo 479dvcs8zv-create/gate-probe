@@ -1,0 +1,155 @@
+{
+  "archive_version": "4.32-archive",
+  "co_id": "2330",
+  "adr": "TSM",
+  "typek": "sii",
+  "base_url": "https://web.archive.org",
+  "started_at": "2026-10-19T09:07:43.540253+00:00",
+  "targets": [
+    {
+      "id": "marketwatch_adr_estimates",
+      "vendor": "MarketWatch（FactSet 資料）",
+      "unit": "美元／ADR",
+      "url": "https://www.marketwatch.com/investing/stock/tsm/analystestimates",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-10-19T09:08:54.913348+00:00",
+        "http_status": 520,
+        "error": null,
+        "headers": {},
+        "cdx_file": "cdx/marketwatch_adr_estimates_2.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "SAVE_FAILED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-19T09:07:43.540274+00:00",
+          "http_status": 520,
+          "error": null,
+          "headers": {},
+          "cdx_file": "cdx/marketwatch_adr_estimates_1.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-10-19T09:08:54.913348+00:00",
+          "http_status": 520,
+          "error": null,
+          "headers": {},
+          "cdx_file": "cdx/marketwatch_adr_estimates_2.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ]
+    },
+    {
+      "id": "stockanalysis_adr_forecast",
+      "vendor": "StockAnalysis",
+      "unit": "新台幣（頁面標示財報幣別 TWD；每股或每 ADR 未寫）",
+      "url": "https://stockanalysis.com/stocks/tsm/forecast/",
+      "save": {
+        "attempt": 1,
+        "sent_at": "2026-10-19T09:10:37.532366+00:00",
+        "http_status": null,
+        "error": "URLError: timed out",
+        "headers": {},
+        "cdx_file": "cdx/stockanalysis_adr_forecast_1.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "SAVE_FAILED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-19T09:10:37.532366+00:00",
+          "http_status": null,
+          "error": "URLError: timed out",
+          "headers": {},
+          "cdx_file": "cdx/stockanalysis_adr_forecast_1.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ]
+    },
+    {
+      "id": "tradingview_tw_forecast",
+      "vendor": "TradingView",
+      "unit": "新台幣（頁面標示 TWD；GAAP／調整後未寫）",
+      "url": "https://tw.tradingview.com/symbols/TWSE-2330/forecast-actuals-and-estimates/",
+      "save": null,
+      "capture": null,
+      "status": "TIMEOUT"
+    },
+    {
+      "id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "美元／ADR",
+      "url": "https://finance.yahoo.com/quote/TSM/analysis/",
+      "save": null,
+      "capture": null,
+      "status": "TIMEOUT"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "新台幣／股",
+      "url": "https://finance.yahoo.com/quote/2330.TW/analysis/",
+      "save": null,
+      "capture": null,
+      "status": "TIMEOUT"
+    },
+    {
+      "id": "nasdaq_api_forecast",
+      "vendor": "Nasdaq API",
+      "unit": "美元／ADR",
+      "url": "https://api.nasdaq.com/api/analyst/TSM/earnings-forecast",
+      "save": null,
+      "capture": null,
+      "status": "TIMEOUT"
+    },
+    {
+      "id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "unit": "美元／ADR",
+      "url": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+      "save": null,
+      "capture": null,
+      "status": "TIMEOUT"
+    }
+  ],
+  "notes": [
+    "時間上限 300 秒已到，部分網站未送出"
+  ],
+  "skipped": [],
+  "order_basis": [
+    {
+      "id": "marketwatch_adr_estimates",
+      "last_archived": null
+    },
+    {
+      "id": "stockanalysis_adr_forecast",
+      "last_archived": null
+    },
+    {
+      "id": "tradingview_tw_forecast",
+      "last_archived": null
+    },
+    {
+      "id": "yahoo_adr_analysis",
+      "last_archived": "20261019014822"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "last_archived": "20261019015426"
+    },
+    {
+      "id": "nasdaq_api_forecast",
+      "last_archived": "20261019020624"
+    },
+    {
+      "id": "marketbeat_adr_earnings",
+      "last_archived": "20261019022843"
+    }
+  ],
+  "finished_at": "2026-10-19T09:12:44.666199+00:00"
+}
