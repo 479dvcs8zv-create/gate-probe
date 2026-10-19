@@ -1,0 +1,359 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='5347'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='5347'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='114'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 5347 
+世界            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;1</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;114/11/03</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;17:40:42</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃惠蘭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;(03)5770355</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會同意本公司及子公司機器設備及相關廠務設備資本預算</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+20&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;114/11/03
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.標的物之名稱及性質（如坐落台中市北區ＸＸ段ＸＸ小段土地）:
+(1)8吋機器設備及相關廠務設備
+(2)12吋機器設備及相關廠務設備
+2.事實發生日:114/11/3~114/11/3
+3.董事會通過日期: 民國114年11月3日
+4.其他核決日期: 不適用
+5.交易單位數量（如ＸＸ平方公尺，折合ＸＸ坪）、每單位價格及交易總金額:
+(1)8吋機器設備及相關廠務設備: 新台幣4,733佰萬元
+(2)12吋機器設備及相關廠務設備: 新台幣21,316佰萬元
+6.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之關
+係人者，得免揭露其姓名）:
+(1)8吋機器設備及相關廠務設備:
+台灣東京精密股份有限公司與其關係企業;
+ADVANCED MICRO-FABRICATION EQUIPMENT INTERNATIONAL PTE. LTD.與其關係企業;
+台控科技股份有限公司與其關係企業;研華股份有限公司與其關係企業;
+台灣安捷倫科技股份有限公司與其關係企業;愛思強股份有限公司與其關係企業;
+AKRION TECHNOLOGIES INC.與其關係企業;銨科股份有限公司與其關係企業;
+ANSON ENGINEERING PTE LTD與其關係企業;APET CO., LTD.與其關係企業;
+晁源有限公司與其關係企業;新加坡商應用材料股份有限公司台灣分公司與其關係企業;
+APPLIED MATERIALS SOUTH EAST ASIA PTE. LTD.與其關係企業;
+ARCHIBUILD PTE LTD與其關係企業;ASML SINGAPORE PTE LTD與其關係企業;
+台灣艾司摩爾科技股份有限公司與其關係企業;亞舍立科技股份有限公司與其關係企業;
+寶虹科技股份有限公司與其關係企業;百竤科技有限公司與其關係企業;
+波士威科技股份有限公司與其關係企業;志聖工業股份有限公司與其關係企業;
+CANON SINGAPORE PTE. LTD.與其關係企業;
+CETECH ENGINEERING AND SERVICES PTE LTD與其關係企業;
+CG INTEGRAL PTE LTD與其關係企業;長興國際系統有限公司與其關係企業;
+啟德機械起重工程股份有限公司與其關係企業;棨揚企業有限公司與其關係企業;
+CLEANIK (S) PTE LTD與其關係企業;承湘科技股份有限公司與其關係企業;
+香港商達思系統股份有限公司台灣分公司與其關係企業;
+DAS ENVIRONMENTAL EXPERT GMBH與其關係企業;
+迪思科高科技股份有限公司與其關係企業;
+登普半導體科技股份有限公司與其關係企業;逸典科技股份有限公司與其關係企業;
+台灣荏原精密股份有限公司與其關係企業;ECOSYS PTE LTD與其關係企業;
+愛德華先進科技股份有限公司與其關係企業; EDWARDS VACUUM與其關係企業;
+英堡裝潢工程行與其關係企業;EVATEC AG與其關係企業;
+亦立科技股份有限公司與其關係企業;
+EZ SEMICONDUCTOR SERVICE PTE LTD與其關係企業;EZIVIN PTE LTD與其關係企業;
+明遠精密科技股份有限公司與其關係企業;FORMFACTOR INC.與其關係企業;
+GEGV TECHNOLOGY CO., LTD.與其關係企業;捷亮科技股份有限公司與其關係企業;
+靖洋科技股份有限公司與其關係企業;京英機械工程有限公司與其關係企業;
+世(吉吉)科技股份有限公司與其關係企業;固德科技股份有限公司與其關係企業;
+聯偉科技有限公司與其關係企業;台灣杰斯特半導體設備技術股份有限公司與其關係企業;
+日立先端科技股份有限公司與其關係企業;鴻昌電熱科技有限公司與其關係企業;
+鴻伍機械股份有限公司與其關係企業;愛迪亞科技股份有限公司與其關係企業;
+易利修科技股份有限公司與其關係企業;臺禹科機股份有限公司與其關係企業;
+JAN-YI TECHNOLOGY PTE LTD與其關係企業;捷測精密科技股份有限公司與其關係企業;
+（二中）成股份有限公司與其關係企業;久福金屬實業有限公司與其關係企業;
+仲棠工程股份有限公司與其關係企業;潔恩科技股份有限公司與其關係企業;
+捷創科技股份有限公司與其關係企業;楷權科技有限公司與其關係企業;
+KEYSIGHT TECHNOLOGIES SINGAPORE (SALES) PTE. LTD.與其關係企業;
+台灣是德科技股份有限公司與其關係企業;晶傑科技有限公司與其關係企業;
+KLA CORPORATION與其關係企業;KLA-TENCOR (SINGAPORE) PTE. LTD與其關係企業;
+美商科磊股份有限公司台灣分公司與其關係企業;卡麥迪爾有限公司與其關係企業;
+甲子園科技有限公司與其關係企業;亮雲科技股份有限公司與其關係企業;
+菱洋國際工程股份有限公司與其關係企業;MATTSON TECHNOLOGY, INC.與其關係企業;
+創世應用科技有限公司與其關係企業;NANYANG EQUIPMENT PTE LTD與其關係企業;
+奈司特技術股份有限公司與其關係企業;台灣尼康精機股份有限公司與其關係企業;
+北緯科技股份有限公司與其關係企業;大川工程科技有限公司與其關係企業;
+虹鳴科技股份有限公司與其關係企業;ONTO INNOVATION, INC.與其關係企業;
+東服企業股份有限公司與其關係企業;統怡工程有限公司與其關係企業;
+派博科技股份有限公司與其關係企業;譜榮系統科技股份有限公司與其關係企業;
+橙旭科技有限公司與其關係企業;致揚科技股份有限公司與其關係企業;
+QUALITAU INC.與其關係企業;辛耘企業股份有限公司與其關係企業;
+SCREEN SPE SINGAPORE PTE LTD與其關係企業;
+SEIKI GLOBAL TECHNOLOGY PTE LTD與其關係企業;
+碩輝科技股份有限公司與其關係企業;
+SEMI-TECH SYSTEMS PTE LTD與其關係企業;昇昇起重工程有限公司與其關係企業;
+士林電機廠股份有限公司與其關係企業;順芯科技有限公司與其關係企業;
+SMART HONOR PTE LTD與其關係企業;蔚華科技股份有限公司與其關係企業;
+思達科技股份有限公司與其關係企業;精誠軟體服務股份有限公司與其關係企業;
+T AND K WORLDWIDE COMMERCE PTE LTD與其關係企業;
+台灣康肯環保設備股份有限公司與其關係企業;TOKYO ELECTRON LIMITED與其關係企業;
+東京威力科創股份有限公司與其關係企業;TOKYO SEIMITSU CO., LTD與其關係企業;
+東典科技股份有限公司與其關係企業;東洋技術股份有限公司與其關係企業;
+研宏國際股份有限公司與其關係企業;
+TRIPLE CORES TECHNOLOGY CO., LTD.與其關係企業;
+享新系統科技有限公司與其關係企業;題陞企業有限公司與其關係企業;
+宇謙科技股份有限公司與其關係企業;威迪諾科技有限公司與其關係企業;
+文尚科技工程有限公司與其關係企業;WF INDUSTRIALOPOLIS PRIVATE LTD與其關係企業; 
+WHOLETECH SYSTEM HITECH (S) PTE LTD與其關係企業;
+漢科系統科技股份有限公司與其關係企業;輯方技術股份有限公司與其關係企業;
+耶民科技有限公司與其關係企業;岩旭隆科技有限公司與其關係企業;
+英堡科技工程有限公司與其關係企業;詠吉起重工程有限公司與其關係企業;
+佑神科技有限公司與其關係企業;元利儀器股份有限公司與其關係企業;
+育朋科技有限公司與其關係企業;吉利康股份有限公司與其關係企業; 
+易科德室內裝修工程股份有限公司與其關係企業;高信工程股份有限公司與其關係企業; 
+台灣矽科宏晟科技股份有限公司與其關係企業;千附實業股份有限公司與其關係企業;
+哲毅機電工程股份有限公司與其關係企業; 騰齊科技有限公司與其關係企業; 
+宏洋精密工業股份有限公司與其關係企業; 東麟系統有限公司與其關係企業; 
+揚辰科技工程有限公司與其關係企業; 詮宏空調系統服務股份有限公司與其關係企業; 
+麒鵬水電工程有限公司; 旭展冷凍空調有限公司; 盛英股份有限公司與其關係企業; 
+亞力電機股份有限公司與其關係企業; 宇辰系統科技股份有限公司與其關係企業; 
+三斗企業有限公司與其關係企業; 台灣沃威沃股份有限公司與其關係企業; 
+台灣純水科技股份有限公司與其關係企業; 宏川節能科技有限公司與其關係企業; 
+建越科技工程股份有限公司與其關係企業; 保興工業股份有限公司與其關係企業; 
+太丞股份有限公司與其關係企業; 巨茂應用材料股份有限公司與其關係企業; 
+艾力克電機股份有限公司; 祥宇科技有限公司; 天霖企業股份有限公司
+
+與公司關係：皆無
+
+(2)12吋機器設備及相關廠務設備: 
+元烽企業有限公司與其關係企業;台灣東京精密股份有限公司與其關係企業;
+ADVANCED MICRO-FABRICATION EQUIPMENT INTERNATIONAL PTE. LTD.與其關係企業; 
+ADVANCED SEMICONDUCTOR EQUIPMENT TECHNOLOGY SINGAPORE PTE. LTD.與其關係企業;
+台控科技股份有限公司與其關係企業;
+AGILENT TECHNOLOGIES SINGAPORE (SALES) PTE. LTD.與其關係企業;
+AMNET TECHNOLOGY PTE LTD與其關係企業;
+APPLIED MATERIALS SOUTH EAST ASIA PTE. LTD.與其關係企業;
+ASML SINGAPORE PTE LTD與其關係企業;AXCELIS TECHNOLOGIES, INC.與其關係企業; 
+AXCELIS TECHNOLOGIES, PTE. LTD.與其關係企業;
+BROOKS AUTOMATION US, LLC與其關係企業;BRUKER SINGAPORE PTE LTD與其關係企業;
+台灣康法股份有限公司與其關係企業; COORSTEK GK與其關係企業;
+DAS ENVIRONMENTAL EXPERT GMBH與其關係企業;德易力科技股份有限公司與其關係企業;
+德諾科技有限公司與其關係企業;易發精機股份有限公司與其關係企業;
+EBARA CORPORATION與其關係企業;
+EBARA ENGINEERING SINGAPORE PTE LTD與其關係企業; 
+EDWARDS VACUUM與其關係企業;ENTEGRIS SINGAPORE PTE LTD與其關係企業;
+FEI COMPANY OF USA (S.E.A.) PTE. LTD.與其關係企業;
+FONDA TECHNOLOGY CORP.與其關係企業;FORMFACTOR INC.與其關係企業;
+GATE SEMICONDUCTOR CO. LIMITED與其關係企業;
+GENII IDEAS (S) PTE. LTD.與其關係企業;
+世(吉吉)科技股份有限公司與其關係企業;
+HIRATA FA ENGINEERING (S) PTE LTD與其關係企業;
+HITACHI HIGH-TECH (SINGAPORE) PTE. LTD.與其關係企業;
+大銀微系統股份有限公司與其關係企業;
+HORIBA INSTRUMENTS (SINGAPORE) PTE LTD.與其關係企業;
+英福康有限公司與其關係企業;捷創科技股份有限公司與其關係企業;
+KANKEN TECHNO PTE. LTD.與其關係企業;
+KASHIYAMA INDUSTRIES, LTD.與其關係企業;
+KEYSIGHT TECHNOLOGIES SINGAPORE (SALES) PTE. LTD.與其關係企業;
+晶傑科技有限公司與其關係企業;KLA-TENCOR (SINGAPORE) PTE. LTD與其關係企業;
+KOKUSAI ELECTRIC CORPORATION與其關係企業;
+KOKUSAI SEMICONDUCTOR SINGAPORE PTE. LTD.與其關係企業;
+KUN LUN GLOBAL PTE LTD與其關係企業;
+L&K ENGINEERING (SUZHOU) CO.,LTD.SINGAPORE BRANCH與其關係企業;
+LAM RESEARCH INTERNATIONAL SDN BHD與其關係企業;
+MARKETECH INTEGRATED PTE LTD與其關係企業;帆宣系統科技股份有限公司與其關係企業; 
+MATTSON TECHNOLOGY, INC.與其關係企業;
+MEGA UNION TECHNOLOGY GLOBAL PRIVATE LIMITED與其關係企業;
+MKS INSTRUMENTS (SINGAPORE) PTE. LTD.與其關係企業;
+NIKON SINGAPORE PTE LTD與其關係企業;NOVA LTD.與其關係企業;
+ONTO INNOVATION, INC.與其關係企業;PARK SYSTEMS CORP.與其關係企業;
+普發真空科技股份有限公司與其關係企業;QUALITAU INC.與其關係企業;
+RORZE TECHNOLOGY SINGAPORE PTE LTD與其關係企業;
+RUDOLPH TECHNOLOGIES, INC.與其關係企業;旭福股份有限公司與其關係企業;
+SCREEN SEMICONDUCTOR SOLUTIONS CO., LTD.與其關係企業;
+SCREEN SPE SINGAPORE PTE LTD與其關係企業;SEMILAB USA LLC與其關係企業;
+SHIBAURA MECHATRONICS CORPORATION與其關係企業;順芯科技有限公司與其關係企業;
+SMART HONOR PTE LTD與其關係企業;
+STAR-QUEST TECHNOLOGIES PTE. LTD與其關係企業;
+旭昇國際電子股份有限公司與其關係企業;成心科技股份有限公司與其關係企業;
+SUMITOMO HEAVY INDUSTRIES ION TECHNOLOGY CO., LTD.與其關係企業;
+TEL MANUFACTURING AND ENGINEERING OF AMERICA, INC.與其關係企業;
+TERATECH SOLUTIONS PTE LTD與其關係企業;
+THERMO FISHER SCIENTIFIC PTE LTD與其關係企業;
+TOKYO ELECTRON LIMITED與其關係企業;
+TOKYO ELECTRON SINGAPORE PTE. LTD.與其關係企業;
+崇越科技股份有限公司與其關係企業; TOPSCIENCE(S) PTE LTD.與其關係企業;
+WHOLETECH SYSTEM HITECH (S) PTE LTD與其關係企業;
+漢科系統科技股份有限公司與其關係企業;吉利康股份有限公司與其關係企業; 
+研創設計顧問有限公司與其關係企業; 銳澤實業股份有限公司與其關係企業; 
+聚賢研發股份有限公司與其關係企業; 漢唐集成股份有限公司與其關係企業; 
+協崑股份有限公司與其關係企業; TAKENAKA SINGAPORE PTE LTD與其關係企業
+
+與公司關係：皆無
+7.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉之
+所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期
+及移轉金額:
+不適用
+8.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係
+人之取得及處分日期、價格及交易當時與公司之關係:
+不適用
+9.預計處分利益（或損失）（取得資產者不適用）（遞延者應列表說明
+認列情形）:
+不適用
+10.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定
+事項:
+(1)交付或付款條件：依訂單條件付款
+(2)契約限制條款：無
+(3)其他重要約定事項：無
+11.本次交易之決定方式（如招標、比價或議價）、價格決定之參考依據及
+決策單位:
+(1)決定方式：議價
+(2)價格決定之參考依據：按市場行情
+(3)決策單位：依本公司董事會決議及採購核定會議決定
+12.專業估價者事務所或公司名稱及其估價金額:
+不適用
+13.專業估價師姓名:
+不適用
+14.專業估價師開業證書字號:
+不適用
+15.估價報告是否為限定價格、特定價格或特殊價格:否或不適用
+16.是否尚未取得估價報告:否或不適用
+17.尚未取得估價報告之原因:
+不適用
+18.估價結果有重大差異時，其差異原因及會計師意見:
+不適用
+19.會計師事務所名稱:
+不適用
+20.會計師姓名:
+不適用
+21.會計師開業證書字號:
+不適用
+22.經紀人及經紀費用:
+無
+23.取得或處分之具體目的或用途:
+因應公司業務成長需要供生產用
+24.本次交易表示異議之董事之意見:
+無
+25.本次交易為關係人交易:否
+26.監察人承認或審計委員會同意日期:
+不適用
+27.本次交易係向關係人取得不動產或其使用權資產:否
+28.依「公開發行公司取得或處分資產處理準則」第十六條規定
+評估之價格:不適用
+29.依前項評估之價格較交易價格為低者，依同準則第十七條規
+定評估之價格:不適用
+30.前已就同一件事件發布重大訊息日期: 不適用
+31.其他敘明事項:
+無</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='5347'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

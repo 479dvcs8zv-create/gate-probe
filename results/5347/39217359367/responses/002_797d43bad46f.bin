@@ -1,0 +1,405 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 5347 
+世界　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<form action='/mops/web/ajax_t05st01' name='t05st01_fm' id='t05st01_fm' method='post' onsubmit='return false;'>
+<input type='hidden' name='firstin' value='true' />
+<input type=hidden name=b_date value=>
+<input type=hidden name=e_date value=>
+<input type=hidden name=TYPEK>
+<input type=hidden name=year value=114>
+<input type=hidden name=month value=all>
+<input type=hidden name=type value=>
+<input type=hidden name=co_id>
+<input type=hidden name=spoke_date>
+<input type=hidden name=spoke_time>
+<input type=hidden name=seq_no>
+<input type='hidden' name='MEETING_STEP'>
+<input type='hidden' name='MODEL'>
+<input type='hidden' name='ITEM'>
+<input type=hidden name=e_month value=all>
+<input type='hidden' name='step' value='2'><input type='hidden' name='off' value='1'><center><b>請至財務及交易資訊重點專區參考公司相關<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb01";'  onclick='document.t05st01_fm.TYPEK.value="otc";document.t05st01_fm.co_id.value="5347";document.t05st01_fm.step.value="1";document.t05st01_fm.MEETING_STEP.value="0"; action="/mops/web/ajax_t211sb01";openWindow(this.form,"");'><font color='blue'><u>財務資訊</u></font></button>及<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb05";'  onclick='document.t05st01_fm.TYPEK.value="otc";document.t05st01_fm.co_id.value="5347";document.t05st01_fm.step.value="2";document.t05st01_fm.MODEL.value="2";document.t05st01_fm.ITEM.value="0"; action="/mops/web/ajax_t211sb05";openWindow(this.form,"");'><font color='blue'><u>交易資訊</u></font></button></b></center>
+<br>
+<table class='hasBorder'>
+<tr class='tblHead'><th>公司代號</th><th>公司名稱</th><th>發言日期</th><th>發言時間</th><th>主旨</th><th>&nbsp;</th></tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/02/07</td><td style='text-align:left !important;'>&nbsp;18:04:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將於2月25日召開線上法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180440';document.t05st01_fm.spoke_date.value='20250207';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/02/14</td><td style='text-align:left !important;'>&nbsp;18:31:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年度第四季合併財務報告
+之董事會預計召開日期為114年02月24日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183121';document.t05st01_fm.spoke_date.value='20250214';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/02/24</td><td style='text-align:left !important;'>&nbsp;18:36:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183624';document.t05st01_fm.spoke_date.value='20250224';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/02/24</td><td style='text-align:left !important;'>&nbsp;18:41:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議民國一一四年股東常會召開日期及
+召集事由</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='184134';document.t05st01_fm.spoke_date.value='20250224';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/02/24</td><td style='text-align:left !important;'>&nbsp;18:50:29</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;依公開發行公司資金貸與及背書保證處理準則第二十二條
+第一項第三款公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='185029';document.t05st01_fm.spoke_date.value='20250224';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/02/25</td><td style='text-align:left !important;'>&nbsp;06:51:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過113年第四季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='65128';document.t05st01_fm.spoke_date.value='20250225';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/02/25</td><td style='text-align:left !important;'>&nbsp;14:08:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司於114/02/25召開第四季法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140811';document.t05st01_fm.spoke_date.value='20250225';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/04/01</td><td style='text-align:left !important;'>&nbsp;16:52:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股之增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165210';document.t05st01_fm.spoke_date.value='20250401';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/04/07</td><td style='text-align:left !important;'>&nbsp;18:18:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告董事會決議辦理現金增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181808';document.t05st01_fm.spoke_date.value='20250407';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/04/07</td><td style='text-align:left !important;'>&nbsp;18:23:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告現金增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='182302';document.t05st01_fm.spoke_date.value='20250407';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/04/11</td><td style='text-align:left !important;'>&nbsp;16:17:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;更正本公司董事會同意本公司及子公司機器設備及相關廠務設備
+資本預算(對應原113/11/04公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161717';document.t05st01_fm.spoke_date.value='20250411';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/04/18</td><td style='text-align:left !important;'>&nbsp;15:02:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將於5月6日召開線上法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150258';document.t05st01_fm.spoke_date.value='20250418';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/04/23</td><td style='text-align:left !important;'>&nbsp;19:03:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過處分四川易科技有限公司股權</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='190317';document.t05st01_fm.spoke_date.value='20250423';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/04/25</td><td style='text-align:left !important;'>&nbsp;14:45:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司114年度第一季合併財務報告
+之董事會預計召開日期為114年05月05日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='144549';document.t05st01_fm.spoke_date.value='20250425';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/05</td><td style='text-align:left !important;'>&nbsp;18:51:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會同意本公司及子公司機器設備及
+相關廠務設備資本預算</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185156';document.t05st01_fm.spoke_date.value='20250505';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/05</td><td style='text-align:left !important;'>&nbsp;18:53:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過資本預算及代子公司VSMC公告取得
+廠務設施使用權資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='185333';document.t05st01_fm.spoke_date.value='20250505';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/06</td><td style='text-align:left !important;'>&nbsp;06:55:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過114年第一季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='65557';document.t05st01_fm.spoke_date.value='20250506';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/06</td><td style='text-align:left !important;'>&nbsp;14:14:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司於114/05/06召開第一季法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141433';document.t05st01_fm.spoke_date.value='20250506';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/13</td><td style='text-align:left !important;'>&nbsp;17:07:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VANGUARD INTERNATIONAL
+SEMICONDUCTOR SINGAPORE PTE. LTD.公告
+董事會決議2025股東常會召開日期及召集事由</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170712';document.t05st01_fm.spoke_date.value='20250513';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/13</td><td style='text-align:left !important;'>&nbsp;17:12:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司召開重大訊息說明記者會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171203';document.t05st01_fm.spoke_date.value='20250513';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/13</td><td style='text-align:left !important;'>&nbsp;17:16:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司VisionPower Semiconductor Manufacturing 
+Company Pte. Ltd.公告購買供營業使用之設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='171639';document.t05st01_fm.spoke_date.value='20250513';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/13</td><td style='text-align:left !important;'>&nbsp;19:48:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司重大訊息說明記者會之內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='194839';document.t05st01_fm.spoke_date.value='20250513';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/27</td><td style='text-align:left !important;'>&nbsp;14:36:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國114年股東常會重要決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143610';document.t05st01_fm.spoke_date.value='20250527';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/05/29</td><td style='text-align:left !important;'>&nbsp;14:32:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VANGUARD INTERNATIONAL
+SEMICONDUCTOR SINGAPORE PTE. LTD.公告股東會重要決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143227';document.t05st01_fm.spoke_date.value='20250529';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/06/04</td><td style='text-align:left !important;'>&nbsp;14:40:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor
+Manufacturing Company Pte. Ltd.公告
+董事會決議2025股東常會召開日期及召集事由</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='144031';document.t05st01_fm.spoke_date.value='20250604';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/06/19</td><td style='text-align:left !important;'>&nbsp;16:02:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司決定配息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160201';document.t05st01_fm.spoke_date.value='20250619';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/06/19</td><td style='text-align:left !important;'>&nbsp;16:11:04</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor
+Manufacturing Company Pte. Ltd.公告股東會重要決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='161104';document.t05st01_fm.spoke_date.value='20250619';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/06/19</td><td style='text-align:left !important;'>&nbsp;16:28:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司調整民國一一三年盈餘分派案配息比率
+(每股現金股利金額)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='162840';document.t05st01_fm.spoke_date.value='20250619';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/06/30</td><td style='text-align:left !important;'>&nbsp;19:42:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;針對昇陽國際半導體股份有限公司對宜特等對象
+提起刑事附帶民事訴訟之判決結果</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='194219';document.t05st01_fm.spoke_date.value='20250630';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/07/07</td><td style='text-align:left !important;'>&nbsp;14:22:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告董事會決議辦理現金增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='142225';document.t05st01_fm.spoke_date.value='20250707';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/07/07</td><td style='text-align:left !important;'>&nbsp;14:26:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告現金增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='142605';document.t05st01_fm.spoke_date.value='20250707';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/07/11</td><td style='text-align:left !important;'>&nbsp;14:44:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將於7月29日召開線上法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='144414';document.t05st01_fm.spoke_date.value='20250711';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/07/18</td><td style='text-align:left !important;'>&nbsp;15:54:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司114年度第二季合併財務報告
+之董事會預計召開日期為114年07月28日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155426';document.t05st01_fm.spoke_date.value='20250718';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/07/28</td><td style='text-align:left !important;'>&nbsp;19:10:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會同意機器設備及相關廠務設備資本預算</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='191027';document.t05st01_fm.spoke_date.value='20250728';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/07/28</td><td style='text-align:left !important;'>&nbsp;19:34:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷
+減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='193454';document.t05st01_fm.spoke_date.value='20250728';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/07/29</td><td style='text-align:left !important;'>&nbsp;06:47:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過114年第二季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='64708';document.t05st01_fm.spoke_date.value='20250729';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/07/29</td><td style='text-align:left !important;'>&nbsp;14:10:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司於114/07/29召開第二季法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141024';document.t05st01_fm.spoke_date.value='20250729';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/08/07</td><td style='text-align:left !important;'>&nbsp;15:37:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告董事會決議辦理現金增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='153727';document.t05st01_fm.spoke_date.value='20250807';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/08/07</td><td style='text-align:left !important;'>&nbsp;15:40:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告現金增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='154052';document.t05st01_fm.spoke_date.value='20250807';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/08/11</td><td style='text-align:left !important;'>&nbsp;16:02:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股收回註銷作業
+實收資本額變更登記完成事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160222';document.t05st01_fm.spoke_date.value='20250811';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/09/01</td><td style='text-align:left !important;'>&nbsp;16:14:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司法人董事代表人異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161431';document.t05st01_fm.spoke_date.value='20250901';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/09/05</td><td style='text-align:left !important;'>&nbsp;14:32:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告董事會決議辦理現金增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143252';document.t05st01_fm.spoke_date.value='20250905';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/09/05</td><td style='text-align:left !important;'>&nbsp;14:35:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告現金增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='143556';document.t05st01_fm.spoke_date.value='20250905';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/09/22</td><td style='text-align:left !important;'>&nbsp;18:59:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司法人董事代表人異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185923';document.t05st01_fm.spoke_date.value='20250922';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/10/07</td><td style='text-align:left !important;'>&nbsp;17:57:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告董事會決議辦理現金增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175741';document.t05st01_fm.spoke_date.value='20251007';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/10/07</td><td style='text-align:left !important;'>&nbsp;18:02:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告現金增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='180208';document.t05st01_fm.spoke_date.value='20251007';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/10/17</td><td style='text-align:left !important;'>&nbsp;19:33:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將於11月4日召開線上法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='193300';document.t05st01_fm.spoke_date.value='20251017';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/10/23</td><td style='text-align:left !important;'>&nbsp;19:19:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司114年度第三季合併財務報告
+之董事會預計召開日期為114年11月03日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='191927';document.t05st01_fm.spoke_date.value='20251023';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/10/31</td><td style='text-align:left !important;'>&nbsp;18:56:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司法人董事代表人異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185644';document.t05st01_fm.spoke_date.value='20251031';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/11/03</td><td style='text-align:left !important;'>&nbsp;17:40:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會同意本公司及子公司機器設備及相關廠務設備資本預算</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174042';document.t05st01_fm.spoke_date.value='20251103';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/11/04</td><td style='text-align:left !important;'>&nbsp;06:52:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過114年第三季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='65240';document.t05st01_fm.spoke_date.value='20251104';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/11/04</td><td style='text-align:left !important;'>&nbsp;14:10:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司於114/11/04召開第三季法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='141052';document.t05st01_fm.spoke_date.value='20251104';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/11/07</td><td style='text-align:left !important;'>&nbsp;18:43:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告董事會決議辦理現金增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='184337';document.t05st01_fm.spoke_date.value='20251107';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/11/07</td><td style='text-align:left !important;'>&nbsp;18:45:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告現金增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='184508';document.t05st01_fm.spoke_date.value='20251107';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/11/11</td><td style='text-align:left !important;'>&nbsp;17:34:29</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司召開重大訊息說明記者會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173429';document.t05st01_fm.spoke_date.value='20251111';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/11/11</td><td style='text-align:left !important;'>&nbsp;17:42:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司公告購買供營業使用之設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='174255';document.t05st01_fm.spoke_date.value='20251111';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/11/11</td><td style='text-align:left !important;'>&nbsp;19:51:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司重大訊息說明記者會之內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='195143';document.t05st01_fm.spoke_date.value='20251111';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/12/05</td><td style='text-align:left !important;'>&nbsp;17:43:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會同意機器設備及相關廠務設備資本預算</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174348';document.t05st01_fm.spoke_date.value='20251205';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/12/05</td><td style='text-align:left !important;'>&nbsp;18:01:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過發行海外第一次無擔保轉換公司債</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='180122';document.t05st01_fm.spoke_date.value='20251205';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/12/05</td><td style='text-align:left !important;'>&nbsp;18:16:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告董事會決議辦理現金增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='181641';document.t05st01_fm.spoke_date.value='20251205';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/12/05</td><td style='text-align:left !important;'>&nbsp;18:25:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司VisionPower Semiconductor Manufacturing
+Company Pte. Ltd.公告現金增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='182544';document.t05st01_fm.spoke_date.value='20251205';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/12/05</td><td style='text-align:left !important;'>&nbsp;22:12:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會同意對新加坡子公司VANGUARD INTERNATIONAL 
+SEMICONDUCTOR SINGAPORE PTE. LTD.增資US$45M</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='221257';document.t05st01_fm.spoke_date.value='20251205';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;5347</td><td style='text-align:left !important;'>&nbsp;世界</td><td style='text-align:left !important;'>&nbsp;114/12/31</td><td style='text-align:left !important;'>&nbsp;15:17:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司法人董事代表人異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='151715';document.t05st01_fm.spoke_date.value='20251231';document.t05st01_fm.co_id.value='5347';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+</table></form>
+
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

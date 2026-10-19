@@ -1,0 +1,183 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='5347'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='5347'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 5347 
+世界            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;1</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/04/29</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;19:04:21</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃惠蘭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;(03)5770355</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會同意發行民國113年限制員工權利新股案</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/04/29
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.董事會決議日期:113/04/29
+2.預計發行價格:無償發行
+3.預計發行總額(股):發行總額為新台幣410,000仟元，每股面額10元，共計普通股
+41,000仟股。實際發行股數將於發行限制員工權利新股案經股東會及主管機關核准
+後另提董事會決議之。
+4.既得條件:
+- 員工自獲配限制員工權利新股後，須符合以下各項條件方可既得：(1)於各既得
+期間屆滿日仍在職；(2) 各既得期間內未曾有違反任何與本公司或從屬公司之工作
+規則等情事；(3)達成本公司或從屬公司所設定員工績效評核指標「S」。
+- 各年度可既得之最高股份比例為：發行後屆滿二年25%、屆滿三年25%、以及
+屆滿四年50%。
+5.員工未符既得條件或發生繼承之處理方式:
+遇有員工未達既得條件者，由本公司無償收回已獲配股數並予以註銷。其他各項
+情事處理方式(包括但不限於發生繼承)，則依本次限制員工權利新股發行辦法辦理。
+6.其他發行條件:依本次限制員工權利新股發行辦法規定。
+7.員工之資格條件:
+- 以本公司與從屬公司之全職正式員工為限，且與本公司未來發展高度相關，個人
+表現對公司營運具影響力及重要新進員工。
+- 實際被給與員工及可獲得限制員工權利新股之數量，將參酌年資、職級、工作績效
+、整體貢獻、特殊功績或其它管理上需參考之條件等因素，由董事長核定後提報董事
+會同意。經理人、具員工身分之董事者應先經薪資報酬委員會同意，再提報董事會
+決議。非經理人、非具董事身分之員工，應提報審計委員會同意，再提報董事會決議。
+8.辦理本次限制員工權利新股之必要理由:
+為吸引及留任公司所需專業人才、激勵員工長期服務及提昇員工向心力，以期共同
+創造公司及股東利益。
+9.可能費用化之金額:
+假定41,000仟股於民國一一三年年底至一一五年間分次發行，基於既得條件，暫估
+費用化總金額約為新台幣3,070佰萬元。依前述假設估計，暫估民國一一四年至
+一一九年之費用化金額分別約為新台幣710佰萬元、860佰萬元、750佰萬元、
+530佰萬元、160佰萬元及60佰萬元。
+10.對公司每股盈餘稀釋情形:
+綜上暫估民國一百一十四年至一百一十九年費用化金額對每股盈餘稀釋情形之
+影響金額分別約為新台幣0.33元、0.40元、0.35元、0.25元、0.08元及0.03元，
+對本公司每股盈餘可能之稀釋尚屬有限，故對股東權益尚無重大影響。
+11.其他對股東權益影響事項:無。
+12.員工獲配或認購新股後未達既得條件前受限制之權利:
+既得期間除繼承外，員工不得將該限制員工權利新股出售、質押、轉讓、贈與他人
+、設定，或作其他方式之處分。其他權利受限制情形，依本次限制員工權利新股
+發行辦法辦理。
+13.其他重要約定事項(含股票信託保管等):
+本公司將以股票信託保管之方式辦理本次發行之限制員工權利新股。
+14.其他應敘明事項:
+本次限制員工權利新股之各項條件，如因主管機關指示或相關法令規則修訂而有
+修訂或調整之必要時，擬提請股東常會授權董事會或其授權之人全權處理所有
+發行限制員工權利新股相關事宜。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='5347'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
