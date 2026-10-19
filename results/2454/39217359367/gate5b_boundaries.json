@@ -1,0 +1,134 @@
+{
+  "schema": "gate-probe/gate5b-boundaries/v1",
+  "co_id": "2454",
+  "company_name": "聯發科",
+  "market": {
+    "name": "上市公司",
+    "typek": "sii",
+    "quote_suffix": ".TW",
+    "first_sample": false,
+    "detail_pages_verified": true,
+    "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+  },
+  "revenue_rule": "quarter_end",
+  "collector_version": "4.33-collect",
+  "collected_at": "2026-10-19T08:08:58.322650+00:00",
+  "use": "只提供 Gate5B 的時間界線：截止點（cutoff_at）與共識快照界線（snapshot_boundary_at，快照必須嚴格早於）。Python 預驗證通過不等於正式 Gate PASS；某季不在 quarters 裡＝沒有界線，不能當成通過。",
+  "quarters": {
+    "2023Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2023-04-10T16:57:38+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20230410:165738:1",
+      "snapshot_boundary_at": "2023-04-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2023Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2023-10-11T16:56:33+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20231011:165633:1",
+      "snapshot_boundary_at": "2023-10-11T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2024Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2024-04-10T16:56:01+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20240410:165601:1",
+      "snapshot_boundary_at": "2024-04-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2024Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2024-07-10T16:55:47+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20240710:165547:1",
+      "snapshot_boundary_at": "2024-07-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2024Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2024-10-09T16:55:48+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20241009:165548:1",
+      "snapshot_boundary_at": "2024-10-09T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2025Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2025-04-10T16:55:54+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20250410:165554:1",
+      "snapshot_boundary_at": "2025-04-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2025Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2025-07-10T17:00:09+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20250710:170009:1",
+      "snapshot_boundary_at": "2025-07-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2025Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2025-10-09T16:55:58+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20251009:165558:1",
+      "snapshot_boundary_at": "2025-10-09T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2026Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2026-04-10T16:55:44+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20260410:165544:1",
+      "snapshot_boundary_at": "2026-04-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2026Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2026-07-10T16:55:43+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20260710:165543:5",
+      "snapshot_boundary_at": "2026-07-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2026Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2026-10-08T16:55:37+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2454:20261008:165537:1",
+      "snapshot_boundary_at": "2026-10-08T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    }
+  },
+  "research_only": {},
+  "excluded": {
+    "2023Q2": {
+      "status": "PROVISIONAL",
+      "blocking": [
+        "季末到最早事件之間有 1 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20230707:170219:1']"
+      ]
+    },
+    "2023Q4": {
+      "status": "PROVISIONAL",
+      "blocking": [
+        "季末到最早事件之間有 1 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20240105:164725:1']"
+      ]
+    },
+    "2024Q4": {
+      "status": "PROVISIONAL",
+      "blocking": [
+        "季末到最早事件之間有 1 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20250103:170501:2']"
+      ]
+    },
+    "2025Q4": {
+      "status": "PROVISIONAL",
+      "blocking": [
+        "季末到最早事件之間有 1 則未分類公告，需人工確認不含財務結果：['t05st01:2454:20260102:172706:1']"
+      ]
+    }
+  }
+}
