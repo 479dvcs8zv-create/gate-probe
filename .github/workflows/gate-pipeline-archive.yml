@@ -1,17 +1,20 @@
-# gate_pipeline v4.18 scheduled consensus archiving (repository 479dvcs8zv-create/gate-probe).
+# gate_pipeline v4.34 scheduled consensus archiving for a watch list (repository 479dvcs8zv-create/gate-probe).
 #
-# Put this file at .github/workflows/gate-pipeline-archive.yml. It uses the same program package as
-# gate-pipeline-collect (the newest gate_pipeline_v*.zip in the repository root).
+# Put this file at .github/workflows/gate-pipeline-archive.yml. It uses the newest gate_pipeline_v*.zip in the
+# repository root and checks every program file against gate_pipeline/MANIFEST.sha256 before running.
 #
-# What it does: asks the Wayback Machine (Save Page Now, anonymous, no API keys) to archive a few
-# market-estimate pages for the stock, then checks each archived copy against the archive's own digest
-# and saves it. The archive's timestamp later proves the estimate existed before the official cutoff.
-# It only writes results/<code>/archive/<run id>/. It does not compute or judge anything.
+# What it does: for every stock in watchlist.txt (repository root; one 4-6 digit code per line, "#" starts a
+# comment, at most 20), asks the Wayback Machine (Save Page Now, anonymous, no API keys) to archive the
+# market-estimate pages, checks each archived copy against the archive's own digest and saves it, then rebuilds
+# that stock's research record and snapshot audit (gate_impact = none). Pages that need the listed/OTC market
+# (Yahoo .TW/.TWO, TradingView TWSE-/TPEX-) use the market recorded by that stock's official evidence run.
+# If the archive service is down, the remaining stocks are not sent this time.
+# It only writes results/<code>/archive/<run id>/.
 #
 # When it runs (UTC times; Taipei = UTC+8):
-#   - every day 09:17 Taipei on the 1st-10th of Jan/Apr/Jul/Oct (just before each quarter's cutoff)
+#   - every day 09:17 Taipei on the 1st-15th of Jan/Apr/Jul/Oct (around each quarter's cutoff)
 #   - every Monday 09:17 Taipei the rest of the time
-#   - or manually: Actions -> gate-pipeline-archive -> Run workflow
+#   - or manually: Actions -> gate-pipeline-archive -> Run workflow (leave co_ids empty to use watchlist.txt)
 name: gate-pipeline-archive
 
 on:
@@ -20,10 +23,10 @@ on:
     - cron: "17 1 * * 1"
   workflow_dispatch:
     inputs:
-      co_id:
-        description: "Stock code, 4-6 digits (e.g. 2330)"
-        required: true
-        default: "2330"
+      co_ids:
+        description: "Stock codes, comma separated (empty = use watchlist.txt)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -35,7 +38,7 @@ concurrency:
 jobs:
   archive:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
 
@@ -51,27 +54,35 @@ jobs:
           echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
           rm -rf gate_pipeline
           unzip -q "$ZIP"
-          test -f gate_pipeline/ops/archive_consensus.py
+          test -f gate_pipeline/ops/archive_watchlist.py
 
       - name: Verify program files (SHA-256)
         working-directory: gate_pipeline
         run: sha256sum --strict -c MANIFEST.sha256
 
-      - name: Archive market-estimate pages
+      - name: Archive market-estimate pages for the watch list
         env:
-          CO_ID: ${{ inputs.co_id || '2330' }}
+          CO_IDS: ${{ inputs.co_ids || '' }}
         run: |
-          OUT="results/${CO_ID}/archive/${GITHUB_RUN_ID}"
-          python gate_pipeline/ops/archive_consensus.py --co-id "$CO_ID" --out "$OUT"
-          sha256sum "$PIPELINE_ZIP" > "$OUT/pipeline_package.sha256"
-          echo "OUT=$OUT" >> "$GITHUB_ENV"
-          echo "CO_ID=$CO_ID" >> "$GITHUB_ENV"
+          CODES=$(printf '%s' "$CO_IDS" | tr -d ' ')
+          if [ -n "$CODES" ] && ! printf '%s' "$CODES" | grep -Eq '^[0-9]{4,6}(,[0-9]{4,6}){0,19}$'; then
+            echo "Stock codes must be 4-6 digits, comma separated, at most 20: '$CO_IDS'"; exit 1
+          fi
+          python gate_pipeline/ops/archive_watchlist.py --watchlist watchlist.txt --co-ids "$CODES" \
+            --results results --run-id "$GITHUB_RUN_ID"
+          for d in results/*/archive/"$GITHUB_RUN_ID"; do
+            [ -d "$d" ] && sha256sum "$PIPELINE_ZIP" > "$d/pipeline_package.sha256"
+          done
 
       - name: Save results (results/ folder only)
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- "$OUT"
-          git commit -m "archive ${CO_ID} run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}"
-          git pull --rebase
-          git push
+          git add -- results/*/archive/"$GITHUB_RUN_ID" 2>/dev/null || true
+          git commit -m "archive watch list run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            echo "push failed (attempt $i), retrying"; sleep $((i * 10))
+          done
+          exit 1

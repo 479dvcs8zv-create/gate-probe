@@ -1,0 +1,86 @@
+# gate_pipeline v4.34 investor-conference slides probe (repository 479dvcs8zv-create/gate-probe).
+#
+# Put this file at .github/workflows/gate-pipeline-conference-probe.yml. Uses the newest gate_pipeline_v*.zip in the
+# repository root, verified against gate_pipeline/MANIFEST.sha256.
+#
+# What it does: queries the official MOPS investor-conference list (t100sb02_1) for the stock and years, saves every
+# raw response, then downloads the conference slide files it finds (plus file names guessed from the conference
+# dates). Slides are for a human to read; nothing is approved automatically. Official domains only, 3 s between
+# requests, no API keys. It only writes results/<code>/conference/<run id>/.
+name: gate-pipeline-conference-probe
+
+on:
+  workflow_dispatch:
+    inputs:
+      co_id:
+        description: "Stock code, 4-6 digits"
+        required: true
+        default: "2454"
+      roc_years:
+        description: "ROC years, comma separated"
+        required: true
+        default: "112,113,114,115"
+      dates:
+        description: "Conference dates YYYYMMDD, comma separated (used to guess official file names)"
+        required: false
+        default: "20240108,20250106,20250107,20260105,20260106"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gate-pipeline-conference
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unpack program package (newest gate_pipeline_v*.zip in the repository root)
+        run: |
+          ZIP=$(ls gate_pipeline_v*.zip 2>/dev/null | sort -V | tail -n 1)
+          if [ -z "$ZIP" ]; then echo "No gate_pipeline_v*.zip in the repository root"; exit 1; fi
+          echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
+          rm -rf gate_pipeline
+          unzip -q "$ZIP"
+          test -f gate_pipeline/ops/conference_probe.py
+
+      - name: Verify program files (SHA-256)
+        working-directory: gate_pipeline
+        run: sha256sum --strict -c MANIFEST.sha256
+
+      - name: Probe investor-conference list and slides
+        env:
+          CO_ID: ${{ inputs.co_id }}
+          ROC_YEARS: ${{ inputs.roc_years }}
+          DATES: ${{ inputs.dates }}
+        run: |
+          if ! printf '%s' "$CO_ID" | grep -Eq '^[0-9]{4,6}$'; then echo "Bad stock code"; exit 1; fi
+          OUT="results/${CO_ID}/conference/${GITHUB_RUN_ID}"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          python gate_pipeline/ops/conference_probe.py --co-id "$CO_ID" --roc-years "$ROC_YEARS" --dates "$DATES" \
+            --out "$OUT"
+          sha256sum "$PIPELINE_ZIP" > "$OUT/pipeline_package.sha256"
+
+      - name: Save results (results/ folder only)
+        if: always()
+        env:
+          CO_ID: ${{ inputs.co_id }}
+        run: |
+          if [ -z "$OUT" ] || [ ! -d "$OUT" ]; then echo "Nothing to save"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$OUT"
+          git commit -m "conference probe ${CO_ID} run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            echo "push failed (attempt $i), retrying"; sleep $((i * 10))
+          done
+          exit 1
