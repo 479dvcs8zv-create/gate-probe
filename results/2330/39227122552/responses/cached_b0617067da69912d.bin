@@ -1,0 +1,165 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2330'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2330'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;3</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/04/18</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;18:46:19</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃仁昭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-563-6688</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司海外財務報告因適用兩地會計原則不一致
+之差異調節內容</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+47&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/04/18
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:113/04/18
+2.財務報告年度季別:112年度
+3.本國上市有價證券採用之會計原則(請以中文輸入):
+金管會認可並發布生效之國際財務報導準則
+4.本國上市有價證券財務資訊之差異項目及金額(請以中文輸入):
+合併財務報表中：
+(1) 歸屬於母公司業主之合併淨利為新台幣838,498佰萬元
+(2) 稅後基本及稀釋每股盈餘為新台幣32.34元
+(3) 資產總額為新台幣5,532,371佰萬元
+(4) 負債總額為新台幣2,049,108佰萬元
+(5) 非控制權益為新台幣24,349佰萬元
+(6) 母公司業主權益為新台幣3,458,914佰萬元
+5.境外發行有價證券採用之會計原則(請以中文輸入):
+國際會計準則理事會發布生效之國際財務報導準則
+6.境外發行有價證券財務資訊之差異項目及金額(請以中文輸入):
+向美國證管會申報之英文年報（Form 20-F）中：
+(1) 歸屬於母公司業主之合併淨利為新台幣851,740佰萬元
+(2) 稅後基本及稀釋每股盈餘為新台幣32.85元
+(3) 資產總額為新台幣5,532,197佰萬元
+(4) 負債總額為新台幣2,078,330佰萬元
+(5) 非控制權益為新台幣24,344佰萬元
+(6) 母公司業主權益為新台幣3,429,523佰萬元
+7.差異原因(請以中文輸入):
+因編製中華民國及美國兩地財務報告所採用會計原則不一致之差異調節項目，
+主係未分配盈餘加徵所得稅之認列時點不同所致。
+8.其他應敘明事項:無。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2330'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

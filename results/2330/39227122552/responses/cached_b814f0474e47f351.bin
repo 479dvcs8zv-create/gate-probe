@@ -1,0 +1,206 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2330'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2330'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='112'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;7</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;112/11/14</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;19:09:27</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃仁昭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-563-6688</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司TSMC Partners, Ltd. 公告投資基金</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+20&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;112/11/14
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.標的物之名稱及性質（屬特別股者，並應標明特別股約定發行條件，如股息率等）:
+(1) Imprint Nature-Based Opportunities Offshore SCSp 與 
+(2) Carbon Nature SCSp
+2.事實發生日:112/11/14~112/11/14
+3.交易數量、每單位價格及交易總金額:
+不適用；不適用；
+(1) Imprint Nature-Based Opportunities Offshore SCSp：US$0.5億元，
+(2) Carbon Nature SCSp：US$0.5億元。
+4.交易相對人及其與公司之關係（交易相對人如屬自然人，且非公司之
+關係人者，得免揭露其姓名）:
+(1) Imprint Nature-Based Opportunities Offshore SCSp 與 
+(2) Carbon Nature SCSp；無。
+5.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移
+轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次
+移轉日期及移轉金額:
+不適用
+6.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取
+得及處分日期、價格及交易當時與公司之關係:
+不適用
+7.本次係處分債權之相關事項（含處分之債權附隨擔保品種類、處分債權
+如有屬對關係人債權者尚需公告關係人名稱及本次處分該關係人之債權
+帳面金額:
+不適用
+8.處分利益（或損失）（取得有價證券者不適用）（原遞延者應列表說明
+認列情形）:
+不適用
+9.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定
+事項:
+於基金存續期間分批投資；無。
+10.本次交易之決定方式、價格決定之參考依據及決策單位:
+董事會決議。
+11.取得或處分有價證券標的公司每股淨值:
+不適用
+12.迄目前為止，累積持有本交易證券（含本次交易）之數量、金額、持股
+比例及權利受限情形（如質押情形）:
+不適用；(1) Imprint Nature-Based Opportunities Offshore SCSp：US$0.5億元，
+(2) Carbon Nature SCSp：US$0.5億元；持股比例依個別基金募資結果而定；無。
+13.迄目前為止，依「公開發行公司取得或處分資產處理準則」第三條所列
+之有價證券投資（含本次交易）占公司最近期財務報表中總資產及歸屬
+於母公司業主之權益之比例暨最近期財務報表中營運資金數額（註二）:
+1.08%；1.43%；NT$219,305佰萬元。
+14.經紀人及經紀費用:
+不適用。
+15.取得或處分之具體目的或用途:
+長期投資。
+16.本次交易表示異議董事之意見:
+無。
+17.本次交易為關係人交易:否
+18.董事會通過日期:
+不適用。
+19.監察人承認或審計委員會同意日期:
+不適用。
+20.本次交易會計師出具非合理性意見:不適用
+21.會計師事務所名稱:
+不適用。
+22.會計師姓名:
+不適用。
+23.會計師開業證書字號:
+不適用。
+24.是否涉及營運模式變更:否
+25.營運模式變更說明:
+不適用。
+26.過去一年及預計未來一年內與交易相對人交易情形:
+不適用。
+27.資金來源:
+不適用。
+28.其他敘明事項:
+無。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2330'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

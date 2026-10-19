@@ -1,0 +1,205 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2330'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2330'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;12</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/02/06</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;21:12:38</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃仁昭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-563-6688</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准民國113年限制員工權利新股案</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/02/06
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.董事會決議日期:113/02/06
+2.預計發行價格:無償發行。
+3.預計發行總額(股):
+不超過普通股4,185仟股，每股面額新台幣10元。實際發行股數將於發行限制員
+工權利新股案經股東會及主管機關核准後另提董事會決議之。
+4.既得條件:
+-員工自獲配限制員工權利新股後，須符合以下各項條件方可既得：
+ (1)於各既得期間屆滿日仍在職；
+ (2)於各既得期間內未曾有違反任何與本公司或本公司從屬公司簽訂之合約及本
+    公司或本公司從屬公司之工作規則等情事；以及
+ (3)達成本公司所設定員工績效評核指標與公司營運成果指標，指標內容請詳本
+    次限制員工權利新股發行辦法。
+-各年度可既得之最高股份比例為：
+ 發行後屆滿一年50%、屆滿二年25%，以及屆滿三年25%。各年度可既得之實際
+ 股份比例與股數須再依公司營運成果指標達成情形計算，詳細說明如下。
+-本公司符合資格條件之經理人：將各年度可既得之最高股數設定為110%，其中
+ 100%依下表本公司股東總報酬率（Total Shareholder Return，簡稱TSR，包
+ 含資本利得與股利）指標相對達成情形計算可既得股數後，再由薪酬暨人才發展
+ 委員會評估本公司環境、社會及公司治理（Environmental, Social, and
+ Governance，簡稱ESG）成果為調整項，於可既得股數正負10%區間內調整之。計
+ 算結果到股為止，未滿一股者無條件捨去。
+     本公司TSR相對標準普爾500 IT指數TSR：
+     優於指數 X 個百分點時，既得股數比例為50% + X * 2.5%，最高為100%
+     與指數持平時，既得股數比例為50%
+     落後指數 X 個百分點時，既得股數比例為50% - X * 2.5%，最低為0%
+-本公司及本公司從屬公司符合資格條件之非經理人之其他員工：各年度可既得
+ 股數以本公司於各既得日前一年度經會計師查核簽證之合併財務報告為依據，
+ 依下表計算之。計算結果到股為止，未滿一股者無條件捨去。
+     營業收入成長率(權重三分之一)：門檻值 10%、目標值15%；
+     毛利率(權重三分之一)：門檻值 50%、目標值53%；
+     股東權益報酬率(權重三分之一)：門檻值 20%、目標值25%；
+     既得股數比例：小於門檻值：0%、等於門檻值：50%、大於或等於目標值：
+     100%、介於門檻值與目標值：以內插法計算。
+5.員工未符既得條件或發生繼承之處理方式:
+遇有員工未達既得條件者，由本公司無償收回已獲配股數並予以註銷；於例外情
+形（包括但不限於發生繼承），則依本次限制員工權利新股發行辦法辦理。
+6.其他發行條件:依本次限制員工權利新股發行辦法規定。
+7.員工之資格條件:
+(1)本獎勵計畫適用對象以限制員工權利新股給與日當日在職且達到一定績效表現
+   之本公司全職經理人或本公司及本公司從屬公司特定關鍵人才為限，資格為
+   i. 對本公司或本公司從屬公司營運決策有重大影響者，或
+   ii.本公司或本公司從屬公司未來核心技術與策略發展之特定關鍵人才。
+(2)具資格之員工得獲配股數將參酌公司營運成果，以及個人職級、工作績效及
+   其它適當參考因素訂定分配原則，由董事長與總裁核定提報董事會核准前，如獲
+   配員工為經理人時，應經薪酬暨人才發展委員會同意，獲配員工為非經理人時，
+   應經審計暨風險委員會同意。
+8.辦理本次限制員工權利新股之必要理由:
+為吸引及留任公司高階主管及關鍵人才，並將其獎酬連結股東利益與ESG成果。
+9.可能費用化之金額:
+依既得條件計算，暫估費用化總金額約為新台幣1,728佰萬元。如於民國113年9月
+初發行，依前述假設估計，暫估民國113年至116年之費用化金額分別約為新台幣
+409佰萬、935佰萬元、288佰萬元及96佰萬元。
+10.對公司每股盈餘稀釋情形:
+依目前本公司已發行股數計算，暫估民國113年至116年費用化金額對每股盈餘可能
+影響金額分別約為新台幣0.0118元、0.0270元、0.0083元及0.0028元，對本公司每
+股盈餘可能之稀釋尚屬有限，故對股東權益尚無重大影響。
+11.其他對股東權益影響事項:無。
+12.員工獲配或認購新股後未達既得條件前受限制之權利:
+既得期間除繼承外，員工不得將該限制員工權利新股出售、質押、轉讓、贈與他人
+、設定，或作其他方式之處分。其他權利受限制情形，依本次限制員工權利新股發
+行辦法辦理。
+13.其他重要約定事項(含股票信託保管等):
+本公司將以股票信託保管之方式辦理本次發行之限制員工權利新股。
+14.其他應敘明事項:
+本次限制員工權利新股之各項條件，如因法令修訂或主管機關審核要求而有修訂必
+要時，擬提請股東常會授權董事會或其授權之人全權處理所有發行限制員工權利新
+股相關事宜。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2330'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
