@@ -1,0 +1,219 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2330'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2330'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;1</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/04/08</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;19:04:58</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃仁昭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-563-6688</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;TSMC Arizona與美國商務部宣布最高可達66億美元的晶片
+法案直接補助，該公司並計畫在鳳凰城設立第三座先進晶圓廠</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+51&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/04/08
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:113/04/08
+2.公司名稱:台灣積體電路製造股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:不適用
+6.因應措施:不適用
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
+第三座晶圓廠將生產美國最先進的尖端半導體，台積公司在亞利桑那州的總投資金額
+將超過650億美元。
+
+台積公司今日（美國當地時間8日）宣布，美國商務部和TSMC Arizona已簽署一份不具
+約束力的初步備忘錄（preliminary memorandum of terms, PMT），基於《晶片與科
+學法》（CHIPS and Science Act），TSMC Arizona將獲得最高可達66億美元的直接
+補助。台積公司亦宣布計畫在TSMC Arizona設立第三座晶圓廠，以透過在美國最先進
+的半導體製程技術來滿足強勁的客戶需求。
+
+台積公司在亞利桑那州的第一座晶圓廠於完工方面取得良好進展，第二座晶圓廠持續
+建設，隨著第三座晶圓廠的設立計畫將使台積公司在亞利桑那州鳳凰城據點的總資本
+支出超過650億美元，該據點為亞利桑那州史上規模最大的外國直接投資案，也是美國
+史上規模最大的外國在美直接綠地（greenfield）投資案。
+
+台積公司董事長劉德音博士表示：「《晶片與科學法》為台積公司創造了機會，推動
+這項前所未有的投資，使我們能以在美國最先進的製造技術提供晶圓製造服務。台積
+公司在美國的營運讓我們能更好地協助我們的美國客戶，這其中包括了數間全球領先
+的科技公司。我們在美國的營運更將擴大我們的能力，以引領半導體技術的未來進步
+。」
+
+台積公司總裁魏哲家博士表示：「我們很榮幸能夠支持那些身為行動裝置、人工智慧
+和高效能運算領域的先驅者，無論是在晶片設計、硬體系統或是軟體、演算法及大型
+語言模型的方面。他們是帶動最先進矽需求的創新者，而這些是台積公司所能提供的
+。作為他們的晶圓製造服務合作夥伴，我們將藉由提升TSMC Arizona在先進製程技術
+上的產能，來幫助他們釋放創新。我們對亞利桑那州晶圓廠迄今為止的進展感到欣喜
+，並將致力取得長期成功。」
+
+TSMC Arizona的三座晶圓廠預計將創造約6,000個直接的高科技、高薪工作機會，打造
+有助於支持充滿活力和具有競爭力的全球半導體生態系統的勞動力，讓美國的領先企
+業能夠透過世界一流的半導體製造服務取得在美國在地製造的先進半導體產品。此外
+，根據大鳳凰城經濟發展促進會（Greater Phoenix Economic Council）的分析報告
+，針對這三座晶圓廠的增額投資將創造累計超過2萬個單次的建造工作機會，以及數以
+萬計的間接供應商和消費端累計的工作機會。
+
+TSMC Arizona的第一座晶圓廠依進度將於2025年上半年開始生產4奈米製程技術；繼
+先前宣布的3奈米技術，第二座晶圓廠亦將生產世界上最先進、採用下一世代奈米片
+（Nanosheet）電晶體結構的2奈米製程技術，預計於2028年開始生產；第三座晶圓
+廠預計將在21世紀20年代底採用2奈米或更先進的製程技術進行晶片生產。與台積公
+司所有的先進晶圓廠相同，這三座晶圓廠的潔淨室面積都約是業界一般邏輯晶圓廠
+的兩倍大。
+
+台積公司實踐綠色製造，旨在成為環境友善企業的全球標準，在能源效率、節水、
+廢物管理和空氣污染管控等方面不斷創新。TSMC Arizona的晶圓廠以相同的全球願
+景設計和建造，目標實現90%的水回收率；TSMC Arizona已就達到「近零液體排放」
+的目標進行工業用再生水廠的設計階段，讓幾乎每一滴水都能於廠內再被利用。
+
+除了提出的66億美元直接補助，初步備忘錄（PMT）亦提議向台積公司提供最高可達
+50億美元的貸款。台積公司亦計劃向美國財政部就TSMC Arizona資本支出中符合條
+件的部分，申請最高可達25%的投資稅收抵免。台積公司維持其對長期財務目標的承
+諾，即營收以美元計的年複合成長率為15%至20%、毛利率達53%以上，且股東權益報
+酬率高於25%。
+
+台積公司的所有海外投資皆須遵循台灣法規取得必要的核准。
+
+
+來自我們客戶的引言（依公司名稱英文字母順序排列）：
+
+超微董事長暨執行長蘇姿丰表示：「今天的宣布，突顯了雷蒙多部長和美國政府為
+了確保美國在打造更具地域多樣性和彈性的半導體供應鏈中扮演重要角色，所做出
+的堅定承諾。台積電長久以來所提供的先進製造產能，讓超微能夠專注於我們最擅
+長的領域：設計改變世界的高效能晶片。我們致力於維持與台積電的合作夥伴關係
+，並期待在美國生產我們最先進的晶片。」
+
+Apple執行長Tim Cook表示：「台積電處於先進半導體技術的領先位置，當這種專業
+知識與美國工作者的聰明才智相結合時，任何難以置信的事情都會變成可能。我們
+很榮幸能在台積電美國生產的拓展中發揮關鍵作用，我們將繼續在美國投資，支持
+美國先進製造的新時代。」
+
+輝達創辦人暨執行長黃仁勳表示：「我們祝賀台積電的歷史性投資，並對商務部的
+支持給予喝采。自從輝達發明GPU和加速運算以來，台積電一直是我們的長期合作
+夥伴，如果沒有台積電，我們就不可能在人工智慧（AI）方面持續創新。我們很高
+興在台積電為亞利桑那州帶來其先進製造設施的同時，繼續與台積電合作。」</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2330'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
