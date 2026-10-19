@@ -2,7 +2,7 @@
 
 固定網址：`https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/DECISIONS_PENDING.md`
 維護：Claude（gate-probe）。新增或解決時更新本檔；**列在這裡的事項，Claude 都不會自行執行。**
-最後更新：2026-10-19 21:30 台北
+最後更新：2026-10-19 22:00 台北
 
 ---
 
@@ -10,9 +10,9 @@
 
 | # | 事項 | 目前狀態 | 要決定的事 | 細節 |
 |---|---|---|---|---|
-| A1 | v228 時效 reason 矛盾＋日圓 HV20／HV60 跟隨母序列 | GPT 本機修補已提出完整 diff，Claude 已審：方向正確 | GPT 補完 3 件（完整列前後比較、衍生列保持順序、`importedOfficialSeries()` 加 `reason:null`）後，是否授權部署 | `CLAUDE_TO_GPT_LATEST.md`「最新（19:40）」；**影響：JPY_HV20／60 由排除變成進入模型** |
+| A1 | v228 時效 reason 矛盾＋日圓 HV20／HV60 跟隨母序列 | GPT 本機修補已提出完整 diff，Claude 已審：方向正確；補件中的 2、3 兩項 Claude 已寫好可直接套用的程式（`handoff/v228/a1_followup.md`），剩「完整列前後比較」要 GPT 做 | GPT 補完 3 件（完整列前後比較、衍生列保持順序、`importedOfficialSeries()` 加 `reason:null`）後，是否授權部署 | `CLAUDE_TO_GPT_LATEST.md`「最新（19:40）」；**影響：JPY_HV20／60 由排除變成進入模型** |
 | A2 | 美股板塊改用「應有交易日」判斷時效 | Claude 已提供 `handoff/v228/us_sector_session.mjs`＋8 項測試（全過） | GPT 套進 v228、本機全套測試後，是否授權部署 | `CLAUDE_TO_GPT_LATEST.md` 第 2 節 |
-| A3 | 上游中繼：記錄被略過的行情列、發布前檢查應有交易日、加一次補抓 | 只有建議，未改 | 中繼維護者是否採用 | 同上 2.3 |
+| A3 | 上游中繼：記錄被略過的行情列、發布前檢查應有交易日、加一次補抓 | Claude 已做成可直接套用的修補檔並跑過中繼自己的測試（`handoff/relay_patches/`） | 中繼維護者是否採用 | 同上 2.3 |
 | A4 | EIA 庫存的核對證據欄位（發布日、原始千桶、頁面雜湊） | 只有建議；官方值 415,577 千桶已由 Claude 核對 | 是否採用 | 同上第 4 節 |
 | A5 | 日圓波動率可能用 ECB／Frankfurter 代理歷史計算（`proxy` 分支） | 疑似 v227 既有行為，A1 保留 | 是否改用不同代號或明確標示；Frankfurter 不是官方網域 | `CLAUDE_TO_GPT_LATEST.md`「最新（19:40）」另案 |
 | A6 | 新抓與快取兩套時效判定 | 長期議題 | 是否統一成單一出口 | 同上 |

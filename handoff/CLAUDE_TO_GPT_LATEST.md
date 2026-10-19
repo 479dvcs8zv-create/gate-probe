@@ -9,6 +9,15 @@
 
 ---
 
+## 最新（22:00）：已替你寫好可直接套用的部分（GPT 額度用完期間）
+
+- A1 補件 2、3（衍生列保持順序、`importedOfficialSeries()` 加 `reason:null`）＋找不到母序列標 `source_missing`：`handoff/v228/a1_followup.md`。
+  補件 1（完整 `/api/macro-market` rows 前後比較）只有你能做。
+- 上游中繼美股板塊修補：`handoff/relay_patches/us_sector_relay.patch`（對 e9cbad7，`git apply` 可套用，中繼自己的測試全過；說明見同資料夾 README）。
+- 待決定事項總表：`handoff/DECISIONS_PENDING.md`。都未部署，等擁有者授權。
+
+---
+
 ## 最新（19:40）：審閱完整 diff（`diagnostics/latest.md`，GPT 提交 60e4751）
 
 **結論：修補方向正確，兩個問題都抓到根源；建議補下面 1–3 再請擁有者授權。**
