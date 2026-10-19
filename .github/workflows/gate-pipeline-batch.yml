@@ -1,4 +1,4 @@
-# gate_pipeline v4.31 multi-stock evidence collection (repository 479dvcs8zv-create/gate-probe).
+# gate_pipeline v4.33 multi-stock evidence collection (repository 479dvcs8zv-create/gate-probe).
 #
 # Put this file at .github/workflows/gate-pipeline-batch.yml. Like gate-pipeline-collect, it uses the newest
 # gate_pipeline_vX.Y.zip in the repository root (by version number) and checks every program file against
@@ -10,6 +10,9 @@
 # What it does:
 #   1. plan:    checks the inputs (4-6 digit codes, comma separated, at most 10; ROC years).
 #   2. collect: one job per stock, ONE AT A TIME (max-parallel 1, to stay gentle with the official site).
+#               Up to 150 minutes per stock: a first run over 4 years can need ~300 detail pages at ~10 s each.
+#               If a run is cancelled or times out, the detail pages already fetched are kept (partial manifest)
+#               and reused by the next run.
 #               Same program as gate-pipeline-collect: official MOPS material-information listings, detail pages
 #               and the doc.twse.com.tw filing list, 3-second pause between requests. A failure in one stock does
 #               not stop the others. Results go to results/<code>/<run id>/ exactly like a single collect run.
@@ -26,19 +29,19 @@ on:
       co_ids:
         description: "Stock codes, comma separated, at most 10 (e.g. 2330,2454,8299,6488,5347)"
         required: true
-        default: "2330,2454,8299,6488,5347"
+        default: "2330,2454,8299,6485,6488,5347"
       roc_years:
         description: "ROC years, comma separated (e.g. 113,114,115)"
         required: true
         default: "113,114,115"
       revenue_rule:
-        description: "Quarters with no quarter-end monthly revenue announcement: block (default) or use quarter end"
+        description: "Quarters with no quarter-end monthly revenue announcement: quarter end 00:00 for research (default, adopted 2026-10-19) or block"
         required: true
         type: choice
-        default: require_announcement
+        default: quarter_end
         options:
-          - require_announcement
           - quarter_end
+          - require_announcement
 
 permissions:
   contents: write
@@ -75,7 +78,7 @@ jobs:
   collect:
     needs: plan
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 150
     strategy:
       fail-fast: false
       max-parallel: 1
