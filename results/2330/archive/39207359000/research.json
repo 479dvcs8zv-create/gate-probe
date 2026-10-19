@@ -1,0 +1,6090 @@
+{
+  "research_version": "4.30-consensus-research",
+  "data_mode": "MARKET_CONSENSUS_RESEARCH",
+  "gate_impact": "none",
+  "co_id": "2330",
+  "adr": "TSM",
+  "generated_at": "2026-10-19T06:12:02.843680+00:00",
+  "rules": [
+    "各來源數字不同不代表其中一個錯：只記錄差異，不選一個當正確值",
+    "分析師人數各來源分開記錄，不加總",
+    "來源之間數值相同，不代表是獨立分析師（可能是同一份資料）",
+    "每一筆都核對目標季度與期間；無法對應的不進入比較",
+    "本紀錄不影響任何 Gate 判定"
+  ],
+  "cutoff_source": "39132958305/summary.json",
+  "boundary_rule": {
+    "announced": "重大訊息原文記載的公告時間",
+    "conservative_midnight": "月營收公告當日 00:00（月營收申報系統上傳時間未查證時的保守界線）",
+    "status": "adopted",
+    "decided_at": "2026-10-19T11:10:00+08:00",
+    "decided_by": "Gate Pipeline 擁有者（使用者本人），Claude 對話中選擇「採用（推薦）」",
+    "effect": "公告當日 00:00 之後的存檔不算截止點前快照；公告時間照舊保留；季度狀態不因此改變"
+  },
+  "captures": [
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "origin": "third_party_wayback",
+      "run": "39200908159",
+      "capture_ts": "20240629225725",
+      "captured_at_tpe": "2024-06-30T06:57:25+08:00",
+      "file": "marketbeat_adr_earnings_2024Q2_20240629225725.bin",
+      "sha256": "2631cccb019950723d9ad47b9bac459e312355a05db9ee92af052cf16fef64eb",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "年度列的平均＝四季平均相加、預估數＝4（季數），不是獨立的年度共識，也不是 4 位分析師"
+      ],
+      "page_quote": "TSM",
+      "estimates": 10
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "origin": "third_party_wayback",
+      "run": "39203353595",
+      "capture_ts": "20241213235633",
+      "captured_at_tpe": "2024-12-14T07:56:33+08:00",
+      "file": "marketbeat_adr_earnings_2024Q4_20241213235633.bin",
+      "sha256": "745751ac5e7e17afe4c661c1ecd12300bc52623c46af062dd9e6cca160af6c6e",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "年度列的平均＝四季平均相加、預估數＝4（季數），不是獨立的年度共識，也不是 4 位分析師"
+      ],
+      "page_quote": "TSM",
+      "estimates": 13
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "origin": "third_party_wayback",
+      "run": "39118440897",
+      "capture_ts": "20250227184442",
+      "captured_at_tpe": "2025-02-28T02:44:42+08:00",
+      "file": "marketbeat_adr_earnings_2025Q1.bin",
+      "sha256": "9544264a644670d528516245faecd425c8cad70012476d35fb050f39bf7d651a",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "年度列的平均＝四季平均相加、預估數＝4（季數），不是獨立的年度共識，也不是 4 位分析師"
+      ],
+      "page_quote": "TSM",
+      "estimates": 10
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "origin": "third_party_wayback",
+      "run": "39118440897",
+      "capture_ts": "20260609090716",
+      "captured_at_tpe": "2026-06-09T17:07:16+08:00",
+      "file": "marketbeat_adr_earnings_2026Q2.bin",
+      "sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "年度列的平均＝四季平均相加、預估數＝4（季數），不是獨立的年度共識，也不是 4 位分析師"
+      ],
+      "page_quote": "TSM",
+      "estimates": 10
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "origin": "self_archive",
+      "run": "39187117065",
+      "capture_ts": "20261019022843",
+      "captured_at_tpe": "2026-10-19T10:28:43+08:00",
+      "file": "marketbeat_adr_earnings_20261019022843.bin",
+      "sha256": "1a99ff7e36eee75e0b2e39fde03bc49366dc60c8623e8a0bc7a409aca65d6909",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "年度列的平均＝四季平均相加、預估數＝4（季數），不是獨立的年度共識，也不是 4 位分析師"
+      ],
+      "page_quote": "TSM",
+      "estimates": 12
+    },
+    {
+      "source_id": "nasdaq_adr_earnings",
+      "vendor": "Nasdaq（Zacks 資料）",
+      "origin": "third_party_wayback",
+      "run": "39118440897",
+      "capture_ts": "20241209012817",
+      "captured_at_tpe": "2024-12-09T09:28:17+08:00",
+      "file": "nasdaq_adr_earnings_2024Q4.bin",
+      "sha256": "669048672ecb29666a03be10a2f1530c3d7883d870ca5a4cf81888fc934d0b7b",
+      "integrity": "OK",
+      "parse_status": "NO_CONSENSUS_VALUE",
+      "reason": "頁面的預估表由瀏覽器另外載入，存檔裡是「Data is currently not available」",
+      "notes": [],
+      "page_quote": null,
+      "estimates": 0
+    },
+    {
+      "source_id": "nasdaq_adr_earnings",
+      "vendor": "Nasdaq（Zacks 資料）",
+      "origin": "third_party_wayback",
+      "run": "39118440897",
+      "capture_ts": "20250706075054",
+      "captured_at_tpe": "2025-07-06T15:50:54+08:00",
+      "file": "nasdaq_adr_earnings_2025Q2.bin",
+      "sha256": "2e57d44e1689afa5d3071c3f3ffc28a0addec628819bafc28d743f62496d1eba",
+      "integrity": "OK",
+      "parse_status": "NO_CONSENSUS_VALUE",
+      "reason": "頁面的預估表由瀏覽器另外載入，存檔裡是「Data is currently not available」",
+      "notes": [],
+      "page_quote": null,
+      "estimates": 0
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "vendor": "Nasdaq API",
+      "origin": "third_party_wayback",
+      "run": "39200908159",
+      "capture_ts": "20250612153906",
+      "captured_at_tpe": "2025-06-12T23:39:06+08:00",
+      "file": "nasdaq_api_forecast_2025Q2_20250612153906.bin",
+      "sha256": "0acb83ff443c6a003870e9c93b6b732c7a0e852c4ca29a4ab416c0f6ade46ea2",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "quarterlyForecast.asOf 是空的：無法得知這份共識是何時計算的",
+        "yearlyForecast.asOf 是空的：無法得知這份共識是何時計算的"
+      ],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "vendor": "Nasdaq API",
+      "origin": "self_archive",
+      "run": "39122089604",
+      "capture_ts": "20261018111636",
+      "captured_at_tpe": "2026-10-18T19:16:36+08:00",
+      "file": "nasdaq_api_forecast_20261018111636.bin",
+      "sha256": "1c9ea9f1c5776144bc13a29168cb6e77805c0db1a56641250b089229b3706682",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "quarterlyForecast.asOf 是空的：無法得知這份共識是何時計算的",
+        "yearlyForecast.asOf 是空的：無法得知這份共識是何時計算的"
+      ],
+      "page_quote": "TSM",
+      "estimates": 9
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "vendor": "Nasdaq API",
+      "origin": "self_archive",
+      "run": "39186897770",
+      "capture_ts": "20261019020624",
+      "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+      "file": "nasdaq_api_forecast_20261019020624.bin",
+      "sha256": "1c9ea9f1c5776144bc13a29168cb6e77805c0db1a56641250b089229b3706682",
+      "integrity": "OK",
+      "same_content_as": "20261018111636",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "quarterlyForecast.asOf 是空的：無法得知這份共識是何時計算的",
+        "yearlyForecast.asOf 是空的：無法得知這份共識是何時計算的"
+      ],
+      "page_quote": "TSM",
+      "estimates": 9
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "vendor": "StockAnalysis",
+      "origin": "third_party_wayback",
+      "run": "39200908159",
+      "capture_ts": "20240701151026",
+      "captured_at_tpe": "2024-07-01T23:10:26+08:00",
+      "file": "stockanalysis_adr_forecast_2024Q2_20240701151026.bin",
+      "sha256": "2beb0cb8845ce1171a3cf194b30123a76168df9c8e8bf701755161a80dbc2346",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "頁面說明：歷史 EPS 為 GAAP，預估值「可能」是非 GAAP（口徑未確定）",
+        "頁面沒有會計年度／季度欄位，期間只由日期（季末日）對應"
+      ],
+      "page_quote": "TSM",
+      "estimates": 32
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "vendor": "StockAnalysis",
+      "origin": "third_party_wayback",
+      "run": "39118440897",
+      "capture_ts": "20251206120326",
+      "captured_at_tpe": "2025-12-06T20:03:26+08:00",
+      "file": "stockanalysis_adr_forecast_2025Q4.bin",
+      "sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "頁面說明：歷史 EPS 為 GAAP，預估值「可能」是非 GAAP（口徑未確定）"
+      ],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "vendor": "StockAnalysis",
+      "origin": "third_party_wayback",
+      "run": "39203353595",
+      "capture_ts": "20260318184655",
+      "captured_at_tpe": "2026-03-19T02:46:55+08:00",
+      "file": "stockanalysis_adr_forecast_2026Q1_20260318184655.bin",
+      "sha256": "d54345fd2ecf7d7b5ad94869d4f23c772e5b4b288ce88421c0943f068892b462",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [
+        "頁面說明：歷史 EPS 為 GAAP，預估值「可能」是非 GAAP（口徑未確定）"
+      ],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "run": "39200908159",
+      "capture_ts": "20240314023526",
+      "captured_at_tpe": "2024-03-14T10:35:26+08:00",
+      "file": "yahoo_adr_analysis_2024Q1_20240314023526.bin",
+      "sha256": "29cca9bb7f661b3dbf4d77088011c35dd1637db628a7925028b65f312f8cc91b",
+      "integrity": "OK",
+      "parse_status": "UNSUPPORTED_LAYOUT",
+      "reason": "2024 年初以前的舊版面：幣別只在整個區塊標一次，無法確認各表（尤其營收）的幣別，不解析",
+      "notes": [],
+      "page_quote": "TSM",
+      "estimates": 0
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "run": "39200908159",
+      "capture_ts": "20240619114251",
+      "captured_at_tpe": "2024-06-19T19:42:51+08:00",
+      "file": "yahoo_adr_analysis_2024Q2_20240619114251.bin",
+      "sha256": "78657df9f94f66fd8d8a46e42797ef6d852276b37199c2f4edd7893568428370",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "run": "39203353595",
+      "capture_ts": "20240917135124",
+      "captured_at_tpe": "2024-09-17T21:51:24+08:00",
+      "file": "yahoo_adr_analysis_2024Q3_20240917135124.bin",
+      "sha256": "50b53f22d3bc152409a7ca265cf4a5b113915f0a70e1d3dcecc813f49e0f63b3",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "run": "39118440897",
+      "capture_ts": "20250106225927",
+      "captured_at_tpe": "2025-01-07T06:59:27+08:00",
+      "file": "yahoo_adr_analysis_2024Q4.bin",
+      "sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "run": "39118440897",
+      "capture_ts": "20250224154350",
+      "captured_at_tpe": "2025-02-24T23:43:50+08:00",
+      "file": "yahoo_adr_analysis_2025Q1.bin",
+      "sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "self_archive",
+      "run": "39122089604",
+      "capture_ts": "20261018111047",
+      "captured_at_tpe": "2026-10-18T19:10:47+08:00",
+      "file": "yahoo_adr_analysis_20261018111047.bin",
+      "sha256": "fbb20afbb38add59ee911342a4b0c87a07c0bd740db5344a33d571b36a2634e0",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "self_archive",
+      "run": "39186897770",
+      "capture_ts": "20261019014822",
+      "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+      "file": "yahoo_adr_analysis_20261019014822.bin",
+      "sha256": "d6699d35fc0636d6b98219d50aec09eb6026775acd1336bc151a2bc1756ce267",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [],
+      "page_quote": "TSM",
+      "estimates": 8
+    },
+    {
+      "source_id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "third_party_wayback",
+      "run": "39203353595",
+      "capture_ts": "20240926212205",
+      "captured_at_tpe": "2024-09-27T05:22:05+08:00",
+      "file": "yahoo_tw_analysis_2024Q3_20240926212205.bin",
+      "sha256": "383c52f3dd9af4e8e4918ee1a5eb20088302b17d4d1378e8a0ab2718520c39b8",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [],
+      "page_quote": "2330.TW",
+      "estimates": 8
+    },
+    {
+      "source_id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "origin": "self_archive",
+      "run": "39186897770",
+      "capture_ts": "20261019015426",
+      "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+      "file": "yahoo_tw_analysis_20261019015426.bin",
+      "sha256": "9eea087a9660ccea2775404331441756b0df94fd1ecc2c0cfcfc513175adc86f",
+      "integrity": "OK",
+      "parse_status": "PARSED",
+      "reason": null,
+      "notes": [],
+      "page_quote": "2330.TW",
+      "estimates": 8
+    },
+    {
+      "source_id": "zacks_adr_detailed",
+      "vendor": "Zacks",
+      "origin": "self_archive",
+      "run": "39186897770",
+      "capture_ts": "20261019020044",
+      "captured_at_tpe": "2026-10-19T10:00:44+08:00",
+      "file": "zacks_adr_detailed_20261019020044.bin",
+      "sha256": "203903e76eca933f3f9ea34c38bb99cb1c105a3f8137eeae8bb756849c6987b2",
+      "integrity": "OK",
+      "parse_status": "BLOCKED_PAGE",
+      "reason": "存到的是網站的防機器人頁面（Pardon Our Interruption），沒有預估值",
+      "notes": [],
+      "page_quote": null,
+      "estimates": 0
+    }
+  ],
+  "periods": {
+    "2019Q2": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/18/2019",
+          "period_label_raw": "Q2 2019",
+          "fiscal_period": "2019Q2",
+          "eps_estimate": 0.42,
+          "eps_actual": 0.41,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2019Q3": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/17/2019",
+          "period_label_raw": "Q3 2019",
+          "fiscal_period": "2019Q3",
+          "eps_estimate": null,
+          "eps_actual": 0.62,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2020Q1": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/16/2020",
+          "period_label_raw": "Q1 2020",
+          "fiscal_period": "2020Q1",
+          "eps_estimate": 0.66,
+          "eps_actual": 0.75,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2020Q2": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/16/2020",
+          "period_label_raw": "Q2 2020",
+          "fiscal_period": "2020Q2",
+          "eps_estimate": 0.73,
+          "eps_actual": 0.78,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2020Q3": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/15/2020",
+          "period_label_raw": "Q3 2020",
+          "fiscal_period": "2020Q3",
+          "eps_estimate": 0.92,
+          "eps_actual": 0.9,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2020Q4": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/14/2021",
+          "period_label_raw": "Q4 2020",
+          "fiscal_period": "2020Q4",
+          "eps_estimate": 0.92,
+          "eps_actual": 0.97,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2021Q1": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/15/2021",
+          "period_label_raw": "Q1 2021",
+          "fiscal_period": "2021Q1",
+          "eps_estimate": 0.91,
+          "eps_actual": 0.96,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2021Q2": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/14/2021",
+          "period_label_raw": "Q2 2021",
+          "fiscal_period": "2021Q2",
+          "eps_estimate": 0.93,
+          "eps_actual": 0.93,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2021Q3": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/14/2021",
+          "period_label_raw": "Q3 2021",
+          "fiscal_period": "2021Q3",
+          "eps_estimate": 1.05,
+          "eps_actual": 1.08,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2021Q4": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/13/2022",
+          "period_label_raw": "Q4 2021",
+          "fiscal_period": "2021Q4",
+          "eps_estimate": 1.12,
+          "eps_actual": 1.15,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2022Q1": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/14/2022",
+          "period_label_raw": "Q1 2022",
+          "fiscal_period": "2022Q1",
+          "eps_estimate": 1.31,
+          "eps_actual": 1.4,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2022Q2": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/14/2022",
+          "period_label_raw": "Q2 2022",
+          "fiscal_period": "2022Q2",
+          "eps_estimate": 1.5,
+          "eps_actual": 1.55,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2022Q3": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/13/2022",
+          "period_label_raw": "Q3 2022",
+          "fiscal_period": "2022Q3",
+          "eps_estimate": 1.69,
+          "eps_actual": 1.79,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2022Q4": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/12/2023",
+          "period_label_raw": "Q4 2022",
+          "fiscal_period": "2022Q4",
+          "eps_estimate": 1.8,
+          "eps_actual": 1.82,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20241213235633",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/12/2023",
+          "period_label_raw": "Q4 2022",
+          "fiscal_period": "2022Q4",
+          "eps_estimate": 1.8,
+          "eps_actual": 1.82,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        }
+      ],
+      "cutoff": null
+    },
+    "2023Q1": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/20/2023",
+          "period_label_raw": "Q1 2023",
+          "fiscal_period": "2023Q1",
+          "eps_estimate": 1.21,
+          "eps_actual": 1.31,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20241213235633",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/20/2023",
+          "period_label_raw": "Q1 2023",
+          "fiscal_period": "2023Q1",
+          "eps_estimate": 1.21,
+          "eps_actual": 1.31,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20250227184442",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/20/2023",
+          "period_label_raw": "Q1 2023",
+          "fiscal_period": "2023Q1",
+          "eps_estimate": 1.21,
+          "eps_actual": 1.31,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20240701151026",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2023-03-31",
+          "fiscal_period": "2023Q1",
+          "eps_estimate": null,
+          "eps_actual": 39.9,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        }
+      ],
+      "cutoff": null
+    },
+    "2023Q2": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/20/2023",
+          "period_label_raw": "Q2 2023",
+          "fiscal_period": "2023Q2",
+          "eps_estimate": 1.07,
+          "eps_actual": 1.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20241213235633",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/20/2023",
+          "period_label_raw": "Q2 2023",
+          "fiscal_period": "2023Q2",
+          "eps_estimate": 1.07,
+          "eps_actual": 1.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20250227184442",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/20/2023",
+          "period_label_raw": "Q2 2023",
+          "fiscal_period": "2023Q2",
+          "eps_estimate": 1.07,
+          "eps_actual": 1.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20240701151026",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2023-06-30",
+          "fiscal_period": "2023Q2",
+          "eps_estimate": null,
+          "eps_actual": 35.05,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20240619114251",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "6/30/2023",
+          "fiscal_period": "2023Q2",
+          "eps_estimate": 1.08,
+          "eps_actual": 1.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": null
+    },
+    "2023Q3": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/19/2023",
+          "period_label_raw": "Q3 2023",
+          "fiscal_period": "2023Q3",
+          "eps_estimate": 1.16,
+          "eps_actual": 1.29,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20241213235633",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/19/2023",
+          "period_label_raw": "Q3 2023",
+          "fiscal_period": "2023Q3",
+          "eps_estimate": 1.16,
+          "eps_actual": 1.29,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20250227184442",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/19/2023",
+          "period_label_raw": "Q3 2023",
+          "fiscal_period": "2023Q3",
+          "eps_estimate": 1.16,
+          "eps_actual": 1.29,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20240701151026",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2023-09-30",
+          "fiscal_period": "2023Q3",
+          "eps_estimate": null,
+          "eps_actual": 40.7,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20240619114251",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "9/30/2023",
+          "fiscal_period": "2023Q3",
+          "eps_estimate": 1.17,
+          "eps_actual": 1.29,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20240917135124",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "9/30/2023",
+          "fiscal_period": "2023Q3",
+          "eps_estimate": 1.17,
+          "eps_actual": 1.29,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_tw_analysis",
+          "capture_ts": "20240926212205",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "9/30/2023",
+          "fiscal_period": "2023Q3",
+          "eps_estimate": 7.38,
+          "eps_actual": 8.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": null
+    },
+    "2023Q4": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/18/2024",
+          "period_label_raw": "Q4 2023",
+          "fiscal_period": "2023Q4",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.44,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20241213235633",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/18/2024",
+          "period_label_raw": "Q4 2023",
+          "fiscal_period": "2023Q4",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.44,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20250227184442",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/18/2024",
+          "period_label_raw": "Q4 2023",
+          "fiscal_period": "2023Q4",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.44,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20240701151026",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2023-12-31",
+          "fiscal_period": "2023Q4",
+          "eps_estimate": null,
+          "eps_actual": 48.6,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20240619114251",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "12/31/2023",
+          "fiscal_period": "2023Q4",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.45,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20240917135124",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "12/31/2023",
+          "fiscal_period": "2023Q4",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.45,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20250106225927",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "12/31/2023",
+          "fiscal_period": "2023Q4",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.44,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_tw_analysis",
+          "capture_ts": "20240926212205",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "12/31/2023",
+          "fiscal_period": "2023Q4",
+          "eps_estimate": 8.74,
+          "eps_actual": 9.21,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": null
+    },
+    "2024Q1": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20240629225725",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/18/2024",
+          "period_label_raw": "Q1 2024",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": 1.29,
+          "eps_actual": 1.38,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20241213235633",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/18/2024",
+          "period_label_raw": "Q1 2024",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": 1.29,
+          "eps_actual": 1.38,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20250227184442",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/18/2024",
+          "period_label_raw": "Q1 2024",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": 1.29,
+          "eps_actual": 1.38,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20240701151026",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2024-03-31",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": null,
+          "eps_actual": 43.5,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20240619114251",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "3/31/2024",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": 1.32,
+          "eps_actual": 1.38,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20240917135124",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "3/31/2024",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": 1.32,
+          "eps_actual": 1.38,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20250106225927",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "3/31/2024",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": 1.32,
+          "eps_actual": 1.38,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20250224154350",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "3/31/2024",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": 1.32,
+          "eps_actual": 1.38,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_tw_analysis",
+          "capture_ts": "20240926212205",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "3/31/2024",
+          "fiscal_period": "2024Q1",
+          "eps_estimate": 8.29,
+          "eps_actual": 8.7,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": {
+        "at": "2024-04-10T13:50:59+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2024Q2": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240701151026",
+              "captured_at_tpe": "2024-07-01T23:10:26+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q2",
+                "announced_at": "2024-07-10T13:48:38+08:00",
+                "conservative_boundary": "2024-07-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 206.6,
+                "days_before_boundary": 8.0
+              },
+              "period_type": "quarter",
+              "period_label_raw": "2024-06-30",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 26,
+              "avg": 45.57615,
+              "low": null,
+              "high": null,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 26
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "NOT_CONTEMPORANEOUS",
+            "SINGLE_ESTIMATE_SOURCE"
+          ],
+          "notes": [
+            "yahoo_adr_analysis 的存檔比最新一筆早超過 7 天，另列，不一起比較"
+          ],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240629225725",
+              "captured_at_tpe": "2024-06-30T06:57:25+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q2",
+                "announced_at": "2024-07-10T13:48:38+08:00",
+                "conservative_boundary": "2024-07-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 246.9,
+                "days_before_boundary": 9.7
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q2 2024",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 1,
+              "avg": 1.33,
+              "low": 1.33,
+              "high": 1.33,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            }
+          ],
+          "older_entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240619114251",
+              "captured_at_tpe": "2024-06-19T19:42:51+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q2",
+                "announced_at": "2024-07-10T13:48:38+08:00",
+                "conservative_boundary": "2024-07-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 498.1,
+                "days_before_boundary": 20.2
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Jun 2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 5,
+              "avg": 1.38,
+              "low": 1.35,
+              "high": 1.42,
+              "flags": []
+            }
+          ],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": 1
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240701151026",
+              "captured_at_tpe": "2024-07-01T23:10:26+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q2",
+                "announced_at": "2024-07-10T13:48:38+08:00",
+                "conservative_boundary": "2024-07-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 206.6,
+                "days_before_boundary": 8.0
+              },
+              "period_type": "quarter",
+              "period_label_raw": "2024-06-30",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 26,
+              "avg": 663752000000.0,
+              "low": null,
+              "high": null,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 26
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "USD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240619114251",
+              "captured_at_tpe": "2024-06-19T19:42:51+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q2",
+                "announced_at": "2024-07-10T13:48:38+08:00",
+                "conservative_boundary": "2024-07-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 498.1,
+                "days_before_boundary": 20.2
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Jun 2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 6,
+              "avg": 20020000000.0,
+              "low": 19720000000.0,
+              "high": 20640000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 6
+          }
+        }
+      ],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20241213235633",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/18/2024",
+          "period_label_raw": "Q2 2024",
+          "fiscal_period": "2024Q2",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.48,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20250227184442",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/18/2024",
+          "period_label_raw": "Q2 2024",
+          "fiscal_period": "2024Q2",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.48,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/18/2024",
+          "period_label_raw": "Q2 2024",
+          "fiscal_period": "2024Q2",
+          "eps_estimate": 1.37,
+          "eps_actual": 1.48,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20240917135124",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "6/30/2024",
+          "fiscal_period": "2024Q2",
+          "eps_estimate": 1.43,
+          "eps_actual": 1.48,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20250106225927",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "6/30/2024",
+          "fiscal_period": "2024Q2",
+          "eps_estimate": 1.42,
+          "eps_actual": 1.48,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20250224154350",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "6/30/2024",
+          "fiscal_period": "2024Q2",
+          "eps_estimate": 1.42,
+          "eps_actual": 1.48,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_tw_analysis",
+          "capture_ts": "20240926212205",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "6/30/2024",
+          "fiscal_period": "2024Q2",
+          "eps_estimate": 9.05,
+          "eps_actual": 9.56,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": {
+        "at": "2024-07-10T13:48:38+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2024Q3": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "2330.TW",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240926212205",
+              "captured_at_tpe": "2024-09-27T05:22:05+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q3",
+                "announced_at": "2024-10-09T13:37:57+08:00",
+                "conservative_boundary": "2024-10-09T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 296.3,
+                "days_before_boundary": 11.8
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Sep 2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 23,
+              "avg": 11.33,
+              "low": 10.25,
+              "high": 11.98,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_tw_analysis": 23
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240917135124",
+              "captured_at_tpe": "2024-09-17T21:51:24+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q3",
+                "announced_at": "2024-10-09T13:37:57+08:00",
+                "conservative_boundary": "2024-10-09T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 519.8,
+                "days_before_boundary": 21.1
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Sep 2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 5,
+              "avg": 1.79,
+              "low": 1.73,
+              "high": 1.84,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 5
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "USD",
+          "quote": "company",
+          "choice": null,
+          "flags": [
+            "NOT_CONTEMPORANEOUS"
+          ],
+          "notes": [
+            "yahoo_adr_analysis 的存檔比最新一筆早超過 7 天，另列，不一起比較"
+          ],
+          "entries": [
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240926212205",
+              "captured_at_tpe": "2024-09-27T05:22:05+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q3",
+                "announced_at": "2024-10-09T13:37:57+08:00",
+                "conservative_boundary": "2024-10-09T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 296.3,
+                "days_before_boundary": 11.8
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Sep 2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 22,
+              "avg": 746280000000.0,
+              "low": 717500000000.0,
+              "high": 763860000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240917135124",
+              "captured_at_tpe": "2024-09-17T21:51:24+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q3",
+                "announced_at": "2024-10-09T13:37:57+08:00",
+                "conservative_boundary": "2024-10-09T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 519.8,
+                "days_before_boundary": 21.1
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Sep 2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 6,
+              "avg": 22870000000.0,
+              "low": 21960000000.0,
+              "high": 23280000000.0,
+              "flags": []
+            }
+          ],
+          "n_analysts_by_source": {
+            "yahoo_tw_analysis": 22
+          }
+        }
+      ],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20241213235633",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/17/2024",
+          "period_label_raw": "Q3 2024",
+          "fiscal_period": "2024Q3",
+          "eps_estimate": 1.74,
+          "eps_actual": 1.94,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20250227184442",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/17/2024",
+          "period_label_raw": "Q3 2024",
+          "fiscal_period": "2024Q3",
+          "eps_estimate": 1.74,
+          "eps_actual": 1.94,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/17/2024",
+          "period_label_raw": "Q3 2024",
+          "fiscal_period": "2024Q3",
+          "eps_estimate": 1.74,
+          "eps_actual": 1.94,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20251206120326",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2024-09-30",
+          "fiscal_period": "2024Q3",
+          "eps_estimate": null,
+          "eps_actual": 12.54,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20250106225927",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "9/30/2024",
+          "fiscal_period": "2024Q3",
+          "eps_estimate": 1.79,
+          "eps_actual": 1.94,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20250224154350",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "9/30/2024",
+          "fiscal_period": "2024Q3",
+          "eps_estimate": 1.79,
+          "eps_actual": 1.94,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": {
+        "at": "2024-10-09T13:37:57+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2024Q4": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "NOT_CONTEMPORANEOUS"
+          ],
+          "notes": [
+            "marketbeat_adr_earnings 的存檔比最新一筆早超過 7 天，另列，不一起比較"
+          ],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20250106225927",
+              "captured_at_tpe": "2025-01-07T06:59:27+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q4",
+                "announced_at": "2025-01-10T14:05:13+08:00",
+                "conservative_boundary": "2025-01-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 79.1,
+                "days_before_boundary": 2.7
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Dec 2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 6,
+              "avg": 2.23,
+              "low": 2.11,
+              "high": 2.43,
+              "flags": []
+            }
+          ],
+          "older_entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "third_party_wayback",
+              "capture_ts": "20241213235633",
+              "captured_at_tpe": "2024-12-14T07:56:33+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q4",
+                "announced_at": "2025-01-10T14:05:13+08:00",
+                "conservative_boundary": "2025-01-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 654.1,
+                "days_before_boundary": 26.7
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q4 2024",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 1,
+              "avg": 2.1,
+              "low": 2.1,
+              "high": 2.1,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            }
+          ],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 6
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20250106225927",
+              "captured_at_tpe": "2025-01-07T06:59:27+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q4",
+                "announced_at": "2025-01-10T14:05:13+08:00",
+                "conservative_boundary": "2025-01-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 79.1,
+                "days_before_boundary": 2.7
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Dec 2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 22,
+              "avg": 854690000000.0,
+              "low": 844160000000.0,
+              "high": 873000000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 22
+          }
+        }
+      ],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20250227184442",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/16/2025",
+          "period_label_raw": "Q4 2024",
+          "fiscal_period": "2024Q4",
+          "eps_estimate": 2.16,
+          "eps_actual": 2.24,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/16/2025",
+          "period_label_raw": "Q4 2024",
+          "fiscal_period": "2024Q4",
+          "eps_estimate": 2.16,
+          "eps_actual": 2.24,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/16/2025",
+          "period_label_raw": "Q4 2024",
+          "fiscal_period": "2024Q4",
+          "eps_estimate": 2.16,
+          "eps_actual": 2.24,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20251206120326",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2024-12-31",
+          "fiscal_period": "2024Q4",
+          "eps_estimate": null,
+          "eps_actual": 13.870361,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20260318184655",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2024-12-31",
+          "fiscal_period": "2024Q4",
+          "eps_estimate": null,
+          "eps_actual": 14.450218,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20250224154350",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "12/31/2024",
+          "fiscal_period": "2024Q4",
+          "eps_estimate": 2.22,
+          "eps_actual": 2.24,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": {
+        "at": "2025-01-10T14:05:13+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2025Q1": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "SINGLE_ESTIMATE_SOURCE"
+          ],
+          "notes": [
+            "各來源的 EPS 口徑（GAAP／調整後）不同或沒寫，差異可能來自定義不同"
+          ],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "third_party_wayback",
+              "capture_ts": "20250227184442",
+              "captured_at_tpe": "2025-02-28T02:44:42+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2025Q1",
+                "announced_at": "2025-04-10T14:05:27+08:00",
+                "conservative_boundary": "2025-04-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 995.3,
+                "days_before_boundary": 40.9
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q1 2025",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 1,
+              "avg": 2.01,
+              "low": 2.01,
+              "high": 2.01,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            },
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20250224154350",
+              "captured_at_tpe": "2025-02-24T23:43:50+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2025Q1",
+                "announced_at": "2025-04-10T14:05:27+08:00",
+                "conservative_boundary": "2025-04-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 1070.4,
+                "days_before_boundary": 44.0
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Mar 2025)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 3,
+              "avg": 2.05,
+              "low": 2.02,
+              "high": 2.11,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": 1,
+            "yahoo_adr_analysis": 3
+          },
+          "difference": {
+            "avg_min": 2.01,
+            "avg_max": 2.05,
+            "spread": 0.04,
+            "spread_pct_of_min": 1.99,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20250224154350",
+              "captured_at_tpe": "2025-02-24T23:43:50+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2025Q1",
+                "announced_at": "2025-04-10T14:05:27+08:00",
+                "conservative_boundary": "2025-04-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 1070.4,
+                "days_before_boundary": 44.0
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Mar 2025)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 19,
+              "avg": 834100000000.0,
+              "low": 756850000000.0,
+              "high": 858000000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 19
+          }
+        }
+      ],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/17/2025",
+          "period_label_raw": "Q1 2025",
+          "fiscal_period": "2025Q1",
+          "eps_estimate": 2.03,
+          "eps_actual": 2.12,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/17/2025",
+          "period_label_raw": "Q1 2025",
+          "fiscal_period": "2025Q1",
+          "eps_estimate": 2.03,
+          "eps_actual": 2.12,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20251206120326",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2025-03-31",
+          "fiscal_period": "2025Q1",
+          "eps_estimate": null,
+          "eps_actual": 13.94,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20260318184655",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2025-03-31",
+          "fiscal_period": "2025Q1",
+          "eps_estimate": null,
+          "eps_actual": 13.94,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        }
+      ],
+      "cutoff": {
+        "at": "2025-04-10T14:05:27+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2025Q2": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "CURRENCY_ASSUMED"
+          ],
+          "notes": [
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "third_party_wayback",
+              "capture_ts": "20250612153906",
+              "captured_at_tpe": "2025-06-12T23:39:06+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2025Q2",
+                "announced_at": "2025-07-10T14:26:42+08:00",
+                "conservative_boundary": "2025-07-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 662.8,
+                "days_before_boundary": 27.0
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Jun 2025",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 4,
+              "avg": 2.32,
+              "low": 2.21,
+              "high": 2.37,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "nasdaq_api_forecast": 4
+          }
+        }
+      ],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/17/2025",
+          "period_label_raw": "Q2 2025",
+          "fiscal_period": "2025Q2",
+          "eps_estimate": 2.13,
+          "eps_actual": 2.47,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/17/2025",
+          "period_label_raw": "Q2 2025",
+          "fiscal_period": "2025Q2",
+          "eps_estimate": 2.13,
+          "eps_actual": 2.47,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20251206120326",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2025-06-30",
+          "fiscal_period": "2025Q2",
+          "eps_estimate": null,
+          "eps_actual": 15.36,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20260318184655",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2025-06-30",
+          "fiscal_period": "2025Q2",
+          "eps_estimate": null,
+          "eps_actual": 15.36,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        }
+      ],
+      "cutoff": {
+        "at": "2025-07-10T14:26:42+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2025Q3": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "11/14/2025",
+          "period_label_raw": "Q3 2025",
+          "fiscal_period": "2025Q3",
+          "eps_estimate": null,
+          "eps_actual": 14.316,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/16/2025",
+          "period_label_raw": "Q3 2025",
+          "fiscal_period": "2025Q3",
+          "eps_estimate": 2.59,
+          "eps_actual": 2.92,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "11/14/2025",
+          "period_label_raw": "Q3 2025",
+          "fiscal_period": "2025Q3",
+          "eps_estimate": null,
+          "eps_actual": 14.316,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/16/2025",
+          "period_label_raw": "Q3 2025",
+          "fiscal_period": "2025Q3",
+          "eps_estimate": 2.59,
+          "eps_actual": 2.92,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20251206120326",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2025-09-30",
+          "fiscal_period": "2025Q3",
+          "eps_estimate": null,
+          "eps_actual": 17.44,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20260318184655",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2025-09-30",
+          "fiscal_period": "2025Q3",
+          "eps_estimate": null,
+          "eps_actual": 17.44,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        }
+      ],
+      "cutoff": {
+        "at": "2025-10-09T14:01:10+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2025Q4": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20251206120326",
+              "captured_at_tpe": "2025-12-06T20:03:26+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2025Q4",
+                "announced_at": "2026-01-09T13:51:04+08:00",
+                "conservative_boundary": "2026-01-09T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 809.8,
+                "days_before_boundary": 33.2
+              },
+              "period_type": "quarter",
+              "period_label_raw": "2025-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 24,
+              "avg": 17.6422158,
+              "low": null,
+              "high": null,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 24
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20251206120326",
+              "captured_at_tpe": "2025-12-06T20:03:26+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2025Q4",
+                "announced_at": "2026-01-09T13:51:04+08:00",
+                "conservative_boundary": "2026-01-09T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 809.8,
+                "days_before_boundary": 33.2
+              },
+              "period_type": "quarter",
+              "period_label_raw": "2025-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 24,
+              "avg": 1026913000000.0,
+              "low": null,
+              "high": null,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 24
+          }
+        }
+      ],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "2/26/2026",
+          "period_label_raw": "Q4 2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": null,
+          "eps_actual": 3.11,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "2/10/2026",
+          "period_label_raw": "Q4 2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": null,
+          "eps_actual": 3.11,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/15/2026",
+          "period_label_raw": "Q4 2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": 2.82,
+          "eps_actual": 3.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "2/26/2026",
+          "period_label_raw": "Q4 2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": null,
+          "eps_actual": 3.11,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "2/10/2026",
+          "period_label_raw": "Q4 2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": null,
+          "eps_actual": 3.11,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "1/15/2026",
+          "period_label_raw": "Q4 2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": 2.82,
+          "eps_actual": 3.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "stockanalysis_adr_forecast",
+          "capture_ts": "20260318184655",
+          "kind": "vendor_reported_actual",
+          "period_label_raw": "2025-12-31",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": null,
+          "eps_actual": 19.500925,
+          "currency": "TWD",
+          "note": "網站列出的實際 EPS，只用來和官方公告比對單位（每股或每 ADR）"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20261018111047",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "12/31/2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": 2.98,
+          "eps_actual": 3.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20261019014822",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "12/31/2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": 2.98,
+          "eps_actual": 3.14,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_tw_analysis",
+          "capture_ts": "20261019015426",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "12/31/2025",
+          "fiscal_period": "2025Q4",
+          "eps_estimate": 18.15,
+          "eps_actual": 19.5,
+          "currency": "TWD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": {
+        "at": "2026-01-09T13:51:04+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2026Q1": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20260318184655",
+              "captured_at_tpe": "2026-03-19T02:46:55+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2026Q1",
+                "announced_at": "2026-04-10T13:50:36+08:00",
+                "conservative_boundary": "2026-04-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 539.1,
+                "days_before_boundary": 21.9
+              },
+              "period_type": "quarter",
+              "period_label_raw": "2026-03-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 24,
+              "avg": 20.558100000000003,
+              "low": null,
+              "high": null,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 24
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20260318184655",
+              "captured_at_tpe": "2026-03-19T02:46:55+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2026Q1",
+                "announced_at": "2026-04-10T13:50:36+08:00",
+                "conservative_boundary": "2026-04-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 539.1,
+                "days_before_boundary": 21.9
+              },
+              "period_type": "quarter",
+              "period_label_raw": "2026-03-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 24,
+              "avg": 1126268000000.0,
+              "low": null,
+              "high": null,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 24
+          }
+        }
+      ],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20260609090716",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/15/2026",
+          "period_label_raw": "Q1 2026",
+          "fiscal_period": "2026Q1",
+          "eps_estimate": 3.31,
+          "eps_actual": 3.49,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "4/15/2026",
+          "period_label_raw": "Q1 2026",
+          "fiscal_period": "2026Q1",
+          "eps_estimate": 3.31,
+          "eps_actual": 3.49,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20261018111047",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "3/31/2026",
+          "fiscal_period": "2026Q1",
+          "eps_estimate": 3.33,
+          "eps_actual": 3.49,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20261019014822",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "3/31/2026",
+          "fiscal_period": "2026Q1",
+          "eps_estimate": 3.33,
+          "eps_actual": 3.49,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_tw_analysis",
+          "capture_ts": "20261019015426",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "3/31/2026",
+          "fiscal_period": "2026Q1",
+          "eps_estimate": 20.96,
+          "eps_actual": 22.08,
+          "currency": "TWD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": {
+        "at": "2026-04-10T13:50:36+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2026Q2": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "SINGLE_ESTIMATE_SOURCE"
+          ],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "third_party_wayback",
+              "capture_ts": "20260609090716",
+              "captured_at_tpe": "2026-06-09T17:07:16+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2026Q2",
+                "announced_at": "2026-07-13T13:50:31+08:00",
+                "conservative_boundary": "2026-07-13T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 812.7,
+                "days_before_boundary": 33.3
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q2 2026",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 1,
+              "avg": 2.73,
+              "low": 2.73,
+              "high": 2.73,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": 1
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "USD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "third_party_wayback",
+              "capture_ts": "20260609090716",
+              "captured_at_tpe": "2026-06-09T17:07:16+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2026Q2",
+                "announced_at": "2026-07-13T13:50:31+08:00",
+                "conservative_boundary": "2026-07-13T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 812.7,
+                "days_before_boundary": 33.3
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q2 2026",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": null,
+              "avg": 39500000000.0,
+              "low": null,
+              "high": null,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": null
+          }
+        }
+      ],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "7/16/2026",
+          "period_label_raw": "Q2 2026",
+          "fiscal_period": "2026Q2",
+          "eps_estimate": 3.82,
+          "eps_actual": 4.31,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "6/30/2026",
+          "period_label_raw": "Q2 2026",
+          "fiscal_period": "2026Q2",
+          "eps_estimate": null,
+          "eps_actual": 4.28,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20261018111047",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "6/30/2026",
+          "fiscal_period": "2026Q2",
+          "eps_estimate": 3.89,
+          "eps_actual": 4.31,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20261019014822",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "6/30/2026",
+          "fiscal_period": "2026Q2",
+          "eps_estimate": 3.89,
+          "eps_actual": 4.31,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_tw_analysis",
+          "capture_ts": "20261019015426",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "6/30/2026",
+          "fiscal_period": "2026Q2",
+          "eps_estimate": 24.23,
+          "eps_actual": 27.25,
+          "currency": "TWD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": {
+        "at": "2026-07-13T13:50:31+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2026Q3": {
+      "groups": [],
+      "retrospective": [
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "10/15/2026",
+          "period_label_raw": "Q3 2026",
+          "fiscal_period": "2026Q3",
+          "eps_estimate": 4.45,
+          "eps_actual": 4.6,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "marketbeat_adr_earnings",
+          "capture_ts": "20261019022843",
+          "kind": "vendor_reported_past_estimate",
+          "report_date": "9/8/2026",
+          "period_label_raw": "Q3 2026",
+          "fiscal_period": "2026Q3",
+          "eps_estimate": null,
+          "eps_actual": 4.62,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，不能證明公布前就是這個值"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20261018111047",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "9/30/2026",
+          "fiscal_period": "2026Q3",
+          "eps_estimate": 4.52,
+          "eps_actual": 4.6,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_adr_analysis",
+          "capture_ts": "20261019014822",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "9/30/2026",
+          "fiscal_period": "2026Q3",
+          "eps_estimate": 4.52,
+          "eps_actual": 4.6,
+          "currency": "USD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        },
+        {
+          "source_id": "yahoo_tw_analysis",
+          "capture_ts": "20261019015426",
+          "kind": "vendor_reported_past_estimate",
+          "period_label_raw": "9/30/2026",
+          "fiscal_period": "2026Q3",
+          "eps_estimate": 28.51,
+          "eps_actual": 29.43,
+          "currency": "TWD",
+          "note": "網站事後列出的「當時預估」，存檔時間晚於該季公布，無法證明公布前就是這個值，不可當成截止點前快照"
+        }
+      ],
+      "cutoff": {
+        "at": "2026-10-08T13:54:04+08:00",
+        "event_type": "quarter_revenue_complete",
+        "status": "CUTOFF_VERIFIED"
+      }
+    },
+    "2026Q4": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "2330.TW",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019015426",
+              "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Dec 2026)",
+              "basis": "normalized",
+              "currency_from": "page",
+              "n_analysts": 22,
+              "avg": 32.96,
+              "low": 31.77,
+              "high": 33.92,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_tw_analysis": 22
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240701151026",
+              "captured_at_tpe": "2024-07-01T23:10:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 913.0
+              },
+              "period_type": "quarter",
+              "period_label_raw": "2026-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 4,
+              "avg": 84.19845000000001,
+              "low": null,
+              "high": null,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 4
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "CURRENCY_ASSUMED",
+            "SINGLE_ESTIMATE_SOURCE"
+          ],
+          "notes": [
+            "各來源的 EPS 口徑（GAAP／調整後）不同或沒寫，差異可能來自定義不同",
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "self_archive",
+              "capture_ts": "20261019022843",
+              "captured_at_tpe": "2026-10-19T10:28:43+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q4 2026",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 1,
+              "avg": 3.12,
+              "low": 3.12,
+              "high": 3.12,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            },
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Dec 2026",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 5,
+              "avg": 4.74,
+              "low": 4.22,
+              "high": 5.12,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            },
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019014822",
+              "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Dec 2026)",
+              "basis": "normalized",
+              "currency_from": "page",
+              "n_analysts": 8,
+              "avg": 5.16,
+              "low": 5.1,
+              "high": 5.28,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": 1,
+            "nasdaq_api_forecast": 5,
+            "yahoo_adr_analysis": 8
+          },
+          "difference": {
+            "avg_min": 3.12,
+            "avg_max": 5.16,
+            "spread": 2.04,
+            "spread_pct_of_min": 65.38,
+            "sources": 3,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "IDENTICAL_VALUES",
+            "NOT_CONTEMPORANEOUS"
+          ],
+          "notes": [
+            "stockanalysis_adr_forecast 的存檔比最新一筆早超過 7 天，另列，不一起比較",
+            "yahoo_adr_analysis 與 yahoo_tw_analysis 數值與人數完全相同（同一家網站的不同頁面）：可能是同一份資料，不能當成兩個獨立確認",
+            "各來源口徑沒寫"
+          ],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019014822",
+              "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Dec 2026)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 27,
+              "avg": 1710000000000.0,
+              "low": 1630000000000.0,
+              "high": 1750000000000.0,
+              "flags": []
+            },
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019015426",
+              "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Current Qtr. (Dec 2026)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 27,
+              "avg": 1710000000000.0,
+              "low": 1630000000000.0,
+              "high": 1750000000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240701151026",
+              "captured_at_tpe": "2024-07-01T23:10:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 913.0
+              },
+              "period_type": "quarter",
+              "period_label_raw": "2026-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 4,
+              "avg": 1093403000000.0,
+              "low": null,
+              "high": null,
+              "flags": []
+            }
+          ],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 27,
+            "yahoo_tw_analysis": 27
+          },
+          "difference": {
+            "avg_min": 1710000000000.0,
+            "avg_max": 1710000000000.0,
+            "spread": 0.0,
+            "spread_pct_of_min": 0.0,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "USD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "self_archive",
+              "capture_ts": "20261019022843",
+              "captured_at_tpe": "2026-10-19T10:28:43+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q4 2026",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": null,
+              "avg": 48800000000.0,
+              "low": null,
+              "high": null,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": null
+          }
+        }
+      ],
+      "retrospective": [],
+      "cutoff": null
+    },
+    "2027Q1": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "2330.TW",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019015426",
+              "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q1",
+                "quarter_ends": "2027-03-31T23:59:59+08:00",
+                "days_before_quarter_end": 163.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Next Qtr. (Mar 2027)",
+              "basis": "normalized",
+              "currency_from": "page",
+              "n_analysts": 19,
+              "avg": 33.57,
+              "low": 30.7,
+              "high": 37.2,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_tw_analysis": 19
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "CURRENCY_ASSUMED",
+            "SINGLE_ESTIMATE_SOURCE"
+          ],
+          "notes": [
+            "各來源的 EPS 口徑（GAAP／調整後）不同或沒寫，差異可能來自定義不同",
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "self_archive",
+              "capture_ts": "20261019022843",
+              "captured_at_tpe": "2026-10-19T10:28:43+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q1",
+                "quarter_ends": "2027-03-31T23:59:59+08:00",
+                "days_before_quarter_end": 163.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q1 2027",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 1,
+              "avg": 2.67,
+              "low": 2.67,
+              "high": 2.67,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            },
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q1",
+                "quarter_ends": "2027-03-31T23:59:59+08:00",
+                "days_before_quarter_end": 163.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Mar 2027",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 5,
+              "avg": 4.84,
+              "low": 4.36,
+              "high": 5.31,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            },
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019014822",
+              "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q1",
+                "quarter_ends": "2027-03-31T23:59:59+08:00",
+                "days_before_quarter_end": 163.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Next Qtr. (Mar 2027)",
+              "basis": "normalized",
+              "currency_from": "page",
+              "n_analysts": 10,
+              "avg": 5.19,
+              "low": 4.95,
+              "high": 5.4,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": 1,
+            "nasdaq_api_forecast": 5,
+            "yahoo_adr_analysis": 10
+          },
+          "difference": {
+            "avg_min": 2.67,
+            "avg_max": 5.19,
+            "spread": 2.52,
+            "spread_pct_of_min": 94.38,
+            "sources": 3,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "IDENTICAL_VALUES"
+          ],
+          "notes": [
+            "yahoo_adr_analysis 與 yahoo_tw_analysis 數值與人數完全相同（同一家網站的不同頁面）：可能是同一份資料，不能當成兩個獨立確認",
+            "各來源口徑沒寫"
+          ],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019014822",
+              "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q1",
+                "quarter_ends": "2027-03-31T23:59:59+08:00",
+                "days_before_quarter_end": 163.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Next Qtr. (Mar 2027)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 21,
+              "avg": 1730000000000.0,
+              "low": 1620000000000.0,
+              "high": 1860000000000.0,
+              "flags": []
+            },
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019015426",
+              "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q1",
+                "quarter_ends": "2027-03-31T23:59:59+08:00",
+                "days_before_quarter_end": 163.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Next Qtr. (Mar 2027)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 21,
+              "avg": 1730000000000.0,
+              "low": 1620000000000.0,
+              "high": 1860000000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 21,
+            "yahoo_tw_analysis": 21
+          },
+          "difference": {
+            "avg_min": 1730000000000.0,
+            "avg_max": 1730000000000.0,
+            "spread": 0.0,
+            "spread_pct_of_min": 0.0,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        }
+      ],
+      "retrospective": [],
+      "cutoff": null
+    },
+    "2027Q2": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "CURRENCY_ASSUMED",
+            "SINGLE_ESTIMATE_SOURCE"
+          ],
+          "notes": [
+            "各來源的 EPS 口徑（GAAP／調整後）不同或沒寫，差異可能來自定義不同",
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "self_archive",
+              "capture_ts": "20261019022843",
+              "captured_at_tpe": "2026-10-19T10:28:43+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q2",
+                "quarter_ends": "2027-06-30T23:59:59+08:00",
+                "days_before_quarter_end": 254.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q2 2027",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 1,
+              "avg": 3.28,
+              "low": 3.28,
+              "high": 3.28,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            },
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q2",
+                "quarter_ends": "2027-06-30T23:59:59+08:00",
+                "days_before_quarter_end": 254.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Jun 2027",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 5,
+              "avg": 5.2,
+              "low": 4.9,
+              "high": 5.62,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": 1,
+            "nasdaq_api_forecast": 5
+          },
+          "difference": {
+            "avg_min": 3.28,
+            "avg_max": 5.2,
+            "spread": 1.92,
+            "spread_pct_of_min": 58.54,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        }
+      ],
+      "retrospective": [],
+      "cutoff": null
+    },
+    "2027Q3": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "CURRENCY_ASSUMED",
+            "SINGLE_ESTIMATE_SOURCE"
+          ],
+          "notes": [
+            "各來源的 EPS 口徑（GAAP／調整後）不同或沒寫，差異可能來自定義不同",
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "self_archive",
+              "capture_ts": "20261019022843",
+              "captured_at_tpe": "2026-10-19T10:28:43+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q3",
+                "quarter_ends": "2027-09-30T23:59:59+08:00",
+                "days_before_quarter_end": 346.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Q3 2027",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 1,
+              "avg": 3.54,
+              "low": 3.54,
+              "high": 3.54,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR"
+              ]
+            },
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q3",
+                "quarter_ends": "2027-09-30T23:59:59+08:00",
+                "days_before_quarter_end": 346.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Sep 2027",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 5,
+              "avg": 5.71,
+              "low": 5.24,
+              "high": 6.28,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": 1,
+            "nasdaq_api_forecast": 5
+          },
+          "difference": {
+            "avg_min": 3.54,
+            "avg_max": 5.71,
+            "spread": 2.17,
+            "spread_pct_of_min": 61.3,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        }
+      ],
+      "retrospective": [],
+      "cutoff": null
+    },
+    "2027Q4": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "CURRENCY_ASSUMED"
+          ],
+          "notes": [
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q4",
+                "quarter_ends": "2027-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 438.6
+              },
+              "period_type": "quarter",
+              "period_label_raw": "Dec 2027",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 5,
+              "avg": 5.92,
+              "low": 5.12,
+              "high": 6.52,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "nasdaq_api_forecast": 5
+          }
+        }
+      ],
+      "retrospective": [],
+      "cutoff": null
+    },
+    "FY2024": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "NOT_CONTEMPORANEOUS"
+          ],
+          "notes": [
+            "marketbeat_adr_earnings 的存檔比最新一筆早超過 7 天，另列，不一起比較"
+          ],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20250106225927",
+              "captured_at_tpe": "2025-01-07T06:59:27+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q4",
+                "announced_at": "2025-01-10T14:05:13+08:00",
+                "conservative_boundary": "2025-01-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 79.1,
+                "days_before_boundary": 2.7
+              },
+              "period_type": "year",
+              "period_label_raw": "Current Year (2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 10,
+              "avg": 7.05,
+              "low": 6.83,
+              "high": 7.33,
+              "flags": []
+            }
+          ],
+          "older_entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "third_party_wayback",
+              "capture_ts": "20241213235633",
+              "captured_at_tpe": "2024-12-14T07:56:33+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q4",
+                "announced_at": "2025-01-10T14:05:13+08:00",
+                "conservative_boundary": "2025-01-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 654.1,
+                "days_before_boundary": 26.7
+              },
+              "period_type": "year",
+              "period_label_raw": "FY 2024",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 4,
+              "avg": 6.51,
+              "low": 6.51,
+              "high": 6.51,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR",
+                "FY_ROW_IS_SUM_OF_QUARTERS"
+              ]
+            }
+          ],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 10
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "third_party_wayback",
+              "capture_ts": "20250106225927",
+              "captured_at_tpe": "2025-01-07T06:59:27+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2024Q4",
+                "announced_at": "2025-01-10T14:05:13+08:00",
+                "conservative_boundary": "2025-01-10T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 79.1,
+                "days_before_boundary": 2.7
+              },
+              "period_type": "year",
+              "period_label_raw": "Current Year (2024)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 33,
+              "avg": 2880000000000.0,
+              "low": 2860000000000.0,
+              "high": 2910000000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 33
+          }
+        }
+      ],
+      "retrospective": []
+    },
+    "FY2025": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20251206120326",
+              "captured_at_tpe": "2025-12-06T20:03:26+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2025Q4",
+                "announced_at": "2026-01-09T13:51:04+08:00",
+                "conservative_boundary": "2026-01-09T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 809.8,
+                "days_before_boundary": 33.2
+              },
+              "period_type": "year",
+              "period_label_raw": "2025-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 40,
+              "avg": 64.582677,
+              "low": 57.13399999999999,
+              "high": 68.355,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 40
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20251206120326",
+              "captured_at_tpe": "2025-12-06T20:03:26+08:00",
+              "timing": "BEFORE_CUTOFF",
+              "timing_info": {
+                "quarter": "2025Q4",
+                "announced_at": "2026-01-09T13:51:04+08:00",
+                "conservative_boundary": "2026-01-09T00:00:00+08:00",
+                "event_type": "quarter_revenue_complete",
+                "cutoff_status": "CUTOFF_VERIFIED",
+                "hours_before_announcement": 809.8,
+                "days_before_boundary": 33.2
+              },
+              "period_type": "year",
+              "period_label_raw": "2025-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 40,
+              "avg": 3833827000000.0,
+              "low": 3566064000000.0,
+              "high": 4062994000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 40
+          }
+        }
+      ],
+      "retrospective": []
+    },
+    "FY2026": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "2330.TW",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019015426",
+              "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Current Year (2026)",
+              "basis": "normalized",
+              "currency_from": "page",
+              "n_analysts": 35,
+              "avg": 110.13,
+              "low": 98.4,
+              "high": 113.21,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_tw_analysis": 35
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20260318184655",
+              "captured_at_tpe": "2026-03-19T02:46:55+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 287.9
+              },
+              "period_type": "year",
+              "period_label_raw": "2026-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 41,
+              "avg": 91.0899066,
+              "low": 75.75399999999999,
+              "high": 101.85,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 41
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "CURRENCY_ASSUMED",
+            "FY_ROW_IS_SUM_OF_QUARTERS"
+          ],
+          "notes": [
+            "marketbeat_adr_earnings 的年度值是四季單一預估相加，不是年度共識，不列入差異計算",
+            "各來源的 EPS 口徑（GAAP／調整後）不同或沒寫，差異可能來自定義不同",
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "marketbeat_adr_earnings",
+              "vendor": "MarketBeat",
+              "origin": "self_archive",
+              "capture_ts": "20261019022843",
+              "captured_at_tpe": "2026-10-19T10:28:43+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "year",
+              "period_label_raw": "FY 2026",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 4,
+              "avg": 11.07,
+              "low": 11.07,
+              "high": 11.07,
+              "flags": [
+                "FISCAL_LABEL_ASSUMED_CALENDAR",
+                "FY_ROW_IS_SUM_OF_QUARTERS"
+              ]
+            },
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Dec 2026",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 9,
+              "avg": 16.65,
+              "low": 13.08,
+              "high": 17.61,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            },
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019014822",
+              "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Current Year (2026)",
+              "basis": "normalized",
+              "currency_from": "page",
+              "n_analysts": 11,
+              "avg": 17.5,
+              "low": 17.18,
+              "high": 17.95,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "marketbeat_adr_earnings": 4,
+            "nasdaq_api_forecast": 9,
+            "yahoo_adr_analysis": 11
+          },
+          "difference": {
+            "avg_min": 16.65,
+            "avg_max": 17.5,
+            "spread": 0.85,
+            "spread_pct_of_min": 5.11,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "IDENTICAL_VALUES",
+            "NOT_CONTEMPORANEOUS"
+          ],
+          "notes": [
+            "stockanalysis_adr_forecast 的存檔比最新一筆早超過 7 天，另列，不一起比較",
+            "yahoo_adr_analysis 與 yahoo_tw_analysis 數值與人數完全相同（同一家網站的不同頁面）：可能是同一份資料，不能當成兩個獨立確認",
+            "各來源口徑沒寫"
+          ],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019014822",
+              "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Current Year (2026)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 41,
+              "avg": 5560000000000.0,
+              "low": 5160000000000.0,
+              "high": 5730000000000.0,
+              "flags": []
+            },
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019015426",
+              "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 73.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Current Year (2026)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 41,
+              "avg": 5560000000000.0,
+              "low": 5160000000000.0,
+              "high": 5730000000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20260318184655",
+              "captured_at_tpe": "2026-03-19T02:46:55+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2026Q4",
+                "quarter_ends": "2026-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 287.9
+              },
+              "period_type": "year",
+              "period_label_raw": "2026-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 41,
+              "avg": 5083559000000.0,
+              "low": 4366880000000.0,
+              "high": 5465384000000.0,
+              "flags": []
+            }
+          ],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 41,
+            "yahoo_tw_analysis": 41
+          },
+          "difference": {
+            "avg_min": 5560000000000.0,
+            "avg_max": 5560000000000.0,
+            "spread": 0.0,
+            "spread_pct_of_min": 0.0,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        }
+      ],
+      "retrospective": []
+    },
+    "FY2027": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "2330.TW",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019015426",
+              "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q4",
+                "quarter_ends": "2027-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 438.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Next Year (2027)",
+              "basis": "normalized",
+              "currency_from": "page",
+              "n_analysts": 36,
+              "avg": 148.61,
+              "low": 126.5,
+              "high": 167.13,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "yahoo_tw_analysis": 36
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20260318184655",
+              "captured_at_tpe": "2026-03-19T02:46:55+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q4",
+                "quarter_ends": "2027-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 652.9
+              },
+              "period_type": "year",
+              "period_label_raw": "2027-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 33,
+              "avg": 112.6044708,
+              "low": 91.434,
+              "high": 130.08450000000002,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 33
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "CURRENCY_ASSUMED"
+          ],
+          "notes": [
+            "各來源的 EPS 口徑（GAAP／調整後）不同或沒寫，差異可能來自定義不同",
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q4",
+                "quarter_ends": "2027-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 438.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Dec 2027",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 9,
+              "avg": 21.5,
+              "low": 16.71,
+              "high": 25.27,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            },
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019014822",
+              "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q4",
+                "quarter_ends": "2027-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 438.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Next Year (2027)",
+              "basis": "normalized",
+              "currency_from": "page",
+              "n_analysts": 13,
+              "avg": 23.39,
+              "low": 21.45,
+              "high": 25.87,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "nasdaq_api_forecast": 9,
+            "yahoo_adr_analysis": 13
+          },
+          "difference": {
+            "avg_min": 21.5,
+            "avg_max": 23.39,
+            "spread": 1.89,
+            "spread_pct_of_min": 8.79,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [
+            "BASIS_DIFFERS_OR_UNSTATED",
+            "IDENTICAL_VALUES",
+            "NOT_CONTEMPORANEOUS"
+          ],
+          "notes": [
+            "stockanalysis_adr_forecast 的存檔比最新一筆早超過 7 天，另列，不一起比較",
+            "yahoo_adr_analysis 與 yahoo_tw_analysis 數值與人數完全相同（同一家網站的不同頁面）：可能是同一份資料，不能當成兩個獨立確認",
+            "各來源口徑沒寫"
+          ],
+          "entries": [
+            {
+              "source_id": "yahoo_adr_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019014822",
+              "captured_at_tpe": "2026-10-19T09:48:22+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q4",
+                "quarter_ends": "2027-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 438.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Next Year (2027)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 41,
+              "avg": 7650000000000.0,
+              "low": 6880000000000.0,
+              "high": 8529999999999.999,
+              "flags": []
+            },
+            {
+              "source_id": "yahoo_tw_analysis",
+              "vendor": "Yahoo Finance",
+              "origin": "self_archive",
+              "capture_ts": "20261019015426",
+              "captured_at_tpe": "2026-10-19T09:54:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q4",
+                "quarter_ends": "2027-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 438.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Next Year (2027)",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 41,
+              "avg": 7650000000000.0,
+              "low": 6880000000000.0,
+              "high": 8529999999999.999,
+              "flags": []
+            }
+          ],
+          "older_entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20260318184655",
+              "captured_at_tpe": "2026-03-19T02:46:55+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2027Q4",
+                "quarter_ends": "2027-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 652.9
+              },
+              "period_type": "year",
+              "period_label_raw": "2027-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 33,
+              "avg": 6313377000000.0,
+              "low": 5308660000000.0,
+              "high": 7035000000000.0,
+              "flags": []
+            }
+          ],
+          "n_analysts_by_source": {
+            "yahoo_adr_analysis": 41,
+            "yahoo_tw_analysis": 41
+          },
+          "difference": {
+            "avg_min": 7650000000000.0,
+            "avg_max": 7650000000000.0,
+            "spread": 0.0,
+            "spread_pct_of_min": 0.0,
+            "sources": 2,
+            "note": "只記錄差異，不判斷哪個正確"
+          }
+        }
+      ],
+      "retrospective": []
+    },
+    "FY2028": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "TWD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240701151026",
+              "captured_at_tpe": "2024-07-01T23:10:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2028Q4",
+                "quarter_ends": "2028-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 1644.0
+              },
+              "period_type": "year",
+              "period_label_raw": "2028-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 3,
+              "avg": 318.42462,
+              "low": 305.93737999999996,
+              "high": 327.79004999999995,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 3
+          }
+        },
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "CURRENCY_ASSUMED"
+          ],
+          "notes": [
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2028Q4",
+                "quarter_ends": "2028-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 804.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Dec 2028",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 3,
+              "avg": 26.64,
+              "low": 20.39,
+              "high": 30.14,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "nasdaq_api_forecast": 3
+          }
+        },
+        {
+          "metric": "revenue",
+          "currency": "TWD",
+          "quote": "company",
+          "choice": null,
+          "flags": [],
+          "notes": [],
+          "entries": [
+            {
+              "source_id": "stockanalysis_adr_forecast",
+              "vendor": "StockAnalysis",
+              "origin": "third_party_wayback",
+              "capture_ts": "20240701151026",
+              "captured_at_tpe": "2024-07-01T23:10:26+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2028Q4",
+                "quarter_ends": "2028-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 1644.0
+              },
+              "period_type": "year",
+              "period_label_raw": "2028-12-31",
+              "basis": null,
+              "currency_from": "page",
+              "n_analysts": 3,
+              "avg": 4113684000000.0,
+              "low": 3952363000000.0,
+              "high": 4234675000000.0,
+              "flags": []
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "stockanalysis_adr_forecast": 3
+          }
+        }
+      ],
+      "retrospective": []
+    },
+    "FY2029": {
+      "groups": [
+        {
+          "metric": "eps",
+          "currency": "USD",
+          "quote": "TSM",
+          "choice": null,
+          "flags": [
+            "CURRENCY_ASSUMED",
+            "SINGLE_ESTIMATE_SOURCE"
+          ],
+          "notes": [
+            "部分來源頁面沒寫幣別，使用設定檔假設：nasdaq_api_forecast"
+          ],
+          "entries": [
+            {
+              "source_id": "nasdaq_api_forecast",
+              "vendor": "Nasdaq API",
+              "origin": "self_archive",
+              "capture_ts": "20261019020624",
+              "captured_at_tpe": "2026-10-19T10:06:24+08:00",
+              "timing": "BEFORE_QUARTER_END",
+              "timing_info": {
+                "quarter": "2029Q4",
+                "quarter_ends": "2029-12-31T23:59:59+08:00",
+                "days_before_quarter_end": 1169.6
+              },
+              "period_type": "year",
+              "period_label_raw": "Dec 2029",
+              "basis": null,
+              "currency_from": "config_assumption",
+              "n_analysts": 1,
+              "avg": 24.08,
+              "low": 24.08,
+              "high": 24.08,
+              "flags": [
+                "EPS_DEFINITION_FOOTNOTED"
+              ]
+            }
+          ],
+          "older_entries": [],
+          "n_analysts_by_source": {
+            "nasdaq_api_forecast": 1
+          }
+        }
+      ],
+      "retrospective": []
+    }
+  },
+  "series": [
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2024Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 1.28,
+          "low": 1.28,
+          "high": 1.28,
+          "n_analysts": 1,
+          "timing": "AFTER_CUTOFF"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 1.28,
+          "low": 1.28,
+          "high": 1.28,
+          "n_analysts": 1,
+          "timing": "AFTER_CUTOFF",
+          "unchanged_since": "20240629225725"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2024Q2",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 1.33,
+          "low": 1.33,
+          "high": 1.33,
+          "n_analysts": 1,
+          "timing": "BEFORE_CUTOFF"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 1.42,
+          "low": 1.42,
+          "high": 1.42,
+          "n_analysts": 1,
+          "timing": "AFTER_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2024Q3",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 1.52,
+          "low": 1.52,
+          "high": 1.52,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 1.71,
+          "low": 1.71,
+          "high": 1.71,
+          "n_analysts": 1,
+          "timing": "AFTER_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2024Q4",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 1.84,
+          "low": 1.84,
+          "high": 1.84,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 2.1,
+          "low": 2.1,
+          "high": 2.1,
+          "n_analysts": 1,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2025Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 1.55,
+          "low": 1.55,
+          "high": 1.55,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 1.82,
+          "low": 1.82,
+          "high": 1.82,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250227184442",
+          "avg": 2.01,
+          "low": 2.01,
+          "high": 2.01,
+          "n_analysts": 1,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2025Q2",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 1.74,
+          "low": 1.74,
+          "high": 1.74,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 2.01,
+          "low": 2.01,
+          "high": 2.01,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250227184442",
+          "avg": 2.15,
+          "low": 2.15,
+          "high": 2.15,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2025Q3",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 2.06,
+          "low": 2.06,
+          "high": 2.06,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 2.35,
+          "low": 2.35,
+          "high": 2.35,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250227184442",
+          "avg": 2.34,
+          "low": 2.34,
+          "high": 2.34,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2025Q4",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 2.35,
+          "low": 2.35,
+          "high": 2.35,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 2.55,
+          "low": 2.55,
+          "high": 2.55,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250227184442",
+          "avg": 2.66,
+          "low": 2.66,
+          "high": 2.66,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2026Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20241213235633",
+          "avg": 2.26,
+          "low": 2.26,
+          "high": 2.26,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250227184442",
+          "avg": 2.34,
+          "low": 2.34,
+          "high": 2.34,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20260609090716",
+          "avg": 2.24,
+          "low": 2.24,
+          "high": 2.24,
+          "n_analysts": 1,
+          "timing": "AFTER_CUTOFF"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 2.24,
+          "low": 2.24,
+          "high": 2.24,
+          "n_analysts": 1,
+          "timing": "AFTER_CUTOFF",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2026Q1",
+      "metric": "revenue",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20260609090716",
+          "avg": 32500000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": null,
+          "timing": "AFTER_CUTOFF"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 32500000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": null,
+          "timing": "AFTER_CUTOFF",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2026Q2",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20241213235633",
+          "avg": 2.5,
+          "low": 2.5,
+          "high": 2.5,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250227184442",
+          "avg": 2.52,
+          "low": 2.52,
+          "high": 2.52,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20260609090716",
+          "avg": 2.73,
+          "low": 2.73,
+          "high": 2.73,
+          "n_analysts": 1,
+          "timing": "BEFORE_CUTOFF"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 2.73,
+          "low": 2.73,
+          "high": 2.73,
+          "n_analysts": 1,
+          "timing": "AFTER_CUTOFF",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2026Q2",
+      "metric": "revenue",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20260609090716",
+          "avg": 39500000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": null,
+          "timing": "BEFORE_CUTOFF"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 39500000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": null,
+          "timing": "AFTER_CUTOFF",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2026Q3",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20241213235633",
+          "avg": 2.76,
+          "low": 2.76,
+          "high": 2.76,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250227184442",
+          "avg": 2.77,
+          "low": 2.77,
+          "high": 2.77,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20260609090716",
+          "avg": 2.98,
+          "low": 2.98,
+          "high": 2.98,
+          "n_analysts": 1,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 2.98,
+          "low": 2.98,
+          "high": 2.98,
+          "n_analysts": 1,
+          "timing": "AFTER_CUTOFF",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2026Q4",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250227184442",
+          "avg": 3.15,
+          "low": 3.15,
+          "high": 3.15,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20260609090716",
+          "avg": 3.12,
+          "low": 3.12,
+          "high": 3.12,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 3.12,
+          "low": 3.12,
+          "high": 3.12,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2027Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20260609090716",
+          "avg": 2.67,
+          "low": 2.67,
+          "high": 2.67,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 2.67,
+          "low": 2.67,
+          "high": 2.67,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2027Q2",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20260609090716",
+          "avg": 3.28,
+          "low": 3.28,
+          "high": 3.28,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 3.28,
+          "low": 3.28,
+          "high": 3.28,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "2027Q3",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20260609090716",
+          "avg": 3.54,
+          "low": 3.54,
+          "high": 3.54,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 3.54,
+          "low": 3.54,
+          "high": 3.54,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "FY2024",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 5.97,
+          "low": 5.97,
+          "high": 5.97,
+          "n_analysts": 4,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 6.51,
+          "low": 6.51,
+          "high": 6.51,
+          "n_analysts": 4,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "FY2025",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240629225725",
+          "avg": 7.7,
+          "low": 7.7,
+          "high": 7.7,
+          "n_analysts": 4,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20241213235633",
+          "avg": 8.73,
+          "low": 8.73,
+          "high": 8.73,
+          "n_analysts": 4,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250227184442",
+          "avg": 9.16,
+          "low": 9.16,
+          "high": 9.16,
+          "n_analysts": 4,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "fiscal_period": "FY2026",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250227184442",
+          "avg": 10.78,
+          "low": 10.78,
+          "high": 10.78,
+          "n_analysts": 4,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20260609090716",
+          "avg": 11.07,
+          "low": 11.07,
+          "high": 11.07,
+          "n_analysts": 4,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019022843",
+          "avg": 11.07,
+          "low": 11.07,
+          "high": 11.07,
+          "n_analysts": 4,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20260609090716"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "2026Q4",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111636",
+          "avg": 4.74,
+          "low": 4.22,
+          "high": 5.12,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 4.74,
+          "low": 4.22,
+          "high": 5.12,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "2027Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111636",
+          "avg": 4.84,
+          "low": 4.36,
+          "high": 5.31,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 4.84,
+          "low": 4.36,
+          "high": 5.31,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "2027Q2",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111636",
+          "avg": 5.2,
+          "low": 4.9,
+          "high": 5.62,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 5.2,
+          "low": 4.9,
+          "high": 5.62,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "2027Q3",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111636",
+          "avg": 5.71,
+          "low": 5.24,
+          "high": 6.28,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 5.71,
+          "low": 5.24,
+          "high": 6.28,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "2027Q4",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111636",
+          "avg": 5.92,
+          "low": 5.12,
+          "high": 6.52,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 5.92,
+          "low": 5.12,
+          "high": 6.52,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "FY2026",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250612153906",
+          "avg": 10.55,
+          "low": 9.71,
+          "high": 11.24,
+          "n_analysts": 5,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261018111636",
+          "avg": 16.65,
+          "low": 13.08,
+          "high": 17.61,
+          "n_analysts": 9,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 16.65,
+          "low": 13.08,
+          "high": 17.61,
+          "n_analysts": 9,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "FY2027",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250612153906",
+          "avg": 12.14,
+          "low": 11.74,
+          "high": 12.54,
+          "n_analysts": 2,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261018111636",
+          "avg": 21.5,
+          "low": 16.71,
+          "high": 25.27,
+          "n_analysts": 9,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 21.5,
+          "low": 16.71,
+          "high": 25.27,
+          "n_analysts": 9,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "FY2028",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111636",
+          "avg": 26.64,
+          "low": 20.39,
+          "high": 30.14,
+          "n_analysts": 3,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 26.64,
+          "low": 20.39,
+          "high": 30.14,
+          "n_analysts": 3,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "nasdaq_api_forecast",
+      "fiscal_period": "FY2029",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111636",
+          "avg": 24.08,
+          "low": 24.08,
+          "high": 24.08,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019020624",
+          "avg": 24.08,
+          "low": 24.08,
+          "high": 24.08,
+          "n_analysts": 1,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111636"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "2025Q4",
+      "metric": "eps",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 72.63843299999999,
+          "low": null,
+          "high": null,
+          "n_analysts": 14,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20251206120326",
+          "avg": 17.6422158,
+          "low": null,
+          "high": null,
+          "n_analysts": 24,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "2025Q4",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 944673000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": 14,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20251206120326",
+          "avg": 1026913000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": 24,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "2026Q1",
+      "metric": "eps",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 61.8477,
+          "low": null,
+          "high": null,
+          "n_analysts": 4,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20251206120326",
+          "avg": 16.8535722,
+          "low": null,
+          "high": null,
+          "n_analysts": 22,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20260318184655",
+          "avg": 20.558100000000003,
+          "low": null,
+          "high": null,
+          "n_analysts": 24,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "2026Q1",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 862513000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": 4,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20251206120326",
+          "avg": 1022583000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": 22,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20260318184655",
+          "avg": 1126268000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": 24,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "2026Q2",
+      "metric": "eps",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 72.20325000000001,
+          "low": null,
+          "high": null,
+          "n_analysts": 4,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20260318184655",
+          "avg": 22.005531,
+          "low": null,
+          "high": null,
+          "n_analysts": 24,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "2026Q2",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 958051000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": 4,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20260318184655",
+          "avg": 1212968000000.0,
+          "low": null,
+          "high": null,
+          "n_analysts": 24,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "FY2025",
+      "metric": "eps",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 249.999552,
+          "low": 218.93200000000002,
+          "high": 283.23750000000007,
+          "n_analysts": 30,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20251206120326",
+          "avg": 64.582677,
+          "low": 57.13399999999999,
+          "high": 68.355,
+          "n_analysts": 40,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "FY2025",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 3359413000000.0,
+          "low": 2999616000000.0,
+          "high": 4105399000000.0,
+          "n_analysts": 30,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20251206120326",
+          "avg": 3833827000000.0,
+          "low": 3566064000000.0,
+          "high": 4062994000000.0,
+          "n_analysts": 40,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "FY2026",
+      "metric": "eps",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 295.017609,
+          "low": 258.426,
+          "high": 337.701,
+          "n_analysts": 19,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20251206120326",
+          "avg": 77.5385844,
+          "low": 65.856,
+          "high": 86.83500000000001,
+          "n_analysts": 39,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20260318184655",
+          "avg": 91.0899066,
+          "low": 75.75399999999999,
+          "high": 101.85,
+          "n_analysts": 41,
+          "timing": "BEFORE_QUARTER_END"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "FY2026",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 3899308000000.0,
+          "low": 3422160000000.0,
+          "high": 5033854000000.0,
+          "n_analysts": 20,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20251206120326",
+          "avg": 4645894000000.0,
+          "low": 4126780000000.0,
+          "high": 5115495000000.0,
+          "n_analysts": 39,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20260318184655",
+          "avg": 5083559000000.0,
+          "low": 4366880000000.0,
+          "high": 5465384000000.0,
+          "n_analysts": 41,
+          "timing": "BEFORE_QUARTER_END"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "FY2027",
+      "metric": "eps",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 276.31341,
+          "low": 265.47758999999996,
+          "high": 284.440275,
+          "n_analysts": 3,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20260318184655",
+          "avg": 112.6044708,
+          "low": 91.434,
+          "high": 130.08450000000002,
+          "n_analysts": 33,
+          "timing": "BEFORE_QUARTER_END"
+        }
+      ]
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "fiscal_period": "FY2027",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240701151026",
+          "avg": 3799223000000.0,
+          "low": 3650234000000.0,
+          "high": 3910965000000.0,
+          "n_analysts": 3,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20260318184655",
+          "avg": 6313377000000.0,
+          "low": 5308660000000.0,
+          "high": 7035000000000.0,
+          "n_analysts": 33,
+          "timing": "BEFORE_QUARTER_END"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2024Q3",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240619114251",
+          "avg": 1.71,
+          "low": 1.62,
+          "high": 1.78,
+          "n_analysts": 5,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20240917135124",
+          "avg": 1.79,
+          "low": 1.73,
+          "high": 1.84,
+          "n_analysts": 5,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2024Q3",
+      "metric": "revenue",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240619114251",
+          "avg": 22590000000.0,
+          "low": 21650000000.0,
+          "high": 23500000000.0,
+          "n_analysts": 6,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20240917135124",
+          "avg": 22870000000.0,
+          "low": 21960000000.0,
+          "high": 23280000000.0,
+          "n_analysts": 6,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2024Q4",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240917135124",
+          "avg": 1.94,
+          "low": 1.9,
+          "high": 1.99,
+          "n_analysts": 5,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250106225927",
+          "avg": 2.23,
+          "low": 2.11,
+          "high": 2.43,
+          "n_analysts": 6,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2025Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250106225927",
+          "avg": 2.08,
+          "low": 1.88,
+          "high": 2.34,
+          "n_analysts": 5,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250224154350",
+          "avg": 2.05,
+          "low": 2.02,
+          "high": 2.11,
+          "n_analysts": 3,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2025Q1",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250106225927",
+          "avg": 812450000000.0,
+          "low": 763620000000.0,
+          "high": 866000000000.0,
+          "n_analysts": 18,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250224154350",
+          "avg": 834100000000.0,
+          "low": 756850000000.0,
+          "high": 858000000000.0,
+          "n_analysts": 19,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2026Q4",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111047",
+          "avg": 5.16,
+          "low": 5.1,
+          "high": 5.28,
+          "n_analysts": 8,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019014822",
+          "avg": 5.16,
+          "low": 5.1,
+          "high": 5.28,
+          "n_analysts": 8,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111047"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2026Q4",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111047",
+          "avg": 1710000000000.0,
+          "low": 1630000000000.0,
+          "high": 1750000000000.0,
+          "n_analysts": 27,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019014822",
+          "avg": 1710000000000.0,
+          "low": 1630000000000.0,
+          "high": 1750000000000.0,
+          "n_analysts": 27,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111047"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2027Q1",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111047",
+          "avg": 5.19,
+          "low": 4.95,
+          "high": 5.4,
+          "n_analysts": 10,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019014822",
+          "avg": 5.19,
+          "low": 4.95,
+          "high": 5.4,
+          "n_analysts": 10,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111047"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "2027Q1",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111047",
+          "avg": 1730000000000.0,
+          "low": 1620000000000.0,
+          "high": 1860000000000.0,
+          "n_analysts": 21,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019014822",
+          "avg": 1730000000000.0,
+          "low": 1620000000000.0,
+          "high": 1860000000000.0,
+          "n_analysts": 21,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111047"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2024",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240619114251",
+          "avg": 6.33,
+          "low": 6.1,
+          "high": 6.64,
+          "n_analysts": 10,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20240917135124",
+          "avg": 6.55,
+          "low": 6.38,
+          "high": 6.79,
+          "n_analysts": 10,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250106225927",
+          "avg": 7.05,
+          "low": 6.83,
+          "high": 7.33,
+          "n_analysts": 10,
+          "timing": "BEFORE_CUTOFF"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2024",
+      "metric": "revenue",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240619114251",
+          "avg": 85280000000.0,
+          "low": 82050000000.0,
+          "high": 87220000000.0,
+          "n_analysts": 10,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20240917135124",
+          "avg": 87300000000.0,
+          "low": 84830000000.0,
+          "high": 88660000000.0,
+          "n_analysts": 11,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2025",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240619114251",
+          "avg": 7.94,
+          "low": 7.39,
+          "high": 8.41,
+          "n_analysts": 10,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20240917135124",
+          "avg": 8.27,
+          "low": 7.69,
+          "high": 8.98,
+          "n_analysts": 10,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250106225927",
+          "avg": 9.08,
+          "low": 8.06,
+          "high": 10.11,
+          "n_analysts": 10,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250224154350",
+          "avg": 9.09,
+          "low": 8.53,
+          "high": 9.57,
+          "n_analysts": 10,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2025",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250106225927",
+          "avg": 3630000000000.0,
+          "low": 3360000000000.0,
+          "high": 3840000000000.0,
+          "n_analysts": 34,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20250224154350",
+          "avg": 3700000000000.0,
+          "low": 3490000000000.0,
+          "high": 3880000000000.0,
+          "n_analysts": 32,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2025",
+      "metric": "revenue",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20240619114251",
+          "avg": 103680000000.0,
+          "low": 97270000000.0,
+          "high": 108770000000.0,
+          "n_analysts": 10,
+          "timing": "EARLY_SNAPSHOT"
+        },
+        {
+          "capture_ts": "20240917135124",
+          "avg": 107900000000.0,
+          "low": 104000000000.0,
+          "high": 117520000000.0,
+          "n_analysts": 11,
+          "timing": "EARLY_SNAPSHOT"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2026",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250224154350",
+          "avg": 10.67,
+          "low": 9.26,
+          "high": 12.46,
+          "n_analysts": 9,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261018111047",
+          "avg": 17.5,
+          "low": 17.18,
+          "high": 17.95,
+          "n_analysts": 11,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019014822",
+          "avg": 17.5,
+          "low": 17.18,
+          "high": 17.95,
+          "n_analysts": 11,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111047"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2026",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20250224154350",
+          "avg": 4400000000000.0,
+          "low": 4110000000000.0005,
+          "high": 4860000000000.0,
+          "n_analysts": 31,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261018111047",
+          "avg": 5560000000000.0,
+          "low": 5160000000000.0,
+          "high": 5730000000000.0,
+          "n_analysts": 41,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019014822",
+          "avg": 5560000000000.0,
+          "low": 5160000000000.0,
+          "high": 5730000000000.0,
+          "n_analysts": 41,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111047"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2027",
+      "metric": "eps",
+      "currency": "USD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111047",
+          "avg": 23.39,
+          "low": 21.45,
+          "high": 25.87,
+          "n_analysts": 13,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019014822",
+          "avg": 23.39,
+          "low": 21.45,
+          "high": 25.87,
+          "n_analysts": 13,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111047"
+        }
+      ]
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "fiscal_period": "FY2027",
+      "metric": "revenue",
+      "currency": "TWD",
+      "quote": "TSM",
+      "points": [
+        {
+          "capture_ts": "20261018111047",
+          "avg": 7650000000000.0,
+          "low": 6880000000000.0,
+          "high": 8529999999999.999,
+          "n_analysts": 41,
+          "timing": "BEFORE_QUARTER_END"
+        },
+        {
+          "capture_ts": "20261019014822",
+          "avg": 7650000000000.0,
+          "low": 6880000000000.0,
+          "high": 8529999999999.999,
+          "n_analysts": 41,
+          "timing": "BEFORE_QUARTER_END",
+          "unchanged_since": "20261018111047"
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}
