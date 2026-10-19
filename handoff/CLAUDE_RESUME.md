@@ -28,7 +28,7 @@
      有 `format_unknown` 就看原文頁面補寫法（不猜）。
    - 用 `tools/make_slide_fixtures.py <代號>`（在 repo 根目錄、已解壓 gate_pipeline 時執行；逐頁 pdftotext＋一覽表原始回應 → `gate_pipeline/contract/mops_real/slides/<代號>/`）加 5347、5274 測試。
    - 發 v4.38 後執行 gate-pipeline-slide-guidance（四家），結果在 `results/<代號>/slide_guidance/<run>/`。
-2. 年報探測：已執行 gate-pipeline-annual-report-probe run 39262137932（co_id 8299、roc_years 114,115），結果在 results/8299/annual_report/，看 step=9 送法是否正確；下載到年報後查
+2. 年報探測：已完成（run 39262137932，step=9 送法正確）；三項頁碼已寫在 `handoff/8299_annual_report_FY2025.md`。舊的待辦說明如下僅供參考：，看 step=9 送法是否正確；下載到年報後查
    生產據點、10% 以上客戶、市占率的頁碼（給正式網站 Gate 4）。
 
 ## 本次蒐證結論（已寫進 DECISIONS_PENDING B1）
