@@ -1,0 +1,86 @@
+# gate_pipeline v4.37 official guidance from investor-conference slides (repository 479dvcs8zv-create/gate-probe).
+#
+# Put this file at .github/workflows/gate-pipeline-slide-guidance.yml. Uses the newest gate_pipeline_v*.zip in the
+# repository root, verified against gate_pipeline/MANIFEST.sha256.
+#
+# What it does: OFFLINE. Reads the official MOPS conference slides already downloaded by gate-pipeline-conference-probe
+# (results/<code>/conference/*/), checks each file against the SHA-256 recorded at download, extracts the text
+# (pdftotext from poppler-utils), and compares each quarter's guidance (earliest public deck) with the actual figures
+# reported in the next deck. Supported: 3034, 3711, 5347, 5274. Python pre-verification only, not a Gate PASS.
+# Writes results/<code>/slide_guidance/<run id>/slide_guidance.json. No network access to any other site, no API keys.
+name: gate-pipeline-slide-guidance
+
+on:
+  workflow_dispatch:
+    inputs:
+      co_ids:
+        description: "Stock codes, comma separated (supported: 3034,3711,5347,5274)"
+        required: true
+        default: "3034,3711,5347,5274"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gate-pipeline-slide-guidance
+  cancel-in-progress: false
+
+jobs:
+  guidance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pdftotext (poppler-utils)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q poppler-utils
+          pdftotext -v
+
+      - name: Unpack program package (newest gate_pipeline_v*.zip in the repository root)
+        run: |
+          ZIP=$(ls gate_pipeline_v*.zip 2>/dev/null | sort -V | tail -n 1)
+          if [ -z "$ZIP" ]; then echo "No gate_pipeline_v*.zip in the repository root"; exit 1; fi
+          echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
+          rm -rf gate_pipeline
+          unzip -q "$ZIP"
+          test -f gate_pipeline/ops/slide_guidance.py
+
+      - name: Verify program files (SHA-256)
+        working-directory: gate_pipeline
+        run: sha256sum --strict -c MANIFEST.sha256
+
+      - name: Compare guidance with actuals
+        env:
+          CO_IDS: ${{ inputs.co_ids }}
+        run: |
+          CODES=$(printf '%s' "$CO_IDS" | tr -d ' ')
+          if ! printf '%s' "$CODES" | grep -Eq '^(3034|3711|5347|5274)(,(3034|3711|5347|5274)){0,3}$'; then
+            echo "Supported codes: 3034,3711,5347,5274 (got '$CO_IDS')"; exit 1
+          fi
+          for CO in $(printf '%s' "$CODES" | tr ',' ' '); do
+            if [ ! -d "results/$CO/conference" ]; then echo "No downloaded slides for $CO (run gate-pipeline-conference-probe first)"; continue; fi
+            OUT="results/$CO/slide_guidance/${GITHUB_RUN_ID}"
+            mkdir -p "$OUT"
+            python gate_pipeline/ops/slide_guidance.py --co-id "$CO" --conference "results/$CO/conference" \
+              --out "$OUT/slide_guidance.json"
+            sha256sum "$PIPELINE_ZIP" > "$OUT/pipeline_package.sha256"
+          done
+
+      - name: Save results (results/ folder only)
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- results/*/slide_guidance/"${GITHUB_RUN_ID}" 2>/dev/null || true
+          git commit -m "slide guidance run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            echo "push failed (attempt $i), retrying"; sleep $((i * 10))
+          done
+          exit 1

@@ -1,0 +1,80 @@
+# gate_pipeline v4.37 annual report probe (repository 479dvcs8zv-create/gate-probe).
+#
+# Put this file at .github/workflows/gate-pipeline-annual-report-probe.yml. Uses the newest gate_pipeline_v*.zip in the
+# repository root, verified against gate_pipeline/MANIFEST.sha256.
+#
+# What it does: queries the official TWSE electronic document service (doc.twse.com.tw t57sb01, annual report category)
+# for the stock and years, saves every raw response, and downloads the annual report PDF files it finds. Files are for
+# a human to read; nothing is approved automatically. Official domains only, 3 s between requests, no API keys.
+# It only writes results/<code>/annual_report/<run id>/.
+name: gate-pipeline-annual-report-probe
+
+on:
+  workflow_dispatch:
+    inputs:
+      co_id:
+        description: "Stock code, 4-6 digits"
+        required: true
+        default: "8299"
+      roc_years:
+        description: "ROC years, comma separated (at most 4)"
+        required: true
+        default: "114,115"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gate-pipeline-annual-report
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unpack program package (newest gate_pipeline_v*.zip in the repository root)
+        run: |
+          ZIP=$(ls gate_pipeline_v*.zip 2>/dev/null | sort -V | tail -n 1)
+          if [ -z "$ZIP" ]; then echo "No gate_pipeline_v*.zip in the repository root"; exit 1; fi
+          echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
+          rm -rf gate_pipeline
+          unzip -q "$ZIP"
+          test -f gate_pipeline/ops/annual_report_probe.py
+
+      - name: Verify program files (SHA-256)
+        working-directory: gate_pipeline
+        run: sha256sum --strict -c MANIFEST.sha256
+
+      - name: Probe annual report list and files
+        env:
+          CO_ID: ${{ inputs.co_id }}
+          ROC_YEARS: ${{ inputs.roc_years }}
+        run: |
+          if ! printf '%s' "$CO_ID" | grep -Eq '^[0-9]{4,6}$'; then echo "Bad stock code"; exit 1; fi
+          OUT="results/${CO_ID}/annual_report/${GITHUB_RUN_ID}"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          python gate_pipeline/ops/annual_report_probe.py --co-id "$CO_ID" --roc-years "$ROC_YEARS" --out "$OUT"
+          sha256sum "$PIPELINE_ZIP" > "$OUT/pipeline_package.sha256"
+
+      - name: Save results (results/ folder only)
+        if: always()
+        env:
+          CO_ID: ${{ inputs.co_id }}
+        run: |
+          if [ -z "$OUT" ] || [ ! -d "$OUT" ]; then echo "Nothing to save"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$OUT"
+          git commit -m "annual report probe ${CO_ID} run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            echo "push failed (attempt $i), retrying"; sleep $((i * 10))
+          done
+          exit 1
