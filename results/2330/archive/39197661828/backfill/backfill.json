@@ -1,0 +1,318 @@
+{
+  "backfill_version": "4.27-backfill",
+  "co_id": "2330",
+  "adr": "TSM",
+  "base_url": "https://web.archive.org",
+  "window_days": 45,
+  "started_at": "2026-10-19T04:17:50.490370+00:00",
+  "cutoffs": {
+    "2024Q1": {
+      "at": "2024-04-10T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2024-04-10T13:50:59+08:00"
+    },
+    "2024Q2": {
+      "at": "2024-07-10T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2024-07-10T13:48:38+08:00"
+    },
+    "2024Q3": {
+      "at": "2024-10-09T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2024-10-09T13:37:57+08:00"
+    },
+    "2024Q4": {
+      "at": "2025-01-10T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2025-01-10T14:05:13+08:00"
+    },
+    "2025Q1": {
+      "at": "2025-04-10T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2025-04-10T14:05:27+08:00"
+    },
+    "2025Q2": {
+      "at": "2025-07-10T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2025-07-10T14:26:42+08:00"
+    },
+    "2025Q3": {
+      "at": "2025-10-09T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2025-10-09T14:01:10+08:00"
+    },
+    "2025Q4": {
+      "at": "2026-01-09T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2026-01-09T13:51:04+08:00"
+    },
+    "2026Q1": {
+      "at": "2026-04-10T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2026-04-10T13:50:36+08:00"
+    },
+    "2026Q2": {
+      "at": "2026-07-13T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2026-07-13T13:50:31+08:00"
+    },
+    "2026Q3": {
+      "at": "2026-10-08T00:00:00+08:00",
+      "status": "CUTOFF_VERIFIED",
+      "announced_at": "2026-10-08T13:54:04+08:00"
+    }
+  },
+  "sources": [
+    {
+      "id": "yahoo_adr_analysis",
+      "vendor": "Yahoo Finance",
+      "prefix": "finance.yahoo.com/quote/TSM/analysis",
+      "unit": "美元／ADR",
+      "cdx": {
+        "file": "cdx/yahoo_adr_analysis.json",
+        "sha256": "58213e3d5baa7e0f6cec3b00acac6b205a0aa1f85b2b8b8e11356048b78b7903",
+        "url": "https://web.archive.org/cdx/search/cdx?url=finance.yahoo.com%2Fquote%2FTSM%2Fanalysis&matchType=prefix&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cdigest%2Cmimetype%2Clength&filter=statuscode%3A200&from=20240224160000&to=20261007160000&limit=2000",
+        "error": null,
+        "records": 21
+      },
+      "quarters": {
+        "2024Q1": {
+          "timestamp": "20240314023526",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis?p=TSM",
+          "digest": "KNABAASITI27P3HP3NSWVLT4LQCUNJ53",
+          "captures_in_window": 4,
+          "days_before_boundary": 26.56
+        },
+        "2024Q2": {
+          "timestamp": "20240619114251",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+          "digest": "D2HU3T7WCECAJHHP7SFSDFNOIXGWYM4T",
+          "captures_in_window": 2,
+          "days_before_boundary": 20.18
+        },
+        "2024Q3": {
+          "timestamp": "20240917135124",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+          "digest": "U5AZO3FLODBI2A6ZGSPS67WKRRBBP4XZ",
+          "captures_in_window": 3,
+          "days_before_boundary": 21.09
+        },
+        "2024Q4": {
+          "timestamp": "20250106225927",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+          "digest": "UIDJTYYVYW55SKPPGK5R2CI7TAL466YU",
+          "captures_in_window": 3,
+          "days_before_boundary": 2.71
+        },
+        "2025Q1": {
+          "timestamp": "20250224154350",
+          "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+          "digest": "7LDANB6KIGTRX7KTELKZ4JHXJUCP3IWV",
+          "captures_in_window": 1,
+          "days_before_boundary": 44.01
+        },
+        "2025Q2": null,
+        "2025Q3": null,
+        "2025Q4": null,
+        "2026Q1": null,
+        "2026Q2": null,
+        "2026Q3": null
+      },
+      "samples": []
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "prefix": "finance.yahoo.com/quote/2330.TW/analysis",
+      "unit": "新台幣／股",
+      "cdx": {
+        "file": "cdx/yahoo_tw_analysis.json",
+        "sha256": "5816f575e44aa13c942239c593cfc9c30cc4e835eb73557345fe5c1b11ace79c",
+        "url": "https://web.archive.org/cdx/search/cdx?url=finance.yahoo.com%2Fquote%2F2330.TW%2Fanalysis&matchType=prefix&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cdigest%2Cmimetype%2Clength&filter=statuscode%3A200&from=20240224160000&to=20261007160000&limit=2000",
+        "error": null,
+        "records": 3
+      },
+      "quarters": {
+        "2024Q1": null,
+        "2024Q2": null,
+        "2024Q3": {
+          "timestamp": "20240926212205",
+          "original": "https://finance.yahoo.com/quote/2330.TW/analysis/",
+          "digest": "SPG5QCZMU6G3ZU4U4FFORD2C5SCYGLQX",
+          "captures_in_window": 1,
+          "days_before_boundary": 11.78
+        },
+        "2024Q4": null,
+        "2025Q1": null,
+        "2025Q2": null,
+        "2025Q3": null,
+        "2025Q4": null,
+        "2026Q1": null,
+        "2026Q2": null,
+        "2026Q3": null
+      },
+      "samples": []
+    },
+    {
+      "id": "nasdaq_api_forecast",
+      "vendor": "Nasdaq API",
+      "prefix": "api.nasdaq.com/api/analyst/TSM/earnings-forecast",
+      "unit": "美元／ADR",
+      "cdx": {
+        "error": "無法連線封存服務：URLError: timed out",
+        "url": "https://web.archive.org/cdx/search/cdx?url=api.nasdaq.com%2Fapi%2Fanalyst%2FTSM%2Fearnings-forecast&matchType=prefix&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cdigest%2Cmimetype%2Clength&filter=statuscode%3A200&from=20240224160000&to=20261007160000&limit=2000"
+      },
+      "quarters": {},
+      "samples": []
+    },
+    {
+      "id": "marketbeat_adr_earnings",
+      "vendor": "MarketBeat",
+      "prefix": "www.marketbeat.com/stocks/NYSE/TSM/earnings",
+      "unit": "美元／ADR",
+      "cdx": {
+        "file": "cdx/marketbeat_adr_earnings.json",
+        "sha256": "cf8a163a459c91e145ee1fb1f52e0e4e1bcc307744c5b7cfe9e995be0a068ef9",
+        "url": "https://web.archive.org/cdx/search/cdx?url=www.marketbeat.com%2Fstocks%2FNYSE%2FTSM%2Fearnings&matchType=prefix&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cdigest%2Cmimetype%2Clength&filter=statuscode%3A200&from=20240224160000&to=20261007160000&limit=2000",
+        "error": null,
+        "records": 12
+      },
+      "quarters": {
+        "2024Q1": null,
+        "2024Q2": {
+          "timestamp": "20240629225725",
+          "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+          "digest": "UBO5T4RQ6RAPNDS7FGWYGZ6SYJMJGKY6",
+          "captures_in_window": 1,
+          "days_before_boundary": 9.71
+        },
+        "2024Q3": null,
+        "2024Q4": {
+          "timestamp": "20241213235633",
+          "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+          "digest": "GFTHJ6BFCFZCWGYG6JQTGR3T6QEQ4GUI",
+          "captures_in_window": 2,
+          "days_before_boundary": 26.67
+        },
+        "2025Q1": {
+          "timestamp": "20250227184442",
+          "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+          "digest": "ZPSX6NFYSVHPMETUVPNXGL3MEZ7CJ5AZ",
+          "captures_in_window": 1,
+          "days_before_boundary": 40.89
+        },
+        "2025Q2": null,
+        "2025Q3": null,
+        "2025Q4": null,
+        "2026Q1": null,
+        "2026Q2": {
+          "timestamp": "20260609090716",
+          "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+          "digest": "GK2YIE4653MJ64WX3N6OADHLW5GBZIN2",
+          "captures_in_window": 1,
+          "days_before_boundary": 33.29
+        },
+        "2026Q3": null
+      },
+      "samples": []
+    },
+    {
+      "id": "stockanalysis_adr_forecast",
+      "vendor": "StockAnalysis",
+      "prefix": "stockanalysis.com/stocks/tsm/forecast",
+      "unit": "新台幣（頁面標示財報幣別 TWD；每股或每 ADR 未寫）",
+      "cdx": {
+        "file": "cdx/stockanalysis_adr_forecast.json",
+        "sha256": "e19c2b4ef2d61d177ec2b852a6ba761caf66e6454d3c5238457fb1a031848c6d",
+        "url": "https://web.archive.org/cdx/search/cdx?url=stockanalysis.com%2Fstocks%2Ftsm%2Fforecast&matchType=prefix&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cdigest%2Cmimetype%2Clength&filter=statuscode%3A200&from=20240224160000&to=20261007160000&limit=2000",
+        "error": null,
+        "records": 5
+      },
+      "quarters": {
+        "2024Q1": null,
+        "2024Q2": {
+          "timestamp": "20240701151026",
+          "original": "https://stockanalysis.com/stocks/tsm/forecast/",
+          "digest": "GZTX5I3B7ZMV5KLZYQMEXVV4SXEMBWDX",
+          "captures_in_window": 1,
+          "days_before_boundary": 8.03
+        },
+        "2024Q3": null,
+        "2024Q4": null,
+        "2025Q1": null,
+        "2025Q2": null,
+        "2025Q3": null,
+        "2025Q4": {
+          "timestamp": "20251206120326",
+          "original": "https://stockanalysis.com/stocks/tsm/forecast/?ref=labs.ainvest.com",
+          "digest": "G3IY5LRWLEVNDZEWDCVGYYNQJ6JN774N",
+          "captures_in_window": 1,
+          "days_before_boundary": 33.16
+        },
+        "2026Q1": {
+          "timestamp": "20260318184655",
+          "original": "https://stockanalysis.com/stocks/tsm/forecast/",
+          "digest": "5SYJ4PUA4GPBPOBX3AQIXZQHVSNOHYQ4",
+          "captures_in_window": 1,
+          "days_before_boundary": 21.88
+        },
+        "2026Q2": null,
+        "2026Q3": null
+      },
+      "samples": []
+    }
+  ],
+  "refetch": [
+    {
+      "source_id": "yahoo_adr_analysis",
+      "timestamp": "20250106225927",
+      "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+      "held_sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+      "status": "MATCHED",
+      "refetched_sha256": "4668a153f6b2951df4140f2454922e0e422d32a796dd6d938661a8d7b6527985",
+      "refetched_at": "2026-10-19T04:17:52.558569+00:00"
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "timestamp": "20250227184442",
+      "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+      "held_sha256": "9544264a644670d528516245faecd425c8cad70012476d35fb050f39bf7d651a",
+      "status": "MATCHED",
+      "refetched_sha256": "9544264a644670d528516245faecd425c8cad70012476d35fb050f39bf7d651a",
+      "refetched_at": "2026-10-19T04:17:56.678754+00:00"
+    },
+    {
+      "source_id": "yahoo_adr_analysis",
+      "timestamp": "20250224154350",
+      "original": "https://finance.yahoo.com/quote/TSM/analysis/",
+      "held_sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+      "status": "MATCHED",
+      "refetched_sha256": "20dd4eb0f8fd4d34b09f459108859b5d48001a7a32c830cf40b55fac0496ac68",
+      "refetched_at": "2026-10-19T04:18:04.004307+00:00"
+    },
+    {
+      "source_id": "stockanalysis_adr_forecast",
+      "timestamp": "20251206120326",
+      "original": "https://stockanalysis.com/stocks/tsm/forecast/?ref=labs.ainvest.com",
+      "held_sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+      "status": "MATCHED",
+      "refetched_sha256": "4d8a20faf7d9f3126ca7a65729101430b94b986b8b2ab0ee551cd75f9ac3ad26",
+      "refetched_at": "2026-10-19T04:18:07.703075+00:00"
+    },
+    {
+      "source_id": "marketbeat_adr_earnings",
+      "timestamp": "20260609090716",
+      "original": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/",
+      "held_sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+      "status": "MATCHED",
+      "refetched_sha256": "6b018681bb31f85d8d167b6fd1a8057d3872e7b134d7d575c622d9673be7a8d3",
+      "refetched_at": "2026-10-19T04:18:11.319199+00:00"
+    }
+  ],
+  "notes": [
+    "還有 8 筆歷史存檔沒有下載（時間或數量上限），下次執行接著做",
+    "時間上限 360 秒已到"
+  ],
+  "requests": 12,
+  "finished_at": "2026-10-19T04:24:39.782691+00:00"
+}
