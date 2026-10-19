@@ -1,0 +1,229 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2303'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2303'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2303 
+聯電            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;1</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/04/02</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;16:46:16</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;劉啟東</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;02-2658-9168</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司和艦芯片製造（蘇州）股份有限公司公告處分聯暻
+半導體(山東)有限公司</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+20&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/04/02
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:自民國113/4/2至民國113/4/2
+2.本次新增（減少）投資方式:
+和艦芯片製造（蘇州）股份有限公司處分所持有大陸地區投資事業聯暻半導體
+(山東)有限公司100%出資額
+3.交易單位數量、每單位價格及交易總金額:
+交易數量:不適用
+每單位價格:不適用
+交易總金額:人民幣77,000,000元（約新台幣337,722,000元）
+4.大陸被投資公司之公司名稱:
+聯暻半導體(山東)有限公司
+5.前開大陸被投資公司之實收資本額:
+人民幣30,000,000元
+6.前開大陸被投資公司本次擬新增資本額:
+不適用
+7.前開大陸被投資公司主要營業項目:
+積體電路設計服務
+8.前開大陸被投資公司最近年度財務報表會計師意見型態:
+無保留意見
+9.前開大陸被投資公司最近年度財務報表權益總額:
+人民幣108,082,329.31元
+10.前開大陸被投資公司最近年度財務報表損益金額:
+人民幣57,662,044.01元
+11.迄目前為止，對前開大陸被投資公司之實際投資金額:
+人民幣30,000,000元
+12.交易相對人及其與公司之關係:
+矽統科技股份有限公司透過開曼子公司SiS Investments Limited設立之大陸孫公司
+(待名稱確認後，將另行公告);關聯企業
+13.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉
+之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期及移轉金額:
+選定關係人為交易對象之原因：策略規劃
+前次移轉之所有人、前次移轉之所有人與公司及交易相對人間相互之關係
+、前次移轉日期及移轉金額：參與聯暻半導體(山東)有限公司現金增資取得
+14.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取得
+及處分日期、價格及交易當時與公司之關係:
+不適用
+15.處分利益（或損失）:
+人民幣19,961,030.65元
+16.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定事項:
+交付或付款條件：依合約。
+契約限制條款：無。
+其他重要約定事項：無。
+17.本次交易之決定方式、價格決定之參考依據及決策單位:
+交易決定方式：按取得或處分資產處理程序辦理。
+價格決定之參考依據：依合約。
+決策單位：董事會。
+18.經紀人:
+無
+19.取得或處分之具體目的:
+策略規劃
+20.本次交易表示異議董事之意見:
+無
+21.本次交易為關係人交易:是
+22.董事會通過日期:
+民國113年4月2日
+23.監察人承認或審計委員會同意日期:
+民國113年4月2日
+24.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）:
+美金1,919,404,001元
+25.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表
+實收資本額之比率:
+44.81%
+26.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表
+總資產之比率:
+10.76%
+27.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表
+歸屬於母公司業主之權益之比率:
+15.63%
+28.迄目前為止，實際赴大陸地區投資總額:
+美金1,919,404,001元
+29.迄目前為止，實際赴大陸地區投資總額占最近期財務報表實收資本額之比率:
+44.81%
+30.迄目前為止，實際赴大陸地區投資總額占最近期財務報表總資產之比率:
+10.76%
+31.迄目前為止，實際赴大陸地區投資總額占最近期財務報表歸屬於母公司業主之權益之比率:
+15.63%
+32.最近三年度認列投資大陸損益金額:
+110年度：利益新台幣3,156,452仟元
+111年度：利益新台幣10,199,599仟元
+112年度：利益新台幣7,295,478仟元
+33.最近三年度獲利匯回金額:
+0
+34.本次交易會計師出具非合理性意見:否
+35.會計師事務所名稱:
+高威聯合會計師事務所
+36.會計師姓名:
+蔡文精
+37.會計師開業證書字號:
+台財證登(六)字第一四九四號
+38.其他敘明事項:
+無</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2303'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

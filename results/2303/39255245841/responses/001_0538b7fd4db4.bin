@@ -1,0 +1,408 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2303 
+聯電　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<form action='/mops/web/ajax_t05st01' name='t05st01_fm' id='t05st01_fm' method='post' onsubmit='return false;'>
+<input type='hidden' name='firstin' value='true' />
+<input type=hidden name=b_date value=>
+<input type=hidden name=e_date value=>
+<input type=hidden name=TYPEK>
+<input type=hidden name=year value=113>
+<input type=hidden name=month value=all>
+<input type=hidden name=type value=>
+<input type=hidden name=co_id>
+<input type=hidden name=spoke_date>
+<input type=hidden name=spoke_time>
+<input type=hidden name=seq_no>
+<input type='hidden' name='MEETING_STEP'>
+<input type='hidden' name='MODEL'>
+<input type='hidden' name='ITEM'>
+<input type=hidden name=e_month value=all>
+<input type='hidden' name='step' value='2'><input type='hidden' name='off' value='1'><center><b>請至財務及交易資訊重點專區參考公司相關<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb01";'  onclick='document.t05st01_fm.TYPEK.value="sii";document.t05st01_fm.co_id.value="2303";document.t05st01_fm.step.value="1";document.t05st01_fm.MEETING_STEP.value="0"; action="/mops/web/ajax_t211sb01";openWindow(this.form,"");'><font color='blue'><u>財務資訊</u></font></button>及<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb05";'  onclick='document.t05st01_fm.TYPEK.value="sii";document.t05st01_fm.co_id.value="2303";document.t05st01_fm.step.value="2";document.t05st01_fm.MODEL.value="2";document.t05st01_fm.ITEM.value="0"; action="/mops/web/ajax_t211sb05";openWindow(this.form,"");'><font color='blue'><u>交易資訊</u></font></button></b></center>
+<br>
+<table class='hasBorder'>
+<tr class='tblHead'><th>公司代號</th><th>公司名稱</th><th>發言日期</th><th>發言時間</th><th>主旨</th><th>&nbsp;</th></tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/01/08</td><td style='text-align:left !important;'>&nbsp;15:28:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過資本預算執行案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='152852';document.t05st01_fm.spoke_date.value='20240108';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/01/09</td><td style='text-align:left !important;'>&nbsp;14:04:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司取得廠務設備之相關資料</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140440';document.t05st01_fm.spoke_date.value='20240109';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/01/17</td><td style='text-align:left !important;'>&nbsp;16:39:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司召開2023年第四季法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163910';document.t05st01_fm.spoke_date.value='20240117';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/01/25</td><td style='text-align:left !important;'>&nbsp;21:29:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告聯華電子與英特爾擬合作開發12奈米製程平台合作計畫</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='212934';document.t05st01_fm.spoke_date.value='20240125';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;17:01:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2023年第四季財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170114';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/07</td><td style='text-align:left !important;'>&nbsp;15:04:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參與法人說明會相關資訊</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150438';document.t05st01_fm.spoke_date.value='20240207';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/22</td><td style='text-align:left !important;'>&nbsp;16:53:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司 UMC GROUP（USA）公告董事會決議
+不發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='165302';document.t05st01_fm.spoke_date.value='20240222';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/26</td><td style='text-align:left !important;'>&nbsp;14:15:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參與法人說明會相關資訊</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141551';document.t05st01_fm.spoke_date.value='20240226';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:12:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過之重要議案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='10';document.t05st01_fm.spoke_time.value='211249';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:13:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議通過民國112年度合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='211328';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:16:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議發行限制員工權利新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='11';document.t05st01_fm.spoke_time.value='211607';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:16:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議召開113年股東常會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='211624';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:16:45</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過資本預算執行案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='211645';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:17:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司捐贈財團法人聯華電子科技文教基金會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='211711';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:20:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過參與UMC CAPITAL CORP.現金增資</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='12';document.t05st01_fm.spoke_time.value='212040';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:20:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司UMC CAPITAL CORPORATION 公告董事會通過投資
+7V AI Capital LLC</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='13';document.t05st01_fm.spoke_time.value='212053';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:24:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='14';document.t05st01_fm.spoke_time.value='212419';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;21:24:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回
+註銷減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='212452';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/03/12</td><td style='text-align:left !important;'>&nbsp;15:59:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參與法人說明會相關資訊</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155939';document.t05st01_fm.spoke_date.value='20240312';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/03/12</td><td style='text-align:left !important;'>&nbsp;17:38:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司辦理限制員工權利新股註銷完成實收
+資本額變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='173837';document.t05st01_fm.spoke_date.value='20240312';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/03/22</td><td style='text-align:left !important;'>&nbsp;16:01:29</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過參與智原科技股份有限公司現金增資</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160129';document.t05st01_fm.spoke_date.value='20240322';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/02</td><td style='text-align:left !important;'>&nbsp;16:46:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司和艦芯片製造（蘇州）股份有限公司公告處分聯暻
+半導體(山東)有限公司</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164616';document.t05st01_fm.spoke_date.value='20240402';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/03</td><td style='text-align:left !important;'>&nbsp;14:41:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司取得廠務設備之相關資料</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='144116';document.t05st01_fm.spoke_date.value='20240403';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/03</td><td style='text-align:left !important;'>&nbsp;16:50:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告113年4月3日地震對本公司影響之說明</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='165051';document.t05st01_fm.spoke_date.value='20240403';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/10</td><td style='text-align:left !important;'>&nbsp;15:53:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司召開2024年第一季法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155358';document.t05st01_fm.spoke_date.value='20240410';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/16</td><td style='text-align:left !important;'>&nbsp;14:03:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第一季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='140334';document.t05st01_fm.spoke_date.value='20240416';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:00:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議通過民國113年第一季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170031';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:00:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過資本預算執行案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170043';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:00:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回
+註銷減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='170058';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:01:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2024年第一季財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='170126';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/25</td><td style='text-align:left !important;'>&nbsp;16:08:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司取得軟體之相關資料</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='160818';document.t05st01_fm.spoke_date.value='20240425';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/04/25</td><td style='text-align:left !important;'>&nbsp;18:22:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司海外財務報告因適用兩地會計原則不一致之差異內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182208';document.t05st01_fm.spoke_date.value='20240425';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/08</td><td style='text-align:left !important;'>&nbsp;16:37:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司辦理限制員工權利新股註銷完成實收
+資本額變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163722';document.t05st01_fm.spoke_date.value='20240508';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/16</td><td style='text-align:left !important;'>&nbsp;14:55:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參與法人說明會相關資訊</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='145514';document.t05st01_fm.spoke_date.value='20240516';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/30</td><td style='text-align:left !important;'>&nbsp;16:48:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司一一三年股東常會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='11';document.t05st01_fm.spoke_time.value='164812';document.t05st01_fm.spoke_date.value='20240530';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/30</td><td style='text-align:left !important;'>&nbsp;16:48:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司一一三年股東常會改選董事</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='164840';document.t05st01_fm.spoke_date.value='20240530';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/30</td><td style='text-align:left !important;'>&nbsp;16:49:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司股東會決議解除新任董事及其指定代表人
+競業禁止之限制</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='9';document.t05st01_fm.spoke_time.value='164900';document.t05st01_fm.spoke_date.value='20240530';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/30</td><td style='text-align:left !important;'>&nbsp;16:49:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會一致推舉洪嘉聰先生續任董事長</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='164936';document.t05st01_fm.spoke_date.value='20240530';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/30</td><td style='text-align:left !important;'>&nbsp;16:49:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司新任第六屆審計委員會委員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='164950';document.t05st01_fm.spoke_date.value='20240530';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/30</td><td style='text-align:left !important;'>&nbsp;16:50:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議委任第四屆永續發展暨提名委員會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='165008';document.t05st01_fm.spoke_date.value='20240530';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/30</td><td style='text-align:left !important;'>&nbsp;16:50:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議委任第六屆薪酬委員會委員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='8';document.t05st01_fm.spoke_time.value='165022';document.t05st01_fm.spoke_date.value='20240530';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/05/31</td><td style='text-align:left !important;'>&nbsp;14:37:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參與法人說明會相關資訊</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143733';document.t05st01_fm.spoke_date.value='20240531';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/06/12</td><td style='text-align:left !important;'>&nbsp;16:36:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司調整現金股利配息率</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163644';document.t05st01_fm.spoke_date.value='20240612';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/06/12</td><td style='text-align:left !important;'>&nbsp;16:37:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司除息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='163700';document.t05st01_fm.spoke_date.value='20240612';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/06/28</td><td style='text-align:left !important;'>&nbsp;13:46:30</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司取得資產之相關資料</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134630';document.t05st01_fm.spoke_date.value='20240628';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/07/17</td><td style='text-align:left !important;'>&nbsp;14:12:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司召開2024年第二季法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141253';document.t05st01_fm.spoke_date.value='20240717';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/07/23</td><td style='text-align:left !important;'>&nbsp;14:35:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第二季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143532';document.t05st01_fm.spoke_date.value='20240723';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;17:00:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議通過民國113年第二季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170008';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;17:00:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過資本預算執行案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170059';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;17:01:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回
+註銷減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='170159';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;17:02:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2024年第二季財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='170249';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/08/14</td><td style='text-align:left !important;'>&nbsp;17:22:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司和艦芯片製造（蘇州）股份有限公司公告處分
+聯暻半導體(山東)有限公司(補充113/04/02公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='172212';document.t05st01_fm.spoke_date.value='20240814';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/08/14</td><td style='text-align:left !important;'>&nbsp;18:25:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司辦理限制員工權利新股註銷完成實收
+資本額變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182538';document.t05st01_fm.spoke_date.value='20240814';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/08/28</td><td style='text-align:left !important;'>&nbsp;13:49:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參與法人說明會相關資訊</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134923';document.t05st01_fm.spoke_date.value='20240828';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/09/12</td><td style='text-align:left !important;'>&nbsp;15:20:09</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司變更海外存託憑證之保管銀行</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='152009';document.t05st01_fm.spoke_date.value='20240912';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/09/18</td><td style='text-align:left !important;'>&nbsp;13:54:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參與法人說明會相關資訊</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='135437';document.t05st01_fm.spoke_date.value='20240918';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/09/18</td><td style='text-align:left !important;'>&nbsp;13:55:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司取得機器設備之相關資料</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='135501';document.t05st01_fm.spoke_date.value='20240918';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/10/06</td><td style='text-align:left !important;'>&nbsp;17:08:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司官網遭受網路DDoS攻擊事件說明</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170852';document.t05st01_fm.spoke_date.value='20241006';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/10/16</td><td style='text-align:left !important;'>&nbsp;16:31:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司召開2024年第三季法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163127';document.t05st01_fm.spoke_date.value='20241016';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/10/22</td><td style='text-align:left !important;'>&nbsp;14:24:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第三季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='142419';document.t05st01_fm.spoke_date.value='20241022';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:01:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回
+註銷減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170137';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:07:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2024年第三季財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='170727';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:14:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議通過民國113年第三季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171416';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/11/13</td><td style='text-align:left !important;'>&nbsp;17:08:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司辦理限制員工權利新股註銷完成實收
+資本額變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170807';document.t05st01_fm.spoke_date.value='20241113';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/11/19</td><td style='text-align:left !important;'>&nbsp;14:01:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參與法人說明會相關資訊</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140143';document.t05st01_fm.spoke_date.value='20241119';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/12/05</td><td style='text-align:left !important;'>&nbsp;16:06:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年限制員工權利新股之增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160625';document.t05st01_fm.spoke_date.value='20241205';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/12/18</td><td style='text-align:left !important;'>&nbsp;18:31:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過資本預算執行案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183110';document.t05st01_fm.spoke_date.value='20241218';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/12/18</td><td style='text-align:left !important;'>&nbsp;18:32:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司與渢妙離岸風力發電股份有限公司
+簽署企業購電協議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='183237';document.t05st01_fm.spoke_date.value='20241218';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2303</td><td style='text-align:left !important;'>&nbsp;聯電</td><td style='text-align:left !important;'>&nbsp;113/12/19</td><td style='text-align:left !important;'>&nbsp;18:30:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司取得機器設備之相關資料</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183046';document.t05st01_fm.spoke_date.value='20241219';document.t05st01_fm.co_id.value='2303';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+</table></form>
+
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

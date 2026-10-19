@@ -1,0 +1,194 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2303'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2303'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='112'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2303 
+聯電            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;5</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;112/10/25</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;17:05:45</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;劉啟東</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;02-2658-9168</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2023年第三季財務報告</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+51&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;112/10/25
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:112/10/25
+2.公司名稱:聯華電子股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:
+聯華電子公佈2023年第三季財務報告
+南科12A P6產能開出提升22/28奈米營收佔比達32%
+2023前三季每股盈餘為新台幣3.87元
+
+2023年第三季概觀：
+‧合併營收：新台幣570.7億元 ($17.7億美元)
+‧毛利率：35.9%；營業利益率：26.8%
+‧22/28奈米晶圓營收佔比：32%
+‧晶圓製造產能利用率：67%
+‧歸屬母公司淨利：新台幣159.7億元 ($4.95億美元)
+‧每股盈餘：新台幣1.29元；每ADS盈餘：$0.200美元
+
+聯華電子股份有限公司今(25)日公佈2023年第三季營運報告，合併營收為新台
+幣570.7億元，較上季的563億元成長1.4%。與2022年第三季的753.9億元相比，
+本季的合併營收減少24.3%。第三季毛利率為35.9%，歸屬母公司淨利為新台幣
+159.7億元，每股普通股獲利為新台幣1.29元。
+
+王石總經理表示：「第三季營運受惠於電腦和通訊領域的需求、產品組合的持
+續改進及較有利的匯率因素，儘管整體晶圓出貨量減少2.3％，營收和毛利率
+相較於上一季仍維持穩健。從終端產品市場來看，LCD控制器、WiFi、編解碼
+器和觸控IC控制器等產品推動了電腦應用領域的需求力道，而射頻前端IC和網
+路晶片的需求也帶動了通訊領域產品的出貨量。回顧2023年，儘管晶圓代工產
+業的市場需求明顯下滑，但聯電透過在產品組合優化上的持續努力，以及來自
+特殊製程的營收貢獻增加，使我們以穩定的綜合平均售價維持強健的結構性獲
+利能力。隨著聯電不斷導入新的特殊製程技術以鞏固我們多元化的產品線，不
+僅有助於強化客戶的競爭力，亦能提升客戶在半導體產業的市場地位。」
+
+王總經理進一步說明：「展望第四季，電腦和通訊領域的短期需求逐漸回溫，
+而車用市場的狀況仍具有挑戰性，客戶依然採取謹慎保守的方式來管理庫存水
+位。我們預期在2024年南科Fab 12A P6擴建產能開出後，將進一步提升22/28
+奈米的營收貢獻，為聯電的業務發展提供強勁的助力。此外，透過聯電的技術
+領導地位，我們將加速推出22奈米相關應用產品，以進一步擴展特殊製程技術
+的產品線。」
+
+王總經理接著提到：「人才是聯電最重要也最重視的資產，我們尊重每位員工
+的獨特性，致力打造多元、平等與共融的職場環境。聯電在今年七月榮獲
+《HR Asia》頒發的『亞洲最佳企業雇主獎』，正是肯定了我們多年來的努力。
+我們期許透過建立多元及包容的職場文化，讓同仁在工作上能發揮所長，成為
+企業持續成長及永續經營的關鍵。」
+
+Fourth Quarter 2023 Outlook & Guidance
+‧Wafer Shipments: Will decline by approximately 5%
+‧ASP in USD: Will remain flat
+‧Gross Profit Margin: Will be in the low-30% range
+‧Capacity Utilization: low-60% range
+‧2023 CAPEX: US$3.0 billion
+
+6.因應措施:無
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
+無</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2303'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

@@ -1,0 +1,215 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2303'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2303'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='115'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2303 
+聯電            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;5</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;115/04/29</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;17:11:10</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;劉啟東</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;02-2658-9168</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過買回公司股份</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+35&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;115/04/29
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.董事會決議日期:115/04/29
+2.買回股份目的:轉讓股份予員工
+3.買回股份種類:普通股
+4.買回股份總金額上限(元):212,951,478,175
+5.預定買回之期間:115/04/30~115/06/29
+6.預定買回之數量(股):50,000,000
+7.買回區間價格(元):52.50~109.50，公司股價低於區間價格下限，將繼續買回
+8.買回方式:自集中交易市場買回
+9.預定買回股份占公司已發行股份總數之比率(%):0.40
+10.申報時已持有本公司股份之累積股數(股):0
+11.申報前三年內買回公司股份之情形:
+無買回
+12.已申報買回但未執行完畢之情形:
+無
+13.董事會決議買回股份之會議紀錄:
+案由：本公司擬實施第二十二次庫藏股買回，自證券集中交易市場買回本公司股
+份，並擬定股份轉讓員工辦法及不影響公司資本維持之聲明書，提請　核議。
+說明：（一）依據證券交易法第二十八條之二及上市上櫃公司買回本公司股份辦
+法之規定，提報買回股份之目的、期間、數量、轉讓辦法及聲明書。
+1.買回股份之目的：轉讓予員工。
+2.預定買回之期間：自一一五年四月三十日至一一五年六月二十九日止。
+3.預定買回之數量：五○、○○○、○○○股。
+4.買回之區間價格：每股新台幣52.50元至109.50元間，惟若本公司股價低於所定買
+回區間價格下限時，將繼續執行買回股份。
+5.為使本公司股份轉讓員工作業有所依循，擬訂定「第二十二次買回本公司股份
+轉讓員工辦法」及不影響公司資本維持之聲明書（詳如討論案附件一、二）。
+（二）本案依證券交易法第二十八條之二第一項規定，需經董事會三分之二以上
+董事之出席及出席董事超過二分之一同意。
+（三）本次庫藏股買回相關事項如經主管機關核示必須變更時，授權董事長或其
+指定之人辦理。
+決議：全體出席董事無異議通過。
+14.「上市上櫃公司買回本公司股份辦法」第十條規定之轉讓辦法:
+聯華電子股份有限公司
+第二十二次買回本公司股份轉讓員工辦法
+第一條：本公司為激勵員工及提昇員工向心力，依據證券交易法第二十八條之二
+第一項第一款及金融監督管理委員會證券期貨局發布之「上市上櫃公司買回本公
+司股份辦法」等相關規定，訂定買回本公司股份轉讓員工辦法。本公司買回股份
+轉讓予員工，除依有關法令規定外，悉依本辦法規定辦理。
+第二條：本次轉讓予員工之股份為本公司第十六屆第十三次董事會決議買回之普
+通股五○、○○○、○○○股，其權利義務除有關法令及本辦法另有規定者外，
+與其他流通在外普通股相同。
+第三條：本次買回之股份，得依本辦法之規定，自買回股份之日起五年內，得一
+次或分次轉讓予員工。逾期未轉讓部份，視為本公司未發行股份，應依法辦理銷
+除股份變更登記。
+第四條：凡於認股基準日前到職滿一年之正式員工或對公司有特殊貢獻經提報董
+事會同意之本公司員工及子公司員工（所稱「子公司」係指直接及間接持有同一
+被投資公司有表決權之股份超過百分之五十之公司），得依本辦法第五條所訂認
+購數額，享有認購資格。
+第五條：本公司考量員工職等、服務年資、個人績效及對公司之特殊貢獻等標
+準，訂定員工得受讓股份之股數，實際具體認購資格及認購數量由董事會決議。
+惟轉讓對象具經理人身份者，應先提報薪資報酬委員會同意後，再提董事會決
+議；轉讓對象非具經理人身份者，應先提報審計委員會同意後，再提董事會決
+議。
+第六條：本次買回股份轉讓予員工之作業程序：
+一、依董事會之決議，公告、申報並於執行期限內買回本公司股份。
+二、董事會依本辦法訂定及公布員工認股基準日、得認購股數標準、認購繳款期
+間、權利內容及限制條件等作業事項。
+三、統計實際認購繳款股數，辦理股票轉讓過戶登記。
+第七條：本次買回股份轉讓予員工，以實際買回之平均價格並得加計資金成本為
+轉讓價格。惟在轉讓前，如遇有公司已發行之普通股股份增加，得按發行股份增
+加比率調整之。資金成本以台灣銀行一年期大額定期存款機動利率為依據。
+第八條：本次買回股份轉讓予員工並辦理過戶登記後，除另有規定者外，餘權利
+義務與原有股份相同。
+第九條：本辦法經董事會決議通過後生效，並得報經董事會決議修訂。
+15.「上市上櫃公司買回本公司股份辦法」第十一條規定之轉換或認股辦法:
+不適用
+16.董事會已考慮公司財務狀況，不影響公司資本維持之聲明:
+上述買回股份總數，僅占本公司已發行股份之0.40%，且買回股份所需金額上限占
+本公司流動資產之2.67%，茲聲明本公司董事會已考慮公司財務狀況，上述股份之
+買回並不影響本公司資本之維持。
+17.會計師或證券承銷商對買回股份價格之合理性評估意見:
+依宏遠證券股份有限公司之評估意見，本公司本次買回公司股份計劃之買回區間
+價格尚稱合理且符合有關規定，另對財務結構、每股淨值、每股盈餘、權益報酬
+率、速動比率、流動比率及現金流量狀況之影響性，經評估對本公司之財務狀況
+及股東權益尚無重大影響。
+18.其他證期局所規定之事項:
+無</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2303'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

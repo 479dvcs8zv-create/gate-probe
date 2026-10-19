@@ -1,0 +1,234 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2303'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2303'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2303 
+聯電            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;11</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/02/27</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;21:16:07</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;劉啟東</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;02-2658-9168</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議發行限制員工權利新股</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/02/27
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.董事會決議日期:113/02/27
+2.預計發行價格:無償發行，每股發行價格新台幣0元。
+3.預計發行總額(股):：以不超過普通股66,000 仟股為限，約當本公司已發行普通股
+ 股數0.5%，每股面額10 元，總額為新台幣660,000仟元。
+4.既得條件:
+(1)員工自獲配限制員工權利新股後於各既得日當日仍在職，各績效指標年度期間未
+   因違反其任職公司之勞動契約、員工行為守則、信託契約、公司治理實務守則、
+   誠信經營守則、工作規則、競業禁止與保密守則或與其任職公司間合約約定等情
+   事，而經其任職公司認定並給予相關懲處記錄者。惟員工於各績效指標年度期間
+   若有相關懲處紀錄者，本公司得依情節輕重核定給與既得比率。同時達成公司所
+   設定個人績效評核指標與公司營運目標，於各年度既得日之既得比例分別如下：
+　 a.屆滿二年：33%
+　 b.屆滿三年：33%
+   c.屆滿四年：34%
+(2)個人績效指標：既得期間屆滿之最近一年度考核評等須達A(含)以上。
+(3)公司營運目標：以每股盈餘(EPS)、股東總報酬率(Total Shareholder Return,
+   TSR)及ESG 為績效指標，各項指標所佔權重及目標條件如下表說明。各項指標
+   分別設定目標值，達成目標值之各項指標，其該年度既得股數係各自以對應之權
+   重比例計算，未達目標值之各項指標，其該年度既得股數之對應權重比例則為0%。
+   績效指標年度係指既得日前最近一期經會計師查核年度財務報表之會計年度，績
+   效指標則以指標要求期間所對應經會計師查核簽證之合併財務報表為計算基礎。
+
+　 績效指標                      權重    目標
+   --------------------------    ----    ---------------------------------
+   每股盈餘(EPS)                 30%     高於公司前三年平均值(註1)
+   股東總報酬率(TSR)(註2)         30%     本公司TSR相對臺灣半導體類指數TSR：
+                                         ˙優於(或持平)指數TSR:既得股數比
+                                           例為100%；
+                                         ˙落後指數TSR:既得股數比例為0%
+   ESG                           40%     下列兩項條件皆達成之既得股數比例
+                                         為100%，未達成或僅達成其一條件則
+                                         為0%，條件說明如下：
+                                         ˙溫室氣體排放量(註3)
+                                           屆滿兩年：民國114年減少14%(含)
+                                           以上；
+                                           屆滿三年：民國115年減少16%(含)
+                                           以上；
+                                           屆滿四年：民國116年減少18%(含)
+                                           以上
+                                         ˙女性董事席次比例達董事會席次1/3
+                                          (含)以上(註4)
+   註1：以績效指標年度與該年度(不含)之前三年平均值比較。前三年平均值係依
+        各年度EPS 取小數點後無窮位數，取其平均值以四捨五入計算至小數點後四
+        位數。
+   註2：股東總報酬率係以本公司(Ticker: 2303 TT)及臺灣半導體類指數(Ticker:
+        TWSESCI Index)於績效指標年度期間，以該期間第一日(含)往前30 個交
+        易日之平均股價作為期初股價，該期間最後一日(含)往前30個交易日之平
+        均股價作為期末股價，並加上股息(如有)計算。股價及股息資訊來源以臺
+        灣證券交易所與彭博Bloomberg 財經資料庫為依據。
+   註3：溫室氣體排放量以民國109年為基準年，其計算範疇為溫室氣體盤查議定書
+        (GHG Protocol)定義之直接排放(範疇一)及能源間接排放(範疇二)，並以
+        產能滿載情境計算減量實績。
+   註4：依各既得日之董事會成員名單。
+
+5.員工未符既得條件或發生繼承之處理方式:
+ 遇有未達既得條件者，由本公司無償收回並予以註銷。其他各項情事處理方式，悉
+ 依本公司訂定之發行辦法辦理。
+6.其他發行條件:無
+7.員工之資格條件:
+(1)為保障股東權益，本公司將審慎管理本獎勵計劃。適用對象以限制員工權利新股
+   給與日當日仍在職之聯電集團全職員工，達一定績效表現且至少符合下列條件之
+   一者：
+   a.與公司未來策略發展高度相關
+   b.核心關鍵技術人才
+(2)得獲配限制員工權利新股之數量，將參酌年資、職等、職務、工作績效、整體貢
+   獻、特殊功績或其他管理上需參考之條件等因素，擬定分配標準，由董事長核定
+   後提報董事會同意。惟具本公司董事或經理人身份之員工，應先經薪酬委員會同
+   意，非具本公司董事或經理人身份之員工應先經審計委員會同意。
+(3)持有本公司已發行普通股股數10%以上之個人，不符發放資格。薪酬委員會成員
+   及不具員工身份之董事會成員，不符發放資格。
+(4)任一員工被授予之限制員工權利新股數量及比率之限制，依募發準則規定辦理。
+8.辦理本次限制員工權利新股之必要理由:
+本公司為吸引及留任關鍵優秀人才，以達成公司中、長期目標，期能激勵員工全力
+以赴達成公司營運目標，得以創造公司及股東之更高利益，並確保公司員工利益與
+股東利益相結合。
+9.可能費用化之金額:
+公司應於給與日衡量股票之公允價值，並於既得期間分年認列相關費用。依既得條
+件計算可能費用化總金額為2,943,491仟元，暫估民國113年至117年費用化金額分
+別為新台幣89,454仟元、1,056,124仟元、1,015,586仟元、550,094仟元及232,233
+仟元。
+10.對公司每股盈餘稀釋情形:
+以本公司目前流通在外普通股股數及不超過本次發行額度之限制員工權利新股計算，
+暫估民國113年至117年每股盈餘可能減少金額為新台幣0.01元 、0.07元 、0.07元、
+0.04元及0.03元。
+11.其他對股東權益影響事項:對股東權益尚無重大影響。
+12.員工獲配或認購新股後未達既得條件前受限制之權利:
+員工獲配限制員工權利新股後未達既得條件前，除繼承外，不得將該限制員工權利
+新股出售、質押、轉讓、贈與他人、設定，或作其他方式之處分。
+13.其他重要約定事項(含股票信託保管等):
+本公司發行之限制員工權利新股，應辦理股票信託保管。
+14.其他應敘明事項:
+(1)本次發行之限制員工權利新股所訂定之各項條件，如經主管機關指示、相關法令
+   規則修正、或因應金融市場狀況等需修訂或修正時，擬提請股東常會授權董事會
+   或其授權之人全權處理。
+(2)本次發行之限制員工權利新股，相關限制及重要約定事項或未盡事宜，悉依相關
+   法規及本公司訂定之發行辦法辦理。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2303'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

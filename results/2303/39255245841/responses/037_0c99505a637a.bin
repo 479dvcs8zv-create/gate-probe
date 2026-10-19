@@ -1,0 +1,192 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2303'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2303'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2303 
+聯電            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;1</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/01/25</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;21:29:34</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;劉啟東</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;02-2658-9168</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告聯華電子與英特爾擬合作開發12奈米製程平台合作計畫</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+10&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/01/25
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:113/01/25
+2.契約或承諾相對人:英特爾
+3.與公司關係:無
+4.契約或承諾起迄日期（或解除日期）:113/01/25起生效，於123/01/24終止
+5.主要內容（解除者不適用）:聯華電子與英特爾擬合作開發12奈米製程平台合作計畫
+6.限制條款（解除者不適用）:保密義務等
+7.承諾事項（解除者不適用）:製程研發與產品銷售
+8.其他重要約定事項（解除者不適用）:研發、銷售及合作時程等
+9.對公司財務、業務之影響:對本公司製程技術及晶圓產品製造競爭力有正面助益
+10.具體目的:與國際大廠英特爾合作開發12奈米製程的設計實現
+11.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+   符合證券交易法施行細則第7條第8款所定對股東權益或證券價格有重大影響之事項):
+聯華電子和英特爾宣布新晶圓代工合作
+
+聯華電子和英特爾今(25)日共同宣佈，雙方將合作開發12奈米製程平台，以因應
+行動、通訊基礎建設和網路等市場的快速成長。這項長期合作結合英特爾位於美
+國的大規模製造產能，和聯電在成熟製程上豐富的晶圓代工經驗，以擴充製程組
+合，同時提供更佳的區域多元且具韌性的供應鏈，協助全球客戶做出更好的採購
+決策。
+
+英特爾資深副總裁暨晶圓代工服務(IFS)總經理Stuart Pann表示，「幾十年來，
+台灣一直是亞洲和全球半導體及廣泛的技術生態系的重要成員，英特爾致力於與
+聯電這樣的台灣創新企業合作，為全球客戶提供更好的服務。英特爾與聯電的策
+略合作進一步展現了為全球半導體供應鏈提供技術和製造創新的承諾，也是實現
+英特爾在2030年成為全球第二大晶圓代工廠的重要一步。」
+
+聯電共同總經理王石表示：「聯電與英特爾進行在美國製造的12 奈米FinFET製程
+合作，是本公司追求具成本效益的產能擴張，和技術節點升級策略的重要一環，
+此舉並延續我們對客戶的一貫承諾。這項合作將協助客戶順利升級到此關鍵技術
+節點，同時受惠於擴展位於北美市場產能帶來的供應鏈韌性。聯電期待與英特爾
+展開策略合作，利用雙方的互補優勢，以擴大潛在市場，同時大幅加快技術發展
+時程。」
+
+此項12奈米製程將善用英特爾位於美國的大規模製造能力和FinFET電晶體設計經
+驗，提供兼具成熟度、性能和能耗效率的強大組合。受惠於聯電在製程上的領導
+地位，以及為客戶提供PDK及設計支援方面的數十年經驗，得以更有效地提供晶圓
+代工服務。新的製程將在英特爾位於美國亞利桑那州Ocotillo Technology
+Fabrication的12、22和32廠進行開發和製造，透過運用晶圓廠的現有設備將可大
+幅降低前期投資，並最佳化利用率。
+
+雙方將致力滿足客戶需求，透過生態系合作夥伴提供的電子設計自動化(EDA)和智
+慧財產權(IP)解決方案，合作支援 12 奈米製程的設計實現(design enablement)。
+此12奈米製程預計在2027年投入生產。
+
+英特爾在美國和全球已投資和創新超過55年，除了愛爾蘭、德國、波蘭、以色列
+和馬來西亞之外，也在美國的俄勒岡州、亞利桑那州、新墨西哥州及俄亥俄州設
+立或規劃製造基地，以及進行投資。英特爾晶圓代工服務(IFS)在2023年有重大進
+展，與客戶建立良好的互動，包括採用Intel 16、Intel 3及Intel 18A製程技術
+的新客戶，拓展其持續成長的晶圓代工生態系。IFS預期在2024年將繼續取得進展。
+
+四十多年來，聯電是全球汽車、工業、顯示器和通訊等關鍵應用晶片的晶圓代工
+製造首選。聯電在成熟和特殊製程技術上持續引領創新，最近二十多年，成功地
+將製造基地擴展到亞洲各國。聯電是超過400家半導體客戶的重要晶圓製造夥伴，
+專精於支援客戶實現產品高良率，並維持領先業界的產能利用率。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2303'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

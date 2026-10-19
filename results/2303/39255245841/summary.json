@@ -1,0 +1,1799 @@
+{
+  "co_id": "2303",
+  "roc_years": [
+    112,
+    113,
+    114,
+    115
+  ],
+  "revenue_rule": "quarter_end",
+  "market": {
+    "name": "上市公司",
+    "typek": "sii",
+    "quote_suffix": ".TW",
+    "first_sample": false,
+    "detail_pages_verified": true,
+    "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+  },
+  "listings": {
+    "112": {
+      "items": 64,
+      "sha256": "b47eed44e8b4b4a49a803d3723a0bc9f907554447971cc8710d7ada90c08e69d",
+      "company_name": "聯電",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    },
+    "113": {
+      "items": 69,
+      "sha256": "0538b7fd4db417931053739fe1a863160d7d6100e72b8e196aa0522fcde1460f",
+      "company_name": "聯電",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    },
+    "114": {
+      "items": 72,
+      "sha256": "f1c459d6f2193b65ef316583b61c8e880908b4c865f531b06406d2e6d5b8f7a0",
+      "company_name": "聯電",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    },
+    "115": {
+      "items": 77,
+      "sha256": "d995c645038ba39736ea2960c4b35c6cc811000823160d92e5ddd413b3d3d956",
+      "company_name": "聯電",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    }
+  },
+  "filings": {
+    "112": {
+      "rows": [
+        [
+          "2023Q1",
+          "202301_2303_AI1.pdf",
+          "2023-04-26T17:05:47+08:00"
+        ],
+        [
+          "2023Q1",
+          "202301_2303_AIA.pdf",
+          "2023-04-26T17:06:00+08:00"
+        ],
+        [
+          "2023Q2",
+          "202302_2303_AI1.pdf",
+          "2023-07-26T17:04:31+08:00"
+        ],
+        [
+          "2023Q2",
+          "202302_2303_AIA.pdf",
+          "2023-07-26T17:04:50+08:00"
+        ],
+        [
+          "2023Q3",
+          "202303_2303_AI1.pdf",
+          "2023-10-25T17:10:58+08:00"
+        ],
+        [
+          "2023Q3",
+          "202303_2303_AIA.pdf",
+          "2023-10-25T17:11:57+08:00"
+        ],
+        [
+          "2023Q4",
+          "202304_2303_AI1.pdf",
+          "2024-02-27T21:28:13+08:00"
+        ],
+        [
+          "2023Q4",
+          "202304_2303_AI3.pdf",
+          "2024-02-27T21:29:21+08:00"
+        ],
+        [
+          "2023Q4",
+          "202304_2303_AIA.pdf",
+          "2024-02-27T21:28:51+08:00"
+        ],
+        [
+          "2023Q4",
+          "202304_2303_AIC.pdf",
+          "2024-02-27T21:29:42+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "4a3657262b5e23e28a25528eab193320ed13363ade3853ce1dd71519a56df8ad",
+      "attempts": 1
+    },
+    "113": {
+      "rows": [
+        [
+          "2024Q1",
+          "202401_2303_AI1.pdf",
+          "2024-04-24T17:03:42+08:00"
+        ],
+        [
+          "2024Q1",
+          "202401_2303_AIA.pdf",
+          "2024-04-24T17:03:57+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_2303_AI1.pdf",
+          "2024-07-31T17:09:51+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_2303_AIA.pdf",
+          "2024-07-31T17:10:12+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_2303_AI1.pdf",
+          "2024-10-30T17:16:12+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_2303_AIA.pdf",
+          "2024-10-30T17:16:36+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2303_AI1.pdf",
+          "2025-02-26T15:37:19+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2303_AI3.pdf",
+          "2025-02-26T15:39:07+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2303_AIA.pdf",
+          "2025-02-26T15:38:38+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2303_AIC.pdf",
+          "2025-02-26T15:39:30+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "b27ce3622b2e770552aa47f139c87c5ce0ea38f8e4ab3c7f2b1fe0a6d56c1f65",
+      "attempts": 3
+    },
+    "114": {
+      "rows": [
+        [
+          "2025Q1",
+          "202501_2303_AI1.pdf",
+          "2025-04-23T17:08:00+08:00"
+        ],
+        [
+          "2025Q1",
+          "202501_2303_AIA.pdf",
+          "2025-04-23T17:08:17+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2303_AI1.pdf",
+          "2025-07-30T17:06:27+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2303_AIA.pdf",
+          "2025-07-30T17:06:43+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2303_AI1.pdf",
+          "2025-10-29T17:07:33+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2303_AIA.pdf",
+          "2025-10-29T17:07:51+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2303_AI1.pdf",
+          "2026-02-25T17:35:24+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2303_AI3.pdf",
+          "2026-02-25T17:36:33+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2303_AIA.pdf",
+          "2026-02-25T17:36:11+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2303_AIC.pdf",
+          "2026-02-25T17:36:55+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "54650fa2f5b885dc635aca0da3ec414013eb45b1b0e10f2b1293bcb419460079",
+      "attempts": 1
+    },
+    "115": {
+      "rows": [
+        [
+          "2026Q1",
+          "202601_2303_AI1.pdf",
+          "2026-04-29T17:25:08+08:00"
+        ],
+        [
+          "2026Q1",
+          "202601_2303_AIA.pdf",
+          "2026-04-29T17:25:25+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2303_AI1.pdf",
+          "2026-07-29T17:18:33+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2303_AIA.pdf",
+          "2026-07-29T17:18:52+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "5d8b62e910c6787ac16466f3260b86e7f14958e08ce6c6430516a6d600e5531e",
+      "attempts": 1
+    }
+  },
+  "details": {
+    "t05st01:2303:20230222:155541:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-02-22",
+      "attempts": 1
+    },
+    "t05st01:2303:20230426:170011:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-04-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20230726:170013:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-07-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20231025:170214:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-10-25",
+      "attempts": 2
+    },
+    "t05st01:2303:20240227:211328:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240424:170031:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-04-24",
+      "attempts": 1
+    },
+    "t05st01:2303:20240731:170008:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-07-31",
+      "attempts": 1
+    },
+    "t05st01:2303:20241030:171416:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-10-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:150223:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250423:170020:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-04-23",
+      "attempts": 1
+    },
+    "t05st01:2303:20250730:170017:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-07-30",
+      "attempts": 3
+    },
+    "t05st01:2303:20251029:170015:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-10-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:171915:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260429:170055:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-04-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260729:170032:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-07-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20230407:154635:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-04-07",
+      "attempts": 1
+    },
+    "t05st01:2303:20230412:145217:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-04-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20230426:170030:2": {
+      "ok": false,
+      "failures": [
+        [
+          "ANNOUNCEMENT_EVIDENCE_INCOMPLETE",
+          "詳細頁回應是空的"
+        ]
+      ],
+      "status": null,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "attempts": 3
+    },
+    "t05st01:2303:20230426:170125:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2023-04-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20230426:170225:4": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-04-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20230704:154038:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-07-04",
+      "attempts": 1
+    },
+    "t05st01:2303:20230710:164814:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-07-10",
+      "attempts": 1
+    },
+    "t05st01:2303:20230712:171138:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-07-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20230726:170043:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2023-07-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20230726:170057:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2023-07-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20230726:170113:5": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-07-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20231011:164902:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-10-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20231025:170245:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2023-10-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20231025:170445:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2023-10-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20231025:170515:4": {
+      "ok": true,
+      "clause": "21",
+      "fact_date": "2023-10-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20231025:170545:5": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-10-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20240108:152852:1": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2024-01-08",
+      "attempts": 1
+    },
+    "t05st01:2303:20240109:140440:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-01-09",
+      "attempts": 1
+    },
+    "t05st01:2303:20240117:163910:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-01-31",
+      "attempts": 1
+    },
+    "t05st01:2303:20240125:212934:1": {
+      "ok": true,
+      "clause": "10",
+      "fact_date": "2024-01-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20240131:170114:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-01-31",
+      "attempts": 1
+    },
+    "t05st01:2303:20240207:150438:1": {
+      "ok": false,
+      "failures": [
+        [
+          "ANNOUNCEMENT_EVIDENCE_INCOMPLETE",
+          "詳細頁回應是空的"
+        ]
+      ],
+      "status": null,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "attempts": 3
+    },
+    "t05st01:2303:20240222:165302:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-02-22",
+      "attempts": 3
+    },
+    "t05st01:2303:20240226:141551:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-03-04",
+      "attempts": 1
+    },
+    "t05st01:2303:20240227:211249:10": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240227:211607:11": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240227:211624:5": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240227:211645:6": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240227:211711:7": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240227:212040:12": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240227:212053:13": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-27",
+      "attempts": 2
+    },
+    "t05st01:2303:20240227:212419:14": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240227:212452:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-02-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20240402:164616:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-02",
+      "attempts": 1
+    },
+    "t05st01:2303:20240403:144116:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-03",
+      "attempts": 1
+    },
+    "t05st01:2303:20240403:165051:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-03",
+      "attempts": 1
+    },
+    "t05st01:2303:20240410:155358:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-04-24",
+      "attempts": 1
+    },
+    "t05st01:2303:20240416:140334:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-04-16",
+      "attempts": 1
+    },
+    "t05st01:2303:20240424:170043:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2024-04-24",
+      "attempts": 1
+    },
+    "t05st01:2303:20240424:170058:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-04-24",
+      "attempts": 1
+    },
+    "t05st01:2303:20240424:170126:4": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-24",
+      "attempts": 2
+    },
+    "t05st01:2303:20240717:141253:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-07-31",
+      "attempts": 1
+    },
+    "t05st01:2303:20240723:143532:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-07-23",
+      "attempts": 1
+    },
+    "t05st01:2303:20240731:170059:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2024-07-31",
+      "attempts": 1
+    },
+    "t05st01:2303:20240731:170159:3": {
+      "ok": false,
+      "failures": [
+        [
+          "ANNOUNCEMENT_EVIDENCE_INCOMPLETE",
+          "詳細頁回應是空的"
+        ]
+      ],
+      "status": null,
+      "error": "ConnectionRefusedError: [Errno 111] Connection refused",
+      "attempts": 3
+    },
+    "t05st01:2303:20240731:170249:4": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-07-31",
+      "attempts": 2
+    },
+    "t05st01:2303:20241006:170852:2": {
+      "ok": true,
+      "clause": "26",
+      "fact_date": "2024-10-04",
+      "attempts": 1
+    },
+    "t05st01:2303:20241016:163127:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-10-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20241022:142419:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-10-22",
+      "attempts": 1
+    },
+    "t05st01:2303:20241030:170137:2": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-10-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20241030:170727:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20250107:135852:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-01-21",
+      "attempts": 1
+    },
+    "t05st01:2303:20250121:170011:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-01-21",
+      "attempts": 1
+    },
+    "t05st01:2303:20250211:135204:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-02-17",
+      "attempts": 1
+    },
+    "t05st01:2303:20250218:162827:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-02-18",
+      "attempts": 1
+    },
+    "t05st01:2303:20250218:162947:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-02-18",
+      "attempts": 1
+    },
+    "t05st01:2303:20250221:140326:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:150053:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:150705:9": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:150833:10": {
+      "ok": true,
+      "clause": "7",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:150923:8": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:151018:4": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:151207:5": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:151238:6": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250226:151325:7": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2025-02-26",
+      "attempts": 1
+    },
+    "t05st01:2303:20250401:104243:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-04-01",
+      "attempts": 1
+    },
+    "t05st01:2303:20250409:141805:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-04-23",
+      "attempts": 1
+    },
+    "t05st01:2303:20250415:133231:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-04-15",
+      "attempts": 1
+    },
+    "t05st01:2303:20250423:170037:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2025-04-23",
+      "attempts": 1
+    },
+    "t05st01:2303:20250423:170101:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-04-23",
+      "attempts": 2
+    },
+    "t05st01:2303:20250423:170120:4": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-04-23",
+      "attempts": 1
+    },
+    "t05st01:2303:20250423:170145:5": {
+      "ok": true,
+      "clause": "21",
+      "fact_date": "2025-04-23",
+      "attempts": 1
+    },
+    "t05st01:2303:20250423:170249:6": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-04-23",
+      "attempts": 1
+    },
+    "t05st01:2303:20250714:145526:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-14",
+      "attempts": 1
+    },
+    "t05st01:2303:20250716:154826:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-07-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20250722:145608:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-07-22",
+      "attempts": 1
+    },
+    "t05st01:2303:20250728:155906:1": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-07-28",
+      "attempts": 1
+    },
+    "t05st01:2303:20250728:155936:2": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2025-07-28",
+      "attempts": 1
+    },
+    "t05st01:2303:20250730:170111:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2025-07-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20250730:170151:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-07-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20250730:170223:4": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-07-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20250730:170405:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-30",
+      "attempts": 1
+    },
+    "t05st01:2303:20251015:141529:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-10-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20251021:150214:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-10-21",
+      "attempts": 1
+    },
+    "t05st01:2303:20251021:151655:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-10-21",
+      "attempts": 1
+    },
+    "t05st01:2303:20251027:162209:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2025-10-27",
+      "attempts": 1
+    },
+    "t05st01:2303:20251028:134351:1": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2025-10-28",
+      "attempts": 1
+    },
+    "t05st01:2303:20251029:170050:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2025-10-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20251029:170214:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-10-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20251029:170247:4": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-10-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260114:142906:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-01-28",
+      "attempts": 1
+    },
+    "t05st01:2303:20260128:170014:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-01-28",
+      "attempts": 1
+    },
+    "t05st01:2303:20260128:180728:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-01-28",
+      "attempts": 1
+    },
+    "t05st01:2303:20260213:150032:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-02-13",
+      "attempts": 1
+    },
+    "t05st01:2303:20260224:143519:3": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2026-02-24",
+      "attempts": 1
+    },
+    "t05st01:2303:20260224:164007:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-02-24",
+      "attempts": 1
+    },
+    "t05st01:2303:20260224:170742:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-02-24",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:171522:12": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:171749:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:172004:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:172150:13": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:172229:9": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:172519:5": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:172612:6": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260225:172720:14": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-25",
+      "attempts": 1
+    },
+    "t05st01:2303:20260415:143857:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-04-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260421:162545:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-04-21",
+      "attempts": 1
+    },
+    "t05st01:2303:20260429:170154:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2026-04-29",
+      "attempts": 2
+    },
+    "t05st01:2303:20260429:170455:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-04-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260429:171110:5": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2026-04-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260429:171404:4": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-04-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260714:140135:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-07-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260715:171127:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-15",
+      "attempts": 1
+    },
+    "t05st01:2303:20260721:160244:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-07-21",
+      "attempts": 1
+    },
+    "t05st01:2303:20260721:160702:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-07-21",
+      "attempts": 1
+    },
+    "t05st01:2303:20260729:170143:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2026-07-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260729:170425:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-07-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260729:170555:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-29",
+      "attempts": 3
+    },
+    "t05st01:2303:20260729:170654:4": {
+      "ok": true,
+      "clause": "21",
+      "fact_date": "2026-07-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260729:170739:5": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-07-29",
+      "attempts": 1
+    },
+    "t05st01:2303:20260729:180816:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-29",
+      "attempts": 1
+    }
+  },
+  "quarters": {
+    "2023Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2023-04-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2023-04-26T17:00:11+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20230426:170011:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國112年第一季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2023-04-26T17:05:47+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202301_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202301_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2023-04-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2023Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2023-07-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2023-07-26T17:00:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20230726:170013:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國112年第二季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2023-07-26T17:04:31+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202302_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202302_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2023-07-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2023Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2023-10-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2023-10-25T17:02:14+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20231025:170214:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國112年第三季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2023-10-25T17:10:58+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202303_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202303_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2023-10-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2023Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2024-01-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-02-27T21:13:28+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20240227:211328:2",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國112年度合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-02-27T21:28:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202304_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202304_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-01-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2024Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2024-04-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-04-24T17:00:31+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20240424:170031:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國113年第一季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-04-24T17:03:42+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202401_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202401_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-04-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2024Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2024-07-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-07-31T17:00:08+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20240731:170008:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國113年第二季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-07-31T17:09:51+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202402_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202402_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-07-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2024Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2024-10-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-10-30T17:14:16+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20241030:171416:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國113年第三季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-10-30T17:16:12+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202403_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202403_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-10-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2024Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2025-01-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-02-26T15:02:23+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20250226:150223:2",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國113年度合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-02-26T15:37:19+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202404_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202404_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-01-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2025Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2025-04-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-04-23T17:00:20+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20250423:170020:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國114年第一季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-04-23T17:08:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202501_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202501_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-04-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2025Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2025-07-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-07-30T17:00:17+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20250730:170017:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國114年第二季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-07-30T17:06:27+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202502_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202502_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-07-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2025Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2025-10-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-10-29T17:00:15+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20251029:170015:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國114年第三季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-10-29T17:07:33+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202503_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202503_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-10-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2025Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2026-01-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-02-25T17:19:15+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20260225:171915:2",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國114年度合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-02-25T17:35:24+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202504_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202504_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-01-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2026Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2026-04-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-04-29T17:00:55+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20260429:170055:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國115年第一季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-04-29T17:25:08+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202601_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202601_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-04-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2026Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2026-07-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-07-29T17:00:32+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2303:20260729:170032:1",
+          "detail_verified": true,
+          "subject": "公告本公司董事會決議通過民國115年第二季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-07-29T17:18:33+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2303:202602_2303_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202602_2303_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-07-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2026Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2026-10-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-10-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "財報清單取得時間 2026-10-19T13:23:56.346356+00:00 不晚於最早事件，無法排除更早的申報",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    }
+  },
+  "notes": [],
+  "detail_counts": {
+    "wanted": 136,
+    "fetched": 136,
+    "from_cache": 0,
+    "skipped_over_limit": 0
+  },
+  "clause_policy": {
+    "clauses": [
+      "20",
+      "6",
+      "8"
+    ],
+    "reviewer": "Gate Pipeline 擁有者（使用者本人）",
+    "decided_at": "2026-10-18T15:34:41+08:00"
+  },
+  "guidance": {
+    "version": "4.23-guidance",
+    "data_mode": "OFFICIAL_GUIDANCE",
+    "quarters": {},
+    "gate": {
+      "data_mode": "OFFICIAL_GUIDANCE",
+      "label": "Gate5B 官方財測模式（Python 預驗證，非正式 Gate PASS）",
+      "verified_quarters": 0,
+      "min_quarters": 8,
+      "result": "INSUFFICIENT",
+      "meaning": "比較的是公司自己在上一季公布的財測，不是市場共識"
+    },
+    "parse_failures": [],
+    "gate_result": {
+      "gate_name": "Gate5B_官方財測(OFFICIAL_GUIDANCE)",
+      "status": "not_connected",
+      "reasons": [
+        "無資料：沒有已驗證截止點的季度"
+      ],
+      "reject_codes": [
+        "DATA_NOT_CONNECTED"
+      ],
+      "raw_count": 0,
+      "evidence_count": 0
+    },
+    "provisional_quarters_excluded": [
+      "2023Q1",
+      "2023Q2",
+      "2023Q3",
+      "2023Q4",
+      "2024Q1",
+      "2024Q2",
+      "2024Q3",
+      "2024Q4",
+      "2025Q1",
+      "2025Q2",
+      "2025Q3",
+      "2025Q4",
+      "2026Q1",
+      "2026Q2",
+      "2026Q3"
+    ]
+  },
+  "official_figures": {},
+  "recognition": {
+    "events_recognized": {
+      "board_approved_financials": 15
+    },
+    "guidance_quarters_parsed": 0,
+    "notes": [
+      "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+    ]
+  }
+}
