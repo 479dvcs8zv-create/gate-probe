@@ -25,6 +25,7 @@
 5. **公開 repo 裡寫了網站完整網址與部署 ID**（`diagnostics/latest.md`、`authorized-v228/07-deployment-succeeded.md`、`artifacts/acceptance-summary.json`）。網站僅擁有者可見，風險低，但建議之後的交接改用「原網站」代稱、不寫網址與 ID（Claude 這邊一直沒寫）。
 6. 群聯 Gate 4／5／8 缺項（PSR 五年、集保大戶、CB 現行條款、董監質押合計、同業共識、EPS surprise 0/8）與 Gate 6 真實警訊照舊；10D 分級尺度與組內權重沒有原始規則來源，需要擁有者決定。
 7. 下一步照擁有者順序：P2（四層真實資料稽核、任何代號都能算）→ P3（一句綜合判斷）。尚未授權開始。
+8. 官方資料來源整理（Gemini 找、Claude 核對）：`handoff/gemini_round11_review.md`（本益比／淨值比／殖利率、收盤價、月營收、季財報、法人、集保、NYSE 2028、H.10）、`handoff/gemini_round12_review.md`（可轉債目前轉換價、董監質押合計、發行股數）。實作前每個端點都要實際打一次。
 
 ---
 
