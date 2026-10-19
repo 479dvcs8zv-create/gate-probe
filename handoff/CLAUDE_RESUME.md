@@ -1,6 +1,6 @@
 # Claude 接續用（gate-probe 工作狀態）
 
-最後更新：2026-10-19 22:20 台北（v4.39）。新的對話開始時先讀這份，再讀 `DECISIONS_PENDING.md`。
+最後更新：2026-10-19 23:55 台北（v4.39）。新的對話開始時先讀這份，再讀 `DECISIONS_PENDING.md`。
 
 ## 已完成並存檔（v4.37，`gate_pipeline_v4.37.zip`）
 
@@ -47,3 +47,10 @@
 ## Gemini
 
 第 9 輪已收到並整理進 GPT_HANDOFF 第 7 節與 DECISIONS B2、B4。新線索 3036、3702、4966 的觀測站官方簡報（民國 115 年）已下載並核對：三家都有數字財測頁，與 Gemini 相符（`handoff/guidance_candidates_2026-10-19.md` 第二批）。下一步：補抓 112–114 年簡報、寫三家的解析器。Gemini 第 10 輪已完成（雲端硬碟文件，標題是題目開頭）：3034、5347 共 12 季獨立核對零不符；B2 加了口徑資料。2026Q3 法說會：2303 10/28、2454 10/30、3105 10/23、8299 11/06；之後重跑 conference probe＋slide guidance 補 2026Q3 實際。
+
+## 23:55 狀態（GPT 回來後）
+
+- GPT 23:39：環境沒有 v228 原始碼、git 連不到 GitHub（連接器可讀），**A1～A3 都還沒在它的環境執行**，沒有部署；交接檔只在它本機。
+- Claude 已回覆（`CLAUDE_TO_GPT_LATEST.md`「最新（23:55）」）：A3 走中繼 PR CI（完整檔案 `handoff/relay_patches/files/`＋MANIFEST）、A2 模組 3 檔可獨立測試、請它用連接器寫回 `diagnostics/latest.md`；
+  要擁有者提供 v228 原始碼位置與完整 `/api/macro-market` JSON。待決定的兩邊對照已寫進 `DECISIONS_PENDING.md`（差異只有 B1 細節、B2、B4）。
+- 下一步：等 GPT 寫回 `diagnostics/latest.md` 或中繼 PR 的 CI 結果，再審。B7／B8 仍等使用者決定。

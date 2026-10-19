@@ -1,0 +1,94 @@
+name: US Sector History
+on:
+  # Changes to this workflow run one live, validated publication smoke.
+  # Data-only commits do not retrigger it.
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/us-sector-history.yml'
+      - 'scripts/check_us_sector_public_feed.mjs'
+  workflow_dispatch:
+  schedule:
+    - cron: '35 23 * * 1-5'
+    # Retry after a late-finalized Yahoo bar; publishes only when rows actually change.
+    - cron: '45 3 * * 2-6'
+permissions:
+  contents: write
+concurrency:
+  group: us-sector-history
+  cancel-in-progress: false
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Unit tests
+        run: python -m unittest discover -s scripts -p 'test_us_sector*.py'
+      - name: Fetch market data
+        run: python scripts/us_sector_feed.py
+      - name: Validate coverage and freshness
+        run: python scripts/check_us_sector_snapshot.py data/us_sector_history.json
+      - name: Verify fetched snapshot through API and Master Model adapter
+        run: node tests/test_us_sector_published_pipeline.mjs
+      - name: Commit snapshot
+        id: publish
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          cp data/us_sector_history.json /tmp/us-sector-history-validated.json
+          echo "publication_outcome=UNKNOWN" >> "$GITHUB_OUTPUT"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp /tmp/us-sector-history-validated.json /tmp/us-sector-publish-candidate.json
+            guard_status=0
+            python scripts/us_sector_publish_guard.py /tmp/us-sector-publish-candidate.json data/us_sector_history.json || guard_status=$?
+            if [ "$guard_status" -eq 2 ]; then
+              echo "Remote sector snapshot is newer; retaining it"
+              echo "publication_outcome=RETAINED_NEWER" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [ "$guard_status" -ne 0 ]; then
+              echo "Sector snapshot guard failed" >&2
+              exit "$guard_status"
+            fi
+            if [ -f data/us_sector_history.json ] && python3 -c 'import json,sys; k=lambda p:{x:json.load(open(p)).get(x) for x in ("histories","status")}; sys.exit(0 if k(sys.argv[1])==k(sys.argv[2]) else 1)' /tmp/us-sector-publish-candidate.json data/us_sector_history.json; then
+              echo "Sector rows unchanged (generated_at ignored); no publication required"
+              echo "publication_outcome=UNCHANGED" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            cp /tmp/us-sector-publish-candidate.json data/us_sector_history.json
+            python scripts/check_us_sector_snapshot.py data/us_sector_history.json
+            git add -- data/us_sector_history.json
+            if git diff --cached --quiet; then
+              echo "Sector history unchanged; no publication required"
+              echo "publication_outcome=UNCHANGED" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git commit -m 'data: update US sector history'
+            if git push origin HEAD:main; then
+              echo "Validated sector history published"
+              echo "publication_outcome=PUBLISHED" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Concurrent main update: retrying only the validated sector snapshot ($attempt/3)"
+          done
+          echo "Publication failed after three retries; prior remote snapshot retained" >&2
+          exit 1
+      - name: Record publication outcome
+        if: always()
+        run: |
+          echo "## US Sector Publication" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Outcome: ${{ steps.publish.outputs.publication_outcome || 'FAILED_OR_NOT_RUN' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- This outcome is not a confirmation of original Master Model Site deployment." >> "$GITHUB_STEP_SUMMARY"
+      - name: Verify public Raw URL works for the existing site reader
+        run: node scripts/check_us_sector_public_feed.mjs
