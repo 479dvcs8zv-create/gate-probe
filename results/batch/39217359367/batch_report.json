@@ -1,0 +1,493 @@
+{
+  "report_version": "4.33-batch-report",
+  "run_id": "39217359367",
+  "generated_at": "2026-10-19T09:01:59.271463+00:00",
+  "gate_impact": "none",
+  "meaning": "各檔官方截止點證據的總表；CUTOFF_VERIFIED 也只是截止點證據齊全，不等於 Gate PASS",
+  "co_ids": [
+    "2330",
+    "2454",
+    "8299",
+    "6485",
+    "6488",
+    "5347"
+  ],
+  "totals": {
+    "CUTOFF_VERIFIED": 25,
+    "CUTOFF_QUARTER_END_RULE": 60,
+    "PROVISIONAL": 5
+  },
+  "companies": [
+    {
+      "co_id": "2330",
+      "ok": true,
+      "company_name": "台積電",
+      "collector_version": "4.33-collect",
+      "market": {
+        "name": "上市公司",
+        "typek": "sii",
+        "quote_suffix": ".TW",
+        "first_sample": false,
+        "detail_pages_verified": true,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 14,
+        "CUTOFF_QUARTER_END_RULE": 0,
+        "PROVISIONAL": 1
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "CUTOFF_QUARTER_END_RULE": [],
+        "PROVISIONAL": [
+          "2023Q3"
+        ]
+      },
+      "blocking_categories": {
+        "UNCLASSIFIED_PENDING": 1
+      },
+      "pending_review_announcements": 1,
+      "events_recognized": {
+        "quarter_revenue_complete": 16,
+        "self_reported_results": 17,
+        "board_approved_financials": 15,
+        "investor_conference": 15
+      },
+      "recognition_notes": [],
+      "guidance_quarters_parsed": 14,
+      "guidance_gate_status": "official_guidance_verified",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 836,
+        "fetched": 190,
+        "from_cache": 646,
+        "skipped_over_limit": 0
+      },
+      "notes": [],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 14,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 1
+        },
+        "replayed_with": "4.33-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "1 則未分類公告待人工確認（看各季 review_window）"
+      ]
+    },
+    {
+      "co_id": "2454",
+      "ok": true,
+      "company_name": "聯發科",
+      "collector_version": "4.33-collect",
+      "market": {
+        "name": "上市公司",
+        "typek": "sii",
+        "quote_suffix": ".TW",
+        "first_sample": false,
+        "detail_pages_verified": true,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 11,
+        "CUTOFF_QUARTER_END_RULE": 0,
+        "PROVISIONAL": 4
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [
+          "2023Q1",
+          "2023Q3",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "CUTOFF_QUARTER_END_RULE": [],
+        "PROVISIONAL": [
+          "2023Q2",
+          "2023Q4",
+          "2024Q4",
+          "2025Q4"
+        ]
+      },
+      "blocking_categories": {
+        "UNCLASSIFIED_PENDING": 4
+      },
+      "pending_review_announcements": 4,
+      "events_recognized": {
+        "quarter_revenue_complete": 16,
+        "investor_conference": 16,
+        "self_reported_results": 15,
+        "board_approved_financials": 15,
+        "financial_forecast": 13
+      },
+      "recognition_notes": [],
+      "guidance_quarters_parsed": 11,
+      "guidance_gate_status": "official_guidance_verified",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 354,
+        "fetched": 88,
+        "from_cache": 266,
+        "skipped_over_limit": 0
+      },
+      "notes": [],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 11,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 4
+        },
+        "replayed_with": "4.33-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "4 則未分類公告待人工確認（看各季 review_window）"
+      ]
+    },
+    {
+      "co_id": "8299",
+      "ok": true,
+      "company_name": "群聯",
+      "collector_version": "4.33-collect",
+      "market": {
+        "name": "上櫃公司",
+        "typek": "otc",
+        "quote_suffix": ".TWO",
+        "first_sample": false,
+        "detail_pages_verified": false,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 0,
+        "CUTOFF_QUARTER_END_RULE": 15,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [],
+        "CUTOFF_QUARTER_END_RULE": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "board_approved_financials": 15
+      },
+      "recognition_notes": [
+        "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+      ],
+      "guidance_quarters_parsed": 0,
+      "guidance_gate_status": "not_connected",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 107,
+        "fetched": 107,
+        "from_cache": 0,
+        "skipped_over_limit": 0
+      },
+      "notes": [
+        "市場別「上櫃公司」的清單格式已驗證；公告詳細頁尚無人工比對過的樣本（解析器照樣逐欄嚴格核對，不符即不採用）"
+      ],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 0,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 15
+        },
+        "replayed_with": "4.33-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "有財務事件的公告寫法還不認得：把 recognition_notes 與該公司的公告主旨提供給維護者擴充寫法",
+        "上櫃公司的公告詳細頁第一次取得：請把這次的詳細頁交給維護者人工比對一次"
+      ]
+    },
+    {
+      "co_id": "6485",
+      "ok": true,
+      "company_name": "點序",
+      "collector_version": "4.33-collect",
+      "market": {
+        "name": "上櫃公司",
+        "typek": "otc",
+        "quote_suffix": ".TWO",
+        "first_sample": false,
+        "detail_pages_verified": false,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 0,
+        "CUTOFF_QUARTER_END_RULE": 15,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [],
+        "CUTOFF_QUARTER_END_RULE": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "board_approved_financials": 15
+      },
+      "recognition_notes": [
+        "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+      ],
+      "guidance_quarters_parsed": 0,
+      "guidance_gate_status": "not_connected",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 49,
+        "fetched": 49,
+        "from_cache": 0,
+        "skipped_over_limit": 0
+      },
+      "notes": [
+        "市場別「上櫃公司」的清單格式已驗證；公告詳細頁尚無人工比對過的樣本（解析器照樣逐欄嚴格核對，不符即不採用）"
+      ],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 0,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 15
+        },
+        "replayed_with": "4.33-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "有財務事件的公告寫法還不認得：把 recognition_notes 與該公司的公告主旨提供給維護者擴充寫法",
+        "上櫃公司的公告詳細頁第一次取得：請把這次的詳細頁交給維護者人工比對一次"
+      ]
+    },
+    {
+      "co_id": "6488",
+      "ok": true,
+      "company_name": "環球晶",
+      "collector_version": "4.33-collect",
+      "market": {
+        "name": "上櫃公司",
+        "typek": "otc",
+        "quote_suffix": ".TWO",
+        "first_sample": false,
+        "detail_pages_verified": false,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 0,
+        "CUTOFF_QUARTER_END_RULE": 15,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [],
+        "CUTOFF_QUARTER_END_RULE": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "board_approved_financials": 15
+      },
+      "recognition_notes": [
+        "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+      ],
+      "guidance_quarters_parsed": 0,
+      "guidance_gate_status": "not_connected",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 107,
+        "fetched": 107,
+        "from_cache": 0,
+        "skipped_over_limit": 0
+      },
+      "notes": [
+        "市場別「上櫃公司」的清單格式已驗證；公告詳細頁尚無人工比對過的樣本（解析器照樣逐欄嚴格核對，不符即不採用）"
+      ],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 0,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 15
+        },
+        "replayed_with": "4.33-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "有財務事件的公告寫法還不認得：把 recognition_notes 與該公司的公告主旨提供給維護者擴充寫法",
+        "上櫃公司的公告詳細頁第一次取得：請把這次的詳細頁交給維護者人工比對一次"
+      ]
+    },
+    {
+      "co_id": "5347",
+      "ok": true,
+      "company_name": "世界",
+      "collector_version": "4.33-collect",
+      "market": {
+        "name": "上櫃公司",
+        "typek": "otc",
+        "quote_suffix": ".TWO",
+        "first_sample": false,
+        "detail_pages_verified": false,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 0,
+        "CUTOFF_QUARTER_END_RULE": 15,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [],
+        "CUTOFF_QUARTER_END_RULE": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "board_approved_financials": 15
+      },
+      "recognition_notes": [
+        "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+      ],
+      "guidance_quarters_parsed": 0,
+      "guidance_gate_status": "not_connected",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 110,
+        "fetched": 110,
+        "from_cache": 0,
+        "skipped_over_limit": 0
+      },
+      "notes": [
+        "市場別「上櫃公司」的清單格式已驗證；公告詳細頁尚無人工比對過的樣本（解析器照樣逐欄嚴格核對，不符即不採用）"
+      ],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 0,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 15
+        },
+        "replayed_with": "4.33-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "有財務事件的公告寫法還不認得：把 recognition_notes 與該公司的公告主旨提供給維護者擴充寫法",
+        "上櫃公司的公告詳細頁第一次取得：請把這次的詳細頁交給維護者人工比對一次"
+      ]
+    }
+  ]
+}
