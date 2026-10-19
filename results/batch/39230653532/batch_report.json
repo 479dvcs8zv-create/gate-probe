@@ -1,0 +1,163 @@
+{
+  "report_version": "4.33-batch-report",
+  "run_id": "39230653532",
+  "generated_at": "2026-10-19T09:54:00.395562+00:00",
+  "gate_impact": "none",
+  "meaning": "各檔官方截止點證據的總表；CUTOFF_VERIFIED 也只是截止點證據齊全，不等於 Gate PASS",
+  "co_ids": [
+    "2330",
+    "2454"
+  ],
+  "totals": {
+    "CUTOFF_VERIFIED": 30,
+    "CUTOFF_QUARTER_END_RULE": 0,
+    "PROVISIONAL": 0
+  },
+  "companies": [
+    {
+      "co_id": "2330",
+      "ok": true,
+      "company_name": "台積電",
+      "collector_version": "4.36-collect",
+      "market": {
+        "name": "上市公司",
+        "typek": "sii",
+        "quote_suffix": ".TW",
+        "first_sample": false,
+        "detail_pages_verified": true,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 15,
+        "CUTOFF_QUARTER_END_RULE": 0,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "CUTOFF_QUARTER_END_RULE": [],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "quarter_revenue_complete": 16,
+        "self_reported_results": 17,
+        "board_approved_financials": 15,
+        "investor_conference": 15
+      },
+      "recognition_notes": [],
+      "guidance_quarters_parsed": 15,
+      "guidance_gate_status": "official_guidance_verified",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 836,
+        "fetched": 0,
+        "from_cache": 836,
+        "skipped_over_limit": 0
+      },
+      "notes": [],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 15,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 0
+        },
+        "replayed_with": "4.36-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": []
+    },
+    {
+      "co_id": "2454",
+      "ok": true,
+      "company_name": "聯發科",
+      "collector_version": "4.36-collect",
+      "market": {
+        "name": "上市公司",
+        "typek": "sii",
+        "quote_suffix": ".TW",
+        "first_sample": false,
+        "detail_pages_verified": true,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 15,
+        "CUTOFF_QUARTER_END_RULE": 0,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "CUTOFF_QUARTER_END_RULE": [],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "quarter_revenue_complete": 16,
+        "investor_conference": 16,
+        "self_reported_results": 15,
+        "board_approved_financials": 15,
+        "financial_forecast": 13
+      },
+      "recognition_notes": [],
+      "guidance_quarters_parsed": 15,
+      "guidance_gate_status": "official_guidance_verified",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 354,
+        "fetched": 0,
+        "from_cache": 354,
+        "skipped_over_limit": 0
+      },
+      "notes": [],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 15,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 0
+        },
+        "replayed_with": "4.36-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": []
+    }
+  ]
+}
