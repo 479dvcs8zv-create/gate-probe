@@ -1,0 +1,218 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='6488'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='6488'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 6488 
+環球晶          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;2</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/07/17</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;18:06:05</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;彭欣瑜</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;總經理室特別助理</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-5772255</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;環球晶圓與美國商務部宣布《晶片與科學法》補助金額，
+攜手支持關鍵半導體晶圓製造</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+53&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/07/17
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:113/07/17
+2.公司名稱:環球晶圓股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:不適用
+6.因應措施:不適用
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，
+本則重大訊息同時符合證券交易法施行細則第7條第9款所定
+對股東權益或證券價格有重大影響之事項):
+
+此筆4億美元的補助金將支持美國唯一先進半導體矽晶圓及SOI工廠之興建，
+以因應美國晶片製造復甦，並加強美國半導體供應鏈之韌性。
+
+環球晶圓(6488：TT)今日宣布旗下子公司GlobalWafers America (GWA) 及MEMC LLC
+與美國商務部(U.S. Department of Commerce)已簽署一份不具約束力的初步備忘錄
+(preliminary memorandum of terms, PMT)，基於《晶片與科學法案》(CHIPS and
+Science Act)，將獲得最高4億美元的直接補助，該補助將用於德州謝爾曼市　
+(Sherman, Taxes)及密蘇里州聖彼得斯市(St. Peters, Missouri)先進矽晶圓廠之
+興建。
+
+待GWA德州謝爾曼市的生產基地全面竣工後，將成為美國睽違二十多年來首座擁有一貫
+製程的先進矽晶圓工廠。GWA總經理Mark England先生表示：「在拜登政府的支持下，
+我們很榮幸能將全球最先進的12吋矽晶圓技術帶到美國本土，以彌補白宮所指的美國
+半導體供應鏈中的『關鍵缺口』。未來環球晶圓將全力投入美國市場，並對於能在美
+國半導體產業復甦中扮演決定性角色感到非常高興。」
+
+隨著此項投資計畫的推動，GWA將在德州快速發展的矽草原(Silicon Prairie)生態系
+中佔有舉足輕重的地位。England先生補充道：「德州及北德州泰克索馬(Texoma)地區
+皆熱烈歡迎GWA投資案，並提供獎勵措施。為了回應當地的熱情，我們很榮幸能為謝爾
+曼市創造1,200個建築相關工作機會，與包括生產作業人員、技術人員和工程師等各
+領域，共750個高薪製造工作，並預計於2026年前實現。」身為唯一在美國投資先進
+晶圓的製造商，GWA將有助於降低美國對海外先進晶圓製造廠的高度依賴。
+
+北德州已是半導體先驅德州儀器(Texas Instruments)的所在地，環球晶圓的投資將使
+北德州進一步成為美國最獨特的半導體生態系，使其成為美國頂尖類比及嵌入式半導
+體企業的總部，以及美國唯一的12吋先進矽晶圓的製造基地。德州儀器全球採購及物
+流副總裁Rob Simpson先生就此消息向環球晶圓與美國商務部表達祝賀，表示：「德州
+儀器歡迎GWA在北德州的投資，這將對當地日益成長的半導體生態系帶來極具意義的
+貢獻。」
+
+德州州長Greg Abbott先生表示：「德州持續成為全美最佳的經商重鎮。身為美國唯一
+的先進晶圓製造商，GWA之所以選擇在德州投資，正因為我們擁有世界一流的商業環境
+、友善的商業法規，以及年輕、具備成長性及高技術的勞動力。環球晶圓是我們維持
+全美半導體製造領先地位的關鍵夥伴，感謝他們選擇在北德州設立新據點。」
+
+環球晶圓致力於在美國開發多樣化的次世代晶圓技術，以支持其經濟和韌性，包括在
+謝爾曼市設立研究與開發中心，以及在聖彼得斯市興建美國唯一的12吋先進SOI晶圓
+生產基地，竣工後預計將帶來500個建築相關工作機會及130個高薪製造工作。
+
+作為美國唯一的12吋SOI晶圓供應來源，MEMC LLC的投資將為美國供應鏈增添新韌性，
+對此，格羅方德(GlobalFoundries)全球供應鏈資深副總裁Ashlie Wallace女士表示：
+「格羅方德非常肯定晶片法案給予環球晶圓的直接補助。環球晶圓作為我們的長期
+戰略合作夥伴，其當地生產的矽晶圓是我們製造關鍵半導體元件不可或缺的材料。」
+Wallace女士進一步指出：「聯邦政府對半導體生態系的一系列投資正強化我們的產業
+及供應鏈，這對我們的客戶和美國經濟十分重要。」
+
+美國商務部長Gina Raimondo在強調此次補助對於美國供應鏈至關重要時表示：「拜登
+總統正在重振我們在整體半導體供應鏈的領導地位–從材料到製造、研發。藉由此項
+投資，環球晶圓將在強化美國半導體供應鏈中成為要角，提供先進晶片所需的本土矽
+晶圓。該筆投資正協助拜登政府鞏固我們供應鏈的安全性，並將在德州和密蘇里州
+創造超過2,000個工作機會，並最終降低成本，提升美國的經濟與安全。」
+
+環球晶圓另計劃向美國財政部就GWA與MEMC LLC符合支出條件部份，申請最高可達25%
+的先進製造業投資稅收抵免(Advanced Manufacturing Investment Credit, AMIC)。
+
+環球晶圓董事長暨執行長徐秀蘭女士向美國國會、商務部及財政部在晶片法案上的
+支持表達誠摯感謝：「感謝美國政府的支持，環球晶圓很高興能在美國半導體供應鏈
+中扮演關鍵角色。尤其特別感謝Raimondo部長在過程中的合作與遠見，從第一天開始
+，她的鼓勵使我堅信美國政府對我們投資案的支持，將對美國的目標產生重大且戰略
+性的影響。」
+
+環球晶圓視ESG為其核心使命，全球子公司皆致力於實踐綠色製造，持續提升節能、
+節水、廢棄物管理及控制空氣污染。待謝爾曼市及聖彼得斯市的工廠全面運轉後，
+最高將可回收五成之生產用水，並規劃以100%再生能源來製造全球最先進的矽晶圓
+，竭盡所能地減少環境足跡。
+
+環球晶圓是全球第三大半導體晶圓供應商，於三大洲、九個國家擁有十八個製造及
+營運據點。作為全球半導體技術的領導者，環球晶圓致力於為領先的晶片製造商
+提供創新和先進技術的解決方案，共同改善全世界的生活。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='6488'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

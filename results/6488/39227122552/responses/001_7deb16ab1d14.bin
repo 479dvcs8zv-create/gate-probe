@@ -1,0 +1,350 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 6488 
+環球晶　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<form action='/mops/web/ajax_t05st01' name='t05st01_fm' id='t05st01_fm' method='post' onsubmit='return false;'>
+<input type='hidden' name='firstin' value='true' />
+<input type=hidden name=b_date value=>
+<input type=hidden name=e_date value=>
+<input type=hidden name=TYPEK>
+<input type=hidden name=year value=113>
+<input type=hidden name=month value=all>
+<input type=hidden name=type value=>
+<input type=hidden name=co_id>
+<input type=hidden name=spoke_date>
+<input type=hidden name=spoke_time>
+<input type=hidden name=seq_no>
+<input type='hidden' name='MEETING_STEP'>
+<input type='hidden' name='MODEL'>
+<input type='hidden' name='ITEM'>
+<input type=hidden name=e_month value=all>
+<input type='hidden' name='step' value='2'><input type='hidden' name='off' value='1'><center><b>請至財務及交易資訊重點專區參考公司相關<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb01";'  onclick='document.t05st01_fm.TYPEK.value="otc";document.t05st01_fm.co_id.value="6488";document.t05st01_fm.step.value="1";document.t05st01_fm.MEETING_STEP.value="0"; action="/mops/web/ajax_t211sb01";openWindow(this.form,"");'><font color='blue'><u>財務資訊</u></font></button>及<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb05";'  onclick='document.t05st01_fm.TYPEK.value="otc";document.t05st01_fm.co_id.value="6488";document.t05st01_fm.step.value="2";document.t05st01_fm.MODEL.value="2";document.t05st01_fm.ITEM.value="0"; action="/mops/web/ajax_t211sb05";openWindow(this.form,"");'><font color='blue'><u>交易資訊</u></font></button></b></center>
+<br>
+<table class='hasBorder'>
+<tr class='tblHead'><th>公司代號</th><th>公司名稱</th><th>發言日期</th><th>發言時間</th><th>主旨</th><th>&nbsp;</th></tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/01/03</td><td style='text-align:left !important;'>&nbsp;12:05:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告113/01/01日本大地震對本公司財務及業務無重大影響</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='120547';document.t05st01_fm.spoke_date.value='20240103';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/01/17</td><td style='text-align:left !important;'>&nbsp;06:54:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;環球晶圓德國子公司GlobalWafers GmbH成功完成
+以所持有之Siltronic AG股份作為交換標的之3.452億歐元
+海外附認股權公司債訂價</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='65448';document.t05st01_fm.spoke_date.value='20240117';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/01/17</td><td style='text-align:left !important;'>&nbsp;06:55:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;依公開發行公司資金貸與及背書保證處理準則第二十五條
+第一項第四款公告背書保證事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='65553';document.t05st01_fm.spoke_date.value='20240117';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/01/19</td><td style='text-align:left !important;'>&nbsp;16:37:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;調整本公司海外第一次無擔保轉換公司債之轉換價格</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163721';document.t05st01_fm.spoke_date.value='20240119';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/02/06</td><td style='text-align:left !important;'>&nbsp;16:14:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司依公開發行公司資金貸與及背書保證處理準則第二十二條
+第一項第三款公告資金貸與事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161425';document.t05st01_fm.spoke_date.value='20240206';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/02/23</td><td style='text-align:left !important;'>&nbsp;15:20:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司與中美矽晶製品股份有限公司聯合召開FY2023英文線上法說會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='152037';document.t05st01_fm.spoke_date.value='20240223';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;15:00:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議召開113年股東常會相關事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150012';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;15:00:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過112年度合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150053';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/02/27</td><td style='text-align:left !important;'>&nbsp;15:01:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議辦理現金增資發行普通股參與發行
+海外存託憑證</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='150117';document.t05st01_fm.spoke_date.value='20240227';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/03/12</td><td style='text-align:left !important;'>&nbsp;15:11:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年度第1期無擔保普通公司債主要發行條件</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='151125';document.t05st01_fm.spoke_date.value='20240312';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/03/26</td><td style='text-align:left !important;'>&nbsp;23:12:45</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司現金增資發行普通股參與發行海外存託憑證
+之發行條件</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='231245';document.t05st01_fm.spoke_date.value='20240326';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/04/02</td><td style='text-align:left !important;'>&nbsp;23:40:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;遞延調整本公司海外第一次無擔保轉換公司債之轉換價格</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='234006';document.t05st01_fm.spoke_date.value='20240402';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/04/10</td><td style='text-align:left !important;'>&nbsp;18:38:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議通過子公司設立案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183826';document.t05st01_fm.spoke_date.value='20240410';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/04/29</td><td style='text-align:left !important;'>&nbsp;16:12:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第1季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161218';document.t05st01_fm.spoke_date.value='20240429';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/04/29</td><td style='text-align:left !important;'>&nbsp;16:13:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司召開2024Q1英文線上法說會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161327';document.t05st01_fm.spoke_date.value='20240429';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/05/07</td><td style='text-align:left !important;'>&nbsp;15:02:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過113年第一季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150255';document.t05st01_fm.spoke_date.value='20240507';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/05/07</td><td style='text-align:left !important;'>&nbsp;15:03:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150344';document.t05st01_fm.spoke_date.value='20240507';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/05/07</td><td style='text-align:left !important;'>&nbsp;15:05:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議除息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='150521';document.t05st01_fm.spoke_date.value='20240507';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;15:21:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加櫃買中心與元富證券於日本共同舉辦之「櫃買中心x元富證券日本東京海外企業日」法說會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='152137';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/07</td><td style='text-align:left !important;'>&nbsp;16:17:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司GlobalWafers Singapore Pte. Ltd.
+公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161727';document.t05st01_fm.spoke_date.value='20240607';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/13</td><td style='text-align:left !important;'>&nbsp;17:01:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司發生網路資安事件</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='170157';document.t05st01_fm.spoke_date.value='20240613';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/14</td><td style='text-align:left !important;'>&nbsp;16:36:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司發生網路資安事件更新說明，目前已局部陸續復工。</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163610';document.t05st01_fm.spoke_date.value='20240614';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/14</td><td style='text-align:left !important;'>&nbsp;16:36:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司獨立董事異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163651';document.t05st01_fm.spoke_date.value='20240614';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/14</td><td style='text-align:left !important;'>&nbsp;16:37:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司審計委員會、薪資報酬委員會
+及提名委員會成員異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='163712';document.t05st01_fm.spoke_date.value='20240614';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/17</td><td style='text-align:left !important;'>&nbsp;16:25:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司發生網路資安事件更新說明，受影響的廠區上週已
+局部陸續恢復生產，目前大多數廠區將於明天恢復出貨</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162502';document.t05st01_fm.spoke_date.value='20240617';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/18</td><td style='text-align:left !important;'>&nbsp;16:26:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年股東常會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='162613';document.t05st01_fm.spoke_date.value='20240618';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/18</td><td style='text-align:left !important;'>&nbsp;16:27:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年股東常會全面改選董事當選名單</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='162712';document.t05st01_fm.spoke_date.value='20240618';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/18</td><td style='text-align:left !important;'>&nbsp;16:27:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年股東常會通過解除董事競業禁止之限制案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='162748';document.t05st01_fm.spoke_date.value='20240618';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/18</td><td style='text-align:left !important;'>&nbsp;16:28:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事長續任</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='162817';document.t05st01_fm.spoke_date.value='20240618';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/06/18</td><td style='text-align:left !important;'>&nbsp;16:30:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司審計委員會、薪資報酬委員會及提名委員會成員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='163041';document.t05st01_fm.spoke_date.value='20240618';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/07/17</td><td style='text-align:left !important;'>&nbsp;18:06:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;環球晶圓與美國商務部宣布《晶片與科學法》補助金額，
+攜手支持關鍵半導體晶圓製造</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='180605';document.t05st01_fm.spoke_date.value='20240717';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/07/24</td><td style='text-align:left !important;'>&nbsp;11:15:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司昆山中辰矽晶有限公司公告董事會決議通過
+子公司之增資案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='111513';document.t05st01_fm.spoke_date.value='20240724';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/07/29</td><td style='text-align:left !important;'>&nbsp;16:22:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第2季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162221';document.t05st01_fm.spoke_date.value='20240729';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/07/29</td><td style='text-align:left !important;'>&nbsp;16:23:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司召開2024Q2英文線上法說會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162316';document.t05st01_fm.spoke_date.value='20240729';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/08/05</td><td style='text-align:left !important;'>&nbsp;16:30:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司MEMC Electronic Materials Sendirian Berhad
+公告董事會決議取得土地及建物</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='163054';document.t05st01_fm.spoke_date.value='20240805';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/08/06</td><td style='text-align:left !important;'>&nbsp;15:02:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過113年第二季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150202';document.t05st01_fm.spoke_date.value='20240806';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/08/13</td><td style='text-align:left !important;'>&nbsp;15:04:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加櫃買中心業績發表會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150439';document.t05st01_fm.spoke_date.value='20240813';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/08/14</td><td style='text-align:left !important;'>&nbsp;16:08:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司依公開發行公司資金貸與及背書保證處理準則第二十五條
+第一項第三款及第四款公告背書保證事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160839';document.t05st01_fm.spoke_date.value='20240814';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/08/19</td><td style='text-align:left !important;'>&nbsp;15:08:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加Nomura Asia Tech Tour</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150849';document.t05st01_fm.spoke_date.value='20240819';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/08/29</td><td style='text-align:left !important;'>&nbsp;15:11:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加Goldman Sachs Taiwan Corporate Day 2024</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='151155';document.t05st01_fm.spoke_date.value='20240829';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/10/28</td><td style='text-align:left !important;'>&nbsp;15:37:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第3季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='153753';document.t05st01_fm.spoke_date.value='20241028';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/10/28</td><td style='text-align:left !important;'>&nbsp;15:40:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司召開2024Q3英文線上法說會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='154005';document.t05st01_fm.spoke_date.value='20241028';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;16:09:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司依公開發行公司資金貸與及背書保證處理準則
+第二十二條第一項第三款公告資金貸與事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160935';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/11/05</td><td style='text-align:left !important;'>&nbsp;15:01:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過113年第三季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150103';document.t05st01_fm.spoke_date.value='20241105';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/11/05</td><td style='text-align:left !important;'>&nbsp;15:42:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;依公開發行公司資金貸與及背書保證處理準則第二十五條
+第一項第四款公告背書保證事項-1</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='154213';document.t05st01_fm.spoke_date.value='20241105';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/11/05</td><td style='text-align:left !important;'>&nbsp;15:42:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;依公開發行公司資金貸與及背書保證處理準則第二十五條
+第一項第四款公告背書保證事項-2</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='154242';document.t05st01_fm.spoke_date.value='20241105';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/11/20</td><td style='text-align:left !important;'>&nbsp;15:33:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司股務代理機構「元大證券股份有限公司股務
+代理部」變更營業處所事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='153340';document.t05st01_fm.spoke_date.value='20241120';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/11/29</td><td style='text-align:left !important;'>&nbsp;15:54:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司MEMC Korea Company公告董事會決議通過子公司設立案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155403';document.t05st01_fm.spoke_date.value='20241129';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/12/10</td><td style='text-align:left !important;'>&nbsp;15:06:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150639';document.t05st01_fm.spoke_date.value='20241210';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/12/10</td><td style='text-align:left !important;'>&nbsp;15:07:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過決議除息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150715';document.t05st01_fm.spoke_date.value='20241210';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/12/13</td><td style='text-align:left !important;'>&nbsp;16:03:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司依公開發行公司資金貸與及背書保證處理準則第二十二條
+第一項第三款公告資金貸與事項-1</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='160325';document.t05st01_fm.spoke_date.value='20241213';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/12/13</td><td style='text-align:left !important;'>&nbsp;16:03:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司依公開發行公司資金貸與及背書保證處理準則第二十二條
+第一項第三款公告資金貸與事項-2</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160346';document.t05st01_fm.spoke_date.value='20241213';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;6488</td><td style='text-align:left !important;'>&nbsp;環球晶</td><td style='text-align:left !important;'>&nbsp;113/12/17</td><td style='text-align:left !important;'>&nbsp;17:06:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;環球晶圓獲得美國《晶片與科學法》補助，
+攜手支持關鍵半導體晶圓製造</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170619';document.t05st01_fm.spoke_date.value='20241217';document.t05st01_fm.co_id.value='6488';document.t05st01_fm.TYPEK.value='otc';openWindow(this.form ,'');">
+</td>
+</tr>
+</table></form>
+
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
