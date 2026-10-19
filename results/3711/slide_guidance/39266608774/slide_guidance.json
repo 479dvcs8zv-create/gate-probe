@@ -1,0 +1,1316 @@
+{
+  "version": "4.39-slides",
+  "co_id": "3711",
+  "generated_at": "2026-10-19T14:11:18.149451+00:00",
+  "tool": "pdftotext version 24.02.0",
+  "gate_impact": "none",
+  "meaning": "官方財測模式（法說會簡報）：公司上一份簡報給的財測 vs 下一份簡報報告的實際。Python 預驗證，不是正式 Gate PASS。",
+  "decks": [
+    {
+      "names": [
+        "371120230209M001.pdf"
+      ],
+      "sha256": "6f87d074b06d20a2463b13944088c41b290c96433b30f13f144ae7ada9644c00",
+      "run": "39257183724",
+      "published_at": "2023-02-09T15:00:00+08:00",
+      "published_row": {
+        "date": "112/02/09",
+        "time": "15:00",
+        "summary": "詳112年2月9日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20230209",
+      "pages": 22,
+      "reported_quarter": "2022Q4",
+      "guidance_quarter": "2023Q1",
+      "notes": [
+        "2023Q1 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120230427M001.pdf"
+      ],
+      "sha256": "f88f6475bac5970ce597b7532b9b9545779352ebd6b3c0fa10d23586fc2007d6",
+      "run": "39257183724",
+      "published_at": "2023-04-27T15:00:00+08:00",
+      "published_row": {
+        "date": "112/04/27",
+        "time": "15:00",
+        "summary": "詳112年4月27日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20230427",
+      "pages": 14,
+      "reported_quarter": "2023Q1",
+      "guidance_quarter": "2023Q2",
+      "notes": [
+        "2023Q2 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120230727M001.pdf"
+      ],
+      "sha256": "9efb203a5e7885d2c8b5e0a8b4a4e77743297ffc7e6d82acf381617408ec5e15",
+      "run": "39257183724",
+      "published_at": "2023-07-27T15:00:00+08:00",
+      "published_row": {
+        "date": "112/07/27",
+        "time": "15:00",
+        "summary": "詳112年7月27日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20230727",
+      "pages": 15,
+      "reported_quarter": "2023Q2",
+      "guidance_quarter": "2023Q3",
+      "notes": [
+        "2023Q3 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120230901M001.pdf"
+      ],
+      "sha256": "a95d38ea9c895e64926775799e8f8d04ab2fc560cce328e4fcf42330f58bebd4",
+      "run": "39257183724",
+      "published_at": "2023-09-01T10:00:00+08:00",
+      "published_row": {
+        "date": "112/09/01",
+        "time": "10:00",
+        "summary": "無。"
+      },
+      "file_date": "20230901",
+      "pages": 23,
+      "reported_quarter": null,
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "371120231026M001.pdf"
+      ],
+      "sha256": "0f8eb8e4544a1a1593baea0104e3bad52299224ab6e313cbbee3dbef3d519906",
+      "run": "39257183724",
+      "published_at": "2023-10-26T15:00:00+08:00",
+      "published_row": {
+        "date": "112/10/26",
+        "time": "15:00",
+        "summary": "詳112年10月26日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20231026",
+      "pages": 14,
+      "reported_quarter": "2023Q3",
+      "guidance_quarter": "2023Q4",
+      "notes": [
+        "2023Q4 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120240201M001.pdf"
+      ],
+      "sha256": "5f6db300344a628a7a571fbbdb768bcf61c1a56c8379d066f29888a56d4438c8",
+      "run": "39257183724",
+      "published_at": "2024-02-01T15:00:00+08:00",
+      "published_row": {
+        "date": "113/02/01",
+        "time": "15:00",
+        "summary": "詳113年02月01日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20240201",
+      "pages": 21,
+      "reported_quarter": "2023Q4",
+      "guidance_quarter": "2024Q1",
+      "notes": [
+        "2024Q1 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120240425M001.pdf"
+      ],
+      "sha256": "b31f26b6613131d7c22982ecdbe5360866318e56d7cda4968e829960252b4f02",
+      "run": "39257183724",
+      "published_at": "2024-04-25T15:00:00+08:00",
+      "published_row": {
+        "date": "113/04/25",
+        "time": "15:00",
+        "summary": "詳113年04月25日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20240425",
+      "pages": 14,
+      "reported_quarter": "2024Q1",
+      "guidance_quarter": "2024Q2",
+      "notes": [
+        "2024Q2 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120240725M001.pdf"
+      ],
+      "sha256": "7554c52675773efac179c8b66f0c0e03b65e9e12580c918c22bfbc40a207c079",
+      "run": "39257183724",
+      "published_at": "2024-07-25T15:00:00+08:00",
+      "published_row": {
+        "date": "113/07/25",
+        "time": "15:00",
+        "summary": "詳113年07月25日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20240725",
+      "pages": 14,
+      "reported_quarter": "2024Q2",
+      "guidance_quarter": "2024Q3",
+      "notes": [
+        "2024Q3 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120240924M001.pdf"
+      ],
+      "sha256": "c90138c0f51a33ca5e75683cb8dc80f0630fcbee3d59cb4dd2e2ed78e8722dd4",
+      "run": "39257183724",
+      "published_at": "2024-09-25T10:00:00+08:00",
+      "published_row": {
+        "date": "113/09/25",
+        "time": "10:00",
+        "summary": "無。"
+      },
+      "file_date": "20240924",
+      "pages": 26,
+      "reported_quarter": null,
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "371120241031M001.pdf"
+      ],
+      "sha256": "8695ed33806385138cff03d8760ef72e5cc91ce66c4925a14c785a575472666c",
+      "run": "39257183724",
+      "published_at": "2024-10-31T15:00:00+08:00",
+      "published_row": {
+        "date": "113/10/31",
+        "time": "15:00",
+        "summary": "詳113年10月31日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20241031",
+      "pages": 14,
+      "reported_quarter": "2024Q3",
+      "guidance_quarter": "2024Q4",
+      "notes": [
+        "2024Q4 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120250213M001.pdf"
+      ],
+      "sha256": "5691e9b7f2da1f7dd230bfd39be9678e0a0f240651a04cf583971cc7bc0bfef0",
+      "run": "39257183724",
+      "published_at": "2025-02-13T15:00:00+08:00",
+      "published_row": {
+        "date": "114/02/13",
+        "time": "15:00",
+        "summary": "詳114年02月13日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20250213",
+      "pages": 20,
+      "reported_quarter": "2024Q4",
+      "guidance_quarter": "2025Q1",
+      "notes": [
+        "2025Q1 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120250430M001.pdf"
+      ],
+      "sha256": "03ea80bdc1ed5efc3383c62b09f1d010a9cdabcb8bf787d637ad2d469efd0fe4",
+      "run": "39257183724",
+      "published_at": "2025-04-30T14:00:00+08:00",
+      "published_row": {
+        "date": "114/04/30",
+        "time": "14:00",
+        "summary": "詳114年04月30日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20250430",
+      "pages": 14,
+      "reported_quarter": "2025Q1",
+      "guidance_quarter": "2025Q2",
+      "notes": [
+        "2025Q2 只有事業別財測，沒有投控合併數字（不比較）"
+      ]
+    },
+    {
+      "names": [
+        "371120250521M001.pdf"
+      ],
+      "sha256": "1ab99976c3f3df4ee84cc0e90c1f413f39673b7895c0bca282702ba0620b4836",
+      "run": "39257183724",
+      "published_at": "2025-05-21T11:20:00+08:00",
+      "published_row": {
+        "date": "114/05/21",
+        "time": "11:20",
+        "summary": "本公司受邀參加證交所舉辦之上市櫃公司與機構投資人法說會。(完整財務業務資訊請至公開資訊觀測站之法人說明會一覽表或法說會項目下查閱。)"
+      },
+      "file_date": "20250521",
+      "pages": 13,
+      "reported_quarter": null,
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "371120250731M001.pdf"
+      ],
+      "sha256": "c8d248b04a454b8c2d2ae98b5b73a88ad283f2ac30bcddd2348f2f91d5eea624",
+      "run": "39257183724",
+      "published_at": "2025-07-31T15:00:00+08:00",
+      "published_row": {
+        "date": "114/07/31",
+        "time": "15:00",
+        "summary": "詳114年07月31日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20250731",
+      "pages": 19,
+      "reported_quarter": "2025Q2",
+      "guidance_quarter": "2025Q3",
+      "notes": []
+    },
+    {
+      "names": [
+        "371120251030M001.pdf"
+      ],
+      "sha256": "4c0f01ec7f92c237718385759807798bb123a4775bef0da756630f978b876fc7",
+      "run": "39257183724",
+      "published_at": "2025-10-30T15:00:00+08:00",
+      "published_row": {
+        "date": "114/10/30",
+        "time": "15:00",
+        "summary": "詳114年10月30日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20251030",
+      "pages": 15,
+      "reported_quarter": "2025Q3",
+      "guidance_quarter": "2025Q4",
+      "notes": []
+    },
+    {
+      "names": [
+        "371120251202M001.pdf"
+      ],
+      "sha256": "d8fc428f6d65ca6eb1656748805f540d884ee8db8758bfc26376f342a70666f3",
+      "run": "39257183724",
+      "published_at": "2025-12-03T09:00:00+08:00",
+      "published_row": {
+        "date": "114/12/03",
+        "time": "09:00",
+        "summary": "無。"
+      },
+      "file_date": "20251202",
+      "pages": 34,
+      "reported_quarter": null,
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "371120260205M001.pdf"
+      ],
+      "sha256": "c840aae6045d7c58fe9f52e3e77dddff318fd749cd09599d19997e899cdb5948",
+      "run": "39246415883",
+      "published_at": "2026-02-05T15:00:00+08:00",
+      "published_row": {
+        "date": "115/02/05",
+        "time": "15:00",
+        "summary": "詳 115 年02 月05 日公開資訊觀測站之重大訊息與公告-法說 會專區。"
+      },
+      "file_date": "20260205",
+      "pages": 21,
+      "reported_quarter": "2025Q4",
+      "guidance_quarter": "2026Q1",
+      "notes": []
+    },
+    {
+      "names": [
+        "371120260429M001.pdf"
+      ],
+      "sha256": "88bbf4d4b19c06548f905266012e66b01f7825ea656df64c4876ec24d042c33e",
+      "run": "39246415883",
+      "published_at": "2026-04-29T15:00:00+08:00",
+      "published_row": {
+        "date": "115/04/29",
+        "time": "15:00",
+        "summary": "詳115年04月29日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20260429",
+      "pages": 15,
+      "reported_quarter": "2026Q1",
+      "guidance_quarter": "2026Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "371120260730M001.pdf"
+      ],
+      "sha256": "2cb26bc6f977c4fe48323ec1f1ea6aea2085ae2297f8566ba46ae88f1abfa524",
+      "run": "39246415883",
+      "published_at": "2026-07-30T15:00:00+08:00",
+      "published_row": {
+        "date": "115/07/30",
+        "time": "15:00",
+        "summary": "詳115年07月30日公開資訊觀測站之重大訊息與公告-法說會專區。"
+      },
+      "file_date": "20260730",
+      "pages": 17,
+      "reported_quarter": "2026Q2",
+      "guidance_quarter": "2026Q3",
+      "notes": []
+    }
+  ],
+  "quarters": {
+    "2022Q4": {
+      "status": "MISSING_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120230209M001.pdf",
+        "sha256": "6f87d074b06d20a2463b13944088c41b290c96433b30f13f144ae7ada9644c00",
+        "published_at": "2023-02-09T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 177.417,
+            "page": 3,
+            "quote": "營業收入淨額合計 177,417 100.0% 188,626 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": -5.9424,
+            "page": 3,
+            "quote": "營業收入淨額合計 177,417 100.0% 188,626 100.0%",
+            "computed": "177,417 ÷ 188,626 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 19.2,
+            "page": 3,
+            "quote": "營業毛利 34,099 19.2% 37,972 20.1%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": -91.11,
+            "page": 3,
+            "quote": "營業毛利 34,099 19.2% 37,972 20.1%",
+            "computed": "34,099/177,417 − 37,972/188,626（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 11.1,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 19,774 11.1% 23,683 12.6%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": -141.0,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 19,774 11.1% 23,683 12.6%",
+            "computed": "19,774/177,417 − 23,683/188,626（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": []
+    },
+    "2023Q1": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120230427M001.pdf",
+        "sha256": "f88f6475bac5970ce597b7532b9b9545779352ebd6b3c0fa10d23586fc2007d6",
+        "published_at": "2023-04-27T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 130.891,
+            "page": 3,
+            "quote": "營業收入淨額合計 130,891 100.0% 177,417 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": -26.2241,
+            "page": 3,
+            "quote": "營業收入淨額合計 130,891 100.0% 177,417 100.0%",
+            "computed": "130,891 ÷ 177,417 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 14.8,
+            "page": 3,
+            "quote": "營業毛利 19,339 14.8% 34,099 19.2%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": -444.48,
+            "page": 3,
+            "quote": "營業毛利 19,339 14.8% 34,099 19.2%",
+            "computed": "19,339/130,891 − 34,099/177,417（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 5.9,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 7,695 5.9% 19,774 11.1%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": -526.66,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 7,695 5.9% 19,774 11.1%",
+            "computed": "7,695/130,891 − 19,774/177,417（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120230209M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2023Q2": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120230727M001.pdf",
+        "sha256": "9efb203a5e7885d2c8b5e0a8b4a4e77743297ffc7e6d82acf381617408ec5e15",
+        "published_at": "2023-07-27T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 136.275,
+            "page": 3,
+            "quote": "營業收入淨額合計 136,275 100.0% 130,891 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 4.1133,
+            "page": 3,
+            "quote": "營業收入淨額合計 136,275 100.0% 130,891 100.0%",
+            "computed": "136,275 ÷ 130,891 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 16.0,
+            "page": 3,
+            "quote": "營業毛利 21,741 16.0% 19,339 14.8%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 117.89,
+            "page": 3,
+            "quote": "營業毛利 21,741 16.0% 19,339 14.8%",
+            "computed": "21,741/136,275 − 19,339/130,891（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 6.9,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 9,412 6.9% 7,695 5.9%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 102.77,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 9,412 6.9% 7,695 5.9%",
+            "computed": "9,412/136,275 − 7,695/130,891（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120230427M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2023Q3": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120231026M001.pdf",
+        "sha256": "0f8eb8e4544a1a1593baea0104e3bad52299224ab6e313cbbee3dbef3d519906",
+        "published_at": "2023-10-26T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 154.167,
+            "page": 3,
+            "quote": "營業收入淨額合計 154,167 100.0% 136,275 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 13.1293,
+            "page": 3,
+            "quote": "營業收入淨額合計 154,167 100.0% 136,275 100.0%",
+            "computed": "154,167 ÷ 136,275 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 16.2,
+            "page": 3,
+            "quote": "營業毛利 24,916 16.2% 21,741 16.0%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 20.79,
+            "page": 3,
+            "quote": "營業毛利 24,916 16.2% 21,741 16.0%",
+            "computed": "24,916/154,167 − 21,741/136,275（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 7.4,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 11,405 7.4% 9,412 6.9%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 49.12,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 11,405 7.4% 9,412 6.9%",
+            "computed": "11,405/154,167 − 9,412/136,275（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120230727M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2023Q4": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120240201M001.pdf",
+        "sha256": "5f6db300344a628a7a571fbbdb768bcf61c1a56c8379d066f29888a56d4438c8",
+        "published_at": "2024-02-01T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 160.581,
+            "page": 3,
+            "quote": "營業收入淨額合計 160,581 100.0% 154,167 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 4.1604,
+            "page": 3,
+            "quote": "營業收入淨額合計 160,581 100.0% 154,167 100.0%",
+            "computed": "160,581 ÷ 154,167 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 16.0,
+            "page": 3,
+            "quote": "營業毛利 25,761 16.0% 24,916 16.2%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": -11.93,
+            "page": 3,
+            "quote": "營業毛利 25,761 16.0% 24,916 16.2%",
+            "computed": "25,761/160,581 − 24,916/154,167（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 7.4,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 11,815 7.4% 11,405 7.4%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": -4.02,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 11,815 7.4% 11,405 7.4%",
+            "computed": "11,815/160,581 − 11,405/154,167（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120231026M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2024Q1": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120240425M001.pdf",
+        "sha256": "b31f26b6613131d7c22982ecdbe5360866318e56d7cda4968e829960252b4f02",
+        "published_at": "2024-04-25T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 132.803,
+            "page": 3,
+            "quote": "營業收入淨額合計 132,803 100.0% 160,581 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": -17.2984,
+            "page": 3,
+            "quote": "營業收入淨額合計 132,803 100.0% 160,581 100.0%",
+            "computed": "132,803 ÷ 160,581 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 15.7,
+            "page": 3,
+            "quote": "營業毛利 20,868 15.7% 25,761 16.0%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": -32.89,
+            "page": 3,
+            "quote": "營業毛利 20,868 15.7% 25,761 16.0%",
+            "computed": "20,868/132,803 − 25,761/160,581（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 5.7,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 7,525 5.7% 11,815 7.4%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": -169.14,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 7,525 5.7% 11,815 7.4%",
+            "computed": "7,525/132,803 − 11,815/160,581（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120240201M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2024Q2": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120240725M001.pdf",
+        "sha256": "7554c52675773efac179c8b66f0c0e03b65e9e12580c918c22bfbc40a207c079",
+        "published_at": "2024-07-25T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 140.238,
+            "page": 3,
+            "quote": "營業收入淨額合計 140,238 100.0% 132,803 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 5.5985,
+            "page": 3,
+            "quote": "營業收入淨額合計 140,238 100.0% 132,803 100.0%",
+            "computed": "140,238 ÷ 132,803 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 16.4,
+            "page": 3,
+            "quote": "營業毛利 23,066 16.4% 20,868 15.7%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 73.43,
+            "page": 3,
+            "quote": "營業毛利 23,066 16.4% 20,868 15.7%",
+            "computed": "23,066/140,238 − 20,868/132,803（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 6.4,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 9,021 6.4% 7,525 5.7%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 76.63,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 9,021 6.4% 7,525 5.7%",
+            "computed": "9,021/140,238 − 7,525/132,803（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120240425M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2024Q3": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120241031M001.pdf",
+        "sha256": "8695ed33806385138cff03d8760ef72e5cc91ce66c4925a14c785a575472666c",
+        "published_at": "2024-10-31T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 160.105,
+            "page": 3,
+            "quote": "營業收入淨額合計 160,105 100.0% 140,238 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 14.1666,
+            "page": 3,
+            "quote": "營業收入淨額合計 160,105 100.0% 140,238 100.0%",
+            "computed": "160,105 ÷ 140,238 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 16.5,
+            "page": 3,
+            "quote": "營業毛利 26,432 16.5% 23,054 16.4%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 7.0,
+            "page": 3,
+            "quote": "營業毛利 26,432 16.5% 23,054 16.4%",
+            "computed": "26,432/160,105 − 23,054/140,238（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 7.2,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 11,476 7.2% 9,009 6.4%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 74.37,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 11,476 7.2% 9,009 6.4%",
+            "computed": "11,476/160,105 − 9,009/140,238（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120240725M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2024Q4": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120250213M001.pdf",
+        "sha256": "5691e9b7f2da1f7dd230bfd39be9678e0a0f240651a04cf583971cc7bc0bfef0",
+        "published_at": "2025-02-13T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 162.264,
+            "page": 6,
+            "quote": "營業收入淨額合計 162,264 100.0% 160,105 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 1.3485,
+            "page": 6,
+            "quote": "營業收入淨額合計 162,264 100.0% 160,105 100.0%",
+            "computed": "162,264 ÷ 160,105 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 16.4,
+            "page": 6,
+            "quote": "營業毛利 26,631 16.4% 26,426 16.5%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": -9.33,
+            "page": 6,
+            "quote": "營業毛利 26,631 16.4% 26,426 16.5%",
+            "computed": "26,631/162,264 − 26,426/160,105（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 6.9,
+            "page": 6,
+            "quote": "營業淨利 (淨損) 11,211 6.9% 11,470 7.2%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": -25.49,
+            "page": 6,
+            "quote": "營業淨利 (淨損) 11,211 6.9% 11,470 7.2%",
+            "computed": "11,211/162,264 − 11,470/160,105（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120241031M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2025Q1": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120250430M001.pdf",
+        "sha256": "03ea80bdc1ed5efc3383c62b09f1d010a9cdabcb8bf787d637ad2d469efd0fe4",
+        "published_at": "2025-04-30T14:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 148.153,
+            "page": 3,
+            "quote": "營業收入淨額合計 148,153 100.0% 162,264 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": -8.6963,
+            "page": 3,
+            "quote": "營業收入淨額合計 148,153 100.0% 162,264 100.0%",
+            "computed": "148,153 ÷ 162,264 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 16.8,
+            "page": 3,
+            "quote": "營業毛利 24,893 16.8% 26,631 16.4%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 39.01,
+            "page": 3,
+            "quote": "營業毛利 24,893 16.8% 26,631 16.4%",
+            "computed": "24,893/148,153 − 26,631/162,264（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 6.5,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 9,671 6.5% 11,211 6.9%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": -38.14,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 9,671 6.5% 11,211 6.9%",
+            "computed": "9,671/148,153 − 11,211/162,264（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120250213M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2025Q2": {
+      "status": "SEGMENT_ONLY_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "371120250731M001.pdf",
+        "sha256": "c8d248b04a454b8c2d2ae98b5b73a88ad283f2ac30bcddd2348f2f91d5eea624",
+        "published_at": "2025-07-31T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 150.75,
+            "page": 7,
+            "quote": "營業收入淨額合計 150,750 100.0% 148,153 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 1.7529,
+            "page": 7,
+            "quote": "營業收入淨額合計 150,750 100.0% 148,153 100.0%",
+            "computed": "150,750 ÷ 148,153 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 17.0,
+            "page": 7,
+            "quote": "營業毛利 25,687 17.0% 24,893 16.8%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 23.72,
+            "page": 7,
+            "quote": "營業毛利 25,687 17.0% 24,893 16.8%",
+            "computed": "25,687/150,750 − 24,893/148,153（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 6.8,
+            "page": 7,
+            "quote": "營業淨利 (淨損) 10,193 6.8% 9,671 6.5%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 23.38,
+            "page": 7,
+            "quote": "營業淨利 (淨損) 10,193 6.8% 9,671 6.5%",
+            "computed": "10,193/150,750 − 9,671/148,153（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "371120250430M001.pdf 只有事業別財測，沒有公司合併數字（不比較）"
+      ]
+    },
+    "2025Q3": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "371120250731M001.pdf",
+        "sha256": "c8d248b04a454b8c2d2ae98b5b73a88ad283f2ac30bcddd2348f2f91d5eea624",
+        "published_at": "2025-07-31T15:00:00+08:00",
+        "metrics": {
+          "revenue_qoq_pct": {
+            "low": 6.0,
+            "high": 8.0,
+            "page": 16,
+            "quote": "以台幣計價，第三季營收將季對季成長百分之六到百分之八"
+          },
+          "gross_margin_qoq_bp": {
+            "low": -120.0,
+            "high": -100.0,
+            "page": 16,
+            "quote": "投控合併第三季毛利率將季對季減少一到一點二個百分點"
+          },
+          "operating_margin_qoq_bp": {
+            "low": -30.0,
+            "high": -10.0,
+            "page": 16,
+            "quote": "投控合併第三季營業利益率將季對季減少零點一到零點三個百分點"
+          }
+        },
+        "assumption": {
+          "usd_twd": 29.2
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "371120251030M001.pdf",
+        "sha256": "4c0f01ec7f92c237718385759807798bb123a4775bef0da756630f978b876fc7",
+        "published_at": "2025-10-30T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 168.569,
+            "page": 3,
+            "quote": "營業收入淨額合計 168,569 100.0% 150,750 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 11.8202,
+            "page": 3,
+            "quote": "營業收入淨額合計 168,569 100.0% 150,750 100.0%",
+            "computed": "168,569 ÷ 150,750 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 17.1,
+            "page": 3,
+            "quote": "營業毛利 28,877 17.1% 25,687 17.0%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 9.12,
+            "page": 3,
+            "quote": "營業毛利 28,877 17.1% 25,687 17.0%",
+            "computed": "28,877/168,569 − 25,687/150,750（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 7.8,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 13,201 7.8% 10,193 6.8%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 106.97,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 13,201 7.8% 10,193 6.8%",
+            "computed": "13,201/168,569 − 10,193/150,750（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_qoq_pct": {
+          "low": 6.0,
+          "high": 8.0,
+          "actual": 11.8202,
+          "result": "ABOVE"
+        },
+        "gross_margin_qoq_bp": {
+          "low": -120.0,
+          "high": -100.0,
+          "actual": 9.12,
+          "result": "ABOVE"
+        },
+        "operating_margin_qoq_bp": {
+          "low": -30.0,
+          "high": -10.0,
+          "actual": 106.97,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2025Q4": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "371120251030M001.pdf",
+        "sha256": "4c0f01ec7f92c237718385759807798bb123a4775bef0da756630f978b876fc7",
+        "published_at": "2025-10-30T15:00:00+08:00",
+        "metrics": {
+          "revenue_qoq_pct": {
+            "low": 1.0,
+            "high": 2.0,
+            "page": 12,
+            "quote": "以台幣計價，投控合併第四季營收將季對季成長百分之一到百分之二"
+          },
+          "gross_margin_qoq_bp": {
+            "low": 70.0,
+            "high": 100.0,
+            "page": 12,
+            "quote": "投控合併第四季毛利率將季對季增加七十到一百個基點"
+          },
+          "operating_margin_qoq_bp": {
+            "low": 70.0,
+            "high": 100.0,
+            "page": 12,
+            "quote": "投控合併第四季營業利益率將季對增加七十到一百個基點"
+          }
+        },
+        "assumption": {
+          "usd_twd": 30.4
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "371120260205M001.pdf",
+        "sha256": "c840aae6045d7c58fe9f52e3e77dddff318fd749cd09599d19997e899cdb5948",
+        "published_at": "2026-02-05T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 177.915,
+            "page": 6,
+            "quote": "營業收入淨額合計 177,915 100.0% 168,569 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 5.5443,
+            "page": 6,
+            "quote": "營業收入淨額合計 177,915 100.0% 168,569 100.0%",
+            "computed": "177,915 ÷ 168,569 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 19.5,
+            "page": 6,
+            "quote": "營業毛利 34,736 19.5% 28,877 17.1%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 239.33,
+            "page": 6,
+            "quote": "營業毛利 34,736 19.5% 28,877 17.1%",
+            "computed": "34,736/177,915 − 28,877/168,569（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 9.9,
+            "page": 6,
+            "quote": "營業淨利 (淨損) 17,690 9.9% 13,201 7.8%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 211.17,
+            "page": 6,
+            "quote": "營業淨利 (淨損) 17,690 9.9% 13,201 7.8%",
+            "computed": "17,690/177,915 − 13,201/168,569（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_qoq_pct": {
+          "low": 1.0,
+          "high": 2.0,
+          "actual": 5.5443,
+          "result": "ABOVE"
+        },
+        "gross_margin_qoq_bp": {
+          "low": 70.0,
+          "high": 100.0,
+          "actual": 239.33,
+          "result": "ABOVE"
+        },
+        "operating_margin_qoq_bp": {
+          "low": 70.0,
+          "high": 100.0,
+          "actual": 211.17,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2026Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "371120260205M001.pdf",
+        "sha256": "c840aae6045d7c58fe9f52e3e77dddff318fd749cd09599d19997e899cdb5948",
+        "published_at": "2026-02-05T15:00:00+08:00",
+        "metrics": {
+          "revenue_qoq_pct": {
+            "low": -7.0,
+            "high": -5.0,
+            "page": 18,
+            "quote": "以台幣計價，投控合併第一季營收將季對季下滑百分之五到百分之七"
+          },
+          "gross_margin_qoq_bp": {
+            "low": -100.0,
+            "high": -50.0,
+            "page": 18,
+            "quote": "投控合併第一季毛利率將季對季下滑五十到一百個基點"
+          },
+          "operating_margin_qoq_bp": {
+            "low": -150.0,
+            "high": -100.0,
+            "page": 18,
+            "quote": "投控合併第一季營業利益率將季對季下滑一百到一百五十個基點"
+          }
+        },
+        "assumption": {
+          "usd_twd": 31.4
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "371120260429M001.pdf",
+        "sha256": "88bbf4d4b19c06548f905266012e66b01f7825ea656df64c4876ec24d042c33e",
+        "published_at": "2026-04-29T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 173.662,
+            "page": 3,
+            "quote": "營業收入淨額合計 173,662 100.0% 177,915 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": -2.3905,
+            "page": 3,
+            "quote": "營業收入淨額合計 173,662 100.0% 177,915 100.0%",
+            "computed": "173,662 ÷ 177,915 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 20.1,
+            "page": 3,
+            "quote": "營業毛利 34,850 20.1% 34,736 19.5%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 54.38,
+            "page": 3,
+            "quote": "營業毛利 34,850 20.1% 34,736 19.5%",
+            "computed": "34,850/173,662 − 34,736/177,915（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 10.1,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 17,532 10.1% 17,690 9.9%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 15.25,
+            "page": 3,
+            "quote": "營業淨利 (淨損) 17,532 10.1% 17,690 9.9%",
+            "computed": "17,532/173,662 − 17,690/177,915（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_qoq_pct": {
+          "low": -7.0,
+          "high": -5.0,
+          "actual": -2.3905,
+          "result": "ABOVE"
+        },
+        "gross_margin_qoq_bp": {
+          "low": -100.0,
+          "high": -50.0,
+          "actual": 54.38,
+          "result": "ABOVE"
+        },
+        "operating_margin_qoq_bp": {
+          "low": -150.0,
+          "high": -100.0,
+          "actual": 15.25,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2026Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "371120260429M001.pdf",
+        "sha256": "88bbf4d4b19c06548f905266012e66b01f7825ea656df64c4876ec24d042c33e",
+        "published_at": "2026-04-29T15:00:00+08:00",
+        "metrics": {
+          "revenue_qoq_pct": {
+            "low": 7.0,
+            "high": 9.0,
+            "page": 12,
+            "quote": "以台幣計價，投控合併第二季營收將季對季成長百分之七到百分之九"
+          },
+          "gross_margin_qoq_bp": {
+            "low": 20.0,
+            "high": 100.0,
+            "page": 12,
+            "quote": "投控合併第二季毛利率將季對季增長二十到一百個基點"
+          },
+          "operating_margin_qoq_bp": {
+            "low": 50.0,
+            "high": 120.0,
+            "page": 12,
+            "quote": "投控合併第二季營業利益率將季對季增長五十到一百二十個基點"
+          }
+        },
+        "assumption": {
+          "usd_twd": 31.8
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "371120260730M001.pdf",
+        "sha256": "2cb26bc6f977c4fe48323ec1f1ea6aea2085ae2297f8566ba46ae88f1abfa524",
+        "published_at": "2026-07-30T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 191.064,
+            "page": 5,
+            "quote": "營業收入淨額合計 191,064 100.0% 173,662 100.0%"
+          },
+          "revenue_qoq_pct": {
+            "value": 10.0206,
+            "page": 5,
+            "quote": "營業收入淨額合計 191,064 100.0% 173,662 100.0%",
+            "computed": "191,064 ÷ 173,662 − 1（同一頁兩季的官方數字，新台幣百萬元）"
+          },
+          "gross_margin_pct": {
+            "value": 21.0,
+            "page": 5,
+            "quote": "營業毛利 40,150 21.0% 34,818 20.0%"
+          },
+          "gross_margin_qoq_bp": {
+            "value": 96.46,
+            "page": 5,
+            "quote": "營業毛利 40,150 21.0% 34,818 20.0%",
+            "computed": "40,150/191,064 − 34,818/173,662（同一頁兩季的官方金額）"
+          },
+          "operating_margin_pct": {
+            "value": 11.1,
+            "page": 5,
+            "quote": "營業淨利 (淨損) 21,134 11.1% 17,493 10.1%"
+          },
+          "operating_margin_qoq_bp": {
+            "value": 98.82,
+            "page": 5,
+            "quote": "營業淨利 (淨損) 21,134 11.1% 17,493 10.1%",
+            "computed": "21,134/191,064 − 17,493/173,662（同一頁兩季的官方金額）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_qoq_pct": {
+          "low": 7.0,
+          "high": 9.0,
+          "actual": 10.0206,
+          "result": "ABOVE"
+        },
+        "gross_margin_qoq_bp": {
+          "low": 20.0,
+          "high": 100.0,
+          "actual": 96.46,
+          "result": "IN_RANGE"
+        },
+        "operating_margin_qoq_bp": {
+          "low": 50.0,
+          "high": 120.0,
+          "actual": 98.82,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": []
+    },
+    "2026Q3": {
+      "status": "MISSING_ACTUAL",
+      "guidance": {
+        "deck": "371120260730M001.pdf",
+        "sha256": "2cb26bc6f977c4fe48323ec1f1ea6aea2085ae2297f8566ba46ae88f1abfa524",
+        "published_at": "2026-07-30T15:00:00+08:00",
+        "metrics": {
+          "revenue_qoq_pct": {
+            "low": 21.0,
+            "high": 22.0,
+            "page": 14,
+            "quote": "以台幣計價，投控合併第三季營收將季對季成長百分之二十一到百分之二十二"
+          },
+          "gross_margin_pct": {
+            "low": 20.5,
+            "high": 21.5,
+            "page": 14,
+            "quote": "投控合併第三季毛利率將介於百分之二十點五到百分之二十一點五"
+          },
+          "operating_margin_pct": {
+            "low": 11.5,
+            "high": 12.5,
+            "page": 14,
+            "quote": "投控合併第三季營業利益率將介於百分之十一點五到百分之十二點五"
+          }
+        },
+        "assumption": {
+          "usd_twd": 31.9
+        },
+        "also_in": []
+      },
+      "actual": null,
+      "comparison": {},
+      "notes": []
+    }
+  },
+  "format_unknown": [
+    {
+      "deck": "371120250521M001.pdf",
+      "pages": [
+        1
+      ],
+      "reason": "有「展望」頁但寫法不認得（不猜）"
+    }
+  ]
+}

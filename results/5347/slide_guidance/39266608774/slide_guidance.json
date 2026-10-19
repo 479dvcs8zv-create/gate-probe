@@ -1,0 +1,1361 @@
+{
+  "version": "4.39-slides",
+  "co_id": "5347",
+  "generated_at": "2026-10-19T14:11:21.819416+00:00",
+  "tool": "pdftotext version 24.02.0",
+  "gate_impact": "none",
+  "meaning": "官方財測模式（法說會簡報）：公司上一份簡報給的財測 vs 下一份簡報報告的實際。Python 預驗證，不是正式 Gate PASS。",
+  "decks": [
+    {
+      "names": [
+        "534720230221M001.pdf"
+      ],
+      "sha256": "fc338635df1f7a5a5ff307a9fb6c3bb4e6e4e10a888d703203721c046251480d",
+      "run": "39259749526",
+      "published_at": "2023-02-21T14:00:00+08:00",
+      "published_row": {
+        "date": "112/02/21",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2022年第四季的財務結果以及對2023年第一季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/lCo6Qagr"
+      },
+      "file_date": "20230221",
+      "pages": 14,
+      "reported_quarter": "2022Q4",
+      "guidance_quarter": "2023Q1",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720230503M001.pdf"
+      ],
+      "sha256": "b05ee3a24af075bf191539dffd7896d3d3e20b6445d045b4891dcd4969dba2a8",
+      "run": "39259749526",
+      "published_at": "2023-05-03T14:00:00+08:00",
+      "published_row": {
+        "date": "112/05/03",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2023年第一季的財務結果以及對2023年第二季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/DnnwQeso"
+      },
+      "file_date": "20230503",
+      "pages": 13,
+      "reported_quarter": "2023Q1",
+      "guidance_quarter": "2023Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720230801M002.pdf"
+      ],
+      "sha256": "b78d4ffbe836fab42af94427fcba9f0359342053eb14028eafa8f0e7f955a199",
+      "run": "39259749526",
+      "published_at": "2023-08-01T14:00:00+08:00",
+      "published_row": {
+        "date": "112/08/01",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2023年第二季的財務結果以及對2023年第三季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/jPgg83Xp"
+      },
+      "file_date": "20230801",
+      "pages": 13,
+      "reported_quarter": "2023Q2",
+      "guidance_quarter": "2023Q3",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720231107M001.pdf"
+      ],
+      "sha256": "c4c6210323e1fcd9faebd5ea4041719d8eb91974dd3e93cadc076be461364d98",
+      "run": "39259749526",
+      "published_at": "2023-11-07T14:00:00+08:00",
+      "published_row": {
+        "date": "112/11/07",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2023年第三季的財務結果以及對2023年第四季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/KPUuKyNJ"
+      },
+      "file_date": "20231107",
+      "pages": 13,
+      "reported_quarter": "2023Q3",
+      "guidance_quarter": "2023Q4",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720240202M001.pdf"
+      ],
+      "sha256": "3140c7794675de1b2bd2eb720dd57b822a59de16ecb52e3939f5d15c3acd7064",
+      "run": "39259749526",
+      "published_at": "2024-02-02T14:00:00+08:00",
+      "published_row": {
+        "date": "113/02/02",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2023年第四季的財務結果以及對2024年第一季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/6lquZUmE"
+      },
+      "file_date": "20240202",
+      "pages": 14,
+      "reported_quarter": "2023Q4",
+      "guidance_quarter": "2024Q1",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720240430M001.pdf"
+      ],
+      "sha256": "708ec3a83148595b154f857fe2f7c29386ed78ef41e4fb8e4895110499738531",
+      "run": "39259749526",
+      "published_at": "2024-04-30T14:00:00+08:00",
+      "published_row": {
+        "date": "113/04/30",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2024年第一季的財務結果以及對2024年第二季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/arQhYmZZ"
+      },
+      "file_date": "20240430",
+      "pages": 13,
+      "reported_quarter": "2024Q1",
+      "guidance_quarter": "2024Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720240605M001.pdf"
+      ],
+      "sha256": "3320dcbcd18cae25d7a95d2c40dffe37dceb6ce22435a88f345515ae67c8f280",
+      "run": "39259749526",
+      "published_at": "2024-06-05T15:30:00+08:00",
+      "published_row": {
+        "date": "113/06/05",
+        "time": "15:30",
+        "summary": "世界先進將於法人說明會中，說明公司今日對外所發布之重大訊息。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/XSaaQDfS"
+      },
+      "file_date": "20240605",
+      "pages": 18,
+      "reported_quarter": "2024Q1",
+      "guidance_quarter": "2024Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720240730M001.pdf"
+      ],
+      "sha256": "f79fc79d06aaabeb1f0f0ebdc1439808f626f1117e84a265a04ac6e660bb57ed",
+      "run": "39259749526",
+      "published_at": "2024-07-30T14:00:00+08:00",
+      "published_row": {
+        "date": "113/07/30",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2024年第二季的財務結果以及對2024年第三季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/J0LGZmYi"
+      },
+      "file_date": "20240730",
+      "pages": 13,
+      "reported_quarter": "2024Q2",
+      "guidance_quarter": "2024Q3",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720241105M001.pdf"
+      ],
+      "sha256": "7f69d3d1a2302b7ee439e466bbb8af7183d00ea9dc6221b5eb92b0f89c3e8d85",
+      "run": "39259749526",
+      "published_at": "2024-11-05T14:00:00+08:00",
+      "published_row": {
+        "date": "113/11/05",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2024年第三季的財務結果以及對2024年第四季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/aPbVcGq1"
+      },
+      "file_date": "20241105",
+      "pages": 13,
+      "reported_quarter": "2024Q3",
+      "guidance_quarter": "2024Q4",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720250225M001.pdf"
+      ],
+      "sha256": "680f6fcf2b51424f0e417c8bf608149b367be511145f16333fab76233aa8e201",
+      "run": "39259749526",
+      "published_at": "2025-02-25T14:00:00+08:00",
+      "published_row": {
+        "date": "114/02/25",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2024年第四季的財務結果以及對2025年第一季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/F5bo2n2e"
+      },
+      "file_date": "20250225",
+      "pages": 14,
+      "reported_quarter": "2024Q4",
+      "guidance_quarter": "2025Q1",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720250506M001.pdf"
+      ],
+      "sha256": "7720b6896be29175133db086478425d1175b17b4ad153da0c9c9c662e23c6a70",
+      "run": "39259749526",
+      "published_at": "2025-05-06T14:00:00+08:00",
+      "published_row": {
+        "date": "114/05/06",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2025年第一季的財務結果以及對2025年第二季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/29f3PkCW"
+      },
+      "file_date": "20250506",
+      "pages": 13,
+      "reported_quarter": "2025Q1",
+      "guidance_quarter": "2025Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720250729M001.pdf"
+      ],
+      "sha256": "49c76d0ed68369ac28426c60f24b59f102b23e268e15b7d630c97a5eb020963c",
+      "run": "39259749526",
+      "published_at": "2025-07-29T14:00:00+08:00",
+      "published_row": {
+        "date": "114/07/29",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2025年第二季的財務結果以及對2025年第三季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/czjjyyhN"
+      },
+      "file_date": "20250729",
+      "pages": 13,
+      "reported_quarter": "2025Q2",
+      "guidance_quarter": "2025Q3",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720251104M001.pdf"
+      ],
+      "sha256": "8932e2cdae5983b1d5f4bee317f751fa3e19ab847bcfc9485fb1b5d8417a7abd",
+      "run": "39259749526",
+      "published_at": "2025-11-04T14:00:00+08:00",
+      "published_row": {
+        "date": "114/11/04",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2025年第三季的財務結果以及對2025年第四季的營運展望。法人說明會當日請造訪下列網址： http://www.zucast.com/webcast/5dbhU1kT"
+      },
+      "file_date": "20251104",
+      "pages": 13,
+      "reported_quarter": "2025Q3",
+      "guidance_quarter": "2025Q4",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720260203M001.pdf"
+      ],
+      "sha256": "2222837d3627f86f84be2de49065501414ab28a4c7b57d82ef0c9df93b46a952",
+      "run": "39246924526",
+      "published_at": "2026-02-03T14:00:00+08:00",
+      "published_row": {
+        "date": "115/02/03",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2025年第四季的財務結果以及對2026年第一季的營運展望。法人說明會當日請造訪下列網址： https://www.zucast.com/webcast/qN4WttqY"
+      },
+      "file_date": "20260203",
+      "pages": 14,
+      "reported_quarter": "2025Q4",
+      "guidance_quarter": "2026Q1",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720260505M001.pdf"
+      ],
+      "sha256": "08754b394d5eb82c70292d3d49c63a361d186b5249375c0fc319c525de173ca6",
+      "run": "39246924526",
+      "published_at": "2026-05-05T14:00:00+08:00",
+      "published_row": {
+        "date": "115/05/05",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2026年第一季的財務結果以及對2026年第二季的營運展望。法人說明會當日請造訪下列網址： https://www.zucast.com/webcast/Wv15tPvV"
+      },
+      "file_date": "20260505",
+      "pages": 13,
+      "reported_quarter": "2026Q1",
+      "guidance_quarter": "2026Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "534720260804M001.pdf"
+      ],
+      "sha256": "7a773f048d9acdc7d435355ca00673b962001b6b49246668d6fb9edc8b01729e",
+      "run": "39246924526",
+      "published_at": "2026-08-04T14:00:00+08:00",
+      "published_row": {
+        "date": "115/08/04",
+        "time": "14:00",
+        "summary": "公司將於法人說明會中，公布2026年第二季的財務結果以及對2026年第三季的營運展望。法人說明會當日請造訪下列網址： https://www.zucast.com/webcast/fX3Vff3I"
+      },
+      "file_date": "20260804",
+      "pages": 13,
+      "reported_quarter": "2026Q2",
+      "guidance_quarter": "2026Q3",
+      "notes": []
+    }
+  ],
+  "quarters": {
+    "2022Q4": {
+      "status": "MISSING_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "534720230221M001.pdf",
+        "sha256": "fc338635df1f7a5a5ff307a9fb6c3bb4e6e4e10a888d703203721c046251480d",
+        "published_at": "2023-02-21T14:00:00+08:00",
+        "metrics": {
+          "gross_margin_pct": {
+            "value": 39.2,
+            "page": 11,
+            "quote": "毛利率 39.2% 介於39%~41%"
+          },
+          "revenue_twd_bn": {
+            "value": 9.573,
+            "page": 11,
+            "quote": "合併營業收入新台幣 95.73億元介於新台幣95億元到99億元"
+          },
+          "operating_margin_pct": {
+            "value": 25.7,
+            "page": 11,
+            "quote": "營業利益率 25.7% 介於25.5%~27.5%"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": []
+    },
+    "2023Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720230221M001.pdf",
+        "sha256": "fc338635df1f7a5a5ff307a9fb6c3bb4e6e4e10a888d703203721c046251480d",
+        "published_at": "2023-02-21T14:00:00+08:00",
+        "metrics": {
+          "gross_margin_pct": {
+            "low": 29.0,
+            "high": 31.0,
+            "page": 12,
+            "quote": "毛利率約介於 29% 到 31%"
+          },
+          "revenue_twd_bn": {
+            "low": 7.9,
+            "high": 8.3,
+            "page": 12,
+            "quote": "合併營業收入將約介於新台幣 79 億元到 83 億元"
+          },
+          "operating_margin_pct": {
+            "low": 14.5,
+            "high": 16.5,
+            "page": 12,
+            "quote": "營業利益率約介於 14.5% 到 16.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720230503M001.pdf",
+        "sha256": "b05ee3a24af075bf191539dffd7896d3d3e20b6445d045b4891dcd4969dba2a8",
+        "published_at": "2023-05-03T14:00:00+08:00",
+        "metrics": {
+          "gross_margin_pct": {
+            "value": 30.0,
+            "page": 10,
+            "quote": "毛利率 30.0% 介於29%~31%"
+          },
+          "revenue_twd_bn": {
+            "value": 8.187,
+            "page": 10,
+            "quote": "合併營業收入新台幣 81.87億元介於新台幣79億元到83億元"
+          },
+          "operating_margin_pct": {
+            "value": 16.7,
+            "page": 10,
+            "quote": "營業利益率 16.7% 介於14.5%~16.5%"
+          }
+        }
+      },
+      "comparison": {
+        "gross_margin_pct": {
+          "low": 29.0,
+          "high": 31.0,
+          "actual": 30.0,
+          "result": "IN_RANGE"
+        },
+        "revenue_twd_bn": {
+          "low": 7.9,
+          "high": 8.3,
+          "actual": 8.187,
+          "result": "IN_RANGE"
+        },
+        "operating_margin_pct": {
+          "low": 14.5,
+          "high": 16.5,
+          "actual": 16.7,
+          "result": "ABOVE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2023Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720230503M001.pdf",
+        "sha256": "b05ee3a24af075bf191539dffd7896d3d3e20b6445d045b4891dcd4969dba2a8",
+        "published_at": "2023-05-03T14:00:00+08:00",
+        "metrics": {
+          "gross_margin_pct": {
+            "low": 29.0,
+            "high": 31.0,
+            "page": 11,
+            "quote": "毛利率約介於 29% 到 31%"
+          },
+          "revenue_twd_bn": {
+            "low": 9.4,
+            "high": 9.8,
+            "page": 11,
+            "quote": "合併營業收入將約介於新台幣 94 億元到 98 億元"
+          },
+          "operating_margin_pct": {
+            "low": 16.5,
+            "high": 18.5,
+            "page": 11,
+            "quote": "營業利益率約介於 16.5% 到 18.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720230801M002.pdf",
+        "sha256": "b78d4ffbe836fab42af94427fcba9f0359342053eb14028eafa8f0e7f955a199",
+        "published_at": "2023-08-01T14:00:00+08:00",
+        "metrics": {
+          "gross_margin_pct": {
+            "value": 30.0,
+            "page": 10,
+            "quote": "毛利率 30.0% 介於29%~31%"
+          },
+          "revenue_twd_bn": {
+            "value": 9.854,
+            "page": 10,
+            "quote": "合併營業收入新台幣 98.54億元介於新台幣94億元到98億元"
+          },
+          "operating_margin_pct": {
+            "value": 18.3,
+            "page": 10,
+            "quote": "營業利益率 18.3% 介於16.5%~18.5%"
+          }
+        }
+      },
+      "comparison": {
+        "gross_margin_pct": {
+          "low": 29.0,
+          "high": 31.0,
+          "actual": 30.0,
+          "result": "IN_RANGE"
+        },
+        "revenue_twd_bn": {
+          "low": 9.4,
+          "high": 9.8,
+          "actual": 9.854,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 16.5,
+          "high": 18.5,
+          "actual": 18.3,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2023Q3": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720230801M002.pdf",
+        "sha256": "b78d4ffbe836fab42af94427fcba9f0359342053eb14028eafa8f0e7f955a199",
+        "published_at": "2023-08-01T14:00:00+08:00",
+        "metrics": {
+          "gross_margin_pct": {
+            "low": 25.0,
+            "high": 27.0,
+            "page": 11,
+            "quote": "毛利率將介於 25 ~ 27%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720231107M001.pdf",
+        "sha256": "c4c6210323e1fcd9faebd5ea4041719d8eb91974dd3e93cadc076be461364d98",
+        "published_at": "2023-11-07T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": 5.0,
+            "page": 10,
+            "quote": "晶圓出貨量季增5%"
+          },
+          "asp_qoq_pct": {
+            "value": -1.0,
+            "page": 10,
+            "quote": "產品平均銷售單價季減1%"
+          },
+          "gross_margin_pct": {
+            "value": 26.5,
+            "page": 10,
+            "quote": "毛利率 26.5% 介於25%~27%"
+          }
+        }
+      },
+      "comparison": {
+        "gross_margin_pct": {
+          "low": 25.0,
+          "high": 27.0,
+          "actual": 26.5,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2023Q4": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720231107M001.pdf",
+        "sha256": "c4c6210323e1fcd9faebd5ea4041719d8eb91974dd3e93cadc076be461364d98",
+        "published_at": "2023-11-07T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": -10.0,
+            "high": -8.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季減 8% ~ 10%"
+          },
+          "asp_qoq_pct": {
+            "low": -2.0,
+            "high": -0.0,
+            "page": 11,
+            "quote": "產品平均銷售單價將季減 0% ~ 2%"
+          },
+          "gross_margin_pct": {
+            "low": 22.0,
+            "high": 24.0,
+            "page": 11,
+            "quote": "毛利率將介於 22 ~ 24%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720240202M001.pdf",
+        "sha256": "3140c7794675de1b2bd2eb720dd57b822a59de16ecb52e3939f5d15c3acd7064",
+        "published_at": "2024-02-02T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": -9.0,
+            "page": 11,
+            "quote": "晶圓出貨量季減9%"
+          },
+          "gross_margin_pct": {
+            "value": 23.0,
+            "page": 11,
+            "quote": "毛利率 23.0% 介於22%~24%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": -10.0,
+          "high": -8.0,
+          "actual": -9.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 22.0,
+          "high": 24.0,
+          "actual": 23.0,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2024Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720240202M001.pdf",
+        "sha256": "3140c7794675de1b2bd2eb720dd57b822a59de16ecb52e3939f5d15c3acd7064",
+        "published_at": "2024-02-02T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": -8.0,
+            "high": -6.0,
+            "page": 12,
+            "quote": "晶圓出貨量將季減 6% ~ 8%"
+          },
+          "gross_margin_pct": {
+            "low": 21.0,
+            "high": 23.0,
+            "page": 12,
+            "quote": "毛利率將介於 21 ~ 23%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720240430M001.pdf",
+        "sha256": "708ec3a83148595b154f857fe2f7c29386ed78ef41e4fb8e4895110499738531",
+        "published_at": "2024-04-30T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": -4.0,
+            "page": 10,
+            "quote": "晶圓出貨量季減4%"
+          },
+          "gross_margin_pct": {
+            "value": 24.0,
+            "page": 10,
+            "quote": "毛利率 24.0% 介於21%~23%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": -8.0,
+          "high": -6.0,
+          "actual": -4.0,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 21.0,
+          "high": 23.0,
+          "actual": 24.0,
+          "result": "ABOVE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2024Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720240430M001.pdf",
+        "sha256": "708ec3a83148595b154f857fe2f7c29386ed78ef41e4fb8e4895110499738531",
+        "published_at": "2024-04-30T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": 17.0,
+            "high": 19.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季增 17% ~ 19%"
+          },
+          "gross_margin_pct": {
+            "low": 25.0,
+            "high": 27.0,
+            "page": 11,
+            "quote": "毛利率將介於 25 ~ 27%"
+          }
+        },
+        "assumption": {},
+        "also_in": [
+          "534720240605M001.pdf"
+        ]
+      },
+      "actual": {
+        "deck": "534720240730M001.pdf",
+        "sha256": "f79fc79d06aaabeb1f0f0ebdc1439808f626f1117e84a265a04ac6e660bb57ed",
+        "published_at": "2024-07-30T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": 19.0,
+            "page": 10,
+            "quote": "晶圓出貨量季增19%"
+          },
+          "asp_qoq_pct": {
+            "value": -4.0,
+            "page": 10,
+            "quote": "產品平均銷售單價季減4%"
+          },
+          "gross_margin_pct": {
+            "value": 26.0,
+            "page": 10,
+            "quote": "毛利率 26.0% 介於25%~27%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": 17.0,
+          "high": 19.0,
+          "actual": 19.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 25.0,
+          "high": 27.0,
+          "actual": 26.0,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2024Q3": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720240730M001.pdf",
+        "sha256": "f79fc79d06aaabeb1f0f0ebdc1439808f626f1117e84a265a04ac6e660bb57ed",
+        "published_at": "2024-07-30T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": 9.0,
+            "high": 11.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季增 9% ~ 11%"
+          },
+          "asp_qoq_pct": {
+            "low": -2.0,
+            "high": -0.0,
+            "page": 11,
+            "quote": "產品平均銷售單價將季減0% ~ 2%"
+          },
+          "gross_margin_pct": {
+            "low": 28.0,
+            "high": 30.0,
+            "page": 11,
+            "quote": "毛利率將介於 28 ~ 30%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720241105M001.pdf",
+        "sha256": "7f69d3d1a2302b7ee439e466bbb8af7183d00ea9dc6221b5eb92b0f89c3e8d85",
+        "published_at": "2024-11-05T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": 10.0,
+            "page": 10,
+            "quote": "晶圓出貨量季增10%"
+          },
+          "asp_qoq_pct": {
+            "value": 0.0,
+            "page": 10,
+            "quote": "產品平均銷售單價季持平",
+            "note": "原文「季持平」，視為季變化 0%"
+          },
+          "gross_margin_pct": {
+            "value": 29.0,
+            "page": 10,
+            "quote": "毛利率 29.0% 介於28%~30%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": 9.0,
+          "high": 11.0,
+          "actual": 10.0,
+          "result": "IN_RANGE"
+        },
+        "asp_qoq_pct": {
+          "low": -2.0,
+          "high": -0.0,
+          "actual": 0.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 28.0,
+          "high": 30.0,
+          "actual": 29.0,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2024Q4": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720241105M001.pdf",
+        "sha256": "7f69d3d1a2302b7ee439e466bbb8af7183d00ea9dc6221b5eb92b0f89c3e8d85",
+        "published_at": "2024-11-05T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": -12.0,
+            "high": -10.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季減 10% ~ 12%"
+          },
+          "asp_qoq_pct": {
+            "low": 3.0,
+            "high": 5.0,
+            "page": 11,
+            "quote": "產品平均銷售單價將季增 3% ~ 5%"
+          },
+          "gross_margin_pct": {
+            "low": 27.0,
+            "high": 29.0,
+            "page": 11,
+            "quote": "毛利率將介於 27% ~ 29%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720250225M001.pdf",
+        "sha256": "680f6fcf2b51424f0e417c8bf608149b367be511145f16333fab76233aa8e201",
+        "published_at": "2025-02-25T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": -10.0,
+            "page": 11,
+            "quote": "晶圓出貨量季減10%"
+          },
+          "asp_qoq_pct": {
+            "value": 4.0,
+            "page": 11,
+            "quote": "產品平均銷售單價季增4%"
+          },
+          "gross_margin_pct": {
+            "value": 28.7,
+            "page": 11,
+            "quote": "毛利率 28.7% 介於27%~29%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": -12.0,
+          "high": -10.0,
+          "actual": -10.0,
+          "result": "IN_RANGE"
+        },
+        "asp_qoq_pct": {
+          "low": 3.0,
+          "high": 5.0,
+          "actual": 4.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 27.0,
+          "high": 29.0,
+          "actual": 28.7,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2025Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720250225M001.pdf",
+        "sha256": "680f6fcf2b51424f0e417c8bf608149b367be511145f16333fab76233aa8e201",
+        "published_at": "2025-02-25T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": 8.0,
+            "high": 10.0,
+            "page": 12,
+            "quote": "晶圓出貨量將季增 8% ~ 10%"
+          },
+          "asp_qoq_pct": {
+            "low": -6.0,
+            "high": -4.0,
+            "page": 12,
+            "quote": "產品平均銷售單價將季減 4% ~ 6%"
+          },
+          "gross_margin_pct": {
+            "low": 29.0,
+            "high": 31.0,
+            "page": 12,
+            "quote": "毛利率將介於 29% ~ 31%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720250506M001.pdf",
+        "sha256": "7720b6896be29175133db086478425d1175b17b4ad153da0c9c9c662e23c6a70",
+        "published_at": "2025-05-06T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": 10.0,
+            "page": 10,
+            "quote": "晶圓出貨量季增10%"
+          },
+          "asp_qoq_pct": {
+            "value": -5.0,
+            "page": 10,
+            "quote": "產品平均銷售單價季減5%"
+          },
+          "gross_margin_pct": {
+            "value": 30.1,
+            "page": 10,
+            "quote": "毛利率 30.1% 介於29%~31%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": 8.0,
+          "high": 10.0,
+          "actual": 10.0,
+          "result": "IN_RANGE"
+        },
+        "asp_qoq_pct": {
+          "low": -6.0,
+          "high": -4.0,
+          "actual": -5.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 29.0,
+          "high": 31.0,
+          "actual": 30.1,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2025Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720250506M001.pdf",
+        "sha256": "7720b6896be29175133db086478425d1175b17b4ad153da0c9c9c662e23c6a70",
+        "published_at": "2025-05-06T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": 3.0,
+            "high": 5.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季增 3% ~ 5%"
+          },
+          "asp_qoq_pct": {
+            "low": 0.0,
+            "high": 2.0,
+            "page": 11,
+            "quote": "產品平均銷售單價將季增 0% ~ 2%"
+          },
+          "gross_margin_pct": {
+            "low": 27.0,
+            "high": 29.0,
+            "page": 11,
+            "quote": "毛利率將介於 27% ~ 29%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720250729M001.pdf",
+        "sha256": "49c76d0ed68369ac28426c60f24b59f102b23e268e15b7d630c97a5eb020963c",
+        "published_at": "2025-07-29T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": 3.0,
+            "page": 10,
+            "quote": "晶圓出貨量季增3%"
+          },
+          "asp_qoq_pct": {
+            "value": 1.0,
+            "page": 10,
+            "quote": "產品平均銷售單價季增1%"
+          },
+          "gross_margin_pct": {
+            "value": 28.0,
+            "page": 10,
+            "quote": "毛利率 28.0% 介於27%~29%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": 3.0,
+          "high": 5.0,
+          "actual": 3.0,
+          "result": "IN_RANGE"
+        },
+        "asp_qoq_pct": {
+          "low": 0.0,
+          "high": 2.0,
+          "actual": 1.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 27.0,
+          "high": 29.0,
+          "actual": 28.0,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2025Q3": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720250729M001.pdf",
+        "sha256": "49c76d0ed68369ac28426c60f24b59f102b23e268e15b7d630c97a5eb020963c",
+        "published_at": "2025-07-29T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": 7.0,
+            "high": 9.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季增 7% ~ 9%"
+          },
+          "asp_qoq_pct": {
+            "low": 1.0,
+            "high": 3.0,
+            "page": 11,
+            "quote": "產品平均銷售單價將季增 1% ~ 3%"
+          },
+          "gross_margin_pct": {
+            "low": 25.0,
+            "high": 27.0,
+            "page": 11,
+            "quote": "毛利率將介於 25% ~ 27%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 28.7
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720251104M001.pdf",
+        "sha256": "8932e2cdae5983b1d5f4bee317f751fa3e19ab847bcfc9485fb1b5d8417a7abd",
+        "published_at": "2025-11-04T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": 7.0,
+            "page": 10,
+            "quote": "晶圓出貨量季增7%"
+          },
+          "asp_qoq_pct": {
+            "value": 2.0,
+            "page": 10,
+            "quote": "產品平均銷售單價季增2%"
+          },
+          "gross_margin_pct": {
+            "value": 26.8,
+            "page": 10,
+            "quote": "毛利率 26.8% 介於25%~27%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": 7.0,
+          "high": 9.0,
+          "actual": 7.0,
+          "result": "IN_RANGE"
+        },
+        "asp_qoq_pct": {
+          "low": 1.0,
+          "high": 3.0,
+          "actual": 2.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 25.0,
+          "high": 27.0,
+          "actual": 26.8,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2025Q4": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720251104M001.pdf",
+        "sha256": "8932e2cdae5983b1d5f4bee317f751fa3e19ab847bcfc9485fb1b5d8417a7abd",
+        "published_at": "2025-11-04T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": -8.0,
+            "high": -6.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季減 6% ~ 8%"
+          },
+          "asp_qoq_pct": {
+            "low": 4.0,
+            "high": 6.0,
+            "page": 11,
+            "quote": "產品平均銷售單價將季增 4% ~ 6%"
+          },
+          "gross_margin_pct": {
+            "low": 26.5,
+            "high": 28.5,
+            "page": 11,
+            "quote": "毛利率將介於 26.5% ~ 28.5%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 30.2
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720260203M001.pdf",
+        "sha256": "2222837d3627f86f84be2de49065501414ab28a4c7b57d82ef0c9df93b46a952",
+        "published_at": "2026-02-03T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": -7.0,
+            "page": 11,
+            "quote": "晶圓出貨量季減7%"
+          },
+          "asp_qoq_pct": {
+            "value": 5.0,
+            "page": 11,
+            "quote": "產品平均銷售單價季增5%"
+          },
+          "gross_margin_pct": {
+            "value": 27.5,
+            "page": 11,
+            "quote": "毛利率 27.5% 介於26.5%~28.5%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": -8.0,
+          "high": -6.0,
+          "actual": -7.0,
+          "result": "IN_RANGE"
+        },
+        "asp_qoq_pct": {
+          "low": 4.0,
+          "high": 6.0,
+          "actual": 5.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 26.5,
+          "high": 28.5,
+          "actual": 27.5,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2026Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720260203M001.pdf",
+        "sha256": "2222837d3627f86f84be2de49065501414ab28a4c7b57d82ef0c9df93b46a952",
+        "published_at": "2026-02-03T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": 1.0,
+            "high": 3.0,
+            "page": 12,
+            "quote": "晶圓出貨量將季增 1% ~ 3%"
+          },
+          "asp_qoq_pct": {
+            "low": -5.0,
+            "high": -3.0,
+            "page": 12,
+            "quote": "產品平均銷售單價將季減 3% ~ 5%"
+          },
+          "gross_margin_pct": {
+            "low": 28.0,
+            "high": 30.0,
+            "page": 12,
+            "quote": "毛利率將介於 28% ~ 30%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 31.3
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720260505M001.pdf",
+        "sha256": "08754b394d5eb82c70292d3d49c63a361d186b5249375c0fc319c525de173ca6",
+        "published_at": "2026-05-05T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": 3.0,
+            "page": 10,
+            "quote": "晶圓出貨量季增3%"
+          },
+          "asp_qoq_pct": {
+            "value": -4.0,
+            "page": 10,
+            "quote": "產品平均銷售單價季減4%"
+          },
+          "gross_margin_pct": {
+            "value": 29.3,
+            "page": 10,
+            "quote": "毛利率 29.3% 介於28%~30%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": 1.0,
+          "high": 3.0,
+          "actual": 3.0,
+          "result": "IN_RANGE"
+        },
+        "asp_qoq_pct": {
+          "low": -5.0,
+          "high": -3.0,
+          "actual": -4.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 28.0,
+          "high": 30.0,
+          "actual": 29.3,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2026Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "534720260505M001.pdf",
+        "sha256": "08754b394d5eb82c70292d3d49c63a361d186b5249375c0fc319c525de173ca6",
+        "published_at": "2026-05-05T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": 11.0,
+            "high": 13.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季增 11% ~ 13%"
+          },
+          "asp_qoq_pct": {
+            "low": 2.0,
+            "high": 4.0,
+            "page": 11,
+            "quote": "產品平均銷售單價將季增 2% ~ 4%"
+          },
+          "gross_margin_pct": {
+            "low": 31.0,
+            "high": 33.0,
+            "page": 11,
+            "quote": "毛利率將介於 31% ~ 33%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 31.3
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "534720260804M001.pdf",
+        "sha256": "7a773f048d9acdc7d435355ca00673b962001b6b49246668d6fb9edc8b01729e",
+        "published_at": "2026-08-04T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "value": 11.0,
+            "page": 10,
+            "quote": "晶圓出貨量季增 11 %"
+          },
+          "asp_qoq_pct": {
+            "value": 3.0,
+            "page": 10,
+            "quote": "產品平均銷售單價季增 3 %"
+          },
+          "gross_margin_pct": {
+            "value": 32.3,
+            "page": 10,
+            "quote": "毛利率 32.3% 介於31%~33%"
+          }
+        }
+      },
+      "comparison": {
+        "shipments_qoq_pct": {
+          "low": 11.0,
+          "high": 13.0,
+          "actual": 11.0,
+          "result": "IN_RANGE"
+        },
+        "asp_qoq_pct": {
+          "low": 2.0,
+          "high": 4.0,
+          "actual": 3.0,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 31.0,
+          "high": 33.0,
+          "actual": 32.3,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": [
+        "報告實際數字的簡報重列的財測與原財測相同"
+      ]
+    },
+    "2026Q3": {
+      "status": "MISSING_ACTUAL",
+      "guidance": {
+        "deck": "534720260804M001.pdf",
+        "sha256": "7a773f048d9acdc7d435355ca00673b962001b6b49246668d6fb9edc8b01729e",
+        "published_at": "2026-08-04T14:00:00+08:00",
+        "metrics": {
+          "shipments_qoq_pct": {
+            "low": 1.0,
+            "high": 3.0,
+            "page": 11,
+            "quote": "晶圓出貨量將季增 1% ~3%"
+          },
+          "asp_qoq_pct": {
+            "low": 2.0,
+            "high": 4.0,
+            "page": 11,
+            "quote": "產品平均銷售單價將季增 2% ~ 4%"
+          },
+          "gross_margin_pct": {
+            "low": 32.5,
+            "high": 34.5,
+            "page": 11,
+            "quote": "毛利率將介於 32.5% ~ 34.5%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 32.0
+        },
+        "also_in": []
+      },
+      "actual": null,
+      "comparison": {},
+      "notes": []
+    }
+  },
+  "format_unknown": []
+}

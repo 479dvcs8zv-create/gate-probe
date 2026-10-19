@@ -1,0 +1,894 @@
+{
+  "version": "4.39-slides",
+  "co_id": "5274",
+  "generated_at": "2026-10-19T14:11:24.017464+00:00",
+  "tool": "pdftotext version 24.02.0",
+  "gate_impact": "none",
+  "meaning": "官方財測模式（法說會簡報）：公司上一份簡報給的財測 vs 下一份簡報報告的實際。Python 預驗證，不是正式 Gate PASS。",
+  "decks": [
+    {
+      "names": [
+        "527420230330M001.pdf"
+      ],
+      "sha256": "a4a55f0c6915b51f59d9613beaad6080cba9f7eca3bdabc19e99f052ad0750de",
+      "run": "39262243007",
+      "published_at": "2023-03-30T14:00:00+08:00",
+      "published_row": {
+        "date": "112/03/30",
+        "time": "14:00",
+        "summary": "受邀參加財團法人中華民國證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司財務及業務相關資訊。"
+      },
+      "file_date": "20230330",
+      "pages": 24,
+      "reported_quarter": "2022Q4",
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "527420231122M001.pdf"
+      ],
+      "sha256": "42beea54dd38387f3865f280e7dcc93e47dbae95e0c3cd49af8f6f9ad400f46f",
+      "run": "39262243007",
+      "published_at": "2023-11-23T09:00:00+08:00",
+      "published_row": {
+        "date": "112/11/23",
+        "time": "09:00",
+        "summary": "本公司受邀參加花旗證券舉辦之Taiwan Corporate Day"
+      },
+      "file_date": "20231122",
+      "pages": 35,
+      "reported_quarter": null,
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "527420240326M001.pdf"
+      ],
+      "sha256": "286864f39517d53234bf1eec9e0c5483e1e5c0d0b322f6b500029b76e6bd8072",
+      "run": "39262243007",
+      "published_at": "2024-03-26T14:00:00+08:00",
+      "published_row": {
+        "date": "113/03/26",
+        "time": "14:00",
+        "summary": "受邀參加財團法人中華民國證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司財務及業務相關資訊。"
+      },
+      "file_date": "20240326",
+      "pages": 24,
+      "reported_quarter": null,
+      "guidance_quarter": "2024Q1",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420240606M001.pdf"
+      ],
+      "sha256": "21af1ac0ed317fc540ef0a8243d6060a4c7682cbe10d167b212629ae9d50ce7e",
+      "run": "39262243007",
+      "published_at": "2024-06-07T10:00:00+08:00",
+      "published_row": {
+        "date": "113/06/07",
+        "time": "10:00",
+        "summary": "受邀參加花旗證券舉辦之「2024 Taiwan Tech Conference」，說明本公司營運概況。"
+      },
+      "file_date": "20240606",
+      "pages": 33,
+      "reported_quarter": null,
+      "guidance_quarter": "2024Q3",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420240822M001.pdf"
+      ],
+      "sha256": "d0c729b70b038f664f52b78ca37ac822e1a736419374c25db967cdfad31e3514",
+      "run": "39262243007",
+      "published_at": "2024-08-22T13:30:00+08:00",
+      "published_row": {
+        "date": "113/08/22",
+        "time": "13:30",
+        "summary": "受邀參加富邦證券舉辦之法人說明會，說明本公司營運概況。"
+      },
+      "file_date": "20240822",
+      "pages": 31,
+      "reported_quarter": null,
+      "guidance_quarter": "2024Q3",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420241220M001.pdf"
+      ],
+      "sha256": "a0685a560cdbcbb95797c0cf0496cb40e60ae64ed29368bf7604eac76ef68454",
+      "run": "39262243007",
+      "published_at": "2024-12-20T14:00:00+08:00",
+      "published_row": {
+        "date": "113/12/20",
+        "time": "14:00",
+        "summary": "受邀參加JP Morgan舉辦之線上法人說明會，說明本公司營運概況。"
+      },
+      "file_date": "20241220",
+      "pages": 26,
+      "reported_quarter": "2024Q3",
+      "guidance_quarter": "2025Q1",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420250317M001.pdf"
+      ],
+      "sha256": "684c3056ad50977b93941e7ac7d8fc606e9547780b8662189f445dbe4fa8ae29",
+      "run": "39262243007",
+      "published_at": "2025-03-18T10:00:00+08:00",
+      "published_row": {
+        "date": "114/03/18 至 114/03/19",
+        "time": "10:00",
+        "summary": "受邀參加美林證券(BofA)舉辦之2025 Asia Tech Conference，說明本公司營運概況。"
+      },
+      "file_date": "20250317",
+      "pages": 31,
+      "reported_quarter": "2024Q4",
+      "guidance_quarter": "2025Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420250519M001.pdf"
+      ],
+      "sha256": "4950f953cdcb56053e6bdaab623fb831396fedfbfc0a83d6cd5d0e34fd01de51",
+      "run": "39262243007",
+      "published_at": "2025-05-19T13:30:00+08:00",
+      "published_row": {
+        "date": "114/05/19",
+        "time": "13:30",
+        "summary": "受邀參加櫃買中心與凱基證券合辦之「TPEx &amp; KGI Pre-Computex Taiwan Corporate Day(台北國際電腦展展前論壇)」，說明本公司財務及業務相關資訊。"
+      },
+      "file_date": "20250519",
+      "pages": 29,
+      "reported_quarter": "2025Q1",
+      "guidance_quarter": "2025Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420250612M001.pdf"
+      ],
+      "sha256": "116523eb9deef02f50ac057888108485cca518e13999064e6f73ece1c92726ff",
+      "run": "39262243007",
+      "published_at": "2025-06-13T09:00:00+08:00",
+      "published_row": {
+        "date": "114/06/13",
+        "time": "09:00",
+        "summary": "受邀參加櫃買中心與凱基證券合辦之「2025 TPEx &amp; KGI Corporate Day」，說明本公司財務及業務相關資訊。"
+      },
+      "file_date": "20250612",
+      "pages": 26,
+      "reported_quarter": null,
+      "guidance_quarter": "2025Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420250909M001.pdf"
+      ],
+      "sha256": "1381ca5db113a31d64e6dbfc32c7d1dbb87132966988ddb4e2a43a51c46a0e18",
+      "run": "39262243007",
+      "published_at": "2025-09-10T09:00:00+08:00",
+      "published_row": {
+        "date": "114/09/10",
+        "time": "09:00",
+        "summary": "受邀參加美林證券(BofA)舉辦之2025 Asia Pacific Conference，說明本公司營運概況。"
+      },
+      "file_date": "20250909",
+      "pages": 19,
+      "reported_quarter": "2025Q2",
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "527420250930M001.pdf"
+      ],
+      "sha256": "dba404b7913690bd2b79df5e3e5551cbb91051a8b5b07d6cd45285a8d4dfcf66",
+      "run": "39262243007",
+      "published_at": "2025-09-30T15:00:00+08:00",
+      "published_row": {
+        "date": "114/09/30",
+        "time": "15:00",
+        "summary": "受邀參加元大證券舉辦之座談會，說明本公司營運概況。"
+      },
+      "file_date": "20250930",
+      "pages": 13,
+      "reported_quarter": null,
+      "guidance_quarter": "2025Q4",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420251021M001.pdf"
+      ],
+      "sha256": "b01ccc37482ac7ecbde09f4e6ebb3f2cb93a7e726b7ccf798ed61ef0041bed5f",
+      "run": "39262243007",
+      "published_at": "2025-10-22T08:30:00+08:00",
+      "published_row": {
+        "date": "114/10/22",
+        "time": "08:30",
+        "summary": "受邀參加國泰證券暨未來資產證券舉辦之投資人會議，說明本公司營運概況。"
+      },
+      "file_date": "20251021",
+      "pages": 30,
+      "reported_quarter": "2025Q2",
+      "guidance_quarter": "2025Q4",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420251113M001.pdf"
+      ],
+      "sha256": "adfc2a7bf33711dddfab0b4be6ce19749eeaa35b4efbb6b20208443e8bafeb9f",
+      "run": "39262243007",
+      "published_at": "2025-11-17T14:00:00+08:00",
+      "published_row": {
+        "date": "114/11/17 至 114/11/18",
+        "time": "14:00",
+        "summary": "受邀參加J.P. Morgan舉辦之「Global Technology, Media and Telecom Conference in Asia」，說明本公司營運概況。"
+      },
+      "file_date": "20251113",
+      "pages": 19,
+      "reported_quarter": "2025Q3",
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "527420251119M001.pdf"
+      ],
+      "sha256": "c86e512e63ff9423c9d5c53dc188702e12ea21c9261156fdefaceb0383340858",
+      "run": "39262243007",
+      "published_at": "2025-11-24T14:30:00+08:00",
+      "published_row": {
+        "date": "114/11/24",
+        "time": "14:30",
+        "summary": "受邀參加財團法人中華民國證券櫃檯買賣中心舉辦之「櫃買市場業績發表會」，說明本公司財務及業務相關資訊。"
+      },
+      "file_date": "20251119",
+      "pages": 28,
+      "reported_quarter": "2025Q3",
+      "guidance_quarter": "2026Q1",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420260316M001.pdf"
+      ],
+      "sha256": "3b83384c90321a9e18593c4040722627af25823c3d0e3b943b5c410421de25e9",
+      "run": "39249443809",
+      "published_at": "2026-03-17T10:00:00+08:00",
+      "published_row": {
+        "date": "115/03/17",
+        "time": "10:00",
+        "summary": "受邀參加美林證券(BofA)舉辦之2026 Asia Tech Conference，說明本公司營運概況。"
+      },
+      "file_date": "20260316",
+      "pages": 18,
+      "reported_quarter": null,
+      "guidance_quarter": "2026Q2",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420260527M001.pdf"
+      ],
+      "sha256": "7405a33e1dc1217ebcdb01be219d4627e0b59802abca92b20ccb4597e6d4e8ce",
+      "run": "39249443809",
+      "published_at": "2026-05-28T11:30:00+08:00",
+      "published_row": {
+        "date": "115/05/28",
+        "time": "11:30",
+        "summary": "受邀參加Morgan Stanley舉辦之Asia AI Summit 2026，說明本公司營運概況。"
+      },
+      "file_date": "20260527",
+      "pages": 20,
+      "reported_quarter": null,
+      "guidance_quarter": null,
+      "notes": []
+    },
+    {
+      "names": [
+        "527420260529M001.pdf"
+      ],
+      "sha256": "46f049fb54cbc65c21a0f43d47606334c03fb806307d736fdc695c9ed92cfd2d",
+      "run": "39249443809",
+      "published_at": "2026-06-01T09:20:00+08:00",
+      "published_row": {
+        "date": "115/06/01",
+        "time": "09:20",
+        "summary": "受邀參加櫃買中心與凱基證券舉辦之2026 TPEx &amp; KGI Pre-Computex Taiwan Corporate Day，說明本公司營運概況。"
+      },
+      "file_date": "20260529",
+      "pages": 36,
+      "reported_quarter": "2026Q1",
+      "guidance_quarter": "2026Q3",
+      "notes": []
+    },
+    {
+      "names": [
+        "527420260904M003.pdf"
+      ],
+      "sha256": "e29ab22ee56453cc3c321ec94cf34492f350eb5ce05291666fd61930d44e40a1",
+      "run": "39249443809",
+      "published_at": "2026-09-07T16:00:00+08:00",
+      "published_row": {
+        "date": "115/09/07 至 115/09/08",
+        "time": "16:00",
+        "summary": "受邀參加永豐金證券舉辦之2026倫敦Corporate Access Day，說明本公司營運概況。"
+      },
+      "file_date": "20260904",
+      "pages": 30,
+      "reported_quarter": "2026Q2",
+      "guidance_quarter": "2026Q4",
+      "notes": []
+    }
+  ],
+  "quarters": {
+    "2022Q4": {
+      "status": "MISSING_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "527420230330M001.pdf",
+        "sha256": "a4a55f0c6915b51f59d9613beaad6080cba9f7eca3bdabc19e99f052ad0750de",
+        "published_at": "2023-03-30T14:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 1.326707,
+            "page": 5,
+            "quote": "Operating Revenue 1,326,707"
+          },
+          "gross_margin_pct": {
+            "value": 64.8,
+            "page": 5,
+            "quote": "Gross Profit 859,687 64.80"
+          },
+          "operating_margin_pct": {
+            "value": 46.48,
+            "page": 5,
+            "quote": "Operating Profit 616,597 46.48"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": []
+    },
+    "2024Q1": {
+      "status": "MISSING_ACTUAL",
+      "guidance": {
+        "deck": "527420240326M001.pdf",
+        "sha256": "286864f39517d53234bf1eec9e0c5483e1e5c0d0b322f6b500029b76e6bd8072",
+        "published_at": "2024-03-26T14:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 0.967,
+            "high": 1.026,
+            "page": 14,
+            "quote": "2024年第一季預估 ⚫ 合併營收：約新台幣 9.67億元～ 10.26億元 ⚫ 毛利率：62.8% ~ 64.3%"
+          },
+          "gross_margin_pct": {
+            "low": 62.8,
+            "high": 64.3,
+            "page": 14,
+            "quote": "2024年第一季預估 ⚫ 合併營收：約新台幣 9.67億元～ 10.26億元 ⚫ 毛利率：62.8% ~ 64.3%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": null,
+      "comparison": {},
+      "notes": []
+    },
+    "2024Q2": {
+      "status": "MISSING_ACTUAL",
+      "guidance": {
+        "deck": "527420240326M001.pdf",
+        "sha256": "286864f39517d53234bf1eec9e0c5483e1e5c0d0b322f6b500029b76e6bd8072",
+        "published_at": "2024-03-26T14:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 1.058,
+            "high": 1.134,
+            "page": 14,
+            "quote": "2024年第二季預估 ⚫ 合併營收：約新台幣 10.58億元～ 11.34億元 ⚫ 毛利率：64.0% ~ 65.5%"
+          },
+          "gross_margin_pct": {
+            "low": 64.0,
+            "high": 65.5,
+            "page": 14,
+            "quote": "2024年第二季預估 ⚫ 合併營收：約新台幣 10.58億元～ 11.34億元 ⚫ 毛利率：64.0% ~ 65.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": null,
+      "comparison": {},
+      "notes": []
+    },
+    "2024Q3": {
+      "status": "GUIDANCE_CONFLICT",
+      "guidance": {
+        "deck": "527420240606M001.pdf",
+        "sha256": "21af1ac0ed317fc540ef0a8243d6060a4c7682cbe10d167b212629ae9d50ce7e",
+        "published_at": "2024-06-07T10:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 1.6,
+            "high": 1.7,
+            "page": 31,
+            "quote": "2024年第三季預估 ⚫ 合併營收：約新台幣 16 億元～ 17 億元 ⚫ 毛利率：63.2% ~ 64.7%"
+          },
+          "gross_margin_pct": {
+            "low": 63.2,
+            "high": 64.7,
+            "page": 31,
+            "quote": "2024年第三季預估 ⚫ 合併營收：約新台幣 16 億元～ 17 億元 ⚫ 毛利率：63.2% ~ 64.7%"
+          }
+        },
+        "assumption": {},
+        "also_in": [
+          "527420240822M001.pdf"
+        ]
+      },
+      "actual": {
+        "deck": "527420241220M001.pdf",
+        "sha256": "a0685a560cdbcbb95797c0cf0496cb40e60ae64ed29368bf7604eac76ef68454",
+        "published_at": "2024-12-20T14:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 1.986435,
+            "page": 10,
+            "quote": "Operating Revenue 1,986,435"
+          },
+          "gross_margin_pct": {
+            "value": 64.28,
+            "page": 10,
+            "quote": "Gross Margin (%) 64.28%"
+          },
+          "operating_margin_pct": {
+            "value": 47.9,
+            "page": 10,
+            "quote": "Operating Margin (%) 47.90%"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "多份簡報給同一季的財測數字不同，不比較：527420240606M001.pdf revenue_twd_bn 1.6～1.7、gross_margin_pct 63.2～64.7；527420240822M001.pdf revenue_twd_bn 1.75～1.85、gross_margin_pct 63.2～64.7"
+      ]
+    },
+    "2024Q4": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "527420240822M001.pdf",
+        "sha256": "d0c729b70b038f664f52b78ca37ac822e1a736419374c25db967cdfad31e3514",
+        "published_at": "2024-08-22T13:30:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 1.75,
+            "high": 1.85,
+            "page": 29,
+            "quote": "2024年第四季預估 ⚫ 合併營收：約新台幣 17.5 億元～ 18.5億元 ⚫ 毛利率： 64.0% ~ 65.5%"
+          },
+          "gross_margin_pct": {
+            "low": 64.0,
+            "high": 65.5,
+            "page": 29,
+            "quote": "2024年第四季預估 ⚫ 合併營收：約新台幣 17.5 億元～ 18.5億元 ⚫ 毛利率： 64.0% ~ 65.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "527420250317M001.pdf",
+        "sha256": "684c3056ad50977b93941e7ac7d8fc606e9547780b8662189f445dbe4fa8ae29",
+        "published_at": "2025-03-18T10:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 2.103713,
+            "page": 10,
+            "quote": "Operating Revenue 2,103,713"
+          },
+          "gross_margin_pct": {
+            "value": 65.45,
+            "page": 10,
+            "quote": "Gross Margin (%) 65.45%"
+          },
+          "operating_margin_pct": {
+            "value": 47.55,
+            "page": 10,
+            "quote": "Operating Margin (%) 47.55%"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 1.75,
+          "high": 1.85,
+          "actual": 2.103713,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 64.0,
+          "high": 65.5,
+          "actual": 65.45,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": []
+    },
+    "2025Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "527420241220M001.pdf",
+        "sha256": "a0685a560cdbcbb95797c0cf0496cb40e60ae64ed29368bf7604eac76ef68454",
+        "published_at": "2024-12-20T14:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 1.7,
+            "high": 1.8,
+            "page": 24,
+            "quote": "2025年第一季預估 ⚫ 合併營收：約新台幣 17.0 億元～ 18.0億元 ⚫ 毛利率：63.5% ~ 65.0%"
+          },
+          "gross_margin_pct": {
+            "low": 63.5,
+            "high": 65.0,
+            "page": 24,
+            "quote": "2025年第一季預估 ⚫ 合併營收：約新台幣 17.0 億元～ 18.0億元 ⚫ 毛利率：63.5% ~ 65.0%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "527420250519M001.pdf",
+        "sha256": "4950f953cdcb56053e6bdaab623fb831396fedfbfc0a83d6cd5d0e34fd01de51",
+        "published_at": "2025-05-19T13:30:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 2.065118,
+            "page": 7,
+            "quote": "Operating Revenue 2,065,118"
+          },
+          "gross_margin_pct": {
+            "value": 66.23,
+            "page": 7,
+            "quote": "Gross Margin (%) 66.23%"
+          },
+          "operating_margin_pct": {
+            "value": 49.73,
+            "page": 7,
+            "quote": "Operating Margin (%) 49.73%"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 1.7,
+          "high": 1.8,
+          "actual": 2.065118,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 63.5,
+          "high": 65.0,
+          "actual": 66.23,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2025Q2": {
+      "status": "GUIDANCE_UPDATED",
+      "guidance": {
+        "deck": "527420250317M001.pdf",
+        "sha256": "684c3056ad50977b93941e7ac7d8fc606e9547780b8662189f445dbe4fa8ae29",
+        "published_at": "2025-03-18T10:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 1.7,
+            "high": 1.8,
+            "page": 29,
+            "quote": "2025年第二季預估 ⚫ 合併營收：約新台幣 17.0 億元～ 18.0億元 ⚫ 毛利率：65.0% ~ 66.5%"
+          },
+          "gross_margin_pct": {
+            "low": 65.0,
+            "high": 66.5,
+            "page": 29,
+            "quote": "2025年第二季預估 ⚫ 合併營收：約新台幣 17.0 億元～ 18.0億元 ⚫ 毛利率：65.0% ~ 66.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": [
+          "527420250519M001.pdf",
+          "527420250612M001.pdf"
+        ]
+      },
+      "actual": {
+        "deck": "527420250909M001.pdf",
+        "sha256": "1381ca5db113a31d64e6dbfc32c7d1dbb87132966988ddb4e2a43a51c46a0e18",
+        "published_at": "2025-09-10T09:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 2.246547,
+            "page": 7,
+            "quote": "Operating Revenue 2,246,547"
+          },
+          "gross_margin_pct": {
+            "value": 67.88,
+            "page": 7,
+            "quote": "Gross Margin (%) 67.88%"
+          },
+          "operating_margin_pct": {
+            "value": 52.71,
+            "page": 7,
+            "quote": "Operating Margin (%) 52.71%"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": [
+        "公司在後來的簡報寫明「更新營運展望」，同一季財測改變，不比較（同 2330 2025Q1 的處理）"
+      ]
+    },
+    "2025Q3": {
+      "status": "MISSING_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "527420251113M001.pdf",
+        "sha256": "adfc2a7bf33711dddfab0b4be6ce19749eeaa35b4efbb6b20208443e8bafeb9f",
+        "published_at": "2025-11-17T14:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 2.330084,
+            "page": 7,
+            "quote": "Operating Revenue 2,330,084"
+          },
+          "gross_margin_pct": {
+            "value": 69.26,
+            "page": 7,
+            "quote": "Gross Margin (%) 69.26%"
+          },
+          "operating_margin_pct": {
+            "value": 52.85,
+            "page": 7,
+            "quote": "Operating Margin (%) 52.85%"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": []
+    },
+    "2025Q4": {
+      "status": "MISSING_ACTUAL",
+      "guidance": {
+        "deck": "527420250930M001.pdf",
+        "sha256": "dba404b7913690bd2b79df5e3e5551cbb91051a8b5b07d6cd45285a8d4dfcf66",
+        "published_at": "2025-09-30T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 2.0,
+            "high": 2.1,
+            "page": 11,
+            "quote": "2025年第四季營運展望基於美元兌新台幣的平均匯率為 1:30.0 的假設 ⚫ 合併營收：約新台幣 20.0 億元～ 21.0億元 ⚫ 毛利率：66.5% ~ 67.5%"
+          },
+          "gross_margin_pct": {
+            "low": 66.5,
+            "high": 67.5,
+            "page": 11,
+            "quote": "2025年第四季營運展望基於美元兌新台幣的平均匯率為 1:30.0 的假設 ⚫ 合併營收：約新台幣 20.0 億元～ 21.0億元 ⚫ 毛利率：66.5% ~ 67.5%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 30.0
+        },
+        "also_in": [
+          "527420251021M001.pdf"
+        ]
+      },
+      "actual": null,
+      "comparison": {},
+      "notes": []
+    },
+    "2026Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "527420251119M001.pdf",
+        "sha256": "c86e512e63ff9423c9d5c53dc188702e12ea21c9261156fdefaceb0383340858",
+        "published_at": "2025-11-24T14:30:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 2.6,
+            "high": 2.7,
+            "page": 24,
+            "quote": "2026年第一季預估 ⚫ 合併營收：約新台幣 26 億元～ 27 億元 ⚫ 毛利率：66.5% ~ 67.5%"
+          },
+          "gross_margin_pct": {
+            "low": 66.5,
+            "high": 67.5,
+            "page": 24,
+            "quote": "2026年第一季預估 ⚫ 合併營收：約新台幣 26 億元～ 27 億元 ⚫ 毛利率：66.5% ~ 67.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "527420260529M001.pdf",
+        "sha256": "46f049fb54cbc65c21a0f43d47606334c03fb806307d736fdc695c9ed92cfd2d",
+        "published_at": "2026-06-01T09:20:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 3.146757,
+            "page": 11,
+            "quote": "Operating Revenue 3,146,757"
+          },
+          "gross_margin_pct": {
+            "value": 69.18,
+            "page": 11,
+            "quote": "Gross Margin (%) 69.18%"
+          },
+          "operating_margin_pct": {
+            "value": 52.72,
+            "page": 11,
+            "quote": "Operating Margin (%) 52.72%"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 2.6,
+          "high": 2.7,
+          "actual": 3.146757,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 66.5,
+          "high": 67.5,
+          "actual": 69.18,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2026Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "527420260316M001.pdf",
+        "sha256": "3b83384c90321a9e18593c4040722627af25823c3d0e3b943b5c410421de25e9",
+        "published_at": "2026-03-17T10:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 3.4,
+            "high": 3.6,
+            "page": 17,
+            "quote": "Consolidated Revenue: Around NT$3.4 billion ~ 3.6 billion"
+          },
+          "gross_margin_pct": {
+            "low": 67.0,
+            "high": 68.0,
+            "page": 17,
+            "quote": "Gross margin: 67% ~ 68%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "527420260904M003.pdf",
+        "sha256": "e29ab22ee56453cc3c321ec94cf34492f350eb5ce05291666fd61930d44e40a1",
+        "published_at": "2026-09-07T16:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 3.871409,
+            "page": 11,
+            "quote": "Operating Revenue 3,871,409"
+          },
+          "gross_margin_pct": {
+            "value": 72.0,
+            "page": 11,
+            "quote": "Gross Margin (%) 72.00%"
+          },
+          "operating_margin_pct": {
+            "value": 53.88,
+            "page": 11,
+            "quote": "Operating Margin (%) 53.88%"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 3.4,
+          "high": 3.6,
+          "actual": 3.871409,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 67.0,
+          "high": 68.0,
+          "actual": 72.0,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2026Q3": {
+      "status": "MISSING_ACTUAL",
+      "guidance": {
+        "deck": "527420260529M001.pdf",
+        "sha256": "46f049fb54cbc65c21a0f43d47606334c03fb806307d736fdc695c9ed92cfd2d",
+        "published_at": "2026-06-01T09:20:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 4.1,
+            "high": 4.3,
+            "page": 29,
+            "quote": "合併營收約介於新台幣 41 億元至 43 億元"
+          },
+          "gross_margin_pct": {
+            "low": 67.0,
+            "high": 68.0,
+            "page": 29,
+            "quote": "營業毛利率約介於 67% 至 68%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 31.6
+        },
+        "also_in": []
+      },
+      "actual": null,
+      "comparison": {},
+      "notes": []
+    },
+    "2026Q4": {
+      "status": "MISSING_ACTUAL",
+      "guidance": {
+        "deck": "527420260904M003.pdf",
+        "sha256": "e29ab22ee56453cc3c321ec94cf34492f350eb5ce05291666fd61930d44e40a1",
+        "published_at": "2026-09-07T16:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 6.6,
+            "high": 6.8,
+            "page": 26,
+            "quote": "合併營收約介於新台幣 66 億元至 68 億元"
+          },
+          "gross_margin_pct": {
+            "low": 67.0,
+            "high": 68.0,
+            "page": 26,
+            "quote": "營業毛利率約介於 67% 至 68%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 32.0
+        },
+        "also_in": []
+      },
+      "actual": null,
+      "comparison": {},
+      "notes": []
+    }
+  },
+  "format_unknown": [
+    {
+      "deck": "527420230330M001.pdf",
+      "pages": [
+        3,
+        12
+      ],
+      "reason": "有「展望」頁但寫法不認得（不猜）"
+    }
+  ]
+}

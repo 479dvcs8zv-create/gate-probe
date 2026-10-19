@@ -1,0 +1,1421 @@
+{
+  "version": "4.39-slides",
+  "co_id": "3034",
+  "generated_at": "2026-10-19T14:11:16.501726+00:00",
+  "tool": "pdftotext version 24.02.0",
+  "gate_impact": "none",
+  "meaning": "官方財測模式（法說會簡報）：公司上一份簡報給的財測 vs 下一份簡報報告的實際。Python 預驗證，不是正式 Gate PASS。",
+  "decks": [
+    {
+      "names": [
+        "303420230207M001.pdf"
+      ],
+      "sha256": "46fa98ddb1e7491514a9059bd12d0b61e0746814256fdf610d9f6c4f4ed60888",
+      "run": "39255734752",
+      "published_at": "2023-02-07T15:00:00+08:00",
+      "published_row": {
+        "date": "112/02/07",
+        "time": "15:00",
+        "summary": "本公司一一一年第四季自結數合併財務報告及一一二年第一季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 http://www.zucast.com/webcast/paDPZGwv 建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20230207",
+      "pages": 10,
+      "reported_quarter": "2022Q4",
+      "guidance_quarter": "2023Q1",
+      "notes": [
+        "報告季度 2022Q4：原文只寫「第四季」，由同一份新聞稿的財測季度 2023Q1 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420230509M001.pdf"
+      ],
+      "sha256": "4369b9ca8b27cffb7b5ce0df2e6b211f92d834f324df27bb09d2b7512f830e59",
+      "run": "39255734752",
+      "published_at": "2023-05-09T15:00:00+08:00",
+      "published_row": {
+        "date": "112/05/09",
+        "time": "15:00",
+        "summary": "本公司一一二年第一季合併財務報告及第二季業績展望。法說會將於15:00進行網路直播，請連結至以下網址http://www.zucast.com/webcast/uz7sJsif 。 建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20230509",
+      "pages": 8,
+      "reported_quarter": "2023Q1",
+      "guidance_quarter": "2023Q2",
+      "notes": [
+        "報告季度 2023Q1：原文只寫「第一季」，由同一份新聞稿的財測季度 2023Q2 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420230808M001.pdf"
+      ],
+      "sha256": "7e7633817dfa8828890fe3583e654195d9cd931aaeb5dbd56f2db9d27e3e28e9",
+      "run": "39255734752",
+      "published_at": "2023-08-08T15:00:00+08:00",
+      "published_row": {
+        "date": "112/08/08",
+        "time": "15:00",
+        "summary": "本公司一一二年第二季合併財務報告及第三季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 http://www.zucast.com/webcast/BIWViz4z 。 建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20230808",
+      "pages": 9,
+      "reported_quarter": "2023Q2",
+      "guidance_quarter": "2023Q3",
+      "notes": [
+        "報告季度 2023Q2：原文只寫「第二季」，由同一份新聞稿的財測季度 2023Q3 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420231107M001.pdf"
+      ],
+      "sha256": "4968511d6a9990b259d70474fe753eb386ca04356b077f040c26822723416cf8",
+      "run": "39255734752",
+      "published_at": "2023-11-07T15:00:00+08:00",
+      "published_row": {
+        "date": "112/11/07",
+        "time": "15:00",
+        "summary": "本公司一一二年第三季合併財務報告及第四季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 http://www.zucast.com/webcast/HVKeHcyr 。 建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20231107",
+      "pages": 9,
+      "reported_quarter": "2023Q3",
+      "guidance_quarter": "2023Q4",
+      "notes": [
+        "報告季度 2023Q3：原文只寫「第三季」，由同一份新聞稿的財測季度 2023Q4 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420240206M001.pdf"
+      ],
+      "sha256": "9bb12f2fcd3d6f19caa5e977264a548933b6ecfe0d642bad9a748fb784b4e768",
+      "run": "39255734752",
+      "published_at": "2024-02-06T15:00:00+08:00",
+      "published_row": {
+        "date": "113/02/06",
+        "time": "15:00",
+        "summary": "本公司一一二年第四季自結數合併財務報告及一一三年第一季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 http://www.zucast.com/webcast/tSv1Citq 建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20240206",
+      "pages": 10,
+      "reported_quarter": "2023Q4",
+      "guidance_quarter": "2024Q1",
+      "notes": [
+        "報告季度 2023Q4：原文只寫「第四季」，由同一份新聞稿的財測季度 2024Q1 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420240507M001.pdf"
+      ],
+      "sha256": "9c4d5daee4b6943fd51738ae6f4e4c32d9237101decad2a722d9d277d8085b0f",
+      "run": "39255734752",
+      "published_at": "2024-05-07T15:00:00+08:00",
+      "published_row": {
+        "date": "113/05/07",
+        "time": "15:00",
+        "summary": "本公司一一三年第一季合併財務報告及第二季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 http://www.zucast.com/webcast/ycH2cfCX 建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20240507",
+      "pages": 8,
+      "reported_quarter": "2024Q1",
+      "guidance_quarter": "2024Q2",
+      "notes": [
+        "報告季度 2024Q1：原文只寫「第一季」，由同一份新聞稿的財測季度 2024Q2 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420240806M001.pdf"
+      ],
+      "sha256": "0944d43fcb7152496c1ab0a3f907f19d7154a53b58a093f89e51608c103312fb",
+      "run": "39255734752",
+      "published_at": "2024-08-06T15:00:00+08:00",
+      "published_row": {
+        "date": "113/08/06",
+        "time": "15:00",
+        "summary": "本公司一一三年第二季合併財務報告及第三季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 https://www.zucast.com/event/XtfVWqnW/subscribe/create 建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20240806",
+      "pages": 9,
+      "reported_quarter": "2024Q2",
+      "guidance_quarter": "2024Q3",
+      "notes": [
+        "報告季度 2024Q2：原文只寫「第二季」，由同一份新聞稿的財測季度 2024Q3 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420241106M001.pdf"
+      ],
+      "sha256": "cfca722751231dc46bc782fbe08dc66725f794ba3db00a2eea8b5f0f3c03d828",
+      "run": "39255734752",
+      "published_at": "2024-11-06T15:00:00+08:00",
+      "published_row": {
+        "date": "113/11/06",
+        "time": "15:00",
+        "summary": "本公司一一三年第三季合併財務報告及第四季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 https://www.zucast.com/event/88o7aor8/subscribe/create 建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20241106",
+      "pages": 9,
+      "reported_quarter": "2024Q3",
+      "guidance_quarter": "2024Q4",
+      "notes": [
+        "報告季度 2024Q3：原文只寫「第三季」，由同一份新聞稿的財測季度 2024Q4 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420250212M001.pdf"
+      ],
+      "sha256": "7435f878e48b7194c0dddf585050d2868c23b3e4707b96de0fdd01c8d833fc2c",
+      "run": "39255734752",
+      "published_at": "2025-02-12T15:00:00+08:00",
+      "published_row": {
+        "date": "114/02/12",
+        "time": "15:00",
+        "summary": "本公司一一三年第四季自結數合併財務報告及一一四年第一季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 http://www.zucast.com/webcast/v71hQA14 建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20250212",
+      "pages": 10,
+      "reported_quarter": "2024Q4",
+      "guidance_quarter": "2025Q1",
+      "notes": [
+        "報告季度 2024Q4：原文只寫「第四季」，由同一份新聞稿的財測季度 2025Q1 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420250507M001.pdf"
+      ],
+      "sha256": "8befccc346adda2a64b7d577af3e399e1e5d23b715cd7f80fd1d04b84276165f",
+      "run": "39255734752",
+      "published_at": "2025-05-07T15:00:00+08:00",
+      "published_row": {
+        "date": "114/05/07",
+        "time": "15:00",
+        "summary": "本公司一一四年第一季合併財務報告及第二季業績展望。法說會將於15:00進行網路直播，請連結至以下網址http://www.zucast.com/webcast/SF8FLjaT建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help尋求技術支援。"
+      },
+      "file_date": "20250507",
+      "pages": 8,
+      "reported_quarter": "2025Q1",
+      "guidance_quarter": "2025Q2",
+      "notes": [
+        "報告季度 2025Q1：原文只寫「第一季」，由同一份新聞稿的財測季度 2025Q2 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420250806M001.pdf"
+      ],
+      "sha256": "8adfbbeb8bd778cc4d55d0e2b03ff8525b00ea88f6fdb5ed1659683455edd8a6",
+      "run": "39255734752",
+      "published_at": "2025-08-06T15:00:00+08:00",
+      "published_row": {
+        "date": "114/08/06",
+        "time": "15:00",
+        "summary": "本公司一一四年第二季合併財務報告及第三季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 http://www.zucast.com/webcast/qq6hAJeU建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help尋求技術支援。"
+      },
+      "file_date": "20250806",
+      "pages": 9,
+      "reported_quarter": "2025Q2",
+      "guidance_quarter": "2025Q3",
+      "notes": [
+        "報告季度 2025Q2：原文只寫「第二季」，由同一份新聞稿的財測季度 2025Q3 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420251106M001.pdf"
+      ],
+      "sha256": "d45c77f68ff73889a59828d6cc477feec5eca074b6cf12d99a7f9773bda54fe2",
+      "run": "39255734752",
+      "published_at": "2025-11-06T15:00:00+08:00",
+      "published_row": {
+        "date": "114/11/06",
+        "time": "15:00",
+        "summary": "本公司一一四年第三季合併財務報告及第四季業績展望。法說會將於15:00進行網路直播，請連結至以下網址http://www.zucast.com/webcast/U17ViZmV建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help尋求技術支援。"
+      },
+      "file_date": "20251106",
+      "pages": 9,
+      "reported_quarter": "2025Q3",
+      "guidance_quarter": "2025Q4",
+      "notes": [
+        "報告季度 2025Q3：原文只寫「第三季」，由同一份新聞稿的財測季度 2025Q4 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420260206M001.pdf"
+      ],
+      "sha256": "6d89bd5baf89dea31202e45127064039cedbb822b64e5c83a3c4b9ef1d1f1d98",
+      "run": "39246618223",
+      "published_at": "2026-02-06T15:00:00+08:00",
+      "published_row": {
+        "date": "115/02/06",
+        "time": "15:00",
+        "summary": "本公司一一四年第四季自結數合併財務報告及一一五年第一季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 https://www.zucast.com/webcast/GBKEy9ht 建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help 尋求技術支援。"
+      },
+      "file_date": "20260206",
+      "pages": 10,
+      "reported_quarter": "2025Q4",
+      "guidance_quarter": "2026Q1",
+      "notes": [
+        "報告季度 2025Q4：原文只寫「第四季」，由同一份新聞稿的財測季度 2026Q1 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420260507M001.pdf"
+      ],
+      "sha256": "46740617648711880583d2c35e1584d41f484d41b93623d4c7e02afdfb44d466",
+      "run": "39246618223",
+      "published_at": "2026-05-07T15:00:00+08:00",
+      "published_row": {
+        "date": "115/05/07",
+        "time": "15:00",
+        "summary": "自辦 本公司一一五年第一季合併財務報告及第二季業績展望。法說會將於15:00進行網路直播，請連結至以下網址https://www.zucast.com/webcast/P6tt3g5a建議參與者於法說會前安裝或升級所需播放軟體，或至http://www.zucast.com/help尋求技術支援。"
+      },
+      "file_date": "20260507",
+      "pages": 8,
+      "reported_quarter": "2026Q1",
+      "guidance_quarter": "2026Q2",
+      "notes": [
+        "報告季度 2026Q1：原文只寫「第一季」，由同一份新聞稿的財測季度 2026Q2 推定"
+      ]
+    },
+    {
+      "names": [
+        "303420260806M001.pdf"
+      ],
+      "sha256": "a9ccb9d25f6975e62224e744fdd2df05c7aa011673d0cfee22e29124a48015a4",
+      "run": "39246618223",
+      "published_at": "2026-08-06T15:00:00+08:00",
+      "published_row": {
+        "date": "115/08/06",
+        "time": "15:00",
+        "summary": "本公司一一五年第二季合併財務報告及第三季業績展望。法說會將於15:00進行網路直播，請連結至以下網址 https://www.zucast.com/webcast/q57RQ0uC 建議參與者於法說會前安裝或升級所需播放軟體，或至 http://www.zucast.com/help尋求技術支援。"
+      },
+      "file_date": "20260806",
+      "pages": 9,
+      "reported_quarter": "2026Q2",
+      "guidance_quarter": "2026Q3",
+      "notes": [
+        "報告季度 2026Q2：原文只寫「第二季」，由同一份新聞稿的財測季度 2026Q3 推定"
+      ]
+    }
+  ],
+  "quarters": {
+    "2022Q4": {
+      "status": "MISSING_GUIDANCE",
+      "guidance": null,
+      "actual": {
+        "deck": "303420230207M001.pdf",
+        "sha256": "46fa98ddb1e7491514a9059bd12d0b61e0746814256fdf610d9f6c4f4ed60888",
+        "published_at": "2023-02-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 22.42,
+            "page": 1,
+            "quote": "第四季合併營業收入淨額為新台幣 224 億 2 仟萬元"
+          },
+          "gross_margin_pct": {
+            "value": 40.55,
+            "page": 1,
+            "quote": "第四季毛利率為 40.55%"
+          },
+          "operating_margin_pct": {
+            "value": 23.2337,
+            "page": 1,
+            "quote": "第四季營業淨利為新台幣 52 億 9 佰萬元",
+            "computed": "營業淨利 52.09 億元 ÷ 營業收入淨額 224.2 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {},
+      "notes": []
+    },
+    "2023Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420230207M001.pdf",
+        "sha256": "46fa98ddb1e7491514a9059bd12d0b61e0746814256fdf610d9f6c4f4ed60888",
+        "published_at": "2023-02-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 22.2,
+            "high": 23.2,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 222 億元至 232 億元"
+          },
+          "gross_margin_pct": {
+            "low": 37.5,
+            "high": 39.5,
+            "page": 1,
+            "quote": "毛利率預計介於 37.5% 至 39.5%"
+          },
+          "operating_margin_pct": {
+            "low": 20.0,
+            "high": 23.0,
+            "page": 1,
+            "quote": "營業利益率預計介於 20% 至 23%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420230509M001.pdf",
+        "sha256": "4369b9ca8b27cffb7b5ce0df2e6b211f92d834f324df27bb09d2b7512f830e59",
+        "published_at": "2023-05-09T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 24.046,
+            "page": 1,
+            "quote": "第一季合併營業收入淨額為新台幣 240 億 4 仟 6 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 41.91,
+            "page": 1,
+            "quote": "第一季毛利率為 41.91%"
+          },
+          "operating_margin_pct": {
+            "value": 23.5465,
+            "page": 1,
+            "quote": "第一季營業淨利為新台幣 56 億 6 仟 2 佰萬元",
+            "computed": "營業淨利 56.62 億元 ÷ 營業收入淨額 240.46 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 22.2,
+          "high": 23.2,
+          "actual": 24.046,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 37.5,
+          "high": 39.5,
+          "actual": 41.91,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 20.0,
+          "high": 23.0,
+          "actual": 23.5465,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2023Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420230509M001.pdf",
+        "sha256": "4369b9ca8b27cffb7b5ce0df2e6b211f92d834f324df27bb09d2b7512f830e59",
+        "published_at": "2023-05-09T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 29.5,
+            "high": 30.5,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 295 億元至 305 億元"
+          },
+          "gross_margin_pct": {
+            "low": 38.5,
+            "high": 40.5,
+            "page": 1,
+            "quote": "毛利率預計介於 38.5% 至 40.5%"
+          },
+          "operating_margin_pct": {
+            "low": 22.5,
+            "high": 24.5,
+            "page": 1,
+            "quote": "營業利益率預計介於 22.5% 至 24.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420230808M001.pdf",
+        "sha256": "7e7633817dfa8828890fe3583e654195d9cd931aaeb5dbd56f2db9d27e3e28e9",
+        "published_at": "2023-08-08T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 30.299,
+            "page": 1,
+            "quote": "第二季合併營業收入淨額為新台幣 302 億 9 仟 9 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 41.74,
+            "page": 1,
+            "quote": "第二季毛利率為 41.74%"
+          },
+          "operating_margin_pct": {
+            "value": 24.9183,
+            "page": 1,
+            "quote": "第二季營業淨利為新台幣 75 億 5 仟萬元",
+            "computed": "營業淨利 75.5 億元 ÷ 營業收入淨額 302.99 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 29.5,
+          "high": 30.5,
+          "actual": 30.299,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 38.5,
+          "high": 40.5,
+          "actual": 41.74,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 22.5,
+          "high": 24.5,
+          "actual": 24.9183,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2023Q3": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420230808M001.pdf",
+        "sha256": "7e7633817dfa8828890fe3583e654195d9cd931aaeb5dbd56f2db9d27e3e28e9",
+        "published_at": "2023-08-08T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 28.1,
+            "high": 29.1,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 281 億元至 291 億元"
+          },
+          "gross_margin_pct": {
+            "low": 38.0,
+            "high": 40.0,
+            "page": 1,
+            "quote": "毛利率預計介於 38% 至 40%"
+          },
+          "operating_margin_pct": {
+            "low": 21.5,
+            "high": 23.5,
+            "page": 1,
+            "quote": "營業利益率預計介於 21.5% 至 23.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420231107M001.pdf",
+        "sha256": "4968511d6a9990b259d70474fe753eb386ca04356b077f040c26822723416cf8",
+        "published_at": "2023-11-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 28.93,
+            "page": 1,
+            "quote": "第三季合併營業收入淨額為新台幣 289 億 3 仟萬元"
+          },
+          "gross_margin_pct": {
+            "value": 42.25,
+            "page": 1,
+            "quote": "第三季毛利率為 42.25%"
+          },
+          "operating_margin_pct": {
+            "value": 24.6906,
+            "page": 1,
+            "quote": "第三季營業淨利為新台幣 71 億 4 仟 3 佰萬元",
+            "computed": "營業淨利 71.43 億元 ÷ 營業收入淨額 289.3 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 28.1,
+          "high": 29.1,
+          "actual": 28.93,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 38.0,
+          "high": 40.0,
+          "actual": 42.25,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 21.5,
+          "high": 23.5,
+          "actual": 24.6906,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2023Q4": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420231107M001.pdf",
+        "sha256": "4968511d6a9990b259d70474fe753eb386ca04356b077f040c26822723416cf8",
+        "published_at": "2023-11-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 26.1,
+            "high": 27.1,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 261 億元至 271 億元"
+          },
+          "gross_margin_pct": {
+            "low": 38.5,
+            "high": 40.5,
+            "page": 1,
+            "quote": "毛利率預計介於 38.5% 至 40.5%"
+          },
+          "operating_margin_pct": {
+            "low": 21.0,
+            "high": 23.0,
+            "page": 1,
+            "quote": "營業利益率預計介於 21% 至 23%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420240206M001.pdf",
+        "sha256": "9bb12f2fcd3d6f19caa5e977264a548933b6ecfe0d642bad9a748fb784b4e768",
+        "published_at": "2024-02-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 27.154,
+            "page": 1,
+            "quote": "第四季合併營業收入淨額為新台幣 271 億 5 仟 4 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 41.48,
+            "page": 1,
+            "quote": "第四季毛利率為 41.48%"
+          },
+          "operating_margin_pct": {
+            "value": 23.2231,
+            "page": 1,
+            "quote": "第四季營業淨利為新台幣 63 億 6 佰萬元",
+            "computed": "營業淨利 63.06 億元 ÷ 營業收入淨額 271.54 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 26.1,
+          "high": 27.1,
+          "actual": 27.154,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 38.5,
+          "high": 40.5,
+          "actual": 41.48,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 21.0,
+          "high": 23.0,
+          "actual": 23.2231,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2024Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420240206M001.pdf",
+        "sha256": "9bb12f2fcd3d6f19caa5e977264a548933b6ecfe0d642bad9a748fb784b4e768",
+        "published_at": "2024-02-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 24.0,
+            "high": 25.0,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 240 億元至 250 億元"
+          },
+          "gross_margin_pct": {
+            "low": 38.5,
+            "high": 40.5,
+            "page": 1,
+            "quote": "毛利率預計介於 38.5% 至 40.5%"
+          },
+          "operating_margin_pct": {
+            "low": 19.5,
+            "high": 21.5,
+            "page": 1,
+            "quote": "營業利益率預計介於 19.5% 至 21.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420240507M001.pdf",
+        "sha256": "9c4d5daee4b6943fd51738ae6f4e4c32d9237101decad2a722d9d277d8085b0f",
+        "published_at": "2024-05-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 24.428,
+            "page": 1,
+            "quote": "第一季合併營業收入淨額為新台幣 244 億 2 仟 8 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 41.09,
+            "page": 1,
+            "quote": "第一季毛利率為 41.09%"
+          },
+          "operating_margin_pct": {
+            "value": 21.0578,
+            "page": 1,
+            "quote": "第一季營業淨利為新台幣 51 億 4 仟 4 佰萬元",
+            "computed": "營業淨利 51.44 億元 ÷ 營業收入淨額 244.28 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 24.0,
+          "high": 25.0,
+          "actual": 24.428,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 38.5,
+          "high": 40.5,
+          "actual": 41.09,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 19.5,
+          "high": 21.5,
+          "actual": 21.0578,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": []
+    },
+    "2024Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420240507M001.pdf",
+        "sha256": "9c4d5daee4b6943fd51738ae6f4e4c32d9237101decad2a722d9d277d8085b0f",
+        "published_at": "2024-05-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 24.4,
+            "high": 25.5,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 244 億元至 255 億元"
+          },
+          "gross_margin_pct": {
+            "low": 38.5,
+            "high": 40.5,
+            "page": 1,
+            "quote": "毛利率預計介於 38.5% 至 40.5%"
+          },
+          "operating_margin_pct": {
+            "low": 19.0,
+            "high": 21.0,
+            "page": 1,
+            "quote": "營業利益率預計介於 19% 至 21%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420240806M001.pdf",
+        "sha256": "0944d43fcb7152496c1ab0a3f907f19d7154a53b58a093f89e51608c103312fb",
+        "published_at": "2024-08-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 25.231,
+            "page": 1,
+            "quote": "第二季合併營業收入淨額為新台幣 252 億 3 仟 1 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 41.14,
+            "page": 1,
+            "quote": "第二季毛利率為 41.14%"
+          },
+          "operating_margin_pct": {
+            "value": 21.8144,
+            "page": 1,
+            "quote": "第二季營業淨利為新台幣 55 億 4 佰萬元",
+            "computed": "營業淨利 55.04 億元 ÷ 營業收入淨額 252.31 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 24.4,
+          "high": 25.5,
+          "actual": 25.231,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 38.5,
+          "high": 40.5,
+          "actual": 41.14,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 19.0,
+          "high": 21.0,
+          "actual": 21.8144,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2024Q3": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420240806M001.pdf",
+        "sha256": "0944d43fcb7152496c1ab0a3f907f19d7154a53b58a093f89e51608c103312fb",
+        "published_at": "2024-08-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 27.4,
+            "high": 28.4,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 274 億元至 284 億元"
+          },
+          "gross_margin_pct": {
+            "low": 38.0,
+            "high": 40.0,
+            "page": 1,
+            "quote": "毛利率預計介於 38% 至 40%"
+          },
+          "operating_margin_pct": {
+            "low": 20.0,
+            "high": 22.0,
+            "page": 1,
+            "quote": "營業利益率預計介於 20% 至 22%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420241106M001.pdf",
+        "sha256": "cfca722751231dc46bc782fbe08dc66725f794ba3db00a2eea8b5f0f3c03d828",
+        "published_at": "2024-11-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 27.866,
+            "page": 1,
+            "quote": "第三季合併營業收入淨額為新台幣 278 億 6 仟 6 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 39.74,
+            "page": 1,
+            "quote": "第三季毛利率為 39.74%"
+          },
+          "operating_margin_pct": {
+            "value": 22.3965,
+            "page": 1,
+            "quote": "第三季營業淨利為新台幣 62 億 4 仟 1 佰萬元",
+            "computed": "營業淨利 62.41 億元 ÷ 營業收入淨額 278.66 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 27.4,
+          "high": 28.4,
+          "actual": 27.866,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 38.0,
+          "high": 40.0,
+          "actual": 39.74,
+          "result": "IN_RANGE"
+        },
+        "operating_margin_pct": {
+          "low": 20.0,
+          "high": 22.0,
+          "actual": 22.3965,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2024Q4": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420241106M001.pdf",
+        "sha256": "cfca722751231dc46bc782fbe08dc66725f794ba3db00a2eea8b5f0f3c03d828",
+        "published_at": "2024-11-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 24.0,
+            "high": 25.0,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 240 億元至 250 億元"
+          },
+          "gross_margin_pct": {
+            "low": 37.0,
+            "high": 40.0,
+            "page": 1,
+            "quote": "毛利率預計介於 37% 至 40%"
+          },
+          "operating_margin_pct": {
+            "low": 17.5,
+            "high": 20.5,
+            "page": 1,
+            "quote": "營業利益率預計介於 17.5% 至 20.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420250212M001.pdf",
+        "sha256": "7435f878e48b7194c0dddf585050d2868c23b3e4707b96de0fdd01c8d833fc2c",
+        "published_at": "2025-02-12T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 25.263,
+            "page": 1,
+            "quote": "第四季合併營業收入淨額為新台幣 252 億 6 仟 3 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 39.51,
+            "page": 1,
+            "quote": "第四季毛利率為 39.51%"
+          },
+          "operating_margin_pct": {
+            "value": 19.4593,
+            "page": 1,
+            "quote": "第四季營業淨利為新台幣 49 億 1 仟 6 佰萬元",
+            "computed": "營業淨利 49.16 億元 ÷ 營業收入淨額 252.63 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 24.0,
+          "high": 25.0,
+          "actual": 25.263,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 37.0,
+          "high": 40.0,
+          "actual": 39.51,
+          "result": "IN_RANGE"
+        },
+        "operating_margin_pct": {
+          "low": 17.5,
+          "high": 20.5,
+          "actual": 19.4593,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": []
+    },
+    "2025Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420250212M001.pdf",
+        "sha256": "7435f878e48b7194c0dddf585050d2868c23b3e4707b96de0fdd01c8d833fc2c",
+        "published_at": "2025-02-12T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 26.0,
+            "high": 27.2,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 260 億元至 272 億元"
+          },
+          "gross_margin_pct": {
+            "low": 37.0,
+            "high": 40.0,
+            "page": 1,
+            "quote": "毛利率預計介於 37% 至 40%"
+          },
+          "operating_margin_pct": {
+            "low": 18.5,
+            "high": 21.5,
+            "page": 1,
+            "quote": "營業利益率預計介於 18.5% 至 21.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420250507M001.pdf",
+        "sha256": "8befccc346adda2a64b7d577af3e399e1e5d23b715cd7f80fd1d04b84276165f",
+        "published_at": "2025-05-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 27.12,
+            "page": 1,
+            "quote": "第一季合併營業收入淨額為新台幣 271 億 2 仟萬元"
+          },
+          "gross_margin_pct": {
+            "value": 39.76,
+            "page": 1,
+            "quote": "第一季毛利率為 39.76%"
+          },
+          "operating_margin_pct": {
+            "value": 21.0029,
+            "page": 1,
+            "quote": "第一季營業淨利為新台幣 56 億 9 仟 6 佰萬元",
+            "computed": "營業淨利 56.96 億元 ÷ 營業收入淨額 271.2 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 26.0,
+          "high": 27.2,
+          "actual": 27.12,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 37.0,
+          "high": 40.0,
+          "actual": 39.76,
+          "result": "IN_RANGE"
+        },
+        "operating_margin_pct": {
+          "low": 18.5,
+          "high": 21.5,
+          "actual": 21.0029,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": []
+    },
+    "2025Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420250507M001.pdf",
+        "sha256": "8befccc346adda2a64b7d577af3e399e1e5d23b715cd7f80fd1d04b84276165f",
+        "published_at": "2025-05-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 26.5,
+            "high": 27.7,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 265 億元至 277 億元"
+          },
+          "gross_margin_pct": {
+            "low": 37.0,
+            "high": 40.0,
+            "page": 1,
+            "quote": "毛利率預計介於 37% 至 40%"
+          },
+          "operating_margin_pct": {
+            "low": 18.5,
+            "high": 21.5,
+            "page": 1,
+            "quote": "營業利益率預計介於 18.5% 至 21.5%"
+          }
+        },
+        "assumption": {},
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420250806M001.pdf",
+        "sha256": "8adfbbeb8bd778cc4d55d0e2b03ff8525b00ea88f6fdb5ed1659683455edd8a6",
+        "published_at": "2025-08-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 26.152,
+            "page": 1,
+            "quote": "第二季合併營業收入淨額為新台幣 261 億 5 仟 2 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 36.3,
+            "page": 1,
+            "quote": "第二季毛利率為 36.30%"
+          },
+          "operating_margin_pct": {
+            "value": 18.4422,
+            "page": 1,
+            "quote": "第二季營業淨利為新台幣 48 億 2 仟 3 佰萬元",
+            "computed": "營業淨利 48.23 億元 ÷ 營業收入淨額 261.52 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 26.5,
+          "high": 27.7,
+          "actual": 26.152,
+          "result": "BELOW"
+        },
+        "gross_margin_pct": {
+          "low": 37.0,
+          "high": 40.0,
+          "actual": 36.3,
+          "result": "BELOW"
+        },
+        "operating_margin_pct": {
+          "low": 18.5,
+          "high": 21.5,
+          "actual": 18.4422,
+          "result": "BELOW"
+        }
+      },
+      "notes": []
+    },
+    "2025Q3": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420250806M001.pdf",
+        "sha256": "8adfbbeb8bd778cc4d55d0e2b03ff8525b00ea88f6fdb5ed1659683455edd8a6",
+        "published_at": "2025-08-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 23.7,
+            "high": 24.7,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 237 億元至 247 億元"
+          },
+          "gross_margin_pct": {
+            "low": 34.0,
+            "high": 37.0,
+            "page": 1,
+            "quote": "毛利率預計介於 34% 至 37%"
+          },
+          "operating_margin_pct": {
+            "low": 15.0,
+            "high": 18.0,
+            "page": 1,
+            "quote": "營業利益率預計介於 15% 至 18%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 29.5
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420251106M001.pdf",
+        "sha256": "d45c77f68ff73889a59828d6cc477feec5eca074b6cf12d99a7f9773bda54fe2",
+        "published_at": "2025-11-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 24.574,
+            "page": 1,
+            "quote": "第三季合併營業收入淨額為新台幣 245 億 7 仟 4 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 36.29,
+            "page": 1,
+            "quote": "第三季毛利率為 36.29%"
+          },
+          "operating_margin_pct": {
+            "value": 15.6955,
+            "page": 1,
+            "quote": "第三季營業淨利為新台幣 38 億 5 仟 7 佰萬元",
+            "computed": "營業淨利 38.57 億元 ÷ 營業收入淨額 245.74 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 23.7,
+          "high": 24.7,
+          "actual": 24.574,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 34.0,
+          "high": 37.0,
+          "actual": 36.29,
+          "result": "IN_RANGE"
+        },
+        "operating_margin_pct": {
+          "low": 15.0,
+          "high": 18.0,
+          "actual": 15.6955,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": []
+    },
+    "2025Q4": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420251106M001.pdf",
+        "sha256": "d45c77f68ff73889a59828d6cc477feec5eca074b6cf12d99a7f9773bda54fe2",
+        "published_at": "2025-11-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 22.0,
+            "high": 23.0,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 220 億元至 230 億元"
+          },
+          "gross_margin_pct": {
+            "low": 35.0,
+            "high": 38.0,
+            "page": 1,
+            "quote": "毛利率預計介於 35% 至 38%"
+          },
+          "operating_margin_pct": {
+            "low": 14.5,
+            "high": 17.5,
+            "page": 1,
+            "quote": "營業利益率預計介於 14.5% 至 17.5%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 30.5
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420260206M001.pdf",
+        "sha256": "6d89bd5baf89dea31202e45127064039cedbb822b64e5c83a3c4b9ef1d1f1d98",
+        "published_at": "2026-02-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 22.817,
+            "page": 1,
+            "quote": "第四季合併營業收入淨額為新台幣 228 億 1 仟 7 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 38.19,
+            "page": 1,
+            "quote": "第四季毛利率為 38.19%"
+          },
+          "operating_margin_pct": {
+            "value": 16.9216,
+            "page": 1,
+            "quote": "第四季營業淨利為新台幣 38 億 6 仟 1 佰萬元",
+            "computed": "營業淨利 38.61 億元 ÷ 營業收入淨額 228.17 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 22.0,
+          "high": 23.0,
+          "actual": 22.817,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 35.0,
+          "high": 38.0,
+          "actual": 38.19,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 14.5,
+          "high": 17.5,
+          "actual": 16.9216,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": []
+    },
+    "2026Q1": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420260206M001.pdf",
+        "sha256": "6d89bd5baf89dea31202e45127064039cedbb822b64e5c83a3c4b9ef1d1f1d98",
+        "published_at": "2026-02-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 22.2,
+            "high": 23.2,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 222 億元至 232 億元"
+          },
+          "gross_margin_pct": {
+            "low": 36.0,
+            "high": 39.0,
+            "page": 1,
+            "quote": "毛利率預計介於 36% 至 39%"
+          },
+          "operating_margin_pct": {
+            "low": 15.0,
+            "high": 18.0,
+            "page": 1,
+            "quote": "營業利益率預計介於 15% 至 18%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 31.2
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420260507M001.pdf",
+        "sha256": "46740617648711880583d2c35e1584d41f484d41b93623d4c7e02afdfb44d466",
+        "published_at": "2026-05-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 23.145,
+            "page": 1,
+            "quote": "第一季合併營業收入淨額為新台幣 231 億 4 仟 5 佰萬元"
+          },
+          "gross_margin_pct": {
+            "value": 39.06,
+            "page": 1,
+            "quote": "第一季毛利率為 39.06%"
+          },
+          "operating_margin_pct": {
+            "value": 17.4033,
+            "page": 1,
+            "quote": "第一季營業淨利為新台幣 40 億 2 仟 8 佰萬元",
+            "computed": "營業淨利 40.28 億元 ÷ 營業收入淨額 231.45 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 22.2,
+          "high": 23.2,
+          "actual": 23.145,
+          "result": "IN_RANGE"
+        },
+        "gross_margin_pct": {
+          "low": 36.0,
+          "high": 39.0,
+          "actual": 39.06,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 15.0,
+          "high": 18.0,
+          "actual": 17.4033,
+          "result": "IN_RANGE"
+        }
+      },
+      "notes": []
+    },
+    "2026Q2": {
+      "status": "VERIFIED",
+      "guidance": {
+        "deck": "303420260507M001.pdf",
+        "sha256": "46740617648711880583d2c35e1584d41f484d41b93623d4c7e02afdfb44d466",
+        "published_at": "2026-05-07T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 27.5,
+            "high": 28.5,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 275 億元至 285 億元"
+          },
+          "gross_margin_pct": {
+            "low": 38.0,
+            "high": 41.0,
+            "page": 1,
+            "quote": "毛利率預計介於 38% 至 41%"
+          },
+          "operating_margin_pct": {
+            "low": 16.0,
+            "high": 19.0,
+            "page": 1,
+            "quote": "營業利益率預計介於 16% 至 19%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 31.3
+        },
+        "also_in": []
+      },
+      "actual": {
+        "deck": "303420260806M001.pdf",
+        "sha256": "a9ccb9d25f6975e62224e744fdd2df05c7aa011673d0cfee22e29124a48015a4",
+        "published_at": "2026-08-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "value": 28.66,
+            "page": 1,
+            "quote": "第二季合併營業收入淨額為新台幣 286 億 6 仟萬元"
+          },
+          "gross_margin_pct": {
+            "value": 42.42,
+            "page": 1,
+            "quote": "第二季毛利率為 42.42%"
+          },
+          "operating_margin_pct": {
+            "value": 22.5611,
+            "page": 1,
+            "quote": "第二季營業淨利為新台幣 64 億 6 仟 6 佰萬元",
+            "computed": "營業淨利 64.66 億元 ÷ 營業收入淨額 286.6 億元（同一份新聞稿的兩個官方數字）"
+          }
+        }
+      },
+      "comparison": {
+        "revenue_twd_bn": {
+          "low": 27.5,
+          "high": 28.5,
+          "actual": 28.66,
+          "result": "ABOVE"
+        },
+        "gross_margin_pct": {
+          "low": 38.0,
+          "high": 41.0,
+          "actual": 42.42,
+          "result": "ABOVE"
+        },
+        "operating_margin_pct": {
+          "low": 16.0,
+          "high": 19.0,
+          "actual": 22.5611,
+          "result": "ABOVE"
+        }
+      },
+      "notes": []
+    },
+    "2026Q3": {
+      "status": "MISSING_ACTUAL",
+      "guidance": {
+        "deck": "303420260806M001.pdf",
+        "sha256": "a9ccb9d25f6975e62224e744fdd2df05c7aa011673d0cfee22e29124a48015a4",
+        "published_at": "2026-08-06T15:00:00+08:00",
+        "metrics": {
+          "revenue_twd_bn": {
+            "low": 30.0,
+            "high": 31.2,
+            "page": 1,
+            "quote": "合併營收預計介於新台幣 300 億元至 312 億元"
+          },
+          "gross_margin_pct": {
+            "low": 38.5,
+            "high": 41.5,
+            "page": 1,
+            "quote": "毛利率預計介於 38.5% 至 41.5%"
+          },
+          "operating_margin_pct": {
+            "low": 19.0,
+            "high": 22.0,
+            "page": 1,
+            "quote": "營業利益率預計介於 19% 至 22%"
+          }
+        },
+        "assumption": {
+          "usd_twd": 32.0
+        },
+        "also_in": []
+      },
+      "actual": null,
+      "comparison": {},
+      "notes": []
+    }
+  },
+  "format_unknown": []
+}
