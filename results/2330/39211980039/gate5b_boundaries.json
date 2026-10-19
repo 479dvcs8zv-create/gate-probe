@@ -1,0 +1,108 @@
+{
+  "schema": "gate-probe/gate5b-boundaries/v1",
+  "co_id": "2330",
+  "company_name": "台積電",
+  "market": {
+    "name": "上市公司",
+    "typek": "sii",
+    "quote_suffix": ".TW",
+    "first_sample": false,
+    "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+  },
+  "revenue_rule": "require_announcement",
+  "collector_version": "4.31-collect",
+  "collected_at": "2026-10-19T06:47:55.101519+00:00",
+  "use": "只提供 Gate5B 的時間界線：截止點（cutoff_at）與共識快照界線（snapshot_boundary_at，快照必須嚴格早於）。Python 預驗證通過不等於正式 Gate PASS；某季不在 quarters 裡＝沒有界線，不能當成通過。",
+  "quarters": {
+    "2024Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2024-04-10T13:50:59+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20240410:135059:1",
+      "snapshot_boundary_at": "2024-04-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2024Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2024-07-10T13:48:38+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20240710:134838:1",
+      "snapshot_boundary_at": "2024-07-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2024Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2024-10-09T13:37:57+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20241009:133757:1",
+      "snapshot_boundary_at": "2024-10-09T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2024Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2025-01-10T14:05:13+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20250110:140513:1",
+      "snapshot_boundary_at": "2025-01-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2025Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2025-04-10T14:05:27+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20250410:140527:2",
+      "snapshot_boundary_at": "2025-04-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2025Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2025-07-10T14:26:42+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20250710:142642:1",
+      "snapshot_boundary_at": "2025-07-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2025Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2025-10-09T14:01:10+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20251009:140110:1",
+      "snapshot_boundary_at": "2025-10-09T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2025Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2026-01-09T13:51:04+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20260109:135104:1",
+      "snapshot_boundary_at": "2026-01-09T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2026Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2026-04-10T13:50:36+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20260410:135036:1",
+      "snapshot_boundary_at": "2026-04-10T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2026Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2026-07-13T13:50:31+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20260713:135031:1",
+      "snapshot_boundary_at": "2026-07-13T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    },
+    "2026Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "cutoff_at": "2026-10-08T13:54:04+08:00",
+      "cutoff_event": "quarter_revenue_complete",
+      "cutoff_document_id": "t05st01:2330:20261008:135404:1",
+      "snapshot_boundary_at": "2026-10-08T00:00:00+08:00",
+      "snapshot_boundary_rule": "revenue_day_midnight"
+    }
+  },
+  "research_only": {},
+  "excluded": {}
+}

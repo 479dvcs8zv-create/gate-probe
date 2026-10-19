@@ -1,0 +1,6487 @@
+{
+  "co_id": "2330",
+  "roc_years": [
+    113,
+    114,
+    115
+  ],
+  "revenue_rule": "require_announcement",
+  "market": {
+    "name": "上市公司",
+    "typek": "sii",
+    "quote_suffix": ".TW",
+    "first_sample": false,
+    "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+  },
+  "listings": {
+    "113": {
+      "items": 272,
+      "sha256": "b641007e2b9c077b8c75f6a5515876eeacdfe3882f127ce25c8427e20241470b",
+      "company_name": "台積電",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    },
+    "114": {
+      "items": 248,
+      "sha256": "1a7ea5c990648b49d3bf118f80abbc59183a09c0628aeb2363eb676fdc5b813a",
+      "company_name": "台積電",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    },
+    "115": {
+      "items": 153,
+      "sha256": "788be31d4cdbe13188fe376ca1eb2381f97282d89cdf42b6634dc57c3c6ccc5f",
+      "company_name": "台積電",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    }
+  },
+  "filings": {
+    "113": {
+      "rows": [
+        [
+          "2024Q1",
+          "202401_2330_AI1.pdf",
+          "2024-05-15T14:25:29+08:00"
+        ],
+        [
+          "2024Q1",
+          "202401_2330_AIA.pdf",
+          "2024-05-15T14:25:56+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_2330_AI1.pdf",
+          "2024-08-14T15:09:10+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_2330_AIA.pdf",
+          "2024-08-14T15:09:47+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_2330_AI1.pdf",
+          "2024-11-14T18:03:20+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_2330_AIA.pdf",
+          "2024-11-14T18:03:52+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2330_AI1.pdf",
+          "2025-02-27T14:01:14+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2330_AI3.pdf",
+          "2025-02-27T14:03:03+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2330_AIA.pdf",
+          "2025-02-27T14:03:51+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2330_AIC.pdf",
+          "2025-02-27T14:04:32+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "a82c59ce669f8c4cde3ca0683bb8e4a6151c4cdca5c03e9958f6f5435ff96d4a",
+      "attempts": 1
+    },
+    "114": {
+      "rows": [
+        [
+          "2025Q1",
+          "202501_2330_AI1.pdf",
+          "2025-05-15T13:40:15+08:00"
+        ],
+        [
+          "2025Q1",
+          "202501_2330_AIA.pdf",
+          "2025-05-15T13:40:41+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2330_AI1.pdf",
+          "2025-08-14T13:36:58+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2330_AIA.pdf",
+          "2025-08-14T13:37:33+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2330_AI1.pdf",
+          "2025-11-14T13:42:22+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2330_AIA.pdf",
+          "2025-11-14T13:42:38+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2330_AI1.pdf",
+          "2026-02-26T17:23:30+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2330_AI3.pdf",
+          "2026-02-26T17:24:39+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2330_AIA.pdf",
+          "2026-02-26T17:25:13+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2330_AIC.pdf",
+          "2026-02-26T17:25:40+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "cfe39d9ba137ca012caf74ebddfdb30aba1f00b7d34e9141941a8649036f3878",
+      "attempts": 1
+    },
+    "115": {
+      "rows": [
+        [
+          "2026Q1",
+          "202601_2330_AI1.pdf",
+          "2026-05-15T14:43:02+08:00"
+        ],
+        [
+          "2026Q1",
+          "202601_2330_AIA.pdf",
+          "2026-05-15T14:43:22+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2330_AI1.pdf",
+          "2026-08-14T13:59:44+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2330_AIA.pdf",
+          "2026-08-14T14:00:15+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "dc8d533ea747f62164aa452d4009cfe1477783145ec2db63d38672b7b8e77daa",
+      "attempts": 1
+    }
+  },
+  "details": {
+    "t05st01:2330:20240103:160807:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-01-18",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240110:141001:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-01-10",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240118:154253:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-01-18",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240206:192110:4": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240329:180621:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-04-18",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240410:135059:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-10",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240418:155142:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-18",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240510:155835:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-05-10",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240702:175630:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-07-18",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240710:134838:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-07-10",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240718:151557:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-07-18",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240813:190706:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240927:143711:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-10-17",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241009:133757:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-09",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241017:154414:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-17",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241112:182708:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241230:143845:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-01-16",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250110:140513:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-01-10",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250116:154039:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-01-16",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250212:145717:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250328:172301:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-04-17",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250410:140527:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-04-10",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250417:152610:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-04-17",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250513:174017:4": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250627:164722:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-07-17",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250710:142642:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-07-10",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250717:154843:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-07-17",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250812:182044:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-08-12",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250926:171624:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-10-16",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20251009:140110:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-10-09",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20251016:150648:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-10-16",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20251111:181755:5": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20251226:183412:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-01-15",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260109:135104:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-01-09",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260115:152105:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-01-15",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260210:181619:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260327:180814:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-04-16",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260410:135036:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-04-10",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260416:153813:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-04-16",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260512:183304:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260629:185000:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-07-16",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260713:135031:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-07-13",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260716:151231:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-07-16",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260811:184658:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-08-11",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260929:143916:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-10-15",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20261008:135404:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-10-08",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20261015:152138:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-10-15",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20240403:191214:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-03",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240403:191428:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-03",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240403:232325:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-03",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240404:210531:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-04",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240405:212303:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-05",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240408:190458:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-08",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240408:193101:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-08",
+      "attempts": 0,
+      "cached_from": "39118440897"
+    },
+    "t05st01:2330:20240701:183606:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-01",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240702:162001:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-02",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20240703:155816:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-03",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241001:173847:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-01",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241004:054919:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-04",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241004:173716:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-04",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241007:174051:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-07",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241008:164933:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-08",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241008:170258:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-08",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241009:164534:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-09",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20241009:174816:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-09",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250106:172544:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-06",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250107:164653:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-07",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250108:173216:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-08",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250109:172547:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-09",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250401:172733:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-01",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250407:161018:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-07",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250408:173657:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-08",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250409:170627:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-09",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250410:175739:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-10",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250701:195954:1": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2025-07-01",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250701:200400:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-07-01",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250701:200621:4": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-07-01",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250702:171530:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-02",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250704:170907:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-04",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20250710:190008:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-10",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20250710:190458:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-10",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20251003:170518:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-03",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20251007:190020:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-07",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20251009:171848:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-09",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260102:165608:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-02",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260105:183313:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-05",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260106:182750:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2026-01-06",
+      "attempts": 0,
+      "cached_from": "39114411258"
+    },
+    "t05st01:2330:20260106:200522:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-06",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260107:181450:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-07",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260108:185124:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-08",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260108:201746:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-08",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260109:175352:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-09",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260401:172647:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-01",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260407:180626:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-07",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260408:183402:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-08",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260410:165348:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-10",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260702:173613:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2026-07-02",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20260708:193435:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-08",
+      "attempts": 0,
+      "cached_from": "39103606949"
+    },
+    "t05st01:2330:20240118:165123:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-01-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240119:173502:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-01-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240124:175742:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-01-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240131:162551:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-01-31",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240202:160607:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-02",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240205:175842:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240205:184721:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-02-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:160640:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:184434:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:185524:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:192527:5": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:193010:6": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:201734:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:201901:8": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:202055:9": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:204618:10": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:211217:11": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:211238:12": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:211323:13": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:211339:14": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240206:211352:15": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2024-02-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240207:134934:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-02-07",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240215:172837:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-15",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240219:173652:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240221:165144:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-21",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240221:174607:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-21",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240222:190020:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-22",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240223:182609:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240227:150515:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-03-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240227:183346:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240229:151726:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-02-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240229:154546:2": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2024-02-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240229:154845:3": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2024-02-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240229:174433:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240229:174541:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240301:160955:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-03-01",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240301:161725:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-03-01",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240305:173029:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-03-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240306:173139:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-03-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240308:135303:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-03-08",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240311:175235:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-03-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240311:194747:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-03-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240315:163243:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-03-15",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240322:142059:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2024-03-22",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240322:154907:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-03-22",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240327:180820:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-03-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240329:164437:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-03-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240418:164201:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240418:184619:3": {
+      "ok": true,
+      "clause": "47",
+      "fact_date": "2024-04-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240418:191527:4": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240419:165213:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240422:172356:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-22",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240423:185132:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240424:191419:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240424:191656:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240426:170921:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-26",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240430:193852:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-30",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240502:154540:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-05-02",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240502:185259:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-02",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240508:155359:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-05-08",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240510:140348:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-05-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240510:151518:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-05-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240510:161003:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-05-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240510:161947:5": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-05-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240510:170826:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240510:184233:7": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240514:180101:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-14",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240520:163438:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240522:172716:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-22",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240523:164659:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240524:182250:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240528:143349:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-05-28",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240529:172418:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240529:175132:2": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-05-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240530:182312:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-30",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240530:182627:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-30",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240531:184935:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-31",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240604:150938:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-06-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240604:152822:2": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2024-06-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240604:190121:3": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-06-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240604:191416:4": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-06-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240604:191926:5": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-06-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240604:192851:6": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-06-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240604:193841:7": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-06-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240605:175522:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-06-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240605:182152:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240605:183928:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-06-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240605:192624:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240605:192732:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240605:194519:6": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2024-06-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240605:204039:7": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240606:185619:1": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-06-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240607:140627:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-06-07",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240607:161807:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-07",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240611:184616:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240614:170845:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-14",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240617:190249:1": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-17",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240618:182415:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240618:185534:2": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240619:170259:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240619:180720:2": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240620:174518:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-06-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240620:192122:2": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240621:173219:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-21",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240621:173610:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-21",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240621:174817:3": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-21",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240624:174450:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240624:180149:2": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240625:170257:1": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-25",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240625:173835:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-25",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240626:175327:1": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-26",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240626:180228:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-26",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240627:171631:1": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240628:180415:1": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-28",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240628:180524:2": {
+      "ok": true,
+      "clause": "35",
+      "fact_date": "2024-06-28",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240628:183721:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-06-28",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240718:173258:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240719:182803:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240729:184547:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-07-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240731:183719:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-07-31",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240802:172322:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-02",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240807:171411:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-07",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240808:172821:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-08",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240809:140813:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-08-09",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240809:162504:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-09",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:155253:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:184831:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:201450:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:201827:5": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:204041:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:210735:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:211249:8": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:211508:9": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240813:212523:10": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-08-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240814:173656:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-14",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240815:174514:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-15",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240815:184806:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-15",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240816:165030:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-16",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240819:183325:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240820:182015:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240820:182455:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240820:222047:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-08-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240821:165741:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-21",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240823:160314:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240827:173426:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240828:144049:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-08-28",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240829:163741:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240829:171024:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-09-09",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240830:162541:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-08-30",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240902:180250:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-02",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240906:163749:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240906:173247:2": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-09-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240910:140217:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-09-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240911:152318:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-09-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240911:175042:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240911:180917:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240912:181059:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240913:175858:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240916:180532:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-16",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240918:173437:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240918:175112:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-09-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240919:173428:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240923:162125:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240924:180541:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240924:180717:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240926:153654:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-26",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240927:135036:1": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-09-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240927:162543:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240930:172009:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-30",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20240930:172402:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-09-30",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241017:171826:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-17",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241018:164355:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241022:180947:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-22",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241023:174936:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241023:175345:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241024:172301:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241024:172732:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241025:170317:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-25",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241025:175832:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-25",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241028:181825:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-10-28",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241029:182153:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-10-29",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241101:180101:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-01",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241104:173133:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241106:172351:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241108:135538:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-11-08",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241111:165434:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241112:180852:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241112:184456:3": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241112:185404:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241112:191825:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241112:192240:6": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241112:192732:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241112:194008:8": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241112:194208:9": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241113:153242:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241113:175923:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-11-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241114:175724:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-14",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241115:172029:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-15",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241119:181134:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241121:180500:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-21",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241125:164541:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-25",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241126:175537:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-26",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241127:170818:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-11-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241127:201040:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241127:201215:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-11-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241128:163636:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-12-03",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241203:182156:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-03",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241205:172236:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241210:134623:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-12-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241210:182502:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241210:193751:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241211:182133:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241212:171851:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241212:172304:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241213:181323:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241216:170640:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-16",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241216:182103:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-16",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241216:183113:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-16",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241218:175122:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241218:175643:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241219:143156:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2024-12-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241219:163756:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241220:173753:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241224:182900:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241227:165302:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20241231:165318:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-31",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250117:171020:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-17",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250120:160006:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250120:174231:2": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2025-01-20",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250122:171045:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-22",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250123:155458:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250124:152534:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-01-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250124:155948:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-01-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250203:173732:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-03",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250204:172142:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250205:161929:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-05",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250206:154816:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-02-17",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250210:140102:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250210:163610:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250211:161039:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:140307:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:150741:3": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:151039:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:151509:6": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:152057:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:154727:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:160815:8": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:160911:9": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250212:174133:10": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250213:171418:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250214:172323:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-14",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250224:180048:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-03-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250303:164042:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-03-03",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250303:181709:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-03",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250304:060339:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-03-04",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250305:183628:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-05",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250305:183827:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-05",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250306:165134:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250310:134928:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-03-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250310:184552:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-10",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250311:170642:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-03-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250311:181134:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-11",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250312:174659:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250313:175327:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250314:174751:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-14",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250317:180825:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-17",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250318:173931:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250319:173817:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-03-19",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250325:174336:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-25",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250326:183739:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-26",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250327:183224:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-27",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250327:183417:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250417:180806:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-17",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250417:191941:3": {
+      "ok": true,
+      "clause": "47",
+      "fact_date": "2025-04-17",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250418:170553:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-18",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250418:182640:2": {
+      "ok": true,
+      "clause": "7",
+      "fact_date": "2025-04-18",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250422:163803:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-22",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250423:172346:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-23",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250423:183657:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-04-25",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250424:161931:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-24",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250502:172423:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-02",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250505:181951:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-05",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250505:183943:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250506:161240:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-06",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250507:170321:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-07",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250507:170527:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-07",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250508:181943:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-08",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250509:135534:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-05-09",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250509:161647:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-09",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250512:171103:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-12",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:143531:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:165715:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:171956:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:175220:5": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:181724:6": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:182005:7": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250513:185648:8": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:190840:9": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:191351:10": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250513:192612:11": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-13",
+      "attempts": 0,
+      "cached_from": "39123716322"
+    },
+    "t05st01:2330:20250514:141758:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-05-14",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250514:170914:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-14",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250515:170136:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-15",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250515:181216:2": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2025-05-15",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250516:182536:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-05-21",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250516:185903:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-05-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250519:170735:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-19",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250520:160441:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-20",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250521:181611:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-05-21",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250522:183915:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-22",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250526:155153:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-26",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250528:162557:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-05-28",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250528:165033:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-28",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250529:150617:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-05-29",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250602:183613:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-02",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250603:153102:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-06-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250603:175327:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250603:181850:3": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2025-06-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250604:172118:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2025-06-04",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250604:174050:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-04",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250609:174032:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-09",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250610:134755:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-06-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250612:184850:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250613:162525:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-13",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250616:180708:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-16",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250617:175723:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-17",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250625:161727:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-06-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250627:170216:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250630:155350:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-06-30",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250630:175755:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-06-30",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250718:165950:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-18",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250724:164934:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-24",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250725:171206:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250730:163246:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-30",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250731:153952:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-31",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250801:155044:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2025-08-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250801:173431:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250808:135501:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-08-08",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250811:183512:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250812:175254:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-08-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250812:183356:3": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-08-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250812:183731:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-08-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250812:184324:5": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-08-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250812:195525:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250812:195912:7": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-08-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250812:200556:8": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250813:181747:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-13",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250814:163704:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-14",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250815:174031:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-15",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250819:162446:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-19",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250820:164834:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-20",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250822:170535:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-22",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250825:164334:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250826:175016:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-26",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250829:174559:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-08-29",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250901:170054:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-09-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250901:181300:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250901:181428:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250901:183742:4": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-09-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250903:164032:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-09-08",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250903:181513:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250903:181609:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250904:172718:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-04",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250905:163824:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-05",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250908:182140:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-08",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250909:174739:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-09-09",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250910:135735:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-09-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250910:165748:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250911:173635:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250912:173138:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-09-16",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250915:172837:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-15",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250917:181004:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-17",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250918:173837:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-18",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250919:174412:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-19",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250923:175216:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-23",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250925:045141:3": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2025-09-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250925:045302:4": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-09-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250925:154729:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20250926:162932:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-09-26",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251016:174051:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-16",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251016:174208:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-16",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251017:183223:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-17",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251020:172617:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-20",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251021:183816:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-21",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251022:185601:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-22",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251023:162755:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-23",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251027:173110:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251028:181842:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-28",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251029:163819:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-29",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251030:182158:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-30",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251031:180746:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251103:172004:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251104:183224:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-04",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251105:180021:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-05",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251105:210503:2": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2025-11-05",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251106:164400:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-06",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251107:171144:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-07",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251110:140441:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-11-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251110:191401:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:135913:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:160229:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:173512:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:175505:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:184530:6": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:185054:7": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:192940:8": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:195044:9": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:200131:10": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:201813:11": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251111:202038:12": {
+      "ok": true,
+      "clause": "43",
+      "fact_date": "2025-11-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251113:175108:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-13",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251114:154614:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-11-20",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251114:180714:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-14",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251117:182950:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-17",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251118:174252:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-11-18",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251120:171328:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-11-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251125:173518:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2025-11-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251125:175345:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-12-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251125:181522:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-11-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251126:170212:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-11-26",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251202:181518:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-12-02",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251208:185712:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-12-08",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251209:180043:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-12-09",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251210:135058:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-12-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251219:151707:1": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2025-12-19",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251219:191958:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-12-19",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20251231:181255:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-12-31",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260115:192842:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-15",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260116:190047:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-16",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260116:190520:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-16",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260119:181433:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-19",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260121:192250:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-21",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260122:175058:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-22",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260123:185004:1": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2026-01-23",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260123:185720:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2026-01-23",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260123:191732:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-23",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260126:192649:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-26",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260127:185632:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260128:183049:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-01-28",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260202:182421:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-02",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260203:180540:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260204:190818:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-04",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:134623:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:175715:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:185213:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:185732:5": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:193730:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:194136:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:202255:8": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:203229:9": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:211121:10": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260210:213637:11": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260212:181846:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260213:170806:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-13",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260225:172932:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260225:180033:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-03-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260302:164102:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-03-02",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260302:180908:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-02",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260303:180428:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260304:174216:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-04",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260305:173202:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-05",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260306:175925:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-06",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260309:184554:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-09",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260310:140637:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-03-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260310:183548:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260310:184943:3": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-03-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260311:175048:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260312:175401:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260313:174200:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-13",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260316:184542:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-16",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260317:182223:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-17",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260318:180555:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-18",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260318:183307:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-03-18",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260319:181302:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-19",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260320:163648:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-03-20",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260320:185744:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-20",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260323:195315:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-23",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260324:170047:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-24",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260327:174821:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260331:191718:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-31",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260416:195756:2": {
+      "ok": true,
+      "clause": "47",
+      "fact_date": "2026-04-16",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260417:153434:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-04-17",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260417:165411:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-17",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260420:185443:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-20",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260421:173718:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-21",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260422:175413:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-22",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260423:172745:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-04-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260423:180650:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-23",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260424:170708:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-24",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260427:180827:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260428:181410:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-28",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260429:064429:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-29",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260429:175829:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-29",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260430:162938:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-30",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260505:181927:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-05",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260506:175048:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-06",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260506:191741:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-06",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260507:183116:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-07",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260508:141019:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-05-08",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260508:164850:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-05-08",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260508:175216:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-08",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260511:172232:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260512:164626:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260512:182537:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260512:184642:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260512:185222:5": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260512:191356:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260512:191700:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260512:192015:8": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260512:193156:9": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-05-12",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260513:142932:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-05-13",
+      "attempts": 0,
+      "cached_from": "39132958305"
+    },
+    "t05st01:2330:20260513:184950:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-13",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260514:181205:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-14",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260515:151547:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-05-15",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260515:190124:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-15",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260515:192419:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-15",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260518:180144:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-18",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260518:191213:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-18",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260519:162946:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-19",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260520:174211:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-05-26",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260520:182621:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-20",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260521:185400:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-21",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260522:172102:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-22",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260525:161255:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2026-05-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260525:165044:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-25",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260525:200003:3": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-05-29",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260527:163210:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-05-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260527:171830:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-27",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260601:175038:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-06-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260601:175340:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-06-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260602:180455:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-06-02",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260603:173411:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-06-03",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260604:160042:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-06-04",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260604:172146:2": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2026-06-04",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260610:135256:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-06-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260722:183247:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-07-22",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260810:135109:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-08-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260811:180301:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-08-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260811:185334:3": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-08-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260811:190129:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-08-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260811:193843:5": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-08-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260811:195854:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-08-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260811:200053:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-08-11",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260817:183431:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-08-24",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260901:140523:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-09-01",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260907:143930:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-09-08",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260907:163536:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-09-14",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    },
+    "t05st01:2330:20260910:135147:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-09-10",
+      "attempts": 0,
+      "cached_from": "39126755093"
+    }
+  },
+  "quarters": {
+    "2024Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-04-10T13:50:59+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20240410:135059:1",
+        "detail_verified": true,
+        "subject": "台積公司2024年3月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-04-10T13:50:59+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240410:135059:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年3月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-04-18T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240329:180621:2",
+          "detail_verified": true,
+          "subject": "公告本公司113年第一季法人說明會將於113年4月18日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-04-18T15:51:42+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240418:155142:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年第一季每股盈餘新台幣8.70元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-05-10T15:58:35+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240510:155835:3",
+          "detail_verified": true,
+          "subject": "本公司民國113年度第一季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-05-15T14:25:29+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202401_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202401_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20240403:191214:1",
+          "announced_at": "2024-04-03T19:12:14+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20240403:191428:2",
+          "announced_at": "2024-04-03T19:14:28+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告處分固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20240403:232325:3",
+          "announced_at": "2024-04-03T23:23:25+08:00",
+          "subject": "台積公司針對4月3日地震之說明",
+          "clause": "51",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2330:20240404:210531:2",
+          "announced_at": "2024-04-04T21:05:31+08:00",
+          "subject": "台積公司針對4/3地震更新說明",
+          "clause": "51",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2330:20240405:212303:1",
+          "announced_at": "2024-04-05T21:23:03+08:00",
+          "subject": "台積公司針對4/3地震更新說明",
+          "clause": "51",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2330:20240408:190458:1",
+          "announced_at": "2024-04-08T19:04:58+08:00",
+          "subject": "TSMC Arizona與美國商務部宣布最高可達66億美元的晶片 法案直接補助，該公司並計畫在鳳凰城設立第三座先進晶圓廠",
+          "clause": "51",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2330:20240408:193101:2",
+          "announced_at": "2024-04-08T19:31:01+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "human_review"
+        }
+      ],
+      "financial_report_status": "filed 2024-05-15T14:25:29+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-04-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": true
+    },
+    "2024Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-07-10T13:48:38+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20240710:134838:1",
+        "detail_verified": true,
+        "subject": "台積公司2024年6月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-07-10T13:48:38+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240710:134838:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年6月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-07-18T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240702:175630:2",
+          "detail_verified": true,
+          "subject": "公告本公司113年第二季法人說明會將於113年7月18日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-07-18T15:15:57+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240718:151557:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年第二季每股盈餘新台幣9.56元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-08-13T19:07:06+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240813:190706:3",
+          "detail_verified": true,
+          "subject": "本公司民國113年度第二季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-08-14T15:09:10+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202402_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202402_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20240701:183606:1",
+          "announced_at": "2024-07-01T18:36:06+08:00",
+          "subject": "公告本公司與台灣力森諾科科技股份有限公司簽訂合約 購買其廠房及附屬設施",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20240702:162001:1",
+          "announced_at": "2024-07-02T16:20:01+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20240703:155816:1",
+          "announced_at": "2024-07-03T15:58:16+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2024-08-14T15:09:10+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-07-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2024Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-10-09T13:37:57+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20241009:133757:1",
+        "detail_verified": true,
+        "subject": "台積公司2024年9月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-10-09T13:37:57+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20241009:133757:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年9月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-10-17T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20240927:143711:2",
+          "detail_verified": true,
+          "subject": "公告本公司113年第三季法人說明會將於113年10月17日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-10-17T15:44:14+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20241017:154414:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年第三季每股盈餘新台幣12.54元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-11-12T18:27:08+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20241112:182708:2",
+          "detail_verified": true,
+          "subject": "本公司民國113年度第三季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-11-14T18:03:20+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202403_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202403_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20241001:173847:1",
+          "announced_at": "2024-10-01T17:38:47+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20241004:054919:1",
+          "announced_at": "2024-10-04T05:49:19+08:00",
+          "subject": "Amkor與台積公司擴大夥伴關係宣布亞利桑那州先進封裝 合作協議",
+          "clause": "51",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2330:20241004:173716:2",
+          "announced_at": "2024-10-04T17:37:16+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20241007:174051:1",
+          "announced_at": "2024-10-07T17:40:51+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20241008:164933:1",
+          "announced_at": "2024-10-08T16:49:33+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20241008:170258:2",
+          "announced_at": "2024-10-08T17:02:58+08:00",
+          "subject": "公告本公司認購世界先進積體電路股份有限公司現金增資",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2024-11-14T18:03:20+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-10-09T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": true
+    },
+    "2024Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-01-10T14:05:13+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20250110:140513:1",
+        "detail_verified": true,
+        "subject": "台積公司2024年12月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-01-10T14:05:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250110:140513:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年12月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-01-16T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20241230:143845:1",
+          "detail_verified": true,
+          "subject": "公告本公司113年第四季法人說明會將於114年1月16日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-01-16T15:40:39+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250116:154039:1",
+          "detail_verified": true,
+          "subject": "台積公司2024年第四季每股盈餘新台幣14.45元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-02-12T14:57:17+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250212:145717:2",
+          "detail_verified": true,
+          "subject": "本公司民國113年度合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-02-27T14:01:14+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202404_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202404_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20250106:172544:1",
+          "announced_at": "2025-01-06T17:25:44+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250107:164653:1",
+          "announced_at": "2025-01-07T16:46:53+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250108:173216:1",
+          "announced_at": "2025-01-08T17:32:16+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250109:172547:1",
+          "announced_at": "2025-01-09T17:25:47+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2025-02-27T14:01:14+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-01-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2025Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-04-10T14:05:27+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20250410:140527:2",
+        "detail_verified": true,
+        "subject": "台積公司2025年3月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-04-10T14:05:27+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250410:140527:2",
+          "detail_verified": true,
+          "subject": "台積公司2025年3月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-04-17T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250328:172301:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第一季法人說明會將於114年4月17日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-04-17T15:26:10+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250417:152610:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年第一季每股盈餘新台幣13.94元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-05-13T17:40:17+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250513:174017:4",
+          "detail_verified": true,
+          "subject": "本公司民國114年度第一季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-05-15T13:40:15+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202501_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202501_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20250401:172733:1",
+          "announced_at": "2025-04-01T17:27:33+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250407:161018:1",
+          "announced_at": "2025-04-07T16:10:18+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250408:173657:1",
+          "announced_at": "2025-04-08T17:36:57+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250409:170627:1",
+          "announced_at": "2025-04-09T17:06:27+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2025-05-15T13:40:15+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-04-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2025Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-07-10T14:26:42+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20250710:142642:1",
+        "detail_verified": true,
+        "subject": "台積公司2025年6月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-07-10T14:26:42+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250710:142642:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年6月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-07-17T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250627:164722:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第二季法人說明會將於114年7月17日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-07-17T15:48:43+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250717:154843:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年第二季每股盈餘新台幣15.36元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-08-12T18:20:44+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250812:182044:2",
+          "detail_verified": true,
+          "subject": "本公司民國114年度第二季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-08-14T13:36:58+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202502_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202502_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20250701:195954:1",
+          "announced_at": "2025-07-01T19:59:54+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation 公告股東臨時會重要決議",
+          "clause": "18",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2330:20250701:200400:2",
+          "announced_at": "2025-07-01T20:04:00+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation 公告其董事長異動",
+          "clause": "6",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250701:200621:4",
+          "announced_at": "2025-07-01T20:06:21+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation 公告其董事異動",
+          "clause": "6",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250702:171530:1",
+          "announced_at": "2025-07-02T17:15:30+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20250704:170907:1",
+          "announced_at": "2025-07-04T17:09:07+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2025-08-14T13:36:58+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-07-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": true
+    },
+    "2025Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-10-09T14:01:10+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20251009:140110:1",
+        "detail_verified": true,
+        "subject": "台積公司2025年9月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-10-09T14:01:10+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20251009:140110:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年9月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-10-16T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20250926:171624:2",
+          "detail_verified": true,
+          "subject": "公告本公司114年第三季法人說明會將於114年10月16日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-10-16T15:06:48+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20251016:150648:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年第三季每股盈餘新台幣17.44元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-11-11T18:17:55+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20251111:181755:5",
+          "detail_verified": true,
+          "subject": "本公司民國114年度第三季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-11-14T13:42:22+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202503_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202503_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20251003:170518:1",
+          "announced_at": "2025-10-03T17:05:18+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20251007:190020:1",
+          "announced_at": "2025-10-07T19:00:20+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2025-11-14T13:42:22+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-10-09T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2025Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-01-09T13:51:04+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20260109:135104:1",
+        "detail_verified": true,
+        "subject": "台積公司2025年12月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-01-09T13:51:04+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260109:135104:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年12月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-01-15T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20251226:183412:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第四季法人說明會將於115年1月15日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-01-15T15:21:05+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260115:152105:1",
+          "detail_verified": true,
+          "subject": "台積公司2025年第四季每股盈餘新台幣19.50元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-02-10T18:16:19+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260210:181619:3",
+          "detail_verified": true,
+          "subject": "本公司民國114年度合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-02-26T17:23:30+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202504_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202504_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20260102:165608:1",
+          "announced_at": "2026-01-02T16:56:08+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260105:183313:1",
+          "announced_at": "2026-01-05T18:33:13+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260106:182750:1",
+          "announced_at": "2026-01-06T18:27:50+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation公告 Treasurer異動",
+          "clause": "8",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260106:200522:2",
+          "announced_at": "2026-01-06T20:05:22+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260107:181450:1",
+          "announced_at": "2026-01-07T18:14:50+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260108:185124:1",
+          "announced_at": "2026-01-08T18:51:24+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260108:201746:2",
+          "announced_at": "2026-01-08T20:17:46+08:00",
+          "subject": "本公司代子公司TSMC Arizona 公告取得不動產",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2026-02-26T17:23:30+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-01-09T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2026Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-04-10T13:50:36+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20260410:135036:1",
+        "detail_verified": true,
+        "subject": "台積公司2026年3月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-04-10T13:50:36+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260410:135036:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年3月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-04-16T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260327:180814:2",
+          "detail_verified": true,
+          "subject": "公告本公司115年第一季法人說明會將於115年4月16日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-04-16T15:38:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260416:153813:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年第一季每股盈餘新台幣22.08元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-05-12T18:33:04+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260512:183304:3",
+          "detail_verified": true,
+          "subject": "本公司民國115年度第一季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-05-15T14:43:02+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202601_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202601_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20260401:172647:1",
+          "announced_at": "2026-04-01T17:26:47+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260407:180626:1",
+          "announced_at": "2026-04-07T18:06:26+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        },
+        {
+          "document_id": "t05st01:2330:20260408:183402:1",
+          "announced_at": "2026-04-08T18:34:02+08:00",
+          "subject": "本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2026-05-15T14:43:02+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-04-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2026Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-07-13T13:50:31+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20260713:135031:1",
+        "detail_verified": true,
+        "subject": "台積公司2026年6月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-07-13T13:50:31+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260713:135031:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年6月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-07-16T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260629:185000:1",
+          "detail_verified": true,
+          "subject": "公告本公司115年第二季法人說明會將於115年7月16日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-07-16T15:12:31+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260716:151231:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年第二季每股盈餘新台幣27.25元"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-08-11T18:46:58+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260811:184658:2",
+          "detail_verified": true,
+          "subject": "本公司民國115年度第二季合併財務報告業經 董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-08-14T13:59:44+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2330:202602_2330_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202602_2330_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2330:20260702:173613:1",
+          "announced_at": "2026-07-02T17:36:13+08:00",
+          "subject": "本公司代重要子公司TSMC Arizona Corporation公告其 Treasurer異動",
+          "clause": "8",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2330:20260708:193435:1",
+          "announced_at": "2026-07-08T19:34:35+08:00",
+          "subject": "本公司代子公司 Emerging Fund, L.P.公告處分有價證券",
+          "clause": "20",
+          "cleared_by": "human_review"
+        }
+      ],
+      "financial_report_status": "filed 2026-08-14T13:59:44+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-07-13T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": true
+    },
+    "2026Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-10-08T13:54:04+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2330:20261008:135404:1",
+        "detail_verified": true,
+        "subject": "台積公司2026年9月營收報告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-10-08T13:54:04+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20261008:135404:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年9月營收報告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-10-15T14:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20260929:143916:1",
+          "detail_verified": true,
+          "subject": "公告本公司115年第三季法人說明會將於115年10月15日召開"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-10-15T15:21:38+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2330:20261015:152138:1",
+          "detail_verified": true,
+          "subject": "台積公司2026年第三季每股盈餘新台幣29.43元"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "not filed as of 2026-10-19T06:49:19.478422+00:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-10-08T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    }
+  },
+  "notes": [],
+  "detail_counts": {
+    "wanted": 646,
+    "fetched": 0,
+    "from_cache": 646,
+    "skipped_over_limit": 0
+  },
+  "clause_policy": {
+    "clauses": [
+      "20",
+      "6",
+      "8"
+    ],
+    "reviewer": "Gate Pipeline 擁有者（使用者本人）",
+    "decided_at": "2026-10-18T15:34:41+08:00"
+  },
+  "guidance": {
+    "version": "4.23-guidance",
+    "data_mode": "OFFICIAL_GUIDANCE",
+    "quarters": {
+      "2024Q1": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2024-04-10T13:50:59+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2024Q1",
+          "revenue_usd_bn": [
+            18.0,
+            18.8
+          ],
+          "gross_margin_pct": [
+            52.0,
+            54.0
+          ],
+          "operating_margin_pct": [
+            40.0,
+            42.0
+          ],
+          "fx_twd_per_usd": 31.1,
+          "document_id": "t05st01:2330:20240118:154253:1",
+          "announced_at": "2024-01-18T15:42:53+08:00",
+          "issued_with_results_of": "2023Q4",
+          "response_sha256": "d94bf5cde693f3b95eff964f0645497ed7f0b5c84e6e183daab0dd68005c8d4b"
+        },
+        "actual": {
+          "revenue_usd_bn": 18.87,
+          "gross_margin_pct": 53.1,
+          "operating_margin_pct": 42.0,
+          "eps_twd": 8.7,
+          "eps_adr_usd": 1.38,
+          "document_id": "t05st01:2330:20240418:155142:1",
+          "announced_at": "2024-04-18T15:51:42+08:00",
+          "response_sha256": "04407162cb0bc551bc8dbd485452a1ba0878113e0ce722ff019f1dbbc855a968"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN",
+          "operating_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2024-01-18T15:42:53+08:00",
+          "to": "2024-04-10T13:50:59+08:00",
+          "announcements": 56,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [
+            {
+              "document_id": "t05st01:2330:20240405:212303:1",
+              "subject": "台積公司針對4/3地震更新說明",
+              "signals": [
+                "圓廠內的設備已大致復原。台積公司全年業績展望以美元計仍將維持一月法說會展望，全年營收預計成長低至中段"
+              ]
+            }
+          ],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2024Q2": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2024-07-10T13:48:38+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2024Q2",
+          "revenue_usd_bn": [
+            19.6,
+            20.4
+          ],
+          "gross_margin_pct": [
+            51.0,
+            53.0
+          ],
+          "operating_margin_pct": [
+            40.0,
+            42.0
+          ],
+          "fx_twd_per_usd": 32.3,
+          "document_id": "t05st01:2330:20240418:155142:1",
+          "announced_at": "2024-04-18T15:51:42+08:00",
+          "issued_with_results_of": "2024Q1",
+          "response_sha256": "04407162cb0bc551bc8dbd485452a1ba0878113e0ce722ff019f1dbbc855a968"
+        },
+        "actual": {
+          "revenue_usd_bn": 20.82,
+          "gross_margin_pct": 53.2,
+          "operating_margin_pct": 42.5,
+          "eps_twd": 9.56,
+          "eps_adr_usd": 1.48,
+          "document_id": "t05st01:2330:20240718:151557:1",
+          "announced_at": "2024-07-18T15:15:57+08:00",
+          "response_sha256": "c11794ec8f48b15cdd94a5c2e69fa0ef2664a061cc47dd6bda1c79dc738ccf89"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "ABOVE",
+          "gross_margin_pct": "ABOVE",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2024-04-18T15:51:42+08:00",
+          "to": "2024-07-10T13:48:38+08:00",
+          "announcements": 74,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [
+            {
+              "document_id": "t05st01:2330:20240418:191527:4",
+              "subject": "台積公司針對4/3地震影響說明",
+              "signals": [
+                "廢和材料損耗相關的損失。台積公司全年業績展望以美元計仍將維持一月法說會展望，全年營收預計成長低至中段"
+              ]
+            }
+          ],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2024Q3": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2024-10-09T13:37:57+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2024Q3",
+          "revenue_usd_bn": [
+            22.4,
+            23.2
+          ],
+          "gross_margin_pct": [
+            53.5,
+            55.5
+          ],
+          "operating_margin_pct": [
+            42.5,
+            44.5
+          ],
+          "fx_twd_per_usd": 32.5,
+          "document_id": "t05st01:2330:20240718:151557:1",
+          "announced_at": "2024-07-18T15:15:57+08:00",
+          "issued_with_results_of": "2024Q2",
+          "response_sha256": "c11794ec8f48b15cdd94a5c2e69fa0ef2664a061cc47dd6bda1c79dc738ccf89"
+        },
+        "actual": {
+          "revenue_usd_bn": 23.5,
+          "gross_margin_pct": 57.8,
+          "operating_margin_pct": 47.5,
+          "eps_twd": 12.54,
+          "eps_adr_usd": 1.94,
+          "document_id": "t05st01:2330:20241017:154414:1",
+          "announced_at": "2024-10-17T15:44:14+08:00",
+          "response_sha256": "128f305c431d62fc4cd1d600de89b6f692df13677692e91334cc463dd8443d49"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "ABOVE",
+          "gross_margin_pct": "ABOVE",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2024-07-18T15:15:57+08:00",
+          "to": "2024-10-09T13:37:57+08:00",
+          "announcements": 62,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2024Q4": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2025-01-10T14:05:13+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2024Q4",
+          "revenue_usd_bn": [
+            26.1,
+            26.9
+          ],
+          "gross_margin_pct": [
+            57.0,
+            59.0
+          ],
+          "operating_margin_pct": [
+            46.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 32.0,
+          "document_id": "t05st01:2330:20241017:154414:1",
+          "announced_at": "2024-10-17T15:44:14+08:00",
+          "issued_with_results_of": "2024Q3",
+          "response_sha256": "128f305c431d62fc4cd1d600de89b6f692df13677692e91334cc463dd8443d49"
+        },
+        "actual": {
+          "revenue_usd_bn": 26.88,
+          "gross_margin_pct": 59.0,
+          "operating_margin_pct": 49.0,
+          "eps_twd": 14.45,
+          "eps_adr_usd": 2.24,
+          "document_id": "t05st01:2330:20250116:154039:1",
+          "announced_at": "2025-01-16T15:40:39+08:00",
+          "response_sha256": "0caceecbf9cbede0c3671c48b3bb0d44b78673099b21380665aff5e354f0b1a8"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "WITHIN",
+          "gross_margin_pct": "WITHIN",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2024-10-17T15:44:14+08:00",
+          "to": "2025-01-10T14:05:13+08:00",
+          "announcements": 62,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2025Q1": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2025-04-10T14:05:27+08:00",
+        "status": "GUIDANCE_UPDATED",
+        "reject_code": "GUIDANCE_UPDATED",
+        "guidance": {
+          "target_quarter": "2025Q1",
+          "revenue_usd_bn": [
+            25.0,
+            25.8
+          ],
+          "gross_margin_pct": [
+            57.0,
+            59.0
+          ],
+          "operating_margin_pct": [
+            46.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 32.8,
+          "document_id": "t05st01:2330:20250116:154039:1",
+          "announced_at": "2025-01-16T15:40:39+08:00",
+          "issued_with_results_of": "2024Q4",
+          "response_sha256": "0caceecbf9cbede0c3671c48b3bb0d44b78673099b21380665aff5e354f0b1a8"
+        },
+        "actual": null,
+        "verdicts": null,
+        "window": {
+          "from": "2025-01-16T15:40:39+08:00",
+          "to": "2025-04-10T14:05:27+08:00",
+          "announcements": 52,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": [
+            {
+              "document_id": "t05st01:2330:20250210:140102:1",
+              "subject": "台積公司2025年1月營收報告與地震影響說明",
+              "signals": [
+                "積公司正傾力補足生產損失，針對全年的財務展望維持不變。"
+              ]
+            }
+          ]
+        },
+        "notes": [
+          "經人工確認，截止點前公司已更新這一季的財測：['t05st01:2330:20250210:140102:1']"
+        ]
+      },
+      "2025Q2": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2025-07-10T14:26:42+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2025Q2",
+          "revenue_usd_bn": [
+            28.4,
+            29.2
+          ],
+          "gross_margin_pct": [
+            57.0,
+            59.0
+          ],
+          "operating_margin_pct": [
+            47.0,
+            49.0
+          ],
+          "fx_twd_per_usd": 32.5,
+          "document_id": "t05st01:2330:20250417:152610:1",
+          "announced_at": "2025-04-17T15:26:10+08:00",
+          "issued_with_results_of": "2025Q1",
+          "response_sha256": "e8d3fd2ef26c6829a1cd5fc5acde1c0a63832323d842255208017537f00ea938"
+        },
+        "actual": {
+          "revenue_usd_bn": 30.07,
+          "gross_margin_pct": 58.6,
+          "operating_margin_pct": 49.6,
+          "eps_twd": 15.36,
+          "eps_adr_usd": 2.47,
+          "document_id": "t05st01:2330:20250717:154843:1",
+          "announced_at": "2025-07-17T15:48:43+08:00",
+          "response_sha256": "8e9358f4be5320064fe5581eeb8c7a14d8a47e36468543e5e46d7f485a8426f8"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2025-04-17T15:26:10+08:00",
+          "to": "2025-07-10T14:26:42+08:00",
+          "announcements": 65,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2025Q3": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2025-10-09T14:01:10+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2025Q3",
+          "revenue_usd_bn": [
+            31.8,
+            33.0
+          ],
+          "gross_margin_pct": [
+            55.5,
+            57.5
+          ],
+          "operating_margin_pct": [
+            45.5,
+            47.5
+          ],
+          "fx_twd_per_usd": 29.0,
+          "document_id": "t05st01:2330:20250717:154843:1",
+          "announced_at": "2025-07-17T15:48:43+08:00",
+          "issued_with_results_of": "2025Q2",
+          "response_sha256": "8e9358f4be5320064fe5581eeb8c7a14d8a47e36468543e5e46d7f485a8426f8"
+        },
+        "actual": {
+          "revenue_usd_bn": 33.1,
+          "gross_margin_pct": 59.5,
+          "operating_margin_pct": 50.6,
+          "eps_twd": 17.44,
+          "eps_adr_usd": 2.92,
+          "document_id": "t05st01:2330:20251016:150648:1",
+          "announced_at": "2025-10-16T15:06:48+08:00",
+          "response_sha256": "59956013c14f27533c32c274f73eacfe45f263af6f15e68bc952e9dfa308bb8f"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "ABOVE",
+          "gross_margin_pct": "ABOVE",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2025-07-17T15:48:43+08:00",
+          "to": "2025-10-09T14:01:10+08:00",
+          "announcements": 53,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2025Q4": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2026-01-09T13:51:04+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2025Q4",
+          "revenue_usd_bn": [
+            32.2,
+            33.4
+          ],
+          "gross_margin_pct": [
+            59.0,
+            61.0
+          ],
+          "operating_margin_pct": [
+            49.0,
+            51.0
+          ],
+          "fx_twd_per_usd": 30.6,
+          "document_id": "t05st01:2330:20251016:150648:1",
+          "announced_at": "2025-10-16T15:06:48+08:00",
+          "issued_with_results_of": "2025Q3",
+          "response_sha256": "59956013c14f27533c32c274f73eacfe45f263af6f15e68bc952e9dfa308bb8f"
+        },
+        "actual": {
+          "revenue_usd_bn": 33.73,
+          "gross_margin_pct": 62.3,
+          "operating_margin_pct": 54.0,
+          "eps_twd": 19.5,
+          "eps_adr_usd": 3.14,
+          "document_id": "t05st01:2330:20260115:152105:1",
+          "announced_at": "2026-01-15T15:21:05+08:00",
+          "response_sha256": "d092ca026ef51159541a778578b31c1c788a20de9ce6d2faae43f43d4ebf5f79"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "ABOVE",
+          "gross_margin_pct": "ABOVE",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2025-10-16T15:06:48+08:00",
+          "to": "2026-01-09T13:51:04+08:00",
+          "announcements": 57,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2026Q1": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2026-04-10T13:50:36+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2026Q1",
+          "revenue_usd_bn": [
+            34.6,
+            35.8
+          ],
+          "gross_margin_pct": [
+            63.0,
+            65.0
+          ],
+          "operating_margin_pct": [
+            54.0,
+            56.0
+          ],
+          "fx_twd_per_usd": 31.6,
+          "document_id": "t05st01:2330:20260115:152105:1",
+          "announced_at": "2026-01-15T15:21:05+08:00",
+          "issued_with_results_of": "2025Q4",
+          "response_sha256": "d092ca026ef51159541a778578b31c1c788a20de9ce6d2faae43f43d4ebf5f79"
+        },
+        "actual": {
+          "revenue_usd_bn": 35.9,
+          "gross_margin_pct": 66.2,
+          "operating_margin_pct": 58.1,
+          "eps_twd": 22.08,
+          "eps_adr_usd": 3.49,
+          "document_id": "t05st01:2330:20260416:153813:1",
+          "announced_at": "2026-04-16T15:38:13+08:00",
+          "response_sha256": "4a8056aef00f5af1359112693165c784db3d7907d3e345cb55929cd50b36a5a4"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "ABOVE",
+          "gross_margin_pct": "ABOVE",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2026-01-15T15:21:05+08:00",
+          "to": "2026-04-10T13:50:36+08:00",
+          "announcements": 58,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2026Q2": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2026-07-13T13:50:31+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2026Q2",
+          "revenue_usd_bn": [
+            39.0,
+            40.2
+          ],
+          "gross_margin_pct": [
+            65.5,
+            67.5
+          ],
+          "operating_margin_pct": [
+            56.5,
+            58.5
+          ],
+          "fx_twd_per_usd": 31.7,
+          "document_id": "t05st01:2330:20260416:153813:1",
+          "announced_at": "2026-04-16T15:38:13+08:00",
+          "issued_with_results_of": "2026Q1",
+          "response_sha256": "4a8056aef00f5af1359112693165c784db3d7907d3e345cb55929cd50b36a5a4"
+        },
+        "actual": {
+          "revenue_usd_bn": 40.2,
+          "gross_margin_pct": 67.7,
+          "operating_margin_pct": 60.3,
+          "eps_twd": 27.25,
+          "eps_adr_usd": 4.31,
+          "document_id": "t05st01:2330:20260716:151231:1",
+          "announced_at": "2026-07-16T15:12:31+08:00",
+          "response_sha256": "c6268f2cb9e0b0c1a2d8c6f1a640198b3173505b7ab3670ff711fc8c18ea4173"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "WITHIN",
+          "gross_margin_pct": "ABOVE",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2026-04-16T15:38:13+08:00",
+          "to": "2026-07-13T13:50:31+08:00",
+          "announcements": 59,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      },
+      "2026Q3": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2026-10-08T13:54:04+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2026Q3",
+          "revenue_usd_bn": [
+            44.6,
+            45.8
+          ],
+          "gross_margin_pct": [
+            65.0,
+            67.0
+          ],
+          "operating_margin_pct": [
+            56.0,
+            58.0
+          ],
+          "fx_twd_per_usd": 32.0,
+          "document_id": "t05st01:2330:20260716:151231:1",
+          "announced_at": "2026-07-16T15:12:31+08:00",
+          "issued_with_results_of": "2026Q2",
+          "response_sha256": "c6268f2cb9e0b0c1a2d8c6f1a640198b3173505b7ab3670ff711fc8c18ea4173"
+        },
+        "actual": {
+          "revenue_usd_bn": 46.72,
+          "gross_margin_pct": 66.4,
+          "operating_margin_pct": 58.7,
+          "eps_twd": 29.43,
+          "eps_adr_usd": 4.6,
+          "document_id": "t05st01:2330:20261015:152138:1",
+          "announced_at": "2026-10-15T15:21:38+08:00",
+          "response_sha256": "eeb127727adf191cb813da895cc621d5e928fe0bfd07850facbbd2309d7f2b3d"
+        },
+        "verdicts": {
+          "revenue_usd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN",
+          "operating_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2026-07-16T15:12:31+08:00",
+          "to": "2026-10-08T13:54:04+08:00",
+          "announcements": 15,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": []
+      }
+    },
+    "gate": {
+      "data_mode": "OFFICIAL_GUIDANCE",
+      "label": "Gate5B 官方財測模式（Python 預驗證，非正式 Gate PASS）",
+      "verified_quarters": 10,
+      "min_quarters": 8,
+      "result": "OFFICIAL_GUIDANCE_VERIFIED",
+      "meaning": "比較的是公司自己在上一季公布的財測，不是市場共識"
+    },
+    "parse_failures": [],
+    "gate_result": {
+      "gate_name": "Gate5B_官方財測(OFFICIAL_GUIDANCE)",
+      "status": "official_guidance_verified",
+      "reasons": [
+        "2025Q1: GUIDANCE_UPDATED"
+      ],
+      "reject_codes": [
+        "GUIDANCE_UPDATED"
+      ],
+      "raw_count": 11,
+      "evidence_count": 10
+    },
+    "provisional_quarters_excluded": []
+  },
+  "official_figures": {
+    "2023Q4": {
+      "eps_twd_per_share": 9.21,
+      "eps_usd_per_adr": 1.44,
+      "revenue_twd_bn": 625.53,
+      "revenue_usd_bn": 19.62,
+      "document_id": "t05st01:2330:20240118:154253:1",
+      "announced_at": "2024-01-18T15:42:53+08:00",
+      "detail_sha256": "d94bf5cde693f3b95eff964f0645497ed7f0b5c84e6e183daab0dd68005c8d4b",
+      "subject": "台積公司2023年第四季每股盈餘新台幣9.21元"
+    },
+    "2024Q1": {
+      "eps_twd_per_share": 8.7,
+      "eps_usd_per_adr": 1.38,
+      "revenue_twd_bn": 592.64,
+      "revenue_usd_bn": 18.87,
+      "document_id": "t05st01:2330:20240418:155142:1",
+      "announced_at": "2024-04-18T15:51:42+08:00",
+      "detail_sha256": "04407162cb0bc551bc8dbd485452a1ba0878113e0ce722ff019f1dbbc855a968",
+      "subject": "台積公司2024年第一季每股盈餘新台幣8.70元"
+    },
+    "2024Q2": {
+      "eps_twd_per_share": 9.56,
+      "eps_usd_per_adr": 1.48,
+      "revenue_twd_bn": 673.51,
+      "revenue_usd_bn": 20.82,
+      "document_id": "t05st01:2330:20240718:151557:1",
+      "announced_at": "2024-07-18T15:15:57+08:00",
+      "detail_sha256": "c11794ec8f48b15cdd94a5c2e69fa0ef2664a061cc47dd6bda1c79dc738ccf89",
+      "subject": "台積公司2024年第二季每股盈餘新台幣9.56元"
+    },
+    "2024Q3": {
+      "eps_twd_per_share": 12.54,
+      "eps_usd_per_adr": 1.94,
+      "revenue_twd_bn": 759.69,
+      "revenue_usd_bn": 23.5,
+      "document_id": "t05st01:2330:20241017:154414:1",
+      "announced_at": "2024-10-17T15:44:14+08:00",
+      "detail_sha256": "128f305c431d62fc4cd1d600de89b6f692df13677692e91334cc463dd8443d49",
+      "subject": "台積公司2024年第三季每股盈餘新台幣12.54元"
+    },
+    "2024Q4": {
+      "eps_twd_per_share": 14.45,
+      "eps_usd_per_adr": 2.24,
+      "revenue_twd_bn": 868.46,
+      "revenue_usd_bn": 26.88,
+      "document_id": "t05st01:2330:20250116:154039:1",
+      "announced_at": "2025-01-16T15:40:39+08:00",
+      "detail_sha256": "0caceecbf9cbede0c3671c48b3bb0d44b78673099b21380665aff5e354f0b1a8",
+      "subject": "台積公司2024年第四季每股盈餘新台幣14.45元"
+    },
+    "2025Q1": {
+      "eps_twd_per_share": 13.94,
+      "eps_usd_per_adr": 2.12,
+      "revenue_twd_bn": 839.25,
+      "revenue_usd_bn": 25.53,
+      "document_id": "t05st01:2330:20250417:152610:1",
+      "announced_at": "2025-04-17T15:26:10+08:00",
+      "detail_sha256": "e8d3fd2ef26c6829a1cd5fc5acde1c0a63832323d842255208017537f00ea938",
+      "subject": "台積公司2025年第一季每股盈餘新台幣13.94元"
+    },
+    "2025Q2": {
+      "eps_twd_per_share": 15.36,
+      "eps_usd_per_adr": 2.47,
+      "revenue_twd_bn": 933.79,
+      "revenue_usd_bn": 30.07,
+      "document_id": "t05st01:2330:20250717:154843:1",
+      "announced_at": "2025-07-17T15:48:43+08:00",
+      "detail_sha256": "8e9358f4be5320064fe5581eeb8c7a14d8a47e36468543e5e46d7f485a8426f8",
+      "subject": "台積公司2025年第二季每股盈餘新台幣15.36元"
+    },
+    "2025Q3": {
+      "eps_twd_per_share": 17.44,
+      "eps_usd_per_adr": 2.92,
+      "revenue_twd_bn": 989.92,
+      "revenue_usd_bn": 33.1,
+      "document_id": "t05st01:2330:20251016:150648:1",
+      "announced_at": "2025-10-16T15:06:48+08:00",
+      "detail_sha256": "59956013c14f27533c32c274f73eacfe45f263af6f15e68bc952e9dfa308bb8f",
+      "subject": "台積公司2025年第三季每股盈餘新台幣17.44元"
+    },
+    "2025Q4": {
+      "eps_twd_per_share": 19.5,
+      "eps_usd_per_adr": 3.14,
+      "revenue_twd_bn": 1046.09,
+      "revenue_usd_bn": 33.73,
+      "document_id": "t05st01:2330:20260115:152105:1",
+      "announced_at": "2026-01-15T15:21:05+08:00",
+      "detail_sha256": "d092ca026ef51159541a778578b31c1c788a20de9ce6d2faae43f43d4ebf5f79",
+      "subject": "台積公司2025年第四季每股盈餘新台幣19.50元"
+    },
+    "2026Q1": {
+      "eps_twd_per_share": 22.08,
+      "eps_usd_per_adr": 3.49,
+      "revenue_twd_bn": 1134.1,
+      "revenue_usd_bn": 35.9,
+      "document_id": "t05st01:2330:20260416:153813:1",
+      "announced_at": "2026-04-16T15:38:13+08:00",
+      "detail_sha256": "4a8056aef00f5af1359112693165c784db3d7907d3e345cb55929cd50b36a5a4",
+      "subject": "台積公司2026年第一季每股盈餘新台幣22.08元"
+    },
+    "2026Q2": {
+      "eps_twd_per_share": 27.25,
+      "eps_usd_per_adr": 4.31,
+      "revenue_twd_bn": 1270.38,
+      "revenue_usd_bn": 40.2,
+      "document_id": "t05st01:2330:20260716:151231:1",
+      "announced_at": "2026-07-16T15:12:31+08:00",
+      "detail_sha256": "c6268f2cb9e0b0c1a2d8c6f1a640198b3173505b7ab3670ff711fc8c18ea4173",
+      "subject": "台積公司2026年第二季每股盈餘新台幣27.25元"
+    },
+    "2026Q3": {
+      "eps_twd_per_share": 29.43,
+      "eps_usd_per_adr": 4.6,
+      "revenue_twd_bn": 1494.24,
+      "revenue_usd_bn": 46.72,
+      "document_id": "t05st01:2330:20261015:152138:1",
+      "announced_at": "2026-10-15T15:21:38+08:00",
+      "detail_sha256": "eeb127727adf191cb813da895cc621d5e928fe0bfd07850facbbd2309d7f2b3d",
+      "subject": "台積公司2026年第三季每股盈餘新台幣29.43元"
+    }
+  },
+  "recognition": {
+    "events_recognized": {
+      "investor_conference": 12,
+      "quarter_revenue_complete": 12,
+      "self_reported_results": 12,
+      "board_approved_financials": 11
+    },
+    "guidance_quarters_parsed": 11,
+    "notes": []
+  }
+}
