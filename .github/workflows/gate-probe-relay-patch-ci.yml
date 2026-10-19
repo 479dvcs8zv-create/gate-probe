@@ -1,0 +1,55 @@
+name: gate-probe-relay-patch-ci
+# 對中繼 repo（公開、唯讀 checkout）的乾淨複本覆寫 handoff/relay_patches 的完整檔案，
+# 再照中繼自己 .github/workflows/us-sector-tests.yml 的 run 步驟逐條執行。
+# 只讀中繼、不推送、不開 PR；結果只代表「Claude 觸發的 GitHub Actions 重跑」，不是 GPT 或中繼 CI 的結果。
+on:
+  workflow_dispatch:
+    inputs:
+      relay_ref:
+        description: 中繼 commit（完整 SHA）
+        required: true
+        default: 46b58640c7b3f839c0c4d55e77ddddacfaacbb64
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: probe
+      - uses: actions/checkout@v4
+        with:
+          repository: wcr0936531039-png/macro-relay-service
+          ref: ${{ inputs.relay_ref }}
+          path: relay
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Record versions
+        env:
+          RELAY_REF: ${{ inputs.relay_ref }}
+        run: |
+          echo "relay HEAD: $(git -C relay rev-parse HEAD) (requested $RELAY_REF)"
+          echo "probe HEAD: $(git -C probe rev-parse HEAD)"
+          echo "manifest sha256: $(sha256sum probe/handoff/relay_patches/MANIFEST.tsv | cut -c1-64)"
+          echo "relay CI file sha256: $(sha256sum relay/.github/workflows/us-sector-tests.yml | cut -c1-64)"
+          node --version; python --version
+      - name: Overlay patched files (verify base and patched SHA-256)
+        run: python3 probe/tools/relay_overlay.py probe/handoff/relay_patches/MANIFEST.tsv probe relay
+      - name: Run relay's own us-sector-tests.yml run steps
+        run: |
+          set -euo pipefail
+          grep -E '^[[:space:]]*- run: ' relay/.github/workflows/us-sector-tests.yml | sed -E 's/^[[:space:]]*- run: //' > ci_cmds.txt
+          echo "commands taken from relay us-sector-tests.yml:"; cat ci_cmds.txt
+          test -s ci_cmds.txt
+          cd relay
+          while IFS= read -r cmd; do
+            echo "::group::$cmd"
+            bash -c "$cmd" < /dev/null
+            echo "::endgroup::"
+          done < ../ci_cmds.txt
+          echo "ALL RELAY CI STEPS PASSED"
