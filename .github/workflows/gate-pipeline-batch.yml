@@ -1,0 +1,191 @@
+# gate_pipeline v4.31 multi-stock evidence collection (repository 479dvcs8zv-create/gate-probe).
+#
+# Put this file at .github/workflows/gate-pipeline-batch.yml. Like gate-pipeline-collect, it uses the newest
+# gate_pipeline_vX.Y.zip in the repository root (by version number) and checks every program file against
+# gate_pipeline/MANIFEST.sha256 before running.
+#
+# How to run: Actions -> gate-pipeline-batch -> Run workflow, enter up to 10 stock codes (listed or OTC),
+# the ROC years, and the monthly-revenue rule.
+#
+# What it does:
+#   1. plan:    checks the inputs (4-6 digit codes, comma separated, at most 10; ROC years).
+#   2. collect: one job per stock, ONE AT A TIME (max-parallel 1, to stay gentle with the official site).
+#               Same program as gate-pipeline-collect: official MOPS material-information listings, detail pages
+#               and the doc.twse.com.tw filing list, 3-second pause between requests. A failure in one stock does
+#               not stop the others. Results go to results/<code>/<run id>/ exactly like a single collect run.
+#   3. report:  reads every stock's summary.json (no network) and writes results/batch/<run id>/batch_report.json
+#               and batch_report.md; it also replays each stock offline with the OTHER monthly-revenue rule so the
+#               difference is visible before you decide whether to enable it.
+#
+# Only the results/ folder is committed. No secrets or API keys are used. Nothing here touches the production site.
+name: gate-pipeline-batch
+
+on:
+  workflow_dispatch:
+    inputs:
+      co_ids:
+        description: "Stock codes, comma separated, at most 10 (e.g. 2330,2454,8299,6488,5347)"
+        required: true
+        default: "2330,2454,8299,6488,5347"
+      roc_years:
+        description: "ROC years, comma separated (e.g. 113,114,115)"
+        required: true
+        default: "113,114,115"
+      revenue_rule:
+        description: "Quarters with no quarter-end monthly revenue announcement: block (default) or use quarter end"
+        required: true
+        type: choice
+        default: require_announcement
+        options:
+          - require_announcement
+          - quarter_end
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gate-pipeline-collect
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      codes: ${{ steps.check.outputs.codes }}
+    steps:
+      - name: Check inputs
+        id: check
+        env:
+          CO_IDS: ${{ inputs.co_ids }}
+          ROC_YEARS: ${{ inputs.roc_years }}
+          REVENUE_RULE: ${{ inputs.revenue_rule }}
+        run: |
+          CODES=$(printf '%s' "$CO_IDS" | tr -d ' ')
+          if ! printf '%s' "$CODES" | grep -Eq '^[0-9]{4,6}(,[0-9]{4,6}){0,9}$'; then
+            echo "Stock codes must be 4-6 digits, comma separated, at most 10: '$CO_IDS'"; exit 1
+          fi
+          if ! printf '%s' "$ROC_YEARS" | grep -Eq '^[0-9]{3}(,[0-9]{3}){0,5}$'; then
+            echo "ROC years must look like 113,114,115: '$ROC_YEARS'"; exit 1
+          fi
+          case "$REVENUE_RULE" in require_announcement|quarter_end) ;; *) echo "Unknown revenue rule"; exit 1;; esac
+          JSON=$(python3 -c 'import json,sys; print(json.dumps(list(dict.fromkeys(sys.argv[1].split(",")))))' "$CODES")
+          echo "codes=$JSON" >> "$GITHUB_OUTPUT"
+          echo "Stocks: $JSON; years: $ROC_YEARS; revenue rule: $REVENUE_RULE"
+
+  collect:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        co_id: ${{ fromJSON(needs.plan.outputs.codes) }}
+    name: collect ${{ matrix.co_id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unpack program package (newest gate_pipeline_v*.zip in the repository root)
+        run: |
+          ZIP=$(ls gate_pipeline_v*.zip 2>/dev/null | sort -V | tail -n 1)
+          if [ -z "$ZIP" ]; then echo "No gate_pipeline_v*.zip in the repository root"; exit 1; fi
+          echo "Using $ZIP sha256=$(sha256sum "$ZIP" | cut -d' ' -f1)"
+          echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
+          rm -rf gate_pipeline
+          unzip -q "$ZIP"
+          test -f gate_pipeline/ops/batch_report.py
+
+      - name: Verify program files (SHA-256)
+        working-directory: gate_pipeline
+        run: sha256sum --strict -c MANIFEST.sha256
+
+      - name: Collect official evidence
+        env:
+          CO_ID: ${{ matrix.co_id }}
+          ROC_YEARS: ${{ inputs.roc_years }}
+          REVENUE_RULE: ${{ inputs.revenue_rule }}
+        run: |
+          OUT="results/${CO_ID}/${GITHUB_RUN_ID}"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          python gate_pipeline/ops/collect_evidence.py --co-id "$CO_ID" --roc-years "$ROC_YEARS" \
+            --revenue-rule "$REVENUE_RULE" --reviews gate_pipeline/contract/mops_real/reviews --out "$OUT"
+          sha256sum "$PIPELINE_ZIP" > "$OUT/pipeline_package.sha256"
+
+      - name: Save results (results/ folder only)
+        if: always()
+        env:
+          CO_ID: ${{ matrix.co_id }}
+          ROC_YEARS: ${{ inputs.roc_years }}
+        run: |
+          if [ -z "$OUT" ] || [ ! -d "$OUT" ]; then echo "Nothing to save"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$OUT"
+          git commit -m "batch collect ${CO_ID} (${ROC_YEARS}) run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            echo "push failed (attempt $i), retrying"; sleep $((i * 10))
+          done
+          exit 1
+
+  report:
+    needs: [plan, collect]
+    if: always() && needs.plan.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unpack program package
+        run: |
+          ZIP=$(ls gate_pipeline_v*.zip 2>/dev/null | sort -V | tail -n 1)
+          echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
+          rm -rf gate_pipeline
+          unzip -q "$ZIP"
+
+      - name: Verify program files (SHA-256)
+        working-directory: gate_pipeline
+        run: sha256sum --strict -c MANIFEST.sha256
+
+      - name: Batch report (reads results/ only, no network)
+        env:
+          CO_IDS: ${{ inputs.co_ids }}
+        run: |
+          CODES=$(printf '%s' "$CO_IDS" | tr -d ' ')
+          OUT="results/batch/${GITHUB_RUN_ID}"
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+          python gate_pipeline/ops/batch_report.py --co-ids "$CODES" --run-id "$GITHUB_RUN_ID" --results results \
+            --reviews gate_pipeline/contract/mops_real/reviews --out "$OUT"
+          sha256sum "$PIPELINE_ZIP" > "$OUT/pipeline_package.sha256"
+
+      - name: Save report (results/ folder only)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$OUT"
+          git commit -m "batch report run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            echo "push failed (attempt $i), retrying"; sleep $((i * 10))
+          done
+          exit 1
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gate-pipeline-batch-${{ github.run_id }}
+          path: results/batch/
+          if-no-files-found: warn
+          retention-days: 14
