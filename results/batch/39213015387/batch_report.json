@@ -1,0 +1,46 @@
+{
+  "report_version": "4.31-batch-report",
+  "run_id": "39213015387",
+  "generated_at": "2026-10-19T07:33:51.137798+00:00",
+  "gate_impact": "none",
+  "meaning": "各檔官方截止點證據的總表；CUTOFF_VERIFIED 也只是截止點證據齊全，不等於 Gate PASS",
+  "co_ids": [
+    "2330",
+    "2454",
+    "8299",
+    "6488",
+    "5347"
+  ],
+  "totals": {
+    "CUTOFF_VERIFIED": 0,
+    "CUTOFF_QUARTER_END_RULE": 0,
+    "PROVISIONAL": 0
+  },
+  "companies": [
+    {
+      "co_id": "2330",
+      "ok": false,
+      "reason": "這次沒有產生 summary.json（蒐證步驟失敗或沒有執行）"
+    },
+    {
+      "co_id": "2454",
+      "ok": false,
+      "reason": "這次沒有產生 summary.json（蒐證步驟失敗或沒有執行）"
+    },
+    {
+      "co_id": "8299",
+      "ok": false,
+      "reason": "這次沒有產生 summary.json（蒐證步驟失敗或沒有執行）"
+    },
+    {
+      "co_id": "6488",
+      "ok": false,
+      "reason": "這次沒有產生 summary.json（蒐證步驟失敗或沒有執行）"
+    },
+    {
+      "co_id": "5347",
+      "ok": false,
+      "reason": "這次沒有產生 summary.json（蒐證步驟失敗或沒有執行）"
+    }
+  ]
+}
