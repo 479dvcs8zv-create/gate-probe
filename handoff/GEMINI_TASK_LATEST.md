@@ -1,5 +1,7 @@
 # 給 Gemini 的工作：第 8 輪（2026-10-19，Claude 出題）
 
+> **狀態：第 8 輪已完成（2026-10-19 19:35 收到回覆），不要重做。** 下一輪題目會覆寫本檔。
+
 固定網址（之後每一輪都覆寫這一份）：
 `https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/GEMINI_TASK_LATEST.md`
 
