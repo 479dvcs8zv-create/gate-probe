@@ -1,0 +1,323 @@
+{
+  "report_version": "4.33-batch-report",
+  "run_id": "39255245841",
+  "generated_at": "2026-10-19T13:24:18.203577+00:00",
+  "gate_impact": "none",
+  "meaning": "各檔官方截止點證據的總表；CUTOFF_VERIFIED 也只是截止點證據齊全，不等於 Gate PASS",
+  "co_ids": [
+    "3034",
+    "3711",
+    "5274",
+    "2303"
+  ],
+  "totals": {
+    "CUTOFF_VERIFIED": 0,
+    "CUTOFF_QUARTER_END_RULE": 60,
+    "PROVISIONAL": 0
+  },
+  "companies": [
+    {
+      "co_id": "3034",
+      "ok": true,
+      "company_name": "聯詠",
+      "collector_version": "4.36-collect",
+      "market": {
+        "name": "上市公司",
+        "typek": "sii",
+        "quote_suffix": ".TW",
+        "first_sample": false,
+        "detail_pages_verified": true,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 0,
+        "CUTOFF_QUARTER_END_RULE": 15,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [],
+        "CUTOFF_QUARTER_END_RULE": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "board_approved_financials": 13
+      },
+      "recognition_notes": [
+        "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+      ],
+      "guidance_quarters_parsed": 0,
+      "guidance_gate_status": "not_connected",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 61,
+        "fetched": 61,
+        "from_cache": 0,
+        "skipped_over_limit": 0
+      },
+      "notes": [],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 0,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 15
+        },
+        "replayed_with": "4.36-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "有財務事件的公告寫法還不認得：把 recognition_notes 與該公司的公告主旨提供給維護者擴充寫法"
+      ]
+    },
+    {
+      "co_id": "3711",
+      "ok": true,
+      "company_name": "日月光投控",
+      "collector_version": "4.36-collect",
+      "market": {
+        "name": "上市公司",
+        "typek": "sii",
+        "quote_suffix": ".TW",
+        "first_sample": false,
+        "detail_pages_verified": true,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 0,
+        "CUTOFF_QUARTER_END_RULE": 15,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [],
+        "CUTOFF_QUARTER_END_RULE": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {},
+      "recognition_notes": [
+        "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「董事會通過財報」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+      ],
+      "guidance_quarters_parsed": 0,
+      "guidance_gate_status": "not_connected",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 0,
+        "fetched": 0,
+        "from_cache": 0,
+        "skipped_over_limit": 0
+      },
+      "notes": [],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 0,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 15
+        },
+        "replayed_with": "4.36-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "有財務事件的公告寫法還不認得：把 recognition_notes 與該公司的公告主旨提供給維護者擴充寫法"
+      ]
+    },
+    {
+      "co_id": "5274",
+      "ok": true,
+      "company_name": "信驊",
+      "collector_version": "4.36-collect",
+      "market": {
+        "name": "上櫃公司",
+        "typek": "otc",
+        "quote_suffix": ".TWO",
+        "first_sample": false,
+        "detail_pages_verified": true,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 0,
+        "CUTOFF_QUARTER_END_RULE": 15,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [],
+        "CUTOFF_QUARTER_END_RULE": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "board_approved_financials": 15
+      },
+      "recognition_notes": [
+        "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+      ],
+      "guidance_quarters_parsed": 0,
+      "guidance_gate_status": "not_connected",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 50,
+        "fetched": 50,
+        "from_cache": 0,
+        "skipped_over_limit": 0
+      },
+      "notes": [],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 0,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 15
+        },
+        "replayed_with": "4.36-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "有財務事件的公告寫法還不認得：把 recognition_notes 與該公司的公告主旨提供給維護者擴充寫法"
+      ]
+    },
+    {
+      "co_id": "2303",
+      "ok": true,
+      "company_name": "聯電",
+      "collector_version": "4.36-collect",
+      "market": {
+        "name": "上市公司",
+        "typek": "sii",
+        "quote_suffix": ".TW",
+        "first_sample": false,
+        "detail_pages_verified": true,
+        "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+      },
+      "revenue_rule": "quarter_end",
+      "quarters": 15,
+      "status_counts": {
+        "CUTOFF_VERIFIED": 0,
+        "CUTOFF_QUARTER_END_RULE": 15,
+        "PROVISIONAL": 0
+      },
+      "quarters_by_status": {
+        "CUTOFF_VERIFIED": [],
+        "CUTOFF_QUARTER_END_RULE": [
+          "2023Q1",
+          "2023Q2",
+          "2023Q3",
+          "2023Q4",
+          "2024Q1",
+          "2024Q2",
+          "2024Q3",
+          "2024Q4",
+          "2025Q1",
+          "2025Q2",
+          "2025Q3",
+          "2025Q4",
+          "2026Q1",
+          "2026Q2",
+          "2026Q3"
+        ],
+        "PROVISIONAL": []
+      },
+      "blocking_categories": {},
+      "pending_review_announcements": 0,
+      "events_recognized": {
+        "board_approved_financials": 15
+      },
+      "recognition_notes": [
+        "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+        "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+      ],
+      "guidance_quarters_parsed": 0,
+      "guidance_gate_status": "not_connected",
+      "listing_failures": {},
+      "detail_counts": {
+        "wanted": 136,
+        "fetched": 136,
+        "from_cache": 0,
+        "skipped_over_limit": 0
+      },
+      "notes": [],
+      "alternative_rule": {
+        "revenue_rule": "require_announcement",
+        "status_counts": {
+          "CUTOFF_VERIFIED": 0,
+          "CUTOFF_QUARTER_END_RULE": 0,
+          "PROVISIONAL": 15
+        },
+        "replayed_with": "4.36-collect",
+        "note": "用同一次蒐證的官方原始回應離線重算，不連網站；只供決定是否啟用參考"
+      },
+      "next_steps": [
+        "有財務事件的公告寫法還不認得：把 recognition_notes 與該公司的公告主旨提供給維護者擴充寫法"
+      ]
+    }
+  ]
+}
