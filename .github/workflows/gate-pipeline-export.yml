@@ -1,0 +1,66 @@
+# gate_pipeline v4.36 export of Gate5B time boundaries for the production site (repository 479dvcs8zv-create/gate-probe).
+#
+# Put this file at .github/workflows/gate-pipeline-export.yml. Runs automatically after every gate-pipeline-batch or
+# gate-pipeline-collect run (and manually). For each stock it takes the newest results/<code>/<run>/gate5b_boundaries.json,
+# re-computes it offline from the saved official raw responses, and exports it only if the result is identical (MATCH).
+# Output: exports/gate5b/latest.json and exports/gate5b/<code>.json — the single read-only URL for the production site:
+#   https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/exports/gate5b/latest.json
+# No network access to any other site, no API keys. Only the exports/gate5b/ folder is committed.
+name: gate-pipeline-export
+
+on:
+  workflow_run:
+    workflows: ["gate-pipeline-batch", "gate-pipeline-collect"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gate-pipeline-export
+  cancel-in-progress: false
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unpack program package (newest gate_pipeline_v*.zip in the repository root)
+        run: |
+          ZIP=$(ls gate_pipeline_v*.zip 2>/dev/null | sort -V | tail -n 1)
+          if [ -z "$ZIP" ]; then echo "No gate_pipeline_v*.zip in the repository root"; exit 1; fi
+          echo "PIPELINE_ZIP=$ZIP" >> "$GITHUB_ENV"
+          rm -rf gate_pipeline
+          unzip -q "$ZIP"
+          test -f gate_pipeline/ops/export_boundaries.py
+
+      - name: Verify program files (SHA-256)
+        working-directory: gate_pipeline
+        run: sha256sum --strict -c MANIFEST.sha256
+
+      - name: Re-verify and export Gate5B boundaries
+        run: |
+          python gate_pipeline/ops/export_boundaries.py --results results \
+            --reviews gate_pipeline/contract/mops_real/reviews --out exports/gate5b
+          sha256sum "$PIPELINE_ZIP" > exports/gate5b/pipeline_package.sha256
+
+      - name: Save export (exports/gate5b only)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- exports/gate5b
+          git commit -m "export gate5b boundaries run ${GITHUB_RUN_ID} using ${PIPELINE_ZIP}" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            echo "push failed (attempt $i), retrying"; sleep $((i * 10))
+          done
+          exit 1
