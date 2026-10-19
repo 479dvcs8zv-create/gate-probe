@@ -1,6 +1,6 @@
 # Claude 接續用（gate-probe 工作狀態）
 
-最後更新：2026-10-19 21:35 台北。新的對話開始時先讀這份，再讀 `DECISIONS_PENDING.md`。
+最後更新：2026-10-19 21:55 台北（v4.38）。新的對話開始時先讀這份，再讀 `DECISIONS_PENDING.md`。
 
 ## 已完成並存檔（v4.37，`gate_pipeline_v4.37.zip`）
 
@@ -17,17 +17,18 @@
 
 - 3034 聯詠：2023Q1–2026Q2 共 14 季 VERIFIED（2025Q2 三項都低於財測；其餘多為在區間內或高於）；2026Q3 等實際。
 - 3711 日月光投控：投控合併財測 2025Q3 起才有，2025Q3–2026Q2 共 4 季 VERIFIED；2023Q1–2025Q2 只有事業別財測（SEGMENT_ONLY_GUIDANCE，不比較）。
-- 5347、5274：只用 2026 年簡報測過（各 2026Q1／Q2 有比較）；民國 112–114 年簡報下載中（見下）。
+- 5347 世界先進（v4.38）：2023Q1–2026Q2 共 14 季 VERIFIED，每季「報告實際數字的簡報重列的財測」都和原財測相同；2023 年版面（營收億元＋兩率）與「季持平」都已支援。
+- 5274：只用 2026 年簡報測過；民國 112–114 年簡報下載中（見下）。
 
 ## 進行中（接手時先檢查）
 
 1. 法說會簡報補抓民國 112–114 年：gate-pipeline-conference-probe 依序 3034（39255734752 完成）、3711（39257183724 完成）、
-   5347（39259749526）、5274（之後一個 run）。完成後：
+   5347（39259749526 完成，v4.38 已納入）、5274（之後一個 run）。完成後：
    - `python gate_pipeline/ops/slide_guidance.py --co-id 5347 --conference results/5347/conference --out …`，5274 同；
      有 `format_unknown` 就看原文頁面補寫法（不猜）。
    - 用 `tools/make_slide_fixtures.py <代號>`（在 repo 根目錄、已解壓 gate_pipeline 時執行；逐頁 pdftotext＋一覽表原始回應 → `gate_pipeline/contract/mops_real/slides/<代號>/`）加 5347、5274 測試。
    - 發 v4.38 後執行 gate-pipeline-slide-guidance（四家），結果在 `results/<代號>/slide_guidance/<run>/`。
-2. 年報探測：執行 gate-pipeline-annual-report-probe（co_id 8299、roc_years 114,115），看 step=9 送法是否正確；下載到年報後查
+2. 年報探測：已執行 gate-pipeline-annual-report-probe run 39262137932（co_id 8299、roc_years 114,115），結果在 results/8299/annual_report/，看 step=9 送法是否正確；下載到年報後查
    生產據點、10% 以上客戶、市占率的頁碼（給正式網站 Gate 4）。
 
 ## 本次蒐證結論（已寫進 DECISIONS_PENDING B1）
@@ -42,3 +43,7 @@
   （公開；clone 到 `/home/claude/wcr0936531039-png/macro-relay-service` 後 `git fetch`）。
 - Gemini：題目 `handoff/GEMINI_TASK_LATEST.md`（Gemini 打不開網址，需使用者貼上）；回答由使用者附檔或匯出到 Google 文件。
 - 不讀、不改 `479dvcs8zv-create/AI_GATEWAY_KEY`。
+
+## Gemini
+
+第 9 輪題目已出（`handoff/GEMINI_TASK_LATEST.md`，五題），等使用者附回答。
