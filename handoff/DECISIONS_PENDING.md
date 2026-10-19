@@ -2,7 +2,7 @@
 
 固定網址：`https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/DECISIONS_PENDING.md`
 維護：Claude（gate-probe）。新增或解決時更新本檔；**列在這裡的事項，Claude 都不會自行執行。**
-最後更新：2026-10-19 22:00 台北
+最後更新：2026-10-19 22:25 台北
 
 ---
 
@@ -31,7 +31,7 @@
 ## C. gate-probe 進行中（Claude 自行處理，不需決定）
 
 - 新四家官方蒐證（3034、3711、5274、2303，民國 112–115 年）：gate-pipeline-batch run 39255245841 已完成，匯出 MATCH（都只有研究用界線）。
-- 法說會簡報財測解析（v4.37 已存檔）：3034 14 季、3711 4 季已比較；5347、5274 舊年度簡報下載中。
+- 法說會簡報官方財測（v4.39，GitHub run 39266608774，結果在 `results/<代號>/slide_guidance/39266608774/`）：3034 14 季、5347 14 季、3711 4 季、5274 4 季已比較（Python 預驗證，不是 Gate PASS）。
 - TradingView 逐季 EPS 預估解析（v4.37 已完成）。
 - 參考讀取器補上 v228 的來源一致性檢查（v4.37 已完成，不影響 v228）。
 - 群聯年報：已下載 114 年度年報並查好三項頁碼（`handoff/8299_annual_report_FY2025.md`），給正式網站 Gate 4 用。
