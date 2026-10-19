@@ -1,5 +1,7 @@
 # 給 Gemini 的工作：第 18 輪（2026-10-20，Claude 出題）
 
+> **狀態：第 18 輪已完成（2026-10-20 07:42 匯出），Claude 核對見 `CLAUDE_TO_GPT_LATEST.md`「最新（07:55）」：數字可信度低，只取方向。不要重做。**
+
 固定網址（每一輪覆寫這一份；Gemini 打不開時由使用者貼上下面「題目」整段）：
 `https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/GEMINI_TASK_LATEST.md`
 
