@@ -1,0 +1,487 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	<script src='js/outerScript/t100sb02_1_j.js'></script>
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<form action='/mops/web/ajax_t100sb02_1' method='post' onsubmit='return false;' name='fm'>
+<input type='hidden' name='firstin' value='true'>
+<input type='hidden' name='step' value='10'>
+<input type='hidden' name='filename' value='t100sb02_1_20261019_222842887.csv'>
+<button style='background-color:transparent;border:0;cursor:pointer;text-decoration:underline;' onclick="action='/server-java/t105sb02';submit();"><img src='images/bu_03.gif' hspace='3' ></button>
+</form>
+<form action = '/server-java/FileDownLoad' method = 'post' id='fm_fileDownload' name='fm_fileDownload'>
+<input type = 'hidden' name = 'step' id = 'step' value = '9'/>
+<input type = 'hidden' name = 'filePath' id = 'filePath' value = '/home/html/nas/STR/'/>
+<input type = 'hidden' name = 'fileName' id = 'fileName' value = ''/>
+<input type = 'hidden' name = 'functionName' id = 'functionName' value = 't100sb02_1'/>
+</form>
+<form name='form_t100sb02_1' action='/mops/web/ajax_t100sb02_1' method='post' onsubmit='return false;'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='firstin' value='true'>
+<input type='hidden' name='TYPEK' value='otc'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='co_id'>
+<input type='hidden' id='URL' name='URL'>
+<input type='hidden' id='from' name='from'>
+<input type='hidden' id='COMPANY_ID' name='COMPANY_ID'>
+<input type='hidden' id='SEQ_NO' name='SEQ_NO'>
+<div class='sortBlock'>
+<span>請選擇排列方式：
+<input type='radio' id='sortMyTable1' name='sortMyTable' value='1' onclick='ChangeSortTable(0);' checked />證券代號
+<input type='radio' id='sortMyTable2' name='sortMyTable' value='2' onclick='ChangeSortTable(2);' />召開法人說明會日期
+</span>
+<br>
+<span>請選擇排列順序：
+<input type='hidden' id='changeAsc' value='1' />
+<input type='radio' id='seq1' name='seq' value='1' onclick='sortTable(0,"");' checked />資料由小到大/舊到新
+<input type='radio' id='seq2' name='seq' value='2' onclick='sortTable(0,1);' />資料由大到小/新到舊
+</span>
+</div>
+<table id='myTable' class='hasBorder'>
+<thead style='position:relative;top:0px;'><tr class='tblHead'><th class='tblHead' nowrap rowspan='2'><b>公司代號</b></th><th class='tblHead' nowrap rowspan='2'><b>公司名稱</b></th><th class='tblHead' nowrap rowspan='2' data-type='date'><b>召開法人說明會日期</b></th><th class='tblHead' nowrap rowspan='2'><b>召開法人說明會時間</b></th><th class='tblHead' nowrap rowspan='2'><b>召開法人說明會地點</b></th><th class='tblHead' nowrap rowspan='2'><b>法人說明會擇要訊息</b></th><th class='tblHead' nowrap colspan='2'><b>法人說明會簡報內容</b></th><th class='tblHead' nowrap rowspan='2'><b>公司網站是否提供法人說明會相關資訊</b></th><th class='tblHead' nowrap rowspan='2'><b>影音連結資訊</b></th><th class='tblHead' nowrap rowspan='2'><b>其他應敘明事項</b></th><th class='tblHead' nowrap rowspan='2'><b>歷年法人說明會</b></th></tr><tr><th class='tblHead' nowrap><b>中文檔案</b></th><th class='tblHead' nowrap><b>英文檔案</b></th></tr></thead>
+<tr class='even' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/02/10</td>
+<td align='center'>14:00</td>
+<td style='text-align:left !important;'>線上法說會</td>
+<td style='text-align:left !important;'>譜瑞科技股份有限公司(股票代號: 4966) 西元2025年第四季線上法人說明會
+將於西元2026年2月10日下午2點(台北時間)舉行，有關會議大綱如下:
+
+- 公佈公司西元2025年第四季營運成果與西元2026年第一季營運展望
+- 問與答
+
+有意參加者可透過網路連結參加線上法人說明會。欲提問之分析師或媒體請撥打下列
+電話號碼參加會議。
+
+電話法人說明會撥打號碼:
+台灣: 02-3396-1191
+香港: 2112-1444 (免費電話)
+美國: 1-800-811-0860 (免費電話)
+英國: 0800-068-8186 (免費電話)
+日本: 00-531-440-156 (免費電話)
+新加坡: 800-492-2072 (免費電話)
+國際線: +886-2-3396-1191
+電話接通後，請按密碼: 1904004#
+
+網路直播: https://www.zucast.com/webcast/2BUDUhbx
+
+本公司西元2025年第四季營運成果新聞稿，您可以於法人說明會前約20分鐘至公開資訊
+觀測站下載。
+
+關於譜瑞科技股份有限公司
+
+譜瑞科技股份有限公司為一專供多種普及顯示器以及個人電腦、消費性電子產品與顯
+示面板所使用之高速訊號傳輸介面標準之混和訊號IC晶片之領導供應商。譜瑞公司成立
+於西元2005年為一無自有晶圓廠之半導體公司，並於西元2011年股票在台灣櫃檯買賣中
+心正式掛牌交易(股票代號: 4966)。譜瑞公司的IC晶片產品組合可支援顯示產品，儲存
+設備以及介面應用所使用之HDMI, DisplayPort, SATA, 與 USB 等傳輸介面規範之
+IC晶片成長需求。
+除了成為科技的創新者，譜瑞公司亦為產業標準制定組織之領導者與積極參與者。
+Parade Technologies, Inc. 為譜瑞公司100%擁有之美國子公司，目前為視訊電子
+標準協會會員(簡稱VESA)，並為視訊電子標準協會推動DisplayPort數位式視訊
+介面標準之主要貢獻者。
+譜瑞公司憑藉其與市場首屈一指之系統製造領導廠商之緊密合作關係，以研發能提供獨
+特系統性能之IC晶片。許多譜瑞公司的裝置整合智財技術能提供優越的系統訊號整合、
+先進的系統整合以及提升耗電效率。在譜瑞公司”比標準更好”的設計理念下，幾乎所有
+世界領導的個人電腦製造商與顯示器供應商均有採用譜瑞公司的IC晶片於其產品中。
+
+投資人關係: 
+張祐銘 先生
+ir@paradetech.com
++886.2.2627.9109</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260210M001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260210M001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260210E001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260210E001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='https://www.paradetech.com' target='_blink'><font color='blue'><u>https://www.paradetech.com</u></font></a></td>
+<td style='text-align:left !important;'>
+影音資訊網址：
+<a target='_blank' href='https://www.zucast.com/webcast/2BUDUhbx'><font color=blue><u>https://www.zucast.com/webcast/2BUDUhbx</u></font></a>
+<br>
+</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='odd' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/03/17 至 115/03/18</td>
+<td align='center'>13:00</td>
+<td style='text-align:left !important;'>台北君悅酒店(台北市信義區松壽路2號)</td>
+<td style='text-align:left !important;'>公告本公司於民國115年03月17日至03月18日受邀參加香港美銀證券於台北君悅酒店舉辦之2026 Asia Tech Conference，會中就本公司已公開發佈之財務數字、經營績效等相關資訊做說明。簡報資料請參閱台灣公開資訊觀測站(http://mops.twse.com.tw)。</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260316M001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260316M001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260316E001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260316E001.pdf</u></font></a></td>
+<td style='text-align:left !important;'>無</td><td style='text-align:left !important;'>&nbsp;</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='even' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/04/22</td>
+<td align='center'>14:00</td>
+<td style='text-align:left !important;'>線上法說會</td>
+<td style='text-align:left !important;'>譜瑞科技股份有限公司(股票代號: 4966) 西元2026年第一季線上法人
+說明會將於西元2026年4月22日下午2點(台北時間)舉行，有關會議大綱如下:
+
+-	公佈公司西元2026年第一季營運成果與西元2026年第二季營運展望
+-	問與答
+
+有意參加者可透過網路連結參加線上法人說明會。欲提問之分析師或媒體請撥打下列
+電話號碼參加會議。
+
+電話法人說明會撥打號碼:
+台灣: 02-3396-1191
+香港: 2112-1444 (免費電話)
+美國: 1-800-811-0860 (免費電話)
+英國: 0800-068-8186 (免費電話)
+日本: 00-531-440-156 (免費電話)
+新加坡: 800-492-2072 (免費電話)
+國際線: +886-2-3396-1191
+電話接通後，請按密碼: 1905029#
+
+網路直播: https://www.zucast.com/webcast/RWmAUH97
+
+本公司西元2026年第一季營運成果新聞稿，您可以於法人說明會前約20分鐘至公開
+資訊觀測站下載。
+
+關於譜瑞科技股份有限公司
+
+譜瑞科技股份有限公司為一專供多種普及顯示器以及個人電腦、消費性電子產品與
+顯示面板所使用之高速訊號傳輸介面標準之混和訊號IC晶片之領導供應商。譜瑞公司
+成立於西元2005年為一無自有晶圓廠之半導體公司，並於西元2011年股票在台灣櫃檯
+買賣中心正式掛牌交易(股票代號: 4966)。譜瑞公司的IC晶片產品組合可支援顯示產
+品，儲存設備以及介面應用所使用之HDMI, DisplayPort, SATA, 與 USB 等傳輸
+介面規範之IC晶片成長需求。
+除了成為科技的創新者，譜瑞公司亦為產業標準制定組織之領導者與積極參與者。
+Parade Technologies, Inc. 為譜瑞公司100%擁有之美國子公司，目前為視訊電子
+標準協會會員(簡稱VESA)，並為視訊電子標準協會推動DisplayPort數位式視訊
+介面標準之主要貢獻者。
+譜瑞公司憑藉其與市場首屈一指之系統製造領導廠商之緊密合作關係，以研發能提供
+獨特系統性能之IC晶片。許多譜瑞公司的裝置整合智財技術能提供優越的系統訊號整
+合、先進的系統整合以及提升耗電效率。在譜瑞公司”比標準更好”的設計理念下，
+幾乎所有世界領導的個人電腦製造商與顯示器供應商均有採用譜瑞公司的IC晶片於
+其產品中。
+
+
+投資人關係: 
+張祐銘 先生
+ir@paradetech.com
++886.2.2627.9109</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260422M001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260422M001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260422E001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260422E001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='https://www.paradetech.com' target='_blink'><font color='blue'><u>https://www.paradetech.com</u></font></a></td>
+<td style='text-align:left !important;'>
+影音資訊網址：
+<a target='_blank' href='https://www.zucast.com/webcast/RWmAUH97'><font color=blue><u>https://www.zucast.com/webcast/RWmAUH97</u></font></a>
+<br>
+</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='odd' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/05/26</td>
+<td align='center'>09:00</td>
+<td style='text-align:left !important;'>香港四季酒店 (香港中環金融街8號)</td>
+<td style='text-align:left !important;'>公告本公司於民國115年05月26日受邀參加瑞銀集團於香港四季酒店舉辦之Asian Investment 
+Conference 2026，會中就本公司已公開發佈之財務數字、經營績效等相關資訊做說明。
+簡報資料請參閱台灣公開資訊觀測站(http://mops.twse.com.tw)。</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260521M001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260521M001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260521E001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260521E001.pdf</u></font></a></td>
+<td style='text-align:left !important;'>無</td><td style='text-align:left !important;'>&nbsp;</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='even' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/05/29</td>
+<td align='center'>09:30</td>
+<td style='text-align:left !important;'>台北文華東方酒店(10548 台北市松山區敦化北路158號)</td>
+<td style='text-align:left !important;'>公告本公司於民國115年5月29日受邀參加摩根士丹利證券於台北文華東方酒店舉辦之Asia 
+AI Summit 2026，會中就本公司已公開發佈之財務數字、經營績效等相關資訊做說明。
+簡報資料請參閱台灣公開資訊觀測站(http://mops.twse.com.tw)。</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260521M002.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260521M002.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260521E002.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260521E002.pdf</u></font></a></td>
+<td style='text-align:left !important;'>無</td><td style='text-align:left !important;'>&nbsp;</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='odd' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/06/03 至 115/06/04</td>
+<td align='center'>09:00</td>
+<td style='text-align:left !important;'>台北W飯店(台北市信義區忠孝東路五段10號)</td>
+<td style='text-align:left !important;'>公告本公司於民國115年06月03日至115年06月04日受邀參加花旗證券於台北W飯店舉辦之
+Citi&#039;s 2026 Taiwan Tech Conference，會中就本公司已公開發佈之財務數字、經營績效
+等相關資訊做說明。簡報資料請參閱台灣公開資訊觀測站(http://mops.twse.com.tw)。</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260521M002.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260521M002.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260521E002.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260521E002.pdf</u></font></a></td>
+<td style='text-align:left !important;'>無</td><td style='text-align:left !important;'>&nbsp;</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='even' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/08/05</td>
+<td align='center'>14:00</td>
+<td style='text-align:left !important;'>線上法說會</td>
+<td style='text-align:left !important;'>譜瑞科技股份有限公司(股票代號: 4966) 西元2026年第二季線上法人
+說明會將於西元2026年8月5日下午2點(台北時間)舉行，有關會議大綱如下:
+
+-公佈公司西元2026年第二季營運成果與西元2026年第三季營運展望
+-問與答
+
+有意參加者可透過網路連結參加線上法人說明會。欲提問之分析師或媒體請撥打下列
+電話號碼參加會議。
+
+電話法人說明會撥打號碼:
+台灣: 02-3396-1191
+香港: 2112-1444 (免費電話)
+美國: 1-800-811-0860 (免費電話)
+英國: 0800-068-8186 (免費電話)
+日本: 00-531-440-156 (免費電話)
+新加坡: 800-492-2072 (免費電話)
+國際線: +886-2-3396-1191
+電話接通後，請按密碼: 1416005#
+網路直播: https://www.zucast.com/webcast/DjrR46OS
+
+本公司西元2026年第二季營運成果新聞稿，您可以於法人說明會前約20分鐘至公開
+資訊觀測站下載。
+
+關於譜瑞科技股份有限公司
+
+譜瑞科技股份有限公司為一專供多種普及顯示器以及個人電腦、消費性電子產品與
+顯示面板所使用之高速訊號傳輸介面標準之混和訊號IC晶片之領導供應商。譜瑞公司
+成立於西元2005年為一無自有晶圓廠之半導體公司，並於西元2011年股票在台灣櫃檯
+買賣中心正式掛牌交易(股票代號: 4966)。譜瑞公司的IC晶片產品組合可支援顯示產
+品，儲存設備以及介面應用所使用之HDMI, DisplayPort, SATA, 與 USB 等傳輸
+介面規範之IC晶片成長需求。
+除了成為科技的創新者，譜瑞公司亦為產業標準制定組織之領導者與積極參與者。
+Parade Technologies, Inc. 為譜瑞公司100%擁有之美國子公司，目前為視訊電子
+標準協會會員(簡稱VESA)，並為視訊電子標準協會推動DisplayPort數位式視訊
+介面標準之主要貢獻者。
+譜瑞公司憑藉其與市場首屈一指之系統製造領導廠商之緊密合作關係，以研發能提供
+獨特系統性能之IC晶片。許多譜瑞公司的裝置整合智財技術能提供優越的系統訊號整
+合、先進的系統整合以及提升耗電效率。在譜瑞公司”比標準更好”的設計理念下，
+幾乎所有世界領導的個人電腦製造商與顯示器供應商均有採用譜瑞公司的IC晶片於
+其產品中。
+
+投資人關係: 
+張祐銘 先生
+ir@paradetech.com
++886.2.2627.9109</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260805M001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260805M001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260805E001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260805E001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='https://www.paradetech.com' target='_blink'><font color='blue'><u>https://www.paradetech.com</u></font></a></td>
+<td style='text-align:left !important;'>
+影音資訊網址：
+<a target='_blank' href='https://www.zucast.com/webcast/DjrR46OS'><font color=blue><u>https://www.zucast.com/webcast/DjrR46OS</u></font></a>
+<br>
+</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='odd' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/09/09</td>
+<td align='center'>15:30</td>
+<td style='text-align:left !important;'>宏遠證券七樓會議室 (台北市信義路四段236號7樓)</td>
+<td style='text-align:left !important;'>公告本公司於民國115年09月09日受邀參加宏遠證券於宏遠證券七樓會議室舉辦之2026年
+趨勢產業論壇，會中就本公司已公開發佈之財務數字、經營績效等相關資訊做說明。簡報
+資料請參閱台灣公開資訊觀測站(http://mops.twse.com.tw)。</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260907M001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260907M001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260907E001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260907E001.pdf</u></font></a></td>
+<td style='text-align:left !important;'>無</td><td style='text-align:left !important;'>
+影音資訊網址：
+<a target='_blank' href='http://irconference.twse.com.tw/4966_194_20260909_ch.mp4'><font color=blue><u>http://irconference.twse.com.tw/4966_194_20260909_ch.mp4</u></font></a>
+<br>
+</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='even' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/09/14</td>
+<td align='center'>09:00</td>
+<td style='text-align:left !important;'>台北W飯店(台北市信義區忠孝東路5段10號)</td>
+<td style='text-align:left !important;'>公告本公司於民國115年09月14日受邀參加瑞銀證券於台北W飯店舉辦之Taiwan 
+Summit 2026，會中就本公司已公開發佈之財務數字、經營績效等相關資訊做
+說明。簡報資料請參閱台灣公開資訊觀測站(http://mops.twse.com.tw)。</td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260907M001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260907M001.pdf</u></font></a></td>
+<td style='text-align:left !important;'><a href='#' onclick='document.fm_fileDownload.fileName.value="496620260907E001.pdf";document.fm_fileDownload.submit();'><font color='blue'><u>496620260907E001.pdf</u></font></a></td>
+<td style='text-align:left !important;'>無</td><td style='text-align:left !important;'>&nbsp;</td>
+<td style='text-align:left !important;'>無。</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+<tr class='odd' data-type='body' >
+<td style='text-align:left !important;'>4966</td><td>譜瑞-KY</td>
+<td align='center'>115/10/28</td>
+<td align='center'>14:00</td>
+<td style='text-align:left !important;'>線上法說會</td>
+<td style='text-align:left !important;'>譜瑞科技股份有限公司(股票代號: 4966) 西元2026年第三季線上法人
+說明會將於西元2026年10月28日下午2點(台北時間)舉行，有關會議大綱如下:
+
+-公佈公司西元2026年第三季營運成果與西元2026年第四季營運展望
+-問與答
+
+有意參加者可透過網路連結參加線上法人說明會。欲提問之分析師或媒體請撥打下列
+電話號碼參加會議。
+
+電話法人說明會撥打號碼:
+台灣: 02-3396-1191
+香港: 2112-1444 (免費電話)
+美國: 1-800-811-0860 (免費電話)
+英國: 0800-068-8186 (免費電話)
+日本: 00-531-440-156 (免費電話)
+新加坡: 800-492-2072 (免費電話)
+國際線: +886-2-3396-1191
+電話接通後，請按密碼: 1106028#
+
+網路直播: https://www.zucast.com/webcast/77fsGQuB
+
+本公司西元2026年第三季營運成果新聞稿，您可以於法人說明會前約20分鐘至公開
+資訊觀測站下載。
+
+關於譜瑞科技股份有限公司
+
+譜瑞科技股份有限公司為一專供多種普及顯示器以及個人電腦、消費性電子產品與
+顯示面板所使用之高速訊號傳輸介面標準之混和訊號IC晶片之領導供應商。譜瑞公司
+成立於西元2005年為一無自有晶圓廠之半導體公司，並於西元2011年股票在台灣櫃檯
+買賣中心正式掛牌交易(股票代號: 4966)。譜瑞公司的IC晶片產品組合可支援顯示產
+品，儲存設備以及介面應用所使用之HDMI, DisplayPort, SATA, 與 USB 等傳輸
+介面規範之IC晶片成長需求。
+除了成為科技的創新者，譜瑞公司亦為產業標準制定組織之領導者與積極參與者。
+Parade Technologies, Inc. 為譜瑞公司100%擁有之美國子公司，目前為視訊電子
+標準協會會員(簡稱VESA)，並為視訊電子標準協會推動DisplayPort數位式視訊
+介面標準之主要貢獻者。
+譜瑞公司憑藉其與市場首屈一指之系統製造領導廠商之緊密合作關係，以研發能提供
+獨特系統性能之IC晶片。許多譜瑞公司的裝置整合智財技術能提供優越的系統訊號整
+合、先進的系統整合以及提升耗電效率。在譜瑞公司”比標準更好”的設計理念下，
+幾乎所有世界領導的個人電腦製造商與顯示器供應商均有採用譜瑞公司的IC晶片於其
+產品中。
+
+投資人關係: 
+張祐銘 先生
+ir@paradetech.com
++886.2.2627.9109</td>
+<td style='text-align:left !important;'>內容檔案於當日會後公告於公開資訊觀測站</td>
+<td style='text-align:left !important;'>內容檔案於當日會後公告於公開資訊觀測站</td>
+<td style='text-align:left !important;'><a href='https://www.paradetech.com' target='_blink'><font color='blue'><u>https://www.paradetech.com</u></font></a></td>
+<td style='text-align:left !important;'>
+影音資訊網址：
+未輸
+<br>
+</td>
+<td style='text-align:left !important;'>無</td>
+<td align='center'><input type='button' value='查詢' onclick='document.form_t100sb02_1.co_id.value="4966";openWindow(this.form ,"");'>
+</td>
+</tr>
+</table>
+<br>
+<div class='pageBtn'>
+<input type='button' value='1' style='margin:15px 5px; cursor:pointer;background: #165c98;color: #fff;border: 1px solid #000000;border-radius: 2px;' onclick='page(0);' />
+</div>
+</form>
+<style>
+tr[data-page="none;"]{
+	display: none;
+}
+</style>
+<form action='/mops/web/ajax_t100sb02_1' method='post' onsubmit='return false;' name='fm1'>
+<input type='hidden' name='firstin' value='true'>
+<input type='hidden' name='step' value='10'>
+<input type='hidden' name='filename' value='t100sb02_1_20261019_222842887.csv'>
+<button style='background-color:transparent;border:0;cursor:pointer;text-decoration:underline;' onclick="action='/server-java/t105sb02';submit();"><img src='images/bu_03.gif' hspace='3' ></button>
+</form>
+
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
