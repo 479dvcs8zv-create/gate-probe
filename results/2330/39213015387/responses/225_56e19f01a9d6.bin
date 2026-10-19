@@ -1,0 +1,188 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2330'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2330'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='112'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;2</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;112/08/08</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;19:00:22</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃仁昭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-563-6688</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司、博世、英飛淩和恩智浦半導體成立合資公司
+在歐洲引入先進半導體製造</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+51&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;112/08/08
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:112/08/08
+2.公司名稱:台灣積體電路製造股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:不適用
+6.因應措施:不適用
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
+台積公司、羅伯特博世公司（Robert Bosch GmbH）、英飛淩科技股份公司（Infineon
+Technologies AG）和恩智浦半導體（ NXP Semiconductors N.V.）今（8）日宣佈，
+有計劃將共同投資位於德國德勒斯登的歐洲半導體製造公司（European Semiconductor
+Manufacturing Company, ESMC），以提供先進半導體製造服務。ESMC代表著300mm晶圓
+廠興建計畫邁出了重要的一步，支援汽車和工業市場中快速成長的未來產能需求，其最
+終投資定案尚待政府補助水準確認後決議。此計畫依據《歐洲晶片法案》（European
+Chips Act）的框架制定。
+
+此計畫興建的晶圓廠預計採用台積公司28/22奈米平面互補金屬氧化物半導體（CMOS），
+以及16/12奈米鰭式場效電晶體（FinFET）製程技術，月產能約40,000片300mm（12吋）
+晶圓。藉由先進的FinFET技術，將能進一步強化歐洲半導體製造生態系統，且創造約
+2,000個直接的高科技專業工作機會。ESMC目標於2024年下半年開始興建晶圓廠，並於
+2027年底開始生產。
+
+籌備中的合資公司經監管機關核准並符合其他條件後，將由台積公司持有70%股權，
+博世、英飛凌和恩智浦則各持有10%股權。透過股權注資、借債，以及在歐盟和德國政
+府的大力支持下，總計投資金額預估超過100億歐元。該晶圓廠將由台積公司營運。
+
+台積公司總裁魏哲家博士表示：「本次在德勒斯登的投資展現了台積公司致力於滿足客
+戶策略能力和技術需求的承諾，我們很高興有機會加深與博世、英飛凌和恩智浦半導體
+的長期合作夥伴關係。歐洲對於半導體創新來說是個大有可為之地，尤其是在汽車和工
+業領域方面，我們期待與歐洲人才攜手，將這些創新引入我們的先進矽技術中。」
+
+博世集團董事會主席Dr. Stefan Hartung表示：「半導體不僅是博世成功的關鍵，其可
+靠的可取得性對於全球汽車產業的成功也至關重要。博世不僅持續擴大我們自有的製造
+設施，做為汽車供應商，我們亦透過與合作夥伴的密切合作來進一步鞏固汽車供應鏈。
+我們很高興能爭取到與台積公司這樣的全球創新領導者攜手，以強化德勒斯登半導體晶
+圓廠周邊的半導體生態系統。」
+
+英飛凌執行長Jochen Hanebeck表示：「我們的共同投資對支持歐洲半導體生態系統而言
+是一重要里程碑，這項計畫強化了德勒斯登作為全球最重要半導體樞紐之一的地位，而
+此地更早已是英飛淩最大的前端製程據點所在。英飛凌將利用此全新產能滿足不斷成長
+的需求，尤其針對汽車和物聯網領域的歐洲客戶。先進的製造能力將為開發創新技術、
+產品和解決方案提供基礎，以應對低碳化（decarbonization）和數位化
+（digitalization）等全球性挑戰。」
+
+恩智浦半導體總裁兼執行長Kurt Sievers表示：「恩智浦半導體非常致力於強化歐洲的
+創新和供應鏈彈性，我們感謝歐盟、德國和薩克森自由邦認可半導體產業的關鍵角色，
+並對推動歐洲晶片生態系統做出實際承諾。這個嶄新且標誌性的半導體晶圓廠建設，將
+為因急劇增加的數位化和電氣化而需要各式矽製品的汽車和工業領域，提供所需的創新
+和產能。」</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2330'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

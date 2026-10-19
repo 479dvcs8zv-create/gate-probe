@@ -1,0 +1,928 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<form action='/mops/web/ajax_t05st01' name='t05st01_fm' id='t05st01_fm' method='post' onsubmit='return false;'>
+<input type='hidden' name='firstin' value='true' />
+<input type=hidden name=b_date value=>
+<input type=hidden name=e_date value=>
+<input type=hidden name=TYPEK>
+<input type=hidden name=year value=112>
+<input type=hidden name=month value=all>
+<input type=hidden name=type value=>
+<input type=hidden name=co_id>
+<input type=hidden name=spoke_date>
+<input type=hidden name=spoke_time>
+<input type=hidden name=seq_no>
+<input type='hidden' name='MEETING_STEP'>
+<input type='hidden' name='MODEL'>
+<input type='hidden' name='ITEM'>
+<input type=hidden name=e_month value=all>
+<input type='hidden' name='step' value='2'><input type='hidden' name='off' value='1'><center><b>請至財務及交易資訊重點專區參考公司相關<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb01";'  onclick='document.t05st01_fm.TYPEK.value="sii";document.t05st01_fm.co_id.value="2330";document.t05st01_fm.step.value="1";document.t05st01_fm.MEETING_STEP.value="0"; action="/mops/web/ajax_t211sb01";openWindow(this.form,"");'><font color='blue'><u>財務資訊</u></font></button>及<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb05";'  onclick='document.t05st01_fm.TYPEK.value="sii";document.t05st01_fm.co_id.value="2330";document.t05st01_fm.step.value="2";document.t05st01_fm.MODEL.value="2";document.t05st01_fm.ITEM.value="0"; action="/mops/web/ajax_t211sb05";openWindow(this.form,"");'><font color='blue'><u>交易資訊</u></font></button></b></center>
+<br>
+<table class='hasBorder'>
+<tr class='tblHead'><th>公司代號</th><th>公司名稱</th><th>發言日期</th><th>發言時間</th><th>主旨</th><th>&nbsp;</th></tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/01/04</td><td style='text-align:left !important;'>&nbsp;16:04:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160406';document.t05st01_fm.spoke_date.value='20230104';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/01/10</td><td style='text-align:left !important;'>&nbsp;13:43:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2022年12月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134315';document.t05st01_fm.spoke_date.value='20230110';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/01/12</td><td style='text-align:left !important;'>&nbsp;15:23:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2022年第四季每股盈餘新台幣11.41元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='152328';document.t05st01_fm.spoke_date.value='20230112';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/01/30</td><td style='text-align:left !important;'>&nbsp;18:35:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183524';document.t05st01_fm.spoke_date.value='20230130';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/01/31</td><td style='text-align:left !important;'>&nbsp;18:34:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183420';document.t05st01_fm.spoke_date.value='20230131';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/06</td><td style='text-align:left !important;'>&nbsp;16:57:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165747';document.t05st01_fm.spoke_date.value='20230206';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/08</td><td style='text-align:left !important;'>&nbsp;18:00:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180014';document.t05st01_fm.spoke_date.value='20230208';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/10</td><td style='text-align:left !important;'>&nbsp;14:22:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年1月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='142213';document.t05st01_fm.spoke_date.value='20230210';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/10</td><td style='text-align:left !important;'>&nbsp;17:21:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司TSMC Partners, ltd.公告以Movella Inc.
+股票交換Pathfinder Acquisition Corporation之股票</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='172119';document.t05st01_fm.spoke_date.value='20230210';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/10</td><td style='text-align:left !important;'>&nbsp;17:27:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='172755';document.t05st01_fm.spoke_date.value='20230210';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/13</td><td style='text-align:left !important;'>&nbsp;17:01:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170113';document.t05st01_fm.spoke_date.value='20230213';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;15:31:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='153105';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;18:23:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司董事會決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='182352';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;19:19:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國111年度合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='191902';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;19:21:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='192128';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;19:25:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司訂定民國111年第四季之現金股利除息交易日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='192523';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;20:23:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准機器設備、不動產及資本化租賃資產資本預算案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='202351';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;21:00:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准增加投資TSMC Arizona</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='210032';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;21:04:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議召開民國112年股東常會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='8';document.t05st01_fm.spoke_time.value='210441';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;21:55:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;更正本公司董事會決議召開民國112年股東常會召集事由</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='16';document.t05st01_fm.spoke_time.value='215536';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;22:00:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過募集無擔保普通公司債</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='9';document.t05st01_fm.spoke_time.value='220015';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;22:01:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議111年度限制員工權利新股增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='10';document.t05st01_fm.spoke_time.value='220119';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;22:02:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准民國一百一十二年限制員工權利新股案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='11';document.t05st01_fm.spoke_time.value='220225';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;22:03:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會通過設立「提名及公司治理暨
+永續委員會」及任命該委員會委員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='12';document.t05st01_fm.spoke_time.value='220323';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;22:04:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司依公開發行公司資金貸與及背書保證處理準則
+第22條公告新增資金貸與</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='13';document.t05st01_fm.spoke_time.value='220407';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;22:07:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司捐贈台積電慈善基金會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='14';document.t05st01_fm.spoke_time.value='220747';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/14</td><td style='text-align:left !important;'>&nbsp;22:08:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司捐贈台積電文教基金會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='15';document.t05st01_fm.spoke_time.value='220837';document.t05st01_fm.spoke_date.value='20230214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/15</td><td style='text-align:left !important;'>&nbsp;17:19:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171959';document.t05st01_fm.spoke_date.value='20230215';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/16</td><td style='text-align:left !important;'>&nbsp;16:41:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164127';document.t05st01_fm.spoke_date.value='20230216';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/17</td><td style='text-align:left !important;'>&nbsp;14:17:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141705';document.t05st01_fm.spoke_date.value='20230217';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/17</td><td style='text-align:left !important;'>&nbsp;18:13:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='181333';document.t05st01_fm.spoke_date.value='20230217';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/20</td><td style='text-align:left !important;'>&nbsp;18:28:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182848';document.t05st01_fm.spoke_date.value='20230220';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/22</td><td style='text-align:left !important;'>&nbsp;18:45:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='184505';document.t05st01_fm.spoke_date.value='20230222';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/02/23</td><td style='text-align:left !important;'>&nbsp;17:25:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172557';document.t05st01_fm.spoke_date.value='20230223';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/01</td><td style='text-align:left !important;'>&nbsp;17:54:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175411';document.t05st01_fm.spoke_date.value='20230301';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/01</td><td style='text-align:left !important;'>&nbsp;19:25:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司調整民國111年第三季每股現金股利金額</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='192514';document.t05st01_fm.spoke_date.value='20230301';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/02</td><td style='text-align:left !important;'>&nbsp;17:42:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174253';document.t05st01_fm.spoke_date.value='20230302';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/06</td><td style='text-align:left !important;'>&nbsp;17:13:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171324';document.t05st01_fm.spoke_date.value='20230306';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/06</td><td style='text-align:left !important;'>&nbsp;18:36:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='183610';document.t05st01_fm.spoke_date.value='20230306';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/06</td><td style='text-align:left !important;'>&nbsp;18:38:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='183831';document.t05st01_fm.spoke_date.value='20230306';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/08</td><td style='text-align:left !important;'>&nbsp;18:23:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182312';document.t05st01_fm.spoke_date.value='20230308';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/09</td><td style='text-align:left !important;'>&nbsp;18:27:09</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182709';document.t05st01_fm.spoke_date.value='20230309';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/10</td><td style='text-align:left !important;'>&nbsp;14:03:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年2月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140302';document.t05st01_fm.spoke_date.value='20230310';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/15</td><td style='text-align:left !important;'>&nbsp;16:10:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161023';document.t05st01_fm.spoke_date.value='20230315';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/15</td><td style='text-align:left !important;'>&nbsp;16:31:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='163114';document.t05st01_fm.spoke_date.value='20230315';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/17</td><td style='text-align:left !important;'>&nbsp;13:47:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年度第1期無擔保普通公司債(綠色債券)
+主要發行條件</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134726';document.t05st01_fm.spoke_date.value='20230317';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/28</td><td style='text-align:left !important;'>&nbsp;17:30:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173014';document.t05st01_fm.spoke_date.value='20230328';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/30</td><td style='text-align:left !important;'>&nbsp;17:42:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174225';document.t05st01_fm.spoke_date.value='20230330';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/03/31</td><td style='text-align:left !important;'>&nbsp;19:03:45</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年第一季法人說明會將於112年4月20日召開</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='190345';document.t05st01_fm.spoke_date.value='20230331';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/10</td><td style='text-align:left !important;'>&nbsp;14:06:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年3月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140626';document.t05st01_fm.spoke_date.value='20230410';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/10</td><td style='text-align:left !important;'>&nbsp;18:00:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='180008';document.t05st01_fm.spoke_date.value='20230410';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/11</td><td style='text-align:left !important;'>&nbsp;16:24:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162408';document.t05st01_fm.spoke_date.value='20230411';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/12</td><td style='text-align:left !important;'>&nbsp;17:40:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174042';document.t05st01_fm.spoke_date.value='20230412';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/14</td><td style='text-align:left !important;'>&nbsp;17:03:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170341';document.t05st01_fm.spoke_date.value='20230414';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/20</td><td style='text-align:left !important;'>&nbsp;15:16:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年第一季每股盈餘新台幣7.98元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='151621';document.t05st01_fm.spoke_date.value='20230420';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/20</td><td style='text-align:left !important;'>&nbsp;16:20:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年第一季每股盈餘新台幣7.98元(內文更新)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='162020';document.t05st01_fm.spoke_date.value='20230420';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/20</td><td style='text-align:left !important;'>&nbsp;18:06:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='180642';document.t05st01_fm.spoke_date.value='20230420';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/20</td><td style='text-align:left !important;'>&nbsp;18:40:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司海外財務報告因適用兩地會計原則不一致
+之差異調節內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='184050';document.t05st01_fm.spoke_date.value='20230420';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/21</td><td style='text-align:left !important;'>&nbsp;16:23:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年度第2期無擔保普通公司債(綠色債券)
+主要發行條件</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162342';document.t05st01_fm.spoke_date.value='20230421';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/24</td><td style='text-align:left !important;'>&nbsp;18:14:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181449';document.t05st01_fm.spoke_date.value='20230424';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/27</td><td style='text-align:left !important;'>&nbsp;16:41:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164120';document.t05st01_fm.spoke_date.value='20230427';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/04/28</td><td style='text-align:left !important;'>&nbsp;18:29:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182906';document.t05st01_fm.spoke_date.value='20230428';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/05</td><td style='text-align:left !important;'>&nbsp;16:49:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164942';document.t05st01_fm.spoke_date.value='20230505';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;16:40:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164000';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;18:07:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司董事會決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='180703';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;18:20:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國112年度第一季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='182052';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;18:46:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='184611';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;18:48:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司訂定民國112年第一季之現金股利除息交易日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='184843';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;19:05:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會通過募集無擔保普通公司債</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='190556';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;19:09:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准不動產及資本化租賃資產資本預算案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='190906';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;19:17:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司TSMC Partners公告投資Matter Venture Partners 
+Fund I創投基金</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='8';document.t05st01_fm.spoke_time.value='191706';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/09</td><td style='text-align:left !important;'>&nbsp;19:18:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷
+減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='9';document.t05st01_fm.spoke_time.value='191850';document.t05st01_fm.spoke_date.value='20230509';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/10</td><td style='text-align:left !important;'>&nbsp;13:51:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年4月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='135151';document.t05st01_fm.spoke_date.value='20230510';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/10</td><td style='text-align:left !important;'>&nbsp;18:37:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='183711';document.t05st01_fm.spoke_date.value='20230510';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/11</td><td style='text-align:left !important;'>&nbsp;19:35:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='193558';document.t05st01_fm.spoke_date.value='20230511';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/15</td><td style='text-align:left !important;'>&nbsp;18:06:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180639';document.t05st01_fm.spoke_date.value='20230515';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/16</td><td style='text-align:left !important;'>&nbsp;18:03:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180327';document.t05st01_fm.spoke_date.value='20230516';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/17</td><td style='text-align:left !important;'>&nbsp;18:01:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180134';document.t05st01_fm.spoke_date.value='20230517';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/18</td><td style='text-align:left !important;'>&nbsp;17:17:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171754';document.t05st01_fm.spoke_date.value='20230518';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/19</td><td style='text-align:left !important;'>&nbsp;17:08:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170841';document.t05st01_fm.spoke_date.value='20230519';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/22</td><td style='text-align:left !important;'>&nbsp;17:18:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171815';document.t05st01_fm.spoke_date.value='20230522';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/22</td><td style='text-align:left !important;'>&nbsp;17:37:29</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司限制員工權利新股收回註銷完成實收資本額變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173729';document.t05st01_fm.spoke_date.value='20230522';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/23</td><td style='text-align:left !important;'>&nbsp;16:03:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='160323';document.t05st01_fm.spoke_date.value='20230523';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/23</td><td style='text-align:left !important;'>&nbsp;16:28:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年度第3期無擔保普通公司債主要發行條件</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162854';document.t05st01_fm.spoke_date.value='20230523';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/24</td><td style='text-align:left !important;'>&nbsp;16:20:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162023';document.t05st01_fm.spoke_date.value='20230524';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/25</td><td style='text-align:left !important;'>&nbsp;17:07:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170739';document.t05st01_fm.spoke_date.value='20230525';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/26</td><td style='text-align:left !important;'>&nbsp;11:31:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='113108';document.t05st01_fm.spoke_date.value='20230526';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/26</td><td style='text-align:left !important;'>&nbsp;16:49:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='164943';document.t05st01_fm.spoke_date.value='20230526';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/29</td><td style='text-align:left !important;'>&nbsp;16:07:04</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160704';document.t05st01_fm.spoke_date.value='20230529';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/31</td><td style='text-align:left !important;'>&nbsp;17:05:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司調整民國111年第四季每股現金股利金額</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170514';document.t05st01_fm.spoke_date.value='20230531';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/05/31</td><td style='text-align:left !important;'>&nbsp;17:15:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171544';document.t05st01_fm.spoke_date.value='20230531';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/01</td><td style='text-align:left !important;'>&nbsp;16:06:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160619';document.t05st01_fm.spoke_date.value='20230601';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/02</td><td style='text-align:left !important;'>&nbsp;17:49:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 Emerging Fund, L.P.公告處分Credo Technology 
+Group Holding Limited之普通股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174918';document.t05st01_fm.spoke_date.value='20230602';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/05</td><td style='text-align:left !important;'>&nbsp;18:54:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185458';document.t05st01_fm.spoke_date.value='20230605';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/06</td><td style='text-align:left !important;'>&nbsp;16:26:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162619';document.t05st01_fm.spoke_date.value='20230606';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/06</td><td style='text-align:left !important;'>&nbsp;17:23:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司股東常會決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='172324';document.t05st01_fm.spoke_date.value='20230606';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/06</td><td style='text-align:left !important;'>&nbsp;17:43:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司股東常會重要決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='174338';document.t05st01_fm.spoke_date.value='20230606';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/07</td><td style='text-align:left !important;'>&nbsp;18:48:30</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='184830';document.t05st01_fm.spoke_date.value='20230607';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/08</td><td style='text-align:left !important;'>&nbsp;17:22:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172210';document.t05st01_fm.spoke_date.value='20230608';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/09</td><td style='text-align:left !important;'>&nbsp;14:19:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年5月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141959';document.t05st01_fm.spoke_date.value='20230609';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/12</td><td style='text-align:left !important;'>&nbsp;17:37:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173732';document.t05st01_fm.spoke_date.value='20230612';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/13</td><td style='text-align:left !important;'>&nbsp;18:01:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180155';document.t05st01_fm.spoke_date.value='20230613';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/15</td><td style='text-align:left !important;'>&nbsp;18:26:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182655';document.t05st01_fm.spoke_date.value='20230615';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/26</td><td style='text-align:left !important;'>&nbsp;15:54:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155442';document.t05st01_fm.spoke_date.value='20230626';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/28</td><td style='text-align:left !important;'>&nbsp;16:49:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164911';document.t05st01_fm.spoke_date.value='20230628';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/29</td><td style='text-align:left !important;'>&nbsp;16:48:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164846';document.t05st01_fm.spoke_date.value='20230629';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/30</td><td style='text-align:left !important;'>&nbsp;14:50:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='145022';document.t05st01_fm.spoke_date.value='20230630';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/06/30</td><td style='text-align:left !important;'>&nbsp;15:47:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年第二季法人說明會將於112年7月20日召開</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='154753';document.t05st01_fm.spoke_date.value='20230630';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/06</td><td style='text-align:left !important;'>&nbsp;17:15:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171512';document.t05st01_fm.spoke_date.value='20230706';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/07</td><td style='text-align:left !important;'>&nbsp;18:20:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182055';document.t05st01_fm.spoke_date.value='20230707';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/10</td><td style='text-align:left !important;'>&nbsp;14:04:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年6月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140435';document.t05st01_fm.spoke_date.value='20230710';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/13</td><td style='text-align:left !important;'>&nbsp;16:32:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163236';document.t05st01_fm.spoke_date.value='20230713';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/17</td><td style='text-align:left !important;'>&nbsp;15:05:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150514';document.t05st01_fm.spoke_date.value='20230717';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/19</td><td style='text-align:left !important;'>&nbsp;18:22:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182224';document.t05st01_fm.spoke_date.value='20230719';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/20</td><td style='text-align:left !important;'>&nbsp;15:29:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年第二季每股盈餘新台幣7.01元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='152956';document.t05st01_fm.spoke_date.value='20230720';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/20</td><td style='text-align:left !important;'>&nbsp;17:01:30</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170130';document.t05st01_fm.spoke_date.value='20230720';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/21</td><td style='text-align:left !important;'>&nbsp;16:27:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162713';document.t05st01_fm.spoke_date.value='20230721';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/07/28</td><td style='text-align:left !important;'>&nbsp;16:07:30</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160730';document.t05st01_fm.spoke_date.value='20230728';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/01</td><td style='text-align:left !important;'>&nbsp;16:12:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161237';document.t05st01_fm.spoke_date.value='20230801';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/04</td><td style='text-align:left !important;'>&nbsp;16:02:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160226';document.t05st01_fm.spoke_date.value='20230804';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/07</td><td style='text-align:left !important;'>&nbsp;13:58:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年度第4期無擔保普通公司債主要發行條件</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='135800';document.t05st01_fm.spoke_date.value='20230807';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;18:34:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司董事會決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183412';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;19:00:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司、博世、英飛淩和恩智浦半導體成立合資公司
+在歐洲引入先進半導體製造</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='190022';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;19:16:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國112年度第二季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='191614';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;19:28:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='192807';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;19:37:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司訂定民國112年第二季之現金股利除息交易日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='193735';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;19:49:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准投資ESMC</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='194900';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;19:53:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准增資TSMC Arizona</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='195328';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;20:08:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司捐贈國立陽明交通大學</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='9';document.t05st01_fm.spoke_time.value='200846';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/08</td><td style='text-align:left !important;'>&nbsp;20:21:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准機器設備、不動產及資本化租賃資產資本預算案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='8';document.t05st01_fm.spoke_time.value='202114';document.t05st01_fm.spoke_date.value='20230808';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/09</td><td style='text-align:left !important;'>&nbsp;17:36:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173640';document.t05st01_fm.spoke_date.value='20230809';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/10</td><td style='text-align:left !important;'>&nbsp;13:52:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年7月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='135255';document.t05st01_fm.spoke_date.value='20230810';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/10</td><td style='text-align:left !important;'>&nbsp;16:45:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='164512';document.t05st01_fm.spoke_date.value='20230810';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/11</td><td style='text-align:left !important;'>&nbsp;16:43:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告處分固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164357';document.t05st01_fm.spoke_date.value='20230811';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/11</td><td style='text-align:left !important;'>&nbsp;16:46:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='164622';document.t05st01_fm.spoke_date.value='20230811';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/14</td><td style='text-align:left !important;'>&nbsp;16:42:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164211';document.t05st01_fm.spoke_date.value='20230814';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/15</td><td style='text-align:left !important;'>&nbsp;17:33:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173340';document.t05st01_fm.spoke_date.value='20230815';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/16</td><td style='text-align:left !important;'>&nbsp;17:58:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175838';document.t05st01_fm.spoke_date.value='20230816';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/17</td><td style='text-align:left !important;'>&nbsp;18:51:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185144';document.t05st01_fm.spoke_date.value='20230817';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/18</td><td style='text-align:left !important;'>&nbsp;15:52:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155241';document.t05st01_fm.spoke_date.value='20230818';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/21</td><td style='text-align:left !important;'>&nbsp;12:40:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司澄清媒體報導</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='124038';document.t05st01_fm.spoke_date.value='20230821';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/22</td><td style='text-align:left !important;'>&nbsp;17:27:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172713';document.t05st01_fm.spoke_date.value='20230822';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/23</td><td style='text-align:left !important;'>&nbsp;16:16:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161651';document.t05st01_fm.spoke_date.value='20230823';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/28</td><td style='text-align:left !important;'>&nbsp;18:18:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181806';document.t05st01_fm.spoke_date.value='20230828';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/08/30</td><td style='text-align:left !important;'>&nbsp;18:02:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180234';document.t05st01_fm.spoke_date.value='20230830';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/06</td><td style='text-align:left !important;'>&nbsp;17:18:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171834';document.t05st01_fm.spoke_date.value='20230906';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/07</td><td style='text-align:left !important;'>&nbsp;18:05:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180528';document.t05st01_fm.spoke_date.value='20230907';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/08</td><td style='text-align:left !important;'>&nbsp;13:49:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年8月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134947';document.t05st01_fm.spoke_date.value='20230908';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/11</td><td style='text-align:left !important;'>&nbsp;14:14:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141459';document.t05st01_fm.spoke_date.value='20230911';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/12</td><td style='text-align:left !important;'>&nbsp;18:01:29</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180129';document.t05st01_fm.spoke_date.value='20230912';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/12</td><td style='text-align:left !important;'>&nbsp;20:11:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司臨時董事會決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='201143';document.t05st01_fm.spoke_date.value='20230912';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/12</td><td style='text-align:left !important;'>&nbsp;20:26:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司TSMC Development, Inc.公告取得IMS Nanofabrication
+Global, LLC之股權</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='202654';document.t05st01_fm.spoke_date.value='20230912';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/12</td><td style='text-align:left !important;'>&nbsp;20:27:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代TSMC Partners Ltd.公告擬參與Arm Holdings plc股票
+首次公開發行(IPO)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='202727';document.t05st01_fm.spoke_date.value='20230912';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/13</td><td style='text-align:left !important;'>&nbsp;18:33:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183301';document.t05st01_fm.spoke_date.value='20230913';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/14</td><td style='text-align:left !important;'>&nbsp;18:06:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司TSMC Partners Ltd.公告取得Arm Holdings plc
+之股票 (補充112/09/12公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180639';document.t05st01_fm.spoke_date.value='20230914';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/15</td><td style='text-align:left !important;'>&nbsp;17:33:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173337';document.t05st01_fm.spoke_date.value='20230915';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/20</td><td style='text-align:left !important;'>&nbsp;17:19:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171922';document.t05st01_fm.spoke_date.value='20230920';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/21</td><td style='text-align:left !important;'>&nbsp;15:48:45</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='154845';document.t05st01_fm.spoke_date.value='20230921';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/22</td><td style='text-align:left !important;'>&nbsp;17:48:09</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174809';document.t05st01_fm.spoke_date.value='20230922';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/27</td><td style='text-align:left !important;'>&nbsp;17:45:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174553';document.t05st01_fm.spoke_date.value='20230927';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/09/28</td><td style='text-align:left !important;'>&nbsp;16:30:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163036';document.t05st01_fm.spoke_date.value='20230928';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/02</td><td style='text-align:left !important;'>&nbsp;14:54:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年第三季法人說明會將於112年10月19日召開</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='145427';document.t05st01_fm.spoke_date.value='20231002';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/03</td><td style='text-align:left !important;'>&nbsp;16:30:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163002';document.t05st01_fm.spoke_date.value='20231003';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/03</td><td style='text-align:left !important;'>&nbsp;16:33:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年度第5期無擔保普通公司債主要發行條件</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='163322';document.t05st01_fm.spoke_date.value='20231003';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/04</td><td style='text-align:left !important;'>&nbsp;16:40:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164036';document.t05st01_fm.spoke_date.value='20231004';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/06</td><td style='text-align:left !important;'>&nbsp;13:52:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年9月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='135238';document.t05st01_fm.spoke_date.value='20231006';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/11</td><td style='text-align:left !important;'>&nbsp;17:16:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171606';document.t05st01_fm.spoke_date.value='20231011';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/13</td><td style='text-align:left !important;'>&nbsp;16:18:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161858';document.t05st01_fm.spoke_date.value='20231013';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/16</td><td style='text-align:left !important;'>&nbsp;15:31:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='153143';document.t05st01_fm.spoke_date.value='20231016';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/18</td><td style='text-align:left !important;'>&nbsp;17:31:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173153';document.t05st01_fm.spoke_date.value='20231018';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/19</td><td style='text-align:left !important;'>&nbsp;15:30:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年第三季每股盈餘新台幣8.14元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='153044';document.t05st01_fm.spoke_date.value='20231019';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/19</td><td style='text-align:left !important;'>&nbsp;16:30:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='163011';document.t05st01_fm.spoke_date.value='20231019';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/20</td><td style='text-align:left !important;'>&nbsp;17:20:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172026';document.t05st01_fm.spoke_date.value='20231020';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/23</td><td style='text-align:left !important;'>&nbsp;14:55:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='145527';document.t05st01_fm.spoke_date.value='20231023';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/10/31</td><td style='text-align:left !important;'>&nbsp;16:16:45</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161645';document.t05st01_fm.spoke_date.value='20231031';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/01</td><td style='text-align:left !important;'>&nbsp;17:25:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172541';document.t05st01_fm.spoke_date.value='20231101';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/03</td><td style='text-align:left !important;'>&nbsp;18:33:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183352';document.t05st01_fm.spoke_date.value='20231103';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/10</td><td style='text-align:left !important;'>&nbsp;13:57:04</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年10月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='135704';document.t05st01_fm.spoke_date.value='20231110';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/10</td><td style='text-align:left !important;'>&nbsp;16:13:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='161321';document.t05st01_fm.spoke_date.value='20231110';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/13</td><td style='text-align:left !important;'>&nbsp;16:00:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160031';document.t05st01_fm.spoke_date.value='20231113';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/13</td><td style='text-align:left !important;'>&nbsp;17:16:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司受邀參加機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171657';document.t05st01_fm.spoke_date.value='20231113';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/14</td><td style='text-align:left !important;'>&nbsp;17:26:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司董事會決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172619';document.t05st01_fm.spoke_date.value='20231114';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/14</td><td style='text-align:left !important;'>&nbsp;18:24:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司民國112年度第三季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='182410';document.t05st01_fm.spoke_date.value='20231114';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/14</td><td style='text-align:left !important;'>&nbsp;18:28:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='182852';document.t05st01_fm.spoke_date.value='20231114';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/14</td><td style='text-align:left !important;'>&nbsp;18:40:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司訂定民國112年第三季之現金股利除息交易日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='184037';document.t05st01_fm.spoke_date.value='20231114';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/14</td><td style='text-align:left !important;'>&nbsp;18:54:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會核准機器設備、不動產及資本化租賃資產資本預算案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='185440';document.t05st01_fm.spoke_date.value='20231114';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/14</td><td style='text-align:left !important;'>&nbsp;19:06:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司處分機器設備公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='190650';document.t05st01_fm.spoke_date.value='20231114';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/14</td><td style='text-align:left !important;'>&nbsp;19:09:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司TSMC Partners, Ltd. 公告投資基金</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='190927';document.t05st01_fm.spoke_date.value='20231114';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/14</td><td style='text-align:left !important;'>&nbsp;19:25:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='8';document.t05st01_fm.spoke_time.value='192503';document.t05st01_fm.spoke_date.value='20231114';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/11/23</td><td style='text-align:left !important;'>&nbsp;17:20:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172056';document.t05st01_fm.spoke_date.value='20231123';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/01</td><td style='text-align:left !important;'>&nbsp;17:20:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172021';document.t05st01_fm.spoke_date.value='20231201';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/04</td><td style='text-align:left !important;'>&nbsp;17:29:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172912';document.t05st01_fm.spoke_date.value='20231204';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/06</td><td style='text-align:left !important;'>&nbsp;16:53:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代重要子公司TSMC North America公告股東常會重要決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165302';document.t05st01_fm.spoke_date.value='20231206';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/08</td><td style='text-align:left !important;'>&nbsp;14:04:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司2023年11月營收報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140420';document.t05st01_fm.spoke_date.value='20231208';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/11</td><td style='text-align:left !important;'>&nbsp;17:09:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170925';document.t05st01_fm.spoke_date.value='20231211';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/13</td><td style='text-align:left !important;'>&nbsp;18:19:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181944';document.t05st01_fm.spoke_date.value='20231213';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/14</td><td style='text-align:left !important;'>&nbsp;17:31:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司代子公司 TSMC Global Ltd. 公告取得固定收益證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173121';document.t05st01_fm.spoke_date.value='20231214';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/15</td><td style='text-align:left !important;'>&nbsp;14:22:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;WaferTech歡慶更名為TSMC Washington</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='142207';document.t05st01_fm.spoke_date.value='20231215';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2330</td><td style='text-align:left !important;'>&nbsp;台積電</td><td style='text-align:left !important;'>&nbsp;112/12/19</td><td style='text-align:left !important;'>&nbsp;15:45:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;台積公司董事長劉德音將於明年股東會後退休
+並不再參與下屆董事選舉</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='154524';document.t05st01_fm.spoke_date.value='20231219';document.t05st01_fm.co_id.value='2330';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+</table></form>
+
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
