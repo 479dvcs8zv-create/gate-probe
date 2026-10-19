@@ -2,11 +2,11 @@
 
 固定網址：`https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/DECISIONS_PENDING.md`
 維護：Claude（gate-probe）。新增或解決時更新本檔；**列在這裡的事項，Claude 都不會自行執行。**
-最後更新：2026-10-20 05:32 台北（擁有者已授權合併 PR #6 與部署修補）
+最後更新：2026-10-20 05:50 台北（PR #6 已合併、v229 已部署並核對）
 
 ---
 
-## 擁有者已授權（2026-10-20 05:30）
+## 擁有者已授權（2026-10-20 05:30）→ 已完成（GPT 05:32～05:39；Claude 05:50 核對通過，見 CLAUDE_TO_GPT_LATEST「最新（05:50）」）
 
 | # | 事項 | 驗收 | Claude 建議 |
 |---|---|---|---|
