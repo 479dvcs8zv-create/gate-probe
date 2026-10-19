@@ -1,0 +1,600 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2454 
+聯發科　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<form action='/mops/web/ajax_t05st01' name='t05st01_fm' id='t05st01_fm' method='post' onsubmit='return false;'>
+<input type='hidden' name='firstin' value='true' />
+<input type=hidden name=b_date value=>
+<input type=hidden name=e_date value=>
+<input type=hidden name=TYPEK>
+<input type=hidden name=year value=113>
+<input type=hidden name=month value=all>
+<input type=hidden name=type value=>
+<input type=hidden name=co_id>
+<input type=hidden name=spoke_date>
+<input type=hidden name=spoke_time>
+<input type=hidden name=seq_no>
+<input type='hidden' name='MEETING_STEP'>
+<input type='hidden' name='MODEL'>
+<input type='hidden' name='ITEM'>
+<input type=hidden name=e_month value=all>
+<input type='hidden' name='step' value='2'><input type='hidden' name='off' value='1'><center><b>請至財務及交易資訊重點專區參考公司相關<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb01";'  onclick='document.t05st01_fm.TYPEK.value="sii";document.t05st01_fm.co_id.value="2454";document.t05st01_fm.step.value="1";document.t05st01_fm.MEETING_STEP.value="0"; action="/mops/web/ajax_t211sb01";openWindow(this.form,"");'><font color='blue'><u>財務資訊</u></font></button>及<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb05";'  onclick='document.t05st01_fm.TYPEK.value="sii";document.t05st01_fm.co_id.value="2454";document.t05st01_fm.step.value="2";document.t05st01_fm.MODEL.value="2";document.t05st01_fm.ITEM.value="0"; action="/mops/web/ajax_t211sb05";openWindow(this.form,"");'><font color='blue'><u>交易資訊</u></font></button></b></center>
+<br>
+<table class='hasBorder'>
+<tr class='tblHead'><th>公司代號</th><th>公司名稱</th><th>發言日期</th><th>發言時間</th><th>主旨</th><th>&nbsp;</th></tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/05</td><td style='text-align:left !important;'>&nbsp;16:47:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司參與機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164725';document.t05st01_fm.spoke_date.value='20240105';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/10</td><td style='text-align:left !important;'>&nbsp;16:55:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技112年12月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165558';document.t05st01_fm.spoke_date.value='20240110';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:00:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;(補充112/11/06公告)代子公司旭達投資股份有限公司
+（下稱「旭達投資」）公告取得有價證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180003';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/17</td><td style='text-align:left !important;'>&nbsp;16:56:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司於113/1/31召開第四季財報暨營運線上說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165632';document.t05st01_fm.spoke_date.value='20240117';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;14:50:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司重要營運主管異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='145020';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;14:50:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司重要營運主管異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='145033';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;17:00:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2023年第4季與2023全年合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170059';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;17:01:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;民國113年度第一季簡式合併財務預測公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='170140';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;17:02:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷減資
+事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='170219';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;17:03:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司對重要子公司達發科技股份有限公司持股
+累積降低達百分之十以上</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='170306';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;17:04:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司及代子公司公告董事會核准無形資產資本預算案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='170443';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;17:05:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司MediaTek India Technology Pvt. Ltd.
+公告處分有價證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='170526';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/07</td><td style='text-align:left !important;'>&nbsp;16:56:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年1月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165612';document.t05st01_fm.spoke_date.value='20240207';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/07</td><td style='text-align:left !important;'>&nbsp;16:57:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司銅鑼資料中心─簽訂機電工程契約及柴油發電機組
+採購契約</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='165732';document.t05st01_fm.spoke_date.value='20240207';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/07</td><td style='text-align:left !important;'>&nbsp;16:58:30</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司MEDIATEK USA INC.公告取得使用權資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='165830';document.t05st01_fm.spoke_date.value='20240207';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/19</td><td style='text-align:left !important;'>&nbsp;17:32:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司參與機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='173241';document.t05st01_fm.spoke_date.value='20240219';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/19</td><td style='text-align:left !important;'>&nbsp;17:33:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股註銷完成變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='173334';document.t05st01_fm.spoke_date.value='20240219';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/22</td><td style='text-align:left !important;'>&nbsp;17:15:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司立錡科技股份有限公司公告董事會決議分派股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171515';document.t05st01_fm.spoke_date.value='20240222';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/22</td><td style='text-align:left !important;'>&nbsp;17:15:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司立錡科技股份有限公司公告112年下半年度
+除息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171535';document.t05st01_fm.spoke_date.value='20240222';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/23</td><td style='text-align:left !important;'>&nbsp;18:17:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年度合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181720';document.t05st01_fm.spoke_date.value='20240223';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/23</td><td style='text-align:left !important;'>&nbsp;18:17:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議召開民國113年股東常會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181758';document.t05st01_fm.spoke_date.value='20240223';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/23</td><td style='text-align:left !important;'>&nbsp;18:18:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議發行限制員工權利新股案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='181818';document.t05st01_fm.spoke_date.value='20240223';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/23</td><td style='text-align:left !important;'>&nbsp;18:18:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;(補充113/01/31公告)代子公司MediaTek India Technology 
+Pvt. Ltd.公告處分有價證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='181833';document.t05st01_fm.spoke_date.value='20240223';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/23</td><td style='text-align:left !important;'>&nbsp;18:18:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181846';document.t05st01_fm.spoke_date.value='20240223';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/23</td><td style='text-align:left !important;'>&nbsp;18:18:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司民國112年下半年度之現金股利除息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='181856';document.t05st01_fm.spoke_date.value='20240223';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/02/29</td><td style='text-align:left !important;'>&nbsp;17:39:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Gaintech Co. Limited公告處分有價證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173941';document.t05st01_fm.spoke_date.value='20240229';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/03/01</td><td style='text-align:left !important;'>&nbsp;17:03:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司參與機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170355';document.t05st01_fm.spoke_date.value='20240301';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/03/08</td><td style='text-align:left !important;'>&nbsp;16:56:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年2月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165618';document.t05st01_fm.spoke_date.value='20240308';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/03/22</td><td style='text-align:left !important;'>&nbsp;17:27:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MEDIATEK SINGAPORE PTE. LTD.
+董事會公告決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172736';document.t05st01_fm.spoke_date.value='20240322';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/10</td><td style='text-align:left !important;'>&nbsp;16:56:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年3月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165601';document.t05st01_fm.spoke_date.value='20240410';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/12</td><td style='text-align:left !important;'>&nbsp;16:55:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司於113/4/26召開第一季財報暨營運線上說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165546';document.t05st01_fm.spoke_date.value='20240412';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/18</td><td style='text-align:left !important;'>&nbsp;18:09:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第1季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180917';document.t05st01_fm.spoke_date.value='20240418';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/18</td><td style='text-align:left !important;'>&nbsp;18:09:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司Gaintech Co. Limited董事會公告決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180959';document.t05st01_fm.spoke_date.value='20240418';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/18</td><td style='text-align:left !important;'>&nbsp;18:10:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek Investment Singapore Pte. Ltd.
+董事會公告決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='181025';document.t05st01_fm.spoke_date.value='20240418';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/18</td><td style='text-align:left !important;'>&nbsp;18:10:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek Investment Singapore Pte. Ltd.
+公告董事會決議通過辦理現金減資案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='181049';document.t05st01_fm.spoke_date.value='20240418';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/19</td><td style='text-align:left !important;'>&nbsp;17:01:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司及代子公司公告取得無形資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170144';document.t05st01_fm.spoke_date.value='20240419';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/26</td><td style='text-align:left !important;'>&nbsp;17:16:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第1季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171600';document.t05st01_fm.spoke_date.value='20240426';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/26</td><td style='text-align:left !important;'>&nbsp;17:16:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171640';document.t05st01_fm.spoke_date.value='20240426';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/26</td><td style='text-align:left !important;'>&nbsp;17:17:09</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2024年第1季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171709';document.t05st01_fm.spoke_date.value='20240426';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/26</td><td style='text-align:left !important;'>&nbsp;17:17:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;民國113年度第二季簡式合併財務預測公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='171742';document.t05st01_fm.spoke_date.value='20240426';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/27</td><td style='text-align:left !important;'>&nbsp;11:12:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司LePower (HK) Limited公告取得有價證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='111224';document.t05st01_fm.spoke_date.value='20240427';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/27</td><td style='text-align:left !important;'>&nbsp;11:12:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司立錡科技股份有限公司公告召集董事會
+(代行股東會)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='111252';document.t05st01_fm.spoke_date.value='20240427';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/04/27</td><td style='text-align:left !important;'>&nbsp;11:13:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司立錡科技股份有限公司公告董事會
+(代行股東會)重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='111331';document.t05st01_fm.spoke_date.value='20240427';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/09</td><td style='text-align:left !important;'>&nbsp;17:39:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股註銷完成變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173948';document.t05st01_fm.spoke_date.value='20240509';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;16:56:09</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年4月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165609';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/24</td><td style='text-align:left !important;'>&nbsp;17:25:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MEDIATEK SINGAPORE PTE. LTD.
+董事會公告決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172512';document.t05st01_fm.spoke_date.value='20240524';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;18:58:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司一一三年股東常會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185838';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;18:59:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年股東常會改選董事名單(含獨立董事)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='185908';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;18:59:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會一致推舉蔡明介先生續任董事長/
+蔡力行先生續任副董事長</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185927';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;18:59:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司第四屆審計委員會委員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='185942';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;18:59:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司股東常會決議解除本公司第十屆董事
+競業禁止之限制案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='185954';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;19:00:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司旭源投資(股)公司公告高速鐵路新竹車站特定區專(二)
+地上權案之機電及帷幕牆工程契約</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='190053';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;19:01:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司依公開發行公司資金貸與及背書保證處理準則
+第二十二條第一項第二款及第三款公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='190150';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;19:02:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司依公開發行公司資金貸與及背書保證處理準則
+第二十二條第一項第一款公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='190210';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/05/27</td><td style='text-align:left !important;'>&nbsp;19:03:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司參與機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='190314';document.t05st01_fm.spoke_date.value='20240527';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/06/04</td><td style='text-align:left !important;'>&nbsp;18:17:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek Investment Singapore Pte. Ltd.公告
+辦理減資資本變更登記完成</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181757';document.t05st01_fm.spoke_date.value='20240604';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/06/07</td><td style='text-align:left !important;'>&nbsp;16:59:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年5月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165936';document.t05st01_fm.spoke_date.value='20240607';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/06/13</td><td style='text-align:left !important;'>&nbsp;18:07:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議通過第六屆薪資報酬委員會委員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180712';document.t05st01_fm.spoke_date.value='20240613';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/06/13</td><td style='text-align:left !important;'>&nbsp;18:07:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek Global Holdings Limited
+公告董事會決議通過辦理現金減資案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='180748';document.t05st01_fm.spoke_date.value='20240613';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/06/13</td><td style='text-align:left !important;'>&nbsp;18:08:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司旭展(香港)投資有限公司
+公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='180808';document.t05st01_fm.spoke_date.value='20240613';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/06/19</td><td style='text-align:left !important;'>&nbsp;16:09:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司調整配息率</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160947';document.t05st01_fm.spoke_date.value='20240619';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/06/26</td><td style='text-align:left !important;'>&nbsp;17:09:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek Global Holdings Limited公告
+辦理減資資本變更登記完成</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170936';document.t05st01_fm.spoke_date.value='20240626';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/10</td><td style='text-align:left !important;'>&nbsp;16:55:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年6月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165547';document.t05st01_fm.spoke_date.value='20240710';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/17</td><td style='text-align:left !important;'>&nbsp;16:56:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司於113/7/31召開第二季財報暨營運線上說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='165606';document.t05st01_fm.spoke_date.value='20240717';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/17</td><td style='text-align:left !important;'>&nbsp;16:59:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司Gaintech Co. Limited公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165942';document.t05st01_fm.spoke_date.value='20240717';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/17</td><td style='text-align:left !important;'>&nbsp;17:00:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek Investment Singapore Pte. Ltd.
+公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170013';document.t05st01_fm.spoke_date.value='20240717';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/17</td><td style='text-align:left !important;'>&nbsp;17:00:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek Investment Singapore Pte. Ltd.
+公告董事會決議通過辦理現金減資案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='170036';document.t05st01_fm.spoke_date.value='20240717';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/19</td><td style='text-align:left !important;'>&nbsp;08:57:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;澄清媒體報導</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='85700';document.t05st01_fm.spoke_date.value='20240719';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/22</td><td style='text-align:left !important;'>&nbsp;17:12:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第2季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='171202';document.t05st01_fm.spoke_date.value='20240722';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/24</td><td style='text-align:left !important;'>&nbsp;15:48:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司興建辦公大樓案建築設計監造及土建工程採購</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='154805';document.t05st01_fm.spoke_date.value='20240724';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/29</td><td style='text-align:left !important;'>&nbsp;16:24:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;應證交所說明媒體新聞內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162421';document.t05st01_fm.spoke_date.value='20240729';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;14:17:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;澄清不實謠言</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='141756';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;16:27:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第2季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162712';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;16:27:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='162747';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;16:28:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2024年第2季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162820';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;16:28:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;民國113年度第三季簡式合併財務預測公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='162842';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/08/09</td><td style='text-align:left !important;'>&nbsp;16:55:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年7月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165546';document.t05st01_fm.spoke_date.value='20240809';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/08/14</td><td style='text-align:left !important;'>&nbsp;17:34:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股註銷完成變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173455';document.t05st01_fm.spoke_date.value='20240814';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/08/23</td><td style='text-align:left !important;'>&nbsp;17:01:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事長決定限制員工權利新股之增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170125';document.t05st01_fm.spoke_date.value='20240823';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/08/30</td><td style='text-align:left !important;'>&nbsp;16:37:04</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司參與機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163704';document.t05st01_fm.spoke_date.value='20240830';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/09/06</td><td style='text-align:left !important;'>&nbsp;17:36:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司MediaTek Singapore Pte. Ltd.依公開發行公司資金
+貸與及背書保證處理準則第二十二條第一項第二款、第三款公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173649';document.t05st01_fm.spoke_date.value='20240906';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/09/10</td><td style='text-align:left !important;'>&nbsp;16:56:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年8月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165637';document.t05st01_fm.spoke_date.value='20240910';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/09/11</td><td style='text-align:left !important;'>&nbsp;17:58:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek Investment Singapore Pte. Ltd.公告
+辦理減資資本變更登記完成</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='175813';document.t05st01_fm.spoke_date.value='20240911';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/09/19</td><td style='text-align:left !important;'>&nbsp;17:13:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MEDIATEK SINGAPORE PTE. LTD.
+公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171328';document.t05st01_fm.spoke_date.value='20240919';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/09/20</td><td style='text-align:left !important;'>&nbsp;17:03:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司參與機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170352';document.t05st01_fm.spoke_date.value='20240920';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/09/27</td><td style='text-align:left !important;'>&nbsp;17:06:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司聯發資本(股)公司與旭達投資(股)公司公告簡易合併案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170656';document.t05st01_fm.spoke_date.value='20240927';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/09/27</td><td style='text-align:left !important;'>&nbsp;17:07:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司聯發資本(股)公司及旭達投資(股)公司
+簡易合併案向債權人公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170737';document.t05st01_fm.spoke_date.value='20240927';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/09</td><td style='text-align:left !important;'>&nbsp;16:55:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年9月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165548';document.t05st01_fm.spoke_date.value='20241009';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/16</td><td style='text-align:left !important;'>&nbsp;16:55:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司於113/10/30召開第三季財報暨營運線上說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165540';document.t05st01_fm.spoke_date.value='20241016';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/18</td><td style='text-align:left !important;'>&nbsp;17:10:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Digimoc Holdings Limited與Core Tech Resources Inc.
+公告合併案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171043';document.t05st01_fm.spoke_date.value='20241018';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/21</td><td style='text-align:left !important;'>&nbsp;17:12:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第3季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171213';document.t05st01_fm.spoke_date.value='20241021';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:17:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第3季合併財務報告業經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171715';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:17:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171750';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:18:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司2024年第3季合併財務報告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171827';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:20:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;民國113年度第四季簡式合併財務預測公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='172048';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:21:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;董事會決議股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='172135';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:22:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司民國113年上半年度之現金股利除息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172203';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:23:45</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Hsu Fa (Samoa) Investment Ltd.、Hsu Chia 
+(Samoa) Investment Ltd.與Hsu Kang (Samoa) Investment
+ Ltd.公告合併案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='172345';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:26:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告處分金融資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='172646';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:27:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告處分金融資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='172714';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/11/01</td><td style='text-align:left !important;'>&nbsp;21:01:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司聯發資本公告認購私募普通股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='210103';document.t05st01_fm.spoke_date.value='20241101';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/11/08</td><td style='text-align:left !important;'>&nbsp;16:56:29</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年10月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165629';document.t05st01_fm.spoke_date.value='20241108';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/11/11</td><td style='text-align:left !important;'>&nbsp;16:50:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司參與機構投資人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165023';document.t05st01_fm.spoke_date.value='20241111';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/11/14</td><td style='text-align:left !important;'>&nbsp;17:13:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MEDIATEK SINGAPORE PTE. LTD.
+公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171301';document.t05st01_fm.spoke_date.value='20241114';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/11/14</td><td style='text-align:left !important;'>&nbsp;17:13:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司MediaTek China Limited董事會公告決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171324';document.t05st01_fm.spoke_date.value='20241114';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/11/19</td><td style='text-align:left !important;'>&nbsp;18:06:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股註銷完成變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='180600';document.t05st01_fm.spoke_date.value='20241119';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/12/06</td><td style='text-align:left !important;'>&nbsp;17:21:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司銅鑼資料中心─機房工程及廠務設備採購</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='172125';document.t05st01_fm.spoke_date.value='20241206';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/12/10</td><td style='text-align:left !important;'>&nbsp;16:56:09</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;聯發科技113年11月份自結合併營收淨額公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165609';document.t05st01_fm.spoke_date.value='20241210';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/12/10</td><td style='text-align:left !important;'>&nbsp;16:56:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司立錡科技股份有限公司公告董事會決議分派股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165650';document.t05st01_fm.spoke_date.value='20241210';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/12/10</td><td style='text-align:left !important;'>&nbsp;16:57:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司立錡科技股份有限公司公告113年上半年度除息
+基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='165718';document.t05st01_fm.spoke_date.value='20241210';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/12/13</td><td style='text-align:left !important;'>&nbsp;17:21:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代重要子公司旭展(香港)投資有限公司
+公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172141';document.t05st01_fm.spoke_date.value='20241213';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;2454</td><td style='text-align:left !important;'>&nbsp;聯發科</td><td style='text-align:left !important;'>&nbsp;113/12/27</td><td style='text-align:left !important;'>&nbsp;20:00:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Digimoc Holdings Limited公告取得有價證券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='200035';document.t05st01_fm.spoke_date.value='20241227';document.t05st01_fm.co_id.value='2454';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+</table></form>
+
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
