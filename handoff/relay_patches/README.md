@@ -20,3 +20,9 @@
 - `files/`：套用後的**完整檔案**（路徑同中繼 repo）；`files/MANIFEST.tsv` 列每檔在 46b5864 的原檔 SHA-256 與套用後 SHA-256。
   用 GitHub 連接器整檔覆寫前，先確認分支上的原檔 SHA-256 等於 base 欄；不等就停下來（中繼又改過，需要重做）。
 - 修補改到 `scripts/check_us_sector_snapshot.py`、`scripts/us_sector_feed.py`，開 PR 會觸發中繼的 `US Sector Module Tests`；以 PR 上的 CI 結果為準。合併需擁有者授權。
+
+## 2026-10-20 03:15 更新
+
+- 清單與雜湊的正式位置：`handoff/relay_patches/MANIFEST.tsv`（四欄：中繼路徑、gate-probe 路徑、原檔 SHA-256、套用後 SHA-256）。`files/MANIFEST.tsv` 保留舊格式。
+- 重跑：gate-probe workflow `gate-probe-relay-patch-ci`（手動觸發，輸入中繼 commit）。唯讀 checkout 中繼 → `tools/relay_overlay.py` 核對雜湊並覆寫 → 執行中繼 `us-sector-tests.yml` 裡的 `run:` 指令。
+  run 39307040583（中繼 46b5864）：全部通過。這是 Claude 觸發的結果，不等於 GPT 獨立重跑或中繼 PR 上的 CI。
