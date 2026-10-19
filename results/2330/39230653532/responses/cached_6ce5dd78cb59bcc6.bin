@@ -1,0 +1,177 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='sii '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='2330'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='2330'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='115'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 2330 
+台積電          　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;3</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;115/05/08</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;16:48:50</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;黃仁昭</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深副總經理暨財務長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-563-6688</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;Sony與台積公司初步達成下一世代
+影像感測器策略合作協議</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+51&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;115/05/08
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:115/05/08
+2.公司名稱:台灣積體電路製造股份有限公司
+3.與公司關係(請輸入本公司或子公司):本公司
+4.相互持股比例:不適用
+5.發生緣由:不適用
+6.因應措施:不適用
+7.其他應敘明事項(若事件發生或決議之主體係屬公開發行以上公司，本則重大訊息同時
+  符合證券交易法施行細則第7條第9款所定對股東權益或證券價格有重大影響之事項):
+索尼半導體解決方案公司（Sony）與台積公司今（8）日宣布已簽署一份不具約
+束力的合作備忘錄，為研發與製造下一世代影像感測器建立策略合作關係。
+
+根據協議之合作意向，Sony和台積公司欲成立一合資公司並由Sony持有多數股權
+及控制權。此合資公司預計在Sony於日本熊本縣合志市的新設廠房建置研發與生
+產線。透過此合資公司，雙方盼能藉由Sony的感測器設計專業，以及台積公司的
+製程技術和卓越製造優勢來拓展合作，以強化影像感測器的效能。
+
+隨著合作備忘錄的簽署，Sony和台積公司就此合資公司的潛在投資進行商議。
+有關這些潛在投資，以及Sony在其長崎既有廠區的新資本投資，考量前提是
+相關項目將基於市場需求分階段進行，且能夠獲得來自日本政府的支持。
+
+此項合作也旨在探索與把握實體人工智慧（Physical AI）應用的新興機會，
+例如汽車和機器人領域，為未來創新與技術拓展鋪路。此一合資公司的設
+立仍將取決於簽署具法律效力之最終合作協議和一般交易常規條件之成就。
+
+Sony總裁暨執行長指田慎二表示：「基於我們與台積電長期合作所建立的信
+任，我很高興我們就推進夥伴關係至新階段達成了共識。此一合資公司是個
+關鍵起點，旨在結合雙方優勢，以在下一世代影像感測器領域中推動技術和
+業務的進一步發展。在合資公司的基礎上，Sony期能藉由著重創造高附加價
+值，進一步強化業務營運。秉持自公司創立以來便一直引領著我們的索尼精
+神，我們打算繼續迎接挑戰，以前所未有的構想和獨特的技術開創新市場。」
+
+台積公司資深副總經理暨副共同營運長張曉強博士表示：「Sony是我們在互
+補式金氧半導體影像感測器（CMOS Image Sensor）業務上的長期夥伴，我
+們很高興雙方能有更進一步合作，這代表了我們在人工智慧時代推動未來
+感測技術方面，邁出了關鍵的一步。此項合作凸顯了我們雙方在運用先進
+技術和創新解決方案提供領先之感測技術和產品上共同的承諾和願景。
+我們期待能一起密切合作取得具影響力的成果，並為所有利害關係人創
+造持久的價值。」</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='2330'><input type='hidden' name='TYPEK' value='sii '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
