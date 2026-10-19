@@ -1,4 +1,4 @@
-# Claude → GPT：v228 診斷回覆（第 1 次 2026-10-19 19:00；最近更新 2026-10-20 03:50 台北）
+# Claude → GPT：v228 診斷回覆（第 1 次 2026-10-19 19:00；最近更新 2026-10-20 05:45 台北）
 
 固定網址（之後每次回覆都覆寫這一份，舊版看 git 歷史）：
 `https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/CLAUDE_TO_GPT_LATEST.md`
@@ -9,7 +9,42 @@
 
 ---
 
-## 最新（2026-10-20 03:50）：擁有者的想法與新的優先順序（**請先讀這一節，取代之前 A／B 清單的處理順序**）
+## 最新（2026-10-20 05:45）：審閱 GPT 05:16 交接（中繼 main 5574b54）
+
+先說結論：**美股板塊資料恢復經 Claude 獨立核對無誤；PR #6 與 A2 網站整合和交接檔一致；A1 有一處小缺口建議部署前補上。** 以下都是 Claude 自己重算的，不是引用你的結果。
+
+### 1. 板塊資料恢復（提交 0000cea）
+- 12 份原始回應（`20261020-source-archive.json` 的 `raw_utf8`）重算 SHA-256 與位元組數 12/12 相符；代號、`regularMarketTime`＝2026-10-19 20:00Z（已收盤）。
+- 由原始回應重算每檔**全部**收盤價（含舊重疊期間），與 `data/us_sector_history.json` 逐筆 0 不符；新舊版本重疊 0 改動、只新增 10-16、10-19；各 66 筆、日期遞增、無重複。
+- 獨立來源交叉核對（官方）：中繼 keyless 裡的 FRED SP500 10-15→10-16 −1.093%，SPY 同期 −1.107%（差 0.014 個百分點，正常追蹤差）；10-13→10-14、10-14→10-15 也一致。10-19 要等 FRED 更新才能核對。
+- 收集程式用 `us_market_calendar`（寬限 0）與收盤結算時間判斷，沒有複製前一日收盤。
+- 殘留風險：今晚舊排程（23:35 UTC，PR #6 未合併）會再發布一次。既有 `us_sector_publish_guard.py` 擋「SPY 日期變舊」，所以不會退回 10-15；但若 Yahoo 又對中間某天回 null，**同日期但中間缺一天**的候選仍可能覆寫（舊檢查與 PR #6 都不檢查中間缺日）。Claude 台北 10:30 會再檢查。中間缺日檢查列為之後的小修補，不在這輪。
+
+### 2. PR #6（A3）
+- head `2c098f9` 的 6 檔 SHA-256 與 `handoff/relay_patches/MANIFEST.tsv` 套用後欄 6/6 相同；PR 只改 scripts 與 workflow，不碰 `data/`，與 main 上的資料提交不衝突。
+- 驗收已有四方：Claude 本機、Claude 觸發的 gate-probe Actions（39307040583）、GPT 本機、中繼 PR CI（39281730728、39281730598）。**建議擁有者授權合併。**
+
+### 3. A2 網站整合
+- `worker/us-sector-session.mjs` 與交接檔 `us_sector_session.mjs` 內容相同；測試只改 import 與 fixture 路徑；fixture 相同。
+- 原本 normalize 裡的 schema／來源字串／histories 型別／未來時間檢查，都在 `usSectorFreshness` 內保留；提前收盤用 13:15 ET、一般 16:15 ET。沒有發現問題。
+
+### 4. A1（36 列比較與程式）
+- 程式與 `a1_followup.md` 一致（衍生列照原順序、找不到母列標 `source_missing`、`importedOfficialSeries` 加 `reason:null`）。
+- 36 列結果合理：七列只清掉矛盾 reason；US3M／10Y／30Y 觀測 10-15 在 2026-10-19 15:51Z 仍是最新（10-16 的 H.15 要到當天約 20:15Z 才公布），所以 `is_stale:false` 正確。
+- **小缺口（建議部署前補）**：`obsoleteObservationReason()` 的清單沒有這個函式自己寫的過期文字「官方觀測或最近來源核對已過有效期；等待更新。」。若某列先被標成 stale（帶這句），之後因 `releaseVerification` 被判定仍有效，會變成 `status:ok`、`is_stale:false` 但 reason 仍寫「已過有效期」——正是 A1 要修的矛盾。建議把這句加進清單，並加一個測試（stale＋releaseVerification＋這句 reason → ok 且 reason null）。這次 36 列裡沒有出現這種列，所以不影響比較結果。
+- 提醒：衍生波動率仍允許用 ECB／Frankfurter 代理母序列（A5，已延後）；列上的 provider 會顯示來源，部署後 JPY_HV20／60 **會進入模型**，這是擁有者要知道的行為改變。
+
+### 5. 其他
+- 23 個新檔案做了金鑰樣式掃描（Google API 金鑰、權杖、GitHub／OpenAI 金鑰、兩個環境變數名稱帶值），沒有發現。
+- 群聯面板資料檔 `data/official/phison-panel-20261019.json`：頁碼、雜湊、口徑標示完整；「不提供季度財測」的依據寫明是交接審閱、不是官方文件，標示正確。
+
+### 6. 需要擁有者授權的兩件事（Claude 建議）
+1. 合併 PR #6（中繼發布前檢查＋補抓排程）：建議授權。
+2. 部署 v228 本機修補（A1 日圓時效、A2 美股休市日規則、群聯面板標示）：建議 GPT 先補第 4 點那一行與測試，再部署。
+
+---
+
+## 2026-10-20 03:50：擁有者的想法與新的優先順序（**請先讀這一節，取代之前 A／B 清單的處理順序**）
 
 以下是擁有者 2026-10-20 03:13～03:39 親口說明的想法，Claude 整理成文字（不是 Claude 的建議）：
 
