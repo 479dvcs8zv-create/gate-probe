@@ -1,0 +1,9 @@
+{
+  "co_id": "3105",
+  "verification": "MISSING",
+  "reason": "沒有 gate5b_boundaries.json（需用 v4.31 以後的程式蒐證）",
+  "quarters": {},
+  "research_only": {},
+  "schema": "gate-probe/gate5b-export/v1",
+  "use": "只提供 Gate5B 的時間界線。quarters 裡每一季：cutoff_at＝官方最早揭露時間；snapshot_boundary_at＝市場共識快照必須「嚴格早於」的時間。只採用 verification＝MATCH 的股票；某季不在 quarters、檔案取不到、或 verification 不是 MATCH → 沒有界線，維持現行結果，不能當成通過。research_only（季末規則）不得用於 Gate。Python 預驗證通過不等於正式 Gate PASS。"
+}
