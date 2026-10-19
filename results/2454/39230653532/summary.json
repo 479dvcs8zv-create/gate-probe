@@ -1,0 +1,4720 @@
+{
+  "co_id": "2454",
+  "roc_years": [
+    112,
+    113,
+    114,
+    115
+  ],
+  "revenue_rule": "quarter_end",
+  "market": {
+    "name": "上市公司",
+    "typek": "sii",
+    "quote_suffix": ".TW",
+    "first_sample": false,
+    "detail_pages_verified": true,
+    "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+  },
+  "listings": {
+    "112": {
+      "items": 95,
+      "sha256": "e1b6ad40c2eaa4b7994d42e76f40af0fb9306f2c0eb4eabd89782bc9dbe2bf67",
+      "company_name": "聯發科",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    },
+    "113": {
+      "items": 112,
+      "sha256": "54e4d9f27ebe060775eb4b60ceba0b73c6915cd7b1dabea62a0bbc1745aaa0e0",
+      "company_name": "聯發科",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    },
+    "114": {
+      "items": 96,
+      "sha256": "7ddd5a5bc40c8c331258709c30a73a1fe87c617b7ca0641f52c9fa7b2f73623f",
+      "company_name": "聯發科",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    },
+    "115": {
+      "items": 102,
+      "sha256": "fdce32f48971c13504f01c210b48d444842410fc8f1453404dfb8a47e9c96fe7",
+      "company_name": "聯發科",
+      "market": "上市公司",
+      "typek": [
+        "sii"
+      ],
+      "attempts": 1
+    }
+  },
+  "filings": {
+    "112": {
+      "rows": [
+        [
+          "2023Q1",
+          "202301_2454_AI1.pdf",
+          "2023-05-12T15:37:50+08:00"
+        ],
+        [
+          "2023Q1",
+          "202301_2454_AIA.pdf",
+          "2023-05-12T15:38:09+08:00"
+        ],
+        [
+          "2023Q2",
+          "202302_2454_AI1.pdf",
+          "2023-08-11T14:51:31+08:00"
+        ],
+        [
+          "2023Q2",
+          "202302_2454_AIA.pdf",
+          "2023-08-11T14:51:45+08:00"
+        ],
+        [
+          "2023Q3",
+          "202303_2454_AI1.pdf",
+          "2023-11-13T15:40:28+08:00"
+        ],
+        [
+          "2023Q3",
+          "202303_2454_AIA.pdf",
+          "2023-11-13T15:40:41+08:00"
+        ],
+        [
+          "2023Q4",
+          "202304_2454_AI1.pdf",
+          "2024-02-27T17:45:00+08:00"
+        ],
+        [
+          "2023Q4",
+          "202304_2454_AI3.pdf",
+          "2024-02-27T17:45:29+08:00"
+        ],
+        [
+          "2023Q4",
+          "202304_2454_AIA.pdf",
+          "2024-02-27T17:45:15+08:00"
+        ],
+        [
+          "2023Q4",
+          "202304_2454_AIC.pdf",
+          "2024-02-27T17:45:44+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "dc019c2ac8387913bf987a504d42a1c59a66e372d90463d845d98bbe6fed067f",
+      "attempts": 1
+    },
+    "113": {
+      "rows": [
+        [
+          "2024Q1",
+          "202401_2454_AI1.pdf",
+          "2024-05-14T14:22:15+08:00"
+        ],
+        [
+          "2024Q1",
+          "202401_2454_AIA.pdf",
+          "2024-05-14T14:22:35+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_2454_AI1.pdf",
+          "2024-08-13T17:27:52+08:00"
+        ],
+        [
+          "2024Q2",
+          "202402_2454_AIA.pdf",
+          "2024-08-13T17:28:08+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_2454_AI1.pdf",
+          "2024-11-13T16:20:58+08:00"
+        ],
+        [
+          "2024Q3",
+          "202403_2454_AIA.pdf",
+          "2024-11-13T16:21:11+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2454_AI1.pdf",
+          "2025-02-27T18:07:29+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2454_AI3.pdf",
+          "2025-02-27T18:08:00+08:00"
+        ],
+        [
+          "2024Q4",
+          "202404_2454_AIA.pdf",
+          "2025-02-27T18:07:49+08:00"
+        ]
+      ],
+      "uncertain": [
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_2454_AIC.pdf",
+          "detail": "IFRSs英文版-個體財報",
+          "uploaded_at_shown": "2025-02-27T18:08:09+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        }
+      ],
+      "sha256": "fe73eff00cb2733b315dfeca8172e3d54facb8feb6f92b9a57c69948f57bf356",
+      "attempts": 1
+    },
+    "114": {
+      "rows": [
+        [
+          "2025Q1",
+          "202501_2454_AI1.pdf",
+          "2025-05-14T14:54:43+08:00"
+        ],
+        [
+          "2025Q1",
+          "202501_2454_AIA.pdf",
+          "2025-05-14T14:55:14+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2454_AI1.pdf",
+          "2025-08-13T13:53:47+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_2454_AIA.pdf",
+          "2025-08-13T13:54:02+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2454_AI1.pdf",
+          "2025-11-13T16:03:53+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_2454_AIA.pdf",
+          "2025-11-13T16:04:51+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2454_AI1.pdf",
+          "2026-02-26T17:00:05+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2454_AI3.pdf",
+          "2026-02-26T17:00:49+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2454_AIA.pdf",
+          "2026-02-26T17:00:25+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_2454_AIC.pdf",
+          "2026-02-26T17:01:12+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "4a613a444e24f06dbcad8d01ea5bee643e625a744338c019fd4a0eae1cc5375d",
+      "attempts": 1
+    },
+    "115": {
+      "rows": [
+        [
+          "2026Q1",
+          "202601_2454_AI1.pdf",
+          "2026-05-14T17:05:13+08:00"
+        ],
+        [
+          "2026Q1",
+          "202601_2454_AIA.pdf",
+          "2026-05-14T17:05:35+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2454_AI1.pdf",
+          "2026-07-31T16:55:20+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_2454_AIA.pdf",
+          "2026-07-31T16:55:54+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "8f942ee52903f9ab13156e3bd8403aa953215f86afd64557667dd44427338f84",
+      "attempts": 1
+    }
+  },
+  "details": {
+    "t05st01:2454:20230110:165715:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-01-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230116:164256:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-02-03",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230203:172927:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-02-03",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230224:170107:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-02-24",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230410:165738:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-04-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230414:165604:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-04-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230428:165650:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-04-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230428:165840:4": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-04-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230710:165602:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-07-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230714:165611:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-07-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230728:170617:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-07-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230728:170708:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-07-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230728:170733:2": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2023-07-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231011:165633:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-10-11",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231013:165948:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-10-27",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231027:183342:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-10-27",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231027:183419:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-10-27",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231027:183436:3": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2023-10-27",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20240110:165558:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-01-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240117:165632:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-01-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240131:170059:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-01-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240131:170140:5": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2024-01-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240223:181720:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-02-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240410:165601:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240412:165546:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-04-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240426:171600:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-04-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240426:171709:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-04-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240426:171742:3": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2024-04-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240710:165547:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240717:165606:4": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240731:162712:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240731:162820:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240731:162842:3": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2024-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241009:165548:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-09",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241016:165540:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241030:171715:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241030:171827:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241030:172048:3": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250110:165549:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-01-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250117:165548:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250207:190503:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250207:190746:3": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2025-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250227:170213:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-02-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250410:165554:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-04-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250416:165548:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250430:182435:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250430:182537:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250430:182628:2": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2025-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250710:170009:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250716:165645:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-07-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250730:181917:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-07-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250730:181959:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-07-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250730:182143:2": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2025-07-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251009:165558:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-10-09",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251009:174040:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251031:171018:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251031:171222:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251031:171533:1": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260109:165541:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-01-09",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260121:165535:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-02-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260204:180740:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-02-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260204:180955:3": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2026-02-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260226:170856:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-02-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260410:165544:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-04-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260416:165532:4": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260430:175834:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260430:180013:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260430:180202:5": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2026-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260710:165543:5": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260717:165551:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:184157:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:184305:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:184521:6": {
+      "ok": true,
+      "clause": "13",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20261008:165537:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-10-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20261016:165756:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20230407:180904:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-04-07",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230707:170219:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-07-07",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20240105:164725:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-01-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20250103:170501:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-01-06",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250103:170541:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-01-03",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250109:174323:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2025-01-09",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260102:172706:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-01-05",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260706:181709:3": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2026-07-06",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260710:170359:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260710:170412:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260710:170615:2": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260710:170627:3": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2026-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260710:170640:4": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2026-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260710:170650:1": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2026-07-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20230203:172959:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-02-03",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230203:173026:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2023-02-03",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230210:165556:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-02-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230217:171327:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-02-20",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230217:171344:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-02-17",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230220:190430:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2023-02-20",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230223:174718:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-02-23",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230224:170131:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2023-02-24",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230224:170143:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-02-24",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230224:170156:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-02-24",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230310:165817:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-03-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230313:183051:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-03-14",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230317:170927:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-03-17",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230428:170014:2": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2023-04-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230428:170049:1": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2023-04-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230428:170126:3": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-04-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230428:170223:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-04-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230428:170247:5": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2023-04-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230505:180858:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2023-05-05",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230505:180913:2": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2023-05-05",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230510:165602:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-05-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230510:165656:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-05-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230515:171310:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2023-05-15",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230525:170320:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-05-26",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230526:095533:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-05-26",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230531:205216:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-05-31",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230531:205235:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-05-31",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230531:205317:1": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2023-05-31",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230531:205326:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2023-05-31",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230531:205334:3": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2023-05-31",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230531:205343:4": {
+      "ok": true,
+      "clause": "21",
+      "fact_date": "2023-05-31",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230605:170127:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-06-05",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230608:115755:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-06-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230609:165601:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-06-09",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230609:170013:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-06-09",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230616:170427:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-06-16",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230616:170443:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-06-16",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230619:103931:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-06-19",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230728:170753:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-07-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230810:165656:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-08-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230810:182754:4": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2023-08-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230828:190111:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-08-28",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230904:165959:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-09-05",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230908:165629:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-09-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230912:195354:2": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-09-12",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230914:192240:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-09-14",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230915:171803:1": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2023-09-15",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20230915:171813:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-09-15",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231027:183450:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-10-27",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231027:183532:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-10-27",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231103:160523:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-11-06",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231106:152418:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-11-06",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231110:165553:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-11-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231110:165712:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-11-13",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231110:165837:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-11-10",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231113:175030:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2023-11-13",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231114:170143:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2023-11-15",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231124:171618:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-11-24",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231124:171636:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-11-24",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231208:165617:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2023-12-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231208:165646:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-12-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231208:165701:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-12-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231208:180601:1": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2023-12-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231208:180613:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2023-12-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231208:180623:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2023-12-08",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231220:173835:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2023-12-20",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20231220:173848:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2022-12-20",
+      "attempts": 0,
+      "cached_from": "39217359367"
+    },
+    "t05st01:2454:20240131:170219:4": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-01-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240131:170306:3": {
+      "ok": true,
+      "clause": "49",
+      "fact_date": "2024-01-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240131:170443:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-01-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240131:170526:7": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-01-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240207:165612:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240207:165732:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240207:165830:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240219:173241:4": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-02-20",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240219:173334:3": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-02-19",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240222:171515:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-02-22",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240222:171535:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-02-22",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240223:181758:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2024-02-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240223:181818:2": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-02-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240223:181833:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240223:181846:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-02-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240223:181856:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-02-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240229:173941:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-02-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240301:170355:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-03-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240308:165618:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-03-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240322:172736:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-03-22",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240427:111224:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-04-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240427:111252:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2024-04-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240427:111331:2": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2024-04-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240509:173948:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-05-09",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240510:165609:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-05-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240524:172512:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-05-24",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:185838:1": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:185908:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:185927:1": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:185942:3": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:185954:3": {
+      "ok": true,
+      "clause": "21",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:190053:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:190150:5": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:190210:6": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2024-05-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240527:190314:7": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-05-28",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240604:181757:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-06-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240607:165936:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-06-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240613:180712:1": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2024-06-13",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240613:180748:4": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-06-13",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240613:180808:5": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-06-13",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240619:160947:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-06-19",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240626:170936:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-06-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240809:165546:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-08-09",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240814:173455:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-08-14",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240823:170125:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-08-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240830:163704:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-09-02",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240906:173649:1": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2024-09-06",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240910:165637:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-09-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240911:175813:2": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-09-11",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240919:171328:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-09-19",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240920:170352:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-09-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240927:170656:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-09-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20240927:170737:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-09-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241030:172135:4": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241030:172203:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241030:172345:5": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241030:172646:6": {
+      "ok": true,
+      "clause": "24",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241030:172714:7": {
+      "ok": true,
+      "clause": "24",
+      "fact_date": "2024-10-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241101:210103:1": {
+      "ok": true,
+      "clause": "24",
+      "fact_date": "2024-11-01",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241108:165629:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-11-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241111:165023:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2024-11-12",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241114:171301:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-11-14",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241114:171324:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-11-14",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241119:180600:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2024-11-19",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241206:172125:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-06",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241210:165609:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2024-12-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241210:165650:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-12-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241210:165718:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-12-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241213:172141:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-12-13",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20241227:200035:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2024-12-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250207:190658:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250207:191051:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250207:191200:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250207:193218:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-02-07",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250210:165549:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-02-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250214:165351:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-02-17",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250218:185700:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-02-18",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250219:173223:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2025-02-19",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250220:114135:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-02-20",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250224:170042:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-02-25",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250226:171929:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-02-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250226:171953:3": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-02-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250227:170350:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-02-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250227:170432:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-02-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250227:170504:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2025-02-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250310:165552:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-03-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250313:171644:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-03-13",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250313:171716:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-03-13",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250313:171744:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-03-13",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250317:170804:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-03-18",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250318:173858:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-18",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250320:171631:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-03-20",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250321:171427:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-03-21",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250430:210228:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250430:210305:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250430:210334:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250509:165618:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-05-09",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250516:174212:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-05-19",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250516:174227:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2025-05-16",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250526:172154:1": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2025-05-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250529:171907:3": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2025-05-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250529:171932:4": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-05-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250529:171945:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-05-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250529:171959:5": {
+      "ok": true,
+      "clause": "21",
+      "fact_date": "2025-05-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250610:165559:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-06-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250618:161630:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-06-18",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250624:130016:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-06-24",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250625:172732:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-06-25",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250730:201006:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-07-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250730:201028:3": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-07-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250808:165610:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-08-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250813:170314:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2025-08-13",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250819:170154:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-08-20",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250822:171103:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-08-22",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250905:170748:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-09-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250910:165613:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-09-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250912:183547:1": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2025-09-12",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20250917:171106:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-09-17",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251031:172005:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251031:172128:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251031:180345:5": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251031:180445:3": {
+      "ok": true,
+      "clause": "24",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251031:180538:4": {
+      "ok": true,
+      "clause": "24",
+      "fact_date": "2025-10-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251110:165607:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-11-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251114:170553:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-11-17",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251114:170624:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2025-11-14",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251117:170512:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-11-17",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251203:171058:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-12-03",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251210:165543:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2025-12-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251210:165640:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-12-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251210:165717:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-12-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251212:200509:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-12-12",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251231:172343:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-12-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20251231:200250:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2025-12-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260204:180811:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-02-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260204:181207:4": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260204:181255:5": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260209:183356:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-09",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260210:165554:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-02-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260225:174234:2": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2026-02-25",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260225:174351:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-02-25",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260225:174447:3": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-02-25",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260226:171227:3": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-02-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260226:171539:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-02-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260226:171633:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-02-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260227:090118:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-02-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260309:165750:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-03-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260310:165537:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-03-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260310:165725:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-03-11",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260316:171941:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-03-17",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260316:172033:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-16",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260320:185813:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-20",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260327:173920:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-03-27",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260331:173012:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2026-03-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260430:180458:6": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-04-30",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260504:172227:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-05-04",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260505:170244:3": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-05-05",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260505:170424:4": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2026-05-05",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260508:165550:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-05-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260508:172412:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260508:172512:4": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-05-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260508:172611:5": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2026-05-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260508:172654:3": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-05-08",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260514:182808:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2026-05-14",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260515:174011:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-05-18",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260525:175826:1": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2026-05-25",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260529:170657:1": {
+      "ok": true,
+      "clause": "18",
+      "fact_date": "2026-05-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260529:170954:2": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-05-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260529:171229:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-05-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260529:171317:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-05-29",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260605:171207:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-06-05",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260610:165544:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-06-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260612:170856:2": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-06-12",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260622:170036:2": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-06-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260623:160340:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-06-23",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260626:170652:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-06-26",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:203103:6": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:203221:1": {
+      "ok": true,
+      "clause": "15",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:203409:9": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:203543:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:203637:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:203803:10": {
+      "ok": true,
+      "clause": "22",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:203951:11": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:204120:12": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:204205:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:204337:7": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:204402:8": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:204548:13": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260731:204618:14": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260810:165653:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-08-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260819:182419:1": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-07-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260821:181329:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-08-21",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260828:171013:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2026-08-28",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260831:202511:3": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-08-31",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260902:172319:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-09-03",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260903:183824:1": {
+      "ok": true,
+      "clause": "36",
+      "fact_date": "2026-09-03",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260910:165541:1": {
+      "ok": true,
+      "clause": "51",
+      "fact_date": "2026-09-10",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    },
+    "t05st01:2454:20260911:180411:1": {
+      "ok": true,
+      "clause": "23",
+      "fact_date": "2026-09-11",
+      "attempts": 0,
+      "cached_from": "39136575628"
+    }
+  },
+  "quarters": {
+    "2023Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2023-04-10T16:57:38+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20230410:165738:1",
+        "detail_verified": true,
+        "subject": "聯發科技112年3月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2023-04-10T16:57:38+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20230410:165738:1",
+          "detail_verified": true,
+          "subject": "聯發科技112年3月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2023-04-28T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20230414:165604:1",
+          "detail_verified": true,
+          "subject": "本公司於112/4/28召開第一季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2023-04-28T16:56:50+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20230428:165650:2",
+          "detail_verified": true,
+          "subject": "公告本公司112年第1季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2023-04-28T16:58:40+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20230428:165840:4",
+          "detail_verified": true,
+          "subject": "本公司2023年第1季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2023-05-12T15:37:50+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202301_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202301_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20230407:180904:1",
+          "announced_at": "2023-04-07T18:09:04+08:00",
+          "subject": "代子公司匯發國際(香港)有限公司(下稱「匯發國際」) 公告處分有價證券",
+          "clause": "20",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2023-05-12T15:37:50+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2023-04-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2023Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2023-07-10T16:56:02+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20230710:165602:1",
+        "detail_verified": true,
+        "subject": "聯發科技112年6月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2023-07-10T16:56:02+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20230710:165602:1",
+          "detail_verified": true,
+          "subject": "聯發科技112年6月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2023-07-28T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20230714:165611:1",
+          "detail_verified": true,
+          "subject": "本公司於112/7/28召開第二季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2023-07-28T17:06:17+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20230728:170617:1",
+          "detail_verified": true,
+          "subject": "公告本公司112年第2季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2023-07-28T17:07:08+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20230728:170708:1",
+          "detail_verified": true,
+          "subject": "本公司2023年第2季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2023-08-11T14:51:31+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202302_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202302_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20230707:170219:1",
+          "announced_at": "2023-07-07T17:02:19+08:00",
+          "subject": "代重要子公司GOLD RICH INTERNATIONAL (SAMOA) LIMITED 董事會公告決議發放股利",
+          "clause": "14",
+          "cleared_by": "human_review"
+        }
+      ],
+      "financial_report_status": "filed 2023-08-11T14:51:31+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2023-07-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": true
+    },
+    "2023Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2023-10-11T16:56:33+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20231011:165633:1",
+        "detail_verified": true,
+        "subject": "聯發科技112年9月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2023-10-11T16:56:33+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20231011:165633:1",
+          "detail_verified": true,
+          "subject": "聯發科技112年9月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2023-10-27T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20231013:165948:1",
+          "detail_verified": true,
+          "subject": "本公司於112/10/27召開第三季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2023-10-27T18:33:42+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20231027:183342:1",
+          "detail_verified": true,
+          "subject": "公告本公司112年第3季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2023-10-27T18:34:19+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20231027:183419:2",
+          "detail_verified": true,
+          "subject": "本公司2023年第3季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2023-11-13T15:40:28+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202303_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202303_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "filed 2023-11-13T15:40:28+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2023-10-11T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2023Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-01-10T16:55:58+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20240110:165558:1",
+        "detail_verified": true,
+        "subject": "聯發科技112年12月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-01-10T16:55:58+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240110:165558:1",
+          "detail_verified": true,
+          "subject": "聯發科技112年12月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-01-31T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240117:165632:1",
+          "detail_verified": true,
+          "subject": "本公司於113/1/31召開第四季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-01-31T17:00:59+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240131:170059:2",
+          "detail_verified": true,
+          "subject": "本公司2023年第4季與2023全年合併財務報告"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-02-23T18:17:20+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240223:181720:1",
+          "detail_verified": true,
+          "subject": "公告本公司112年度合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-02-27T17:45:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202304_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202304_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20240105:164725:1",
+          "announced_at": "2024-01-05T16:47:25+08:00",
+          "subject": "公告本公司參與機構投資人說明會",
+          "clause": "12",
+          "cleared_by": "human_review"
+        }
+      ],
+      "financial_report_status": "filed 2024-02-27T17:45:00+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-01-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": true
+    },
+    "2024Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-04-10T16:56:01+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20240410:165601:1",
+        "detail_verified": true,
+        "subject": "聯發科技113年3月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-04-10T16:56:01+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240410:165601:1",
+          "detail_verified": true,
+          "subject": "聯發科技113年3月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-04-26T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240412:165546:1",
+          "detail_verified": true,
+          "subject": "本公司於113/4/26召開第一季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-04-26T17:16:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240426:171600:1",
+          "detail_verified": true,
+          "subject": "公告本公司113年第1季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-04-26T17:17:09+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240426:171709:2",
+          "detail_verified": true,
+          "subject": "本公司2024年第1季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-05-14T14:22:15+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202401_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202401_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "filed 2024-05-14T14:22:15+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-04-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2024Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-07-10T16:55:47+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20240710:165547:1",
+        "detail_verified": true,
+        "subject": "聯發科技113年6月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-07-10T16:55:47+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240710:165547:1",
+          "detail_verified": true,
+          "subject": "聯發科技113年6月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-07-31T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240717:165606:4",
+          "detail_verified": true,
+          "subject": "本公司於113/7/31召開第二季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-07-31T16:27:12+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240731:162712:1",
+          "detail_verified": true,
+          "subject": "公告本公司113年第2季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-07-31T16:28:20+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20240731:162820:1",
+          "detail_verified": true,
+          "subject": "本公司2024年第2季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-08-13T17:27:52+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202402_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202402_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "filed 2024-08-13T17:27:52+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-07-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2024Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2024-10-09T16:55:48+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20241009:165548:1",
+        "detail_verified": true,
+        "subject": "聯發科技113年9月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2024-10-09T16:55:48+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20241009:165548:1",
+          "detail_verified": true,
+          "subject": "聯發科技113年9月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2024-10-30T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20241016:165540:1",
+          "detail_verified": true,
+          "subject": "本公司於113/10/30召開第三季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2024-10-30T17:17:15+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20241030:171715:1",
+          "detail_verified": true,
+          "subject": "公告本公司113年第3季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2024-10-30T17:18:27+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20241030:171827:2",
+          "detail_verified": true,
+          "subject": "本公司2024年第3季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2024-11-13T16:20:58+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202403_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202403_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "filed 2024-11-13T16:20:58+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2024-10-09T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2024Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-01-10T16:55:49+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20250110:165549:1",
+        "detail_verified": true,
+        "subject": "聯發科技113年12月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-01-10T16:55:49+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250110:165549:1",
+          "detail_verified": true,
+          "subject": "聯發科技113年12月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-02-07T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250117:165548:1",
+          "detail_verified": true,
+          "subject": "本公司於114/2/7召開第四季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-02-07T19:05:03+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250207:190503:2",
+          "detail_verified": true,
+          "subject": "本公司2024年第4季與2024全年合併財務報告"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-02-27T17:02:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250227:170213:1",
+          "detail_verified": true,
+          "subject": "公告本公司113年度合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-02-27T18:07:29+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202404_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202404_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20250103:170501:2",
+          "announced_at": "2025-01-03T17:05:01+08:00",
+          "subject": "公告本公司參與機構投資人說明會",
+          "clause": "12",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2454:20250103:170541:1",
+          "announced_at": "2025-01-03T17:05:41+08:00",
+          "subject": "代重要子公司MediaTek Global Holdings Limited 公告董事會決議通過辦理現金減資案",
+          "clause": "11",
+          "cleared_by": "human_review"
+        },
+        {
+          "document_id": "t05st01:2454:20250109:174323:1",
+          "announced_at": "2025-01-09T17:43:23+08:00",
+          "subject": "代重要子公司MediaTek Global Holdings Limited公告 辦理減資資本變更登記完成",
+          "clause": "36",
+          "cleared_by": "human_review"
+        }
+      ],
+      "financial_report_status": "filed 2025-02-27T18:07:29+08:00",
+      "uncertain_filings": [
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_2454_AIC.pdf",
+          "detail": "IFRSs英文版-個體財報",
+          "uploaded_at_shown": "2025-02-27T18:08:09+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": true,
+          "rule": "filing_not_before_board_approval",
+          "board_bound": "2025-02-27T00:00:00+08:00",
+          "note": "財報須經董事會通過後才能申報；董事會開會日 2025-02-27 晚於截止點 2025-01-10T16:55:49+08:00，此列不論原始申報時間為何都不會早於截止點"
+        }
+      ],
+      "snapshot_boundary": {
+        "at": "2025-01-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": true
+    },
+    "2025Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-04-10T16:55:54+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20250410:165554:1",
+        "detail_verified": true,
+        "subject": "聯發科技114年3月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-04-10T16:55:54+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250410:165554:1",
+          "detail_verified": true,
+          "subject": "聯發科技114年3月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-04-30T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250416:165548:1",
+          "detail_verified": true,
+          "subject": "本公司於114/4/30召開第一季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-04-30T18:24:35+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250430:182435:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第1季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-04-30T18:25:37+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250430:182537:1",
+          "detail_verified": true,
+          "subject": "本公司2025年第1季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-05-14T14:54:43+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202501_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202501_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "filed 2025-05-14T14:54:43+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-04-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2025Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-07-10T17:00:09+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20250710:170009:1",
+        "detail_verified": true,
+        "subject": "聯發科技114年6月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-07-10T17:00:09+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250710:170009:1",
+          "detail_verified": true,
+          "subject": "聯發科技114年6月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-07-30T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250716:165645:1",
+          "detail_verified": true,
+          "subject": "本公司於114/7/30召開第二季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-07-30T18:19:17+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250730:181917:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第2季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-07-30T18:19:59+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20250730:181959:1",
+          "detail_verified": true,
+          "subject": "本公司2025年第2季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-08-13T13:53:47+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202502_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202502_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "filed 2025-08-13T13:53:47+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-07-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2025Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2025-10-09T16:55:58+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20251009:165558:1",
+        "detail_verified": true,
+        "subject": "聯發科技114年9月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2025-10-09T16:55:58+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20251009:165558:1",
+          "detail_verified": true,
+          "subject": "聯發科技114年9月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2025-10-31T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20251009:174040:2",
+          "detail_verified": true,
+          "subject": "本公司於114/10/31召開第三季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2025-10-31T17:10:18+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20251031:171018:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年第3季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2025-10-31T17:12:22+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20251031:171222:2",
+          "detail_verified": true,
+          "subject": "本公司2025年第3季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2025-11-13T16:03:53+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202503_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202503_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "filed 2025-11-13T16:03:53+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-10-09T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2025Q4": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-01-09T16:55:41+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20260109:165541:1",
+        "detail_verified": true,
+        "subject": "聯發科技114年12月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-01-09T16:55:41+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260109:165541:1",
+          "detail_verified": true,
+          "subject": "聯發科技114年12月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-02-04T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260121:165535:1",
+          "detail_verified": true,
+          "subject": "本公司於115/2/4召開第四季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-02-04T18:07:40+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260204:180740:2",
+          "detail_verified": true,
+          "subject": "本公司2025年第4季與2025全年合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-02-26T17:00:05+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202504_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202504_2454_AI1.pdf"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-02-26T17:08:56+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260226:170856:1",
+          "detail_verified": true,
+          "subject": "公告本公司114年度合併財務報告業經董事會決議通過"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20260102:172706:1",
+          "announced_at": "2026-01-02T17:27:06+08:00",
+          "subject": "公告本公司參與機構投資人說明會",
+          "clause": "12",
+          "cleared_by": "human_review"
+        }
+      ],
+      "financial_report_status": "filed 2026-02-26T17:00:05+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-01-09T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": true
+    },
+    "2026Q1": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-04-10T16:55:44+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20260410:165544:1",
+        "detail_verified": true,
+        "subject": "聯發科技115年3月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-04-10T16:55:44+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260410:165544:1",
+          "detail_verified": true,
+          "subject": "聯發科技115年3月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-04-30T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260416:165532:4",
+          "detail_verified": true,
+          "subject": "本公司於115/4/30召開第一季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-04-30T17:58:34+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260430:175834:1",
+          "detail_verified": true,
+          "subject": "公告本公司115年第1季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-04-30T18:00:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260430:180013:2",
+          "detail_verified": true,
+          "subject": "本公司2026年第1季合併財務報告"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-05-14T17:05:13+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202601_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202601_2454_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "filed 2026-05-14T17:05:13+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-04-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2026Q2": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-07-10T16:55:43+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20260710:165543:5",
+        "detail_verified": true,
+        "subject": "聯發科技115年6月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-07-10T16:55:43+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260710:165543:5",
+          "detail_verified": true,
+          "subject": "聯發科技115年6月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-07-31T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260717:165551:1",
+          "detail_verified": true,
+          "subject": "本公司於115/7/31召開第二季財報暨營運線上說明會"
+        },
+        {
+          "event_type": "financial_report",
+          "at": "2026-07-31T16:55:20+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:2454:202602_2454_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202602_2454_AI1.pdf"
+        },
+        {
+          "event_type": "board_approved_financials",
+          "at": "2026-07-31T18:41:57+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260731:184157:1",
+          "detail_verified": true,
+          "subject": "公告本公司115年第2季合併財務報告業經董事會決議通過"
+        },
+        {
+          "event_type": "self_reported_results",
+          "at": "2026-07-31T18:43:05+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20260731:184305:1",
+          "detail_verified": true,
+          "subject": "本公司2026年第2季合併財務報告"
+        }
+      ],
+      "review_window": [
+        {
+          "document_id": "t05st01:2454:20260706:181709:3",
+          "announced_at": "2026-07-06T18:17:09+08:00",
+          "subject": "代重要子公司聯發資本(股)公司公告法人股東指派董事",
+          "clause": "6",
+          "cleared_by": "auto_clause_rule"
+        }
+      ],
+      "financial_report_status": "filed 2026-07-31T16:55:20+08:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-07-10T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    },
+    "2026Q3": {
+      "status": "CUTOFF_VERIFIED",
+      "revenue_rule": "require_announcement",
+      "earliest": {
+        "event_type": "quarter_revenue_complete",
+        "at": "2026-10-08T16:55:37+08:00",
+        "precision": "datetime_tz",
+        "document_id": "t05st01:2454:20261008:165537:1",
+        "detail_verified": true,
+        "subject": "聯發科技115年9月份自結合併營收淨額公告"
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "quarter_revenue_complete",
+          "at": "2026-10-08T16:55:37+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20261008:165537:1",
+          "detail_verified": true,
+          "subject": "聯發科技115年9月份自結合併營收淨額公告"
+        },
+        {
+          "event_type": "investor_conference",
+          "at": "2026-10-30T15:00:00+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t05st01:2454:20261016:165756:1",
+          "detail_verified": true,
+          "subject": "本公司於115/10/30召開第三季財報暨營運線上說明會"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": "not filed as of 2026-10-19T09:53:43.575855+00:00",
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-10-08T00:00:00+08:00",
+        "rule": "revenue_day_midnight",
+        "note": "月營收公告當日 00:00（月營收申報系統上傳時間未查證）"
+      },
+      "review_record": false
+    }
+  },
+  "notes": [],
+  "detail_counts": {
+    "wanted": 354,
+    "fetched": 0,
+    "from_cache": 354,
+    "skipped_over_limit": 0
+  },
+  "clause_policy": {
+    "clauses": [
+      "20",
+      "6",
+      "8"
+    ],
+    "reviewer": "Gate Pipeline 擁有者（使用者本人）",
+    "decided_at": "2026-10-18T15:34:41+08:00"
+  },
+  "guidance": {
+    "version": "4.23-guidance",
+    "data_mode": "OFFICIAL_GUIDANCE",
+    "quarters": {
+      "2023Q1": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2023-04-10T16:57:38+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2023Q1",
+          "revenue_twd_bn": [
+            93.0,
+            101.7
+          ],
+          "gross_margin_pct": [
+            46.0,
+            49.0
+          ],
+          "fx_twd_per_usd": 30.5,
+          "opex_ratio_pct": [
+            31.0,
+            35.0
+          ],
+          "document_id": "t05st01:2454:20230203:172927:1",
+          "announced_at": "2023-02-03T17:29:27+08:00",
+          "issued_with_results_of": "2022Q4",
+          "response_sha256": "19e9180d666ff4ef44e214095565024655f9fe042e6fcf7da0d11263a6f422d7"
+        },
+        "actual": {
+          "revenue_twd_bn": 95.652,
+          "gross_margin_pct": 48.0,
+          "eps_twd": 10.64,
+          "document_id": "t05st01:2454:20230428:165840:4",
+          "announced_at": "2023-04-28T16:58:40+08:00",
+          "response_sha256": "c129863d045b10e5c2e1f3b18cd0158bff21b6120346358912b6d6667385cbcc"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "WITHIN",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2023-02-03T17:29:27+08:00",
+          "to": "2023-04-10T16:57:38+08:00",
+          "announcements": 15,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2023Q2": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2023-07-10T16:56:02+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2023Q2",
+          "revenue_twd_bn": [
+            91.8,
+            99.5
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 30.3,
+          "opex_ratio_pct": [
+            31.0,
+            35.0
+          ],
+          "document_id": "t05st01:2454:20230428:165840:4",
+          "announced_at": "2023-04-28T16:58:40+08:00",
+          "issued_with_results_of": "2023Q1",
+          "response_sha256": "c129863d045b10e5c2e1f3b18cd0158bff21b6120346358912b6d6667385cbcc"
+        },
+        "actual": {
+          "revenue_twd_bn": 98.135,
+          "gross_margin_pct": 47.5,
+          "eps_twd": 10.07,
+          "document_id": "t05st01:2454:20230728:170708:1",
+          "announced_at": "2023-07-28T17:07:08+08:00",
+          "response_sha256": "444d1741ce2b7f04c9a7e8dc6c38451f3e44100a4275ad572f59fbe858a63d43"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "WITHIN",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2023-04-28T16:58:40+08:00",
+          "to": "2023-07-10T16:56:02+08:00",
+          "announcements": 26,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2023Q3": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2023-10-11T16:56:33+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2023Q3",
+          "revenue_twd_bn": [
+            102.1,
+            108.9
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 30.7,
+          "opex_ratio_pct": [
+            30.0,
+            34.0
+          ],
+          "document_id": "t05st01:2454:20230728:170708:1",
+          "announced_at": "2023-07-28T17:07:08+08:00",
+          "issued_with_results_of": "2023Q2",
+          "response_sha256": "444d1741ce2b7f04c9a7e8dc6c38451f3e44100a4275ad572f59fbe858a63d43"
+        },
+        "actual": {
+          "revenue_twd_bn": 110.098,
+          "gross_margin_pct": 47.4,
+          "eps_twd": 11.64,
+          "document_id": "t05st01:2454:20231027:183419:2",
+          "announced_at": "2023-10-27T18:34:19+08:00",
+          "response_sha256": "95b2a18c1038b4c81104a4731e76f06271cc973d8e3ed1d8573b12206f9e1ca2"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2023-07-28T17:07:08+08:00",
+          "to": "2023-10-11T16:56:33+08:00",
+          "announcements": 11,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2023Q4": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2024-01-10T16:55:58+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2023Q4",
+          "revenue_twd_bn": [
+            120.0,
+            126.6
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 32.0,
+          "opex_ratio_pct": [
+            28.0,
+            32.0
+          ],
+          "document_id": "t05st01:2454:20231027:183419:2",
+          "announced_at": "2023-10-27T18:34:19+08:00",
+          "issued_with_results_of": "2023Q3",
+          "response_sha256": "95b2a18c1038b4c81104a4731e76f06271cc973d8e3ed1d8573b12206f9e1ca2"
+        },
+        "actual": {
+          "revenue_twd_bn": 129.562,
+          "gross_margin_pct": 48.3,
+          "eps_twd": 16.15,
+          "document_id": "t05st01:2454:20240131:170059:2",
+          "announced_at": "2024-01-31T17:00:59+08:00",
+          "response_sha256": "88f79a1ec49e91168e16aa09a77fef2d8cea6627efac7a7e20b0ff9050501aac"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2023-10-27T18:34:19+08:00",
+          "to": "2024-01-10T16:55:58+08:00",
+          "announcements": 21,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2024Q1": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2024-04-10T16:56:01+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2024Q1",
+          "revenue_twd_bn": [
+            121.8,
+            129.6
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 31.2,
+          "opex_ratio_pct": [
+            26.0,
+            30.0
+          ],
+          "document_id": "t05st01:2454:20240131:170059:2",
+          "announced_at": "2024-01-31T17:00:59+08:00",
+          "issued_with_results_of": "2023Q4",
+          "response_sha256": "88f79a1ec49e91168e16aa09a77fef2d8cea6627efac7a7e20b0ff9050501aac"
+        },
+        "actual": {
+          "revenue_twd_bn": 133.458,
+          "gross_margin_pct": 52.4,
+          "eps_twd": 19.85,
+          "notes": [
+            "實際毛利率含一次性項目（公告原文：本季合併毛利率含一次性項目為 52.4%）",
+            "本季含一次性項目（原文：對毛利率正面影響 4.5 個百分點）；數字照公告原值，未調整。原文：…主要因本季毛利率包含一次性的項目，其對毛利率有4.5個百分點的正面影響…",
+            "本季含一次性項目；數字照公告原值，未調整。原文：…餘較前季及去年同期增加，主要因本季的營收較前季及去年同期高，且毛利率因本季一次性項目較前季及去年同期高…"
+          ],
+          "document_id": "t05st01:2454:20240426:171709:2",
+          "announced_at": "2024-04-26T17:17:09+08:00",
+          "response_sha256": "059bb94a2f161d839bc3185e6c24eda643e0c1900a654356502bc3ebeaa2e7e3"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "ABOVE",
+          "gross_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2024-01-31T17:00:59+08:00",
+          "to": "2024-04-10T16:56:01+08:00",
+          "announcements": 22,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [
+          "實際毛利率含一次性項目（公告原文：本季合併毛利率含一次性項目為 52.4%）",
+          "本季含一次性項目（原文：對毛利率正面影響 4.5 個百分點）；數字照公告原值，未調整。原文：…主要因本季毛利率包含一次性的項目，其對毛利率有4.5個百分點的正面影響…",
+          "本季含一次性項目；數字照公告原值，未調整。原文：…餘較前季及去年同期增加，主要因本季的營收較前季及去年同期高，且毛利率因本季一次性項目較前季及去年同期高…"
+        ],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2024Q2": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2024-07-10T16:55:47+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2024Q2",
+          "revenue_twd_bn": [
+            121.4,
+            133.5
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 32.0,
+          "opex_ratio_pct": [
+            28.0,
+            32.0
+          ],
+          "document_id": "t05st01:2454:20240426:171709:2",
+          "announced_at": "2024-04-26T17:17:09+08:00",
+          "issued_with_results_of": "2024Q1",
+          "response_sha256": "059bb94a2f161d839bc3185e6c24eda643e0c1900a654356502bc3ebeaa2e7e3"
+        },
+        "actual": {
+          "revenue_twd_bn": 127.271,
+          "gross_margin_pct": 48.8,
+          "eps_twd": 16.19,
+          "notes": [
+            "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…毛利率為48.8%，較前季減少3.6個百分點，主要因前季包含一次性的項目…"
+          ],
+          "document_id": "t05st01:2454:20240731:162820:1",
+          "announced_at": "2024-07-31T16:28:20+08:00",
+          "response_sha256": "89ae6ed072caf2ff0be295cbd99e4e89a9e906ea0bb91124c926e156fe16f612"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "WITHIN",
+          "gross_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2024-04-26T17:17:09+08:00",
+          "to": "2024-07-10T16:55:47+08:00",
+          "announcements": 23,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [
+          "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…毛利率為48.8%，較前季減少3.6個百分點，主要因前季包含一次性的項目…"
+        ],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2024Q3": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2024-10-09T16:55:48+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2024Q3",
+          "revenue_twd_bn": [
+            123.5,
+            132.4
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 32.3,
+          "opex_ratio_pct": [
+            28.0,
+            32.0
+          ],
+          "document_id": "t05st01:2454:20240731:162820:1",
+          "announced_at": "2024-07-31T16:28:20+08:00",
+          "issued_with_results_of": "2024Q2",
+          "response_sha256": "89ae6ed072caf2ff0be295cbd99e4e89a9e906ea0bb91124c926e156fe16f612"
+        },
+        "actual": {
+          "revenue_twd_bn": 131.813,
+          "gross_margin_pct": 48.8,
+          "eps_twd": 15.94,
+          "document_id": "t05st01:2454:20241030:171827:2",
+          "announced_at": "2024-10-30T17:18:27+08:00",
+          "response_sha256": "ec1010a980cf40e47c2bae14a4f3383c74ce0165342639d8865db0081ed81761"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "WITHIN",
+          "gross_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2024-07-31T16:28:20+08:00",
+          "to": "2024-10-09T16:55:48+08:00",
+          "announcements": 12,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2024Q4": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2025-01-10T16:55:49+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2024Q4",
+          "revenue_twd_bn": [
+            126.5,
+            134.5
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 31.7,
+          "opex_ratio_pct": [
+            30.0,
+            34.0
+          ],
+          "document_id": "t05st01:2454:20241030:171827:2",
+          "announced_at": "2024-10-30T17:18:27+08:00",
+          "issued_with_results_of": "2024Q3",
+          "response_sha256": "ec1010a980cf40e47c2bae14a4f3383c74ce0165342639d8865db0081ed81761"
+        },
+        "actual": {
+          "revenue_twd_bn": 138.043,
+          "gross_margin_pct": 48.5,
+          "eps_twd": 14.95,
+          "document_id": "t05st01:2454:20250207:190503:2",
+          "announced_at": "2025-02-07T19:05:03+08:00",
+          "response_sha256": "f3049ce1b39e2c28a4647453a7bb1c83a568acb49632ff319406bbdbe386cc3c"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2024-10-30T17:18:27+08:00",
+          "to": "2025-01-10T16:55:49+08:00",
+          "announcements": 21,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2025Q1": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2025-04-10T16:55:54+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2025Q1",
+          "revenue_twd_bn": [
+            140.8,
+            151.8
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 32.5,
+          "opex_ratio_pct": [
+            27.0,
+            31.0
+          ],
+          "document_id": "t05st01:2454:20250207:190503:2",
+          "announced_at": "2025-02-07T19:05:03+08:00",
+          "issued_with_results_of": "2024Q4",
+          "response_sha256": "f3049ce1b39e2c28a4647453a7bb1c83a568acb49632ff319406bbdbe386cc3c"
+        },
+        "actual": {
+          "revenue_twd_bn": 153.312,
+          "gross_margin_pct": 48.1,
+          "eps_twd": 18.43,
+          "notes": [
+            "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…本季毛利率較去年同期減少主要因去年同期受惠一次性項目致基期較高…",
+            "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…本季本期淨利、本期淨利率與每股盈餘較去年同期減少，主要因去年同期受惠一次性項目致毛利基期較高，以及本季研發投入費用增加…"
+          ],
+          "document_id": "t05st01:2454:20250430:182537:1",
+          "announced_at": "2025-04-30T18:25:37+08:00",
+          "response_sha256": "ba5f4b2b3325c884fd6f101490d2643c936db5d6befc9818a9fdc34135a8ef4c"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2025-02-07T19:05:03+08:00",
+          "to": "2025-04-10T16:55:54+08:00",
+          "announcements": 25,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [
+          "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…本季毛利率較去年同期減少主要因去年同期受惠一次性項目致基期較高…",
+          "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…本季本期淨利、本期淨利率與每股盈餘較去年同期減少，主要因去年同期受惠一次性項目致毛利基期較高，以及本季研發投入費用增加…"
+        ],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2025Q2": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2025-07-10T17:00:09+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2025Q2",
+          "revenue_twd_bn": [
+            147.2,
+            159.4
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 32.5,
+          "opex_ratio_pct": [
+            27.0,
+            31.0
+          ],
+          "document_id": "t05st01:2454:20250430:182537:1",
+          "announced_at": "2025-04-30T18:25:37+08:00",
+          "issued_with_results_of": "2025Q1",
+          "response_sha256": "ba5f4b2b3325c884fd6f101490d2643c936db5d6befc9818a9fdc34135a8ef4c"
+        },
+        "actual": {
+          "revenue_twd_bn": 150.369,
+          "gross_margin_pct": 49.1,
+          "eps_twd": 17.5,
+          "notes": [
+            "本季含一次性項目（原文：對毛利率正面影響 1.9 個百分點）；數字照公告原值，未調整。原文：…本季毛利率較前季及去年同期增加，主要因包含一次性項目，其對毛利率有1.9個百分點的正面影響…"
+          ],
+          "document_id": "t05st01:2454:20250730:181959:1",
+          "announced_at": "2025-07-30T18:19:59+08:00",
+          "response_sha256": "2820f82002ca5a9c8dd9491a4b0d755b626dd4333267bfd5bb84a069cc8fa6f9"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "WITHIN",
+          "gross_margin_pct": "ABOVE"
+        },
+        "window": {
+          "from": "2025-04-30T18:25:37+08:00",
+          "to": "2025-07-10T17:00:09+08:00",
+          "announcements": 16,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [
+          "本季含一次性項目（原文：對毛利率正面影響 1.9 個百分點）；數字照公告原值，未調整。原文：…本季毛利率較前季及去年同期增加，主要因包含一次性項目，其對毛利率有1.9個百分點的正面影響…"
+        ],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2025Q3": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2025-10-09T16:55:58+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2025Q3",
+          "revenue_twd_bn": [
+            130.1,
+            140.0
+          ],
+          "gross_margin_pct": [
+            45.5,
+            48.5
+          ],
+          "fx_twd_per_usd": 29.0,
+          "opex_ratio_pct": [
+            29.0,
+            33.0
+          ],
+          "document_id": "t05st01:2454:20250730:181959:1",
+          "announced_at": "2025-07-30T18:19:59+08:00",
+          "issued_with_results_of": "2025Q2",
+          "response_sha256": "2820f82002ca5a9c8dd9491a4b0d755b626dd4333267bfd5bb84a069cc8fa6f9"
+        },
+        "actual": {
+          "revenue_twd_bn": 142.097,
+          "gross_margin_pct": 46.5,
+          "eps_twd": 15.84,
+          "notes": [
+            "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…本季毛利率較前季減少，主要因前季毛利率包含因一次性項目帶來的1.9個百分點正面影響…"
+          ],
+          "document_id": "t05st01:2454:20251031:171222:2",
+          "announced_at": "2025-10-31T17:12:22+08:00",
+          "response_sha256": "4c43ef1dadc09d1c7d0981c8ac78959b7f2517fa2bc681839957ba939cb25e2e"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2025-07-30T18:19:59+08:00",
+          "to": "2025-10-09T16:55:58+08:00",
+          "announcements": 11,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [
+          "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…本季毛利率較前季減少，主要因前季毛利率包含因一次性項目帶來的1.9個百分點正面影響…"
+        ],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2025Q4": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2026-01-09T16:55:41+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2025Q4",
+          "revenue_twd_bn": [
+            142.1,
+            150.6
+          ],
+          "gross_margin_pct": [
+            44.5,
+            47.5
+          ],
+          "fx_twd_per_usd": 30.6,
+          "opex_ratio_pct": [
+            29.0,
+            33.0
+          ],
+          "document_id": "t05st01:2454:20251031:171222:2",
+          "announced_at": "2025-10-31T17:12:22+08:00",
+          "issued_with_results_of": "2025Q3",
+          "response_sha256": "4c43ef1dadc09d1c7d0981c8ac78959b7f2517fa2bc681839957ba939cb25e2e"
+        },
+        "actual": {
+          "revenue_twd_bn": 150.188,
+          "gross_margin_pct": 46.1,
+          "eps_twd": 14.39,
+          "document_id": "t05st01:2454:20260204:180740:2",
+          "announced_at": "2026-02-04T18:07:40+08:00",
+          "response_sha256": "fc02b59d07e93cea96500da98fbaf8fb51b0492940375e1dc7563589a352c713"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "WITHIN",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2025-10-31T17:12:22+08:00",
+          "to": "2026-01-09T16:55:41+08:00",
+          "announcements": 18,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2026Q1": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2026-04-10T16:55:44+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2026Q1",
+          "revenue_twd_bn": [
+            141.2,
+            150.2
+          ],
+          "gross_margin_pct": [
+            44.5,
+            47.5
+          ],
+          "fx_twd_per_usd": 31.2,
+          "opex_ratio_pct": [
+            29.0,
+            33.0
+          ],
+          "document_id": "t05st01:2454:20260204:180740:2",
+          "announced_at": "2026-02-04T18:07:40+08:00",
+          "issued_with_results_of": "2025Q4",
+          "response_sha256": "fc02b59d07e93cea96500da98fbaf8fb51b0492940375e1dc7563589a352c713"
+        },
+        "actual": {
+          "revenue_twd_bn": 149.151,
+          "gross_margin_pct": 46.3,
+          "eps_twd": 15.17,
+          "document_id": "t05st01:2454:20260430:180013:2",
+          "announced_at": "2026-04-30T18:00:13+08:00",
+          "response_sha256": "996c9c8794a20c620b0dce086f3c2eac478d40e12c8c90f23ed8cf458ced4b0a"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "WITHIN",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2026-02-04T18:07:40+08:00",
+          "to": "2026-04-10T16:55:44+08:00",
+          "announcements": 22,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2026Q2": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2026-07-10T16:55:43+08:00",
+        "status": "VERIFIED",
+        "reject_code": null,
+        "guidance": {
+          "target_quarter": "2026Q2",
+          "revenue_twd_bn": [
+            140.2,
+            149.2
+          ],
+          "gross_margin_pct": [
+            44.5,
+            47.5
+          ],
+          "fx_twd_per_usd": 31.5,
+          "opex_ratio_pct": [
+            29.0,
+            33.0
+          ],
+          "document_id": "t05st01:2454:20260430:180013:2",
+          "announced_at": "2026-04-30T18:00:13+08:00",
+          "issued_with_results_of": "2026Q1",
+          "response_sha256": "996c9c8794a20c620b0dce086f3c2eac478d40e12c8c90f23ed8cf458ced4b0a"
+        },
+        "actual": {
+          "revenue_twd_bn": 152.183,
+          "gross_margin_pct": 46.2,
+          "eps_twd": 15.28,
+          "notes": [
+            "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…本季毛利率較去年同期減少，主要因去年同期毛利率包含一次性利益…"
+          ],
+          "document_id": "t05st01:2454:20260731:184305:1",
+          "announced_at": "2026-07-31T18:43:05+08:00",
+          "response_sha256": "81123d9c3cf446e6d2238ee89fcde4b67f663def690d9cca77bb92aac91a2ab9"
+        },
+        "verdicts": {
+          "revenue_twd_bn": "ABOVE",
+          "gross_margin_pct": "WITHIN"
+        },
+        "window": {
+          "from": "2026-04-30T18:00:13+08:00",
+          "to": "2026-07-10T16:55:43+08:00",
+          "announcements": 24,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": [
+          "比較期間（前季或去年同期）含一次性項目，不是本季；原文：…本季毛利率較去年同期減少，主要因去年同期毛利率包含一次性利益…"
+        ],
+        "not_compared": [
+          "opex_ratio_pct"
+        ]
+      },
+      "2026Q3": {
+        "data_mode": "OFFICIAL_GUIDANCE",
+        "evidence_tier": "official_record",
+        "cutoff": "2026-10-08T16:55:37+08:00",
+        "status": "MISSING_ACTUAL",
+        "reject_code": "GUIDANCE_ACTUAL_MISSING",
+        "guidance": {
+          "target_quarter": "2026Q3",
+          "revenue_twd_bn": [
+            152.2,
+            159.8
+          ],
+          "gross_margin_pct": [
+            44.5,
+            47.5
+          ],
+          "fx_twd_per_usd": 32.0,
+          "opex_ratio_pct": [
+            29.0,
+            33.0
+          ],
+          "document_id": "t05st01:2454:20260731:184305:1",
+          "announced_at": "2026-07-31T18:43:05+08:00",
+          "issued_with_results_of": "2026Q2",
+          "response_sha256": "81123d9c3cf446e6d2238ee89fcde4b67f663def690d9cca77bb92aac91a2ab9"
+        },
+        "actual": null,
+        "verdicts": null,
+        "window": {
+          "from": "2026-07-31T18:43:05+08:00",
+          "to": "2026-10-08T16:55:37+08:00",
+          "announcements": 23,
+          "missing_detail": [],
+          "flagged": [],
+          "cleared_by_review": [],
+          "confirmed_updates": []
+        },
+        "notes": []
+      }
+    },
+    "gate": {
+      "data_mode": "OFFICIAL_GUIDANCE",
+      "label": "Gate5B 官方財測模式（Python 預驗證，非正式 Gate PASS）",
+      "verified_quarters": 14,
+      "min_quarters": 8,
+      "result": "OFFICIAL_GUIDANCE_VERIFIED",
+      "meaning": "比較的是公司自己在上一季公布的財測，不是市場共識"
+    },
+    "parse_failures": [],
+    "gate_result": {
+      "gate_name": "Gate5B_官方財測(OFFICIAL_GUIDANCE)",
+      "status": "official_guidance_verified",
+      "reasons": [
+        "2026Q3: MISSING_ACTUAL"
+      ],
+      "reject_codes": [
+        "GUIDANCE_ACTUAL_MISSING"
+      ],
+      "raw_count": 15,
+      "evidence_count": 14
+    },
+    "provisional_quarters_excluded": []
+  },
+  "official_figures": {
+    "2022Q4": {
+      "eps_twd_per_share": 74.59,
+      "document_id": "t05st01:2454:20230203:172927:1",
+      "announced_at": "2023-02-03T17:29:27+08:00",
+      "detail_sha256": "19e9180d666ff4ef44e214095565024655f9fe042e6fcf7da0d11263a6f422d7",
+      "subject": "本公司2022年第4季與2022全年合併財務報告"
+    },
+    "2023Q1": {
+      "eps_twd_per_share": 10.64,
+      "document_id": "t05st01:2454:20230428:165840:4",
+      "announced_at": "2023-04-28T16:58:40+08:00",
+      "detail_sha256": "c129863d045b10e5c2e1f3b18cd0158bff21b6120346358912b6d6667385cbcc",
+      "subject": "本公司2023年第1季合併財務報告"
+    },
+    "2023Q2": {
+      "eps_twd_per_share": 10.07,
+      "document_id": "t05st01:2454:20230728:170708:1",
+      "announced_at": "2023-07-28T17:07:08+08:00",
+      "detail_sha256": "444d1741ce2b7f04c9a7e8dc6c38451f3e44100a4275ad572f59fbe858a63d43",
+      "subject": "本公司2023年第2季合併財務報告"
+    },
+    "2023Q3": {
+      "eps_twd_per_share": 11.64,
+      "document_id": "t05st01:2454:20231027:183419:2",
+      "announced_at": "2023-10-27T18:34:19+08:00",
+      "detail_sha256": "95b2a18c1038b4c81104a4731e76f06271cc973d8e3ed1d8573b12206f9e1ca2",
+      "subject": "本公司2023年第3季合併財務報告"
+    },
+    "2023Q4": {
+      "eps_twd_per_share": 16.15,
+      "document_id": "t05st01:2454:20240131:170059:2",
+      "announced_at": "2024-01-31T17:00:59+08:00",
+      "detail_sha256": "88f79a1ec49e91168e16aa09a77fef2d8cea6627efac7a7e20b0ff9050501aac",
+      "subject": "本公司2023年第4季與2023全年合併財務報告"
+    },
+    "2024Q1": {
+      "eps_twd_per_share": 19.85,
+      "document_id": "t05st01:2454:20240426:171709:2",
+      "announced_at": "2024-04-26T17:17:09+08:00",
+      "detail_sha256": "059bb94a2f161d839bc3185e6c24eda643e0c1900a654356502bc3ebeaa2e7e3",
+      "subject": "本公司2024年第1季合併財務報告"
+    },
+    "2024Q2": {
+      "eps_twd_per_share": 16.19,
+      "document_id": "t05st01:2454:20240731:162820:1",
+      "announced_at": "2024-07-31T16:28:20+08:00",
+      "detail_sha256": "89ae6ed072caf2ff0be295cbd99e4e89a9e906ea0bb91124c926e156fe16f612",
+      "subject": "本公司2024年第2季合併財務報告"
+    },
+    "2024Q3": {
+      "eps_twd_per_share": 15.94,
+      "document_id": "t05st01:2454:20241030:171827:2",
+      "announced_at": "2024-10-30T17:18:27+08:00",
+      "detail_sha256": "ec1010a980cf40e47c2bae14a4f3383c74ce0165342639d8865db0081ed81761",
+      "subject": "本公司2024年第3季合併財務報告"
+    },
+    "2024Q4": {
+      "eps_twd_per_share": 14.95,
+      "document_id": "t05st01:2454:20250207:190503:2",
+      "announced_at": "2025-02-07T19:05:03+08:00",
+      "detail_sha256": "f3049ce1b39e2c28a4647453a7bb1c83a568acb49632ff319406bbdbe386cc3c",
+      "subject": "本公司2024年第4季與2024全年合併財務報告"
+    },
+    "2025Q1": {
+      "eps_twd_per_share": 18.43,
+      "document_id": "t05st01:2454:20250430:182537:1",
+      "announced_at": "2025-04-30T18:25:37+08:00",
+      "detail_sha256": "ba5f4b2b3325c884fd6f101490d2643c936db5d6befc9818a9fdc34135a8ef4c",
+      "subject": "本公司2025年第1季合併財務報告"
+    },
+    "2025Q2": {
+      "eps_twd_per_share": 17.5,
+      "document_id": "t05st01:2454:20250730:181959:1",
+      "announced_at": "2025-07-30T18:19:59+08:00",
+      "detail_sha256": "2820f82002ca5a9c8dd9491a4b0d755b626dd4333267bfd5bb84a069cc8fa6f9",
+      "subject": "本公司2025年第2季合併財務報告"
+    },
+    "2025Q3": {
+      "eps_twd_per_share": 15.84,
+      "document_id": "t05st01:2454:20251031:171222:2",
+      "announced_at": "2025-10-31T17:12:22+08:00",
+      "detail_sha256": "4c43ef1dadc09d1c7d0981c8ac78959b7f2517fa2bc681839957ba939cb25e2e",
+      "subject": "本公司2025年第3季合併財務報告"
+    },
+    "2025Q4": {
+      "eps_twd_per_share": 14.39,
+      "document_id": "t05st01:2454:20260204:180740:2",
+      "announced_at": "2026-02-04T18:07:40+08:00",
+      "detail_sha256": "fc02b59d07e93cea96500da98fbaf8fb51b0492940375e1dc7563589a352c713",
+      "subject": "本公司2025年第4季與2025全年合併財務報告"
+    },
+    "2026Q1": {
+      "eps_twd_per_share": 15.17,
+      "document_id": "t05st01:2454:20260430:180013:2",
+      "announced_at": "2026-04-30T18:00:13+08:00",
+      "detail_sha256": "996c9c8794a20c620b0dce086f3c2eac478d40e12c8c90f23ed8cf458ced4b0a",
+      "subject": "本公司2026年第1季合併財務報告"
+    },
+    "2026Q2": {
+      "eps_twd_per_share": 15.28,
+      "document_id": "t05st01:2454:20260731:184305:1",
+      "announced_at": "2026-07-31T18:43:05+08:00",
+      "detail_sha256": "81123d9c3cf446e6d2238ee89fcde4b67f663def690d9cca77bb92aac91a2ab9",
+      "subject": "本公司2026年第2季合併財務報告"
+    }
+  },
+  "recognition": {
+    "events_recognized": {
+      "quarter_revenue_complete": 16,
+      "investor_conference": 16,
+      "self_reported_results": 15,
+      "board_approved_financials": 15,
+      "financial_forecast": 13
+    },
+    "guidance_quarters_parsed": 15,
+    "notes": []
+  }
+}
