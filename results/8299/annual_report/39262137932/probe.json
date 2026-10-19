@@ -1,0 +1,975 @@
+{
+  "probe_version": "4.37-annual-report-probe",
+  "co_id": "8299",
+  "roc_years": [
+    "114",
+    "115"
+  ],
+  "started_at": "2026-10-19T13:40:38.900737+00:00",
+  "listings": [
+    {
+      "url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=8299&year=114&mtype=F&",
+      "started_at": "2026-10-19T13:40:38.900759+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=8299&year=114&mtype=F&",
+      "content_type": "text/html;charset=big5",
+      "content_length_header": null,
+      "truncated": false,
+      "sha256": "cbaaa5a6fd0e0dd8eda3b5fcada4871847c1462b28653c28d2230eecf0a9956a",
+      "length": 7517,
+      "is_pdf": false,
+      "saved_as": "files/cbaaa5a6fd0e_t57sb01",
+      "label": "mtype_F",
+      "roc_year": "114",
+      "pdf_names": [
+        "2025_8299_20250527F01.pdf",
+        "2025_8299_20250527F02.pdf",
+        "2025_8299_20250527F13.pdf",
+        "2025_8299_20250527F17.pdf",
+        "2024_8299_20250527F04.pdf",
+        "2025_8299_20250527F05.pdf"
+      ]
+    },
+    {
+      "url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=8299&year=114&seamon=&mtype=F&",
+      "started_at": "2026-10-19T13:40:43.034550+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=8299&year=114&seamon=&mtype=F&",
+      "content_type": "text/html;charset=big5",
+      "content_length_header": null,
+      "truncated": false,
+      "sha256": "cbaaa5a6fd0e0dd8eda3b5fcada4871847c1462b28653c28d2230eecf0a9956a",
+      "length": 7517,
+      "is_pdf": false,
+      "saved_as": "files/cbaaa5a6fd0e_t57sb01",
+      "label": "mtype_F_seamon",
+      "roc_year": "114",
+      "pdf_names": [
+        "2025_8299_20250527F01.pdf",
+        "2025_8299_20250527F02.pdf",
+        "2025_8299_20250527F13.pdf",
+        "2025_8299_20250527F17.pdf",
+        "2024_8299_20250527F04.pdf",
+        "2025_8299_20250527F05.pdf"
+      ]
+    },
+    {
+      "url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=8299&year=115&mtype=F&",
+      "started_at": "2026-10-19T13:40:46.828478+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=8299&year=115&mtype=F&",
+      "content_type": "text/html;charset=big5",
+      "content_length_header": null,
+      "truncated": false,
+      "sha256": "1be20c9c0cf7f236f6f24e55345e145a5ef6e1e6a95da92266b4ff5208fdc6c1",
+      "length": 7517,
+      "is_pdf": false,
+      "saved_as": "files/1be20c9c0cf7_t57sb01",
+      "label": "mtype_F",
+      "roc_year": "115",
+      "pdf_names": [
+        "2026_8299_20260527F01.pdf",
+        "2026_8299_20260527F02.pdf",
+        "2026_8299_20260527F13.pdf",
+        "2026_8299_20260527F17.pdf",
+        "2025_8299_20260527F04.pdf",
+        "2026_8299_20260527F05.pdf"
+      ]
+    },
+    {
+      "url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=8299&year=115&seamon=&mtype=F&",
+      "started_at": "2026-10-19T13:40:51.532624+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=8299&year=115&seamon=&mtype=F&",
+      "content_type": "text/html;charset=big5",
+      "content_length_header": null,
+      "truncated": false,
+      "sha256": "1be20c9c0cf7f236f6f24e55345e145a5ef6e1e6a95da92266b4ff5208fdc6c1",
+      "length": 7517,
+      "is_pdf": false,
+      "saved_as": "files/1be20c9c0cf7_t57sb01",
+      "label": "mtype_F_seamon",
+      "roc_year": "115",
+      "pdf_names": [
+        "2026_8299_20260527F01.pdf",
+        "2026_8299_20260527F02.pdf",
+        "2026_8299_20260527F13.pdf",
+        "2026_8299_20260527F17.pdf",
+        "2025_8299_20260527F04.pdf",
+        "2026_8299_20260527F05.pdf"
+      ]
+    }
+  ],
+  "step9": [
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "627e049f8a58b792317ffcab08e94712b5b5c92b512ccf18964a2cf55da379d6",
+      "request_body_saved_as": "requests/000_627e049f8a58.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:40:55.034901+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "163.29.17.136"
+        ],
+        "peer_address": "163.29.17.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:40:55 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 796
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "9c7d6517935f5a432c427e3da4da5a008740b48805a009c616e4dbcaba48ce5f",
+      "saved_as": "responses/000_9c7d6517935f.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2025_8299_20250527F01.pdf",
+      "download_links": [
+        "/pdf/2025_8299_20250527F01_20261019_214055.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "050f76967073549dc6313de90e07ea542cf5806b89785bd196f5b387fd2aef4e",
+      "request_body_saved_as": "requests/001_050f76967073.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:40:58.987136+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "163.29.17.136"
+        ],
+        "peer_address": "163.29.17.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:41:00 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 1403
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "1f42fcc85defb09f6c5de9dbd9e1e80dd612e258afa3fe9d145bb456db584e47",
+      "saved_as": "responses/001_1f42fcc85def.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2025_8299_20250527F02.pdf",
+      "download_links": [
+        "/pdf/2025_8299_20250527F02_20261019_214100.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "7fb18857491484a433d52e710a82e21c88a7b8c11689e48946459f8ffa4fe3fe",
+      "request_body_saved_as": "requests/002_7fb188574914.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:41:03.397846+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "163.29.17.136"
+        ],
+        "peer_address": "163.29.17.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:41:03 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 684
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "c766f5158781f3e2793bde5f183a6378b047637b076037e55c04d2e01b08488e",
+      "saved_as": "responses/002_c766f5158781.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2025_8299_20250527F13.pdf",
+      "download_links": [
+        "/pdf/2025_8299_20250527F13_20261019_214103.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "8c604428bd23f863e45be8e11c9a0d8a1e141fdb8ee836076e059849333112b4",
+      "request_body_saved_as": "requests/003_8c604428bd23.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:41:07.088276+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "163.29.17.136"
+        ],
+        "peer_address": "163.29.17.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:41:07 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 560
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "29d970f9c120ee5f0578a2ec9d003ab5bc6becb28ffcb77ab224eb0b63dad9a2",
+      "saved_as": "responses/003_29d970f9c120.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2025_8299_20250527F17.pdf",
+      "download_links": [
+        "/pdf/2025_8299_20250527F17_20261019_214107.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "b048fc08eed58d3cfc528e0568369ca8158ae01b265f1d871080abd91c80a1b8",
+      "request_body_saved_as": "requests/004_b048fc08eed5.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:41:10.652039+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.136"
+        ],
+        "status": null,
+        "error": "TimeoutError: timed out",
+        "elapsed_ms": 60363
+      },
+      "status": null,
+      "error": "TimeoutError: timed out",
+      "content_length": 0,
+      "filename": "2024_8299_20250527F04.pdf",
+      "download_links": []
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "4e9679d7f45fad0279b6e7475f5104723abddbd4bdb6ebc982f9a2ae1020ecae",
+      "request_body_saved_as": "requests/005_4e9679d7f45f.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:42:16.468765+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "DNS 失敗：[Errno -2] Name or service not known"
+        ],
+        "status": null,
+        "error": "TimeoutError: timed out",
+        "elapsed_ms": 60175
+      },
+      "status": null,
+      "error": "TimeoutError: timed out",
+      "content_length": 0,
+      "filename": "2025_8299_20250527F05.pdf",
+      "download_links": []
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "5eb7b54a9a521e233978c06caae066b9a573fda581d1e5ab6633a807ec297d65",
+      "request_body_saved_as": "requests/006_5eb7b54a9a52.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:43:19.794149+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.136"
+        ],
+        "peer_address": "122.147.34.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:43:20 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 748
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "cbb796de55363271356fad432d2109a2f54251725a7449a3f6440108ec9005fe",
+      "saved_as": "responses/004_cbb796de5536.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2026_8299_20260527F01.pdf",
+      "download_links": [
+        "/pdf/2026_8299_20260527F01_20261019_214320.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "fd3628c318b229f1a8674e53c17482c408b6d05a65dcc2b64c438ef70fea2826",
+      "request_body_saved_as": "requests/007_fd3628c318b2.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:43:23.683833+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.136"
+        ],
+        "peer_address": "122.147.34.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:43:24 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 530
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "86ac1bad98c243f526094c3ec471554573f30f19512f7b343589bdda8dc313f9",
+      "saved_as": "responses/005_86ac1bad98c2.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2026_8299_20260527F02.pdf",
+      "download_links": [
+        "/pdf/2026_8299_20260527F02_20261019_214324.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "4cf9d9a11ae16977f8aa16e36f6f75fead3f60ab8b7835d3202b6853641c69c5",
+      "request_body_saved_as": "requests/008_4cf9d9a11ae1.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:43:27.356161+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.136"
+        ],
+        "peer_address": "122.147.34.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:43:27 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 527
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "bc9d220f61f7df0d3c5973405de80bba420fe7be6352f1b3b17229dfce6834d8",
+      "saved_as": "responses/006_bc9d220f61f7.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2026_8299_20260527F13.pdf",
+      "download_links": [
+        "/pdf/2026_8299_20260527F13_20261019_214327.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "8dfccc67c77111bd3d9fcf4bca519626a6987c7e1538ba15888936ea701733ab",
+      "request_body_saved_as": "requests/009_8dfccc67c771.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:43:31.023862+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.136"
+        ],
+        "peer_address": "122.147.34.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:43:31 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 487
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "42eee9139b9e73ac25d9a4bd1d42942aa9781322f9bee43656926b9c167b6de0",
+      "saved_as": "responses/007_42eee9139b9e.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2026_8299_20260527F17.pdf",
+      "download_links": [
+        "/pdf/2026_8299_20260527F17_20261019_214331.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "4ed4e05762e8d903aa70ccc1226c1bae572b82b0cdb610b6f962f29c36bcdf91",
+      "request_body_saved_as": "requests/010_4ed4e05762e8.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:43:34.653999+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.136"
+        ],
+        "peer_address": "122.147.34.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:43:35 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 973
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "cf96e07c87bbc8067c0469aa6591eaa864fab3390023c30434fef2a485f116a2",
+      "saved_as": "responses/008_cf96e07c87bb.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2025_8299_20260527F04.pdf",
+      "download_links": [
+        "/pdf/2025_8299_20260527F04_20261019_214335.pdf"
+      ]
+    },
+    {
+      "kind": "post",
+      "url": "https://doc.twse.com.tw/server-java/t57sb01",
+      "request_body_sha256": "ca84dd595433c896d4196e9ea27bda20f03396d4d2d1078a5af207f6f29e2f46",
+      "request_body_saved_as": "requests/011_ca84dd595433.bin",
+      "request_body_length": 59,
+      "hop": {
+        "url": "https://doc.twse.com.tw/server-java/t57sb01",
+        "method": "POST",
+        "started_at": "2026-10-19T13:43:38.631654+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.136"
+        ],
+        "peer_address": "122.147.34.136",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=doc.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "doc.twse.com.tw",
+            "docc.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:07:32 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "doc.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "59",
+          "Referer": "https://doc.twse.com.tw/server-java/t57sb01",
+          "Origin": "https://doc.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "OK",
+        "response_headers": {
+          "Date": "19 Oct 2026 13:43:39 GMT",
+          "Server": "TWSE Server",
+          "Content-Type": "text/html;charset=big5",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 690
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 415,
+      "body_sha256": "127d0c772612136efb062e6eca7791c838ce231fe70deaa3ae6c3622da54df13",
+      "saved_as": "responses/009_127d0c772612.bin",
+      "charset": {
+        "declared_in_header": "big5",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": "fails_at_byte_19",
+          "cp950": true,
+          "big5": true
+        }
+      },
+      "filename": "2026_8299_20260527F05.pdf",
+      "download_links": [
+        "/pdf/2026_8299_20260527F05_20261019_214339.pdf"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "url": "https://doc.twse.com.tw/pdf/2025_8299_20250527F01_20261019_214055.pdf",
+      "started_at": "2026-10-19T13:43:42.325248+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/pdf/2025_8299_20250527F01_20261019_214055.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "1170624",
+      "truncated": false,
+      "sha256": "50b7619d22e67ddbfada4dbdf5c30b91fcbcca392d2951e8766556487350d792",
+      "length": 1170624,
+      "is_pdf": true,
+      "saved_as": "files/50b7619d22e6_2025_8299_20250527F01_20261019_214055.pdf",
+      "filename": "2025_8299_20250527F01.pdf",
+      "link": "/pdf/2025_8299_20250527F01_20261019_214055.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2025_8299_20250527F02_20261019_214100.pdf",
+      "started_at": "2026-10-19T13:43:46.985042+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/pdf/2025_8299_20250527F02_20261019_214100.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "2749377",
+      "truncated": false,
+      "sha256": "8ec8ccf4f0344a42491d5d39f837607cae4920bd4f4c7a8d997ca773e2d2545c",
+      "length": 2749377,
+      "is_pdf": true,
+      "saved_as": "files/8ec8ccf4f034_2025_8299_20250527F02_20261019_214100.pdf",
+      "filename": "2025_8299_20250527F02.pdf",
+      "link": "/pdf/2025_8299_20250527F02_20261019_214100.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2025_8299_20250527F13_20261019_214103.pdf",
+      "started_at": "2026-10-19T13:43:51.791218+00:00",
+      "status": null,
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+      "filename": "2025_8299_20250527F13.pdf",
+      "link": "/pdf/2025_8299_20250527F13_20261019_214103.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2025_8299_20250527F17_20261019_214107.pdf",
+      "started_at": "2026-10-19T13:43:54.801334+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/pdf/2025_8299_20250527F17_20261019_214107.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "341312",
+      "truncated": false,
+      "sha256": "452186074e4e3159a1d8a9212f5b8bec7e10aa31041399502c3ef243ebe7c2b8",
+      "length": 341312,
+      "is_pdf": true,
+      "saved_as": "files/452186074e4e_2025_8299_20250527F17_20261019_214107.pdf",
+      "filename": "2025_8299_20250527F17.pdf",
+      "link": "/pdf/2025_8299_20250527F17_20261019_214107.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F01_20261019_214320.pdf",
+      "started_at": "2026-10-19T13:44:05.477006+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F01_20261019_214320.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "1233697",
+      "truncated": false,
+      "sha256": "76e536de5d3a71a5386ce4eaa35f05026b8727fa2a602615a9f53c94cb88e15c",
+      "length": 1233697,
+      "is_pdf": true,
+      "saved_as": "files/76e536de5d3a_2026_8299_20260527F01_20261019_214320.pdf",
+      "filename": "2026_8299_20260527F01.pdf",
+      "link": "/pdf/2026_8299_20260527F01_20261019_214320.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F02_20261019_214324.pdf",
+      "started_at": "2026-10-19T13:44:41.192998+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F02_20261019_214324.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "2187414",
+      "truncated": false,
+      "sha256": "b38432a5dabbc8e91ef3d74f407df5f6d46eccf305187ce8f42f2285da5fc73b",
+      "length": 2187414,
+      "is_pdf": true,
+      "saved_as": "files/b38432a5dabb_2026_8299_20260527F02_20261019_214324.pdf",
+      "filename": "2026_8299_20260527F02.pdf",
+      "link": "/pdf/2026_8299_20260527F02_20261019_214324.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F13_20261019_214327.pdf",
+      "started_at": "2026-10-19T13:46:11.049585+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F13_20261019_214327.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "2187414",
+      "truncated": false,
+      "sha256": "b38432a5dabbc8e91ef3d74f407df5f6d46eccf305187ce8f42f2285da5fc73b",
+      "length": 2187414,
+      "is_pdf": true,
+      "saved_as": "files/b38432a5dabb_2026_8299_20260527F13_20261019_214327.pdf",
+      "filename": "2026_8299_20260527F13.pdf",
+      "link": "/pdf/2026_8299_20260527F13_20261019_214327.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F17_20261019_214331.pdf",
+      "started_at": "2026-10-19T13:47:25.195843+00:00",
+      "status": null,
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+      "filename": "2026_8299_20260527F17.pdf",
+      "link": "/pdf/2026_8299_20260527F17_20261019_214331.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2025_8299_20260527F04_20261019_214335.pdf",
+      "started_at": "2026-10-19T13:47:28.338173+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/pdf/2025_8299_20260527F04_20261019_214335.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "5463968",
+      "truncated": false,
+      "sha256": "57f8a21d0b031abc24023867573175e9ad898c56be6a27ab88e613f032430061",
+      "length": 5463968,
+      "is_pdf": true,
+      "saved_as": "files/57f8a21d0b03_2025_8299_20260527F04_20261019_214335.pdf",
+      "filename": "2025_8299_20260527F04.pdf",
+      "link": "/pdf/2025_8299_20260527F04_20261019_214335.pdf"
+    },
+    {
+      "url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F05_20261019_214339.pdf",
+      "started_at": "2026-10-19T13:49:44.520690+00:00",
+      "status": 200,
+      "final_url": "https://doc.twse.com.tw/pdf/2026_8299_20260527F05_20261019_214339.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "2606580",
+      "truncated": false,
+      "sha256": "0da93437878c4b3dfb604d142b16c3d5744116c56e4e92aa97b1030f33765f4c",
+      "length": 2606580,
+      "is_pdf": true,
+      "saved_as": "files/0da93437878c_2026_8299_20260527F05_20261019_214339.pdf",
+      "filename": "2026_8299_20260527F05.pdf",
+      "link": "/pdf/2026_8299_20260527F05_20261019_214339.pdf"
+    }
+  ],
+  "notes": [
+    "清單 4 次、找到 12 個年報類檔名、下載到 8 份 PDF（只供人工查頁碼，不自動判讀）"
+  ],
+  "finished_at": "2026-10-19T13:50:23.973105+00:00"
+}
