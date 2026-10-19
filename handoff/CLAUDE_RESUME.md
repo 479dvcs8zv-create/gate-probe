@@ -46,4 +46,4 @@
 
 ## Gemini
 
-第 9 輪題目已出（`handoff/GEMINI_TASK_LATEST.md`，五題），等使用者附回答。
+第 9 輪已收到並整理進 GPT_HANDOFF 第 7 節與 DECISIONS B2、B4。新線索 3036、3702、4966 的觀測站官方簡報（民國 115 年）下載中，下載後看簡報有沒有財測頁（有的話再寫解析器）。2026Q3 法說會：2303 10/28、2454 10/30、3105 10/23、8299 11/06；之後重跑 conference probe＋slide guidance 補 2026Q3 實際。
