@@ -1,0 +1,925 @@
+{
+  "probe_version": "4.34-conference-probe",
+  "co_id": "3034",
+  "roc_years": [
+    "112",
+    "113",
+    "114"
+  ],
+  "dates": [
+    "20240108",
+    "20250106",
+    "20250107",
+    "20260105",
+    "20260106"
+  ],
+  "started_at": "2026-10-19T12:54:45.144333+00:00",
+  "queries": [
+    {
+      "kind": "post",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+      "request_body_sha256": "0d3dc55120ecd154713a7a71277cc1ce0425c77a39c8aaa352fc4acbd194e52b",
+      "request_body_saved_as": "requests/000_0d3dc55120ec.bin",
+      "request_body_length": 73,
+      "hop": {
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+        "method": "POST",
+        "started_at": "2026-10-19T12:54:50.889006+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.81",
+          "163.29.17.81"
+        ],
+        "peer_address": "122.147.34.81",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=mops.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "mops.twse.com.tw",
+            "mopsc.twse.com.tw",
+            "mopsov.twse.com.tw",
+            "mopsovc.twse.com.tw",
+            "mopsfin.twse.com.tw",
+            "ezsearch.twse.com.tw",
+            "ezsearchen.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:36:56 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "mopsov.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "73",
+          "Referer": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+          "Origin": "https://mopsov.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "O.K",
+        "response_headers": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 996
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 28328,
+      "body_sha256": "06f2544954235a1b16558a31a66557ce660f662ff07b072ef72245920dd04e18",
+      "saved_as": "responses/000_06f254495423.bin",
+      "charset": {
+        "declared_in_header": "utf-8",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": true,
+          "cp950": "fails_at_byte_25",
+          "big5": "fails_at_byte_25"
+        }
+      },
+      "label": "step1_co",
+      "roc_year": "112",
+      "pdf_names": [
+        "303420230207M001.pdf",
+        "303420230207E001.pdf",
+        "303420230509M001.pdf",
+        "303420230509E001.pdf",
+        "303420230808M001.pdf",
+        "303420230808E001.pdf",
+        "303420231107M001.pdf",
+        "303420231107E001.pdf"
+      ],
+      "mentions_co_id": true
+    },
+    {
+      "kind": "post",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+      "request_body_sha256": "52e4c9624489de55d6ced8e1c6ebfe728ecc3e2e43018175dc56d37bac9e77d2",
+      "request_body_saved_as": "requests/001_52e4c9624489.bin",
+      "request_body_length": 114,
+      "hop": {
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+        "method": "POST",
+        "started_at": "2026-10-19T12:54:55.312249+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.81"
+        ],
+        "peer_address": "122.147.34.81",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=mops.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "mops.twse.com.tw",
+            "mopsc.twse.com.tw",
+            "mopsov.twse.com.tw",
+            "mopsovc.twse.com.tw",
+            "mopsfin.twse.com.tw",
+            "ezsearch.twse.com.tw",
+            "ezsearchen.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:36:56 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "mopsov.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "114",
+          "Referer": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+          "Origin": "https://mopsov.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "O.K",
+        "response_headers": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 820
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 28328,
+      "body_sha256": "14976f51ec35e4afacc2d43f8d1c63b4a23cf3f1c865924cfda05377c99ca81d",
+      "saved_as": "responses/001_14976f51ec35.bin",
+      "charset": {
+        "declared_in_header": "utf-8",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": true,
+          "cp950": "fails_at_byte_25",
+          "big5": "fails_at_byte_25"
+        }
+      },
+      "label": "step1_co_month",
+      "roc_year": "112",
+      "pdf_names": [
+        "303420230207M001.pdf",
+        "303420230207E001.pdf",
+        "303420230509M001.pdf",
+        "303420230509E001.pdf",
+        "303420230808M001.pdf",
+        "303420230808E001.pdf",
+        "303420231107M001.pdf",
+        "303420231107E001.pdf"
+      ],
+      "mentions_co_id": true
+    },
+    {
+      "kind": "post",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+      "request_body_sha256": "8b487dd7005dce2fd5213b011ad9d373ba33bf774c1da201c3f1afe117ef9e5b",
+      "request_body_saved_as": "requests/002_8b487dd7005d.bin",
+      "request_body_length": 73,
+      "hop": {
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+        "method": "POST",
+        "started_at": "2026-10-19T12:54:59.140055+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.81"
+        ],
+        "peer_address": "122.147.34.81",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=mops.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "mops.twse.com.tw",
+            "mopsc.twse.com.tw",
+            "mopsov.twse.com.tw",
+            "mopsovc.twse.com.tw",
+            "mopsfin.twse.com.tw",
+            "ezsearch.twse.com.tw",
+            "ezsearchen.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:36:56 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "mopsov.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "73",
+          "Referer": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+          "Origin": "https://mopsov.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "O.K",
+        "response_headers": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 1334
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 24255,
+      "body_sha256": "d53003869f39d15fc66721ce6a0cd7122ef5bee113dbfa7f51ee78e824c82c5f",
+      "saved_as": "responses/002_d53003869f39.bin",
+      "charset": {
+        "declared_in_header": "utf-8",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": true,
+          "cp950": "fails_at_byte_25",
+          "big5": "fails_at_byte_25"
+        }
+      },
+      "label": "step1_co",
+      "roc_year": "113",
+      "pdf_names": [
+        "303420240206M001.pdf",
+        "303420240206E001.pdf",
+        "303420240507M001.pdf",
+        "303420240507E001.pdf",
+        "303420240806M001.pdf",
+        "303420240806E001.pdf",
+        "303420241106M001.pdf",
+        "303420241106E001.pdf"
+      ],
+      "mentions_co_id": true
+    },
+    {
+      "kind": "post",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+      "request_body_sha256": "0b9d709525a8892d75c919e7b74b77ec0ad9a4df058f23d8aee37571402d01fb",
+      "request_body_saved_as": "requests/003_0b9d709525a8.bin",
+      "request_body_length": 114,
+      "hop": {
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+        "method": "POST",
+        "started_at": "2026-10-19T12:55:03.481367+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.81"
+        ],
+        "peer_address": "122.147.34.81",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=mops.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "mops.twse.com.tw",
+            "mopsc.twse.com.tw",
+            "mopsov.twse.com.tw",
+            "mopsovc.twse.com.tw",
+            "mopsfin.twse.com.tw",
+            "ezsearch.twse.com.tw",
+            "ezsearchen.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:36:56 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "mopsov.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "114",
+          "Referer": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+          "Origin": "https://mopsov.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "O.K",
+        "response_headers": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 1086
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 24255,
+      "body_sha256": "9530989dafe2e7c6fdb53f141c7f001eaae2f90d1599ee6e0a42ea7c721b2091",
+      "saved_as": "responses/003_9530989dafe2.bin",
+      "charset": {
+        "declared_in_header": "utf-8",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": true,
+          "cp950": "fails_at_byte_25",
+          "big5": "fails_at_byte_25"
+        }
+      },
+      "label": "step1_co_month",
+      "roc_year": "113",
+      "pdf_names": [
+        "303420240206M001.pdf",
+        "303420240206E001.pdf",
+        "303420240507M001.pdf",
+        "303420240507E001.pdf",
+        "303420240806M001.pdf",
+        "303420240806E001.pdf",
+        "303420241106M001.pdf",
+        "303420241106E001.pdf"
+      ],
+      "mentions_co_id": true
+    },
+    {
+      "kind": "post",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+      "request_body_sha256": "b266070bbec29eb0f109c22c52886ad44b4b673b8fa532925af42725e12c72c1",
+      "request_body_saved_as": "requests/004_b266070bbec2.bin",
+      "request_body_length": 73,
+      "hop": {
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+        "method": "POST",
+        "started_at": "2026-10-19T12:55:07.575269+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.81"
+        ],
+        "peer_address": "122.147.34.81",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=mops.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "mops.twse.com.tw",
+            "mopsc.twse.com.tw",
+            "mopsov.twse.com.tw",
+            "mopsovc.twse.com.tw",
+            "mopsfin.twse.com.tw",
+            "ezsearch.twse.com.tw",
+            "ezsearchen.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:36:56 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "mopsov.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "73",
+          "Referer": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+          "Origin": "https://mopsov.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "O.K",
+        "response_headers": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 940
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 24171,
+      "body_sha256": "560a82871e42c4410a5a3722ada309d6857223ed1178f7e237622be78313ce7d",
+      "saved_as": "responses/004_560a82871e42.bin",
+      "charset": {
+        "declared_in_header": "utf-8",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": true,
+          "cp950": "fails_at_byte_25",
+          "big5": "fails_at_byte_25"
+        }
+      },
+      "label": "step1_co",
+      "roc_year": "114",
+      "pdf_names": [
+        "303420250212M001.pdf",
+        "303420250212E001.pdf",
+        "303420250507M001.pdf",
+        "303420250507E001.pdf",
+        "303420250806M001.pdf",
+        "303420250806E001.pdf",
+        "303420251106M001.pdf",
+        "303420251106E001.pdf"
+      ],
+      "mentions_co_id": true
+    },
+    {
+      "kind": "post",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+      "request_body_sha256": "ff056ed875ffd5a4a8cbb40a46540928872e3997314a20c9a61e937de6478611",
+      "request_body_saved_as": "requests/005_ff056ed875ff.bin",
+      "request_body_length": 114,
+      "hop": {
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+        "method": "POST",
+        "started_at": "2026-10-19T12:55:12.102608+00:00",
+        "via_proxy": false,
+        "dns_addresses": [
+          "122.147.34.81"
+        ],
+        "peer_address": "122.147.34.81",
+        "tls": {
+          "tls_version": "TLSv1.3",
+          "cipher": "TLS_AES_128_GCM_SHA256",
+          "cert_subject": "countryName=TW, stateOrProvinceName=Taiwan, localityName=Taipei, organizationName=Taiwan Stock Exchange Corporation, commonName=mops.twse.com.tw",
+          "cert_issuer": "countryName=TW, organizationName=TAIWAN-CA, organizationalUnitName=SSL Sub-CA, commonName=TWCA SSL Certification Authority",
+          "cert_san": [
+            "mops.twse.com.tw",
+            "mopsc.twse.com.tw",
+            "mopsov.twse.com.tw",
+            "mopsovc.twse.com.tw",
+            "mopsfin.twse.com.tw",
+            "ezsearch.twse.com.tw",
+            "ezsearchen.twse.com.tw"
+          ],
+          "cert_not_before": "May 14 10:36:56 2026 GMT",
+          "cert_not_after": "Nov 28 15:59:59 2026 GMT",
+          "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+          "chain_and_hostname_verified": true
+        },
+        "request_headers": {
+          "User-Agent": "gate-pipeline-announcement-probe/4.11",
+          "Accept-Encoding": "identity",
+          "Host": "mopsov.twse.com.tw",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": "114",
+          "Referer": "https://mopsov.twse.com.tw/mops/web/ajax_t100sb02_1",
+          "Origin": "https://mopsov.twse.com.tw"
+        },
+        "status": 200,
+        "reason": "O.K",
+        "response_headers": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload"
+        },
+        "elapsed_ms": 903
+      },
+      "status": 200,
+      "error": null,
+      "content_length": 24171,
+      "body_sha256": "7624e6a3143b38c660cfe611dc9007c69651d076247752d31cb9d7861a90050e",
+      "saved_as": "responses/005_7624e6a3143b.bin",
+      "charset": {
+        "declared_in_header": "utf-8",
+        "declared_in_meta": null,
+        "bom": null,
+        "strict_decode": {
+          "utf-8": true,
+          "cp950": "fails_at_byte_25",
+          "big5": "fails_at_byte_25"
+        }
+      },
+      "label": "step1_co_month",
+      "roc_year": "114",
+      "pdf_names": [
+        "303420250212M001.pdf",
+        "303420250212E001.pdf",
+        "303420250507M001.pdf",
+        "303420250507E001.pdf",
+        "303420250806M001.pdf",
+        "303420250806E001.pdf",
+        "303420251106M001.pdf",
+        "303420251106E001.pdf"
+      ],
+      "mentions_co_id": true
+    }
+  ],
+  "files": [
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420230207M001.pdf",
+      "started_at": "2026-10-19T12:55:16.187519+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420230207M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "614067",
+      "truncated": false,
+      "sha256": "46fa98ddb1e7491514a9059bd12d0b61e0746814256fdf610d9f6c4f4ed60888",
+      "length": 614067,
+      "is_pdf": true,
+      "saved_as": "files/46fa98ddb1e7_303420230207M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420230207E001.pdf",
+      "started_at": "2026-10-19T12:55:33.437798+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420230207E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "705781",
+      "truncated": false,
+      "sha256": "1032c7959a47ac9bb80aa7eb3d714b32c095023b37048f2213cf7ca85cc34aa9",
+      "length": 705781,
+      "is_pdf": true,
+      "saved_as": "files/1032c7959a47_303420230207E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420230509M001.pdf",
+      "started_at": "2026-10-19T12:55:49.058825+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420230509M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "513602",
+      "truncated": false,
+      "sha256": "4369b9ca8b27cffb7b5ce0df2e6b211f92d834f324df27bb09d2b7512f830e59",
+      "length": 513602,
+      "is_pdf": true,
+      "saved_as": "files/4369b9ca8b27_303420230509M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420230509E001.pdf",
+      "started_at": "2026-10-19T12:56:02.457661+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420230509E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "565172",
+      "truncated": false,
+      "sha256": "3e1b0ec405e8f678c90ae6c8cf685c3d4f4cd059232724e0a2e30f227308721c",
+      "length": 565172,
+      "is_pdf": true,
+      "saved_as": "files/3e1b0ec405e8_303420230509E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420230808M001.pdf",
+      "started_at": "2026-10-19T12:56:16.563146+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420230808M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "505025",
+      "truncated": false,
+      "sha256": "7e7633817dfa8828890fe3583e654195d9cd931aaeb5dbd56f2db9d27e3e28e9",
+      "length": 505025,
+      "is_pdf": true,
+      "saved_as": "files/7e7633817dfa_303420230808M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420230808E001.pdf",
+      "started_at": "2026-10-19T12:56:27.084302+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420230808E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "689384",
+      "truncated": false,
+      "sha256": "1d7e4ca95f53b21ea4dc4e9b6c819eb5f748740e811075abd4f99d1881e61cab",
+      "length": 689384,
+      "is_pdf": true,
+      "saved_as": "files/1d7e4ca95f53_303420230808E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420231107M001.pdf",
+      "started_at": "2026-10-19T12:56:39.774936+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420231107M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "553042",
+      "truncated": false,
+      "sha256": "4968511d6a9990b259d70474fe753eb386ca04356b077f040c26822723416cf8",
+      "length": 553042,
+      "is_pdf": true,
+      "saved_as": "files/4968511d6a99_303420231107M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420231107E001.pdf",
+      "started_at": "2026-10-19T12:56:55.472067+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420231107E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "677544",
+      "truncated": false,
+      "sha256": "e0c181d529afe3a83e8a1a57596177b9f1bc4d8c4c3b10b1d196cb3777315804",
+      "length": 677544,
+      "is_pdf": true,
+      "saved_as": "files/e0c181d529af_303420231107E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420240206M001.pdf",
+      "started_at": "2026-10-19T12:57:17.209168+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420240206M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "526393",
+      "truncated": false,
+      "sha256": "9bb12f2fcd3d6f19caa5e977264a548933b6ecfe0d642bad9a748fb784b4e768",
+      "length": 526393,
+      "is_pdf": true,
+      "saved_as": "files/9bb12f2fcd3d_303420240206M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420240206E001.pdf",
+      "started_at": "2026-10-19T12:57:37.588255+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420240206E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "673150",
+      "truncated": false,
+      "sha256": "a904887c1892b7984d27ce853bd41d38fcf6bee297cecccd721d07b727a274d4",
+      "length": 673150,
+      "is_pdf": true,
+      "saved_as": "files/a904887c1892_303420240206E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420240507M001.pdf",
+      "started_at": "2026-10-19T12:58:00.941805+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420240507M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "517863",
+      "truncated": false,
+      "sha256": "9c4d5daee4b6943fd51738ae6f4e4c32d9237101decad2a722d9d277d8085b0f",
+      "length": 517863,
+      "is_pdf": true,
+      "saved_as": "files/9c4d5daee4b6_303420240507M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420240507E001.pdf",
+      "started_at": "2026-10-19T12:58:18.214697+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420240507E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "567423",
+      "truncated": false,
+      "sha256": "7a5249ccc9c0ae6e70da7fd270de375ec3650aac9fa44ef45687d9e9bc855c14",
+      "length": 567423,
+      "is_pdf": true,
+      "saved_as": "files/7a5249ccc9c0_303420240507E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420240806M001.pdf",
+      "started_at": "2026-10-19T12:58:29.092257+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420240806M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "566706",
+      "truncated": false,
+      "sha256": "0944d43fcb7152496c1ab0a3f907f19d7154a53b58a093f89e51608c103312fb",
+      "length": 566706,
+      "is_pdf": true,
+      "saved_as": "files/0944d43fcb71_303420240806M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420240806E001.pdf",
+      "started_at": "2026-10-19T12:58:41.201588+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420240806E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "673834",
+      "truncated": false,
+      "sha256": "f562e82aabed452e3f15bc741e41526ef9ff30316e35592a6172e57eafba2505",
+      "length": 673834,
+      "is_pdf": true,
+      "saved_as": "files/f562e82aabed_303420240806E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420241106M001.pdf",
+      "started_at": "2026-10-19T12:59:01.820903+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420241106M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "562574",
+      "truncated": false,
+      "sha256": "cfca722751231dc46bc782fbe08dc66725f794ba3db00a2eea8b5f0f3c03d828",
+      "length": 562574,
+      "is_pdf": true,
+      "saved_as": "files/cfca72275123_303420241106M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420241106E001.pdf",
+      "started_at": "2026-10-19T12:59:23.061800+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420241106E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "694114",
+      "truncated": false,
+      "sha256": "52d74b4fd0271b75beb7abd94623e73790aea1c471b5bfdd5bc0ccf4f80adb22",
+      "length": 694114,
+      "is_pdf": true,
+      "saved_as": "files/52d74b4fd027_303420241106E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250212M001.pdf",
+      "started_at": "2026-10-19T12:59:38.465726+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420250212M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "553879",
+      "truncated": false,
+      "sha256": "7435f878e48b7194c0dddf585050d2868c23b3e4707b96de0fdd01c8d833fc2c",
+      "length": 553879,
+      "is_pdf": true,
+      "saved_as": "files/7435f878e48b_303420250212M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250212E001.pdf",
+      "started_at": "2026-10-19T12:59:52.888937+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420250212E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "670158",
+      "truncated": false,
+      "sha256": "a5b9d6c581b6a99a90af1ec774bfccbb4fe1562d9cf8496d9696032e81edac83",
+      "length": 670158,
+      "is_pdf": true,
+      "saved_as": "files/a5b9d6c581b6_303420250212E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250507M001.pdf",
+      "started_at": "2026-10-19T13:00:18.205143+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420250507M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "479382",
+      "truncated": false,
+      "sha256": "8befccc346adda2a64b7d577af3e399e1e5d23b715cd7f80fd1d04b84276165f",
+      "length": 479382,
+      "is_pdf": true,
+      "saved_as": "files/8befccc346ad_303420250507M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250507E001.pdf",
+      "started_at": "2026-10-19T13:00:55.833896+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420250507E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "568078",
+      "truncated": false,
+      "sha256": "6f3a5b0da48366dfea4c76f25e44e0adf8b44255f376d98aa04f0d85926225cb",
+      "length": 568078,
+      "is_pdf": true,
+      "saved_as": "files/6f3a5b0da483_303420250507E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250806M001.pdf",
+      "started_at": "2026-10-19T13:01:38.491282+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420250806M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "748400",
+      "truncated": false,
+      "sha256": "8adfbbeb8bd778cc4d55d0e2b03ff8525b00ea88f6fdb5ed1659683455edd8a6",
+      "length": 748400,
+      "is_pdf": true,
+      "saved_as": "files/8adfbbeb8bd7_303420250806M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250806E001.pdf",
+      "started_at": "2026-10-19T13:02:20.749777+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420250806E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "904617",
+      "truncated": false,
+      "sha256": "72cbe081df6953e220fb7d31f0f2610024e742652d5f8fe143a4dd72d4123c61",
+      "length": 904617,
+      "is_pdf": true,
+      "saved_as": "files/72cbe081df69_303420250806E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420251106M001.pdf",
+      "started_at": "2026-10-19T13:03:05.491423+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420251106M001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "720062",
+      "truncated": false,
+      "sha256": "d45c77f68ff73889a59828d6cc477feec5eca074b6cf12d99a7f9773bda54fe2",
+      "length": 720062,
+      "is_pdf": true,
+      "saved_as": "files/d45c77f68ff7_303420251106M001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420251106E001.pdf",
+      "started_at": "2026-10-19T13:03:43.912736+00:00",
+      "status": 200,
+      "final_url": "https://mopsov.twse.com.tw/nas/STR/303420251106E001.pdf",
+      "content_type": "application/pdf",
+      "content_length_header": "840906",
+      "truncated": false,
+      "sha256": "e784cbd242eef8e4700cc152d96b493abaffa47a5acac74fec8a6d4712be19d6",
+      "length": 840906,
+      "is_pdf": true,
+      "saved_as": "files/e784cbd242ee_303420251106E001.pdf",
+      "source": "listed_in_response"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420240108M001.pdf",
+      "started_at": "2026-10-19T13:04:28.610660+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420240108E001.pdf",
+      "started_at": "2026-10-19T13:04:32.231902+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250106M001.pdf",
+      "started_at": "2026-10-19T13:04:36.000912+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250106E001.pdf",
+      "started_at": "2026-10-19T13:04:40.377519+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250107M001.pdf",
+      "started_at": "2026-10-19T13:04:44.192418+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420250107E001.pdf",
+      "started_at": "2026-10-19T13:04:47.663270+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420260105M001.pdf",
+      "started_at": "2026-10-19T13:04:52.789843+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420260105E001.pdf",
+      "started_at": "2026-10-19T13:04:58.031448+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420260106M001.pdf",
+      "started_at": "2026-10-19T13:05:02.400288+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    },
+    {
+      "url": "https://mopsov.twse.com.tw/nas/STR/303420260106E001.pdf",
+      "started_at": "2026-10-19T13:05:06.603254+00:00",
+      "status": 404,
+      "error": "HTTPError 404",
+      "source": "guessed_from_announcement_date"
+    }
+  ],
+  "notes": [
+    "查詢 6 次，回應中找到 24 個 .pdf 檔名；下載到 24 份 PDF（只供人工判讀，不自動放行任何季度）"
+  ],
+  "form_page": {
+    "url": "https://mopsov.twse.com.tw/mops/web/t100sb02_1",
+    "started_at": "2026-10-19T12:54:45.144346+00:00",
+    "status": 200,
+    "final_url": "https://mopsov.twse.com.tw/mops/web/t100sb02_1",
+    "content_type": "text/html; charset=utf-8",
+    "content_length_header": null,
+    "truncated": false,
+    "sha256": "bd7daeeb97780592733cd9973fbc7aef39a77168ce08d884529b5a1bacf13b8c",
+    "length": 52311,
+    "is_pdf": false,
+    "saved_as": "files/bd7daeeb9778_t100sb02_1"
+  },
+  "finished_at": "2026-10-19T13:05:07.837894+00:00"
+}
