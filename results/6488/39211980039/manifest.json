@@ -1,0 +1,170 @@
+{
+  "collector_version": "4.31-collect",
+  "co_id": "6488",
+  "roc_years": [
+    113,
+    114,
+    115
+  ],
+  "started_at": "2026-10-19T06:51:05.456681+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "openssl": "OpenSSL 3.0.13 30 Jan 2024",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "github_actions": true,
+    "runner_os": "Linux",
+    "runner_environment": "github-hosted",
+    "github_repository": "479dvcs8zv-create/gate-probe",
+    "github_sha": "349d99e300e1cfaa5bb5082ccbc8419ba0707048",
+    "github_run_id": "39211980039",
+    "github_run_attempt": "1",
+    "proxy_env_set": false
+  },
+  "mops_base": "https://mopsov.twse.com.tw",
+  "doc_base": "https://doc.twse.com.tw",
+  "delay_seconds": 3.0,
+  "retry_waits_seconds": [
+    10.0,
+    30.0
+  ],
+  "retry_budget": 25,
+  "revenue_rule": "require_announcement",
+  "requests": [
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "6488",
+        "roc_year": "113",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T06:51:05.464225+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/000_7deb16ab1d14.bin",
+      "response_sha256": "7deb16ab1d140a7f90ec959708248c1b46189e453e6bb50fa2b12b2ed6d5dfa6",
+      "response_length": 47385,
+      "request_body_file": "requests/000_d63bf939cc53.bin",
+      "request_body_sha256": "d63bf939cc53dbc97e7eb1e363e1094345ff52f358c0eeed1df80ecaaaf82093",
+      "peer_address": "163.29.17.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "6488",
+        "roc_year": "114",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T06:51:10.616243+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/001_001ed960c429.bin",
+      "response_sha256": "001ed960c42969747fae499fe1afe91386d9ce07a4cf83770d1a4f22703d1bd0",
+      "response_length": 49155,
+      "request_body_file": "requests/001_050610adb9f1.bin",
+      "request_body_sha256": "050610adb9f14c8e9eb530cd476034119fcb9b6dcd10e65d79920438cc9326e3",
+      "peer_address": "163.29.17.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "6488",
+        "roc_year": "115",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T06:51:17.549312+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/002_9298153fd9dc.bin",
+      "response_sha256": "9298153fd9dc57b4eeec33f0182f103a16a9f4aff10df4a139ac83b4a5256f73",
+      "response_length": 35365,
+      "request_body_file": "requests/002_f1c7d08a884a.bin",
+      "request_body_sha256": "f1c7d08a884a711f2d4d3cf0111b8d8f457c0f2b34269e3c5ad9ca2b5f5b7500",
+      "peer_address": "163.29.17.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "6488",
+        "roc_year": "113"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=6488&year=113&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T06:51:22.823457+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/003_6ab33df2d958.bin",
+      "response_sha256": "6ab33df2d958d8887273cf6680c2e3639aeaf6234ee94a1b68cbeee592ef9dcc",
+      "response_length": 7869,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "163.29.17.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "6488",
+        "roc_year": "114"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=6488&year=114&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T06:51:29.576452+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/004_47f8346be941.bin",
+      "response_sha256": "47f8346be941afc18f0337dcdf19cb7588c352cad4e9c305c485efb78feb9983",
+      "response_length": 7869,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "163.29.17.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "6488",
+        "roc_year": "115"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=6488&year=115&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T06:51:35.242910+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/005_d29b0fc44571.bin",
+      "response_sha256": "d29b0fc4457160117c25604080439b7fb769840f66107aa37fd7cadadf6588c4",
+      "response_length": 5058,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "163.29.17.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    }
+  ],
+  "finished_at": "2026-10-19T06:51:38.112171+00:00"
+}
