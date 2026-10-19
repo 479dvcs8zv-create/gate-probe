@@ -1,0 +1,198 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='6485'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='6485'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='115'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 6485 
+點序            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;2</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;115/03/11</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;13:40:08</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;陳美智</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;處長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;03-5736032</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理私募普通股案</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;115/03/11
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.董事會決議日期:115/03/11
+2.私募有價證券種類:普通股
+3.私募對象及其與公司間關係:
+依證券交易法第43條之6等相關法令及主管機關相關函釋所訂之應募人資格，由符合上
+述資格且以能拓展本公司業務之策略性投資人為限；洽定特定人之相關事宜，擬授權董
+事會全權處理之。
+4.私募股數或張數:不超過4,500,000股
+5.得私募額度:發行股數不超過4,500,000股
+6.私募價格訂定之依據及合理性:
+本次私募價格之訂定，以不低於下列二基準價格計算較高者(為參考價格)之八成為訂價
+依據。
+(1)以定價日前1、3或5個營業日，擇一計算普通股收盤價簡單算數平均數扣除無償配股
+   除權及配息，並加回減資反除權後之股價。
+(2)定價日前30個營業日普通股收盤價簡單算數平均數扣除無償配股除權及配息，並加回
+   減資反除權後之股價。
+上述定價原則，符合「公開發行公司辦理私募有價證券應注意事項」之規定。
+7.本次私募資金用途:
+以下各分次之私募普通股總數以4,500,000股為上限，將於股東會決議之日起一年內，不
+超過三次辦理，各分次辦理私募之資金用途及預計達成效益說明如下：
+(1)辦理次數：分一次辦理
+   資金用途-為尋求與國內外產業大廠或專業人士進行策略聯盟，同時充實營運週轉金
+   及其他因應本公司未來發展之資金需求。
+   預期達成效益-有助公司營運穩定成長，並因應未來經濟情勢變化、業務成長所需及
+   提高公司競爭力，對股東權益有其正面助益。
+(2)辦理次數：分二次辦理
+   資金用途-為尋求與國內外產業大廠或專業人士進行技術合作或策略聯盟機會，同時
+   充實營運週轉金及其他因應本公司未來發展之資金需求。
+   預期達成效益-有助公司營運穩定成長，並因應未來經濟情勢變化、業務成長所需及
+   提高公司競爭力，對股東權益有其正面助益。
+(3)辦理次數：分三次辦理
+   資金用途-為尋求與國內外產業大廠或專業人士進行技術合作或策略聯盟機會，同時
+   充實營運週轉金及其他因應本公司未來發展之資金需求。
+   預期達成效益-有助公司營運穩定成長，並因應未來經濟情勢變化、業務成長所需及
+   提高公司競爭力，對股東權益有其正面助益。
+8.不採用公開募集之理由:
+為充實營運週轉金及因應公司長期發展所需等多項用途，且考量私募作業具有迅速簡便
+的特性，較容易符合公司需要，故不採用公開募集而擬以私募方式發行有價證券。本計
+畫之執行預計將有強化公司競爭力、提升營運效能之效益，對股東權益亦將有正面助益
+。
+9.獨立董事反對或保留意見:無。
+10.實際定價日:不適用。
+11.參考價格:不適用。
+12.實際私募價格、轉換或認購價格:不適用。
+13.本次私募新股之權利義務:
+與本公司已發行之普通股相同，採無實體方式發行，惟依證券交易法第43條之8規定，本
+次私募普通股，除符合特定情形外，於交付日起滿三年後始得自由轉讓，並於私募普通
+股交付日滿三年後，擬依相關法令規定申報補辦公開發行及上櫃交易。
+14.附有轉換、交換或認股者，其換股基準日:不適用。
+15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用。
+16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對上櫃普通股
+股權比率之可能影響（上櫃普通股數A、A/已發行普通股）:不適用。
+17.前項預計上櫃普通股未達500萬股且未達25%者，請說明股權流通性偏低之因應措施:
+不適用。
+18.其他應敘明事項:
+本次私募計畫之發行條件、計畫項目、發行價格、訂價日、發行股數及其他未盡事宜等
+，若因未來法令或主管機關指示修正或基於營運評估或因客觀環境需要變更時，擬請股
+東會授權董事會全權處理之。
+為辦理本次私募計畫，擬授權董事長或指定之人代表本公司辦理相關事宜並簽署相關文
+件。
+如有其他未盡事宜，授權董事會全權處理之。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='6485'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

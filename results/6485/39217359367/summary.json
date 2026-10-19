@@ -1,0 +1,1298 @@
+{
+  "co_id": "6485",
+  "roc_years": [
+    112,
+    113,
+    114,
+    115
+  ],
+  "revenue_rule": "quarter_end",
+  "market": {
+    "name": "上櫃公司",
+    "typek": "otc",
+    "quote_suffix": ".TWO",
+    "first_sample": false,
+    "detail_pages_verified": false,
+    "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+  },
+  "listings": {
+    "112": {
+      "items": 18,
+      "sha256": "ebf2a0073258c8285b55e6a520d4a253c6c8875c8bc8dd50d95b6d8dfe8b5909",
+      "company_name": "點序",
+      "market": "上櫃公司",
+      "typek": [
+        "otc"
+      ],
+      "attempts": 1
+    },
+    "113": {
+      "items": 18,
+      "sha256": "28e595b545379491d8f4d5e94168d30cab0e99d1360ae869f76965884bdf2c39",
+      "company_name": "點序",
+      "market": "上櫃公司",
+      "typek": [
+        "otc"
+      ],
+      "attempts": 1
+    },
+    "114": {
+      "items": 23,
+      "sha256": "96ab778a528a6ec87f2d175c578495e555eb2375b41eb45da0896c2f44ac99a1",
+      "company_name": "點序",
+      "market": "上櫃公司",
+      "typek": [
+        "otc"
+      ],
+      "attempts": 1
+    },
+    "115": {
+      "items": 25,
+      "sha256": "26315898ee0578972f169fd27d4757fe2577532f20b2ee6bd131c00f318af341",
+      "company_name": "點序",
+      "market": "上櫃公司",
+      "typek": [
+        "otc"
+      ],
+      "attempts": 1
+    }
+  },
+  "filings": {
+    "112": {
+      "rows": [
+        [
+          "2023Q1",
+          "202301_6485_AI1.pdf",
+          "2023-05-11T16:27:20+08:00"
+        ],
+        [
+          "2023Q1",
+          "202301_6485_AIA.pdf",
+          "2023-06-12T13:37:41+08:00"
+        ],
+        [
+          "2023Q2",
+          "202302_6485_AI1.pdf",
+          "2023-08-04T09:43:38+08:00"
+        ],
+        [
+          "2023Q2",
+          "202302_6485_AIA.pdf",
+          "2023-09-18T13:27:47+08:00"
+        ]
+      ],
+      "uncertain": [
+        {
+          "fiscal_quarter": "2023Q3",
+          "filename": "202303_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2023-11-09T14:11:03+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2023Q3",
+          "filename": "202303_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2023-12-01T16:58:11+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2023Q4",
+          "filename": "202304_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2024-03-14T09:24:56+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2023Q4",
+          "filename": "202304_6485_AI3.pdf",
+          "detail": "IFRSs個體財報",
+          "uploaded_at_shown": "2024-03-14T09:25:14+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2023Q4",
+          "filename": "202304_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2024-04-19T14:20:55+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2023Q4",
+          "filename": "202304_6485_AIC.pdf",
+          "detail": "IFRSs英文版-個體財報",
+          "uploaded_at_shown": "2024-04-19T14:21:08+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        }
+      ],
+      "sha256": "9a9985dc6551fbcc521e98da51ba376dfd0a6d8a1cf959db84e27b4da2086806",
+      "attempts": 1
+    },
+    "113": {
+      "rows": [],
+      "uncertain": [
+        {
+          "fiscal_quarter": "2024Q1",
+          "filename": "202401_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2024-05-10T13:52:47+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q1",
+          "filename": "202401_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2024-06-12T11:32:48+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q2",
+          "filename": "202402_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2024-08-13T14:14:32+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q2",
+          "filename": "202402_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2024-10-08T16:00:50+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q3",
+          "filename": "202403_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2024-11-11T17:08:03+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q3",
+          "filename": "202403_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2024-12-30T14:08:21+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2025-03-12T13:16:33+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_6485_AI3.pdf",
+          "detail": "IFRSs個體財報",
+          "uploaded_at_shown": "2025-03-12T13:16:50+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2025-05-06T14:32:32+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        },
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_6485_AIC.pdf",
+          "detail": "IFRSs英文版-個體財報",
+          "uploaded_at_shown": "2025-05-06T14:32:49+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間"
+        }
+      ],
+      "sha256": "e98fd73fbee2e8ce4479f56a403f9c6f95c4a6aca0043c904194d7db8c3ce0c9",
+      "attempts": 1
+    },
+    "114": {
+      "rows": [
+        [
+          "2025Q1",
+          "202501_6485_AI1.pdf",
+          "2025-05-12T16:59:32+08:00"
+        ],
+        [
+          "2025Q1",
+          "202501_6485_AIA.pdf",
+          "2025-07-14T14:44:44+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_6485_AI1.pdf",
+          "2025-08-13T13:55:38+08:00"
+        ],
+        [
+          "2025Q2",
+          "202502_6485_AIA.pdf",
+          "2025-09-23T09:43:03+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_6485_AI1.pdf",
+          "2025-11-11T16:09:41+08:00"
+        ],
+        [
+          "2025Q3",
+          "202503_6485_AIA.pdf",
+          "2025-12-04T09:52:25+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_6485_AI1.pdf",
+          "2026-03-13T15:26:43+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_6485_AI3.pdf",
+          "2026-03-13T15:27:07+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_6485_AIA.pdf",
+          "2026-04-30T13:30:40+08:00"
+        ],
+        [
+          "2025Q4",
+          "202504_6485_AIC.pdf",
+          "2026-04-30T13:30:59+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "8b3b2380433c659c96c3da5f26ac59288f697bce6486f874a41cfd70466b118a",
+      "attempts": 1
+    },
+    "115": {
+      "rows": [
+        [
+          "2026Q1",
+          "202601_6485_AI1.pdf",
+          "2026-05-14T09:37:46+08:00"
+        ],
+        [
+          "2026Q1",
+          "202601_6485_AIA.pdf",
+          "2026-06-12T10:20:54+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_6485_AI1.pdf",
+          "2026-08-12T14:35:07+08:00"
+        ],
+        [
+          "2026Q2",
+          "202602_6485_AIA.pdf",
+          "2026-09-09T13:22:32+08:00"
+        ]
+      ],
+      "uncertain": [],
+      "sha256": "bdb102ef79481727034196f982d57a6edef71054c395c742605462f6e2147ac2",
+      "attempts": 1
+    }
+  },
+  "details": {
+    "t05st01:6485:20230316:133634:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-03-16",
+      "attempts": 1
+    },
+    "t05st01:6485:20230511:143421:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-05-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20230803:135315:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-08-03",
+      "attempts": 1
+    },
+    "t05st01:6485:20231108:134131:2": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2023-11-08",
+      "attempts": 1
+    },
+    "t05st01:6485:20240312:134234:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-03-12",
+      "attempts": 2
+    },
+    "t05st01:6485:20240507:135519:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-05-07",
+      "attempts": 1
+    },
+    "t05st01:6485:20240813:134555:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-08-13",
+      "attempts": 1
+    },
+    "t05st01:6485:20241107:135232:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-11-07",
+      "attempts": 1
+    },
+    "t05st01:6485:20250311:141057:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20250508:143300:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-05-08",
+      "attempts": 1
+    },
+    "t05st01:6485:20250813:134409:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-08-13",
+      "attempts": 1
+    },
+    "t05st01:6485:20251111:134835:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-11-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20260311:133854:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20260512:134335:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-05-12",
+      "attempts": 1
+    },
+    "t05st01:6485:20260811:141522:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-08-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20230511:162500:1": {
+      "ok": true,
+      "clause": "20",
+      "fact_date": "2023-05-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20240312:134340:3": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2024-03-12",
+      "attempts": 1
+    },
+    "t05st01:6485:20240312:134439:4": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2024-03-12",
+      "attempts": 1
+    },
+    "t05st01:6485:20240312:160829:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2024-03-12",
+      "attempts": 1
+    },
+    "t05st01:6485:20240419:173016:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2024-04-19",
+      "attempts": 1
+    },
+    "t05st01:6485:20240429:164127:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-04-29",
+      "attempts": 1
+    },
+    "t05st01:6485:20240507:135651:2": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2024-05-07",
+      "attempts": 1
+    },
+    "t05st01:6485:20240507:135832:3": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2024-05-07",
+      "attempts": 1
+    },
+    "t05st01:6485:20240507:140020:4": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2024-05-07",
+      "attempts": 1
+    },
+    "t05st01:6485:20240805:134419:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-08-05",
+      "attempts": 1
+    },
+    "t05st01:6485:20241030:133920:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2024-10-30",
+      "attempts": 1
+    },
+    "t05st01:6485:20250207:190406:5": {
+      "ok": true,
+      "clause": "53",
+      "fact_date": "2025-02-07",
+      "attempts": 1
+    },
+    "t05st01:6485:20250224:160208:3": {
+      "ok": true,
+      "clause": "26",
+      "fact_date": "2025-02-24",
+      "attempts": 1
+    },
+    "t05st01:6485:20250303:170756:3": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-03-03",
+      "attempts": 1
+    },
+    "t05st01:6485:20250311:142002:1": {
+      "ok": true,
+      "clause": "53",
+      "fact_date": "2025-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20250311:142110:3": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2025-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20250311:142558:2": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2025-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20250311:142757:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2025-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20250430:144918:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-04-30",
+      "attempts": 1
+    },
+    "t05st01:6485:20250502:172250:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2025-05-09",
+      "attempts": 1
+    },
+    "t05st01:6485:20250805:165510:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-08-05",
+      "attempts": 1
+    },
+    "t05st01:6485:20250813:160745:1": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2025-08-13",
+      "attempts": 1
+    },
+    "t05st01:6485:20251103:135857:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2025-11-03",
+      "attempts": 1
+    },
+    "t05st01:6485:20251111:135147:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2025-11-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20260303:144851:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-03-03",
+      "attempts": 1
+    },
+    "t05st01:6485:20260311:134008:2": {
+      "ok": true,
+      "clause": "11",
+      "fact_date": "2026-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20260311:163524:1": {
+      "ok": true,
+      "clause": "17",
+      "fact_date": "2026-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20260311:163602:1": {
+      "ok": true,
+      "clause": "14",
+      "fact_date": "2026-03-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20260504:143946:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-05-04",
+      "attempts": 1
+    },
+    "t05st01:6485:20260508:171743:1": {
+      "ok": true,
+      "clause": "12",
+      "fact_date": "2026-05-13",
+      "attempts": 1
+    },
+    "t05st01:6485:20260512:134410:1": {
+      "ok": true,
+      "clause": "16",
+      "fact_date": "2026-05-12",
+      "attempts": 1
+    },
+    "t05st01:6485:20260803:153951:1": {
+      "ok": true,
+      "clause": "31",
+      "fact_date": "2026-08-03",
+      "attempts": 1
+    },
+    "t05st01:6485:20260811:141631:2": {
+      "ok": true,
+      "clause": "6",
+      "fact_date": "2026-08-11",
+      "attempts": 1
+    },
+    "t05st01:6485:20260811:141828:3": {
+      "ok": true,
+      "clause": "8",
+      "fact_date": "2026-08-11",
+      "attempts": 1
+    }
+  },
+  "quarters": {
+    "2023Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2023-04-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2023-05-11T16:27:20+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:6485:202301_6485_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202301_6485_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2023-04-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20230511:143421:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2023Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2023-07-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2023-08-04T09:43:38+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:6485:202302_6485_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202302_6485_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2023-07-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20230803:135315:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2023Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2023-10-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [
+        {
+          "fiscal_quarter": "2023Q3",
+          "filename": "202303_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2023-11-09T14:11:03+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2023Q3",
+          "filename": "202303_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2023-12-01T16:58:11+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        }
+      ],
+      "snapshot_boundary": {
+        "at": "2023-10-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20231108:134131:2：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "財報清單取得時間 2026-10-19T08:38:34.839779+00:00 不晚於最早事件，無法排除更早的申報",
+        "財報清單中 202303_6485_AI1.pdf（IFRSs合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202303_6485_AIA.pdf（IFRSs英文版-合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2023Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2024-01-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [
+        {
+          "fiscal_quarter": "2023Q4",
+          "filename": "202304_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2024-03-14T09:24:56+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2023Q4",
+          "filename": "202304_6485_AI3.pdf",
+          "detail": "IFRSs個體財報",
+          "uploaded_at_shown": "2024-03-14T09:25:14+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2023Q4",
+          "filename": "202304_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2024-04-19T14:20:55+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2023Q4",
+          "filename": "202304_6485_AIC.pdf",
+          "detail": "IFRSs英文版-個體財報",
+          "uploaded_at_shown": "2024-04-19T14:21:08+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        }
+      ],
+      "snapshot_boundary": {
+        "at": "2024-01-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20240312:134234:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "財報清單取得時間 2026-10-19T08:38:34.839779+00:00 不晚於最早事件，無法排除更早的申報",
+        "財報清單中 202304_6485_AI1.pdf（IFRSs合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202304_6485_AI3.pdf（IFRSs個體財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202304_6485_AIA.pdf（IFRSs英文版-合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202304_6485_AIC.pdf（IFRSs英文版-個體財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2024Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2024-04-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [
+        {
+          "fiscal_quarter": "2024Q1",
+          "filename": "202401_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2024-05-10T13:52:47+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2024Q1",
+          "filename": "202401_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2024-06-12T11:32:48+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        }
+      ],
+      "snapshot_boundary": {
+        "at": "2024-04-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20240507:135519:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "財報清單取得時間 2026-10-19T08:38:39.320323+00:00 不晚於最早事件，無法排除更早的申報",
+        "財報清單中 202401_6485_AI1.pdf（IFRSs合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202401_6485_AIA.pdf（IFRSs英文版-合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2024Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2024-07-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [
+        {
+          "fiscal_quarter": "2024Q2",
+          "filename": "202402_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2024-08-13T14:14:32+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2024Q2",
+          "filename": "202402_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2024-10-08T16:00:50+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        }
+      ],
+      "snapshot_boundary": {
+        "at": "2024-07-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20240813:134555:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "財報清單取得時間 2026-10-19T08:38:39.320323+00:00 不晚於最早事件，無法排除更早的申報",
+        "財報清單中 202402_6485_AI1.pdf（IFRSs合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202402_6485_AIA.pdf（IFRSs英文版-合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2024Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2024-10-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [
+        {
+          "fiscal_quarter": "2024Q3",
+          "filename": "202403_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2024-11-11T17:08:03+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2024Q3",
+          "filename": "202403_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2024-12-30T14:08:21+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        }
+      ],
+      "snapshot_boundary": {
+        "at": "2024-10-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20241107:135232:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "財報清單取得時間 2026-10-19T08:38:39.320323+00:00 不晚於最早事件，無法排除更早的申報",
+        "財報清單中 202403_6485_AI1.pdf（IFRSs合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202403_6485_AIA.pdf（IFRSs英文版-合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2024Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2025-01-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_6485_AI1.pdf",
+          "detail": "IFRSs合併財報",
+          "uploaded_at_shown": "2025-03-12T13:16:33+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_6485_AI3.pdf",
+          "detail": "IFRSs個體財報",
+          "uploaded_at_shown": "2025-03-12T13:16:50+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_6485_AIA.pdf",
+          "detail": "IFRSs英文版-合併財報",
+          "uploaded_at_shown": "2025-05-06T14:32:32+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        },
+        {
+          "fiscal_quarter": "2024Q4",
+          "filename": "202404_6485_AIC.pdf",
+          "detail": "IFRSs英文版-個體財報",
+          "uploaded_at_shown": "2025-05-06T14:32:49+08:00",
+          "reason": "財務報告更(補)正為「」，無法確定原始申報時間",
+          "set_aside": false
+        }
+      ],
+      "snapshot_boundary": {
+        "at": "2025-01-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20250311:141057:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "財報清單取得時間 2026-10-19T08:38:39.320323+00:00 不晚於最早事件，無法排除更早的申報",
+        "財報清單中 202404_6485_AI1.pdf（IFRSs合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202404_6485_AI3.pdf（IFRSs個體財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202404_6485_AIA.pdf（IFRSs英文版-合併財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "財報清單中 202404_6485_AIC.pdf（IFRSs英文版-個體財報）財務報告更(補)正為「」，無法確定原始申報時間；該季董事會通過財報公告尚未以詳細頁核對",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2025Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2025-04-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-05-12T16:59:32+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:6485:202501_6485_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202501_6485_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-04-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20250508:143300:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2025Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2025-07-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-08-13T13:55:38+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:6485:202502_6485_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202502_6485_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-07-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20250813:134409:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2025Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2025-10-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2025-11-11T16:09:41+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:6485:202503_6485_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202503_6485_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2025-10-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20251111:134835:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2025Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2026-01-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-03-13T15:26:43+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:6485:202504_6485_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202504_6485_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-01-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20260311:133854:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2026Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2026-04-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-05-14T09:37:46+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:6485:202601_6485_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202601_6485_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-04-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20260512:134335:3：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2026Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2026-07-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [
+        {
+          "event_type": "financial_report",
+          "at": "2026-08-12T14:35:07+08:00",
+          "precision": "datetime_tz",
+          "document_id": "t57sb01:6485:202602_6485_AI1.pdf",
+          "detail_verified": true,
+          "subject": "IFRSs合併財報 202602_6485_AI1.pdf"
+        }
+      ],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-07-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "t05st01:6485:20260811:141522:1：board_approved_financials 的「generic」格式說明核對規則尚未以真實詳細頁建立",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    },
+    "2026Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "revenue_rule": "quarter_end",
+      "earliest": {
+        "event_type": "quarter_end_boundary",
+        "at": "2026-10-01T00:00:00+08:00",
+        "precision": "datetime_tz",
+        "document_id": null,
+        "detail_verified": false,
+        "subject": null
+      },
+      "blocking": [],
+      "events": [],
+      "review_window": [],
+      "financial_report_status": null,
+      "uncertain_filings": [],
+      "snapshot_boundary": {
+        "at": "2026-10-01T00:00:00+08:00",
+        "rule": "quarter_end",
+        "note": "季末規則：季度結束隔天 00:00（重大訊息沒有季末月營收公告）"
+      },
+      "review_record": false,
+      "superseded_blocking": [
+        "財報清單取得時間 2026-10-19T08:38:47.693555+00:00 不晚於最早事件，無法排除更早的申報",
+        "重大訊息中找不到該季季末月份的營收公告（季末規則下不阻擋）"
+      ]
+    }
+  },
+  "notes": [
+    "市場別「上櫃公司」的清單格式已驗證；公告詳細頁尚無人工比對過的樣本（解析器照樣逐欄嚴格核對，不符即不採用）"
+  ],
+  "detail_counts": {
+    "wanted": 49,
+    "fetched": 49,
+    "from_cache": 0,
+    "skipped_over_limit": 0
+  },
+  "clause_policy": {
+    "clauses": [
+      "20",
+      "6",
+      "8"
+    ],
+    "reviewer": "Gate Pipeline 擁有者（使用者本人）",
+    "decided_at": "2026-10-18T15:34:41+08:00"
+  },
+  "guidance": {
+    "version": "4.23-guidance",
+    "data_mode": "OFFICIAL_GUIDANCE",
+    "quarters": {},
+    "gate": {
+      "data_mode": "OFFICIAL_GUIDANCE",
+      "label": "Gate5B 官方財測模式（Python 預驗證，非正式 Gate PASS）",
+      "verified_quarters": 0,
+      "min_quarters": 8,
+      "result": "INSUFFICIENT",
+      "meaning": "比較的是公司自己在上一季公布的財測，不是市場共識"
+    },
+    "parse_failures": [],
+    "gate_result": {
+      "gate_name": "Gate5B_官方財測(OFFICIAL_GUIDANCE)",
+      "status": "not_connected",
+      "reasons": [
+        "無資料：沒有已驗證截止點的季度"
+      ],
+      "reject_codes": [
+        "DATA_NOT_CONNECTED"
+      ],
+      "raw_count": 0,
+      "evidence_count": 0
+    },
+    "provisional_quarters_excluded": [
+      "2023Q1",
+      "2023Q2",
+      "2023Q3",
+      "2023Q4",
+      "2024Q1",
+      "2024Q2",
+      "2024Q3",
+      "2024Q4",
+      "2025Q1",
+      "2025Q2",
+      "2025Q3",
+      "2025Q4",
+      "2026Q1",
+      "2026Q2",
+      "2026Q3"
+    ]
+  },
+  "official_figures": {},
+  "recognition": {
+    "events_recognized": {
+      "board_approved_financials": 15
+    },
+    "guidance_quarters_parsed": 0,
+    "notes": [
+      "重大訊息中沒有認得的「季末月營收公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「每股盈餘公告」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "重大訊息中沒有認得的「法說會通知」（可能是公司不用重大訊息公告，或寫法與已支援的格式不同）",
+      "官方財測模式：沒有解析到任何一季的財測（目前只支援台積電每股盈餘公告的寫法）"
+    ]
+  }
+}
