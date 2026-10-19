@@ -1,0 +1,2078 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Data -->
+    <title>
+	Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2025
+</title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <![endif]-->
+
+    
+    <!-- Validation -->
+    <meta name="google-site-verification" content="21tyd2NTsebvto7W56gttKaElQtkak0Ld32xGvr_COs" /><meta name="msvalidate.01" content="43C334F81BEB9DE14F872D6C91B4FC29" /><meta name="y_key" content="63e01d3704030089" /><meta property="fb:pages" content="1450892295227696" /><meta name="theme-color" content="#005882" /><meta name="apple-itunes-app" content="app-id=917482225" /><meta name="robots" content="max-image-preview:large" /><link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.marketbeat.com/Sitemap.ashx" /><link rel="alternate" type="application/rss+xml" title="MarketBeat Headlines RSS" href="https://www.marketbeat.com/rss.ashx?type=headlines" />
+
+    <!-- ICONS -->
+    <link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png"><link rel="sitemap" href="https://www.marketbeat.com/Sitemap.ashx" />
+
+    <!-- STYLESHEETS-->
+    <link rel="stylesheet" href="/Scripts/libraries/bootstrap.min.css"><link rel="preload" href="/Style/fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/Style/fonts/Barlow-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/Style/fonts/Barlow-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/Style/fonts/Barlow-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/Style/fonts/Barlow-Condensed-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/Style/fonts/Barlow-Condensed-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/Style/fontawesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/Style/fontawesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/Style/fontawesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/Style/fontawesome/webfonts/custom-icons.woff2" as="font" type="font/woff2" crossorigin />
+    <link href="/Style/fonts/fonts-min.css?v=20241212" rel="stylesheet" />
+<link href="/Style/fontawesome/css/all.min.css?v=20240710" rel="stylesheet" />
+<link href="/Style/allstyles10-min.css?v=202412" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/Style/olderbrowsers/css/bootstrap.min.css" media="all" />
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if IE]>
+    <style>
+        #left-side-menu.left-showing, #right-side-menu.right-showing {
+             z-index: 30;
+         color: white;
+        }
+    </style>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <![endif]-->
+
+    <!--[if (gte IE 9) | (!IE)]><!-->
+    <script defer src="/Scripts/libraries/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    
+    <!--<script type="text/javascript" src="/newsletter/PopUnder.js"></script>-->
+
+    <link rel="manifest" href="/manifest.json" /><link rel="preconnect" href="https://cdn.onesignal.com" />
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
+    
+    <script src="/scripts/modal/mb-modernpopup.js?v=20241202" type="text/javascript"></script><link rel="preconnect" href="https://www.google-analytics.com/" /><link rel="preconnect" href="https://www.googletagmanager.com/" />
+
+
+    <script>
+
+        var OneSignalAuthCode = '88nnd4crj7';
+
+        function registerUserChange(action) {
+            OneSignal.getUserId(function (userId) {
+                OneSignalIdString = userId;
+                var Domain = 'marketbeat.com';
+                var url = "https://www.marketbeat.com/scripts/OneSignalTracking.ashx?OneSignalID=" + OneSignalIdString + "&domain=" + Domain + "&action=" + action;
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.onload = function () {
+                    if (xhr.status !== 200) {
+                        console.log('GET failed.  Returned status of ' + xhr.status);
+                    }
+                    else {
+                        console.log('GET succeeded (' + url + ').  Returned status of ' + xhr.status);
+                    }
+                };
+                xhr.send();
+            });
+        }
+
+        var OneSignal = OneSignal || [];
+        OneSignal.push(
+            function () {
+                OneSignal.init({
+                    appId: "92d0557c-79b3-4742-9ab4-9155a42d6a49",
+                    safari_web_id: 'web.onesignal.auto.24c5a223-602c-4339-a230-554aefc554b5',
+                    autoRegister: false,
+                    autoResubscribe: true,
+                    notifyButton: {
+                        enable: false
+                    },
+                    welcomeNotification: {
+                        "title": "Join Wall Street's Brightest Minds.",
+                        "message": "Receive research in your inbox from top analysts, before the market opens. Click here to learn how.",
+                        "url": "https://www.marketbeat.com/subscribe/all-access/?ReferralType=OneSignalThankYou"
+                    },
+                });
+                OneSignal.once('subscriptionChange', function (isSubscribed) {
+                    if (isSubscribed) {
+                        registerUserChange("subscribe");
+                    }
+                    else {
+                        registerUserChange("unsubscribe");
+                    }
+                });
+
+                var pageViews = parseFloat(getCookie('MarketBeatOptinCookie'));
+
+                if ((navigator.userAgent.toLowerCase().indexOf('firefox') > -1) || ((navigator.userAgent.toLowerCase().indexOf('safari') > -1) && (!(navigator.userAgent.toLowerCase().indexOf('chrome') > -1)))) {
+                    OneSignal.showSlidedownPrompt();
+                }
+                else if (navigator.userAgent.toLowerCase().indexOf(' edg') > -1) {
+                    OneSignal.showSlidedownPrompt();
+                }
+                else {
+                    OneSignal.showNativePrompt();
+                }
+
+
+            });
+
+    </script>
+
+    <script type='text/javascript'>OneSignal.push(function () {OneSignal.getUserId(function (userId) {$.get("/scripts/OneSignalTracking.ashx?OneSignalNLI=" + userId);});});</script>
+    
+
+<script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "iy8k9ev8b2");
+</script>
+
+    
+    <link rel="canonical" href="https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" />
+    <meta name="description" content="When is Taiwan Semiconductor Manufacturing's next earnings announcement? View the latest TSM earnings date, analysts forecasts, earnings history, and conference call transcripts." /><meta name="keywords" content="NYSE:TSM,NYSE TSM,TSM,Taiwan Semiconductor Manufacturing earnings estimates,Taiwan Semiconductor Manufacturing earnings date, earnings estimates, earnings history, analyst estimates, consensus estimates, earnings call transcript, earnings date" /><meta name="revised" content="2024-12-13" /><meta name="last-modified" content="2024-12-13" /><!-- Twitter Card data --><meta name="twitter:site" content="@MarketBeatCom"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@MarketBeatCom"><meta name="twitter:title" content="Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2025 $TSM"><meta name="twitter:description" content="When is Taiwan Semiconductor Manufacturing's next earnings announcement? View the latest TSM earnings date, analysts forecasts, earnings history, and conference call transcripts."><meta name="twitter:image" content="https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229"><!-- Open Graph data -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2025" />
+<meta property="og:url" content="https://www.marketbeat.com/stocks/NYSE/TSM/earnings/">
+<meta property="og:description" content="When is Taiwan Semiconductor Manufacturing's next earnings announcement? View the latest TSM earnings date, analysts forecasts, earnings history, and conference call transcripts.">
+<meta property="og:image" content="https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229">
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="231" />
+ <!-- Schema.org script -->
+ <script type="application/ld+json"> { "@context":"https://schema.org", "@type":"WebPage", "name":"Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2025", "description":"When is Taiwan Semiconductor Manufacturing's next earnings announcement? View the latest TSM earnings date, analysts forecasts, earnings history, and conference call transcripts.", "keywords": [ "Taiwan Semiconductor Manufacturing earnings", "Taiwan Semiconductor Manufacturing earnings history"], "inLanguage":"en-US", "dateModified":"12/13/2024", "author":"MarketBeat Staff", "url":"https://www.marketbeat.com/stocks/NYSE/TSM/earnings/", "publisher": {"@context":"https://schema.org", "@type":"Organization", "name":"MarketBeat", "url":"https://www.marketbeat.com/", "logo":{"@context":"https://schema.org", "@type":"ImageObject", "url":"https://www.marketbeat.com/images/master/marketbeat-logo-gray-blue-1200.png", "height":"306", "width":"1200"}, "email":"contact@marketbeat.com", "description":"MarketBeat empowers retail investors to make better trading decisions by providing real-time financial data and objective market research.", "address":{"@context":"https://schema.org", "@type":"PostalAddress", "streetAddress":"345 N Reid Place, Suite 620", "addressLocality":"Sioux Falls", "addressRegion":"SD", "postalCode":"57103", "addressCountry":"US"}, "contactPoint":{"@context":"https://schema.org", "@type":"ContactPoint", "telephone":"+1-844-978-6257", "email":"contact@marketbeat.com", "contactType":"Customer Support"}, "sameAs":["https://twitter.com/MarketBeatCom/", "https://www.facebook.com/marketbeatcom/", "https://www.youtube.com/marketbeatcom", "https://en.wikipedia.org/wiki/MarketBeat", "https://www.linkedin.com/company/marketbeat"], "publishingPrinciples":"https://www.marketbeat.com/editorial-guidelines/"}, "publishingPrinciples": "https://www.marketbeat.com/editorial-guidelines/", "image": { "@type":"ImageObject", "url":"https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229", "height": 231, "width": 300 } } </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Corporation","name":"Taiwan Semiconductor Manufacturing","legalName":"Taiwan Semiconductor Manufacturing Company Limited","logo":"https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229","image":"https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229","tickerSymbol":"TSM","url":"https://www.marketbeat.com/stocks/NYSE/TSM/"}</script>
+    <meta name="robots" content="index,follow" />
+    <script>clarity("set","companyDetailsPageType", "Earnings");</script>
+    <!-- page specific styles go here --> 
+    <style type="text/css">
+
+        @media (min-width: 991.98px) {
+            .link-cloud .v-full, .link-cloud .v-full a {
+                width: 100%;
+            }
+        }
+        @media (max-width: 576px) {
+            .link-cloud .v-full, .link-cloud .v-full a {
+                width: 100%;
+            }
+        }
+        .see-also {
+            max-width: 100%;
+            margin: 1rem 0;
+        }
+       
+        .dv-chart .info-slider-note-text-light {
+            fill: #75a0bb;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+         .dv-chart .info-slider-text-light {
+            fill: #75a0bb;
+            font-weight:700;
+        }
+
+    </style>
+
+    <style>
+        /* these things just go on this page */
+
+        #main.container {
+            padding: 0;
+            max-width: initial;
+
+        }
+        @media (max-width: 1199.9px) {
+                 .inverse-on-homepage .bg-dark-blue-accent {
+                    margin-bottom: -3rem !important;
+                }
+        }
+   
+
+        h1 {
+            color: var(--blue-14);
+        }
+
+          .nav-tabs .nav-link {
+      cursor: pointer;
+      pointer-events: auto;
+      padding-right: 8px;
+      padding-left: 8px;
+  } 
+  
+  .single-nav-link-as-header-only {
+      cursor: auto;
+      pointer-events: none !important;
+  }
+
+  .page-wrap {
+      overflow: visible; /* allows position:sticky to work. */
+  }
+
+  .below-h1-text-link-ad {
+      line-height: 1.4;
+  }
+
+  
+
+
+        /* end these things just go on this page */
+
+        /* could possibly go in allstyles but would change things */
+         @keyframes fadein {
+     from {
+         opacity: 0;
+     }
+
+     to {
+         opacity: 1;
+     }
+ }
+
+ @-moz-keyframes fadein { /* Firefox */
+     from {
+         opacity: 0;
+     }
+
+     to {
+         opacity: 1;
+     }
+ }
+
+ @-webkit-keyframes fadein { /* Safari and Chrome */
+     from {
+         opacity: 0;
+     }
+
+     to {
+         opacity: 1;
+     }
+ }
+
+ @-o-keyframes fadein { /* Opera */
+     from {
+         opacity: 0;
+     }
+
+     to {
+         opacity: 1;
+     }
+ }
+        
+        .scroll-table-wrapper-wrapper {
+            animation: fadein 1.5s;
+            -moz-animation: fadein 1.5s; /* Firefox */
+            -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+            -o-animation: fadein 1.5s;
+        }
+
+        /* end could possibly go in allstyles but would change things */
+        .row-nav-main {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .col-navigation, .col-main {
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+
+            
+            .col-navigation {
+                width: 210px;
+            }
+
+            .col-main {
+                width: calc(100% - (210px + 30px));
+                max-width: 1234px;
+            }
+
+            #navigationHolder {
+             position:sticky;
+             top: 60px;
+             border-right: solid 1px var(--gray-5);
+            }
+
+            .side-menu a {
+                margin-bottom: .5em;
+                font-weight: 500;
+            }
+            .side-menu a:hover span, .side-menu a:focus span {
+                text-decoration:none;
+                border-bottom: solid 1px var(--gray);
+            }
+        }
+
+      
+
+       
+
+
+       
+       
+
+
+       
+       
+
+      
+            
+
+    </style>
+    
+    <script>var chartPrefix = 'NYSE'; var chartSymbol = 'TSM'; var chartPrefixSymbol = 'NYSE:TSM'; var chartTitle = 'Taiwan Semiconductor Manufacturing'; var chartImage = '/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229'</script>
+
+
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics - New MB GA 4 Tag  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXW4L2BDZK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-DXW4L2BDZK');
+    </script>
+
+
+
+    </head>
+<body>
+    <a class="skip-link bg-light-blue border c-dark-blue b-dark-blue" href="#main">Skip to main content</a>
+    
+
+    <div id='g_id_onload' data-client_id='178542853386-sfq8ta0q9in407qnaud00o1o7a6thlsi.apps.googleusercontent.com' data-login_uri='https://www.marketbeat.com/users/OneTapVerifyRedirect.aspx' data-prompt_parent_id='g_id_onload' data-auto_select='true' data-cancel_on_tap_outside='true' data-use_fedcm_for_prompt='true' data-state_cookie_domain='marketbeat.com'></div>
+    <div class="page-wrap">
+
+
+        
+
+
+        
+
+        
+
+        
+
+
+        
+
+
+        
+
+        <script type="text/javascript">var scrollingTickersFile = '/Scripts/ScrollingTickers.ashx?accountid=0&interval=2412130557&userlevel=NotLoggedIn'; </script>
+        <div id="scrollingTickers" class="d-print-none" style="height: 32px; width: 100%; overflow: hidden; background-color: var(--blue-14);transition: background-color .3s;">
+        </div>
+
+
+        <div id="header-holder" class="mega-not-showing">
+            <div id="mb-header" class="bg-blue-13 w-100">
+
+                <header id="logobar" class="logo-bar container d-flex flex-wrap ">
+                    <div class="row narrow-gutter-row align-items-center py-1 py-sm-0 position-relative" style="width: calc(100% + 10px)">
+                        <div class="col-auto header-left align-items-center order-sm-1">
+                            <div class="d-flex align-items-center">
+                                <span class="trigger-left menu-button-wrapper"><span class="c-white fa-regular fa-bars"></span></span>
+                                <a title="MarketBeat" href="https://www.marketbeat.com" id="header-logo-link">
+                                    <img class="header-logo" src="/images/master/MarketBeat-logo-r-white.svg?v=2019" alt="MarketBeat home page" width="300" height="76">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="d-none d-lg-block col-lg-9 mx-auto col-xxl-5 order-lg-4 order-xxl-2  position-static">
+
+                            <div class="main-menu-bar">
+                                    <nav id="mega-menu" class="d-none d-lg-flex navbar navbar-expand-lg p-0 nounderline position-static" aria-label="Primary Menu">
+                                        <ul class="d-flex navbar-nav justify-content-between align-items-center w-100 px-xxl-3">
+
+                                            <li class="has-submenu">
+                                                <a href="/all-access/" id="navResearchTools" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Research Tools</a>
+
+                                                <ul class="purple-menu shortest-list dropdown-menu" aria-labelledby="navResearchTools">
+                                                    <li class="has-submenu"><a href="/all-access/">All Access Research Tools</a>
+                                                        <ul>
+                                                            <li><a href="/all-access/live-news/">Live News Feed <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/manage/momentum-alerts/">Momentum Alerts <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/idea-engine/">Idea Engine <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/export-data/">Export Data (CSV) <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/">See All Research Tools</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu separate-on-side"><a href="/manage/watchlists/">My MarketBeat</a>
+                                                        <ul>
+                                                            <li><a href="/manage/watchlists/">My Portfolio</a></li>
+                                                            <li><a class='wl-tab-change' href="/manage/watchlists/#newsletter">My Newsletter</a></li>
+                                                            <li><a href="/manage/">My Account</a></li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu">
+                                                        <a href="/calculators/">Calculators</a>
+                                                        <ul>
+                                                            <li><a href="/dividends/calculator/">Dividend Calculator</a></li>
+                                                            <li><a href="/dividends/yield-calculator/">Dividend Yield Calculator</a></li>
+                                                            <li><a href="/calculators/market-cap-calculator/">Market Cap Calculator</a></li>
+                                                            <li><a href="/calculators/options-profit-calculator/">Options Profit Calculator</a></li>
+                                                            <li><a href="/calculators/stock-average-calculator/">Stock Average Calculator</a></li>
+                                                            <li><a href="/stock-splits/calculator/">Stock Split Calculator</a></li>
+                                                            <li><a href="/calculators/stock-profit-calculator/">Stock Profit Calculator</a></li>
+                                                        </ul>
+                                                    </li>
+
+
+
+                                                    <li class="has-submenu">
+                                                        <a href="/stock-screener/">Stock Screeners</a>
+                                                        <ul>
+                                                            <li><a href="/stock-screener/">Stock Screener</a></li>
+                                                            <li><a href="/all-access/etf-screener/">ETF Screener <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="has-submenu"><a href="/stocks/trending/">Trending Stocks</a>
+                                                        <ul>
+                                                            <li><a href="/stocks/trending/">Trending MarketBeat Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/trending/media/">Trending Media Mentions <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/trending/media-sentiment/">High Media Sentiment Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/trending/wallstreetbets/">Trending WallStreetBets Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="has-submenu"><a href="/all-access/reports/">Premium Reports</a>
+                                                        <ul>
+                                                            <li><a href="/all-access/reports/">All Reports <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/reports/?report=7stockstoownbeforethe2024election">7 Election Stocks to Own <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/reports/?report=these7stockswillbemagnificentin2024">7 Magnificent Stocks in 2024 <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/reports/?report=the10bestaistockstoownin2024">10 Best AI Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/reports/?report=newyear">Best Stocks for 2025 Report <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/reports/?report=shortinterest">Guide To High Short Interest Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/reports/?report=elonmusk">Elon Musk's Next Move <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/reports/?report=7stocksthatcouldbebiggerthantesla-nvidia-andgoogle">Next 7 Blockbuster Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/ratings/stock-picks-from-top-rated-analysts/">Stock Picks from Top Analysts <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                        </ul>
+                                                    </li>
+
+
+                                                </ul>
+                                            </li>
+
+                                            <li class="has-submenu d-none">
+                                                <a href="/market-data/" id="navFinancialCalendars" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Financial Calendars</a>
+                                                <ul class="blue-menu shorter-list dropdown-menu" aria-labelledby="navFinancialCalendars">
+                                                    <li class="mega-only"><a href="/market-data/">Calendars and Market Data</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li class="has-submenu">
+                                                <a href="/market-data/" id="navMarketData" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Market Data</a>
+                                                <ul class="green-menu mediumtall-list dropdown-menu" aria-labelledby="navMarketData">
+                                                    <li class="mega-only"><a href="/market-data/">All Market Data and Financial Calendars</a></li>
+
+                                                    <li class="has-submenu">
+                                                        <a href="/ratings/">Analyst Ratings</a>
+                                                        <ul>
+                                                            <li><a href="/ratings/">Recent Analyst Ratings</a></li>
+                                                            <li><a href="/all-access/ratings-screener/">Stock Ratings Screener <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/top-rated/">Top-Rated Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/lowest-rated/">Lowest-Rated Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/analyst-rankings/">Top-Rated Analysts <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/brokerage-rankings/">Top-Rated Brokerages <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/most-upgraded/">Most-Upgraded Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/ratings/newsletter/">Free Ratings Newsletter</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu">
+                                                        <a href="/congress-stock-trades/">Congressional Data</a>
+                                                        <ul>
+                                                            <li><a href="/congress-stock-trades/">Recent Trades</a></li>
+                                                            <li><a href="/congress-stock-trades/most-purchased-stocks/">Most Bought Stocks</a></li>
+                                                            <li><a href="/congress-stock-trades/profiles/">Members of Congress</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu">
+                                                        <a href="/market-data/">Corporate Events</a>
+                                                        <ul>
+                                                            <li><a href="/stock-buybacks/">Corporate Buybacks</a></li>
+                                                            <li><a href="/economic-reports/upcoming/">Economic Reports</a></li>
+                                                            <li><a href="/ipos/">Initial Public Offerings (IPOs)</a></li>
+                                                            <li><a href="/ipos/lockup-expirations/">IPO Lockup Expirations</a></li>
+                                                            <li><a href="/market-data/sec-filings/">SEC Filings</a></li>
+                                                            <li><a href="/stock-splits/">Stock Splits</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu">
+                                                        <a href="/dividends/">Dividends</a>
+                                                        <ul>
+                                                            <li><a href="/dividends/announcements/">Today's Announcements</a></li>
+                                                            <li><a href="/dividends/ex-dividend-calendar/">Ex-Dividend Calendar</a></li>
+                                                            <li><a href="/dividends/increases/">Dividend Increases</a></li>
+                                                            <li><a href="/dividends/achievers/">Dividend Achievers</a></li>
+                                                            <li><a href="/dividends/aristocrats/">Dividend Aristocrats</a></li>
+                                                            <li><a href="/dividends/best-dividend-stocks/">Best Dividend Stocks</a></li>
+                                                            <li><a href="/dividends/high-yield/">High-Yield Dividend Stocks</a></li>
+                                                            <li><a href="/dividends/top-rated-dividend-stocks/">Top-Rated Dividend Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/dividends/screener/">Dividend Screener</a></li>
+                                                            <li><a href="/dividends/subscribe/">Free Dividend Newsletter</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu">
+                                                        <a href="/earnings/">Earnings</a>
+                                                        <ul>
+                                                            <li><a href="/earnings/latest/">Today's Announcements</a></li>
+                                                            <li><a href="/earnings/tomorrow/">Tomorrow's Announcements</a></li>
+                                                            <li><a href="/earnings/next-week/">Next Week's Announcements</a></li>
+                                                            <li><a href="/earnings/conference-calls/">Upcoming Earnings Calls</a></li>
+                                                            <li><a href="/earnings/transcripts/">Earnings Call Transcripts</a></li>
+                                                            <li><a href="/all-access/earnings-screener/">Earnings Screener <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="has-submenu">
+                                                        <a href="/insider-trades/">Insider Trades</a>
+                                                        <ul>
+                                                            <li><a href="/insider-trades/">Today's Insider Trades</a></li>
+                                                            <li><a href="/insider-trades/insider-buying-stocks/">Top Insider Buying Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/insider-trades/insider-selling-stocks/">Top Insider Selling Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/all-access/insider-trades-screener/">Insider Trades Screener <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/insider-trades/subscribe/">Insider Trades Newsletter</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/stock-market-holidays/">Stock Market Holidays</a>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="/cryptocurrencies/">Cryptocurrencies</a>
+                                                        <ul>
+                                                            <li><a href="/cryptocurrencies/">All Cryptocurrencies</a></li>
+                                                            <li><a href="/cryptocurrencies/news/">Cryptocurrency Headlines</a></li>
+                                                            <li><a href="/cryptocurrencies/newsletter/">Cryptocurrency Newsletter</a></li>
+                                                        </ul>
+                                                    </li>
+
+
+                                                    <li class="has-submenu"><a href="/market-data/biggest-percentage-gainers/">Gainers &amp; Decliners</a>
+                                                        <ul>
+                                                            <li><a href="/market-data/biggest-percentage-gainers/">Percentage Gainers</a></li>
+                                                            <li><a href="/market-data/biggest-percentage-decliners/">Percentage Decliners</a></li>
+                                                            <li><a href="/market-data/breakout-stocks/">Breakout Stocks</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="/market-data/low-pe-stocks/">High &amp; Low PE</a>
+                                                        <ul>
+                                                            <li><a href="https://www.marketbeat.com/market-data/high-pe-stocks/">High PE Stocks</a></li>
+                                                            <li><a href="https://www.marketbeat.com/market-data/low-pe-stocks/">Low PE Stocks</a></li>
+                                                           
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="/market-data/52-week-highs/">Highs &amp; Lows</a>
+                                                        <ul>
+                                                            <li><a href="/market-data/52-week-highs/">52-Week Highs</a></li>
+                                                            <li><a href="/market-data/52-week-lows/">52-Week Lows</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="/market-data/most-active-stocks/">Most Active</a>
+                                                        <ul>
+                                                            <li><a href="/market-data/most-active-stocks/">Most Active Stocks</a></li>
+                                                            <li><a href="/market-data/most-volatile-stocks/">Most Volatile Stocks</a></li>
+                                                            <li><a href="/market-data/unusual-volume-stocks/">Unusual Trading Volume</a></li>
+                                                            <li><a href="/market-data/trading-halts/">Trading Halts</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="/market-data/unusual-call-options-volume/">Options</a>
+                                                        <ul>
+                                                            <li><a href="/market-data/unusual-call-options-volume/">Unusual Call Volume</a></li>
+                                                            <li><a href="/market-data/unusual-put-options-volume/">Unusual Put Volume</a></li>
+
+                                                        </ul>
+                                                    </li>
+                                                    
+                                                    <li><a href="/market-data/sector-performance/">Sector Performance</a>
+                                                    </li>
+                                                    <li class="has-submenu"><a href="/short-interest/">Short Interest</a>
+                                                        <ul>
+                                                            <li><a href="/short-interest/">Largest Short Positions</a></li>
+                                                            <li><a href="/short-interest/short-interest-increases/">Short Interest Increases</a></li>
+                                                            <li><a href="/short-interest/short-interest-decreases/">Short Interest Decreases</a></li>
+                                                        </ul>
+
+                                                </ul>
+                                            </li>
+
+
+                                            <li class="has-submenu">
+                                                <a href="/stocks/" id="navStockLists" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stock Lists</a>
+                                                <ul class="gold-menu medium-list dropdown-menu" aria-labelledby="navStockLists">
+                                                    <li class="mega-only"><a href="/stocks/">All Stock Lists</a></li>
+                                                    <li class="has-submenu"><a href="/types-of-stock/">Stocks by Interest</a>
+                                                        <ul>
+                                                            <li><a href="/types-of-stock/5g-stocks/">5G Stocks</a></li>
+                                                            <li><a href="/types-of-stock/blue-chip-stocks/">Blue Chip Stocks</a></li>
+                                                            <li><a href="/types-of-stock/biotech-stocks/">Biotech Stocks</a></li>
+                                                            <li><a href="/types-of-stock/faang-stocks/">FAANG Stocks</a></li>
+                                                            <li><a href="/types-of-stock/gold-stocks/">Gold Stocks</a></li>
+                                                            <li><a href="/types-of-stock/large-cap-stocks/">Large Cap Stocks</a></li>
+                                                            <li><a href="/types-of-stock/marijuana-stocks/">Marijuana Stocks</a></li>
+                                                            <li><a href="/types-of-stock/oil-stocks/">Oil Stocks</a></li>
+                                                            <li><a href="/types-of-stock/real-estate-investment-trusts-reits/">REITs</a></li>
+                                                            <li><a href="/types-of-stock/russell-2000-stocks/">Russell 2000 Stocks</a></li>
+                                                            <li><a href="/types-of-stock/small-cap-stocks/">Small Cap Stocks</a></li>
+                                                            <li><a href="/types-of-stock/warren-buffett-stocks/">Warren Buffett Stocks</a></li>
+                                                        </ul>
+                                                    </li>
+
+                                                        <li class="has-submenu"><a href="/market-data/low-priced-stocks/">Low Priced Stocks</a>
+                                                            <ul>
+                                                                <li><a href="/market-data/low-priced-stocks/stocks-under-50-cents/">Stocks Under $0.50</a></li>
+                                                                <li><a href="/market-data/low-priced-stocks/stocks-under-1/">Stocks Under $1</a></li>
+                                                                <li><a href="/market-data/low-priced-stocks/stocks-under-2/">Stocks Under $2</a></li>
+                                                                <li><a href="/market-data/low-priced-stocks/stocks-under-5/">Stocks Under $5</a></li>
+                                                            </ul>
+                                                        </li>
+
+                                                    <li class="has-submenu"><a href="/types-of-stock/penny-stocks/">Penny Stocks</a>
+                                                        <ul>
+                                                            <li><a href="/market-data/most-active-penny-stocks/">Most Active Penny Stocks</a></li>
+                                                            <li><a href="/types-of-stock/penny-stocks/most-popular/">Most Popular Penny Stocks</a></li>
+                                                            <li><a href="/types-of-stock/penny-stocks/top-penny-stocks-today/">Top Penny Stocks Today</a></li>
+                                                        </ul>
+                                                    </li>
+
+
+                                                    <li class="has-submenu"><a href="/stocks/">Stocks by Exchange</a>
+                                                        <ul>
+                                                            <li><a href="/stocks/NYSE/">NYSE Stocks</a></li>
+                                                            <li><a href="/stocks/NASDAQ/">NASDAQ Stocks</a></li>
+                                                            <li><a href="/stocks/OTCMKTS/">OTCMKTS Stocks</a></li>
+                                                            <li><a href="/stocks/TSE/">TSX Stocks</a></li>
+                                                            <li><a href="/stocks/LON/">LSE Stocks</a></li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="has-submenu"><a href="/stocks/sectors/">Stocks by Sector</a>
+                                                        <ul>
+                                                            <li><a href="/stocks/sectors/auto-tires-trucks/">Automotive Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/aerospace/">Aerospace Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/basic-materials/">Basic Materials Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/business-services/">Business Services Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/consumer-discretionary/">Consumer Discretionary Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/consumer-staples/">Consumer Staples Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/construction/">Construction Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/oils-energy/">Energy Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/finance/">Finance Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/industrial-products/">Industrial Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/manufacturing/">Manufacturing Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/medical/">Medical Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/real-estate/">Real Estate Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/retail-wholesale/">Retail Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/computer-and-technology/">Technology Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/transportation/">Transportation Stocks</a></li>
+                                                            <li><a href="/stocks/sectors/utilities/">Utilities Stocks</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    
+
+                                                    <li class="has-submenu"><a href="/stocks/">Technical Indicators</a>
+                                                        <ul>
+                                                            <li><a href="/stocks/death-cross-stocks/">Death Cross Stocks</a></li>
+                                                            <li><a href="/stocks/golden-cross-stocks/">Golden Cross Stocks</a></li>
+                                                            <li><a href="/market-data/overbought-stocks-rsi/">RSI Overbought Stocks</a></li>
+                                                            <li><a href="/market-data/oversold-stocks-rsi/">RSI Oversold Stocks</a></li>
+                                                        </ul>
+                                                    </li>
+
+
+                                                    <li><a href="/compare-stocks/">Stock Comparisons</a></li>
+
+                                                    <li class="has-submenu"><a href="/stocks/top-rated/">Premium Stock Lists</a>
+                                                        <ul>
+                                                            <li><a href="/stocks/top-marketrank/">Top MarketRank&trade; Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/top-esg-stocks/">Top ESG Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/top-rated/">Top-Rated Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/dividends/top-rated-dividend-stocks/">Top-Rated Dividend Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/top-rated-small-cap-stocks/">Top-Rated Small-Cap Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            <li><a href="/stocks/top-rated-tech-stocks/">Top-Rated Tech Stocks <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                        </ul>
+                                                    </li>
+
+
+                                                </ul>
+                                            </li>
+
+
+                                            <li class="has-submenu">
+                                                <a href="/headlines/" id="navHeadlines" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Headlines</a>
+
+
+                                                <ul class="red-menu shorter-list dropdown-menu" aria-labelledby="navHeadlines">
+                                                    <li class="has-submenu"><a href="/videos/">MarketBeat TV</a><ul class="row limited-video-submenu"><li class="mega-only mb-2 col-6 pl-0"><a href="/videos/how-fintech-strategy-at-finwise-bancorp-and-ceo-vision-are-driving-78-gains/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><span class="position-absolute fa-solid fa-play c-white" aria-hidden="true" style="opacity:0.8;font-size:3em;"></span><img class="w-100" src="https://www.marketbeat.com/logos/videos/thumb_20241213143437_videowithlogo1.jpg" alt="How Fintech Strategy at FinWise Bancorp and CEO Vision Are Driving 78% Gains" height="78" width="140" loading="lazy" decoding="async"/></span><span class="d-block mt-1" style="line-height:1.2em;">How Fintech Strategy at FinWise Bancorp and CEO Vision Are Driving 78% Gains</span></a></li><li class="side-only"><a href='/videos/how-fintech-strategy-at-finwise-bancorp-and-ceo-vision-are-driving-78-gains/'>How Fintech Strategy at FinWise Bancorp and CEO Vision Are Driving 78% Gains</a></li><li class="mega-only mb-2 col-6 pl-0"><a href="/videos/5-reits-poised-for-growth-in-2025-top-real-estate-investments-to-watch/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><span class="position-absolute fa-solid fa-play c-white" aria-hidden="true" style="opacity:0.8;font-size:3em;"></span><img class="w-100" src="https://www.marketbeat.com/logos/videos/thumb_20241212171457_videoartboard1copy36.png" alt="5 REITs Poised for Growth in 2025 – Top Real Estate Investments to Watch" height="78" width="140" loading="lazy" decoding="async"/></span><span class="d-block mt-1" style="line-height:1.2em;">5 REITs Poised for Growth in 2025 – Top Real Estate Investments to Watch</span></a></li><li class="side-only"><a href='/videos/5-reits-poised-for-growth-in-2025-top-real-estate-investments-to-watch/'>5 REITs Poised for Growth in 2025 – Top Real Estate Investments to Watch</a></li><li class="mega-only mb-2 col-6 pl-0"><a href="/videos/gamestops-cash-pile-grows-will-this-be-enough-to-save-the-company/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><span class="position-absolute fa-solid fa-play c-white" aria-hidden="true" style="opacity:0.8;font-size:3em;"></span><img class="w-100" src="https://www.marketbeat.com/logos/videos/thumb_20241211154603_videoartboard1copy34.png" alt="GameStop’s Cash Pile Grows: Will This Be Enough to Save the Company?" height="78" width="140" loading="lazy" decoding="async"/></span><span class="d-block mt-1" style="line-height:1.2em;">GameStop’s Cash Pile Grows: Will This Be Enough to Save the Company?</span></a></li><li class="side-only"><a href='/videos/gamestops-cash-pile-grows-will-this-be-enough-to-save-the-company/'>GameStop’s Cash Pile Grows: Will This Be Enough to Save the Company?</a></li><li class="mega-only mb-2 col-6 pl-0"><a href="/videos/3-high-short-interest-stocks-you-need-to-watch/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><span class="position-absolute fa-solid fa-play c-white" aria-hidden="true" style="opacity:0.8;font-size:3em;"></span><img class="w-100" src="https://www.marketbeat.com/logos/videos/thumb_20241210143014_videoartboard1copy37.png" alt="3 High Short Interest Stocks You Need to Watch" height="78" width="140" loading="lazy" decoding="async"/></span><span class="d-block mt-1" style="line-height:1.2em;">3 High Short Interest Stocks You Need to Watch</span></a></li><li class="side-only"><a href='/videos/3-high-short-interest-stocks-you-need-to-watch/'>3 High Short Interest Stocks You Need to Watch</a></li></ul></li><li class="has-submenu"><a href="/originals/">Featured Articles</a><ul class='limited-width-submenu'><li><a href='/originals/finwise-bancorps-ceo-talks-strategy-behind-fintech-success/'>FinWise Bancorp’s CEO Talks Strategy Behind Fintech Success</a></li><li><a href='/originals/broadcom-turning-the-mag-7-into-8-trillion-dollar-tech-giants/'>Broadcom: Turning the Mag 7 Into 8 Trillion-Dollar Tech Giants</a></li><li><a href='/originals/soundhound-ai-can-its-meteoric-rise-sustain-into-2025/'>SoundHound AI: Can Its Meteoric Rise Sustain Into 2025?</a></li><li><a href='/originals/3-consumer-discretionary-stocks-ready-for-a-comeback-in-2025/'>3 Consumer Discretionary Stocks Ready for a Comeback in 2025</a></li><li><a href='/originals/top-3-robotics-and-automation-stocks-for-the-next-ai-boom/'>Top 3 Robotics and Automation Stocks for the Next AI Boom</a></li><li><a href='/originals/why-a-stock-split-could-be-a-game-changer-for-caseys-in-2025/'>Why a Stock Split Could Be a Game-Changer for Casey's in 2025</a></li><li><a href='/originals/where-to-invest-in-2025-top-stock-picks-for-maximum-gains/'>Where to Invest in 2025: Top Stock Picks for Maximum Gains</a></li><li><a href='/originals/investment-opportunity-of-2025-why-braze-stock-stands-out/'>Investment Opportunity of 2025: Why Braze Stock Stands Out</a></li><li class="pt-1"><a href='/originals/'>More Featured Articles <span class="fa-regular fa-angle-right" aria-hidden="true"></span></a></li></ul></li>
+
+                                                    <li class="has-submenu"><a href="/headlines/">News</a>
+                                                        <ul>
+                                                            <li><a href="/headlines/">All Headlines</a></li>
+                                                            <li><a href="/instant-alerts/">Instant News Alerts</a></li>
+                                                            <li><a href="/surveys/">Research Surveys</a></li>
+                                                            <li><a href="/all-access/live-news/">Real-Time News Feed <span class="fa-solid fa-dynamic-lock"></span></a></li>
+                                                            
+                                                            <li><a href="/slideshows/">Investing Slideshows</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+
+                                            <li class="has-submenu">
+                                                
+                                                <a href="/learn/" id="navLearn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Education</a>
+                                                <ul class="blue-menu shorter-list dropdown-menu" aria-labelledby="navLearn">
+                                                    <li class="menu-ad mega-only">
+                                                        <div class="position-relative mb-3">
+                                                            <div class="bold mb-2 c-gray">Featured Topic: Options Trading</div>
+                                                            <ul class="row">
+                                                                <li class="d-none d-lg-block mb-2 col-4 pl-0"><a href="https://www.marketbeat.com/originals/neos-s-and-p-500r-high-income-etf-harnasses-the-power-of-options/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><img class="w-100" style="aspect-ratio:2/1;object-fit:cover;" src="https://www.marketbeat.com/logos/articles/thumb_20241210135548_neos-sp-500r-high-income-etf-harnasses-the-power-o.png" alt="NEOS S&P 500 High Income ETF (SPYI)" height="488" width="1200" loading="lazy" decoding="async"/></span><span class="d-block mt-1 c-gray font-weight-normal" style="font-size:.95em;line-height:1.2em;padding-right:.5em;">Neos S&P 500(R) High Income ETF Harnesses the Power of Options</span></a></li><li class="d-none d-lg-block mb-2 col-4 pl-0"><a href="https://www.marketbeat.com/originals/3-unusual-call-option-trades-investors-should-be-watching/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><img class="w-100" style="aspect-ratio:2/1;object-fit:cover;" src="https://www.marketbeat.com/logos/articles/thumb_20241104115452_options-traders-bet-big-on-these-3-tech-stocks.jpg" alt="" height="800" width="1200" loading="lazy" decoding="async"/></span><span class="d-block mt-1 c-gray font-weight-normal" style="font-size:.95em;line-height:1.2em;padding-right:.5em;">Options Traders Bet Big on These 3 Tech Stocks </span></a></li><li class="d-none d-lg-block mb-2 col-4 pl-0"><a href="https://www.marketbeat.com/learn/how-to-play-new-options-trading-with-bitcoin-etfs/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><img class="w-100" style="aspect-ratio:2/1;object-fit:cover;" src="https://www.marketbeat.com/logos/articles/thumb_20241101152430_how-to-play-new-options-trading-with-bitcoin-etfs.jpg" alt="Six bitcoin coins — Stock Editorial Photography" height="800" width="1200" loading="lazy" decoding="async"/></span><span class="d-block mt-1 c-gray font-weight-normal" style="font-size:.95em;line-height:1.2em;padding-right:.5em;">How to Play New Options Trading With Bitcoin ETFs</span></a></li><li class="d-none d-lg-block mb-2 col-4 pl-0"><a href="https://www.marketbeat.com/originals/albemarle-stock-call-options-surge-what-it-means-for-lithium/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><img class="w-100" style="aspect-ratio:2/1;object-fit:cover;" src="https://www.marketbeat.com/logos/articles/thumb_20241028111137_albemarle-stock-call-options-surge-what-it-means-f.png" alt="albemarle lithium ion battery" height="488" width="1200" loading="lazy" decoding="async"/></span><span class="d-block mt-1 c-gray font-weight-normal" style="font-size:.95em;line-height:1.2em;padding-right:.5em;">Albemarle Stock Call Options Surge: What It Means for Lithium</span></a></li><li class="d-none d-lg-block mb-2 col-4 pl-0"><a href="https://www.marketbeat.com/learn/options-how-to-execute-the-wheel-strategy-for-options-income/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><img class="w-100" style="aspect-ratio:2/1;object-fit:cover;" src="https://www.marketbeat.com/logos/articles/thumb_20240718150215_how-to-execute-the-wheel-strategy-to-generate-opti.jpg" alt="Photo of a businessman running inside a circle made of money symbolic of the wheel options trading strategy. " height="960" width="1200" loading="lazy" decoding="async"/></span><span class="d-block mt-1 c-gray font-weight-normal" style="font-size:.95em;line-height:1.2em;padding-right:.5em;">How to Execute the Wheel Strategy to Generate Options Income</span></a></li><li class="d-none d-lg-block mb-2 col-4 pl-0"><a href="https://www.marketbeat.com/learn/3-options-strategies-to-play-a-stocks-uptrend-if-bullish/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><img class="w-100" style="aspect-ratio:2/1;object-fit:cover;" src="https://www.marketbeat.com/logos/articles/thumb_20240626075418_3-options-strategies-to-play-a-stocks-uptrend-if-b.jpg" alt="Stock options strategies " height="900" width="1200" loading="lazy" decoding="async"/></span><span class="d-block mt-1 c-gray font-weight-normal" style="font-size:.95em;line-height:1.2em;padding-right:.5em;">3 Options Strategies to Play a Stock’s Uptrend if Bullish </span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/learn/">Learn</a>
+                                                        <div style="max-width: 200px;" class="mega-only">Read investment guides, how-to articles, and explainers.</div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/stock-ideas/">Stock Ideas</a>
+                                                        <div style="max-width: 200px;" class="mega-only">Looking for ideas for stocks to invest in? These stocks are poised to move.</div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/financial-terms/">Financial Terms</a>
+                                                        <div style="max-width: 200px;" class="mega-only">Learn the language of investment with our glossary of over 200 financial terms.</div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/help/">Help</a>
+                                                        <div style="max-width: 200px;" class="mega-only">View our library of help videos to learn how to use the tools on the MarketBeat website.</div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+
+
+
+                                    </nav>
+                                    <!-- end main menu-->
+                                
+
+                            </div>
+
+                        </div>
+
+                        <div id="headeright" class="col-auto order-sm-3 text-right header-right">
+
+                            
+                            <button class="btn btn-primary login-modal-button" data-target="#pnlLoginCreateModal" data-toggle="modal" aria-label="Log in" onclick="trapFocusInModal('#pnlLoginCreateModal', 'txtLoginOnModalEmail', 'LoginOnModalTab', 'LastLinkOnLoginTab');"><span class="fa-regular fa-user mx-1"></span><span class="px-1 d-none d-lg-inline-block">Log in </span></button>
+                            <a href="https://marketbeat.com/subscribe/all-access/?ReferralType=HeaderButton" class="btn btn-featured ml-1" aria-label="Free Trial" id="header-btn-featured"><span class="fa-regular fa-dollar-sign mx-1"></span><span class="px-1 d-none d-lg-inline">Free Trial </span></a>
+
+                            
+                        </div>
+
+
+                        <div id="pnlMainHeaderSearch" class="pb-1 pt-0 pt-sm-1 order-sm-2 col NotLoggedIn">
+	
+                            <form id="headerSearchForm" class="input-group dark-bkg ml-lg-2 mr-md-2"  method="get" action="/pages/search.aspx" role="search" aria-label="Site search">
+                                <input aria-label="Search" id="headerSearch" type="text" name="query" class="autocomplete form-control" placeholder="Search stocks, news, and tools..." style="font-size:.9em;"/>
+                                <span id="mainAutocompleteList"></span>
+                                <span class="input-group-append position-relative">
+                                    <span id="headerSearchLoading" style="width: 20px; height: 20px; position: absolute; left: -1.7em; top: 0.4em; display: none;">
+                                        <img style="filter: brightness(1.5);" src="/images/loading-gif.gif?v=2" alt="" loading="lazy" width="20" height="20"></span>
+                                    <button class="clear-button" type="submit" aria-label="Search" style="color: var(--white); text-transform: uppercase;"><span class="fa-regular fa-magnifying-glass"></span><span class="sr-only">Search</span></button>
+                                </span>
+                            </form>
+                        
+</div>
+                    </div>
+                </header>
+
+            </div>
+        </div>
+
+        <main>
+            <div class="d-print-none py-1 bg-blue text-center d-minimal-none">
+                <div style="max-width: 1140px; margin: 0 auto;">
+
+                    
+                        
+                    
+                        <div style="padding:6px;font-size:0.8rem;line-height:1.2;" class="below-h1-text-link-ad d-minimal-none"><a style="font-weight:700; color:var(--white);" target="_blank" rel="sponsored noopener" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10807&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1">→ Trump’s Sending THIS Crypto Higher on Purpose</a> <span style="color:var(--white);"> <span class="pl-1 d-none d-sm-inline-block">(From Crypto 101 Media)</span> <span class="d-inline d-sm-none">(Ad)</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10807&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /><a class="pl-xl-5 ml-3 ml-xl-5 c-white d-inline-block p-1 font-9" href="https://www.marketbeat.com/arnreports/ReportSMSOptin.aspx?RegistrationCode=CompanyProfile&Prefix=NYSE&Symbol=TSM" title="Get Alerts for TSM" target="_blank" rel="noopener nofollow"><span class="fa-regular fa-bell mr-2" style="vertical-align:middle;"></span> Free TSM Stock Alerts</a></div> 
+                    
+                </div>
+            </div>
+            <div id="main" class="container main-container">
+                <article id="article">
+
+                    <form method="post" action="./" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE2MTI4MzkzNjBkZB0scgMhJwySC6gshKrjDLaJzOWv" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=TGE6mH29_tpsdHwhewvfnZZ1XtMYSVXLm0Jql1RT8Gt0UJpBTCqqFxYSJ6nYrV4lmQxbdhmD7ckA_eQodaniwZjAfL41&amp;t=638610691965203766" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=nlSrOCgmHRkJKy_atxR8MlI0g5Fyrw2N4vOH-J1pSh0LNd-DEJpJJM2PqbFuXW8LCcUktIdE5I5RFTWBcrIyR03paG7H2oiMkNiPlh3szTWi9JBhKv8-Yi9ORQOMTynHqdqDPyvuvuHxpyvkgT4B1r1YoVk1&amp;t=64bd211b" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=5uHgycXeCI_2B1KxfCX0UN6zg6FdD9djh2Jah60XTTaX767t8n5jvCXuYRybH_HPVlQDavAt0ikkPNOcfyNasH5OYnS1TD65R4AbJ5dhbf_Znzg5OzEkvowWtUFJLchVbmKGCLSfl8ZdID-sIL3sTP1aJuM1&amp;t=ffffffffb201fd3f" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=LDxligUXaea7HOiymrOLbfc35UUl3oZNQV3EOXsRk5Kt-0hKzSsb9k0eT_romv_Ll5LoadWOAwUauWDpfKmeWEOLI5LOhgBPgsJW1hTy1ajIzNRgTFTmBT4Dk-RNxZUe1V4l-RYOzt9r8FfnhAK8HfJmOZHK1RuMAF6oTb2niff1rxa90&amp;t=ffffffffb201fd3f" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6EDDE201" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdABf/BQRrCHS/Xow1kYFbEbp8esUiqJ2/pQJcvbf5y8gziu+86WHOjPPF75lO31CyVrT7JuaSRdk0SfiThEMuL+QxPLdWhBcybGFGZ+BotTgQzlGYaxbxRk0t4Jmy1/zZjIMSnEghVy49OZy2Z09RwnsRcWHTu6mtkPRG9w1yQSXCAKvMVf/T5hOu2tKsT8+HBgnkWuHhvVRgZy5L6Q//g0SmQQGmq6bGRUCu+lPugilS0ewLrXpTrfvzv6/4kl3lBg2UrZV8nxIrtH0DAmenKKzp5CCTlFZNe17R6ZyhBa+tSJlVOZ5IS4Ni/ERzVN0BVEI1mLaVNbEwPeJaxWqjyTHduRK2ndUZLLZF+XtWUZLrOZRvT0uWBRjxM6m6eJaioW9n7sy/MU7DNY7wnAtYDF07DKZc6Y/AVbxehi33zPPerxp56X/ATAEzP2GIFNLoYJ1EC/Xb7Awp9FmQliffZyNGanILmeS5hj79xIfBpAoBBSkIxF3XKBuXHnO3rkDpo2lnGjeC" />
+</div>
+
+                        
+                        
+
+                        
+
+                        
+                        
+
+  
+    
+    <div id="cphPrimaryContent_pnlCompany">
+	
+
+        <div class="fade-in-gray bg-light-gray py-3">
+            <div class="container">
+                <div style="min-height: 1em;">
+                    
+                    
+                </div>
+                <h1 class="mt-0 mb-md-3">
+                    
+    Taiwan Semiconductor Manufacturing (TSM) Earnings Date, Estimates &amp; Call Transcripts
+
+                </h1>
+                
+                <div class="row price-info align-items-center justify-content-between">
+                    <div class="col mb-1 pr-md-0">
+                        <div class="d-flex justify-content-between flex-wrap">
+                                <div class="border rounded bg-white p-2 d-flex align-items-center mr-2 mb-2" style="width:67px;height:58px;"><img class="align-middle mx-auto" style="margin-top:-.07em; width:auto; max-height:90%;" alt="Taiwan Semiconductor Manufacturing logo" src="https://www.marketbeat.com/logos/thumbnail/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229" height="61" width="80"/></div>
+                            <div style="-webkit-flex: 1 0 250px; -ms-flex: 1 0 250px; flex: 1 0 250px; max-width: 100%;">
+                                <div>
+                                    <div class="price"><strong>$201.00</strong> <span style="color:#11824D"> +9.54&nbsp;(+4.98%)</span> <div class="price-updated">(As of 12/13/2024 ET)</div></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-auto text-md-right pl-0 pr-0 pr-sm-3 order-md-2 row mx-0 justify-content-start justify-content-md-end">
+                                <div class="col-4 col-sm-auto px-0 company-action-btn"><button type="button" class="btn btn btn-primary small-button" title="Add to watchlist" data-toggle="modal" data-target="#PanelLoginOrCreate"><span class="fa-solid fa-circle-plus"></span><span class="ml-sm-2 company-action-btn-title"> Add</span></button></div>
+                                
+                                
+                                <div class="col-4 col-sm-auto px-0 pl-2 company-action-btn"><a title="Compare with other companies" class="btn btn-secondary small-button" rel="nofollow" href="/compare-stocks/"><span class="fa-regular fa-arrow-right-arrow-left"></span><span class="ml-sm-2 company-action-btn-title"> Compare</span></a></div>
+                                <div class="col-4 col-sm-auto px-0 pl-2 company-action-btn">
+                                    <div class="share-button-wrapper d-inline-flex d-md-none align-items-stretch py-0" id="webShareButtonWrapper"><button id="webShareButton" class="web-share-button btn btn-secondary d-block text-center text-sm-left" type="button" disabled title="Share Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2025"><span class="fa-regular fa-share-nodes"></span><span class="share-title"> Share</span></button><script>const shareOpts = {title:'Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2025',text:'',url:'https://www.marketbeat.com/stocks/NYSE/TSM/earnings/'};</script></div><div class="share-button-wrapper d-none d-md-inline-flex align-items-stretch py-0" id="shareButtonWrapper"><div id="shareButtonDiv" class="share-button position-relative"><button id="shareButton" class="btn btn-secondary share-button d-block text-center" type="button" title="Share Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2025" data-toggle="modal" data-target="#PanelShare"><span class="fa-regular fa-share-nodes"></span><span class="share-title"> Share</span></button></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="row-nav-main d-md-flex mb-5 justify-content-between">
+                    <!-- Page Navigation -->
+                    <div class="col-navigation mt-md-5 px-md-3">
+                        <div id="navigationHolder" class="pr-md-3">
+                            
+    <div class="dropdown nav-toggle"><button class="px-3 d-md-none btn clear-button dropdown-toggle w-100 d-flex justify-content-between align-items-center pl-2 pr-3 collapsed" type="button" id="dropdownCompanyDetails" data-toggle="collapse" data-target="#companyDetailsMenu" aria-expanded="false" aria-controls="companyDetailsMenu">
+        <span class="nav-link">Earnings</span>
+        <span class="px-2 nav-dropdown-toggle-arrow d-inline-block fa-regular fa-bars"></span>
+    </button></div><ul class="collapse d-none d-md-block side-menu font-9" id="companyDetailsMenu" aria-labelledby="dropdownCompanyDetails"><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/" class="d-block nav-drop nav-link-StockAnalysis" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Stock Analysis</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/forecast/" class="d-block nav-drop nav-link-AnalystForecasts" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Analyst Forecasts</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/chart/" class="d-block nav-drop nav-link-Chart" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Chart</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/competitors-and-alternatives/" class="d-block nav-drop nav-link-Competitors" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Competitors</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/dividend/" class="d-block nav-drop nav-link-Dividend" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Dividend</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/earnings/" class="d-block nav-drop nav-link-Earnings active" tabindex="0"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Earnings</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/financials/" class="d-block nav-drop nav-link-Financials" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Financials</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/news/" class="d-block nav-drop nav-link-Headlines" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Headlines</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/insider-trades/" class="d-block nav-drop nav-link-InsiderTrades" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Insider Trades</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/options/" class="d-block nav-drop nav-link-OptionsChain" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Options Chain</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/institutional-ownership/" class="d-block nav-drop nav-link-Ownership" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Ownership</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/sec-filings/" class="d-block nav-drop nav-link-SECFilings" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">SEC Filings</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/short-interest/" class="d-block nav-drop nav-link-ShortInterest" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Short Interest</span></a></li><li class="px-5 px-md-2"><a href="/stocks/NYSE/TSM/trends-and-sentiment/" class="d-block nav-drop nav-link-Trends" tabindex="-1"><span class="d-inline-block pt-3 pb-2 py-md-2 ">Trends</span></a></li></ul><script type="application/ld+json">{"@context": "https://schema.org/","@graph": [{"@type": "SiteNavigationElement", "position": 1, "name": "Stock Analysis", "url": "/stocks/NYSE/TSM/"},{"@type": "SiteNavigationElement", "position": 2, "name": "Analyst Forecasts", "url": "/stocks/NYSE/TSM/forecast/"},{"@type": "SiteNavigationElement", "position": 3, "name": "Chart", "url": "/stocks/NYSE/TSM/chart/"},{"@type": "SiteNavigationElement", "position": 4, "name": "Competitors", "url": "/stocks/NYSE/TSM/competitors-and-alternatives/"},{"@type": "SiteNavigationElement", "position": 5, "name": "Dividend", "url": "/stocks/NYSE/TSM/dividend/"},{"@type": "SiteNavigationElement", "position": 6, "name": "Earnings", "url": "/stocks/NYSE/TSM/earnings/"},{"@type": "SiteNavigationElement", "position": 7, "name": "Financials", "url": "/stocks/NYSE/TSM/financials/"},{"@type": "SiteNavigationElement", "position": 8, "name": "Headlines", "url": "/stocks/NYSE/TSM/news/"},{"@type": "SiteNavigationElement", "position": 9, "name": "Insider Trades", "url": "/stocks/NYSE/TSM/insider-trades/"},{"@type": "SiteNavigationElement", "position": 10, "name": "Options Chain", "url": "/stocks/NYSE/TSM/options/"},{"@type": "SiteNavigationElement", "position": 11, "name": "Ownership", "url": "/stocks/NYSE/TSM/institutional-ownership/"},{"@type": "SiteNavigationElement", "position": 12, "name": "SEC Filings", "url": "/stocks/NYSE/TSM/sec-filings/"},{"@type": "SiteNavigationElement", "position": 13, "name": "Short Interest", "url": "/stocks/NYSE/TSM/short-interest/"},{"@type": "SiteNavigationElement", "position": 14, "name": "Trends", "url": "/stocks/NYSE/TSM/trends-and-sentiment/"}]}</script>
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-main mt-4 mt-md-5 px-3 pl-md-4 pr-md-5 px-xl-3">
+                        
+    
+    <div id="cphPrimaryContent_cphTabContent_pnlSummary">
+		
+        <div class="row mb-2">
+            <div class="col-12"><h2 class="section-h mb-4">Taiwan Semiconductor Manufacturing Latest Earnings Summary</h2></div><div class="col-12"><div class="row"><div class="col-12  mb-2 mb-lg-0"><dl class="row justify-content-center align-items-stretch mb-0"><div class="d-flex justify-content-center align-items-center align-content-center w-100 py-1 border rounded mb-3 text-center stat-summary-wrapper py-1 earnings-wrapper"><dt class="stat-summary-title mb-1">Actual EPS <br/> (Oct. 17) </dt><dd class="stat-summary-heading my-1 c-green ">$1.94 <span class="stat-summary-subheading mt-1 mx-auto c-green">Beat By $0.20 </span></dd></div><div class="d-flex justify-content-center align-items-center align-content-center w-100 py-1 border rounded mb-3 text-center stat-summary-wrapper py-1 earnings-wrapper"><dt class="stat-summary-title mb-1">Consensus EPS <br/> (Oct. 17) </dt><dd class="stat-summary-heading my-1">$1.74 <span class="stat-summary-subheading mt-1 mx-auto"></span></dd></div></dl></div></div><p style="line-height:1.5;">Taiwan Semiconductor Manufacturing released Q3 2024 earnings on October 17, 2024, reporting an EPS of <strong>$1.94</strong>, which topped analysts' consensus estimates of <strong>$1.74</strong> by <strong> <span class="cgreen">$0.20</span></strong>. Quarterly revenue was reported to be <strong>$23.50 billion</strong>, above analyst estimates of <strong>$22.72 billion</strong>.  With a trailing EPS of <em>$6.24</em> and a P/E Ratio of <em>32.21</em>, Taiwan Semiconductor Manufacturing's earnings are expected to grow <em>27.12%</em> next year, from <strong>$6.97</strong> to <strong>$8.86</strong> per share. </p></div>
+        </div>
+    
+	</div>
+	<div id="cphPrimaryContent_cphTabContent_pnlOptin" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;cphPrimaryContent_cphTabContent_threeLineSignup&#39;)">
+		
+        <div class="mb-4 mx-0 row border-top border-bottom pr-2 py-2 align-items-center" style="font-size: 1rem; border-color: var(--gray-3); clear: both;">
+            <div class="col-md-6 pl-0 pr-0 pr-md-1 mb-1 mb-md-0">
+                <div class="c-blue h3">
+                    Get Taiwan Semiconductor Manufacturing Earnings Alerts
+                </div>
+                <p>
+                    Want to stay updated on the latest earnings announcements and upcoming reports? Sign up for <strong>Earnings360's daily newsletter</strong> to receive timely earnings updates on Taiwan Semiconductor Manufacturing and other key companies, straight to your inbox.
+                </p>
+            </div>
+
+            <div class="col-md-6 px-0 mx-0 row form-row font-small pl-md-5">
+                <!-- Email Input -->
+                <label for="cphPrimaryContent_cphTabContent_InPostRegistrationEmail" class="sr-only">Enter your email to sign up for newsletter</label>
+                <input name="ctl00$ctl00$cphPrimaryContent$cphTabContent$InPostRegistrationEmail" type="text" id="cphPrimaryContent_cphTabContent_InPostRegistrationEmail" placeholder="Enter Your Email Address" class="col-12 col-sm-8 m-0 mb-1 mb-sm-0 top-labeled-input font-small mr-n1" />
+
+                <!-- Sign-Up Button -->
+                <a onclick="return CheckEmail(&#39;InPostRegistrationEmail&#39;, &#39;ShowSuggestionInPost&#39;, &#39;c-red&#39;);" id="cphPrimaryContent_cphTabContent_threeLineSignup" class="btn btn-alternative col-12 col-sm-4" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$cphPrimaryContent$cphTabContent$threeLineSignup&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))" style="margin: 0!important; border: none!important">
+Sign Up
+                </a>
+            </div>
+
+            <div id="ShowSuggestionInPost" class="col-12"></div>
+        </div>
+
+    
+	</div>
+    
+    <a href="#earnings-history" class="sr-only sr-only-focusable">Skip Charts & View Estimated and Actual Earnings Data<span class="fa-regular fa-angle-right" aria-hidden="true"></span></a><div class="row mb-3"><div class="col-lg-6"><div class="pr-4 position-relative"><h2 class="m-0 mb-2 h3 d-inline-block">TSM Earnings Estimates and Actuals by Quarter</h2><button id="earnings-question-mark" class="clear-button position-absolute question-toggle c-white" style="top:0;right:0;" type="button"><span class="fa-regular fa-circle-question" aria-hidden="true"></span><span class="sr-only">Earnings Estimates and Acutals by Quarter Chart Description</span></button></div><div class="border rounded mb-3"><div id="earnings-explanation" class="explanation"><div class="p-3">The chart below shows up to four years of a company's earnings history. The dark blue line represents the company's actual earnings per share. The light blue area represents the range of Wall Street analysts' earnings estimates for each quarter.</div></div><div class="dv-chart-wrapper px-2"><div id="earningsEstimateChart" class="dv-chart" style="height:350px"></div></div></div></div><div class="col-lg-6"><div class="pr-4 position-relative"><h2 class="m-0 mb-2 h3 d-inline-block">TSM Estimated and Actual Revenue by Quarter</h2><button id="earningsRevenue-question-mark" class="clear-button position-absolute question-toggle c-white" style="top:0;right:0;" type="button"><span class="fa-regular fa-circle-question" aria-hidden="true"></span><span class="sr-only">Estimated Revenue and Actual Revenue by Quarter Chart Description</span></button></div><div class="border rounded mb-3"><div id="earningsRevenue-explanation" class="explanation"><div class="p-3">The chart below shows up to four years of a company's revenue history. The dark blue line represents the company's actual revenue. The light blue line represents the company's estimated revenue based on the consensus of Wall Street analysts for each quarter.</div></div><div class="dv-chart-wrapper px-2"><div id="earningsRevenueChart" class="dv-chart" style="height:350px"></div></div></div></div></div>
+    <div style="max-width:1000px;margin-left:auto;margin-right:auto;margin-top:1.5em;margin-bottom:1em;"><div class="bg-white shadow mt-1 mb-2"><a target="_blank" rel="sponsored noopener" class="d-flex flex-wrap no-underline" style="color: #000;font-weight:normal;font-size: 17px;padding: 5px;" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10741&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><span style="float:left;height:0;"><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10741&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></span><div class="text-center" style="flex: 1 0 150px;padding: 10px;"><div style="padding: 0;border: none;overflow: hidden;height: 140px;width: 100%;display:inline-block;vertical-align: top;box-sizing: border-box;position:relative;"><img src="https://s3.us-east-1.amazonaws.com/marketingassets.cloudsna.com/prod/images/brownstoneresearch/et/2024/11/Lift+2_BNF_Cybertruck_Jeff_Brown-01475.jpg" alt="" style="object-fit:cover;position:absolute;top:0;left:0;width:100%; height:100%;" loading="lazy" decoding="async"></div></div><div style="flex: 10 1 350px;text-align: left;padding: 15px 10px 10px;"><div style="color: #757575;font-size: 15px;margin-bottom: 5px;"><b style="display: inline-block;margin-right: 7px;">Ad </b> Brownstone Research</div><div style="font-size: 27px;font-weight: 600;line-height: 1.05;color: #000;">Could This Tiny Device Help You Make an Extra $30k a Year?</div><div style="color: #000;margin:5px 0;line-height:1.2;font-size: 17px;">I believe it’s going to power Elon Musk’s next AI revolution…
+
+A revolution he believes will be worth more than $9 trillion.
+
+That’s nearly 10 times more money than the market caps of Tesla… SpaceX… PayPal… Neuralink… and X… COMBINED.</div><div style="color: var(--dark-blue);text-decoration: underline;margin:5px 0;">Click here to see the details because I believe a lot of people will get rich.</div></div></a></div></div>
+    <div class="row"><div class="col-12"><h2 class="h3">Taiwan Semiconductor Manufacturing Analyst EPS Estimates</h2><table class="scroll-table sort-table" id="earnings-estimates"><thead><tr><th data-sort="int">Quarter</th><th data-sort="float">Number of Estimates</th><th data-sort="float">Low Estimate</th><th data-sort="float">High Estimate</th><th data-sort="float">Average Estimate</th></tr></thead><tbody><tr><td data-sort-value="20241">Q1 2024</td><td>1</td><td>$1.28</td><td>$1.28</td><td>$1.28</td></tr><tr><td data-sort-value="20242">Q2 2024</td><td>1</td><td>$1.42</td><td>$1.42</td><td>$1.42</td></tr><tr><td data-sort-value="20243">Q3 2024</td><td>1</td><td>$1.71</td><td>$1.71</td><td>$1.71</td></tr><tr><td data-sort-value="20244">Q4 2024</td><td>1</td><td>$2.10</td><td>$2.10</td><td>$2.10</td></tr><tr style="background:var(--light-gray);"><td><strong>FY 2024</strong></td><td>4</td><td>$6.51</td><td>$6.51</td><td>$6.51</td></tr><tr><td data-sort-value="20251">Q1 2025</td><td>1</td><td>$1.82</td><td>$1.82</td><td>$1.82</td></tr><tr><td data-sort-value="20252">Q2 2025</td><td>1</td><td>$2.01</td><td>$2.01</td><td>$2.01</td></tr><tr><td data-sort-value="20253">Q3 2025</td><td>1</td><td>$2.35</td><td>$2.35</td><td>$2.35</td></tr><tr><td data-sort-value="20254">Q4 2025</td><td>1</td><td>$2.55</td><td>$2.55</td><td>$2.55</td></tr><tr style="background:var(--light-gray);"><td><strong>FY 2025</strong></td><td>4</td><td>$8.73</td><td>$8.73</td><td>$8.73</td></tr><tr><td data-sort-value="20261">Q1 2026</td><td>1</td><td>$2.26</td><td>$2.26</td><td>$2.26</td></tr><tr><td data-sort-value="20262">Q2 2026</td><td>1</td><td>$2.50</td><td>$2.50</td><td>$2.50</td></tr><tr><td data-sort-value="20263">Q3 2026</td><td>1</td><td>$2.76</td><td>$2.76</td><td>$2.76</td></tr></tbody></table></div></div>
+    <div class="mt-3 mb-2"><div style="height:90px;width:100%;"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:100%;height:90px" data-ad-client="ca-pub-9373162611283935" data-ad-slot="6242217402"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$cphPrimaryContent$cphTabContent$FilterScript', 'form1', ['tctl00$ctl00$cphPrimaryContent$cphTabContent$pnlFilterTable','cphPrimaryContent_cphTabContent_pnlFilterTable'], [], [], 90, 'ctl00$ctl00');
+	//]]>
+</script>
+
+    <div id="cphPrimaryContent_cphTabContent_pnlFilterTable">
+		
+        <h2 class="h3 mt-4">Taiwan Semiconductor Manufacturing Earnings History by Quarter</h2>
+        <div class="row narrow-gutter-row">                        
+            <div class="col-12 col-md-4 col-xl-auto mb-3 mb-xl-0 mt-1">
+                <div class="top-label-wrapper input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <span class="fa-regular fa-calendar" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <select name="ctl00$ctl00$cphPrimaryContent$cphTabContent$ddlDateRange" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$cphPrimaryContent$cphTabContent$ddlDateRange\&#39;,\&#39;\&#39;)&#39;, 0)" id="cphPrimaryContent_cphTabContent_ddlDateRange" class="top-labeled-input">
+			<option value="C">Custom Range</option>
+			<option value="3M">3 Months</option>
+			<option value="6M">6 Months</option>
+			<option value="YTD">Year-to-Date</option>
+			<option value="1Y">1 Year</option>
+			<option selected="selected" value="2Y">2 Years</option>
+			<option value="3Y">3 Years</option>
+			<option value="5Y">5 Years</option>
+			<option value="10Y">10 Years</option>
+
+		</select>
+                    <label for="cphPrimaryContent_cphTabContent_ddlDateRange" class="top-label">Time Frame</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-auto mb-3 mb-xl-auto mt-1 ">
+                <div class="top-label-wrapper ">
+                    <input name="ctl00$ctl00$cphPrimaryContent$cphTabContent$txtStartDate" type="text" value="12/13/2022" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$cphPrimaryContent$cphTabContent$txtStartDate\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="cphPrimaryContent_cphTabContent_txtStartDate" class="top-labeled-input mb-0" style="width:100px;margin-right:5px;width: calc(100% - 28px);" /><span id="cphPrimaryContent_cphTabContent_RegExRatingStartDate" style="display:none;">*</span>
+                    <label for="cphPrimaryContent_cphTabContent_txtStartDate" class="top-label">Start Date</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-auto mb-3 mb-xl-auto mt-1">
+                <div class="top-label-wrapper ">
+                    <input name="ctl00$ctl00$cphPrimaryContent$cphTabContent$txtEndDate" type="text" value="12/13/2024" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$cphPrimaryContent$cphTabContent$txtEndDate\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="cphPrimaryContent_cphTabContent_txtEndDate" class="top-labeled-input mb-0" style="width:100px;margin-right:5px;width: calc(100% - 28px);" /><span id="cphPrimaryContent_cphTabContent_RegExRatingEndDate" style="display:none;">*</span>
+                    <label for="cphPrimaryContent_cphTabContent_txtEndDate" class="top-label">End Date</label>
+                </div>
+            </div>
+                <div class="col-12 col-md-4 col-xl-auto mb-3 mb-sm-0 ml-sm-auto text-md-right mt-1">
+                        <a class="btn btn-disabled w-100 w-lg-auto" href="/subscribe/all-access/?ReferralType=CSVExportButton" title="Excel Export Available with a MarketBeat All Access Subscription"><span class="fa-regular fa-file-excel mr-1" aria-hidden="true"></span> Export<span class="d-none d-lg-inline"> to Excel</span></a>
+                    </div>  
+            </div>
+            <div class="text-center">
+                <div id="cphPrimaryContent_cphTabContent_Progress1" style="display:none;">
+			
+                        <img src="/images/loading-gif-small.gif" loading="lazy" alt="The Page is Updating" class="pt-0 pt-xl-1" width="24" height="24" />
+		</div>
+            </div>
+            
+            <table class="scroll-table sort-table" id="earnings-history"><thead><tr><th data-sort="int">Date</th><th>Quarter</th><th data-sort="float">Consensus Estimate</th><th data-sort="float">Reported EPS</th><th data-sort="float">Beat/Miss</th><th data-sort="float">GAAP EPS</th><th data-sort="float">Revenue Estimate</th><th data-sort="float">Actual Revenue</th><th>Details</th></tr></thead><tbody><tr><td data-sort-value="20241017000000">10/17/2024</td><td>Q3 2024</td><td>$1.74</td><td>$1.94</td><td class="c-green">+$0.20</td><td>$1.94</td><td>$22.72B</td><td>$23.50B</td><td data-clean="https://www.marketbeat.com/earnings/reports/2024-10-17-taiwan-semiconductor-manufacturing-company-limited-stock/"><a href="/earnings/reports/2024-10-17-taiwan-semiconductor-manufacturing-company-limited-stock/" class="btn btn-secondary p-2" title="View Taiwan Semiconductor Manufacturing Earnings Report for 10/17/2024"><span class="fa-regular fa-square-list"></span></a></td></tr><tr><td data-sort-value="20240718000000">7/18/2024</td><td>Q2 2024</td><td>$1.37</td><td>$1.48</td><td class="c-green">+$0.11</td><td>$1.48</td><td>$20.33B</td><td>$20.82B</td><td data-clean="https://www.marketbeat.com/earnings/reports/2024-7-18-taiwan-semiconductor-manufacturing-company-limited-stock/"><a href="/earnings/reports/2024-7-18-taiwan-semiconductor-manufacturing-company-limited-stock/" class="btn btn-secondary p-2" title="View Taiwan Semiconductor Manufacturing Earnings Report for 7/18/2024"><span class="fa-regular fa-square-list"></span></a></td></tr><tr><td data-sort-value="20240418000000">4/18/2024</td><td>Q1 2024</td><td>$1.29</td><td>$1.38</td><td class="c-green">+$0.09</td><td>$1.38</td><td>$18.38B</td><td>$18.87B</td><td data-clean="https://www.marketbeat.com/earnings/reports/2024-4-18-taiwan-semiconductor-manufacturing-company-limited-stock/"><a href="/earnings/reports/2024-4-18-taiwan-semiconductor-manufacturing-company-limited-stock/" class="btn btn-secondary p-2" title="View Taiwan Semiconductor Manufacturing Earnings Report for 4/18/2024"><span class="fa-regular fa-square-list"></span></a></td></tr><tr><td data-sort-value="20240118000000">1/18/2024</td><td>Q4 2023</td><td>$1.37</td><td>$1.44</td><td class="c-green">+$0.07</td><td>$1.44</td><td>$18.99B</td><td>$19.62B</td><td data-clean="https://www.marketbeat.com/earnings/reports/2024-1-18-taiwan-semiconductor-manufacturing-company-limited-stock/"><a href="/earnings/reports/2024-1-18-taiwan-semiconductor-manufacturing-company-limited-stock/" class="btn btn-secondary p-2" title="View Taiwan Semiconductor Manufacturing Earnings Report for 1/18/2024"><span class="fa-regular fa-square-list"></span></a></td></tr><tr><td data-sort-value="20231019000000">10/19/2023</td><td>Q3 2023</td><td>$1.16</td><td>$1.29</td><td class="c-green">+$0.13</td><td>$1.29</td><td>$16.90B</td><td>$17.28B</td><td data-clean="https://www.marketbeat.com/earnings/reports/2023-10-19-taiwan-semiconductor-manufacturing-company-limited-stock/"><a href="/earnings/reports/2023-10-19-taiwan-semiconductor-manufacturing-company-limited-stock/" class="btn btn-secondary p-2" title="View Taiwan Semiconductor Manufacturing Earnings Report for 10/19/2023"><span class="fa-regular fa-square-list"></span></a></td></tr><tr><td data-sort-value="20230720000000">7/20/2023</td><td>Q2 2023</td><td>$1.07</td><td>$1.14</td><td class="c-green">+$0.07</td><td>$1.14</td><td>$15.52B</td><td>$15.68B</td><td data-clean="https://www.marketbeat.com/earnings/reports/2023-7-20-taiwan-semiconductor-manufacturing-company-limited-stock/"><a href="/earnings/reports/2023-7-20-taiwan-semiconductor-manufacturing-company-limited-stock/" class="btn btn-secondary p-2" title="View Taiwan Semiconductor Manufacturing Earnings Report for 7/20/2023"><span class="fa-regular fa-square-list"></span></a></td></tr><tr class='bottom-sort'><td colspan='9' class='p-3' style='background:var(--blue-2)' id='formholder'><div id="pnlSignup">
+	<div id="divSubscribe" class="subscribe row align-items-center justify-content-start"><div class="col-10 col-lg-9 col-xl-8"><div class="h2 mt-2">Get the Latest News and Ratings for TSM and Related Stocks</div><p>Enter your email address below to receive the latest news and analysts&#39; ratings for Taiwan Semiconductor Manufacturing and its competitors with MarketBeat&#39;s FREE daily newsletter.</p><div style="width:520px;max-width:100%;" class="form-row"><input name="InTableRegistrationEmail" type="text" id="InTableRegistrationEmail" class="col-sm-7" placeholder="Your Email Address" aria-label="Email Address" style="display:inline-block;flex:1 0 296px;-ms-flex:1 0 296px;" /><input type="button" name="btnHASubmit" value="Sign-Up Now (Free)" onclick="if (CheckEmail(&#39;InTableRegistrationEmail&#39;, &#39;ShowSuggestionInTable&#39;, &#39;c-white&#39;)) { window.location = &#39;/newsletter/?RegistrationCode=CompanyProfile-FreeReport&amp;RegistrationDomain=marketbeat.com&amp;RegisterEmail=&#39;+encodeURIComponent(document.getElementById(&#39;InTableRegistrationEmail&#39;).value); return true;} else { return false; };" id="btnHASubmit" class="col-sm-5 btn btn-quaternary" style="display:inline-block;flex:1 0 232px;-ms-flex:1 0 232px;" /></div><div id="ShowSuggestionInTable" style="display:inline-block;width:508px;max-width:100%;"></div></div></div>
+</div></td></tr><tr><td data-sort-value="20230420000000">4/20/2023</td><td>Q1 2023</td><td>$1.21</td><td>$1.31</td><td class="c-green">+$0.10</td><td>$1.31</td><td>$17.30B</td><td>$16.72B</td><td data-clean="https://www.marketbeat.com/earnings/reports/2023-4-20-taiwan-semiconductor-manufacturing-company-limited-stock/"><a href="/earnings/reports/2023-4-20-taiwan-semiconductor-manufacturing-company-limited-stock/" class="btn btn-secondary p-2" title="View Taiwan Semiconductor Manufacturing Earnings Report for 4/20/2023"><span class="fa-regular fa-square-list"></span></a></td></tr><tr><td data-sort-value="20230112000000">1/12/2023</td><td>Q4 2022</td><td>$1.80</td><td>$1.82</td><td class="c-green">+$0.02</td><td>$1.82</td><td>$20.29B</td><td>$19.93B</td><td data-clean="https://www.marketbeat.com/earnings/reports/2023-1-12-taiwan-semiconductor-manufacturing-company-limited-stock/"><a href="/earnings/reports/2023-1-12-taiwan-semiconductor-manufacturing-company-limited-stock/" class="btn btn-secondary p-2" title="View Taiwan Semiconductor Manufacturing Earnings Report for 1/12/2023"><span class="fa-regular fa-square-list"></span></a></td></tr></tbody></table>
+            <script type="text/javascript">
+                function pageLoad() {
+                    $(function () {
+                        $("#cphPrimaryContent_cphTabContent_txtStartDate").datepicker({
+                            showOn: "button",
+                            buttonImage: "/images/smallcal.png?v3",
+                            buttonImageOnly: true,
+                            buttonText: "Select Start Date"
+
+                        });
+                        $("#cphPrimaryContent_cphTabContent_txtEndDate").datepicker({
+                            showOn: "button",
+                            buttonImage: "/images/smallcal.png?v3",
+                            buttonImageOnly: true,
+                            buttonText: "Select End Date"
+                        });
+                        $(".ui-datepicker-trigger").attr("width", "20");
+                        $(".ui-datepicker-trigger").attr("height", "19");
+                        $(".ui-datepicker-trigger").attr("alt", "Calendar Date");
+                    });
+                }
+            </script>
+        
+	</div>
+        
+    <div class="row">
+        <div class="col-lg-8">
+            <div itemscope itemtype="https://schema.org/FAQPage" class="lh-medium pb-3 pr-md-3"><h2 class="mb-4">Taiwan Semiconductor Manufacturing Earnings - Frequently Asked Questions</h2><dl class="faq-accordion-list"><div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question1" itemprop="name text" class="expand-question m-0 position-relative"><button class="collapsed py-3 pl-0 pr-4" type="button" data-toggle="collapse" data-target="#answer-wrapper1" aria-expanded="false" aria-controls="answer-wrapper1">When did Taiwan Semiconductor Manufacturing announce their last quarterly earnings?<i class="fa-regular fa-square-minus accordion-state-open-icon c-blue-8" aria-hidden="true"></i><i class="fa-regular fa-square-plus accordion-state-closed-icon" aria-hidden="true"></i></button></div></dt>
+<dd itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" id="answer-wrapper1" class="collapse multi-collapse ml-3"><div><div class="py-2 px-3">
+<p itemprop="text" id="answer1">Taiwan Semiconductor Manufacturing (NYSE:TSM) last announced its quarterly earning data on Thursday, October 17, 2024. <a href="/stocks/NYSE/TSM/earnings/" class="sr-only sr-only-focusable">Learn more on TSM's earnings history.</a></p>
+</div></div></dd>
+</div>
+<div class="faq-item-wrapper">
+<dt><div id="question2" class="expand-question m-0 position-relative"><button class="collapsed py-3 pl-0 pr-4" type="button" data-toggle="collapse" data-target="#answer-wrapper2" aria-expanded="false" aria-controls="answer-wrapper2">What guidance has Taiwan Semiconductor Manufacturing issued on next quarter's earnings?<i class="fa-regular fa-square-minus accordion-state-open-icon c-blue-8" aria-hidden="true"></i><i class="fa-regular fa-square-plus accordion-state-closed-icon" aria-hidden="true"></i></button></div></dt>
+<dd id="answer-wrapper2" class="collapse multi-collapse ml-3"><div><div class="py-2 px-3">
+<p id="answer2">Taiwan Semiconductor Manufacturing issued an update on its fourth quarter 2024 earnings guidance on Thursday, October, 17th. The company issued revenue guidance of $26.1 billion-$26.9 billion, compared to the consensus revenue estimate of $24.9 billion.</p>
+</div></div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question3" itemprop="name text" class="expand-question m-0 position-relative"><button class="collapsed py-3 pl-0 pr-4" type="button" data-toggle="collapse" data-target="#answer-wrapper3" aria-expanded="false" aria-controls="answer-wrapper3">Did Taiwan Semiconductor Manufacturing beat their earnings estimates last quarter?<i class="fa-regular fa-square-minus accordion-state-open-icon c-blue-8" aria-hidden="true"></i><i class="fa-regular fa-square-plus accordion-state-closed-icon" aria-hidden="true"></i></button></div></dt>
+<dd itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" id="answer-wrapper3" class="collapse multi-collapse ml-3"><div><div class="py-2 px-3">
+<p itemprop="text" id="answer3">In the previous quarter, Taiwan Semiconductor Manufacturing (NYSE:TSM) reported $1.94 earnings per share (EPS) to beat the analysts' consensus estimate of $1.74 by $0.20. <a href="/stocks/NYSE/TSM/earnings/" class="sr-only sr-only-focusable">Learn more on analysts' earnings estimate vs. TSM's actual earnings.</a></p>
+</div></div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question4" itemprop="name text" class="expand-question m-0 position-relative"><button class="collapsed py-3 pl-0 pr-4" type="button" data-toggle="collapse" data-target="#answer-wrapper4" aria-expanded="false" aria-controls="answer-wrapper4">How much revenue does Taiwan Semiconductor Manufacturing generate each year?<i class="fa-regular fa-square-minus accordion-state-open-icon c-blue-8" aria-hidden="true"></i><i class="fa-regular fa-square-plus accordion-state-closed-icon" aria-hidden="true"></i></button></div></dt>
+<dd itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" id="answer-wrapper4" class="collapse multi-collapse ml-3"><div><div class="py-2 px-3">
+<p itemprop="text" id="answer4">Taiwan Semiconductor Manufacturing (NYSE:TSM) has a recorded annual revenue of $69.30 billion.</p>
+</div></div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question5" itemprop="name text" class="expand-question m-0 position-relative"><button class="collapsed py-3 pl-0 pr-4" type="button" data-toggle="collapse" data-target="#answer-wrapper5" aria-expanded="false" aria-controls="answer-wrapper5">How much profit does Taiwan Semiconductor Manufacturing generate each year?<i class="fa-regular fa-square-minus accordion-state-open-icon c-blue-8" aria-hidden="true"></i><i class="fa-regular fa-square-plus accordion-state-closed-icon" aria-hidden="true"></i></button></div></dt>
+<dd itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" id="answer-wrapper5" class="collapse multi-collapse ml-3"><div><div class="py-2 px-3">
+<p itemprop="text" id="answer5">Taiwan Semiconductor Manufacturing (NYSE:TSM) has a recorded net income of $27.82 billion. TSM has generated $6.24 earnings per share over the last four quarters. </p>
+</div></div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question6" itemprop="name text" class="expand-question m-0 position-relative"><button class="collapsed py-3 pl-0 pr-4" type="button" data-toggle="collapse" data-target="#answer-wrapper6" aria-expanded="false" aria-controls="answer-wrapper6">What is Taiwan Semiconductor Manufacturing's price-to-earnings ratio?<i class="fa-regular fa-square-minus accordion-state-open-icon c-blue-8" aria-hidden="true"></i><i class="fa-regular fa-square-plus accordion-state-closed-icon" aria-hidden="true"></i></button></div></dt>
+<dd itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" id="answer-wrapper6" class="collapse multi-collapse ml-3"><div><div class="py-2 px-3">
+<p itemprop="text" id="answer6">Taiwan Semiconductor Manufacturing (NYSE:TSM) has a trailing price-to-earnings ratio of 32.19 and a forward price-to-earnings ratio of 28.82.  The price/earnings-to-growth ratio is 0.9.</p>
+</div></div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question7" itemprop="name text" class="expand-question m-0 position-relative"><button class="collapsed py-3 pl-0 pr-4" type="button" data-toggle="collapse" data-target="#answer-wrapper7" aria-expanded="false" aria-controls="answer-wrapper7">What is Taiwan Semiconductor Manufacturing's EPS forecast for next year?<i class="fa-regular fa-square-minus accordion-state-open-icon c-blue-8" aria-hidden="true"></i><i class="fa-regular fa-square-plus accordion-state-closed-icon" aria-hidden="true"></i></button></div></dt>
+<dd itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" id="answer-wrapper7" class="collapse multi-collapse ml-3"><div><div class="py-2 px-3">
+<p itemprop="text" id="answer7">Taiwan Semiconductor Manufacturing's earnings are expected to grow from $6.97 per share to $8.86 per share in the next year, which is a 27.12% increase.</p>
+</div></div></dd>
+</div>
+</dl></div>
+            
+
+<h2>More Earnings Resources from MarketBeat</h2>
+<div class="see-also highlight-first-link">
+<strong>Related Companies</strong>
+<ul>
+<li><a href="/stocks/NASDAQ/AMD/earnings/">AMD Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/ARM/earnings/">ARM Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/NXPI/earnings/">NXPI Earnings Results</a></li>
+<li><a href="/stocks/NYSE/VRT/earnings/">VRT Earnings Results</a></li>
+<li><a href="/stocks/NYSE/LHX/earnings/">LHX Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/GFS/earnings/">GFS Earnings Results</a></li>
+<li><a href="/stocks/NYSE/HUBB/earnings/">HUBB Earnings Results</a></li>
+<li><a href="/stocks/NYSE/STM/earnings/">STM Earnings Results</a></li>
+<li><a href="/stocks/NYSE/NOK/earnings/">NOK Earnings Results</a></li>
+<li><a href="/stocks/NYSE/ASX/earnings/">ASX Earnings Results</a></li>
+
+</ul>
+</div>
+
+
+
+<div class="see-also">
+    <strong>Earnings Tools</strong>
+    <ul>
+        <li><a href="/earnings/latest/">Today's Earnings</a></li>
+        <li><a href="/earnings/tomorrow/">Tomorrow's Earnings</a></li>
+        <li><a href="/earnings/next-week/">Next Week's Earnings</a></li>
+        <li><a href="/earnings/conference-calls/">Upcoming Earnings Calls</a></li>
+         <li>
+             <a href="/earnings/subscribe/">Earnings Newsletter</a>
+         </li>
+        <li><a href="/earnings/transcripts/">Earnings Call Transcripts</a></li>
+        <li><a href="/earnings/beats-and-misses/">Earnings Beats &amp; Misses</a></li>
+        <li><a href="/earnings/guidance/">Corporate Guidance</a></li>
+        <li><a href="/all-access/earnings-screener/">Earnings Screener <span class="fa-solid fa-dynamic-lock"></span></a></li>
+    </ul>
+</div>
+
+<div class="see-also">
+    <strong>Earnings By Country</strong>
+    <ul>
+        <li>
+            <a href="/earnings/latest/">U.S. Earnings Reports</a>
+        </li>
+        <li>
+            <a href="/earnings/canada/">Canadian Earnings Reports</a>
+        </li>
+        <li>
+            <a href="/earnings/uk/">U.K. Earnings Reports</a>
+        </li>
+    </ul>
+</div>
+
+<div class="see-also">
+    <strong>Latest Articles</strong>
+    <ul>
+        <li><a href='https://www.marketbeat.com/originals/let-history-be-your-guide-with-tol-stock-after-earnings/'>History Hints at a Rebound for Toll Brothers After Earnings</a></li><li><a href='https://www.marketbeat.com/originals/alibaba-stock-why-earnings-make-it-a-buy-despite-the-recent-dip/'>Alibaba Stock: Why Earnings Make It a Buy Despite the Recent Dip</a></li><li><a href='https://www.marketbeat.com/originals/mercadolibre-down-after-missed-earnings-time-to-buy-the-dip/'>MercadoLibre Down 23% After Missed Earnings: Time to Buy the Dip?</a></li><li><a href='https://www.marketbeat.com/originals/gaming-stock-soars-after-q3-earnings-a-turning-point-ahead/'>Roblox Stock Soars 22% After Q3 Earnings – A Turning Point Ahead?</a></li><li><a href='https://www.marketbeat.com/originals/apple-earnings-when-really-good-just-isnt-good-enough/'>Apple Earnings - When Really Good Just Isn’t Good Enough </a></li><li><a href='https://www.marketbeat.com/originals/roblox-stock-set-for-more-gains-after-strong-earnings-report/'>Roblox Stock Set for More Gains After Strong Earnings Report</a></li><li><a href='https://www.marketbeat.com/originals/amazon-why-analysts-think-its-a-solid-buy-ahead-of-earnings/'>Amazon: Why Analysts Think It's a Solid Buy Ahead of Earnings</a></li>
+    </ul>
+</div>
+
+
+
+        </div>
+        <div class="col-lg-4">
+            <div id="cphPrimaryContent_cphTabContent_pnlStickyAd" style="position: sticky; top: 55px; margin-top: 1em;">
+		
+                <a target="_blank" rel="sponsored noopener" style="font-weight:normal;text-decoration:none;" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10741&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="border rounded bg-white" style="width:100%;padding:22px 25px;margin-top:20px;margin-bottom:20px;text-align:left;"><div class="h2 m-0 mb-3" style="font-size: 28px;line-height:1.4;text-decoration:none;font-weight:normal;color:#444;">Could This Tiny Device Help You Make an Extra $30k a Year? <span style="font-size:10pt;font-weight:normal;">(Ad)</span></div><p style="text-align:left;color:#444;">I believe it’s going to power Elon Musk’s next AI revolution…
+
+A revolution he believes will be worth more than $9 trillion.
+
+That’s nearly 10 times more money than the market caps of Tesla… SpaceX… PayPal… Neuralink… and X… COMBINED.<img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10741&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></p><div class="btn btn-primary" style="font-weight:600;font-size:larger;text-align:left;">Click here to see the details because I believe a lot of people will get rich.</div></div></a>
+            
+	</div>
+        </div>
+    </div> 
+    <br />
+    
+   
+
+                        <br />
+                        <em>This page (NYSE:TSM) was last updated on <span id='articleDate'>12/13/2024</span> by <span id='authorName'>MarketBeat.com Staff</span></em>
+                    </div>
+                </div>
+
+
+            <div class='more-headline more-headline-LeftPicture'>From Our Partners</div><div class='momb momb-LeftPicture'><div class="momb-section"><a target="_blank" rel="sponsored noopener" class="linkbox linktext" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10541&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="imagebox"><img src="https://www.marketbeat.com/images/webpush/files/thumb_2068push_bitcoin-6284928_640.jpg" loading="lazy" decoding="async" alt=""></div><div class="textbox"><div class="title-line linktext">Amazon coin set to soar 25X – starting December 16th?</div><div class="desc-line">This tiny 3-cent crypto just partnered with one of the biggest companies in the world… Amazon.
+
+And one team...</div><span class="from-line">True Market Insiders<span class="from-line-sponsored"> <span class="from-line-sep">|</span> Sponsored</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10541&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></div></a></div><div class="momb-section"><a target="_blank" rel="sponsored noopener" class="linkbox linktext" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10913&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="imagebox"><img src="https://www.marketbeat.com/images/webpush/files/thumb_2053push_biden.jpg" loading="lazy" decoding="async" alt=""></div><div class="textbox"><div class="title-line linktext">Did You See Trump’s Bombshell Exec. Order 001?</div><div class="desc-line">Starting with what I call Exec. Order 001.
+
+It’s a bombshell law that I believe Trump will sign within minut...</div><span class="from-line">Banyan Hill Publishing<span class="from-line-sponsored"> <span class="from-line-sep">|</span> Sponsored</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10913&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></div></a></div><div class="momb-section"><a target="_blank" rel="sponsored noopener" class="linkbox linktext" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10667&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="imagebox"><img src="https://www.marketbeat.com/images/webpush/files/thumb_2055push_elon-musk-7331438_640.jpg" loading="lazy" decoding="async" alt=""></div><div class="textbox"><div class="title-line linktext">Elon Musk’s chilling warning for humanity</div><div class="desc-line">The 'invasion' I've discovered has nothing to do with the border crisis. What's happening at our southern bord...</div><span class="from-line">The Freeport Society<span class="from-line-sponsored"> <span class="from-line-sep">|</span> Sponsored</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10667&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></div></a></div><div class="momb-section"><a target="_blank" rel="sponsored noopener" class="linkbox linktext" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10633&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="imagebox"><img src="https://www.marketbeat.com/logos/articles/20241105123916_unnamed.png" loading="lazy" decoding="async" alt=""></div><div class="textbox"><div class="title-line linktext">Vladimir Lenin was right…</div><div class="desc-line">The Magnificent 7 could be in for a world of pain…
+
+And the insiders know it. It’s why Jeff Bezos just sold ...</div><span class="from-line">Porter & Company<span class="from-line-sponsored"> <span class="from-line-sep">|</span> Sponsored</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10633&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></div></a></div><div class="momb-section"><a target="_blank" rel="sponsored noopener" class="linkbox linktext" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10672&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="imagebox"><img src="https://www.marketbeat.com/images/webpush/files/thumb_2068push_elon-musk-7331438_640.jpg" loading="lazy" decoding="async" alt=""></div><div class="textbox"><div class="title-line linktext">Musk’s new company could top a trillion?</div><div class="desc-line">The investment legend who predicted the rise of Bitcoin, Facebook and streaming services like Netflix…
+
+Just...</div><span class="from-line">Paradigm Press<span class="from-line-sponsored"> <span class="from-line-sep">|</span> Sponsored</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10672&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></div></a></div><div class="momb-section"><a target="_blank" rel="sponsored noopener" class="linkbox linktext" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10647&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="imagebox"><img src="https://www.marketbeat.com/images/webpush/files/thumb_2059push_Picture6.png" loading="lazy" decoding="async" alt=""></div><div class="textbox"><div class="title-line linktext">⭕ [URGENT] Buy Alert just triggered</div><div class="desc-line">My absolute favorite stock just hit a critical "buy now" trigger price.</div><span class="from-line">Behind the Markets<span class="from-line-sponsored"> <span class="from-line-sep">|</span> Sponsored</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10647&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></div></a></div><div class="momb-section"><a target="_blank" rel="sponsored noopener" class="linkbox linktext" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10644&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="imagebox"><img src="https://www.marketbeat.com/images/webpush/files/thumb_2065push_bitcoin-3290060_640.jpg" loading="lazy" decoding="async" alt=""></div><div class="textbox"><div class="title-line linktext">WaveBot: The Automated Trading Tool for This Bull Market</div><div class="desc-line">The 4th quarter of 2024 is shaping up to be one of the most explosive periods for crypto in recent memory. But...</div><span class="from-line">Crypto Swap Profits<span class="from-line-sponsored"> <span class="from-line-sep">|</span> Sponsored</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10644&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></div></a></div><div class="momb-section"><a target="_blank" rel="sponsored noopener" class="linkbox linktext" href="https://www.marketbeat.com/scripts/redirect.aspx?TriggeredCampaignID=10660&UserID=0&Placement=NativeDisplay&Source=NativeDisplay&interstitial=1&noskip=1"><div class="imagebox"><img src="https://www.marketbeat.com/images/webpush/files/thumb_2064push_Banking-9.jpg" loading="lazy" decoding="async" alt=""></div><div class="textbox"><div class="title-line linktext">“Fed Proof” Your Bank Account with THESE 4 Simple Steps</div><div class="desc-line">Starting as soon as a few months from now, the United States government will make a sweeping change to bank ac...</div><span class="from-line">Weiss Ratings<span class="from-line-sponsored"> <span class="from-line-sep">|</span> Sponsored</span></span><img loading='lazy' src='https://www.marketbeat.com/scripts/TriggeredCampaignPixel.ashx?TriggeredCampaignID=10660&Placement=NativeDisplay&Source=NativeDisplay' alt='' height='1' width='1' /></div></a></div></div>
+
+            <div style="display: none">
+                
+    <script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1, "item": "https://www.marketbeat.com/", "name": "MarketBeat"},{"@type": "ListItem","position": 2, "item": "https://www.marketbeat.com/stocks/", "name": "Stocks"}, {"@type": "ListItem","position": 3, "item": "https://www.marketbeat.com/stocks/NYSE/", "name": "NYSE"},{"@type": "ListItem","position": 4, "name": "TSM", "item": "https://www.marketbeat.com/stocks/NYSE/TSM/"},{"@type": "ListItem","position": 5, "name": "Earnings", "url": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/"}]}</script>
+
+            </div>
+        </div>
+    
+</div>
+
+    <div id="PanelAddOptions" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-title p-3 h3 m-0 text-center">
+                    Adding
+                    
+                </div>
+                <div class="modal-body">
+
+                    <div class="top-label">Choose a watchlist:</div>
+                    <label for="cphPrimaryContent_ddlWatchlist" class="sr-only">Watchlist</label>
+                    <select name="ctl00$ctl00$cphPrimaryContent$ddlWatchlist" id="cphPrimaryContent_ddlWatchlist" class="top-labeled-input">
+
+</select>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">
+                      Cancel
+                    </button>
+                    <input type="submit" name="ctl00$ctl00$cphPrimaryContent$btnAdd" value="Add to Watchlist" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$cphPrimaryContent$btnAdd&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="cphPrimaryContent_btnAdd" class="btn btn-primary m-0" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="PanelUpgradeToPremium" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-title p-3 h3 m-0 text-center">
+                    Adding
+                    
+                </div>
+                <div class="modal-body">
+                    <p style="line-height: 1.5;">You have already added five stocks to your watchlist. Upgrade to MarketBeat All Access to add more stocks to your watchlist.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                     <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">
+                      Cancel
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="PanelLoginOrCreate" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-title p-3 h3 m-0 text-center">
+                    Adding
+                    Taiwan Semiconductor Manufacturing Company Limited
+                </div>
+                <div class="modal-body">
+                    <p style="line-height: 1.5">
+                        Please log in to your account or sign up in order to add this asset to your watchlist.
+                    </p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                     <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">
+                      Cancel
+                    </button>
+                    <a href='/login/?cmd=create&prefix=NYSE&symbol=TSM' class='btn btn-primary'>Log In and Add</a></div><div class='clearfix'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div id="PanelShare" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-title p-3 h3 m-0 text-center">
+                Share Taiwan Semiconductor Manufacturing With A Colleague
+            </div>
+            <div class="modal-body">
+                <div class="mb-4 article-share text-center">
+                    <a title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" target="_blank" rel="nofollow noopener" class="btn btn-share"><span class="fa-brands fa-facebook-f"></span></a><a title="Share on Twitter" href="https://twitter.com/intent/tweet?text=Taiwan+Semiconductor+Manufacturing+(TSM)+Earnings+Date+and+Reports+2025%20%24TSM%20%23TSM%20https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" target="_blank" rel="nofollow noopener" class="btn btn-share"><span class="fa-brands fa-x-twitter"></span></a><a title="Share on LinkedIn" onclick="window.open('https://www.linkedin.com/cws/share?mini=true&amp;url=https://www.marketbeat.com/stocks/NYSE/TSM/earnings/', 'name','width=600,height=600')" href="https://www.linkedin.com/cws/share?mini=true&amp;url=https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" target="popup" rel="nofollow noopener" class="btn btn-share"><span class="fa-brands fa-linkedin-in"></span></a><a title="Share on StockTwits" href="https://api.stocktwits.com/widgets/share?via=MarketBeat&amp;body=Taiwan+Semiconductor+Manufacturing+(TSM)+Earnings+Date+and+Reports+2025%20https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" target="_blank" rel="nofollow noopener" class="btn btn-share"><span class="fa-kit fa-stocktwits-mark"></span></a><a title="Print this page" href ="javascript:window.print()" class="btn btn-share"><span class="fa-regular fa-print"></span></a><a title="Email this page" href="mailto:?subject=Taiwan%20Semiconductor%20Manufacturing%20(TSM)%20Earnings%20Date%20and%20Reports%202025&amp;body=Check%20out%20this%20stock%3A%20https://www.marketbeat.com/stocks/NYSE/TSM/earnings/%0D%0A%0D%0AFor%20real-time%20financial%20news%20and%20analysis%2C%20visit%20https%3A%2F%2Fwww.marketbeat.com%2F%20." class="btn btn-share"><span class="fa-regular fa-envelope"></span></a><a title="Copy the URL of this page to the clipboard" href="https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" class="btn btn-share shareCopy"><span class="fa-regular fa-link"></span></a><div class="fixed-notification alert alert-success" aria-live="polite" aria-atomic="true" role="alert">Link copied to clipboard.</div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">
+                  Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script defer src="https://www.marketbeat.com/Scripts/libraries/d3.min.js" charset="utf-8"></script> 
+    <script> var ScrpRestrict = "17E571341E38617DAC624AB35A4387CD6A585351D205431842C6DEA5AEBEB573E7737AEF3E46123F9BF449D63114BDDD4782FF05FA3B3160E2DF68319BF304F1"</script>
+    <script defer src="/Scripts/charts/dv-charts-min.js?v=20241118" charset="utf-8" type="text/javascript"></script>
+    
+
+    <!-- Default Statcounter code for MarketBeat.com - Company Profiles https://www.marketbeat.com/ -->
+    <script type="text/javascript">
+        var sc_project = 11737865;
+        var sc_invisible = 1;
+        var sc_security = "936735bf";
+        var sc_https = 1;
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
+    <noscript>
+        <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+            <img class="statcounter" src="//c.statcounter.com/11737865/0/936735bf/1/" alt="Web Analytics"></a></div>
+    </noscript>
+    <!-- End of Statcounter Code -->
+
+     
+
+
+
+
+                        
+
+
+                        
+
+    
+    <script type="text/javascript">
+
+        function show(shID) {
+            if (document.getElementById(shID)) {
+                if (document.getElementById(shID).style.display != 'none') {
+                    document.getElementById(shID).style.display = 'none';
+                }
+                else {
+                    document.getElementById(shID).style.display = 'block';
+                }
+            }
+        }
+      
+
+        document.addEventListener("DOMContentLoaded", function () {            
+            $(".question-toggle")
+                .on('click', function () {
+                    $("#" + $(this).attr("id").replace("-question-mark", "") + "-explanation").toggleClass("clicked");
+                });
+        });
+
+        function loadMoreDescription(Prefix, Symbol) {
+
+            var url = "/Scripts/ReadMore.ashx?Prefix=" + Prefix + "&Symbol=" + Symbol;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                success: function (data) {
+                    $("#readmoredescription").css("font-weight", "normal");
+                    $("#readmoredescription").html(data);
+                }
+            });
+
+        }
+
+
+    </script>
+    <script>clarity("set","pageType", "CompanyDetails");
+clarity("set","companyType", "Stock");
+clarity("set","companyMarketCap", "Mega");
+</script>
+
+
+
+
+
+                        <div id="pnlAllAccessTrial" class="inverse-on-homepage py-3 mb-4">
+	
+                            <div class="container p-0 ">
+                               <div class="bg-dark-blue-accent p-3 rounded pb-5 pb-xl-4">
+                                    <div class="row mx-0">
+                                        <div class="col-md-7 col-xl-4 my-3 mx-auto c-white mb-5">
+                                            <div class="h2 blue-accent-under">Get 30 Days of <span class="d-block" style="font-weight: 800">MarketBeat All Access</span> for Free</div>
+                                            <p>Sign up for MarketBeat All Access to gain access to MarketBeat's full suite of research tools.</p>
+                                            <a href="/subscribe/all-access/?referraltype=masterfooter" class="btn btn-featured c-white mt-3 mt-md-0 px-5">Start Your 30-Day Trial</a>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <h2 class="sr-only">MarketBeat All Access Features</h2>
+                                            <div class="row narrow-gutter-row">
+                                                <div class="col-md-4 my-2">
+                                                    <a href="/subscribe/all-access/?referraltype=masterfooter" class="card hover-card-blue p-4 h-100">
+                                                        <div class="feature-icon">
+                                                            <span class="fa-kit fa-best" style="line-height: 60px;"></span>
+                                                        </div>
+                                                        <h3>Best-in-Class Portfolio Monitoring</h3>
+                                                        <ul>
+                                                            <li>Get personalized stock ideas.</li>
+                                                            <li>Compare portfolio to indices.</li>
+                                                            <li>Check stock news, ratings, SEC filings, and more.</li>
+                                                        </ul>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-4 my-2">
+                                                    <a class="card hover-card-blue p-4 h-100" href="/subscribe/all-access/?referraltype=masterfooter">
+                                                        <div class="feature-icon">
+                                                            <span class="fa-kit fa-stock-ideas"></span>
+                                                        </div>
+
+                                                        <h3>Stock Ideas and Recommendations</h3>
+                                                        <ul>
+                                                            <li>See daily stock ideas from top analysts.</li>
+                                                            <li>Receive short-term trading ideas from MarketBeat.</li>
+                                                            <li>Identify trending stocks on social media.</li>
+                                                        </ul>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-4 my-2">
+                                                    <a class="card hover-card-blue p-4 h-100" href="/subscribe/all-access/?referraltype=masterfooter">
+                                                        <div class="feature-icon">
+                                                            <span class="fa-kit fa-research-tools"></span>
+                                                        </div>
+                                                        <h3>Advanced Stock Screeners and Research Tools</h3>
+                                                        <ul>
+                                                            <li>Use our seven stock screeners to find suitable stocks.</li>
+                                                            <li>Stay informed with MarketBeat's real-time news.</li>
+                                                            <li>Export data to Excel for personal analysis.</li>
+                                                        </ul>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+</div>
+
+
+
+                        
+
+                        <div id="HelpersArea" style="opacity: 0; transition: opacity .5s; position: relative; z-index: 1001;">
+                            
+
+                            <div id="pnlHelpers" class="multi-collapse-outer shadow collapse" style="position: fixed; right: 10px; bottom: 10px; width: 310px; background-color: var(--white); z-index: 400;">
+	
+
+                                
+
+                                
+                            
+</div>
+                        </div>
+
+
+                        
+
+
+
+                        
+
+                        
+
+                        
+
+                        
+
+
+                        <div id="pnlLoginCreateModal" class="modal fade show">
+	
+                            <div class="modal-dialog modal-dialog-centered" style="max-width: 650px;">
+                                <div class="modal-content">
+                                    <div class="modal-body p-0" style="max-height: 95vh;">
+                                        <div class="row m-0">
+
+                                            <div class="col-sm-5 p-0 gradient-blue c-white p-3 p-sm-4" style="font-size: 1.05em;">
+                                                <div class="d-none d-sm-block">
+                                                    <div class="font-12 mb-3">Sign in to your <span class="free">free</span> account to enjoy these benefits</div>
+                                                    <ul class="checkmark-list">
+                                                        <li>In-depth profiles and analysis for 20,000 public companies.</li>
+                                                        <li>Real-time analyst ratings, insider transactions, earnings data, and more.</li>
+                                                        <li>Our daily ratings and market update email newsletter.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="d-sm-none">
+                                                    <div class="font-12 lh-medium">Sign in to your <span class="free">free</span> account to enjoy all that MarketBeat has to offer.</div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-7 p-0 bg-white">
+                                                <div class="m-0">
+                                                    <ul class="nav nav-tabs pl-2" role="tablist" aria-label="Log in or create account">
+                                                        <li class="nav-item">
+                                                            <a id="LoginOnModalTab" class="nav-link active" href="#pnlLoginOnModal" role="tab" aria-selected="true" tabindex="0" aria-controls="pnlLoginOnModal" data-toggle="tab" onclick="trapFocusInModal('#pnlLoginCreateModal', 'txtLoginOnModalEmail', 'LoginOnModalTab', 'LastLinkOnLoginTab');">Sign In</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a id="CreateOnModalTab" class="nav-link" href="#pnlCreate" role="tab" aria-selected="false" tabindex="-1" aria-controls="pnlCreate" data-toggle="tab" onclick="trapFocusInModal('#pnlLoginCreateModal', 'txtCreateOnModalEmail', 'CreateOnModalTab', 'LastLinkOnCreateTab');">Create Account</a>
+                                                        </li>
+
+                                                        <li class="nav-item ml-auto">
+                                                            <a id="CloseModal" class="nav-link special-purpose-nav-link  font-15" href="#pnlCreate" role="tab" aria-selected="false" tabindex="-1" data-dismiss="modal" style="padding: 0.7rem; font-size: 1rem;" title="Close Login Modal"><i class="fa-regular fa-xmark"></i></a>
+
+                                                        </li>
+                                                    </ul>
+
+                                                    <div class="tab-content m-0 p-0" style="box-shadow: none !important;">
+
+                                                        <div id="pnlLoginOnModal" class="tab-pane active" role="tabpanel" tabindex="0" aria-labelledby="LoginOnModalTab">
+                                                            <div class="p-3">
+                                                                <div id="pnlLoginOnModalInner" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;btnLoginOnModal&#39;)">
+		
+                                                                    <label class="bold m-0" for="txtLoginOnModalEmail">Your Email Address:</label>
+                                                                    <input name="ctl00$ctl00$txtLoginOnModalEmail" type="text" maxlength="300" id="txtLoginOnModalEmail" class="top-labeled-input" autofocus="" style="width:100%;" />
+                                                                    <div class="rfv-div-validation-triangle">
+                                                                        <span id="rfvEmail" style="color:#D2333D;display:none;">Email Address Required</span>
+                                                                    </div>
+
+                                                                    <label class="bold m-0" for="txtLoginOnModalPassword">Your Password:</label>
+                                                                    <input name="ctl00$ctl00$txtLoginOnModalPassword" type="password" maxlength="300" id="txtLoginOnModalPassword" class="top-labeled-input mb-3" style="width:100%;" />
+
+                                                                    <div class="rfv-div-validation-triangle">
+                                                                        <span id="RequiredFieldValidator1" style="color:#D2333D;display:none;">Password Required</span>
+                                                                    </div>
+
+                                                                    <a onclick="LoginOnModalSubmit();return false;" id="btnLoginOnModal" class="btn btn-primary allow-loading" UseSubmitBehavior="false" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$btnLoginOnModal&quot;, &quot;&quot;, true, &quot;Login&quot;, &quot;&quot;, false, true))" style="display:inline-block;width:100%;">Log In<span class='load loading'></span></a>
+                                                                    <div id="loginOnModalWarning"></div>
+                                                                
+	</div>
+                                                                <div style="font-size: 18px; padding-bottom: 13px; text-align: center">
+                                                                    <hr style="margin: 0; position: relative; top: .65em; color: #555;" />
+                                                                    <span style="background: var(--white); padding: 0 10px; position: relative; color: #6a6a6a;">or</span>
+                                                                </div>
+                                                                <div class="d-flex flex-wrap" style="margin: 0 -2px;">
+                                                                    <a href="#" onclick="helloinit();hello('facebook').login({scope : 'email',force : true}); return false;" class="facebook-login-button zocial facebook">
+                                                                        <img src="/images/facebook-logo-2.png" width="22" height="22" loading="lazy" alt="Facebook icon" style="vertical-align: middle; vertical-align: middle; width: 22px; float: left; margin: 4px;" />Sign in with Facebook</a>
+                                                                    <a href="#" onclick="helloinit();hello('google').login({scope : 'email',force : true}); return false;" class="zocial google">
+                                                                        <img src="/images/google-g-logo.png" width="20" height="20" loading="lazy" alt="Google icon" style="vertical-align: middle; width: 20px; float: left; margin: 5px;" />Sign in with Google</a>
+                                                                </div>
+
+                                                                <div style="padding-top: 18px; font-size: 14px;"><a id="LastLinkOnLoginTab" href="/forgot-password/">Forgot your password?</a></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div id="pnlCreate" class="tab-pane bg-light-gray" role="tabpanel" aria-labelledby="CreateOnModalTab">
+                                                            <div class="p-3">
+                                                                <div id="pnlCreateInner" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;btnOnEnterCreateOnModal&#39;)">
+		
+                                                                    <label class="bold m-0" for="txtCreateOnModalEmail">Your Email Address:</label>
+                                                                    <input name="ctl00$ctl00$txtCreateOnModalEmail" type="text" maxlength="300" id="txtCreateOnModalEmail" class="top-labeled-input" style="width:100%;" />
+                                                                    <div class="rfv-div-validation-triangle">
+                                                                        <span id="RequiredFieldValidator2" style="color:#D2333D;display:none;">Please enter your email address.</span>
+                                                                    </div>
+                                                                    <div class="rfv-div-validation-triangle">
+                                                                        <span id="rgxEmail" style="color:#D2333D;display:none;">Please enter a valid email address</span>
+                                                                    </div>
+
+                                                                    <label class="bold m-0" for="txtCreateOnModalPassword" title="Your password must be at least 8 characters long and contain at least 1 number, 1 letter, and 1 special character.">Choose a Password:</label>
+                                                                    <input name="ctl00$ctl00$txtCreateOnModalPassword" type="password" maxlength="300" id="txtCreateOnModalPassword" class="top-labeled-input mb-3" style="width:100%;" />
+
+                                                                    <div class="rfv-div-validation-triangle">
+                                                                        <span id="RequiredFieldValidator3" style="color:#D2333D;display:none;">Please enter your password.</span>
+                                                                    </div>
+                                                                    <div class="rfv-div-validation-triangle" style="line-height: 1; padding-top: 5px;">
+                                                                        <span id="Regex1" style="color:#D2333D;display:none;">Your password must be at least 8 characters long and contain at least 1 number, 1 letter, and 1 special character.</span>
+                                                                    </div>
+
+                                                                    <button type="button" id="createOnModalVisibleButton" class="btn btn-primary w-100 g-recaptcha allow-loading" data-sitekey="6Lddn5keAAAAAPlD91bDkOh-lnZZxsz5b4ddp3Mw" data-callback='CreateOnModalSubmit' data-action='submit'>Create My Account (Free)<span class='load loading'></span></button>
+                                                                    <div id="createOnModalWarning" class="mb-2" style="display: none;"></div>
+
+                                                                    <div class="d-none">
+                                                                        <input type="submit" name="ctl00$ctl00$btnOnEnterCreateOnModal" value="Submit the Form" onclick="$(&#39;#createOnModalVisibleButton&#39;).click();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$btnOnEnterCreateOnModal&quot;, &quot;&quot;, true, &quot;Signup&quot;, &quot;&quot;, false, false))" id="btnOnEnterCreateOnModal" style="width:100%;" />
+                                                                        <input type="submit" name="ctl00$ctl00$btnCreateOnModal" value="Create My Account (Free)" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$btnCreateOnModal&quot;, &quot;&quot;, true, &quot;Signup&quot;, &quot;&quot;, false, false))" id="btnCreateOnModal" style="width:100%;" />
+                                                                    </div>
+
+                                                                
+	</div>
+                                                                <div style="padding-top: 15px; font-size: 18px; padding-bottom: 13px; text-align: center">
+                                                                    <hr style="margin: 0; position: relative; top: .65em; color: #555;" />
+                                                                    <span style="padding: 0 10px; position: relative; color: #6a6a6a;" class="bg-light-gray">or</span>
+                                                                </div>
+                                                                <div class="d-flex flex-wrap" style="margin: 0 -2px;">
+                                                                    <a href="#" onclick="helloinit();hello('facebook').login({scope : 'email',force : true}); return false;" class="facebook-login-button zocial facebook">
+                                                                        <img src="/images/facebook-logo-2.png" width="22" height="22" loading="lazy" alt="Facebook icon" style="vertical-align: middle; vertical-align: middle; width: 22px; float: left; margin: 4px;" />Sign in with Facebook</a>
+                                                                    <a href="#" onclick="helloinit();hello('google').login({scope : 'email',force : true}); return false;" class="zocial google">
+                                                                        <img src="/images/google-g-logo.png" width="20" height="20" loading="lazy" alt="Google icon" style="vertical-align: middle; vertical-align: middle; width: 20px; float: left; margin: 5px;" />Sign in with Google</a>
+                                                                </div>
+                                                                <div style="padding-top: 18px; font-size: 13px;">By creating a free account, you agree to our <a href="/terms/" target="_blank">terms of service.</a> This site is protected by reCAPTCHA and the Google <a rel="nofollow" href="https://policies.google.com/privacy">Privacy Policy</a> and <a rel="nofollow" id="LastLinkOnCreateTab" href="https://policies.google.com/terms">Terms of Service</a> apply.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        
+</div>
+
+                    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("cphPrimaryContent_cphTabContent_RegExRatingStartDate"), document.getElementById("cphPrimaryContent_cphTabContent_RegExRatingEndDate"), document.getElementById("rfvEmail"), document.getElementById("RequiredFieldValidator1"), document.getElementById("RequiredFieldValidator2"), document.getElementById("rgxEmail"), document.getElementById("RequiredFieldValidator3"), document.getElementById("Regex1"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var cphPrimaryContent_cphTabContent_RegExRatingStartDate = document.all ? document.all["cphPrimaryContent_cphTabContent_RegExRatingStartDate"] : document.getElementById("cphPrimaryContent_cphTabContent_RegExRatingStartDate");
+cphPrimaryContent_cphTabContent_RegExRatingStartDate.controltovalidate = "cphPrimaryContent_cphTabContent_txtStartDate";
+cphPrimaryContent_cphTabContent_RegExRatingStartDate.errormessage = "*";
+cphPrimaryContent_cphTabContent_RegExRatingStartDate.display = "Dynamic";
+cphPrimaryContent_cphTabContent_RegExRatingStartDate.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+cphPrimaryContent_cphTabContent_RegExRatingStartDate.validationexpression = "^([1-9]|0[1-9]|1[012])[- /.]([1-9]|0[1-9]|[12][0-9]|3[01])[- /.][0-9]{4}$";
+var cphPrimaryContent_cphTabContent_RegExRatingEndDate = document.all ? document.all["cphPrimaryContent_cphTabContent_RegExRatingEndDate"] : document.getElementById("cphPrimaryContent_cphTabContent_RegExRatingEndDate");
+cphPrimaryContent_cphTabContent_RegExRatingEndDate.controltovalidate = "cphPrimaryContent_cphTabContent_txtEndDate";
+cphPrimaryContent_cphTabContent_RegExRatingEndDate.errormessage = "*";
+cphPrimaryContent_cphTabContent_RegExRatingEndDate.display = "Dynamic";
+cphPrimaryContent_cphTabContent_RegExRatingEndDate.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+cphPrimaryContent_cphTabContent_RegExRatingEndDate.validationexpression = "^([1-9]|0[1-9]|1[012])[- /.]([1-9]|0[1-9]|[12][0-9]|3[01])[- /.][0-9]{4}$";
+var rfvEmail = document.all ? document.all["rfvEmail"] : document.getElementById("rfvEmail");
+rfvEmail.controltovalidate = "txtLoginOnModalEmail";
+rfvEmail.errormessage = "Email Address Required";
+rfvEmail.display = "Dynamic";
+rfvEmail.validationGroup = "Login";
+rfvEmail.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+rfvEmail.initialvalue = "";
+var RequiredFieldValidator1 = document.all ? document.all["RequiredFieldValidator1"] : document.getElementById("RequiredFieldValidator1");
+RequiredFieldValidator1.controltovalidate = "txtLoginOnModalPassword";
+RequiredFieldValidator1.errormessage = "Password Required";
+RequiredFieldValidator1.display = "Dynamic";
+RequiredFieldValidator1.validationGroup = "Login";
+RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator1.initialvalue = "";
+var RequiredFieldValidator2 = document.all ? document.all["RequiredFieldValidator2"] : document.getElementById("RequiredFieldValidator2");
+RequiredFieldValidator2.controltovalidate = "txtCreateOnModalEmail";
+RequiredFieldValidator2.errormessage = "Please enter your email address.";
+RequiredFieldValidator2.display = "Dynamic";
+RequiredFieldValidator2.validationGroup = "Signup";
+RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator2.initialvalue = "";
+var rgxEmail = document.all ? document.all["rgxEmail"] : document.getElementById("rgxEmail");
+rgxEmail.controltovalidate = "txtCreateOnModalEmail";
+rgxEmail.errormessage = "Please enter a valid email address";
+rgxEmail.display = "Dynamic";
+rgxEmail.validationGroup = "Signup";
+rgxEmail.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+rgxEmail.validationexpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+var RequiredFieldValidator3 = document.all ? document.all["RequiredFieldValidator3"] : document.getElementById("RequiredFieldValidator3");
+RequiredFieldValidator3.controltovalidate = "txtCreateOnModalPassword";
+RequiredFieldValidator3.errormessage = "Please enter your password.";
+RequiredFieldValidator3.display = "Dynamic";
+RequiredFieldValidator3.validationGroup = "Signup";
+RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator3.initialvalue = "";
+var Regex1 = document.all ? document.all["Regex1"] : document.getElementById("Regex1");
+Regex1.controltovalidate = "txtCreateOnModalPassword";
+Regex1.errormessage = "Your password must be at least 8 characters long and contain at least 1 number, 1 letter, and 1 special character.";
+Regex1.display = "Dynamic";
+Regex1.validationGroup = "Signup";
+Regex1.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+Regex1.validationexpression = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&-]{8,}$";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('cphPrimaryContent_cphTabContent_RegExRatingStartDate').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('cphPrimaryContent_cphTabContent_RegExRatingStartDate'));
+}
+
+document.getElementById('cphPrimaryContent_cphTabContent_RegExRatingEndDate').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('cphPrimaryContent_cphTabContent_RegExRatingEndDate'));
+}
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":null,"displayAfter":500,"dynamicLayout":true}, null, null, $get("cphPrimaryContent_cphTabContent_Progress1"));
+});
+
+document.getElementById('rfvEmail').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('rfvEmail'));
+}
+
+document.getElementById('RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('RequiredFieldValidator1'));
+}
+
+document.getElementById('RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('RequiredFieldValidator2'));
+}
+
+document.getElementById('rgxEmail').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('rgxEmail'));
+}
+
+document.getElementById('RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('RequiredFieldValidator3'));
+}
+
+document.getElementById('Regex1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('Regex1'));
+}
+//]]>
+</script>
+</form>
+
+                </article>
+            </div>
+
+        </main>
+        <footer>
+            <div class="bg-blue c-white position-relative">
+                <div class="featured-in container">
+                    <p class="pt-4 m-0 text-center font-weight-medium text-uppercase font-smaller" style="letter-spacing: 1px;">Featured By</p>
+                    <div class="d-lg-flex justify-content-center align-items-center py-2">
+                        <div class="text-center px-3">
+                            <span class="fa-kit fa-barrons" role="img" aria-label="Barron's"></span>
+                            <span class="fa-kit fa-entrepreneur" role="img" aria-label="Entrepreneur Magazine"></span>
+                            <span class="fa-kit fa-forbes" role="img" aria-label="Forbes"></span>
+                            <span class="fa-kit fa-inc" role="img" aria-label="Inc. Magazine"></span>
+                            <span class="fa-kit fa-investing" role="img" aria-label="Investing.com"></span>
+                            <span class="fa-kit fa-nasdaq" role="img" aria-label="NASDAQ"></span>
+                            <span class="fa-kit fa-prairiebusiness" role="img" aria-label="Prairie Business"></span>
+                            <span class="fa-kit fa-seeking-alpha" role="img" aria-label="Seeking Alpha"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-blue-13 c-white position-relative" style="background:var(--blue-14);font-size: .9em;">
+                <div class="container">
+                    <div class="row pt-4 pb-2 justify-content-between">
+                        <div class="col-12 col-lg-4 col-xl-3">
+                            <div class="row justify-content-between align-items-start align-items-lg-center">
+                                <div class="col-12 col-sm-3 col-md-4 col-lg-12 text-center text-md-left">
+                                    <img class="h-auto mb-lg-1 mt-lg-2" id="footer-logo" src="/images/master/MarketBeat-logo-r-white.svg?v=2019" alt="MarketBeat - Stock Market News and Research Tools" loading="lazy" width="256" height="65">
+                                </div>
+                                <div class="col-12 col-sm-5 col-md-4 col-lg-12 text-center text-sm-left">
+                                    <div class="font-weight-bold mt-2 mt-sm-0 mt-lg-3">Empowering Individual Investors</div>
+                                    <p class="small my-2">
+                                        345 N Reid Place, Suite 620, Sioux Falls, SD 57103
+                                        <br />
+                                        contact@marketbeat.com
+                                        <br />
+                                        (844) 978-6257
+                                    </p>
+                                </div>
+                                <div class="col-12 col-sm-4 col-lg-12 text-center text-sm-left  mt-1 mt-lg-4">
+                                    <ul class="footer-follow nounderline my-0 p-0">
+                                        <li class="d-inline-block mr-md-1">
+                                            <a href="https://twitter.com/MarketBeatCom" target="_blank" rel="noopener">
+                                                <span class="fa-brands fa-x-twitter c-white mr-sm-1"></span>
+                                                <span class="sr-only">Twitter</span>
+                                            </a>
+                                        </li>
+                                        <li class="d-inline-block mr-md-1">
+                                            <a href="https://www.facebook.com/marketbeatcom/" target="_blank" rel="noopener">
+                                                <span class="fa-brands fa-facebook-f c-white mr-sm-1"></span>
+                                                <span class="sr-only">Facebook</span>
+                                            </a>
+                                        </li>
+                                        <li class="d-inline-block mr-md-1">
+                                            <a href="https://www.youtube.com/marketbeatcom?sub_confirmation=1" target="_blank" rel="noopener">
+                                                <span class="fa-brands fa-youtube c-white mr-sm-1"></span>
+                                                <span class="sr-only">YouTube</span>
+                                            </a>
+                                        </li>
+                                        <li class="d-inline-block mr-md-1">
+                                            <a href="https://www.linkedin.com/company/marketbeat" title="Follow MarketBeat on LinkedIn" target="_blank" rel="noopener">
+                                                <span class="fa-brands fa-linkedin-in c-white mr-sm-1"></span>
+                                                <span class="sr-only">LinkedIn</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8 col-xl-9 border-top mt-3 pt-3" style="border-color: #F6F8F724 !important">
+                            <div class="row">
+                                <div class="col-6 col-sm-4 col-lg-auto pr-xl-4 pb-3">
+                                    <h2 class="mt-1 mb-2 barlow-condensed" style="font-size: 1em;">About MarketBeat</h2>
+                                    <ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+                                        <li class="my-2"><a class="font-weight-normal" href="/about/">About</a>
+                                        </li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/editorial-guidelines/">Editorial Guidelines</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/authors/">Authors</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/press-room/">Press Room</a></li>
+
+                                        <li class="my-2"><a class="font-weight-normal" href="/careers/">Careers</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/contact/">Contact</a></li>
+                                        <li class="d-inline-block mb-2 pr-2 mr-1 border-right"><a class="font-weight-normal" href="/faq/">FAQ</a></li>
+                                        <li class="d-inline-block mb-2"><a class="font-weight-normal" href="/help/">Help</a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="col-6 col-sm-4 col-lg-auto pr-xl-4 pb-3">
+                                    <h2 class="mt-1 mb-2 barlow-condensed" style="font-size: 1em;">MarketBeat Products</h2>
+                                    <ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+                                        <li class="my-2"><a class="font-weight-normal" href="/compare-products/">Compare Products</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="https://www.marketbeat.com/subscribe/all-access/?ProductCode=aap1997t&ReferralType=WebNavigation">MarketBeat All Access</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/reviews/">Customer Reviews</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/ratings/newsletter/">MarketBeat Daily Ratings</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/ratings/newsletter-canada/">MarketBeat Daily Canada</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/cryptocurrencies/newsletter/">MarketBeat CryptoBeat</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/mobileapp/">MarketBeat Mobile App</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 col-sm-4 col-lg-auto pr-xl-4 pb-3">
+                                    <h2 class="mt-1 mb-2 barlow-condensed" style="font-size: 1em;">Popular Tools</h2>
+                                    <ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+                                        <li class="my-2"><a class="font-weight-normal" href="/stocks/">Stock Lists</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/compare-stocks/">Compare Stocks</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/dividends/calculator/">Dividend Calculator</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/manage/watchlists/">My MarketBeat</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/stock-screener/">Stock Screener</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 col-sm-4 col-lg-auto pr-xl-4 pb-3">
+                                    <h2 class="mt-1 mb-2 barlow-condensed" style="font-size: 1em;">Financial Calendars</h2>
+                                    <ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+                                        <li class="my-2"><a class="font-weight-normal" href="/ratings/">Analyst Ratings</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/dividends/">Dividends</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/earnings/latest/">Earnings</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/insider-trades/">Insider Trades</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/stock-market-holidays/">Stock Market Holidays</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 col-sm-4 col-lg-auto pr-xl-4 pb-3">
+                                    <h2 class="mt-1 mb-2 barlow-condensed" style="font-size: 1em;">Terms & Info</h2>
+                                    <ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+                                        <li class="my-2"><a class="font-weight-normal" href="/advertising/">Advertising</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/accessibility/">Accessibility Statement</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/do-not-sell-my-information/">Do Not Sell My Information</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/terms/#privacy-policy">Privacy Policy</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/rss-feeds/">RSS Feeds</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/terms/">Terms of Service</a></li>
+                                        <li class="my-2"><a class="font-weight-normal" href="/sitemap/">Sitemap</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <p class="small my-0 py-3">© MarketBeat Media, LLC 2010-2024. All rights reserved.</p>
+                            <p class="small my-0 py-3">
+                                © 2024 Market data provided is at least 10-minutes delayed and hosted by Barchart Solutions.  Information is provided 'as-is' and solely for informational purposes, not for trading purposes or advice, and is delayed. To see all exchange delays and terms of use please see <a href="https://www.barchartmarketdata.com/terms" rel="nofollow">Barchart's disclaimer</a>. <span id="keep-for-checking-size" class="d-none d-sm-inline-block"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="menu-closer"></div>
+    </div>
+    <nav id="left-side-menu" class="bg-blue-11" aria-label="Primary Mobile Menu">
+    </nav>
+    <nav id="right-side-menu" class="bg-blue-11 d-none" aria-label="User Menu & Notifications">
+        <div style="margin: 0 5px; height: 374px;">
+            <p class="side-menu-title mt-2 ml-1"><a href="/manage/" style="font-weight: normal;">My Account - <span class="d-inline-block lh-loose" style="white-space: nowrap;">
+                </span></a></p>
+            <ul class="side-menu-list">
+                <li><a class='wl-tab-change' href="/manage/watchlists/#portfolio"><span class="fa-kit fa-marketbeat-m mr-2"></span>My MarketBeat</a></li>
+                <li><a class='wl-tab-change' href="/manage/watchlists/#newsletter"><span class="fa-regular fa-envelope-open-text mr-2"></span>My Newsletter</a></li>
+                <li><a href="/manage/alerts/"><span class="fa-regular fa-bell mr-2"></span>My Alerts</a></li>
+                <li><a href="/manage/subscriptions/"><span class="fa-regular fa-rectangle-vertical-history mr-2"></span>My Subscriptions</a></li>
+                <li><a href="/manage/"><span class="fa-regular fa-gear mr-2"></span>My Account Settings</a></li>
+                <li><a href="/manage/payments/"><span class="fa-regular fa-credit-card mr-2"></span>My Payment Settings</a></li>
+                <li><a class="g_id_signout" href="/login/?cmd=logout"><span class="fa-regular fa-right-from-bracket mr-2"></span>Log Out</a></li>
+            </ul>
+
+        </div>
+        <div id="notifications-area" class="pt-3 position-relative" style="opacity: 0; transition: opacity .7s;">
+        </div>
+
+    </nav>
+    <div id="video-modal-global" class="d-none">
+        <div id="video-modal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close clear-button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-body row m-0 p-0" style="max-height: none;">
+                        <div class="video-column bg-black col-12 px-0">
+                            <div class="videowrapper">
+                                <iframe id="video-iframe" allow="accelerometer; autoplay;" style="border: 0;" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div id="video-description" class="bg-light-gray box-shadow d-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- more scripts -->
+
+    <script>
+        function CreateOnModalSubmit(token) {
+            $("#btnCreateOnModal").click();
+            
+        }
+
+        function LoginOnModalSubmit() {
+            CheckLoginOnModal("txtLoginOnModalEmail", "txtLoginOnModalPassword", "loginOnModalWarning", "btnLoginOnModal");
+            return false;
+        }
+
+        function setPremiumPageWording() {
+            $('.free').addClass("d-none");
+        }
+    </script>
+    <script defer src="/Scripts/libraries/hello.all.js"></script>
+    <script defer src="/Scripts/libraries/popper.min.js"></script>
+    <script defer src="/Scripts/libraries/bootstrap.min.js"></script>
+
+
+    <script> var emlchk = "AA7B03B8E4F4566F2D12EDD837A0DBDA064EDF22BB8D0CE5B60363358E9629DBDB589B3E380AE3D9BE6A5F9895804E9976E3EAEB4E181AFA41FC358C963FCBA7"; </script>
+
+    <script defer src="/Scripts/libraries/jquery-ui.min.js"></script>
+
+    <script defer type="text/javascript" src="/scripts/masterscripts9.js?v=202412"></script>
+
+    <!-- Popup -->
+    <script type="text/javascript">var ShowExitPopup = true;</script>
+    
+    
+    <script type='text/javascript'>setCookie("MarketBeatOptinCookie", 1, 3);</script>
+    
+
+    <script>var getNewsletterButton = "<a id=\"mmsubbutton\" href=\"https://www.marketbeat.com/subscribe/all-access/?ReferralType=HeaderButtonMobile\" class=\"btn btn-featured m-3 d-block p-2\" style='width:calc(100% - 3rem); color: var(--black);' aria-label=\"Sign Up\"><span class=\"fa-regular fa-dollar-sign\"></span><span class=\"px-1 d-lg-inline-block\"> Free Trial </span></a>";</script>
+
+    
+
+    <!-- Yahoo Gemini -->
+    
+
+    <!-- Primary MarketBeat StatCounter Project -->
+    <script type="text/javascript">
+        var sc_project = 7602069;
+        var sc_invisible = 1;
+        var sc_security = "74cbf3e8";
+        var sc_https = 1;
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
+    <noscript>
+        <div class="statcounter">
+            <img class="statcounter" src="//c.statcounter.com/7602069/0/74cbf3e8/1/" alt="Web Analytics"></div>
+    </noscript>
+    <!-- End of Primary StatCounter Code -->
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <script type="text/javascript">
+
+        (function () {
+            const second = 1000,
+                minute = second * 60,
+                hour = minute * 60,
+                day = hour * 24;
+
+            let today = new Date(),
+                eventDate = new Date(Date.UTC(2023, 06, 29, 05, 59, 00, 00)); // must be 5 hours 59 minutes after you want it to end because of time zones and the month is zero indexed
+
+            //end
+
+            const countDown = new Date(eventDate).getTime(),
+                x = setInterval(function () {
+
+                    if (document.getElementById("countdown") != null) {
+                        const now = new Date().getTime(),
+                            distance = countDown - now;
+
+                        document.getElementById("days").innerText = Math.floor(distance / (day)),
+                            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                        //do something later when date is reached
+                        if (distance <= 0) {
+                            document.getElementById("days").innerText = 0,
+                                document.getElementById("hours").innerText = 0,
+                                document.getElementById("minutes").innerText = 0,
+                                document.getElementById("seconds").innerText = 0;
+                            clearInterval(x);
+                        }
+                        //seconds
+
+                    }
+                }, 200)
+        }());
+
+
+
+        (function () {
+            if (document.getElementById("countdownIndividual") != null) {
+
+                const second = 1000,
+                    minute = second * 60,
+                    hour = minute * 60,
+                    day = hour * 24;
+
+
+                var daysToOffer = 2;
+                let expirationDate = new Date(new Date().getTime() + (daysToOffer * 24 * 60 * 60 * 1000));
+
+                if (getCookie("HIExpiration")) {
+                    expirationDate = new Date(getCookie("HIExpiration"));
+                }
+                else {
+                    setCookie("HIExpiration", expirationDate.toJSON(), 16)
+                }
+
+                //end
+                const countDown = new Date(expirationDate).getTime(),
+                    x = setInterval(function () {
+
+
+                        const now = new Date().getTime(),
+                            distance = countDown - now;
+
+                        document.getElementById("days").innerText = Math.floor(distance / (day)),
+                            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                        //do something later when date is reached
+                        if (distance <= 0) {
+                            document.getElementById("days").innerText = 0,
+                                document.getElementById("hours").innerText = 0,
+                                document.getElementById("minutes").innerText = 0,
+                                document.getElementById("seconds").innerText = 0;
+                            clearInterval(x);
+                        }
+                        //seconds
+
+
+                    }, 200)
+            }
+        }());
+    </script>
+
+
+
+</body>
+</html>
