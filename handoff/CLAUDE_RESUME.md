@@ -1,6 +1,6 @@
 # Claude 接續用（gate-probe 工作狀態）
 
-最後更新：2026-10-19 21:55 台北（v4.38）。新的對話開始時先讀這份，再讀 `DECISIONS_PENDING.md`。
+最後更新：2026-10-19 22:20 台北（v4.39）。新的對話開始時先讀這份，再讀 `DECISIONS_PENDING.md`。
 
 ## 已完成並存檔（v4.37，`gate_pipeline_v4.37.zip`）
 
@@ -18,16 +18,16 @@
 - 3034 聯詠：2023Q1–2026Q2 共 14 季 VERIFIED（2025Q2 三項都低於財測；其餘多為在區間內或高於）；2026Q3 等實際。
 - 3711 日月光投控：投控合併財測 2025Q3 起才有，2025Q3–2026Q2 共 4 季 VERIFIED；2023Q1–2025Q2 只有事業別財測（SEGMENT_ONLY_GUIDANCE，不比較）。
 - 5347 世界先進（v4.38）：2023Q1–2026Q2 共 14 季 VERIFIED，每季「報告實際數字的簡報重列的財測」都和原財測相同；2023 年版面（營收億元＋兩率）與「季持平」都已支援。
-- 5274：只用 2026 年簡報測過；民國 112–114 年簡報下載中（見下）。
+- 5274 信驊（v4.39；全是受邀法說簡報、版面多種）：2024Q4、2025Q1、2026Q1、2026Q2 VERIFIED；2025Q2 公司季中「更新營運展望」→ GUIDANCE_UPDATED；2024Q3 兩份簡報數字不同 → GUIDANCE_CONFLICT；2024Q1、Q2、2025Q4 簡報裡沒有損益表 → 缺實際；只剩 2023-03 簡報寫法不認得。
 
 ## 進行中（接手時先檢查）
 
-1. 法說會簡報補抓民國 112–114 年：gate-pipeline-conference-probe 依序 3034（39255734752 完成）、3711（39257183724 完成）、
+1. （已完成）法說會簡報補抓民國 112–114 年：gate-pipeline-conference-probe 依序 3034（39255734752 完成）、3711（39257183724 完成）、
    5347（39259749526 完成，v4.38 已納入）、5274（之後一個 run）。完成後：
    - `python gate_pipeline/ops/slide_guidance.py --co-id 5347 --conference results/5347/conference --out …`，5274 同；
      有 `format_unknown` 就看原文頁面補寫法（不猜）。
    - 用 `tools/make_slide_fixtures.py <代號>`（在 repo 根目錄、已解壓 gate_pipeline 時執行；逐頁 pdftotext＋一覽表原始回應 → `gate_pipeline/contract/mops_real/slides/<代號>/`）加 5347、5274 測試。
-   - 發 v4.38 後執行 gate-pipeline-slide-guidance（四家），結果在 `results/<代號>/slide_guidance/<run>/`。
+   - 下一步：執行 gate-pipeline-slide-guidance（四家，v4.39），結果在 `results/<代號>/slide_guidance/<run>/`。
 2. 年報探測：已完成（run 39262137932，step=9 送法正確）；三項頁碼已寫在 `handoff/8299_annual_report_FY2025.md`。舊的待辦說明如下僅供參考：，看 step=9 送法是否正確；下載到年報後查
    生產據點、10% 以上客戶、市占率的頁碼（給正式網站 Gate 4）。
 
