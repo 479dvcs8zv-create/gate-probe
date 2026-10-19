@@ -1,0 +1,249 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='8299'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='8299'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='115'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 8299 
+群聯            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;1</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;115/04/28</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;17:54:52</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;于志強</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深特別助理暨營運長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;037-586896 #10019</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Power Flash (Samoa) Limited公告
+擬取得及處分有價證券</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+20&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;115/04/28
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.事實發生日:自民國115/4/28至民國115/4/28
+2.本次新增（減少）投資方式:
+Power Flash (Samoa) Limited(以下簡稱Power Flash)擬以所持有廈門佳芯電子有限公司
+（以下簡稱廈門佳芯）100%股權（即出資額人民幣60,000,000元）為對價，認購取得深圳
+芯展速科技發展有限公司（以下簡稱深圳芯展速）辦理增資擴股所增發之出資額
+人民幣3,504,100元。
+3.董事會通過日期: 民國115年4月28日
+4.其他核決日期: 不適用
+5.交易單位數量、每單位價格及交易總金額:
+Power Flash擬以廈門佳芯每1元人民幣出資額以人民幣3.5041元作價認購深圳芯展速
+增資所增發之出資額。深圳芯展速擬以每1元人民幣出資額以人民幣60元之價格辦理
+增資，Power Flash合計將認購取得深圳芯展速增發之出資額人民幣3,504,100元，
+增資認購款總金額為人民幣210,246,000元，並將轉讓廈門佳芯100%股權（即出資額
+人民幣60,000,000元）予深圳芯展速以繳納增資認購款人民幣210,246,000元(折合
+約新台幣973,229仟元)。
+6.大陸被投資公司之公司名稱:
+處分: 廈門佳芯電子有限公司
+取得: 深圳芯展速科技發展有限公司
+7.前開大陸被投資公司之實收資本額:
+廈門佳芯: 出資額人民幣60,000仟元
+深圳芯展速: 出資額約人民幣7,008仟元
+8.前開大陸被投資公司本次擬新增資本額:
+深圳芯展速:人民幣3,504.1仟元
+9.前開大陸被投資公司主要營業項目:
+廈門佳芯目前主要從事企業級SSD儲存產品相關的應用開發與技術服務及儲存應用產品的
+銷售。
+深圳芯展速目前主要從事企業級SSD及崁入式儲存應用產品模組的銷售與產品服務。
+10.前開大陸被投資公司最近年度財務報表會計師意見型態:
+廈門佳芯: 無保留意見。
+深圳芯展速: 無保留意見。
+11.前開大陸被投資公司最近年度財務報表權益總額:
+廈門佳芯: 2025年12月31日人民幣55,424仟元
+深圳芯展速: 2025年12月31日歸屬於母公司業主之權益人民幣108,040仟元
+12.前開大陸被投資公司最近年度財務報表損益金額:
+廈門佳芯: 2025年稅後淨利人民幣5,352仟元
+深圳芯展速: 2025年歸屬於母公司業主之稅後淨損人民幣10,732仟元
+13.迄目前為止，對前開大陸被投資公司之實際投資金額:
+Power Flash對廈門佳芯之實際投資金額為自人民幣60,000,000元降至0元，Power Flash
+預計對深圳芯展速實際投資金額從0元增加至人民幣210,246,000元(約新台幣973,229仟元
+，含本次投資)。
+14.交易相對人及其與公司之關係:
+交易相對人：深圳芯展速科技發展有限公司；與Power Flash之關係:無。
+15.交易相對人為關係人者，並應公告選定關係人為交易對象之原因及前次移轉
+之所有人、前次移轉之所有人與公司及交易相對人間相互之關係、前次移轉日期及移轉金額:
+不適用。
+16.交易標的最近五年內所有權人曾為公司之關係人者，尚應公告關係人之取得
+及處分日期、價格及交易當時與公司之關係:
+1.預計處分的廈門佳芯股權，係Power Flash於過往年度對廈門佳芯現金增資之股權
+出資額，故不適用。
+2.係預計認購取得深圳芯展速辦理增資所增發之出資額，故不適用。
+17.處分利益（或損失）:
+本交易係依據國際財務報導準則及國際會計準則相關規定辦理，因預計將喪失對廈門佳芯
+之實質控制力，預計認列處分投資利益約新台幣6.8億元。係公司自結數，實際需認列之
+處分損益將於交易完成後，以經會計師查核或核閱之財務報表數字為主。
+18.交付或付款條件（含付款期間及金額）、契約限制條款及其他重要約定事項:
+交付或付款條件：依協議約定方式，Power Flash擬以所持有廈門佳芯100%股權
+（即出資額人民幣60,000,000元）為對價，認購取得深圳芯展速辦理增資所增發
+之出資額人民幣3,504,100元。
+契約限制條款及其他重要約定事項：本案交易之完成，應以協議中各項交割前提
+條件完成為前提，且須經經濟部投資審議司核准後，始得進行。
+19.本次交易之決定方式、價格決定之參考依據及決策單位:
+經董事會決議通過並參考獨立專家出具之價格合理性意見書。
+20.經紀人:
+無。
+21.取得或處分之具體目的:
+基於群聯集團對中國市場的產品銷售擴展策略及投資布局考量，計畫透過廈門佳芯與
+深圳芯展速之策略合作，調整對中國企業級SSD儲存產品市場的發展策略，運用雙方
+分別在技術及業務行銷等的營運優勢，發揮綜效以加速提升未來市場競爭力。
+22.本次交易表示異議董事之意見:
+無。
+23.本次交易為關係人交易:否
+24.監察人承認或審計委員會同意日期:
+民國115年04月28日
+25.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）:
+新台幣1,909,733千元
+26.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表
+實收資本額之比率:
+87.62%
+27.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表
+總資產之比率:
+2.24%
+28.迄目前為止，投審會核准赴大陸地區投資總額（含本次投資）占最近期財務報表
+歸屬於母公司業主之權益之比率:
+3.18%
+29.迄目前為止，實際赴大陸地區投資總額:
+新台幣936,845仟元
+30.迄目前為止，實際赴大陸地區投資總額占最近期財務報表實收資本額之比率:
+42.98%
+31.迄目前為止，實際赴大陸地區投資總額占最近期財務報表總資產之比率:
+1.10%
+32.迄目前為止，實際赴大陸地區投資總額占最近期財務報表歸屬於母公司業主之權益之比率:
+1.56%
+33.最近三年度認列投資大陸損益金額:
+112年度：損失新台幣305,409仟元
+113年度：利益新台幣1,047,033仟元
+114年度：利益新台幣788,997仟元
+34.最近三年度獲利匯回金額:
+112年度：0
+113年度：0
+114年度：新台幣2,068,111仟元
+35.本次交易會計師出具非合理性意見:否
+36.會計師事務所名稱:
+國富浩華聯合會計師事務所
+37.會計師姓名:
+吳孟達
+38.會計師開業證書字號:
+中華民國會計師(台財證登（六）第三六二二號)
+39.前已就同一件事件發布重大訊息日期: 不適用
+40.其他敘明事項:
+無。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='8299'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

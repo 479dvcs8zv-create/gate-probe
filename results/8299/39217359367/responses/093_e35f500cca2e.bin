@@ -1,0 +1,338 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='8299'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='8299'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='115'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 8299 
+群聯            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;1</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;115/03/06</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;16:36:29</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;于志強</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深特別助理暨營運長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;037-586896 #10019</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;本公司董事會決議發行員工認股權憑證</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;115/03/06
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.董事會決議日期:115/03/06
+2.發行期間:
+於主管機關申報生效通知到達之日起二年內發行，得視實際需要，一次或分次發
+行，實際發行日期授權由董事長訂定之。
+
+3.認股權人資格條件:
+(一)認股權人以本公司及國內外從屬公司編制內全職、非全職員工為限(所稱「從
+屬公司」，係指符合金融監督管理委員會107年12月27日金管證發字第1070121068
+號函釋規定)。
+本辦法所稱之員工包含全職及非全職，定義如下：
+1.全職人員：受僱用繼續性工作，並定期支領薪資者。
+2.非全職人員：受僱從事臨時性、短期性及特定性工作，而簽訂定期勞動契約或
+               顧問合約之人員。
+(二)實際得為認股權人之員工及所得認股權之數量，將參酌員工之年資、職等、工
+    作績效考核、整體貢獻及特殊功績等因素擬定分配標準，由董事長或其指定之
+    人核定後，提報董事會同意。如認股權人具本公司經理人或兼任本公司董事之
+    員工身分者，應先提報薪資報酬委員會同意，再提報董事會決議；認股權人非
+    具本公司經理人或未兼任本公司董事之員工身分者，應先提報審計委員會同意
+    ，再提報董事會決議。
+(三)依發行人募集與發行有價證券處理準則第60條之9規定，發行人依募集與發行
+    有價證券處理準則第五十六條之一第一項規定發行員工認股權憑證累計給予單
+    一認股權人得認購股數加計認股權人累計取得限制員工權利新股之合計數，不
+    得超過已發行股份總數之千分之三，且加計本公司依發行人募集與發行有價證
+    券處理準則第五十六條第一項規定發行員工認股權憑證累計給予單一認股權人
+    得認購股數，不得超過已發行股份總數之百分之一。但經各中央目的事業主管
+    機關專案核准者，單一員工取得員工認股權憑證與限制員工權利新股之合計數
+    ，得不受前開比例之限制。
+
+4.員工認股權憑證之發行單位總數:發行總額為5,000,000單位。
+
+5.每單位認股權憑證得認購之股數:每單位認股權憑證得認購股數為1股。
+
+6.因認股權行使而須發行之新股總數或依證券交易法第二十八條之二
+規定須買回之股數:因認股權行使而須發行之普通股新股總數為5,000,000股。
+
+7.認股價格:認股價格以不低於發行日公司普通股股票之收盤價訂定之。
+
+8.認股權利期間:
+(一)認股權憑證之存續期間為四年，不得轉讓、質押、贈予他人或作其他方式之
+    處分，但因繼承者不在此限。認股權人自被授予員工認股權憑證屆滿二年後
+    可按下列時程及比例行使認股權。
+    認股權憑證授予期間             可行使認股權比例(累計)
+         屆滿2年	                      50%
+         屆滿3年	                      100%
+(二)認股權人自公司授予員工認股權憑證後，遇有重大違反勞動契約、聘僱合約
+    或本公司管理規章等事由時，本公司有權就其尚未具行使權之認股權憑證予
+    以收回註銷。
+
+9.認購股份之種類:本公司普通股股票。
+
+10.員工離職或發生繼承時之處理方式:
+  認股權人如因自願離職、留職停薪、退休、死亡、受職業災害殘疾或死亡者、
+  資遣或解雇、調職時，應於認股權憑證存續期間內依下列方式處理：
+(一)自願離職：
+    已具認股行使權之認股權憑證，得自離職日起一個月內行使認股權利，
+    未於前述期間內行使權利者，視同放棄認股權利；未具行使權之認股權憑證，
+    於離職當日即視為放棄認股權利。
+(二)留職停薪(不包含彈性育嬰留停)：
+    已具認股行使權之認股權憑證，得自留職停薪日起一個月內行使認股權利；
+    其未具行使權之認股權憑證得於復職後恢復權益，惟認股權行使期間應依留職
+    停薪期間往後遞延，而遞延期間仍以本條第(二)項所定認股權憑證之存續期間
+    為限。
+(三)退休：
+    已授予之認股權憑證，於退休時，可以行使全部之認股權利。惟該認股權利，
+    應自退休日起或被授予認股權憑證屆滿二年之日起（以日期較晚者為主）六個
+    月內行使之，至遲不得晚於認股權憑證之存續期間。
+(四)死亡：
+    已具認股行使權之認股權憑證，由繼承人自認股權人死亡日起六個月內行使認
+    股權，至遲不得晚於認股權憑證之存續期間。未具行使權之認股權憑證，於死
+    亡當日即視為放棄認股權利。
+(五)受職業災害致殘疾或死亡：
+(1)因受職業災害致身體殘疾而無法繼續任職者，已授予之認股權憑證，於離職時，
+   可以行使全部之認股權利。惟該認股權利，應自離職日起或被授予認股權憑證
+   屆滿二年之日起（以日期較晚者為主）六個月內行使之，至遲不得晚於認股權
+   憑證之存續期間。
+(2)因受職業災害致死亡者，已授予之認股權憑證，於死亡時，繼承人可以行使全
+   部之認股權利。惟該認股權利，應自死亡日起或被授予認股權憑證屆滿二年之
+   日起（以日期較晚者為主）六個月內行使之，至遲不得晚於認股權憑證之存續
+   期間。
+(六)資遣或解雇：
+    已具認股行使權之認股權憑證，得自資遣生效日或解雇日起一個月內行使認股
+    權利，惟至遲不得晚於認股權憑證之存續期間。未於前述期間內行使權利者，
+    視同放棄認股權利。未具行使權之認股權憑證，自資遣生效日或解雇日起即視
+    為放棄認股權利。
+(七)調職：
+    如認股權人主動申請調職至本公司之子公司或關係企業公司時，其認股權憑證
+    應比照離職方式處理。如應本公司要求而調職者，經本公司董事長或其授權之
+    人核定須轉任本公司國內外從屬公司之認股權人，其已授予認股權憑證之權利
+    義務均不受轉任之影響。
+(八)認股權人或其繼承人若未能於上述期限內行使認股權者，即視為放棄認股權利。
+(九)其它終止僱傭關係：
+    上述原因外，其它未約定之終止僱傭關係或僱傭關係調整，依本條第二項所規
+    定之權利期間及權利行使時程行使認股權利。
+(十)其他非屬上列原因或實際依照前揭各款規定執行時必須依相關法令進行調整時，
+    授權董事長依實際狀況個別訂定或調整之。
+(十一)放棄認股權利之認股權憑證處理方式：
+      對於放棄認股權利之認股權憑證，本公司將予以收回註銷不再發行。
+
+11.其他認股條件:無。
+
+12.履約方式:本公司以發行新股方式交付。
+
+13.認股價格之調整:
+(一)本認股權憑證發行後，除本公司所發行具有普通股轉換權或認股權之各種有
+    價證券換發普通股股份或因員工酬勞發行新股者外，遇有本公司普通股股份
+    發生變動時（即包含以募集發行或以私募方式辦理現金增資、盈餘轉增資、
+    資本公積轉增資、公司合併或受讓他公司股份發行新股、股票分割及辦理現
+    金增資參與發行海外存託憑證等），認股價格依下列公式調整之（計算至新
+    台幣角為止，分以下四拾五入），如係因股票面額變更致已發行普通股股份
+    增加，於新股換發基準日調整之，但有實際繳款作業者於股款繳足日調整之
+    。
+    調整後之認股價格＝調整前認股價格×
+   〔已發行股數＋(每股繳款金額×新股發行股數) ÷每股時價〕÷
+   〔已發行股數＋新股發行股數〕
+    股票面額變更時
+    調整後之認股價格＝調整前認股價格×(股票面額變更前已發行普通股股數
+    ÷股票面額變更後已發行普通股股數)
+(1)「已發行股數」係指普通股已發行股份總數(含已辦理完成之私募普通股)，
+    不含已繳納之股款繳納憑證及債券換股權利證書之股數，但應扣除本公司買
+    回惟尚未註銷或轉讓之庫藏股股數。
+(2)「每股繳款金額」如係屬無償配股或股票分割，則其繳款金額為零。
+(3)本公司與他公司合併時，增資新股每股繳款金額為合併基準日前第四十五個
+   營業日起連續三十個營業日之本公司普通股平均收盤價。
+(4)遇有調整後認股價格高於調整前認股價格時，則不予調整。
+(5)調整後認股價格如低於普通股股票面額時，以普通股股票面額為認股價格。
+(6)上述每股時價之訂定，應以除權基準日、訂價基準日或股票分割基準日之前
+   一、三、五個營業日擇一計算之普通股收盤價之簡單算術平均數為準。
+(7)倘非前述所列舉之股份變動情形時，則授權董事會(長)決議調整與否。
+(8)遇有須調整認股價格之情事，依上述公式調整，並經董事長核定，無須再送
+   董事會決議。
+(二)認股權憑證發行後，本公司發放普通股現金股利時，認股價格應於除息基
+    準日依下列公式調整之（計算至新台幣角為止，分以下四捨五入）。
+    調整後之認股價格＝調整前認股價格×(1-發放普通股現金股利占每股時價之
+    比率)
+(1)上述每股時價之訂定，應以現金股息停止過戶除息公告日之前一、三、五個
+   營業日擇一計算本公司普通股收盤價之簡單算術平均數為準。
+(2)遇有同時發放現金股利及股票股利（含盈餘轉增資及資本公積轉增資）時，則
+   先依現金股利金額調整認股價格後，再依股票股利金額調整認股價格。
+(三)認股權憑證發行後，如遇非因庫藏股註銷之減資致普通股股份減少，於減資
+    基準日依下列公式計算其調整後認股價格（計算至新台幣角為止，分以下四
+    拾五入），如係因股票面額變更致普通股股份減少，於新股換發基準日調整
+    之。
+(1)減資彌補虧損時
+   調整後認股價格＝調整前認股價格 × (減資前已發行普通股股數(註) ÷
+   減資後已發行普通股股數)
+(2)現金減資時
+   調整後認股價格＝〔調整前認股價格×（1-每股退還現金金額占換發新股票前最
+   後交易日收盤價之比率）〕×（減資前已發行普通股股數 ÷ 減資後已發行普通
+   股股數）
+(3)股票面額變更時
+   調整後之認股價格= 調整前認股價格×（股票面額變更前已發行普通股股數(註)
+   ÷股票面額變更後已發行普通股股數）
+   註：已發行普通股股數包括已發行普通股及私募股份之總數，並減除本公司買回
+   但尚未註銷或轉讓之庫藏股普通股股數。
+
+14.行使認股權之程序:
+(一)認股權人除遇第九條對認股權行使之限制及依法暫停過戶期間外，得依本辦法
+    行使認股權利，並填具「認股請求書」，向本公司股務代理機構提出認股申請
+    ，於遞送時即生認股之效力，且不得申請撤銷。
+(二)本公司股務代理機構受理認股之請求後，通知認股權人於期限內繳納股款至指
+    定銀行，認股權人未於繳納期限內繳足股款，則視同放棄認股權利。
+(三)本公司股務代理機構於確認收足股款後，將員工認購之股數及員工姓名登載於
+    本公司股東名簿，且經認股權人出具集保帳號，並於五個營業日內以集保劃撥
+    方式發放之。
+(四)上述普通股股票自向認股權人交付新股之日起即得上櫃(市)買賣。
+(五)本公司每季至少向公司登記之主管機關申請資本額變更登記一次。
+
+15.認股後之權利義務:
+依本辦法交付之普通股新股之權利義務與本公司普通股股票相同，認股權人依本辦
+法所認購之股票其相關之稅賦按當時中華民國之稅法規定辦理。
+
+16.附有轉換、交換或認股者，其換股基準日:NA
+17.附有轉換、交換或認股者，對股權可能稀釋情形:不適用
+18.其他重要約定事項:
+(一)認股權行使之限制
+    本公司所發放予員工之認股權憑證，每年度於以下期間不得行使認股權：
+(1)當年度股東會召開前之法定停止過戶期間。
+(2)本公司無償配股停止過戶日、現金股息停止過戶日或現金增資認股停止過戶日
+   前十五個營業日起，至權利分派基準日止，辦理減資之減資基準日起至減資換發
+   股票開始交易日前一日止。
+(3)「決定當年度之合併基準日之董事會」召開後至當年度合併基準日前之期間；或
+   「決定當年度之分割基準日之董事會」召開後至當年度分割基準日前之期間；或
+   「決定當年度之有償配股基準日之董事會」召開後至當年度有償配股基準日前之
+   期間。
+(4)其它依事實發生之法定停止過戶期間。
+(二)保密規定
+    認股權人經授予認股權憑證後，應遵守保密規定，除法令或主管機關要求外，
+    不得洩露被授予之認股權憑證相關內容及數量，若有違反之情事，依本辦法第　
+    五條第二項第二款辦理。
+(三)實施細則
+    個別認股權人被授予認股權憑證之數量、認股權憑證之行使、認股繳款、換發
+    股票等事宜之相關作業及各該作業時間，將由本公司另行通知認股權人。
+(四)其他重要約定事項
+(1)本辦法應經董事會三分之二以上董事出席及出席董事超過二分之一之同意後通過
+   ，並報經主管機關申報後生效，實際發行前修改時亦同。本公司並授權董事長於
+   案件審查期間因應主管機關要求可修訂本發行及認股辦法，惟嗣後仍須提董事會
+   追認後始得發行。
+(2)本辦法如有未盡事宜，悉依相關法令規定或主管機關之要求辦理。
+
+19.其他應敘明事項:無。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='8299'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

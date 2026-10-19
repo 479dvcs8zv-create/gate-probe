@@ -1,0 +1,199 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<TABLE class='noBorder'>
+<TR><TD align='right'>
+<form action='/server-java/t56ques' method='post'>
+<input type='hidden' name='step' value='0'>
+<input type='hidden' name='Market' value='otc '>
+<input type='hidden' name='SysName' value='重大訊息'>
+<input type='hidden' name='reportName' value='歷史重大訊息'>
+<input type='hidden' name='colorchg' value=''>
+<input type='hidden' name='compID' value='8299'>
+<input type='hidden' name='compName' value=''>
+<input type='hidden' name='progName' value=''>
+<input type='hidden' name='QNum' value='5'>
+<input type='hidden' name='Q1N' value='公司代號'>
+<input type='hidden' name='Q1V' value='8299'>
+<input type='hidden' name='Q2N' value='民國年'>
+<input type='hidden' name='Q2V' value='113'>
+<input type='hidden' name='Q3N' value='月'>
+<input type='hidden' name='Q3V' value='全年度'>
+<input type='hidden' name='Q4N' value='起始日'>
+<input type='hidden' name='Q4V' value=''>
+<input type='hidden' name='Q5N' value='截止日'>
+<input type='hidden' name='Q5V' value=''>
+</form></TABLE>
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上櫃公司) 8299 
+群聯            　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<TABLE class='hasBorder'>
+<TR><TD  class='tblHead'>序號</TD>
+<TD class='odd'>&nbsp;7</TD><TD  class='tblHead'>發言日期</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;113/03/08</TD><TD  class='tblHead'>發言時間</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;17:02:37</TD></TR><tr><TD  class='tblHead'>發言人</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;于志強</TD><TD  class='tblHead'>發言人職稱</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;資深特別助理暨營運長</TD><TD  class='tblHead'>發言人電話</TD>
+<TD class='odd' style='text-align:left !important;'>&nbsp;037-586896 #10019</TD></tr><TR><TD  class='tblHead'>主旨</TD>
+<TD colspan=5 class='odd' style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理私募普通股</font></pre></TD></TR><TR><TD  class='tblHead'>符合條款</TD>
+<TD class='odd' style='text-align:left !important;'>　第
+11&nbsp;款	</TD>
+<TD class='tblHead'>事實發生日</td>
+<TD class='odd'  colspan='3' style='text-align:left !important;'>&nbsp;113/03/08
+</TD></TR>
+<TR><TD  class='tblHead'>說明</TD>
+<TD colspan=5 class='odd'><pre style='text-align:left !important; font-family:細明體 !important;'>
+1.董事會決議日期:113/03/08
+2.私募有價證券種類:普通股。
+3.私募對象及其與公司間關係:本次私募普通股之對象以符合證券交易法第43條之6及
+　金融監督管理委員會112年9月12日金管證發字第1120383220號令之規定擇定特定人，
+　並以策略性投資人為限。
+4.私募股數或張數:本次私募普通股總額不超過18,000,000股。
+5.得私募額度:本次私募普通股總額不超過18,000,000股。
+6.私募價格訂定之依據及合理性:
+　(1)本次私募普通股每股價格之訂定，以不低於本公司定價日前下列二基準計算價格
+   　較高者之八成五訂定之：
+   　a.定價日前一、三或五個營業日擇一計算普通股收盤價簡單算數平均數扣除無償配
+     　股除權及配息，並加回減資反除權後之股價。
+   　b.定價日前三十個營業日普通股收盤價簡單算數平均數扣除無償配股除權及配息，
+     　並加回減資反除權後之股價。
+　(2)實際定價日及實際私募價格於不低於股東會決議成數之範圍內授權董事會依前述訂
+   　價依據視日後洽定特定人情形及市場狀況決定之。
+　(3)本次私募價格之訂價方式係依據「公開發行公司辦理私募有價證券應注意事項」規
+   　定，並考量公司未來展望以及私募有價證券之轉讓時點、對象及數量均有嚴格限制
+　　 ，且三年內不得洽辦上櫃掛牌，流動性較差等因素，故本次私募價格之訂定應屬合
+　　 理，對股東權益不致有重大影響。
+7.本次私募資金用途:
+　本次私募普通股將於股東會決議之日起一年內，分一次或二次辦理。
+　(1)辦理次數:分一次辦理
+   　資金用途:尋求與國內外產業大廠進行產品技術合作、市場業務合作或策略聯盟機
+　　 會，同時充實營運週轉金及因應公司長期營運發展所需。
+   　預計達成效益:降低公司之經營風險，強化財務結構，提升本公司未來營運績效之
+　　 效益。
+　(2)辦理次數:分二次辦理
+   　資金用途:二次皆為尋求與國內外產業大廠進行產品技術合作、市場業務合作或策
+　　 略聯盟機會，同時充實營運週轉金及因應公司長期營運發展所需。
+   　預計達成效益:二次皆為降低公司之經營風險，強化財務結構，提升本公司未來營
+　　 運績效之效益。
+8.不採用公開募集之理由:
+　考量資本市場狀況、發行成本、私募方式之籌資時效性及可行性，以及私募股票有三
+　年內不得自由轉讓之限制等因素，較可確保並強化與策略合作伙伴間更緊密的長期合
+　作關係，故本次不採用公開募集而擬以私募方式辦理現金增資發行新股。
+9.獨立董事反對或保留意見:無。
+10.實際定價日:不適用。
+11.參考價格:不適用。
+12.實際私募價格、轉換或認購價格:不適用。
+13.本次私募新股之權利義務:
+　 本次私募之普通股，權利義務原則上與本公司已發行之普通股相同，惟依證券交易法
+　 第43條之8規定，除依該條文規定之轉讓對象及條件外，原則上私募之普通股於交付
+　 日起三年內不得自由轉讓，本公司於交付日起滿三年後，擬依證券交易法等相關規定
+　 ，先取具櫃檯買賣中心核發符合上櫃標準之同意函，再向主管機關申報補辦本次私募
+　 普通股公開發行及申請上櫃交易。
+14.附有轉換、交換或認股者，其換股基準日:不適用。
+15.附有轉換、交換或認股者，對股權可能稀釋情形:不適用。
+16.附有轉換或認股者，於私募公司債交付且假設全數轉換或認購普通股後對上櫃普通股
+股權比率之可能影響（上櫃普通股數A、A/已發行普通股）:不適用。
+17.前項預計上櫃普通股未達500萬股且未達25%者，請說明股權流通性偏低之因應措施:
+　 不適用。
+18.其他應敘明事項:
+　 (1)本次私募普通股計畫之主要內容，包括實際私募股數、實際私募價格、應募人之
+　　  選擇、基準日、發行條件、計畫項目、資金用途及進度、預計產生效益及其他相
+　　　關事宜等，暨其他一切有關發行計畫之事項，擬提請股東會授權董事會視市場狀
+　　　況調整、訂定及辦理，未來如因法令變更或主管機關要求修正或基於營運評估、
+　　　或因客觀環境需要變更時，亦授權董事會全權處理之。
+　 (2)除上述授權範圍外，擬提請股東會授權董事長，代表本公司簽署、商議、變更一
+　　　切有關私募普通股之契約及文件，並為本公司辦理一切有關發行私募普通股所需
+　　　之事宜。</pre></TD></TR></table><br>
+<table class='noBorder'><tr><td class='note' style='text-align:left !important;'>以上資料均由各公司依發言當時所屬市場別之規定申報後，由本系統對外公佈，資料如有虛偽不實，均由該公司負責。</td></tr></table>
+<form action='/server-java/t05st01' method=post>
+<input type='hidden' name='step' value='0'><input type='hidden' name='co_id' value='8299'><input type='hidden' name='TYPEK' value='otc '><input type='hidden' name='off' value='1'>
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>

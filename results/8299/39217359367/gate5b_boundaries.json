@@ -1,0 +1,156 @@
+{
+  "schema": "gate-probe/gate5b-boundaries/v1",
+  "co_id": "8299",
+  "company_name": "群聯",
+  "market": {
+    "name": "上櫃公司",
+    "typek": "otc",
+    "quote_suffix": ".TWO",
+    "first_sample": false,
+    "detail_pages_verified": false,
+    "source": "t05st01 清單表頭「本資料由（市場別）…公司提供」與每一列的 TYPEK 參數"
+  },
+  "revenue_rule": "quarter_end",
+  "collector_version": "4.33-collect",
+  "collected_at": "2026-10-19T08:20:34.571140+00:00",
+  "use": "只提供 Gate5B 的時間界線：截止點（cutoff_at）與共識快照界線（snapshot_boundary_at，快照必須嚴格早於）。Python 預驗證通過不等於正式 Gate PASS；某季不在 quarters 裡＝沒有界線，不能當成通過。",
+  "quarters": {},
+  "research_only": {
+    "2023Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2023-04-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2023-04-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2023Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2023-07-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2023-07-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2023Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2023-10-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2023-10-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2023Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2024-01-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2024-01-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2024Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2024-04-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2024-04-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2024Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2024-07-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2024-07-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2024Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2024-10-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2024-10-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2024Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2025-01-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2025-01-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2025Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2025-04-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2025-04-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2025Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2025-07-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2025-07-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2025Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2025-10-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2025-10-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2025Q4": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2026-01-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2026-01-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2026Q1": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2026-04-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2026-04-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2026Q2": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2026-07-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2026-07-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    },
+    "2026Q3": {
+      "status": "CUTOFF_QUARTER_END_RULE",
+      "cutoff_at": "2026-10-01T00:00:00+08:00",
+      "cutoff_event": "quarter_end_boundary",
+      "cutoff_document_id": null,
+      "snapshot_boundary_at": "2026-10-01T00:00:00+08:00",
+      "snapshot_boundary_rule": "quarter_end",
+      "note": "季末規則（使用者可選設定）；未經使用者另行核准前不得用於 Gate"
+    }
+  },
+  "excluded": {}
+}
