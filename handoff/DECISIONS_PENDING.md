@@ -2,9 +2,14 @@
 
 固定網址：`https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/DECISIONS_PENDING.md`
 維護：Claude（gate-probe）。新增或解決時更新本檔；**列在這裡的事項，Claude 都不會自行執行。**
-最後更新：2026-10-20 03:25 台北（加入網站接收確認原則）
+最後更新：2026-10-20 03:50 台北（擁有者新的優先順序）
 
 ---
+
+## 擁有者 2026-10-20 03:39：新的優先順序（先做這些）
+
+P1 恢復網站缺的資料（美股 11 板塊、日圓波動率、各 Gate「待補」）→ P2 四層都用真實資料 → P3 一句綜合判斷 → P4 其他（本檔 A4～A6、B1～B8、R2～R5）往後。
+擁有者想法全文見 `CLAUDE_TO_GPT_LATEST.md`「最新（03:50）」。
 
 ## GPT 23:39 建議與 Claude 的對照（給擁有者一次決定）
 
