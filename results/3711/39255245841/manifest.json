@@ -1,0 +1,216 @@
+{
+  "collector_version": "4.36-collect",
+  "co_id": "3711",
+  "roc_years": [
+    112,
+    113,
+    114,
+    115
+  ],
+  "started_at": "2026-10-19T12:56:04.647277+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "openssl": "OpenSSL 3.0.13 30 Jan 2024",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "github_actions": true,
+    "runner_os": "Linux",
+    "runner_environment": "github-hosted",
+    "github_repository": "479dvcs8zv-create/gate-probe",
+    "github_sha": "26d390a2b92ade2f6d121613fc89a353e8cadd76",
+    "github_run_id": "39255245841",
+    "github_run_attempt": "1",
+    "proxy_env_set": false
+  },
+  "mops_base": "https://mopsov.twse.com.tw",
+  "doc_base": "https://doc.twse.com.tw",
+  "delay_seconds": 3.0,
+  "retry_waits_seconds": [
+    10.0,
+    30.0
+  ],
+  "retry_budget": 25,
+  "revenue_rule": "quarter_end",
+  "requests": [
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "3711",
+        "roc_year": "112",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T12:56:04.653848+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/000_affbfed5e096.bin",
+      "response_sha256": "affbfed5e096e27561ec5a945c01424ce5c1fe8140cc86510d715f875c378976",
+      "response_length": 162309,
+      "request_body_file": "requests/000_7b72112f7a7b.bin",
+      "request_body_sha256": "7b72112f7a7b46be673c753d2c914b73c310f26090cec77d03db8b8854dfa824",
+      "peer_address": "122.147.34.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "3711",
+        "roc_year": "113",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T12:56:12.664101+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/001_a4454259cedc.bin",
+      "response_sha256": "a4454259cedc51fc427fdf071b6c92c279f4b422a889b1f393f307a6ed3826fd",
+      "response_length": 200582,
+      "request_body_file": "requests/001_ad388a0ff018.bin",
+      "request_body_sha256": "ad388a0ff018e1ee55788d704c63fb3056810bee5d9dda3132e291e88b56d62d",
+      "peer_address": "122.147.34.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "3711",
+        "roc_year": "114",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T12:56:21.923195+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/002_46e34ddb6998.bin",
+      "response_sha256": "46e34ddb69985ae104fe3ee922c9ce5019915e89351d93914ed1e457db368191",
+      "response_length": 236774,
+      "request_body_file": "requests/002_89ba68ed9f3b.bin",
+      "request_body_sha256": "89ba68ed9f3b4f16f08a3e060442a1b0a93c65e1b637cdb777e5d47a93d748d9",
+      "peer_address": "122.147.34.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t05st01_listing",
+      "params": {
+        "co_id": "3711",
+        "roc_year": "115",
+        "month": ""
+      },
+      "request_url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T12:56:29.496283+00:00",
+      "content_type": "text/html; charset=UTF-8",
+      "response_file": "responses/003_13e38debb6cc.bin",
+      "response_sha256": "13e38debb6cc56c41c9fc6a83bdec311f2a93c61c961ae56c5b2c6be0853e340",
+      "response_length": 346090,
+      "request_body_file": "requests/003_c088a862b722.bin",
+      "request_body_sha256": "c088a862b72275413ecdb1df62a493b13c4e688feb3ab31c828894705b93d7d6",
+      "peer_address": "122.147.34.81",
+      "cert_sha256": "a70b35b193f10d75fe41b082fa3504629ce412f3889b2a325b0747007abf93f2",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "3711",
+        "roc_year": "112"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=3711&year=112&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T12:56:39.557863+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/004_f867e3088f00.bin",
+      "response_sha256": "f867e3088f008ed55b2eb086ddfcb843b43083f40c22fc7e5068f60f8eb425d1",
+      "response_length": 7873,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "117.56.218.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "3711",
+        "roc_year": "113"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=3711&year=113&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T12:56:43.674710+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/005_177fe09dc30c.bin",
+      "response_sha256": "177fe09dc30cf7d5b1901acbd42707d399a6efba15532480e128298def25a72f",
+      "response_length": 7873,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "117.56.218.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "3711",
+        "roc_year": "114"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=3711&year=114&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T12:56:47.595593+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/006_c45035b242c9.bin",
+      "response_sha256": "c45035b242c9a0de9df42fb1ae8072183d5e5570b4e486153f6c3be42487279c",
+      "response_length": 7873,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "117.56.218.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    },
+    {
+      "kind": "t57sb01_list",
+      "params": {
+        "co_id": "3711",
+        "roc_year": "115"
+      },
+      "request_url": "https://doc.twse.com.tw/server-java/t57sb01?step=1&colorchg=1&co_id=3711&year=115&seamon=&mtype=A&",
+      "status": 200,
+      "error": null,
+      "retrieved_at": "2026-10-19T12:56:51.353566+00:00",
+      "content_type": "text/html;charset=big5",
+      "response_file": "responses/007_376e6e209d71.bin",
+      "response_sha256": "376e6e209d71aa34180cf58b4245d783ee93a38b78111db0dbb866f1f075addb",
+      "response_length": 5062,
+      "request_body_file": null,
+      "request_body_sha256": null,
+      "peer_address": "117.56.218.136",
+      "cert_sha256": "a5510a4a21624b7c0f2eb574e77c9278e54c8de41bd3bec8813dca92beb3b58b",
+      "attempt": 1,
+      "parsed": true,
+      "parse_failures": []
+    }
+  ],
+  "finished_at": "2026-10-19T12:56:52.329184+00:00"
+}

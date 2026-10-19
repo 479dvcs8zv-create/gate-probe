@@ -1,0 +1,1209 @@
+
+
+
+<html>
+<head>
+	<title>公開資訊觀測站</title>
+	
+	
+	<link href="css/css2.css" rel="stylesheet" type="text/css" Media="Screen"/> 
+	
+	<script type="text/javascript" src="js/mops2.js"></script>
+	
+	
+	
+</head>
+
+<body>
+
+
+<div id="div01" >
+<table class='noBorder'><tr><td class='compName' align='center'>
+<b>
+本資料由　(上市公司) 3711 
+日月光投控　公司提供</b>
+</td></tr>
+<tr><td class='reportCont'></td></tr></table>
+<form action='/mops/web/ajax_t05st01' name='t05st01_fm' id='t05st01_fm' method='post' onsubmit='return false;'>
+<input type='hidden' name='firstin' value='true' />
+<input type=hidden name=b_date value=>
+<input type=hidden name=e_date value=>
+<input type=hidden name=TYPEK>
+<input type=hidden name=year value=113>
+<input type=hidden name=month value=all>
+<input type=hidden name=type value=>
+<input type=hidden name=co_id>
+<input type=hidden name=spoke_date>
+<input type=hidden name=spoke_time>
+<input type=hidden name=seq_no>
+<input type='hidden' name='MEETING_STEP'>
+<input type='hidden' name='MODEL'>
+<input type='hidden' name='ITEM'>
+<input type=hidden name=e_month value=all>
+<input type='hidden' name='step' value='2'><input type='hidden' name='off' value='1'><center><b>請至財務及交易資訊重點專區參考公司相關<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb01";'  onclick='document.t05st01_fm.TYPEK.value="sii";document.t05st01_fm.co_id.value="3711";document.t05st01_fm.step.value="1";document.t05st01_fm.MEETING_STEP.value="0"; action="/mops/web/ajax_t211sb01";openWindow(this.form,"");'><font color='blue'><u>財務資訊</u></font></button>及<button class='reportCont' style='text-align:left;background-color:transparent;border:0;cursor:pointer;' onmousemove='window.status="t211sb05";'  onclick='document.t05st01_fm.TYPEK.value="sii";document.t05st01_fm.co_id.value="3711";document.t05st01_fm.step.value="2";document.t05st01_fm.MODEL.value="2";document.t05st01_fm.ITEM.value="0"; action="/mops/web/ajax_t211sb05";openWindow(this.form,"");'><font color='blue'><u>交易資訊</u></font></button></b></center>
+<br>
+<table class='hasBorder'>
+<tr class='tblHead'><th>公司代號</th><th>公司名稱</th><th>發言日期</th><th>發言時間</th><th>主旨</th><th>&nbsp;</th></tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/02</td><td style='text-align:left !important;'>&nbsp;15:30:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品科技(蘇州)有限公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='153048';document.t05st01_fm.spoke_date.value='20240102';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;16:54:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷
+減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165402';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:47:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司GAPT Ltd.公告預計取得香港聯晟控股有限公司
+約16.48%之股權(更新原112/3/15公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='184737';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:48:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議經由海外
+子公司間接投資日月新半導體(昆山)有限公司約16.48%股權
+(更新原112/3/15公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='184806';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:48:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議經由海外
+子公司間接投資日榮半導體(上海)有限公司約16.48%股權
+(更新原112/3/15公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='184834';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:48:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議經由海外
+子公司間接投資日月新半導體(蘇州)有限公司約16.48%股權
+(更新原112/3/15公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='184855';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:49:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議經由海外
+子公司間接投資日月新半導體(威海)有限公司約16.48%股權
+(更新原112/3/15公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='184915';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:49:34</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議經由海外
+子公司間接投資樂依文半導體(東莞)有限公司約16.48%股權
+(更新原112/3/15公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='184934';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:49:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議經由海外
+子公司間接投資聯測優特半導體(上海)有限公司約16.48%股權
+(更新原112/3/15公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='8';document.t05st01_fm.spoke_time.value='184952';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:50:10</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議經由海外
+子公司間接投資聯測優特半導體(煙台)有限公司約16.48%股權
+(更新原112/3/15公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='9';document.t05st01_fm.spoke_time.value='185010';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/12</td><td style='text-align:left !important;'>&nbsp;18:50:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議經由海外
+子公司間接投資聯測優特半導體(東莞)有限公司約16.48%股權</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='10';document.t05st01_fm.spoke_time.value='185027';document.t05st01_fm.spoke_date.value='20240112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/18</td><td style='text-align:left !important;'>&nbsp;13:39:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;補充說明子公司環鴻電子股份有限公司112年12月11日公告
+處分環海電子股份有限公司股權</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='133953';document.t05st01_fm.spoke_date.value='20240118';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/18</td><td style='text-align:left !important;'>&nbsp;13:46:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;補充說明子公司飛旭電子(香港)有限公司112年12月11日公告
+取得環海電子股份有限公司股權</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='134649';document.t05st01_fm.spoke_date.value='20240118';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/19</td><td style='text-align:left !important;'>&nbsp;14:02:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司ASE (Korea) Inc.公告擬自地委建第2生產樓6樓</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140251';document.t05st01_fm.spoke_date.value='20240119';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/19</td><td style='text-align:left !important;'>&nbsp;14:03:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告子公司ASE (Korea) Inc.新增資金貸與金額達本公司淨值2%
+以上之相關內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='140327';document.t05st01_fm.spoke_date.value='20240119';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/19</td><td style='text-align:left !important;'>&nbsp;14:03:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代日月光半導體製造(股)公司公告子公司ASE (Korea) Inc. 
+新增資金貸與金額達日月光半導體製造(股)公司淨值2%以上
+之相關內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='140349';document.t05st01_fm.spoke_date.value='20240119';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/19</td><td style='text-align:left !important;'>&nbsp;15:40:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Siliconware Precision Malaysia Sdn. Bhd.公告
+董事會決議取得土地使用權資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='154017';document.t05st01_fm.spoke_date.value='20240119';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/23</td><td style='text-align:left !important;'>&nbsp;15:55:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股註銷完成變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155535';document.t05st01_fm.spoke_date.value='20240123';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/26</td><td style='text-align:left !important;'>&nbsp;14:51:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體（上海）有限公司公告向關係人
+日月光企業服務（上海）有限公司取得不動產使用權資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='145103';document.t05st01_fm.spoke_date.value='20240126';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/30</td><td style='text-align:left !important;'>&nbsp;16:12:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司SPIL Malaysia 公告董事會決議取得土地使用權
+資產(更新原113/1/19公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161226';document.t05st01_fm.spoke_date.value='20240130';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/01/31</td><td style='text-align:left !important;'>&nbsp;14:09:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告日月光投控112年第四季線上法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140901';document.t05st01_fm.spoke_date.value='20240131';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/02/02</td><td style='text-align:left !important;'>&nbsp;11:43:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;說明113/02/02工商時報對本公司之相關報導</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='114337';document.t05st01_fm.spoke_date.value='20240202';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/02/16</td><td style='text-align:left !important;'>&nbsp;14:41:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「JP Morgan Taiwan CEO-CFO Conference 2024」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='144151';document.t05st01_fm.spoke_date.value='20240216';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/02/16</td><td style='text-align:left !important;'>&nbsp;16:47:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得加旺系統科技股份有限公司供營業用之廠務設備或工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='164738';document.t05st01_fm.spoke_date.value='20240216';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/02/22</td><td style='text-align:left !important;'>&nbsp;16:03:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司ASE (Korea) Inc.公告預計取得
+Infineon Technologies Power Semitech Co., Ltd.100%
+普通股股權</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160339';document.t05st01_fm.spoke_date.value='20240222';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/02/22</td><td style='text-align:left !important;'>&nbsp;16:04:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告預計取得
+Cypress Manufacturing, Ltd. 100%普通股股權</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='160450';document.t05st01_fm.spoke_date.value='20240222';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/02/22</td><td style='text-align:left !important;'>&nbsp;16:09:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造股份有限公司(下稱
+「日月光公司」)公告董事會決議停止股票公開發行</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='160915';document.t05st01_fm.spoke_date.value='20240222';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/02/26</td><td style='text-align:left !important;'>&nbsp;17:09:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司112年度合併財務報告經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170901';document.t05st01_fm.spoke_date.value='20240226';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/02/26</td><td style='text-align:left !important;'>&nbsp;18:14:45</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司UNIVERSAL SCIENTIFIC INDUSTRIAL DE MEXICO,
+S.A. DE C.V.公告取得土地</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='181445';document.t05st01_fm.spoke_date.value='20240226';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/01</td><td style='text-align:left !important;'>&nbsp;13:58:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「Citi Taiwan Corporate Day」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='135857';document.t05st01_fm.spoke_date.value='20240301';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/01</td><td style='text-align:left !important;'>&nbsp;16:57:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得坤琳工程股份有限公司供營業用之廠務設備或工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='165703';document.t05st01_fm.spoke_date.value='20240301';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/01</td><td style='text-align:left !important;'>&nbsp;16:57:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得長頂工程有限公司供營業用之廠務設備或工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='165748';document.t05st01_fm.spoke_date.value='20240301';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/05</td><td style='text-align:left !important;'>&nbsp;14:18:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「Daiwa Investment Conference Tokyo 2024」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141842';document.t05st01_fm.spoke_date.value='20240305';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/11</td><td style='text-align:left !important;'>&nbsp;17:21:48</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172148';document.t05st01_fm.spoke_date.value='20240311';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/13</td><td style='text-align:left !important;'>&nbsp;15:11:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告子公司Global Advanced Packaging Technology Limited
+新增資金貸與金額達本公司淨值2%以上之相關內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='151136';document.t05st01_fm.spoke_date.value='20240313';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/13</td><td style='text-align:left !important;'>&nbsp;15:12:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告子公司J&R Holding Limited新增資金貸與金額達
+本公司淨值2%以上之相關內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='151202';document.t05st01_fm.spoke_date.value='20240313';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/15</td><td style='text-align:left !important;'>&nbsp;15:12:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司USI Enterprise Limited公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='151205';document.t05st01_fm.spoke_date.value='20240315';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/15</td><td style='text-align:left !important;'>&nbsp;15:16:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Real Tech Holdings Limited公告董事會決議
+發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='151643';document.t05st01_fm.spoke_date.value='20240315';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/15</td><td style='text-align:left !important;'>&nbsp;15:22:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Huntington Holdings International Co. Ltd.
+公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='152247';document.t05st01_fm.spoke_date.value='20240315';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/18</td><td style='text-align:left !important;'>&nbsp;14:30:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「BofA 2024 APAC TMT Conference」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143047';document.t05st01_fm.spoke_date.value='20240318';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/19</td><td style='text-align:left !important;'>&nbsp;15:06:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司ISE Labs, Inc.公告董事會通過透過ISE M G
+購買墨西哥土地案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150617';document.t05st01_fm.spoke_date.value='20240319';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/20</td><td style='text-align:left !important;'>&nbsp;17:05:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告其董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170549';document.t05st01_fm.spoke_date.value='20240320';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/20</td><td style='text-align:left !important;'>&nbsp;17:06:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告其董事會決議盈餘
+轉增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170636';document.t05st01_fm.spoke_date.value='20240320';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/20</td><td style='text-align:left !important;'>&nbsp;17:07:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業股份有限公司(下稱「矽品公司」)
+公告董事會決議停止股票公開發行</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='170719';document.t05st01_fm.spoke_date.value='20240320';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/21</td><td style='text-align:left !important;'>&nbsp;17:00:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司上海月芯半導體科技有限責任公司公告
+向關係人日月光封裝測試(上海)有限公司
+取得不動產使用權資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170016';document.t05st01_fm.spoke_date.value='20240321';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/27</td><td style='text-align:left !important;'>&nbsp;14:05:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造股份有限公司公告其董事會
+決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140551';document.t05st01_fm.spoke_date.value='20240327';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/27</td><td style='text-align:left !important;'>&nbsp;14:06:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子股份有限公司公告其董事會
+決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='140615';document.t05st01_fm.spoke_date.value='20240327';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/28</td><td style='text-align:left !important;'>&nbsp;16:01:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議召開一一三年股東常會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160156';document.t05st01_fm.spoke_date.value='20240328';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/28</td><td style='text-align:left !important;'>&nbsp;16:02:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年03月28日董事會重大決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='160220';document.t05st01_fm.spoke_date.value='20240328';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/28</td><td style='text-align:left !important;'>&nbsp;16:08:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議112年度股利分派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='160851';document.t05st01_fm.spoke_date.value='20240328';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/28</td><td style='text-align:left !important;'>&nbsp;16:45:39</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議發行限制員工權利新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='164539';document.t05st01_fm.spoke_date.value='20240328';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/29</td><td style='text-align:left !important;'>&nbsp;15:02:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品科技(蘇州)有限公司公告其董事會決議辦理
+盈餘轉增資</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150236';document.t05st01_fm.spoke_date.value='20240329';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/29</td><td style='text-align:left !important;'>&nbsp;17:26:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環鴻科技股份有限公司公告董事會決議不發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='172650';document.t05st01_fm.spoke_date.value='20240329';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/03/29</td><td style='text-align:left !important;'>&nbsp;17:32:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告內部稽核主管異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='173212';document.t05st01_fm.spoke_date.value='20240329';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/01</td><td style='text-align:left !important;'>&nbsp;19:23:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告董事會決議召開2023年
+年度股東大會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='192356';document.t05st01_fm.spoke_date.value='20240401';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/01</td><td style='text-align:left !important;'>&nbsp;19:34:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='193424';document.t05st01_fm.spoke_date.value='20240401';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/02</td><td style='text-align:left !important;'>&nbsp;17:33:29</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品科技(蘇州)有限公司公告取得營業用機器設備
+達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173329';document.t05st01_fm.spoke_date.value='20240402';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/03</td><td style='text-align:left !important;'>&nbsp;18:36:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司民國112年第4季海外財務報告因適用兩地
+會計原則不一致之差異調節內容說明</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183615';document.t05st01_fm.spoke_date.value='20240403';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/09</td><td style='text-align:left !important;'>&nbsp;16:59:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體(股)公司公告
+取得TONGREN INDUSTRIAL AUTOMATION EQUIPMENT CO., LTD
+營業用機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165942';document.t05st01_fm.spoke_date.value='20240409';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/10</td><td style='text-align:left !important;'>&nbsp;17:10:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得萬潤科技股份有限公司供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171018';document.t05st01_fm.spoke_date.value='20240410';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/23</td><td style='text-align:left !important;'>&nbsp;21:18:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子公告2023年年度股東大會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='211825';document.t05st01_fm.spoke_date.value='20240423';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/23</td><td style='text-align:left !important;'>&nbsp;21:33:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告股東大會增選獨立董事
+及董事各一席</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='213307';document.t05st01_fm.spoke_date.value='20240423';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;14:09:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告日月光投控113年第一季線上法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140925';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:13:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告其董事會(代行股東會
+職權)通過重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171346';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:14:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告法人董事及監察人之
+代表人變動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='171431';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:15:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告其董事會(代行股東會
+職權)決議解除第17 屆新任董事競業之限制</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='171512';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:15:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告其董事會決議訂定除權
+除息基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='171551';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;17:16:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業股份有限公司公告董事會決議捐贈
+新臺幣伍佰萬元予財團法人日月光文教基金會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='171628';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;18:05:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子公告2019年員工認股權憑證之認股價格
+調整</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='180507';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/24</td><td style='text-align:left !important;'>&nbsp;18:33:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子公告2023年員工認股權憑證之認股價格
+調整</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='8';document.t05st01_fm.spoke_time.value='183324';document.t05st01_fm.spoke_date.value='20240424';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/25</td><td style='text-align:left !important;'>&nbsp;19:14:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;補充說明子公司環旭電子112年10月30日公告擬間接取得TE
+Connectivity Ltd.(下稱泰科電子)汽車無線業務</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='191418';document.t05st01_fm.spoke_date.value='20240425';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/26</td><td style='text-align:left !important;'>&nbsp;14:22:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司「日月光投資控股股份有限公司一百零八年度
+第一期無擔保普通公司債甲券」到期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='142228';document.t05st01_fm.spoke_date.value='20240426';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/29</td><td style='text-align:left !important;'>&nbsp;17:52:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環勝電子(深圳)有限公司及環旭(深圳)電子科創
+有限公司公告董事會決議簽署搬遷補償協議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175241';document.t05st01_fm.spoke_date.value='20240429';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/30</td><td style='text-align:left !important;'>&nbsp;15:11:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司上海鼎匯房地產開發有限公司公告
+其自然人董事異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='151105';document.t05st01_fm.spoke_date.value='20240430';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/04/30</td><td style='text-align:left !important;'>&nbsp;16:39:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環鴻電子股份有限公司公告董事會決議召開2024年
+周年股東會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='163953';document.t05st01_fm.spoke_date.value='20240430';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/02</td><td style='text-align:left !important;'>&nbsp;17:16:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第1季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171658';document.t05st01_fm.spoke_date.value='20240502';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/07</td><td style='text-align:left !important;'>&nbsp;17:36:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環電股份有限公司公告其董事會決議增資發行新股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173619';document.t05st01_fm.spoke_date.value='20240507';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/07</td><td style='text-align:left !important;'>&nbsp;17:49:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環電股份有限公司公告董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='174931';document.t05st01_fm.spoke_date.value='20240507';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/08</td><td style='text-align:left !important;'>&nbsp;16:59:37</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告
+取得Teradyne (Asia) Pte. Ltd.供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165937';document.t05st01_fm.spoke_date.value='20240508';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/09</td><td style='text-align:left !important;'>&nbsp;17:17:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171727';document.t05st01_fm.spoke_date.value='20240509';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/09</td><td style='text-align:left !important;'>&nbsp;17:18:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171814';document.t05st01_fm.spoke_date.value='20240509';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/09</td><td style='text-align:left !important;'>&nbsp;17:18:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='171858';document.t05st01_fm.spoke_date.value='20240509';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;16:42:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第1季合併財務報告經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164233';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;16:42:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議召開一一三年股東常會議程(更新)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='164249';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;16:43:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司(下稱福雷公司)公告
+其董事會(代行股東會職權)通過重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='164308';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;16:43:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告其董事會決議
+訂定除息基準日暨發放日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='164325';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;16:43:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司(下稱日月光公司)
+公告其董事會(代行股東會職權)通過重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='164340';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;16:43:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告其董事會決議
+訂定除息基準日暨發放日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='164359';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/10</td><td style='text-align:left !important;'>&nbsp;16:44:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司(以下簡稱日月光公司)
+公告董事會決議於民國113年度捐贈新臺幣伍佰萬元予
+財團法人日月光文教基金會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='164414';document.t05st01_fm.spoke_date.value='20240510';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/13</td><td style='text-align:left !important;'>&nbsp;14:56:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環鴻電子股份有限公司公告2024年周年股東會重要
+決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='145653';document.t05st01_fm.spoke_date.value='20240513';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/14</td><td style='text-align:left !important;'>&nbsp;15:56:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155633';document.t05st01_fm.spoke_date.value='20240514';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/16</td><td style='text-align:left !important;'>&nbsp;16:28:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162808';document.t05st01_fm.spoke_date.value='20240516';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/23</td><td style='text-align:left !important;'>&nbsp;14:13:12</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司ASE Test Limited及ASE Holdings (Singapore) Pte Ltd
+公告簡易合併相關事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141312';document.t05st01_fm.spoke_date.value='20240523';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/23</td><td style='text-align:left !important;'>&nbsp;14:50:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「Morgan Stanley Flagship Asia Tech Corporate Day」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='145024';document.t05st01_fm.spoke_date.value='20240523';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/24</td><td style='text-align:left !important;'>&nbsp;14:19:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「UBS Asian Investment Conference 2024」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141921';document.t05st01_fm.spoke_date.value='20240524';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/29</td><td style='text-align:left !important;'>&nbsp;18:59:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告除息基準日及現金股利
+發放日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185901';document.t05st01_fm.spoke_date.value='20240529';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/31</td><td style='text-align:left !important;'>&nbsp;14:16:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「J.P. Morgan APAC All Star Forum - London」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141602';document.t05st01_fm.spoke_date.value='20240531';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/05/31</td><td style='text-align:left !important;'>&nbsp;15:34:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環誠科技有限公司公告董事會決議召開2024年周年
+股東會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='153432';document.t05st01_fm.spoke_date.value='20240531';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/03</td><td style='text-align:left !important;'>&nbsp;14:34:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司訂定除息基準日暨發放日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143440';document.t05st01_fm.spoke_date.value='20240603';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/05</td><td style='text-align:left !important;'>&nbsp;16:25:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司USI Enterprise Limited公告其董事會決議
+發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162507';document.t05st01_fm.spoke_date.value='20240605';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/05</td><td style='text-align:left !important;'>&nbsp;16:31:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Real Tech Holdings Limited公告其董事會決議
+發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='163123';document.t05st01_fm.spoke_date.value='20240605';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/05</td><td style='text-align:left !important;'>&nbsp;16:36:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Huntington Holdings International Co. Ltd.
+公告其董事會決議發放股利</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='163643';document.t05st01_fm.spoke_date.value='20240605';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/06</td><td style='text-align:left !important;'>&nbsp;16:27:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司UNIVERSAL SCIENTIFIC INDUSTRIAL VIETNAM
+COMPANY LIMITED公告董事會擬以租地委建取得廠房</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162735';document.t05st01_fm.spoke_date.value='20240606';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/07</td><td style='text-align:left !important;'>&nbsp;14:15:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「BofA 2024 Asia Conference in New York」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141536';document.t05st01_fm.spoke_date.value='20240607';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/18</td><td style='text-align:left !important;'>&nbsp;18:39:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環誠科技有限公司公告處分環旭電子股份有限公司無擔保
+可轉換公司債券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='183902';document.t05st01_fm.spoke_date.value='20240618';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/20</td><td style='text-align:left !important;'>&nbsp;14:29:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環電股份有限公司公告其董事會(代行股東會職權)
+通過重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='142908';document.t05st01_fm.spoke_date.value='20240620';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/21</td><td style='text-align:left !important;'>&nbsp;16:19:29</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+法人董事及監察人重新改派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161929';document.t05st01_fm.spoke_date.value='20240621';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/21</td><td style='text-align:left !important;'>&nbsp;16:19:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告董事長及
+副董事長續任</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='161956';document.t05st01_fm.spoke_date.value='20240621';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/21</td><td style='text-align:left !important;'>&nbsp;16:20:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告
+法人董事及監察人重新改派</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='162022';document.t05st01_fm.spoke_date.value='20240621';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/21</td><td style='text-align:left !important;'>&nbsp;16:20:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告董事長續任</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='162051';document.t05st01_fm.spoke_date.value='20240621';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/21</td><td style='text-align:left !important;'>&nbsp;16:22:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告擬向關係人
+宏璟建設(股)公司以合建分屋方式取得K28廠房</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='162221';document.t05st01_fm.spoke_date.value='20240621';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/24</td><td style='text-align:left !important;'>&nbsp;16:06:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告法人監察人之代表人
+變動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160625';document.t05st01_fm.spoke_date.value='20240624';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/24</td><td style='text-align:left !important;'>&nbsp;17:40:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環誠科技有限公司公告2024年股東會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='174046';document.t05st01_fm.spoke_date.value='20240624';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/24</td><td style='text-align:left !important;'>&nbsp;17:56:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環誠科技有限公司公告董事全面改選</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='175600';document.t05st01_fm.spoke_date.value='20240624';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/25</td><td style='text-align:left !important;'>&nbsp;20:10:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Financiere AFG公告董事會決議召開2024年股東
+常會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='201003';document.t05st01_fm.spoke_date.value='20240625';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/25</td><td style='text-align:left !important;'>&nbsp;20:18:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Financiere AFG公告董事變動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='201852';document.t05st01_fm.spoke_date.value='20240625';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/25</td><td style='text-align:left !important;'>&nbsp;20:27:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Financiere AFG公告董事會決議不分派盈餘</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='202741';document.t05st01_fm.spoke_date.value='20240625';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/25</td><td style='text-align:left !important;'>&nbsp;21:10:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Financiere AFG公告董事會決議增資其間接持有
+子公司ASTEELFLASH USA CORP.</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='211019';document.t05st01_fm.spoke_date.value='20240625';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/26</td><td style='text-align:left !important;'>&nbsp;13:56:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司一一三年股東常會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='135651';document.t05st01_fm.spoke_date.value='20240626';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/26</td><td style='text-align:left !important;'>&nbsp;13:57:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年股東常會董事改選當選名單</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='135715';document.t05st01_fm.spoke_date.value='20240626';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/26</td><td style='text-align:left !important;'>&nbsp;13:57:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司一一三年股東常會通過同意解除本公司
+新選任董事之競業禁止限制</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='135735';document.t05st01_fm.spoke_date.value='20240626';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/26</td><td style='text-align:left !important;'>&nbsp;13:58:00</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司第三屆審計委員會成員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='135800';document.t05st01_fm.spoke_date.value='20240626';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/26</td><td style='text-align:left !important;'>&nbsp;17:31:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告其董事會決議投資子公司
+Siliconware Precision Malaysia Sdn. Bhd.　</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='173105';document.t05st01_fm.spoke_date.value='20240626';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/26</td><td style='text-align:left !important;'>&nbsp;17:59:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Universal Scientific Industrial (France)公告
+董事會決議召開2024年股東常會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='6';document.t05st01_fm.spoke_time.value='175917';document.t05st01_fm.spoke_date.value='20240626';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/26</td><td style='text-align:left !important;'>&nbsp;18:03:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Universal Scientific Industrial (France)公告
+董事會決議不分配盈餘</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='7';document.t05st01_fm.spoke_time.value='180306';document.t05st01_fm.spoke_date.value='20240626';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/27</td><td style='text-align:left !important;'>&nbsp;13:42:04</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事長及副董事長續任</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134204';document.t05st01_fm.spoke_date.value='20240627';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/27</td><td style='text-align:left !important;'>&nbsp;13:42:33</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司第四屆薪資報酬委員會委員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='134233';document.t05st01_fm.spoke_date.value='20240627';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/27</td><td style='text-align:left !important;'>&nbsp;13:43:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司第三屆風險管理委員會委員</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='134301';document.t05st01_fm.spoke_date.value='20240627';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/28</td><td style='text-align:left !important;'>&nbsp;16:28:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162850';document.t05st01_fm.spoke_date.value='20240628';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/28</td><td style='text-align:left !important;'>&nbsp;17:04:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環電股份有限公司公告董事會決議訂定除權基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170416';document.t05st01_fm.spoke_date.value='20240628';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/28</td><td style='text-align:left !important;'>&nbsp;17:10:45</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Universal Scientific Industrial (France)公告
+2024年股東常會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='171045';document.t05st01_fm.spoke_date.value='20240628';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/06/28</td><td style='text-align:left !important;'>&nbsp;17:14:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Financiere AFG公告2024年股東常會重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='171450';document.t05st01_fm.spoke_date.value='20240628';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/01</td><td style='text-align:left !important;'>&nbsp;13:43:27</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告子公司ASE Test Limited新增資金貸與金額
+達本公司淨值2%以上之相關內容</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='134327';document.t05st01_fm.spoke_date.value='20240701';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/03</td><td style='text-align:left !important;'>&nbsp;17:33:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='173340';document.t05st01_fm.spoke_date.value='20240703';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/10</td><td style='text-align:left !important;'>&nbsp;16:19:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161958';document.t05st01_fm.spoke_date.value='20240710';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/12</td><td style='text-align:left !important;'>&nbsp;15:50:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議辦理限制員工權利新股收回註銷
+減資事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='155054';document.t05st01_fm.spoke_date.value='20240712';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/19</td><td style='text-align:left !important;'>&nbsp;16:03:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Universal Scientific Industrial (France)公告
+股東重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160331';document.t05st01_fm.spoke_date.value='20240719';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/19</td><td style='text-align:left !important;'>&nbsp;16:23:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Universal Scientific Industrial (France)公告
+董事長及總經理續任</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='162318';document.t05st01_fm.spoke_date.value='20240719';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/22</td><td style='text-align:left !important;'>&nbsp;16:51:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品科技(蘇州)有限公司公告取得
+營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165111';document.t05st01_fm.spoke_date.value='20240722';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/24</td><td style='text-align:left !important;'>&nbsp;09:55:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告因凱米颱風來襲，可能影響本公司現金股利發放事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='95526';document.t05st01_fm.spoke_date.value='20240724';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/24</td><td style='text-align:left !important;'>&nbsp;10:28:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告董事會決議解除處分
+潭科分公司廠房予關係人環電股份有限公司之廠房買賣契約
+與相關增補協議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='102820';document.t05st01_fm.spoke_date.value='20240724';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/24</td><td style='text-align:left !important;'>&nbsp;10:52:26</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環電股份有限公司公告董事會決議解除向關係人
+矽品精密工業股份有限公司取得其潭科分公司廠房之買賣
+契約與相關增補協議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='105226';document.t05st01_fm.spoke_date.value='20240724';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/24</td><td style='text-align:left !important;'>&nbsp;11:43:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告日月光投控113年第二季線上法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='114321';document.t05st01_fm.spoke_date.value='20240724';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/26</td><td style='text-align:left !important;'>&nbsp;18:16:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器
+設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='181638';document.t05st01_fm.spoke_date.value='20240726';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/26</td><td style='text-align:left !important;'>&nbsp;18:17:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器
+設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='181736';document.t05st01_fm.spoke_date.value='20240726';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/26</td><td style='text-align:left !important;'>&nbsp;18:18:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器
+設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='181808';document.t05st01_fm.spoke_date.value='20240726';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/29</td><td style='text-align:left !important;'>&nbsp;14:01:54</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司ASE Test Limited公告其2024年股東常會
+重要決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140154';document.t05st01_fm.spoke_date.value='20240729';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/29</td><td style='text-align:left !important;'>&nbsp;17:02:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品科技(蘇州)有限公司公告取得營業用機器設備
+達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170203';document.t05st01_fm.spoke_date.value='20240729';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/30</td><td style='text-align:left !important;'>&nbsp;17:15:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171541';document.t05st01_fm.spoke_date.value='20240730';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;14:01:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司ASE Japan Co., Ltd.公告董事會決議
+預計取得日本北九州市土地案</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140146';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;14:59:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司限制員工權利新股註銷完成變更登記事宜</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='145913';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;17:47:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='174736';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/07/31</td><td style='text-align:left !important;'>&nbsp;17:47:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='174756';document.t05st01_fm.spoke_date.value='20240731';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/01</td><td style='text-align:left !important;'>&nbsp;17:03:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第2季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170347';document.t05st01_fm.spoke_date.value='20240801';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/06</td><td style='text-align:left !important;'>&nbsp;14:00:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環鴻電子（昆山）有限公司公告股東決議</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140056';document.t05st01_fm.spoke_date.value='20240806';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/09</td><td style='text-align:left !important;'>&nbsp;16:37:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告擬向關係人
+宏璟建設(股)公司取得K18廠房</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163716';document.t05st01_fm.spoke_date.value='20240809';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/09</td><td style='text-align:left !important;'>&nbsp;16:53:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第2季合併財務報告經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='165316';document.t05st01_fm.spoke_date.value='20240809';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/12</td><td style='text-align:left !important;'>&nbsp;17:03:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170353';document.t05st01_fm.spoke_date.value='20240812';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/15</td><td style='text-align:left !important;'>&nbsp;16:09:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160946';document.t05st01_fm.spoke_date.value='20240815';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/15</td><td style='text-align:left !important;'>&nbsp;16:10:31</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品科技(蘇州)有限公司公告取得營業用機器設備
+達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='161031';document.t05st01_fm.spoke_date.value='20240815';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/15</td><td style='text-align:left !important;'>&nbsp;17:00:18</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告取得
+帆宣系統科技股份有限公司供營業用之廠務設備或工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='170018';document.t05st01_fm.spoke_date.value='20240815';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/26</td><td style='text-align:left !important;'>&nbsp;17:57:53</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告董事會決議調整2023年
+員工認股權憑證之發行數量</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175753';document.t05st01_fm.spoke_date.value='20240826';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/26</td><td style='text-align:left !important;'>&nbsp;18:00:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告董事會決議註銷股份</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='180005';document.t05st01_fm.spoke_date.value='20240826';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/26</td><td style='text-align:left !important;'>&nbsp;18:00:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告董事會決議召開2024年
+臨時股東大會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='180056';document.t05st01_fm.spoke_date.value='20240826';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/27</td><td style='text-align:left !important;'>&nbsp;16:49:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告
+取得帆宣系統科技(股)公司供營業用之廠務設備或工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164921';document.t05st01_fm.spoke_date.value='20240827';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/08/28</td><td style='text-align:left !important;'>&nbsp;16:53:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司Siliconware Precision Malaysia Sdn. Bhd. 
+公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165324';document.t05st01_fm.spoke_date.value='20240828';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/02</td><td style='text-align:left !important;'>&nbsp;14:11:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「Goldman Sachs Taiwan Corporate Day」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141146';document.t05st01_fm.spoke_date.value='20240902';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/05</td><td style='text-align:left !important;'>&nbsp;15:25:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司董事會決議訂定限制員工權利新股之增資基準日</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='152523';document.t05st01_fm.spoke_date.value='20240905';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/05</td><td style='text-align:left !important;'>&nbsp;16:09:19</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='160919';document.t05st01_fm.spoke_date.value='20240905';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/11</td><td style='text-align:left !important;'>&nbsp;14:09:22</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「Goldman Sachs Communacopia + Technology Conference」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='140922';document.t05st01_fm.spoke_date.value='20240911';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/11</td><td style='text-align:left !important;'>&nbsp;16:46:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='164614';document.t05st01_fm.spoke_date.value='20240911';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/13</td><td style='text-align:left !important;'>&nbsp;15:36:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='153647';document.t05st01_fm.spoke_date.value='20240913';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/13</td><td style='text-align:left !important;'>&nbsp;18:16:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告2024年臨時股東大會重
+要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='181603';document.t05st01_fm.spoke_date.value='20240913';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/18</td><td style='text-align:left !important;'>&nbsp;14:45:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「Macquarie Asia TMT Conference」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='144507';document.t05st01_fm.spoke_date.value='20240918';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/20</td><td style='text-align:left !important;'>&nbsp;14:10:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「UBS Taiwan Summit 2024」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='141040';document.t05st01_fm.spoke_date.value='20240920';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/24</td><td style='text-align:left !important;'>&nbsp;14:42:56</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司將受邀參加「Citi Expert Call on Advanced Package Development in AI Arena, Power and Optics Trend」之法說訊息</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='144256';document.t05st01_fm.spoke_date.value='20240924';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/24</td><td style='text-align:left !important;'>&nbsp;16:58:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告
+取得鴻勁精密股份有限公司供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='165816';document.t05st01_fm.spoke_date.value='20240924';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/09/27</td><td style='text-align:left !important;'>&nbsp;17:01:58</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告董事會決議
+認購元隆電子(股)公司113年第一次私募普通股</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170158';document.t05st01_fm.spoke_date.value='20240927';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/02</td><td style='text-align:left !important;'>&nbsp;17:05:20</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='170520';document.t05st01_fm.spoke_date.value='20241002';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/02</td><td style='text-align:left !important;'>&nbsp;17:06:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170613';document.t05st01_fm.spoke_date.value='20241002';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/03</td><td style='text-align:left !important;'>&nbsp;09:01:47</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司「日月光投資控股股份有限公司108年度
+第2期無擔保國際普通公司債乙類券」到期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='90147';document.t05st01_fm.spoke_date.value='20241003';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/08</td><td style='text-align:left !important;'>&nbsp;18:52:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環誠科技有限公司公告處分環旭電子股份有限公司
+無擔保可轉換公司債券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='185259';document.t05st01_fm.spoke_date.value='20241008';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/09</td><td style='text-align:left !important;'>&nbsp;16:18:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161832';document.t05st01_fm.spoke_date.value='20241009';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/11</td><td style='text-align:left !important;'>&nbsp;16:25:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162542';document.t05st01_fm.spoke_date.value='20241011';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/17</td><td style='text-align:left !important;'>&nbsp;16:37:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='163743';document.t05st01_fm.spoke_date.value='20241017';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/18</td><td style='text-align:left !important;'>&nbsp;16:18:51</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='161851';document.t05st01_fm.spoke_date.value='20241018';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/18</td><td style='text-align:left !important;'>&nbsp;16:19:41</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='161941';document.t05st01_fm.spoke_date.value='20241018';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/21</td><td style='text-align:left !important;'>&nbsp;16:58:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告
+取得Teradyne (Asia) Pte. Ltd.供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165838';document.t05st01_fm.spoke_date.value='20241021';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/21</td><td style='text-align:left !important;'>&nbsp;17:45:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='174535';document.t05st01_fm.spoke_date.value='20241021';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/23</td><td style='text-align:left !important;'>&nbsp;16:22:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得TOKYO ELECTRON LIMITED供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162216';document.t05st01_fm.spoke_date.value='20241023';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/24</td><td style='text-align:left !important;'>&nbsp;17:54:03</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175403';document.t05st01_fm.spoke_date.value='20241024';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/24</td><td style='text-align:left !important;'>&nbsp;17:54:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='175450';document.t05st01_fm.spoke_date.value='20241024';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/28</td><td style='text-align:left !important;'>&nbsp;16:50:16</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告其董事會決議取得土地
+使用權資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165016';document.t05st01_fm.spoke_date.value='20241028';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/29</td><td style='text-align:left !important;'>&nbsp;17:17:17</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第3季合併財務報告董事會召開日期</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171717';document.t05st01_fm.spoke_date.value='20241029';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/29</td><td style='text-align:left !important;'>&nbsp;17:55:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='175557';document.t05st01_fm.spoke_date.value='20241029';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/29</td><td style='text-align:left !important;'>&nbsp;17:56:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='175649';document.t05st01_fm.spoke_date.value='20241029';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/29</td><td style='text-align:left !important;'>&nbsp;17:57:30</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='4';document.t05st01_fm.spoke_time.value='175730';document.t05st01_fm.spoke_date.value='20241029';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/29</td><td style='text-align:left !important;'>&nbsp;18:39:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環旭電子股份有限公司公告財務主管異動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='5';document.t05st01_fm.spoke_time.value='183950';document.t05st01_fm.spoke_date.value='20241029';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;14:22:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告日月光投控113年第三季線上法人說明會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='142242';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;17:11:30</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠房及其土地</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='171130';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/10/30</td><td style='text-align:left !important;'>&nbsp;18:10:49</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環維電子(上海)有限公司公告向日月光集成電路製造
+(中國)有限公司取得不動產使用權資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='181049';document.t05st01_fm.spoke_date.value='20241030';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/01</td><td style='text-align:left !important;'>&nbsp;11:26:38</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;說明113/11/01經濟日報對本公司之相關報導</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='112638';document.t05st01_fm.spoke_date.value='20241101';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/01</td><td style='text-align:left !important;'>&nbsp;17:02:15</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子公司公告董事會決議
+認購元隆電子(股)公司113年第一次私募普通股
+(更新9/27公告)</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170215';document.t05st01_fm.spoke_date.value='20241101';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/01</td><td style='text-align:left !important;'>&nbsp;17:25:21</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告
+取得愛德萬測試(股)公司供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='172521';document.t05st01_fm.spoke_date.value='20241101';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/06</td><td style='text-align:left !important;'>&nbsp;16:53:08</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司113年第3季合併財務報告經董事會決議通過</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165308';document.t05st01_fm.spoke_date.value='20241106';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/06</td><td style='text-align:left !important;'>&nbsp;17:55:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;公告本公司第四屆永續發展委員會委員及任命永續長</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='175505';document.t05st01_fm.spoke_date.value='20241106';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/11</td><td style='text-align:left !important;'>&nbsp;16:59:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165911';document.t05st01_fm.spoke_date.value='20241111';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/12</td><td style='text-align:left !important;'>&nbsp;17:53:24</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得Lam Research International Sdn. Bhd供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175324';document.t05st01_fm.spoke_date.value='20241112';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/13</td><td style='text-align:left !important;'>&nbsp;17:16:50</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告
+取得愛德萬測試(股)公司供營業用之軟體資產</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='171650';document.t05st01_fm.spoke_date.value='20241113';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/11/25</td><td style='text-align:left !important;'>&nbsp;16:07:44</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告取得
+Camtek Ltd.供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160744';document.t05st01_fm.spoke_date.value='20241125';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/02</td><td style='text-align:left !important;'>&nbsp;16:07:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='160759';document.t05st01_fm.spoke_date.value='20241202';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/02</td><td style='text-align:left !important;'>&nbsp;16:09:14</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='160914';document.t05st01_fm.spoke_date.value='20241202';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/06</td><td style='text-align:left !important;'>&nbsp;17:55:36</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175536';document.t05st01_fm.spoke_date.value='20241206';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/10</td><td style='text-align:left !important;'>&nbsp;16:56:07</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='165607';document.t05st01_fm.spoke_date.value='20241210';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/13</td><td style='text-align:left !important;'>&nbsp;19:31:28</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環誠科技有限公司公告處分環旭電子股份有限公司
+無擔保可轉換公司債券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='193128';document.t05st01_fm.spoke_date.value='20241213';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/16</td><td style='text-align:left !important;'>&nbsp;17:45:05</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='174505';document.t05st01_fm.spoke_date.value='20241216';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/16</td><td style='text-align:left !important;'>&nbsp;17:45:59</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='174559';document.t05st01_fm.spoke_date.value='20241216';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/16</td><td style='text-align:left !important;'>&nbsp;17:46:46</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='174646';document.t05st01_fm.spoke_date.value='20241216';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/18</td><td style='text-align:left !important;'>&nbsp;16:24:40</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠房及附屬廠務設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='162440';document.t05st01_fm.spoke_date.value='20241218';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/18</td><td style='text-align:left !important;'>&nbsp;17:03:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得長頂工程有限公司供營業用之廠務設備或工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='170342';document.t05st01_fm.spoke_date.value='20241218';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/19</td><td style='text-align:left !important;'>&nbsp;16:40:55</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司台灣福雷電子(股)公司公告
+取得帆宣系統科技股份有限公司供營業用之廠務設備或工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164055';document.t05st01_fm.spoke_date.value='20241219';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/23</td><td style='text-align:left !important;'>&nbsp;17:27:01</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='172701';document.t05st01_fm.spoke_date.value='20241223';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/23</td><td style='text-align:left !important;'>&nbsp;17:27:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得營業用機器設備達十億元</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='172752';document.t05st01_fm.spoke_date.value='20241223';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/24</td><td style='text-align:left !important;'>&nbsp;16:48:42</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環鴻科技股份有限公司公告董事會(代行股東會職權
+)重要決議事項</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='164842';document.t05st01_fm.spoke_date.value='20241224';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/24</td><td style='text-align:left !important;'>&nbsp;17:58:06</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得KLA CORPORATION供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='175806';document.t05st01_fm.spoke_date.value='20241224';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/24</td><td style='text-align:left !important;'>&nbsp;17:58:32</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得森川營造工程有限公司供營業用之廠務設備或工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='175832';document.t05st01_fm.spoke_date.value='20241224';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/25</td><td style='text-align:left !important;'>&nbsp;17:58:43</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='175843';document.t05st01_fm.spoke_date.value='20241225';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/25</td><td style='text-align:left !important;'>&nbsp;17:59:04</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='175904';document.t05st01_fm.spoke_date.value='20241225';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/25</td><td style='text-align:left !important;'>&nbsp;17:59:23</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='175923';document.t05st01_fm.spoke_date.value='20241225';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/26</td><td style='text-align:left !important;'>&nbsp;15:09:11</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司(以下簡稱日月光公司)
+公告第十二年經董事會決議捐贈新臺幣壹億元予財團法人日月光
+環保永續基金會執行環保相關公益活動</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150911';document.t05st01_fm.spoke_date.value='20241226';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/26</td><td style='text-align:left !important;'>&nbsp;15:09:57</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司(以下簡稱日月光公司)
+公告董事會決議於民國114年度捐贈新臺幣壹仟萬元予
+財團法人日月光文教基金會</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='150957';document.t05st01_fm.spoke_date.value='20241226';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/26</td><td style='text-align:left !important;'>&nbsp;16:54:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='3';document.t05st01_fm.spoke_time.value='165435';document.t05st01_fm.spoke_date.value='20241226';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/27</td><td style='text-align:left !important;'>&nbsp;14:31:02</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='143102';document.t05st01_fm.spoke_date.value='20241227';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/27</td><td style='text-align:left !important;'>&nbsp;14:31:25</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司矽品精密工業(股)公司公告取得廠務工程</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='143125';document.t05st01_fm.spoke_date.value='20241227';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/30</td><td style='text-align:left !important;'>&nbsp;18:26:13</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司環誠科技有限公司公告處分環旭電子股份有限公司
+無擔保可轉換公司債券</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='182613';document.t05st01_fm.spoke_date.value='20241230';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='odd'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/31</td><td style='text-align:left !important;'>&nbsp;15:01:52</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司上海鼎堯置業發展有限公司公告向關係人
+取得不動產使用權資產(租約調整)更新109/12/31公告</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='1';document.t05st01_fm.spoke_time.value='150152';document.t05st01_fm.spoke_date.value='20241231';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+<tr class='even'>
+<td style='text-align:left !important;'>&nbsp;3711</td><td style='text-align:left !important;'>&nbsp;日月光投控</td><td style='text-align:left !important;'>&nbsp;113/12/31</td><td style='text-align:left !important;'>&nbsp;16:23:35</td><td style='text-align:left !important;'><pre style='font-family:0�;'><font size='3'>&nbsp;代子公司日月光半導體製造(股)公司公告
+取得萬潤科技股份有限公司供營業用之機器設備</font></pre></td><td align='center'><input type='button' value='詳細資料' onclick="document.t05st01_fm.action='ajax_t05st01';document.t05st01_fm.seq_no.value='2';document.t05st01_fm.spoke_time.value='162335';document.t05st01_fm.spoke_date.value='20241231';document.t05st01_fm.co_id.value='3711';document.t05st01_fm.TYPEK.value='sii';openWindow(this.form ,'');">
+</td>
+</tr>
+</table></form>
+
+</div>
+
+
+</body>
+
+
+
+<script>
+	try {
+		if(!document.querySelector('#table01')){
+			var table01 = document.createElement("div");
+			table01.id = "table01"; 
+			document.body.appendChild(table01);
+			if(document.querySelector("#div01")){
+				table01.appendChild(div01);
+			};
+		};
+
+		if (document.autoForm!=null && document.autoForm!=undefined && document.autoForm.run.value==''){
+			ajax1(document.autoForm,'div01');
+			document.querySelector('form[name=autoForm]').remove();
+		};
+
+		if (document.autoForm1!=null && document.autoForm1!=undefined && document.autoForm1.run.value==''){
+			ajax1(document.autoForm1,'div01');
+			document.querySelector('form[name=autoForm1]').remove();
+		};
+
+		if (document.autoRunScript!=null && document.autoRunScript!=undefined && document.autoRunScript.run!=null && document.autoRunScript.run.value!=''){
+			let s = document.autoRunScript.run.value;
+			let script = document.createElement("script");
+
+			script.innerText = s;
+			document.body.appendChild(script);
+			document.querySelector('form[name=autoRunScript] > input[name=run]').remove();
+		};
+
+		if (document.autoRunScript1!=null && document.autoRunScript1!=undefined){
+			if (document.autoRunScript1.count!=null && document.autoRunScript1.count!=undefined && document.autoRunScript1.count.value!=''){
+				var count = parseInt(document.autoRunScript1.count.value);
+				for (var i=0;i<count;i++){
+					var run = eval("document.autoRunScript1.run"+i);
+					if (run!=null && run!=undefined && run.value!=''){
+						var s = run.value;
+
+						var script = document.createElement("script");
+						script.textContent = s;
+						document.querySelector("body").appendChild(script);
+
+						run.remove();
+					};
+				};
+			}else if (document.autoRunScript1.run!=null && document.autoRunScript1.run!=undefined && document.autoRunScript1.run.value!=''){
+				var s = document.autoRunScript1.run.value;
+				s = htmlEncode(s);
+				var script = document.createElement("script");
+				script.textContent = s;
+				document.querySelector("body").appendChild(script);
+
+				document.querySelector('form[name=autoRunScript1] > input[name=run]').remove();
+			};
+		};
+	} catch (error) {
+		console.error("Script Error:", error);
+	};
+</script>
+
+
+
+</html>
