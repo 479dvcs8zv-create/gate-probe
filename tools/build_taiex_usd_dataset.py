@@ -28,11 +28,11 @@ def log(msg):
             f.write(msg + "\n")
 
 
-def get(url, tries=3):
+def get(url, tries=3, headers=None, timeout=30):
     last = None
     for n in range(tries):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers or UA), timeout=timeout) as r:
                 return r.read()
         except Exception as e:  # noqa: BLE001
             last = e
@@ -87,23 +87,37 @@ def main(out, start_year, cache):
         if m == 13:
             y, m = y + 1, 1
     usd = {}
+    fred_headers = {"User-Agent": "Mozilla/5.0 (gate-probe research)", "Accept": "text/csv"}
     for sid in ("DTWEXAFEGS", "DTWEXBGS"):
-        url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}"
-        body = get(url)
-        if body is None:
-            failures.append({"series": sid, "url": url, "reason": "fetch_failed"})
-            continue
-        (out / "raw").mkdir(parents=True, exist_ok=True)
-        (out / "raw" / f"{sid}.csv").write_bytes(body)
-        manifest.append({"url": url, "file": str(out / "raw" / f"{sid}.csv"), "origin": "fetched",
-                         "sha256": hashlib.sha256(body).hexdigest()})
+        # 先整段要（timeout 90 秒）；不行就每 4 年一段分開要，每段原始回應都存檔。
+        spans = [(f"{start_year}-01-01", today.isoformat())]
+        parts = []
+        url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={spans[0][0]}&coed={spans[0][1]}"
+        body = get(url, headers=fred_headers, timeout=90)
+        if body is not None:
+            parts.append((url, body))
+        else:
+            for y0 in range(start_year, today.year + 1, 4):
+                a, b = f"{y0}-01-01", min(f"{y0 + 3}-12-31", today.isoformat())
+                u = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={a}&coed={b}"
+                bd = get(u, headers=fred_headers, timeout=90)
+                time.sleep(3)
+                if bd is None:
+                    failures.append({"series": sid, "url": u, "reason": "fetch_failed"})
+                else:
+                    parts.append((u, bd))
         n = 0
-        for r in csv.DictReader(body.decode().splitlines()):
-            v = r.get(sid) or ""
-            date = r.get("observation_date") or r.get("DATE")
-            if v not in ("", "."):
-                usd.setdefault(date, {})[sid] = v; n += 1
-        log(f"ok {sid}: {n} values")
+        for i, (u, bd) in enumerate(parts):
+            (out / "raw").mkdir(parents=True, exist_ok=True)
+            f = out / "raw" / f"{sid}_{i}.csv"
+            f.write_bytes(bd)
+            manifest.append({"url": u, "file": str(f), "origin": "fetched", "sha256": hashlib.sha256(bd).hexdigest()})
+            for r in csv.DictReader(bd.decode().splitlines()):
+                v = r.get(sid) or ""
+                date = r.get("observation_date") or r.get("DATE")
+                if v not in ("", "."):
+                    usd.setdefault(date, {})[sid] = v; n += 1
+        log(f"{sid}: {n} values from {len(parts)} part(s)")
     dates = sorted(set(taiex) | set(usd))
     with open(out / "taiex_usd.csv", "w", newline="") as f:
         w = csv.writer(f); w.writerow(["date", "taiex_close", "dtwexafegs", "dtwexbgs"])
