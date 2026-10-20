@@ -1,0 +1,57 @@
+name: gate-probe-url-probe
+# 對公開官方網址做唯讀 GET（每個網址一次），保存回應本文、標頭、HTTP 狀態與擷取時間，用於排查資料來源。
+# 不使用任何金鑰；只寫入 gate-probe 的 results/url-probe/<run id>/。
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: 用途標籤（英數）
+        required: true
+        default: probe
+      urls:
+        description: 以空白分隔的網址（僅限 https）
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: gate-probe-url-probe
+  cancel-in-progress: false
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch URLs
+        env:
+          LABEL: ${{ inputs.label }}
+          URLS: ${{ inputs.urls }}
+        run: |
+          set -u
+          case "$LABEL" in *[!A-Za-z0-9_-]*|"") echo "bad label"; exit 1;; esac
+          out="results/url-probe/${GITHUB_RUN_ID}-${LABEL}"
+          mkdir -p "$out"
+          i=0
+          for u in $URLS; do
+            case "$u" in https://*) ;; *) echo "skip non-https: $u"; continue;; esac
+            i=$((i+1))
+            started=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+            code=$(curl -sS -L --max-time 30 -A "Mozilla/5.0 (gate-probe research)" -D "$out/$i.headers" -o "$out/$i.body" -w '%{http_code}' "$u" || echo "curl_error")
+            sha=$(sha256sum "$out/$i.body" 2>/dev/null | cut -c1-64)
+            printf '{"n":%d,"url":"%s","started_at":"%s","http_status":"%s","sha256":"%s","bytes":%s}\n' "$i" "$u" "$started" "$code" "$sha" "$(stat -c %s "$out/$i.body" 2>/dev/null || echo 0)" >> "$out/index.jsonl"
+            echo "$i $code $u"; head -c 300 "$out/$i.body"; echo
+            sleep 3
+          done
+      - name: Commit results
+        env:
+          LABEL: ${{ inputs.label }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/url-probe
+          git commit -m "url probe ${LABEL} run ${GITHUB_RUN_ID}" || exit 0
+          for n in 1 2 3; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            sleep 5
+          done
+          exit 1
