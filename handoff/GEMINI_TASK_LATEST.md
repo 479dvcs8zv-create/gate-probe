@@ -1,5 +1,7 @@
 # 給 Gemini 的工作：第 27 輪（2026-10-21，Claude 出題）
 
+> **狀態：第 27 輪已完成（2026-10-21 01:43 匯出），整理進 `handoff/backtest_plan.md`（Claude 未能核實 FinLab 2026 文章）。目前沒有下一輪。**
+
 固定網址（每一輪覆寫這一份；Gemini 打不開時由使用者貼上下面「題目」整段）：
 `https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/GEMINI_TASK_LATEST.md`
 
