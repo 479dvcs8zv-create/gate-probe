@@ -1,5 +1,7 @@
 # 給 Gemini 的工作：第 20 輪（2026-10-20，Claude 出題）
 
+> **狀態：第 20 輪已完成（2026-10-20 08:09 匯出）。結論：金價與金銀比都沒有領先預測力 → 黃金只顯示、不計分（見 CLAUDE_TO_GPT_LATEST）。可信出處：Baur & Lucey (2010) Financial Review 45(2)、Baur & McDermott (2010) JBF 34(8)；「Harvey／Rattray 2019 商品比率」出處可疑。目前沒有下一輪。**
+
 固定網址（每一輪覆寫這一份；Gemini 打不開時由使用者貼上下面「題目」整段）：
 `https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/GEMINI_TASK_LATEST.md`
 
