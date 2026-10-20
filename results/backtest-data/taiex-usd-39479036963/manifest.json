@@ -1,0 +1,1522 @@
+{
+ "generated_at": "2026-10-20T18:56:19.559275+00:00",
+ "complete": true,
+ "failures": [],
+ "taiex_days": 5111,
+ "taiex_first": "2006-01-02",
+ "taiex_last": "2026-10-20",
+ "files": [
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200601.json",
+   "origin": "cache",
+   "sha256": "342d086d7fc9a118a24aa10f30a5cc4735db4bc9d714e63f1d2513bd85cbac49"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200602.json",
+   "origin": "cache",
+   "sha256": "b3ac1fabbf1cc3a5a4a080dd9415890b8a050be73e6eca5b87638a42452c3779"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200603.json",
+   "origin": "cache",
+   "sha256": "f5ba5cde748f537b42e5781e013280746664c7191ad0c6e0c941573ee979c9c1"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200604.json",
+   "origin": "cache",
+   "sha256": "5cd66c53fe33d9e541b3270e73a2287e9b5c39394ab5e14729209ac719f49c8e"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200605.json",
+   "origin": "cache",
+   "sha256": "45a0d109493a97d0d7f37112195d018cff99734dc8e12fab345d0dec50078671"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200606.json",
+   "origin": "cache",
+   "sha256": "3a0fb87ee510f371e807350fd8f7209d9976649c40e347c0d45f1d2ec4be3f36"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200607.json",
+   "origin": "cache",
+   "sha256": "5ac5058f3b8ab5266e36c97b71ad858170a0321e6707e143dbcd0bb268781d49"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200608.json",
+   "origin": "cache",
+   "sha256": "62b1521b4efcb754d316e0016c4a59484e41024be75fd45b38410c96d7dc4e67"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20060901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200609.json",
+   "origin": "cache",
+   "sha256": "489b87a60f44564b461a38536058c29ff27454779a6e3091e10395a5d96e2424"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20061001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200610.json",
+   "origin": "cache",
+   "sha256": "f76cbd988dde36041aa84eef1ef666bfa2590f069f20b47d9489b5e4cbb30058"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20061101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200611.json",
+   "origin": "cache",
+   "sha256": "799cc6520cf451e48ee247671704a4c62a24d530a93972123452e616a5a65d4d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20061201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200612.json",
+   "origin": "cache",
+   "sha256": "d1fdcfc3c14ff0f12cb5c396555a14abce150bdf558dbc0a6da3da7db268982f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200701.json",
+   "origin": "cache",
+   "sha256": "dfeefb5a561f77d4efe7ffb2bd77f031ca7a1fb9bc0b164abc6062d0db570369"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200702.json",
+   "origin": "cache",
+   "sha256": "aa3e5e8c59f93236d8dbeec2237512a514ff2fb84e757d81e8c5329651401517"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200703.json",
+   "origin": "cache",
+   "sha256": "693037b5d5795bf9fe9a0473b1f41a71edfcdb9eee33141e007a3d11072f6b40"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200704.json",
+   "origin": "cache",
+   "sha256": "fdb89f377feba77f983a624091ff195834a57ad3b646e353d82b2252c63edcc2"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200705.json",
+   "origin": "cache",
+   "sha256": "5b9f5371dcfcc4a436a2a703f52c532a97596c0ad20cf3e203a1cc3bf6c9d309"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200706.json",
+   "origin": "cache",
+   "sha256": "1514ceaa1774f8dd6c42a5b52019b04ba52df3dc2be00ccac32d3da0e43c0953"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200707.json",
+   "origin": "cache",
+   "sha256": "ec2d98faf0ced9709cfa710d586fa4444ad2515e0192cad76b56ad9cade38ba9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200708.json",
+   "origin": "cache",
+   "sha256": "8cfde24a9b83effa1a4b3df8f4b2611defce25e16e0edf531f7a7a30c5f602ce"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20070901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200709.json",
+   "origin": "cache",
+   "sha256": "7673f52d63416621153ca54062b9a35c3933b9d23abdb22ef74d900c5bb9b17a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20071001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200710.json",
+   "origin": "cache",
+   "sha256": "2ad784e9001008b2694e69bfd7fda7718c98dd49e3ce1520044cf1337f6475d7"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20071101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200711.json",
+   "origin": "cache",
+   "sha256": "c599ad04306608cd7c300cacf45355e61ceff3b6ab8a7eae22c4c2729ab26088"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20071201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200712.json",
+   "origin": "cache",
+   "sha256": "782cd786f6a10d87faeae07fbd9e0b3025e86a07d2104ffe4b15f695c66443b9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200801.json",
+   "origin": "cache",
+   "sha256": "6800bc480cb2c9c9a95af46d29dc19f21f0961e9c92085d192c1af17b462d831"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200802.json",
+   "origin": "cache",
+   "sha256": "0536e94cd8745864da81ff952722d83a6a2f7e4fb345d018ee6fdb1ce1ec6fbf"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200803.json",
+   "origin": "cache",
+   "sha256": "b9da76c50bd0e4609aad1288acf9761eff31209aa2384911ad50e267c14e5b40"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200804.json",
+   "origin": "cache",
+   "sha256": "9aae0e0e841ad44122f39ce73171176b30ac04723e280c294f859974ae47f447"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200805.json",
+   "origin": "cache",
+   "sha256": "9c598cc311c4ff619ff430d2869875154e58cba34c409b3f0c62eac69f37cb09"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200806.json",
+   "origin": "cache",
+   "sha256": "afdf5affa3670a1021cc9dd615567764bc8ff5092a15bbf1bafa8d1077db903c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200807.json",
+   "origin": "cache",
+   "sha256": "3cb88474a1bd0fbc684f89b08fb708000764a0f7d40d85a5b6f8e0d9aa5eb97b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200808.json",
+   "origin": "cache",
+   "sha256": "fe9b3539bce87862119451070bccb76e1027218dbd529ae6267ea92573427ae8"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20080901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200809.json",
+   "origin": "cache",
+   "sha256": "d002a45df00637ee2753938f9215a8ff31a6cb120e09d3db346b549642fcd6ed"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20081001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200810.json",
+   "origin": "cache",
+   "sha256": "65c270e0c3633c071353cada6cad98c36f9d4dcc712198b35d7285f6bdb4d695"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20081101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200811.json",
+   "origin": "cache",
+   "sha256": "587fa82e1d634860be663e205a9621c27d42ce3188cfc4d49505d7e6a62240dc"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20081201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200812.json",
+   "origin": "cache",
+   "sha256": "fb6efa4baad7ae10b7bdd2b97fe69e5a93870929acefa539a4a575d15140cb3b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200901.json",
+   "origin": "cache",
+   "sha256": "591d2b6fb2cc0a1faf4c91c94ef2ace8b6d5c632611492b7d6fae25d4b97e6ae"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200902.json",
+   "origin": "cache",
+   "sha256": "c5e5297f8887a45dc4587a00c6088d5f85dbee6f277f96e6d8edad6166e1b7cd"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200903.json",
+   "origin": "cache",
+   "sha256": "5d5a1501d8e7c8a575adeb01213971dc72af3beea0a21c670b2cb750236b4e40"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200904.json",
+   "origin": "cache",
+   "sha256": "3e531dab5dbb794aaa46fab942a1503c604dde9bdd4b8226c4fd94862f2f68cf"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200905.json",
+   "origin": "cache",
+   "sha256": "4f96a9f8acdeec943b4148bac66f25d331825baf72333da519e220bd1ac13801"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200906.json",
+   "origin": "cache",
+   "sha256": "feb165c4fb32d767f15e2e5dff3ef6fefdfccc1c5131cbfe1031d7b48ab88b09"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200907.json",
+   "origin": "cache",
+   "sha256": "655aa7a77069a89f1f2d7dd60e5703e7ffe085616cb98d74169796cf55e5f251"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200908.json",
+   "origin": "cache",
+   "sha256": "450127d87229a83982b02222c435585d85ef9dd3aef02366abe71d7c45d624e6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20090901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200909.json",
+   "origin": "cache",
+   "sha256": "fbc518941dadba7f545a56e272df7fa645c2e1c77e6b0f280f617c763046e099"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20091001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200910.json",
+   "origin": "cache",
+   "sha256": "98012dc405145d1a4b7b4ad926c80f4f504845fcaa69cb200a98276595212db6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20091101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200911.json",
+   "origin": "cache",
+   "sha256": "b5d1683a0b162f97ddbf98949aaf25245d74fb8e411fb363f4120f817aec6db5"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20091201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_200912.json",
+   "origin": "cache",
+   "sha256": "65808fd1184c69c6f79b5d8b02bbbc9009968765a9f79febf7ae7546c812d486"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201001.json",
+   "origin": "cache",
+   "sha256": "45a0bc4bc4cc623639d90c70fe0659b0ffc8d5f2be45584127288a06e8384711"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201002.json",
+   "origin": "cache",
+   "sha256": "cfdb585a3235d5a8e81cc6ac910f596ef3feb2c2cd486c6a0e1e41fbc95533f6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201003.json",
+   "origin": "cache",
+   "sha256": "bd207c38d5ccd739a39003546ef90070449eb4a4362bc3fffb5b37bac19614e9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201004.json",
+   "origin": "cache",
+   "sha256": "072dc236769fb53fd33a2970af4e763ed110878a44fc8653c607a713918190d3"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201005.json",
+   "origin": "cache",
+   "sha256": "3ae17fde260bb6c4dbd0f9f8315f385b41207876f684ca4ac6599ae1c2d240b2"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201006.json",
+   "origin": "cache",
+   "sha256": "6ae303d3f90be4b56c12168d955665adf4d08f6c7f3ef9c9ef4fa59d80e897b6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201007.json",
+   "origin": "cache",
+   "sha256": "cafdc4d3d9e09907d7f3c4a66c71bb066f8d12b9ced876b7908a3bf64881d327"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201008.json",
+   "origin": "cache",
+   "sha256": "a8443acf5cb486c781aab2214381a202bdfb675a1b2c16e846fb19b097413005"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20100901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201009.json",
+   "origin": "cache",
+   "sha256": "54337f78c9bb2668f8f216aea8295d599ea9279d60f0315757a74ad47f91a3b1"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20101001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201010.json",
+   "origin": "cache",
+   "sha256": "983b930702fbb7cd62d78f090d38144612a50acc95c8f3064b6f135cf293e6ee"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20101101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201011.json",
+   "origin": "cache",
+   "sha256": "cf15cf015a6c63011454b9f50e712ab5ae59c647bee121d74c7a17df2aaf30fc"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20101201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201012.json",
+   "origin": "cache",
+   "sha256": "e10f23d939c76ccfcec55030f21648f2a600a5d47c80b0d52a842e1bfcf5f9bc"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201101.json",
+   "origin": "cache",
+   "sha256": "ffd6d82ba13f3d6afb8535b52dfed3cb22848844edde49d337535fe9838c9b46"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201102.json",
+   "origin": "cache",
+   "sha256": "d0abb0e155fcaefd31ab7cafe7ebe9e3b963fd794bdce394ece5b2d47a79d5eb"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201103.json",
+   "origin": "cache",
+   "sha256": "2421f48de1f97c928427abaf92641747bbf1b91780a6e1969caa1adc800a3a02"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201104.json",
+   "origin": "cache",
+   "sha256": "ec70c6f639d1c42f636c25d70a9f67aca21005ea64550064bdb71a6e275dc513"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201105.json",
+   "origin": "cache",
+   "sha256": "436d85ac02676669cd760ad6df34efdac1d15cfc5ec67dbdab9bd63f78a4e59f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201106.json",
+   "origin": "cache",
+   "sha256": "6f1f7eeb44bb1400e1f39c8091184b1b27e3fef750ab7c763c490a636ceaf470"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201107.json",
+   "origin": "cache",
+   "sha256": "cb9d685f191fbc418d867953d350274becab24abdacf9e5d893364528770075a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201108.json",
+   "origin": "cache",
+   "sha256": "33a147588bfeda5196c3771102aacd7d9c76e739480477bc575521e583881792"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20110901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201109.json",
+   "origin": "cache",
+   "sha256": "456d2cc24d82f1585d4e31d1ee6e311efe81dd8333b255ec2989f61ee9f8ebb7"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20111001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201110.json",
+   "origin": "cache",
+   "sha256": "5a974637ef56b9ccc212e89a8cef92df4998b57bb4c79c31d666b522f79a3655"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20111101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201111.json",
+   "origin": "cache",
+   "sha256": "7bb6cb9cc64ac34e392b6bdf378b0c908723dc779eb0d747d11d6419e03c2fb0"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20111201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201112.json",
+   "origin": "cache",
+   "sha256": "30b8e89fe2477b71ddfbc422e55f0ee6198c6666cc50d9433261caecd1cd1117"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201201.json",
+   "origin": "cache",
+   "sha256": "45b974f43cd446ba7895ee14376b11638103df3f746078ffb1429a0a38fdf320"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201202.json",
+   "origin": "cache",
+   "sha256": "9c49ecc4ac2015c6dcd04346b8b4adf79ab164d259ce7a4e9a31d2ec1bca437d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201203.json",
+   "origin": "cache",
+   "sha256": "e959adabb1eade8b57eab408d9acd43e8fd04a8c5ddc196a23a57c95ee3bd7f2"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201204.json",
+   "origin": "cache",
+   "sha256": "eebe23978d784372626752559f31cd9631f92210d985360c113a107355405268"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201205.json",
+   "origin": "cache",
+   "sha256": "0bb37b5c9052e413a78ef19cd39f030c440cb2dbd192e391d32898a001a86714"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201206.json",
+   "origin": "cache",
+   "sha256": "667132f1f96a9653a15558be68037a20abea1092df41f97cf6d78a6a5eefe2a9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201207.json",
+   "origin": "cache",
+   "sha256": "58980a7c07ba852363f7160b08a61eb79bd921447dd324daaf859d700a11570b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201208.json",
+   "origin": "cache",
+   "sha256": "eebe661ec27c5e1ad9cbe372d49fbe3941a0e4437bf394f798b139982158a665"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20120901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201209.json",
+   "origin": "cache",
+   "sha256": "f622aba5ea9d9be2e0138c47e67b2ce198f82e1474752bbd1e9994a428aa5a34"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20121001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201210.json",
+   "origin": "cache",
+   "sha256": "afa9824ea91763b976cece91dcdf8025057f0543927d4c7acf24e4f3ec7dc775"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20121101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201211.json",
+   "origin": "cache",
+   "sha256": "da538e17a4802b250646868898bd4d937f80dc4155b5f75a57066f4332165efa"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20121201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201212.json",
+   "origin": "cache",
+   "sha256": "8ae293b209a041148d5f8e05919197cef706fe2452ce7669f1182e6322edc7ed"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201301.json",
+   "origin": "cache",
+   "sha256": "0c8cd5052196b2715e949f96ffdb496cde4eea4c95ed96992adbd646dc6ab45b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201302.json",
+   "origin": "cache",
+   "sha256": "e441f4fdfd378d81361a0c0a81e0aec9a95688616228a4a443ebc62ac9e67889"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201303.json",
+   "origin": "cache",
+   "sha256": "bbcbb32a4d6dd253f63b262a4d2115f8825462eef397982ff374c6bdeb88a352"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201304.json",
+   "origin": "cache",
+   "sha256": "deb069774742cf29042694c24125a3daf82f9be9dfad571a6d97697d64ae3e4f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201305.json",
+   "origin": "cache",
+   "sha256": "b9cd02baf19d26c4ab6c32d0bf7ef5bd017d5da87159f633174d211524629773"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201306.json",
+   "origin": "cache",
+   "sha256": "5b2f7cf80a6a43d3f5d3a1bd25352cd6949374bdb5fe09a8a89f11473d65e155"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201307.json",
+   "origin": "cache",
+   "sha256": "d7767b75c98b5d975657526cd91824e5d62b95900dcd1e525274826990e34451"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201308.json",
+   "origin": "cache",
+   "sha256": "c7bd6685dee357b64bd0c7de63b8e751d2f3cd787c166e43b90220f387473618"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20130901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201309.json",
+   "origin": "cache",
+   "sha256": "b7cf5184084d19314b288c8064a9296476b12c38a339bc2871bbc5d0f6ee4d63"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20131001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201310.json",
+   "origin": "cache",
+   "sha256": "ed40a55d159a4551f9239432ca8879870fa3f6ae40af4442185a6f27c0e3ff63"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20131101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201311.json",
+   "origin": "cache",
+   "sha256": "8b0e290f167e338e3261ae0e68c73d9d3d27d4a1a8feee396f301766dd92f50f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20131201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201312.json",
+   "origin": "cache",
+   "sha256": "0817651fec445cb6de91c664b975928d37b2ea6a8f5c87a9dc7874b142c42d2c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201401.json",
+   "origin": "cache",
+   "sha256": "32793956ccfad90f2d3fcfc47a9f5667e8e179d3dc583cd45fd8f43105713bdb"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201402.json",
+   "origin": "cache",
+   "sha256": "bb4928278d9a0dbe432cae98b2f3d2c76210f6776e5b3128ad742690707eca11"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201403.json",
+   "origin": "cache",
+   "sha256": "6ba8b30c6b7a86d24055f08dff3abfb77516f47a21957f4c91b8f861240d4ee6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201404.json",
+   "origin": "cache",
+   "sha256": "26f0d498026e9cc7639f10e7e149b507894d00b6b67cd19bb6c2f67c7986c63a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201405.json",
+   "origin": "cache",
+   "sha256": "fa01b844908476c8d97e2c439c9e147ec84b0c2b1418b6f8d46ceb565e57a184"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201406.json",
+   "origin": "cache",
+   "sha256": "f1c2de5ad98ca640e5d0ee9f2ad9478f263a8026a3d8633ebf5a984fa3c060fc"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201407.json",
+   "origin": "cache",
+   "sha256": "2e2ef007cbdac11212a723edc0ca74e109568d4819c8d5cad01cc5330dd86af7"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201408.json",
+   "origin": "cache",
+   "sha256": "bca8710f23c81c7d0b4e154c60f9ce2c515b898d78bd2da14ba9b98667e99b14"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20140901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201409.json",
+   "origin": "cache",
+   "sha256": "9c7d5809c1bb5608322ed7fdb13982fb4364bb03739f7886fe6b23ea98429224"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20141001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201410.json",
+   "origin": "cache",
+   "sha256": "3c265abf9df7fef0ab7c22a7f968e23ae155dcc488ac99b08307e2972fb1a30d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20141101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201411.json",
+   "origin": "cache",
+   "sha256": "4ce5922edd2e7ee4475b32f77ed879ec6a0902e2464e77f0388b6e37ae86477e"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20141201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201412.json",
+   "origin": "cache",
+   "sha256": "2870edb7dac2df9682b4d315fa63b1067623779bce2702bb23e0242c121b401a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201501.json",
+   "origin": "cache",
+   "sha256": "af162c2cc2e0254031bde51b0ba4b71840213024a87bd8d7ba81f0a1454eee6b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201502.json",
+   "origin": "cache",
+   "sha256": "0af9dc17a1213b4b699be1f70b8800d543c5bfaa469da648fcd76107c527da59"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201503.json",
+   "origin": "cache",
+   "sha256": "927cde5094e7a4c4947adc8b2eac4332ea246aeb95d5296f3f338ebd5c2ae369"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201504.json",
+   "origin": "cache",
+   "sha256": "2be3ee354787b41738961d951b0ab18d62ffda30f808e7a00ce175f14efeb71e"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201505.json",
+   "origin": "cache",
+   "sha256": "92f142275f006d48c8893e66572c9a1c74b6a21aa4ac740fb55edd4797b5429c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201506.json",
+   "origin": "cache",
+   "sha256": "75593b67fe2e6734d36c927f24448593f96caf541b74739699200e7f5d735957"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201507.json",
+   "origin": "cache",
+   "sha256": "834bfffb661d7c3a29fafab155a54e32c12bc07e18681852e5dfc5c101be919a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201508.json",
+   "origin": "cache",
+   "sha256": "584c477be1e87d17e6f22471d6042d3144f045718663e57e6afade3f6dec2e9b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20150901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201509.json",
+   "origin": "cache",
+   "sha256": "3be652176c2fddb82c7eaa257dad96a1e93dcc585da462b1eb35d324eb776af4"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20151001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201510.json",
+   "origin": "cache",
+   "sha256": "6bdabbe3fc1029581318470754df6ade9f230be26d0903c8f5564bfb4c13133a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20151101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201511.json",
+   "origin": "cache",
+   "sha256": "6b8432fb49fcaea10122f6ffcf0b17ea5c710be4ede3bfbe6870dc7987a05e3b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20151201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201512.json",
+   "origin": "cache",
+   "sha256": "b731cc7a82ad6a62b566b15484121bd564db075b95bdb9dce66571820d51b90a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201601.json",
+   "origin": "cache",
+   "sha256": "3623ac22b6a56306a0be92c2bf058d4b7f54da06862e6a6ea6d20f5c3b66d390"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201602.json",
+   "origin": "cache",
+   "sha256": "aa0a68f3e5158cfbba1ba2fc0ee3d6cc0539e892a3d2aadbe6a2f1a39d82aa7c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201603.json",
+   "origin": "cache",
+   "sha256": "64480e686931477041f5163c7f72034249698d19bc21e99778570748771a3a18"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201604.json",
+   "origin": "cache",
+   "sha256": "33bfddc9a8ddb515d0676048f6aabc9bd8f7e94c90e5dd3a45b697b48bb4b44c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201605.json",
+   "origin": "cache",
+   "sha256": "7dbc0a8d484c784ca1199f70553863f6d3ee25afffc371d04054102c045c9e59"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201606.json",
+   "origin": "cache",
+   "sha256": "dc539728ef23a79fe8ac1071c05be72eb4c4cd1e6d197f4959b69c5c2ffae32d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201607.json",
+   "origin": "cache",
+   "sha256": "a0bc3684780496cae30aebea350c8ebdecc83175e004f1be9a67f336f3615af6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201608.json",
+   "origin": "cache",
+   "sha256": "b094b9993a5c8ad2c1e35463bc10163de09a7f77e5feffd9122b333e833ccb98"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20160901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201609.json",
+   "origin": "cache",
+   "sha256": "7348eccf4ace7800a60167f800234bc16da46017fb448182d0168ffb1a8cbb84"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20161001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201610.json",
+   "origin": "cache",
+   "sha256": "a6582b557ba14bff4a88edd01824c2d47f6d5979c74d6d35dfc70f8de4e70e40"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20161101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201611.json",
+   "origin": "cache",
+   "sha256": "802555aa46391eb4934a25522f6d78036d10657aef88d4338c72110d31e492f5"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20161201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201612.json",
+   "origin": "cache",
+   "sha256": "fc6d09d29932bad605b46264b9ac7c66d0bd71aa8bce7d31069867e4e1be7590"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201701.json",
+   "origin": "cache",
+   "sha256": "2a3545b0a6c5ce2d302c87cda775afe9c86aa6f0d20395a8d09cf0392cd4568f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201702.json",
+   "origin": "cache",
+   "sha256": "82631c8e427f405ccdc11f57e11665fd66d8f0b45f1f1132b4b0ba82287b31f3"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201703.json",
+   "origin": "cache",
+   "sha256": "3d2d966cf87e32d04f9fe2943f8060f4fbf7184dc5d03d0f627b0c75085b4f4c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201704.json",
+   "origin": "cache",
+   "sha256": "3ea4d4034a947e8c484d21fb0dd2cb03806ac9b7c43d97de95b3f08ece9c3223"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201705.json",
+   "origin": "cache",
+   "sha256": "f582667745f8506d4cf2ffb2ebfdc3c8cee7cb41d97f238ab98254dae420ec5f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201706.json",
+   "origin": "cache",
+   "sha256": "dcc0a4b4dd02c74f778f879fc6862378c213e00f7fcf7dc48b3bae535d5258d8"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201707.json",
+   "origin": "cache",
+   "sha256": "c145b2199d4f52b0866bf911628e925faad4356a38a9aaaeb177090fa434ec13"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201708.json",
+   "origin": "cache",
+   "sha256": "46c2b7af5008ba5ac040a259f50fb408d8f628cebf468dc07feac6d7d0171b48"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20170901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201709.json",
+   "origin": "cache",
+   "sha256": "e7fa7192b0b88376a0c45640cb6179c4bbed891c34b9aa90abc723fff2742f6b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20171001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201710.json",
+   "origin": "cache",
+   "sha256": "9aca744dbe4efaea4a009e295ed168285c10332e107b960d4650d2ced2f91f7e"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20171101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201711.json",
+   "origin": "cache",
+   "sha256": "b539748ecec6da46a86206b98dad7d3410d8b1f1557cedb71b5dfc72878f4f9b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20171201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201712.json",
+   "origin": "cache",
+   "sha256": "807b70daca0cfa6a8913dd14d0b392b365f98fa42417ff515d723e5794447113"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201801.json",
+   "origin": "cache",
+   "sha256": "3ec19652547d64e894e57a22b1b487ea4360eb6550d5664e414d99b4ace14a93"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201802.json",
+   "origin": "cache",
+   "sha256": "bd9c966f24e5d9cf79cbb904bde0de5f2b570d56ca3274ab7527bcc5acac45c6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201803.json",
+   "origin": "cache",
+   "sha256": "c13683c114491f0a821c9afe03174ee9221d39999f2af89df71930b7520e419c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201804.json",
+   "origin": "cache",
+   "sha256": "5f695cb933f5f9b1b3ed045ae1cabddef35651205f001221f5a5b0dbedc94c48"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201805.json",
+   "origin": "cache",
+   "sha256": "43f1256e0862b0e2ec303a5f0c7d709bde746a99d34635e319757bba6b369707"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201806.json",
+   "origin": "cache",
+   "sha256": "a59059b9fbd05dd12a2140115a39ea24b12ae9178a7cab21452fbb75c812629a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201807.json",
+   "origin": "cache",
+   "sha256": "9fc0d6bfbd4a8f95bdd8f5e8acc50c40683d255d988757fd42daa55f8d1ca643"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201808.json",
+   "origin": "cache",
+   "sha256": "535d518cfe633224de58450e2603a922e880d9679950724d2a5c132ecd7e715b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20180901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201809.json",
+   "origin": "cache",
+   "sha256": "21629eba9a82a3701e0e2daa615fcdb3f0754970242f01ebd0ed37edaf28b9fd"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20181001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201810.json",
+   "origin": "cache",
+   "sha256": "9a6d1e1a79c3d73aff580721b940c3035be0c1f51db1c3d17900eb48e8f68f21"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20181101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201811.json",
+   "origin": "cache",
+   "sha256": "7a78b31a6997151b8f2ecf97d4972271349e32a5655d9da49f850e5fa076b753"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20181201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201812.json",
+   "origin": "cache",
+   "sha256": "3962aa872d4df6fdf7a9a6f0c031d38897b5266263c6df1d5884a397520c1953"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201901.json",
+   "origin": "cache",
+   "sha256": "fcb24c482c9c336b00adf01305810b62823c83e0658ac93c37670b774aa72da0"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201902.json",
+   "origin": "cache",
+   "sha256": "a3c28f23506ec7b2617e0c1c78fd2a863219475a1a7d6cdca2325372bcd43212"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201903.json",
+   "origin": "cache",
+   "sha256": "014c8b611d0486832a0d1180ee40d8aeb947518eaa8640dc9596062999cd1cb1"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201904.json",
+   "origin": "cache",
+   "sha256": "0ae0d4d95c591602df0eeaa54bbbac912629540f0a7190f5f7df96c5dc40ac7a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201905.json",
+   "origin": "cache",
+   "sha256": "84e7965a71a161d6303a9ae55bf49328b1e7c1832831460b8c0529d8149826c2"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201906.json",
+   "origin": "cache",
+   "sha256": "e0f633cbf495a723ed6ddf4f5cd52a31f23eb153d21665b79cf3cc378ddca97d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201907.json",
+   "origin": "cache",
+   "sha256": "76d1158d8094152db8d5b19c2f6fe7d24a10f794e1c8656584cf509192ad8eaa"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201908.json",
+   "origin": "cache",
+   "sha256": "8728969500d460de695639fff77068d697e7e67559f65e9115c52f7cd73c8b00"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20190901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201909.json",
+   "origin": "cache",
+   "sha256": "756d7e66d6e6842fefa882b777e2714d440b141d0e3e04ae2dde1e0d1f5486a0"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20191001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201910.json",
+   "origin": "cache",
+   "sha256": "70295ad593d96403414971f7f30a99f99195e83915d4efb54fb693d31e4a9095"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20191101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201911.json",
+   "origin": "cache",
+   "sha256": "041277f83e0765f4432e1b6fd8b3dbe4d98c42ceb748d86bd75afc16c9784961"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20191201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_201912.json",
+   "origin": "cache",
+   "sha256": "fe604b219fdf975e59c28321429428f1e97c569553ad6a3755377b1e92a83e9d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202001.json",
+   "origin": "cache",
+   "sha256": "4da913d9293746a9e3d3d5379d20d097adcc632a522877b084e9b78586a82e65"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202002.json",
+   "origin": "cache",
+   "sha256": "39d98a429baeef3ac668c14d6d8951b9c70d724d75c9a923ca277e475217a4ed"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202003.json",
+   "origin": "cache",
+   "sha256": "91ca924479c4e83bd8ce2a7a458203d4e2d64f2abed430f87aab262607a7da77"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202004.json",
+   "origin": "cache",
+   "sha256": "e0023698238c2d7411728cb7a28e8a9bb429fa6a3cb715fac8fdd656ca39e177"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202005.json",
+   "origin": "cache",
+   "sha256": "d6cb91e04cfb5c90264d5e6c88a166b88701d973bc7c74817032b0e2422dfc32"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202006.json",
+   "origin": "cache",
+   "sha256": "8fceba2e108c36306013bf796f3175f44d0710534371b639d46294bf59db5d83"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202007.json",
+   "origin": "cache",
+   "sha256": "ed081339f2c7b9b0043402c2d6a498f5b06e1af9c9b571c12d409983d2a44ed2"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202008.json",
+   "origin": "cache",
+   "sha256": "af68034aacebbc4ebbcd993a37b8cadebd821bd9be65c95d964a56281391c38d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20200901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202009.json",
+   "origin": "cache",
+   "sha256": "7e23176c0017e16be0b2616518e293eede64bc6a8cc2606f613fb777b044e9a6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20201001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202010.json",
+   "origin": "cache",
+   "sha256": "d807b64dcea551eee64d3cee9972d3dab9497cb7d36bd5649a3e287a8717094a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20201101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202011.json",
+   "origin": "cache",
+   "sha256": "c5d0c0d69c0fe9a20873eeefd048ee79325dbfc26e8df14ab7e37ec7d3f6e17b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20201201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202012.json",
+   "origin": "cache",
+   "sha256": "95585c3fb1a7d13e978b481699fbb18162b32a07ff6b3ec8a9c681c782d82593"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202101.json",
+   "origin": "cache",
+   "sha256": "7a8f53cf653c83428e8cc97483cc76f64bebf053debb6d82869501ee54815a44"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202102.json",
+   "origin": "cache",
+   "sha256": "c1846c615625275b76ddca27abd9a1ab98be64d3a878360e5f8200a9bf2688c7"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202103.json",
+   "origin": "cache",
+   "sha256": "efbd3f164e633704da89b0eb5d3a39f448b665c7e4999d74d00cc2b9059eba5e"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202104.json",
+   "origin": "cache",
+   "sha256": "f51ef6b4a2509742cbec6c034ed939c8254ce0d3e602d3c1526a1ab32bb07f53"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202105.json",
+   "origin": "cache",
+   "sha256": "b14eaeeb2933dbb74527ed851fdc8a860d20132d5133ca2dbf5e9017f68c0c63"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202106.json",
+   "origin": "cache",
+   "sha256": "307771548fd87c67a945f8945ffd3bc6c4ecc7400e70e61ac197eeb14b0ecedc"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202107.json",
+   "origin": "cache",
+   "sha256": "4ec60bb1197793fa7d4afb0dd8e45d4dcc938eb1832f0cf91b36fe90315a2e51"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202108.json",
+   "origin": "cache",
+   "sha256": "153adbaf19b0a208416bf94bf8202666190edf604793496ffec787b18b55615e"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20210901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202109.json",
+   "origin": "cache",
+   "sha256": "529c669b21228b5dc92e99fbe63fd5ef93fd55b7eac059aa04b56459c89fb893"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20211001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202110.json",
+   "origin": "cache",
+   "sha256": "5cdcfb4552775caabe057968b9c77b2f6b54fd398209e180bf5b200cce2051bd"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20211101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202111.json",
+   "origin": "cache",
+   "sha256": "eef560171d2f93c90c8c74181f04e84e26e9efa4abe108b229ace8d143fb5c4f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20211201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202112.json",
+   "origin": "cache",
+   "sha256": "3b8bb75736f1f9480f59ada74e14c8d45e753a78725f8a14c0acb8050729913f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202201.json",
+   "origin": "cache",
+   "sha256": "e56a58e608a81adb63136504f54f0f63d0275d83ce15bbb418d9ab476c5320c9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202202.json",
+   "origin": "cache",
+   "sha256": "794e459d096d448175e811ecfcbfd342b4e5c59f485a14ed1ab08de86b3d9e43"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202203.json",
+   "origin": "cache",
+   "sha256": "eb6087e0a4890a26005ffa6ff9a9201568e2016b1743904c16c178b97c1586fa"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202204.json",
+   "origin": "cache",
+   "sha256": "b1c62e679600af3355eff1b8d0cd373c4a048f0ceffbf5c736a32b3c16cac922"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202205.json",
+   "origin": "cache",
+   "sha256": "9ff2cf0d75faf0fe063e04f2d9ce40e35af2e8e6de4d319bcebe5dbdb0ab5b6e"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202206.json",
+   "origin": "cache",
+   "sha256": "42904bca7be5ad12248c75f614a27d63be920e614c89915376711f1913bd33a9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202207.json",
+   "origin": "cache",
+   "sha256": "f23e8b6a657017759106b7e8db208e5cb429998a3d29c26d5b079e5bbee45cc7"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202208.json",
+   "origin": "cache",
+   "sha256": "b501ba45c0bd1bdedb3391371a29b9630e6fef3e212d2a1a7325093324c83f42"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20220901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202209.json",
+   "origin": "cache",
+   "sha256": "a5b4c2db0854c46f2a7741ab34da0bc2d0a1ad7185a995ad2ad45638804f47ba"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20221001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202210.json",
+   "origin": "cache",
+   "sha256": "9e5a2dc989784cd3dcaf8cbe8fd1e3dca0ae03eec609a3cc3c2ce63f5aa737c5"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20221101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202211.json",
+   "origin": "cache",
+   "sha256": "7db0967c91f560690e60c198253404dc2363a3ec240bfe709717b6e1e32698f3"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20221201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202212.json",
+   "origin": "cache",
+   "sha256": "4cd86dbd7848e6c38e101e67eeb1aa404a080ed5020d8e1aee56408ae9ae9b52"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202301.json",
+   "origin": "cache",
+   "sha256": "5ceb7760090c1d70a0514d4d8fa99548345fc56d16217620b274f846958915d5"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202302.json",
+   "origin": "cache",
+   "sha256": "e6aa20244b4a44eb1eeaea48f4982671d1f93758e9ffd738b2d400456c0ae1e6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202303.json",
+   "origin": "cache",
+   "sha256": "0e3dd47f3c6b3e8df6b5d7edbd53d3649d755c3c9899e610827be06f0e14d0b0"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202304.json",
+   "origin": "cache",
+   "sha256": "2b0d4ebe58c6b22c68d7169337b1a955d563281e8c153aef561757c8abb19cb9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202305.json",
+   "origin": "cache",
+   "sha256": "d25d589f1ded40a7716e2783bcc7a9f78e938221e6015629fb51bb88b0f868bd"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202306.json",
+   "origin": "cache",
+   "sha256": "05dd75611b1fa8cbc7bddc4cb023a3eb4eba6e236a0c9f470d8cd37fa0805ee3"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202307.json",
+   "origin": "cache",
+   "sha256": "b18cadbf617d4c7cb46de24cc9097617ca9755a26de5999ecdb0d81e732c99bc"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202308.json",
+   "origin": "cache",
+   "sha256": "ee7c52d33f6800c7387602a33a5a53cb8a15254b63abb5b7763009c3b25c6b97"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20230901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202309.json",
+   "origin": "cache",
+   "sha256": "e8f43eea7f5bdff0b4de757fd8f3a473384e943ed0dbd7e99b19e13be101fe50"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20231001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202310.json",
+   "origin": "cache",
+   "sha256": "dd22d33ed93c471b6f6bd0a1e3261ca845e5086533a70eabe13e6461f5209f34"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20231101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202311.json",
+   "origin": "cache",
+   "sha256": "895bc7d1a4c2c4037d46563013ab874705c73fa170a3e60f10443b9c641fa871"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20231201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202312.json",
+   "origin": "cache",
+   "sha256": "6d3b7138bb29470185b9f192b05b791e3abbcb876a88ed3619569c40767ba448"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202401.json",
+   "origin": "cache",
+   "sha256": "39b0001879fe1a2b7335fb7a19775b024a79e14012c829f233ec3aa9f95c44d1"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202402.json",
+   "origin": "cache",
+   "sha256": "d7cca3c9895cea6f3b4bed02c9e1d436ff81de4b1955c2eea7427ae228832142"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202403.json",
+   "origin": "cache",
+   "sha256": "4ab66d443003d6569380ca79a0bd313f0de0af9cd78cd0e1a2d1252789a7a58c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202404.json",
+   "origin": "cache",
+   "sha256": "4e1d6b4d4f75129be54addfa9b91df82a8a67852ec136201411b9475f2b6a80b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202405.json",
+   "origin": "cache",
+   "sha256": "428b36f39236021cebee312a0ce076eceb03dc77ea78e76cf5552274b71a0a14"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202406.json",
+   "origin": "cache",
+   "sha256": "f9012c3cef2d56867406a8d7aedf9e58ab5cf52bcc0dacc12e0fd7bf72212282"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202407.json",
+   "origin": "cache",
+   "sha256": "c9be92bf1a808f0c98b521f52db23cd80b45f8b662dd8b6d33a79a301954fcb9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202408.json",
+   "origin": "cache",
+   "sha256": "64c6f3d301ed603c0c41f3a83e477cf8267b771f6a4b2a43f589e0fa6a2eae4e"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20240901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202409.json",
+   "origin": "cache",
+   "sha256": "99877bde974d8940cf0745e2c41263613b3e8fe24709be2d49cacdfeee330b15"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20241001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202410.json",
+   "origin": "cache",
+   "sha256": "67d577ac7297bbdba9298eaafdd4fa5c8ec9104718cdce9f14067856e0c821ec"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20241101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202411.json",
+   "origin": "cache",
+   "sha256": "085eced09219cda04f14c63848f36a4c95b81c86c4dc1379b1cb2679637b8f2a"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20241201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202412.json",
+   "origin": "cache",
+   "sha256": "daa85530569e11c96b884c53d137cd4ed50253d61552e1a8dae1f1a22227307c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202501.json",
+   "origin": "cache",
+   "sha256": "8aba56eb82dafd0563d3e51c9ab4b8688262cb3ef36b89e5fe8f57b2bbf6bf57"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202502.json",
+   "origin": "cache",
+   "sha256": "a57e72f48cd71304a82c6070b0c8068b0cb7be453e2a4ec906446ef84b5ebba0"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202503.json",
+   "origin": "cache",
+   "sha256": "6972f72d91d061a8ef73323c7961e939ccd790e95232e5c8287490bb372421bf"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202504.json",
+   "origin": "cache",
+   "sha256": "e3e13f9655be5adef8bcbab4d0edb3902a69b6fb7ae5f427ffbe3a9e91042a5d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202505.json",
+   "origin": "cache",
+   "sha256": "f97ea69fe6d1927dcdf9ec85537a69f8b513eb71baa7902cf888fe4b183d1f20"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202506.json",
+   "origin": "cache",
+   "sha256": "d02384ed598e46f878816a64ba09e28ba01d0a6769834514eb34be0d49462415"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202507.json",
+   "origin": "cache",
+   "sha256": "e55b5fbed1e38d3a08f62a355667fdaf667473519d2e15ccfea97254590732d1"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202508.json",
+   "origin": "cache",
+   "sha256": "0bbeb87eafc4e2736292b97535403a4d78d0b72af483545621ff6a7cb82bdf12"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20250901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202509.json",
+   "origin": "cache",
+   "sha256": "05db3e88bc8148429215df26b1bc90c1ff6e517d3bf0455ab49bac9bc366a9b6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20251001&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202510.json",
+   "origin": "cache",
+   "sha256": "8f17df79e8685a3b8420cc09779f28feef5d3cd9e3215116ca52c990ad006f14"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20251101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202511.json",
+   "origin": "cache",
+   "sha256": "c8eaf1c5221819503018cdfba06caf71fca845a75e3a40598d77afb11aea78de"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20251201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202512.json",
+   "origin": "cache",
+   "sha256": "92256b4495d1b5adbb546069c1ee41612e4428912ae6ef0f1c0d59936632c133"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260101&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202601.json",
+   "origin": "cache",
+   "sha256": "cbc907affe310993b74ca2fc183c316c195b661886acc8dec8e1ee9ef6971415"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260201&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202602.json",
+   "origin": "cache",
+   "sha256": "66f10e8da761a212bced644714c6a3dc39de5d7d3daf657560af48e67ffd75c6"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260301&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202603.json",
+   "origin": "cache",
+   "sha256": "e8926685144b22b65e7450815dda03dbdc9a00b3b03401073596e6596d57bae2"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260401&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202604.json",
+   "origin": "cache",
+   "sha256": "64d27eaa0fec6c516821910adcdcb515006d959fa1ffaa4ae1da04f61640326f"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260501&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202605.json",
+   "origin": "cache",
+   "sha256": "4393d084483cfa446c09e6692941a1b5d50baeb3d2535504a56b8d7609cd428b"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260601&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202606.json",
+   "origin": "cache",
+   "sha256": "5ee35074d3a9ad5bdb235a515978bae8fc3f36e427d4c1bb3cd60303ccbc331c"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260701&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202607.json",
+   "origin": "cache",
+   "sha256": "a6fc2d6b2dc31fe7ed26364d12a70e8a3d7af3a3b1d36304b22a0358cfa08a7d"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260801&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202608.json",
+   "origin": "cache",
+   "sha256": "8e0145841c212715d6e3d32ef4618545cb5da34906c2906243d69ec12edb1ad9"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20260901&response=json",
+   "file": "results/backtest-data/twse-cache/MI_5MINS_HIST_202609.json",
+   "origin": "cache",
+   "sha256": "b6f8cf1552ff55338934e646ca846b54d1b18c0b82919ca78f440174bb605404"
+  },
+  {
+   "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=20261001&response=json",
+   "file": "results/backtest-data/taiex-usd-39479036963/raw/MI_5MINS_HIST_202610.json",
+   "origin": "fetched",
+   "sha256": "7f4ec536d498997c58ffa8b9b4ca0646613f19fa35a0edc3d09516efbcd40b15"
+  },
+  {
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXAFEGS&cosd=2006-01-01&coed=2026-10-20",
+   "file": "results/backtest-data/taiex-usd-39479036963/raw/DTWEXAFEGS_0.csv",
+   "origin": "fetched",
+   "sha256": "437161b8307d201441fd245a0b599c9cf367c595d32f5de203331d34662f3380"
+  },
+  {
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXBGS&cosd=2006-01-01&coed=2026-10-20",
+   "file": "results/backtest-data/taiex-usd-39479036963/raw/DTWEXBGS_0.csv",
+   "origin": "fetched",
+   "sha256": "d248a3103dc2a001a68187b827926e1353746314907888e57fd130b8ca585f82"
+  }
+ ]
+}
