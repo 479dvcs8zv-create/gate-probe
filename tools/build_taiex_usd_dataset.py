@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """回測資料：證交所加權指數每日收盤 ＋ FRED 美元指數（DTWEXAFEGS、DTWEXBGS）。
 
-用法：python3 build_taiex_usd_dataset.py <輸出資料夾> [起始年=2006] [快取資料夾]
+用法：python3 build_taiex_usd_dataset.py <輸出資料夾> [起始年=2006] [快取資料夾] [額外 FRED 代碼，逗號分隔]
 - 加權指數：TWSE MI_5MINS_HIST（每次一個月），每次請求間隔 4 秒；原始回應全部存檔。
 - 已完成的月份（非當月、stat=OK）存進快取資料夾，重跑時直接讀快取，不再向證交所要。
 - 單一網址失敗不中止整批：記入 manifest 的 failures，繼續下一個；最後一律寫出 CSV、manifest、build.log。
@@ -42,8 +42,12 @@ def get(url, tries=3, headers=None, timeout=30):
     return None
 
 
-def main(out, start_year, cache):
+FRED_IDS = ["DTWEXAFEGS", "DTWEXBGS"]
+
+
+def main(out, start_year, cache, extra=""):
     global LOG
+    FRED_IDS.extend(x.strip().upper() for x in extra.split(",") if x.strip() and x.strip().upper() not in FRED_IDS)
     out = Path(out); out.mkdir(parents=True, exist_ok=True)
     cache = Path(cache); cache.mkdir(parents=True, exist_ok=True)
     LOG = out / "build.log"
@@ -88,7 +92,7 @@ def main(out, start_year, cache):
             y, m = y + 1, 1
     usd = {}
     fred_headers = {"User-Agent": "Mozilla/5.0 (gate-probe research)", "Accept": "text/csv"}
-    for sid in ("DTWEXAFEGS", "DTWEXBGS"):
+    for sid in FRED_IDS:
         # 先整段要（timeout 90 秒）；不行就每 4 年一段分開要，每段原始回應都存檔。
         spans = [(f"{start_year}-01-01", today.isoformat())]
         parts = []
@@ -120,11 +124,11 @@ def main(out, start_year, cache):
         log(f"{sid}: {n} values from {len(parts)} part(s)")
     dates = sorted(set(taiex) | set(usd))
     with open(out / "taiex_usd.csv", "w", newline="") as f:
-        w = csv.writer(f); w.writerow(["date", "taiex_close", "dtwexafegs", "dtwexbgs"])
+        w = csv.writer(f); w.writerow(["date", "taiex_close"] + [x.lower() for x in FRED_IDS])
         for d in dates:
             if d < f"{start_year}-01-01":
                 continue
-            w.writerow([d, taiex.get(d, ""), usd.get(d, {}).get("DTWEXAFEGS", ""), usd.get(d, {}).get("DTWEXBGS", "")])
+            w.writerow([d, taiex.get(d, "")] + [usd.get(d, {}).get(x, "") for x in FRED_IDS])
     (out / "manifest.json").write_text(json.dumps({
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "complete": not failures, "failures": failures,
@@ -135,4 +139,5 @@ def main(out, start_year, cache):
 
 if __name__ == "__main__":
     main(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 2006,
-         sys.argv[3] if len(sys.argv) > 3 else "results/backtest-data/twse-cache")
+         sys.argv[3] if len(sys.argv) > 3 else "results/backtest-data/twse-cache",
+         sys.argv[4] if len(sys.argv) > 4 else "")

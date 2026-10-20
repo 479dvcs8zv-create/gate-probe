@@ -7,6 +7,10 @@ on:
         description: 起始年
         required: true
         default: '2006'
+      extra_fred:
+        description: 額外 FRED 代碼（逗號分隔，可空白）
+        required: false
+        default: ''
 permissions:
   contents: write
 concurrency:
@@ -24,7 +28,10 @@ jobs:
       - name: Build dataset
         env:
           START_YEAR: ${{ inputs.start_year }}
-        run: python3 tools/build_taiex_usd_dataset.py "results/backtest-data/taiex-usd-${GITHUB_RUN_ID}" "$START_YEAR" results/backtest-data/twse-cache
+          EXTRA_FRED: ${{ inputs.extra_fred }}
+        run: |
+          case "$EXTRA_FRED" in *[!A-Za-z0-9,]*) echo "bad extra_fred"; exit 1;; esac
+          python3 tools/build_taiex_usd_dataset.py "results/backtest-data/taiex-usd-${GITHUB_RUN_ID}" "$START_YEAR" results/backtest-data/twse-cache "$EXTRA_FRED"
       - name: Commit
         if: always()
         run: |
