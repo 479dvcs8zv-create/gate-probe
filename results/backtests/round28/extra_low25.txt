@@ -1,0 +1,8 @@
+Extra (not in round-28 spec): low position 25% (owner's minimum holding 20-30%), same rules otherwise
+  N    period  strat_ann  strat_maxdd  bh_ann  bh_maxdd  avg_exposure
+ 60 2006-2015      4.133      -31.164   2.326   -58.308          70.4
+ 60  2016-end     11.322      -23.651  17.214   -31.632          77.6
+ 60      full      7.849      -31.164   9.895   -58.308          74.1
+240 2006-2015      1.375      -34.566   1.033   -58.308          74.5
+240  2016-end     14.111      -19.581  17.214   -31.632          84.4
+240      full      8.118      -34.566   9.539   -58.308          79.8

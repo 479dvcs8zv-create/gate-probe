@@ -1,4 +1,6 @@
-# 給 Gemini 的工作：第 28 輪（2026-10-21，Claude 出題）——**Gemini 跑回測**
+# 給 Gemini 的工作：第 28 輪（2026-10-21，Claude 出題）——**已改由 Claude 執行（擁有者 03:15）**
+
+> 檔案上傳給 Gemini 卡住，擁有者同意改由 Claude 直接跑；結果在 `results/backtests/round28/`。日後若要第二方對照，再把 CSV 與題目交給 Gemini。
 
 資料：gate-probe 用官方來源下載的 `taiex_usd.csv`（擁有者從 GitHub 下載後上傳給 Gemini）。
 下載：https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/results/backtest-data/taiex-usd-39479036963/taiex_usd.csv
