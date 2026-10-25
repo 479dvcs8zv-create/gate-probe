@@ -14,7 +14,7 @@
 
 ---
 
-## 擁有者 2026-10-25 14:50 授權：部署 10-25 三項修補（`diagnostics/local-fix-20261025/final.patch`，SHA d4940c2d…3899）
+## ✅ 已部署 v234（2026-10-25 19:58）｜擁有者 2026-10-25 14:50 授權：部署 10-25 三項修補（`diagnostics/local-fix-20261025/final.patch`，SHA d4940c2d…3899）
 最新交易日改以官方實際資料為準、verifiedAt 不被覆寫、run 摘要與直接讀回一致。步驟與驗收見 `handoff/GPT_NEXT.md`。
 
 ---

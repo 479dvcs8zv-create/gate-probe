@@ -1,15 +1,15 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-25 19:45 台北（Claude）
+更新：2026-10-25 20:10 台北（Claude）
 
-## 現在這項：部署 10-25 三項修補（`diagnostics/local-fix-20261025/final.patch`）
-- **擁有者已授權（2026-10-25 14:50 台北，在與 Claude 的對話中回覆「授權」）。** 範圍只有這份 final.patch，其他排隊項目不在授權內。
-- Claude 已審：final.patch SHA-256 `d4940c2d…3899` 相符；只動 macro／observations／observation-freshness、測試與 dist；無金鑰、無網站網址。三項邏輯與 14:40 交接一致。
-- 步驟：乾淨基線 488b8bc → `git apply final.patch` → `node build.mjs` → `npm test` → 部署；v233 留作回滾。
-- 部署後只讀回三件事：①10/22 信用可被接受、觀測日仍 10/22、`calendarDiscrepancy=true`；②信用列 `verifiedAt` 不是本輪時間；③run 摘要與 /api/macro 一致。
-- **10/27（週二）22:30 晚間巡檢**：信用要被接受；10/28 上午讀回 `verifiedAt` 沒被改寫、10/22 升 final。
+## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
+- 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
 
-## 同一輪順便做（擁有者 10-25 15:18：之後的功能改由 Claude 寫程式，GPT 只負責套用與上線）
+## 現在：**GPT 沒有工作**。等 Claude 用來源 zip 寫好下一個 patch 後更新本檔。
+- 待說明（只寫名稱、不要寫值）：10/25 工具事故裡印出的「服務憑證」是哪一把（例如 Sites 部署、資料匯入、FinMind、Tiingo、Gemini 金鑰），擁有者是否能自行重新產生。
+
+## 已完成：來源 zip（taiwan-master-v233-488b8bc-source.zip，SHA-256 0a49b604…7673，私下交付擁有者）
+（以下為當時要求，保留供對照）
 - 把網站來源 **commit 488b8bc（v233，尚未套 final.patch）** 打包成一個 zip 交給擁有者下載（**不要放進任何公開 repo**）。
 - 包含：全部原始碼與測試（worker/、tests/、build.mjs、package.json、package-lock.json、dist/index.html、遷移檔等，能在乾淨環境 `npm ci && npm test`）。
 - 排除：任何金鑰／.env／憑證、`dist/server/index.js`（生成檔，含私人操作說明）、node_modules、私人網址與專案代號。
