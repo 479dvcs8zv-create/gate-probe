@@ -39,7 +39,7 @@ jobs:
             code=$(curl -sS -L --max-time 30 -A "Mozilla/5.0 (gate-probe research)" -D "$out/$i.headers" -o "$out/$i.body" -w '%{http_code}' "$u" || echo "curl_error")
             sha=$(sha256sum "$out/$i.body" 2>/dev/null | cut -c1-64)
             printf '{"n":%d,"url":"%s","started_at":"%s","http_status":"%s","sha256":"%s","bytes":%s}\n' "$i" "$u" "$started" "$code" "$sha" "$(stat -c %s "$out/$i.body" 2>/dev/null || echo 0)" >> "$out/index.jsonl"
-            echo "$i $code $u"; head -c 300 "$out/$i.body"; echo
+            echo "$i $code $u"; head -c 300 "$out/$i.body" 2>/dev/null || echo "(no body)"; echo
             sleep 3
           done
       - name: Commit results
