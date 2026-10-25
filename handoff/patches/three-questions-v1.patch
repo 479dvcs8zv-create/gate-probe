@@ -1,0 +1,247 @@
+diff --git a/dist/index.html b/dist/index.html
+index 41b37a3..22b66a3 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -932,6 +932,7 @@ function renderAdvisoryPanels(model){
+  const title=document.createElement('h4');title.textContent='補充觀測｜計算已接入，評分門檻為草案';host.append(title);
+  const note=document.createElement('p');note.className='tiny';note.textContent=`${model.symbol||''}｜台股基準 ${p.asOf||'缺值'}。新增觀測不改既有總分、Gate 或風險預算；缺資料保留缺項。`;host.append(note);
+  if(model.report?.advisoryDecision)renderAdvisoryDecision(host,model.report.advisoryDecision);
++ if(p.threeQuestions)renderThreeQuestions(host,p.threeQuestions);
+  const observations=document.createElement('details'),openLabel=document.createElement('summary');openLabel.textContent='展開補充觀測與計算';observations.append(openLabel);host.append(observations);
+  const grid=document.createElement('div');grid.className='advisory-grid';observations.append(grid);
+  const show=x=>Number.isFinite(x)?x.toFixed(2):'缺值';
+@@ -949,6 +950,14 @@ function renderAdvisoryPanels(model){
+  if(breadth){const s=breadth.sectorBreadth,g=breadth.globalBreadth;card('美股與全球寬度',`美股類股 ${s.above}/${s.coverage} 在200日線上（涵蓋${s.coverage}/11）；全球 ${g.spyAvailable?`${g.above}/${g.coverage}`:'SPY缺值，不算比例'}（涵蓋${g.coverage}/10）；RSP/SPY20日 ${show(breadth.equalWeightRatio20d)}%`,`Tiingo adjClose；每市場一票；全球缺${g.missing.join('、')||'無'}；非S&P500成分股廣度。`);}
+  const gold=p.goldZeroAxis||{};card('黃金背景參考',`金價零軸 ${show(gold.value)}｜5交易日前 ${show(gold.previous5?.value)}；不計分`,`${gold.date||'日期缺值'}；${gold.source||gold.reason||'缺值'}。`);
+ }
++function renderThreeQuestions(host,tq){
++ const box=document.createElement('section');box.className='advisory-decision';
++ const title=document.createElement('b');title.textContent='汰弱留強三問｜只顯示，不改評級';box.append(title);
++ const label={pass:'過',fail:'不過',insufficient:'資料不足'};
++ for(const [key,name] of [['technical','技術'],['chips','籌碼'],['fundamental','基本']]){const q=tq.questions?.[key]||{};const row=document.createElement('p');row.textContent=`${name}：${label[q.result]||'資料不足'}｜${q.basis||q.reason||'缺值'}`;box.append(row);}
++ const rules=document.createElement('p');rules.className='tiny';rules.textContent='規則：'+[tq.rules?.technical,tq.rules?.chips,tq.rules?.fundamental].filter(Boolean).join('；');box.append(rules);
++ const note=document.createElement('p');note.className='tiny';note.textContent=tq.note||'';box.append(note);host.append(box);
++}
+ function renderAdvisoryDecision(host,decision){
+  const box=document.createElement('section');box.className='advisory-decision';
+  const divergence=decision.valuationDivergence;
+diff --git a/package.json b/package.json
+index cad3063..837a0fb 100644
+--- a/package.json
++++ b/package.json
+@@ -5,7 +5,7 @@
+     "build": "node build.mjs",
+     "test:master-validation": "node tests/master-model-validation.test.mjs",
+     "db:generate": "drizzle-kit generate",
+-    "test": "npm run test:legacy && npm run test:advisory-integration && npm run test:fixpack && npm run test:c2 && npm run test:credit-window && npm run test:source-recovery",
++    "test": "npm run test:legacy && npm run test:advisory-integration && npm run test:fixpack && npm run test:c2 && npm run test:credit-window && npm run test:source-recovery && npm run test:three-questions",
+     "test:source-recovery": "node --test tests/source-recovery.test.mjs tests/official-session-regression.test.mjs",
+     "test:credit-window": "node --test tests/credit-capture-window.test.mjs tests/refresh-persistence.test.mjs tests/refresh-resume.test.mjs",
+     "test:remediation": "node tests/master-remediation.test.mjs",
+@@ -20,7 +20,8 @@
+     "test:legacy": "node tests/runtime-cache.test.mjs && node tests/master-gate-evidence.test.mjs && node tests/master-gate-pipeline.test.mjs && node tests/research-package-cloud.test.mjs && node tests/data-package.test.mjs && node tests/guidance-report.test.mjs && node tests/automatic-research.test.mjs && node tests/site-automation.test.mjs && node tests/site-module-contract.test.mjs && node tests/valuation-render.test.mjs && node tests/macro-market-state.test.mjs && node tests/core-cpi-ingestion.test.mjs && node tests/core-cpi-collector.test.mjs && node tests/cnn-fear-greed.test.mjs && node tests/financial-quality.test.mjs && node tests/relay-freshness.test.mjs && node tests/observation-freshness.test.mjs && node tests/monthly-release-news.test.mjs && node tests/macro-source-isolation.test.mjs && node tests/financial-analysis.test.mjs && node tests/official-collector.test.mjs && node tests/official-data-import.test.mjs && node tests/source-research.test.mjs && node tests/dashboard-interactions.test.mjs && node tests/master-model-validation.test.mjs && node tests/master-remediation.test.mjs && node tests/master-input-wiring.test.mjs && node tests/qualified-output.test.mjs && node tests/client-diagnostics.test.mjs && node tests/fallback-rating.test.mjs && npm run test:cross-market && npm run test:report-context && npm run test:stock-relay && npm run test:us-sector-site && npm run test:market-timeline && node tests/phison-panel.test.mjs",
+     "test:advisory-integration": "node --test tests/tiingo-market.test.mjs tests/tiingo-site.test.mjs tests/panel-calculations.test.mjs tests/panel-sources.test.mjs tests/panel-display.test.mjs tests/advisory-decision.test.mjs && node tests/build-reproducibility.test.mjs",
+     "test:fixpack": "node --test tests/fixpack.test.mjs",
+-    "test:c2": "node --test tests/valuation-divergence.test.mjs"
++    "test:c2": "node --test tests/valuation-divergence.test.mjs",
++    "test:three-questions": "node --test tests/three-questions.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/three-questions.test.mjs b/tests/three-questions.test.mjs
+new file mode 100644
+index 0000000..b64fe58
+--- /dev/null
++++ b/tests/three-questions.test.mjs
+@@ -0,0 +1,90 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import vm from 'node:vm';
++import {threeQuestions,buildStockPanels} from '../worker/panel-calculations.mjs';
++
++function sessions(count,start='2026-05-04'){
++  const out=[],d=new Date(start+'T00:00:00Z');
++  while(out.length<count){const w=d.getUTCDay();if(w!==0&&w!==6)out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}
++  return out;
++}
++function makeStock({closes,flows=null,lending=null,revenue=null}){
++  const dates=sessions(closes.length),asOf=dates.at(-1);
++  return {id:'9999',price:{date:asOf,value:closes.at(-1)},technical:{historyState:'DATED_HISTORY'},
++    priceHistory:dates.map((date,i)=>({date,close:closes[i]})),
++    marketActivity:{institutionalHistory:(flows||[]).map((f,i,a)=>({date:dates[dates.length-a.length+i],foreign:f[0],trust:f[1],dealer:0,net:f[0]+f[1]}))},
++    panelInputs:{lending:lending?{history:lending.map((b,i,a)=>({date:dates[dates.length-a.length+i],balanceShares:b}))}:{status:'insufficient',history:[]},
++      revenueHistory:revenue||[]}};
++}
++const rising=n=>Array.from({length:n},(_,i)=>100+i);
++const rev=(rows)=>rows.map(([y,m,v,c])=>({revenue_year:y,revenue_month:m,revenue:v,create_time:c||null}));
++
++test('technical: six sessions under a falling 60-day line fails; above the line passes; short history is insufficient',()=>{
++  const down=[...rising(70),...Array.from({length:8},(_,i)=>120-i*3)];
++  const t=threeQuestions(makeStock({closes:down})).questions.technical;
++  assert.equal(t.result,'fail');assert.ok(t.daysBelowMa60>5);assert.equal(t.ma60Falling,true);
++  assert.equal(threeQuestions(makeStock({closes:rising(80)})).questions.technical.result,'pass');
++  const short=threeQuestions(makeStock({closes:rising(65)})).questions.technical;
++  assert.equal(short.result,'insufficient');assert.equal(short.reason,'REQUIRE_66_OBSERVED_SESSIONS');
++});
++
++test('technical: five sessions under the line is not yet a fail (rule says more than five)',()=>{
++  const closes=[...rising(75),...Array.from({length:5},()=>100)];
++  const t=threeQuestions(makeStock({closes})).questions.technical;
++  assert.equal(t.daysBelowMa60,5);assert.equal(t.result,'pass');
++});
++
++test('chips: zero buying by foreign plus trust over 5 and 10 sessions fails even without lending history',()=>{
++  const flows=Array.from({length:20},()=>[-1000,200]);
++  const c=threeQuestions(makeStock({closes:rising(80),flows})).questions.chips;
++  assert.equal(c.result,'fail');assert.equal(c.zeroBuy,true);assert.equal(c.lendingHigh20,null);
++  assert.equal(c.windows.d5.combinedShares,-4000);assert.equal(c.windows.d20.combinedShares,-16000);
++  assert.ok(c.basis.includes('-4張'));
++});
++
++test('chips: buying plus 21 aligned lending days without a new high passes; lending at a 20-day high fails',()=>{
++  const flows=Array.from({length:20},()=>[3000,500]);
++  const flat=Array.from({length:21},(_,i)=>i===5?9000:5000);
++  assert.equal(threeQuestions(makeStock({closes:rising(80),flows,lending:flat})).questions.chips.result,'pass');
++  const high=Array.from({length:21},(_,i)=>5000+i);
++  const c=threeQuestions(makeStock({closes:rising(80),flows,lending:high})).questions.chips;
++  assert.equal(c.result,'fail');assert.equal(c.lendingHigh20,true);
++});
++
++test('chips: buying but short lending history stays insufficient, never assumed safe',()=>{
++  const flows=Array.from({length:20},()=>[3000,500]);
++  const c=threeQuestions(makeStock({closes:rising(80),flows,lending:[5000,5100,5200]})).questions.chips;
++  assert.equal(c.result,'insufficient');assert.equal(c.lendingObservations,3);
++});
++
++test('chips: institutional dates that do not match price dates are not used',()=>{
++  const s=makeStock({closes:rising(80),flows:Array.from({length:12},()=>[-1000,0])});
++  s.marketActivity.institutionalHistory=s.marketActivity.institutionalHistory.map(r=>({...r,date:'2026-01-0'+(1+Number(r.date.slice(-1))%9)}));
++  const c=threeQuestions(s).questions.chips;
++  assert.equal(c.windows.d5,null);assert.equal(c.result,'insufficient');
++});
++
++test('fundamental: negative YoY fails, positive passes, missing base month or future publication is excluded',()=>{
++  const closes=rising(80),asOf=sessions(80).at(-1);
++  const base=[[2025,7,100],[2026,7,90]];
++  assert.equal(threeQuestions(makeStock({closes,revenue:rev(base)})).questions.fundamental.result,'fail');
++  assert.equal(threeQuestions(makeStock({closes,revenue:rev([[2025,7,100],[2026,7,130]])})).questions.fundamental.result,'pass');
++  assert.equal(threeQuestions(makeStock({closes,revenue:rev([[2026,7,130]])})).questions.fundamental.result,'insufficient');
++  const future=rev([[2025,7,100],[2026,7,130],[2025,8,100],[2026,8,50,'2099-01-01']]);
++  const f=threeQuestions(makeStock({closes,revenue:future})).questions.fundamental;
++  assert.equal(f.period,'2026-07');assert.equal(f.result,'pass');assert.equal(f.guidanceChecked,false);
++  assert.ok(asOf>='2026-08-01');
++});
++
++test('panels carry the three questions with zero score contribution and the page shows them',()=>{
++  const stock=makeStock({closes:[...rising(70),...Array.from({length:8},(_,i)=>120-i*3)],flows:Array.from({length:20},()=>[-1000,0]),revenue:rev([[2025,7,100],[2026,7,130]])});
++  const panels=buildStockPanels(stock);
++  assert.equal(panels.threeQuestions.scoreContribution,0);assert.equal(panels.activeScoreContribution,0);
++  assert.equal(panels.threeQuestions.summary,'技術不過｜籌碼不過｜基本過');
++  class Element{constructor(){this.children=[];this.style={};this.attributes={};this.hidden=false;}append(...x){this.children.push(...x);}replaceChildren(...x){this.children=x;this.text='';}set textContent(v){this.text=String(v);this.children=[];}get textContent(){return (this.text||'')+this.children.map(x=>x.textContent||String(x)).join(' ');}setAttribute(k,v){this.attributes[k]=v;}}
++  const host=new Element(),context=vm.createContext({document:{getElementById:()=>host,createElement:()=>new Element()},console});
++  vm.runInContext(readFileSync(new URL('../worker/panel-display.js',import.meta.url),'utf8'),context);
++  context.model={symbol:'9999',report:{advisoryPanels:panels}};vm.runInContext('renderAdvisoryPanels(model)',context);
++  for(const label of ['汰弱留強三問','技術：不過','籌碼：不過','基本：過','只顯示，不改評級','資料不足不當成過'])assert.ok(host.textContent.includes(label),label);
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index ad0d5d0..4452a0d 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -470,6 +470,7 @@ async function buildTaiwanStockSnapshot(id, env = {}) {
+   const marketActivity={date:institutionalHistory.at(-1)?.date||latestMargin?.date||null,
+     institutional5dNet:fiveInstitutional.length===5?fiveInstitutional.reduce((sum,x)=>sum+x.net,0):null,
+     institutionalDaily:institutionalHistory.at(-1)||null,institutional5dObservations:fiveInstitutional.length,
++    institutionalHistory:institutionalHistory.slice(-30),
+     marginBalance:finiteNumber(latestMargin?.MarginPurchaseTodayBalance)?Number(latestMargin.MarginPurchaseTodayBalance):null,
+     marginChange:finiteNumber(latestMargin?.MarginPurchaseTodayBalance)&&finiteNumber(latestMargin?.MarginPurchaseYesterdayBalance)?Number(latestMargin.MarginPurchaseTodayBalance)-Number(latestMargin.MarginPurchaseYesterdayBalance):null,
+     shortBalance:finiteNumber(latestMargin?.ShortSaleTodayBalance)?Number(latestMargin.ShortSaleTodayBalance):null,
+diff --git a/worker/panel-calculations.mjs b/worker/panel-calculations.mjs
+index c6156cf..3f4fad3 100644
+--- a/worker/panel-calculations.mjs
++++ b/worker/panel-calculations.mjs
+@@ -64,6 +64,50 @@ export function mapIndustry(issuer,{asOf='9999-12-31'}={}){
+   if(code==='31'&&!hasBusiness)sector=null; // Other-electronics includes engineering; do not silently map a known mixed category to technology.
+   return {status:sector?'ok':'ambiguous',sector,industryCode:code,industry:issuer.industryName||code,date:issuer.date,sourceUrl:issuer.sourceUrl,businessEvidence:hasBusiness?business:null,reason:sector?null:'MIXED_OR_AMBIGUOUS_OFFICIAL_INDUSTRY',draft:true,scoreContribution:0};
+ }
++const QUESTION_LABEL=Object.freeze({pass:'過',fail:'不過',insufficient:'資料不足'});
++const lots=x=>{const v=Math.round(x/1000);return (v>0?'+':'')+v.toLocaleString('en-US')+'張';};
++const fixed=x=>Number.isFinite(x)?x.toFixed(2):'缺值';
++/** 汰弱留強三問（擁有者原型）。只顯示，scoreContribution 恆為 0；任何一題缺資料就標資料不足，不當成過。 */
++export function threeQuestions(stock,{asOf=stock?.price?.date}={}){
++  asOf=day(asOf)?asOf:'0000-01-01';
++  const closes=series(stock?.priceHistory||[],'close',asOf).filter(r=>r.value>0),n=closes.length,priceDates=closes.map(r=>r.date);
++  const aligned=stock?.technical?.historyState!=='UNKNOWN'&&closes.at(-1)?.date===asOf;
++  // 1. 技術：收盤連續超過 5 個交易日低於 60 日線，且 60 日線比前一日低 → 不過。
++  let technical;
++  if(!aligned)technical={result:'insufficient',reason:'PRICE_HISTORY_NOT_ALIGNED',basis:'股價歷史與基準日不一致'};
++  else if(n<66)technical={result:'insufficient',reason:'REQUIRE_66_OBSERVED_SESSIONS',observations:n,basis:`股價歷史 ${n}/66 筆，不足以判斷`};
++  else{
++    const ma60=i=>mean(closes.slice(i-59,i+1).map(r=>r.value)),today=ma60(n-1),previous=ma60(n-2),falling=today<previous;
++    let days=0,i=n-1;while(i>=59&&closes[i].value<ma60(i)){days++;i--;}
++    const truncated=i<59,fail=days>5&&falling;
++    technical={result:fail?'fail':'pass',date:asOf,close:closes[n-1].value,ma60:today,ma60Previous:previous,ma60Falling:falling,daysBelowMa60:days,daysBelowTruncated:truncated,
++      basis:`收盤 ${fixed(closes[n-1].value)}／60日線 ${fixed(today)}（前一日 ${fixed(previous)}，${falling?'下彎':'未下彎'}）；連續 ${days}${truncated?'+':''} 個交易日收在60日線下｜${asOf}`};
++  }
++  // 2. 籌碼：外資＋投信 5 日與 10 日合計都 ≤ 0（零買盤），或借券賣出餘額創 20 個交易日新高 → 不過。
++  const flows=[...new Map((stock?.marketActivity?.institutionalHistory||[]).filter(r=>day(r?.date)&&r.date<=asOf&&Number.isFinite(r.foreign)&&Number.isFinite(r.trust)).map(r=>[r.date,r])).values()].sort((a,b)=>a.date.localeCompare(b.date));
++  const flowWindow=k=>{const f=flows.slice(-k),d=priceDates.slice(-k);if(!aligned||f.length<k||d.length<k||f.some((r,j)=>r.date!==d[j]))return null;const foreign=f.reduce((t,r)=>t+r.foreign,0),trust=f.reduce((t,r)=>t+r.trust,0);return {sessions:k,foreignShares:foreign,trustShares:trust,combinedShares:foreign+trust,from:f[0].date,to:f.at(-1).date};};
++  const w5=flowWindow(5),w10=flowWindow(10),w20=flowWindow(20),zeroBuy=w5&&w10?w5.combinedShares<=0&&w10.combinedShares<=0:null;
++  const lending=stock?.panelInputs?.lending,history=[...new Map((lending?.history||[]).filter(r=>day(r?.date)&&r.date<=asOf&&Number.isFinite(r.balanceShares)).map(r=>[r.date,r])).values()].sort((a,b)=>a.date.localeCompare(b.date));
++  const recent=history.slice(-21),recentDates=priceDates.slice(-21);
++  const lendingReady=aligned&&recent.length===21&&recentDates.length===21&&recent.every((r,j)=>r.date===recentDates[j]);
++  const lendingHigh=lendingReady?recent[20].balanceShares>Math.max(...recent.slice(0,20).map(r=>r.balanceShares)):null;
++  const chipsResult=zeroBuy===true||lendingHigh===true?'fail':zeroBuy===false&&lendingHigh===false?'pass':'insufficient';
++  const flowText=w5&&w10?`外資＋投信 5日 ${lots(w5.combinedShares)}、10日 ${lots(w10.combinedShares)}${w20?`、20日 ${lots(w20.combinedShares)}`:''}`:`法人資料與股價日期未對齊或不足（${flows.length}筆）`;
++  const lendText=lendingHigh===null?`借券賣出餘額 ${history.length}/21 筆，尚不能判斷20日新高`:`借券賣出餘額${lendingHigh?'創':'未創'}20日新高`;
++  const chips={result:chipsResult,date:asOf,windows:{d5:w5,d10:w10,d20:w20},zeroBuy,lendingHigh20:lendingHigh,lendingObservations:history.length,basis:`${flowText}；${lendText}｜${asOf}`};
++  // 3. 基本：最新月營收年增率 < 0 → 不過。法說展望下修尚未有結構化資料，只依月營收，並明示。
++  const revenue=new Map();
++  for(const r of stock?.panelInputs?.revenueHistory||[]){const y=Number(r.revenue_year),m=Number(r.revenue_month),v=number(r.revenue);if(!Number.isInteger(y)||!Number.isInteger(m)||m<1||m>12||v===null)continue;if(day(r.create_time)&&r.create_time>asOf)continue;if(`${y}-${String(m).padStart(2,'0')}`>asOf.slice(0,7))continue;revenue.set(y*12+m-1,{period:`${y}-${String(m).padStart(2,'0')}`,value:v});}
++  const lastKey=[...revenue.keys()].sort((a,b)=>a-b).at(-1),latest=revenue.get(lastKey),base=lastKey===undefined?null:revenue.get(lastKey-12);
++  const yoy=latest&&base?.value>0?(latest.value/base.value-1)*100:null;
++  const fundamental=yoy===null?{result:'insufficient',reason:latest?'SAME_MONTH_LAST_YEAR_MISSING':'MONTHLY_REVENUE_NOT_CONNECTED',basis:'月營收或去年同月資料不足'}:{result:yoy<0?'fail':'pass',period:latest.period,yoyPct:yoy,guidanceChecked:false,basis:`${latest.period} 月營收年增 ${fixed(yoy)}%；法說展望下修尚未自動判讀，只依月營收`};
++  const questions={technical,chips,fundamental},results=Object.values(questions).map(q=>q.result);
++  return {version:'three-questions-v1',asOf,draft:true,scoreContribution:0,questions,
++    summary:`技術${QUESTION_LABEL[technical.result]}｜籌碼${QUESTION_LABEL[chips.result]}｜基本${QUESTION_LABEL[fundamental.result]}`,
++    counts:{pass:results.filter(x=>x==='pass').length,fail:results.filter(x=>x==='fail').length,insufficient:results.filter(x=>x==='insufficient').length},
++    rules:{technical:'收盤連續超過5個交易日低於60日線，且60日線下彎 → 不過',chips:'外資＋投信5日與10日合計都≤0，或借券賣出餘額創20個交易日新高 → 不過',fundamental:'最新月營收年增率<0 → 不過（法說下修待自動化）'},
++    note:'擁有者原型「汰弱留強三問」；門檻未回測，只顯示，不改評級、Gate 或風險預算；資料不足不當成過。'};
++}
+ export function buildStockPanels(stock,marketRows=[],sectorContext=null,{asOf=stock.price?.date}={}){
+   asOf=day(asOf)?asOf:'0000-01-01';
+   const inputs=stock.panelInputs||{},ma=movingAverageStrength(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),mapping=mapIndustry(inputs.issuer,{asOf});
+@@ -71,5 +115,5 @@ export function buildStockPanels(stock,marketRows=[],sectorContext=null,{asOf=st
+   const available=r=>r&&['ok','snapshot'].includes(r.status)&&!r.is_stale&&day(r.date)&&r.date<=asOf;
+   const axis=r=>available(r)&&r.history?.at(-1)?.date===r.date?{...zeroAxis(r.history,{id:r.id,asOf}),source:r.source,sourceDate:r.date}:missing('SOURCE_MISSING_STALE_OR_NOT_ALIGNED',{id:r?.id||null});
+   const sector=mapping.sector?sectorContext?.sectors?.[mapping.sector]:null;
+-  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:axis(dxy),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0}};
++  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:axis(dxy),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:threeQuestions(stock,{asOf})};
+ }
+diff --git a/worker/panel-display.js b/worker/panel-display.js
+index e4e11dd..e7b82b9 100644
+--- a/worker/panel-display.js
++++ b/worker/panel-display.js
+@@ -16,6 +16,7 @@ function renderAdvisoryPanels(model){
+  const title=document.createElement('h4');title.textContent='補充觀測｜計算已接入，評分門檻為草案';host.append(title);
+  const note=document.createElement('p');note.className='tiny';note.textContent=`${model.symbol||''}｜台股基準 ${p.asOf||'缺值'}。新增觀測不改既有總分、Gate 或風險預算；缺資料保留缺項。`;host.append(note);
+  if(model.report?.advisoryDecision)renderAdvisoryDecision(host,model.report.advisoryDecision);
++ if(p.threeQuestions)renderThreeQuestions(host,p.threeQuestions);
+  const observations=document.createElement('details'),openLabel=document.createElement('summary');openLabel.textContent='展開補充觀測與計算';observations.append(openLabel);host.append(observations);
+  const grid=document.createElement('div');grid.className='advisory-grid';observations.append(grid);
+  const show=x=>Number.isFinite(x)?x.toFixed(2):'缺值';
+@@ -33,6 +34,14 @@ function renderAdvisoryPanels(model){
+  if(breadth){const s=breadth.sectorBreadth,g=breadth.globalBreadth;card('美股與全球寬度',`美股類股 ${s.above}/${s.coverage} 在200日線上（涵蓋${s.coverage}/11）；全球 ${g.spyAvailable?`${g.above}/${g.coverage}`:'SPY缺值，不算比例'}（涵蓋${g.coverage}/10）；RSP/SPY20日 ${show(breadth.equalWeightRatio20d)}%`,`Tiingo adjClose；每市場一票；全球缺${g.missing.join('、')||'無'}；非S&P500成分股廣度。`);}
+  const gold=p.goldZeroAxis||{};card('黃金背景參考',`金價零軸 ${show(gold.value)}｜5交易日前 ${show(gold.previous5?.value)}；不計分`,`${gold.date||'日期缺值'}；${gold.source||gold.reason||'缺值'}。`);
+ }
++function renderThreeQuestions(host,tq){
++ const box=document.createElement('section');box.className='advisory-decision';
++ const title=document.createElement('b');title.textContent='汰弱留強三問｜只顯示，不改評級';box.append(title);
++ const label={pass:'過',fail:'不過',insufficient:'資料不足'};
++ for(const [key,name] of [['technical','技術'],['chips','籌碼'],['fundamental','基本']]){const q=tq.questions?.[key]||{};const row=document.createElement('p');row.textContent=`${name}：${label[q.result]||'資料不足'}｜${q.basis||q.reason||'缺值'}`;box.append(row);}
++ const rules=document.createElement('p');rules.className='tiny';rules.textContent='規則：'+[tq.rules?.technical,tq.rules?.chips,tq.rules?.fundamental].filter(Boolean).join('；');box.append(rules);
++ const note=document.createElement('p');note.className='tiny';note.textContent=tq.note||'';box.append(note);host.append(box);
++}
+ function renderAdvisoryDecision(host,decision){
+  const box=document.createElement('section');box.className='advisory-decision';
+  const divergence=decision.valuationDivergence;

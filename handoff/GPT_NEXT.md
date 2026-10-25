@@ -1,12 +1,17 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-25 20:10 台北（Claude）
+更新：2026-10-25 21:00 台北（Claude）
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
 
-## 現在：**GPT 沒有工作**。等 Claude 用來源 zip 寫好下一個 patch 後更新本檔。
-- 待說明（只寫名稱、不要寫值）：10/25 工具事故裡印出的「服務憑證」是哪一把（例如 Sites 部署、資料匯入、FinMind、Tiingo、Gemini 金鑰），擁有者是否能自行重新產生。
+## 現在：上線「汰弱留強三問」（Claude 寫好、測完；**等擁有者說「授權」才部署**）
+- Patch：`handoff/patches/three-questions-v1.patch`（SHA-256 `72d083cf…f499`）。基線＝v234 來源 commit faf5eb7（488b8bc＋final.patch）。
+- 內容：`worker/panel-calculations.mjs` 新增 `threeQuestions()` 並放進 `buildStockPanels` 的 `threeQuestions` 欄；`worker/macro.js` 的 marketActivity 多帶 `institutionalHistory`（最近 30 筆，FinMind 原資料）；`worker/panel-display.js` 在綜合觀察下方顯示三問；新增 `tests/three-questions.test.mjs`（8 項）並加入 `npm test`。`scoreContribution=0`，不改評級／Gate／風險預算。
+- 步驟：`git apply three-questions-v1.patch`（patch 不含 dist/server/index.js）→ `node build.mjs` → `TZ=UTC npm test` → 部署；v234 留回滾。
+- Claude 已在乾淨 v234 重放：套用無衝突，build 後 `dist/index.html` SHA-256 `8c513858…f982`，完整 `npm test` exit 0（新增三問 8/8）。你那邊 build 出的 HTML 應相同。
+- 部署後只讀回：四檔各自的三問結果與依據文字（技術／籌碼／基本），以及 `scoreContribution=0`、四檔評級與 Gate 不變。借券賣出歷史目前不足 21 筆時，籌碼題顯示「資料不足」是正常的。
+- 待說明（只寫名稱）：10/25 工具事故印出的是哪一把憑證。
 
 ## 已完成：來源 zip（taiwan-master-v233-488b8bc-source.zip，SHA-256 0a49b604…7673，私下交付擁有者）
 （以下為當時要求，保留供對照）
@@ -22,7 +27,7 @@
 
 ## 之後的排隊——**由 Claude 寫程式，GPT 不要自行開始**（Claude 拿到來源 zip 後逐項寫好、測完，放 patch 並更新本檔，GPT 只套用與上線）
 **通則：新資料一律做成網站自動抓取、任何代號通用；Claude 或 Gemini 查到的數字只當驗收對照，不寫進網站。**
-1. 汰弱留強三問（規格見 CLAUDE_TO_GPT_LATEST.md「2026-10-25 14:50」第 1 點，只讀那一段）。
+1. ~~汰弱留強三問~~ → 已寫好，見上方「現在」。
 2. 免費資料缺項，一次一個：法人 10／20 日 → 殖利率 → RSI → Beta → 集保大戶 → 大盤融資維持率。
 3. Gate 4 可轉債——**網站自動查詢帶入，任何代號通用**（擁有者 10-25 15:06：要未來自動查詢帶入，不是靠 Claude 搜尋帶入）：
    - 每次巡檢與切換個股時，自動抓櫃買 OpenAPI `bond_ISSBD5_data`（國內）、`bond_ISSBD6_data`（海外），用 IssuerCode 篩出該股所有流通中可轉債；上市、上櫃股票都適用。
