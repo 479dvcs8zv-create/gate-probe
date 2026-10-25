@@ -1,0 +1,27 @@
+HTTP/2 200 
+server: nginx
+content-type: text/csv; charset=UTF-8
+content-disposition: attachment; filename="daily-treasury-rates.csv"
+x-drupal-dynamic-cache: MISS
+content-language: en
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-generator: Drupal 10 (https://www.drupal.org)
+x-consumer-id: 80207b28-62b4-4a7d-afdb-1de0d8bd4355
+access-control-allow-origin: *
+p3p: CP="ALL DSP COR CUR ADM TAI OUR IND COM NAV INT"
+x-drupal-cache: HIT
+x-request-id: v-dad12c70-d089-11f1-8594-b39cfec4fa7a
+x-ah-environment: prod
+x-age: 0
+cache-control: private, no-cache, must-revalidate
+expires: Sun, 25 Oct 2026 15:36:32 GMT
+date: Sun, 25 Oct 2026 15:36:32 GMT
+content-length: 16638
+server-timing: cdn-cache; desc=REVALIDATE
+server-timing: edge; dur=28
+server-timing: origin; dur=153
+alt-svc: h3=":443"; ma=93600
+strict-transport-security: max-age=31536000 ; includeSubDomains ; preload
+server-timing: ak_p; desc="1792942592485_388943952_3358515121_18105_8025_4_0_15";dur=1
+

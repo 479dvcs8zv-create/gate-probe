@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Date: Sun, 25 Oct 2026 15:36:35 GMT
+Content-Type: text/csv
+Content-Length: 13395900
+Connection: keep-alive
+Server: Apache
+Last-Modified: Sat, 24 Oct 2026 19:50:58 GMT
+ETag: "cc67bc-65e9b6a64f2c6"
+Accept-Ranges: bytes
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+

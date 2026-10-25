@@ -1,0 +1,26 @@
+HTTP/1.1 302 
+Set-Cookie: originalReferer=http%3A%2F%2Fapi.census.gov%2Fdata%2Ftimeseries%2Feits%2Fmarts%3Fget%3Dcell_value%2Cdata_type_code%2Ccategory_code%2Cseasonally_adj%2Ctime_slot_id%26for%3Dus%3A*%26time%3Dfrom%2B2005-01; Path=/; Secure
+X-DataWebAPI-KeyError: 1
+Location: https://api.census.gov/data/missing_key.html
+Content-Length: 0
+Date: Sun, 25 Oct 2026 15:36:25 GMT
+Strict-Transport-Security: max-age=31536000
+Set-Cookie: TS010383f0=01283c52a45c342ebe6fd22cb8ab6b874207dc0d7265a9d730709652aad05c2d11f2c35aef525eeca09d208d486c9bcbc97910c776; Path=/; Domain=.api.census.gov; Secure; HttpOnly
+
+HTTP/1.1 200 
+Cache-Control: private
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,OPTIONS
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
+Referrer-Policy: same-origin
+Content-Security-Policy: default-src 'self'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; upgrade-insecure-requests; block-all-mixed-content
+X-Content-Type-Options: nosniff
+Accept-Ranges: bytes
+ETag: W/"8531-1785258964369"
+Last-Modified: Tue, 28 Jul 2026 17:16:04 GMT
+Content-Type: text/html
+Content-Length: 8531
+Date: Sun, 25 Oct 2026 15:36:25 GMT
+Strict-Transport-Security: max-age=31536000
+Set-Cookie: TS010383f0=01283c52a47e0ca691e5e5f08545967aa9a6ac2b3f36ca1bcc1ae556f00c35463b3aa29d8a3cafb3566148cdaf95b146edade73d70; Path=/; Domain=.api.census.gov; Secure; HttpOnly
+
