@@ -1,5 +1,5 @@
 diff --git a/build.mjs b/build.mjs
-index 0d2a6b8..1539d7c 100644
+index 0d2a6b8..b1f265a 100644
 --- a/build.mjs
 +++ b/build.mjs
 @@ -30,7 +30,7 @@ const tiingoMarket=`const TIINGO_MARKET=(()=>{${readFileSync(new URL('./worker/t
@@ -7,18 +7,23 @@ index 0d2a6b8..1539d7c 100644
  const tiingoSite=readFileSync(new URL('./worker/tiingo-site.js',import.meta.url),'utf8');
  const panelCalculations=`const PANEL_CALCULATIONS=(()=>{${readFileSync(new URL('./worker/panel-calculations.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildStockPanels};})();`;
 -const panelSources=`const PANEL_SOURCES=(()=>{${readFileSync(new URL('./worker/panel-sources.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {officialDay,collectLending,selectAndSaveLending,collectCbRegistry};})();\n${readFileSync(new URL('./worker/panel-site.js',import.meta.url),'utf8')}`;
-+const panelSources=`const PANEL_SOURCES=(()=>{${readFileSync(new URL('./worker/panel-sources.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {officialDay,collectLending,selectAndSaveLending,collectCbRegistry,collectTdccHolders,selectAndSaveHolders,collectMarginMaintenance};})();\n${readFileSync(new URL('./worker/panel-site.js',import.meta.url),'utf8')}`;
++const panelSources=`const PANEL_SOURCES=(()=>{${readFileSync(new URL('./worker/panel-sources.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {officialDay,collectLending,selectAndSaveLending,collectCbRegistry,collectCbMonthly,collectTdccHolders,selectAndSaveHolders,collectMarginMaintenance};})();\n${readFileSync(new URL('./worker/panel-site.js',import.meta.url),'utf8')}`;
  const advisoryDecision=`const ADVISORY_DECISION=(()=>{${readFileSync(new URL('./worker/advisory-decision.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildAdvisoryDecision};})();`;
  const marketTimeline = readFileSync(new URL('./worker/market-timeline.js', import.meta.url), 'utf8');
  const masterEvidence = readFileSync(new URL('./worker/master-evidence.js', import.meta.url), 'utf8');
 diff --git a/dist/index.html b/dist/index.html
-index 77dd467..9e85500 100644
+index 77dd467..c55d5ab 100644
 --- a/dist/index.html
 +++ b/dist/index.html
-@@ -947,6 +947,14 @@ function renderAdvisoryPanels(model){
-  const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
+@@ -944,9 +944,17 @@ function renderAdvisoryPanels(model){
+  const eps=p.quarterEps||{};card('季 EPS 創高',`${eps.newHigh===true?'觀測區間創高':eps.newHigh===false?'未創觀測區間新高':'資料不足'}｜${eps.date||'期別缺值'} EPS ${show(eps.value)}`,`${eps.observations||0}季；${eps.source||eps.reason||''}；單季、已調整股數口徑，不代表季度共識。`);
+  const lend=p.lending||{};card('借券賣出餘額',`${lend.status==='ok'?Number(lend.balanceShares).toLocaleString('zh-TW')+' 股':'待確認'}｜占同日發行股數 ${show(lend.balanceRatioPct)}%`,`${lend.date||'日期缺值'}；${lend.market||''}；${lend.history?.length||0}筆已保存日資料；${lend.sourceUrl||lend.reason||''}${lend.ratioReason?'；'+lend.ratioReason:''}`);
+  const cb=p.convertibleBonds||{};{const fmt=(x,d=0)=>Number.isFinite(x)?x.toLocaleString('zh-TW',{maximumFractionDigits:d}):'缺值';
+- const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
++ const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜${b.conversionPriceBasis==='MOPS_MONTHLY'?`目前轉換價 ${fmt(b.conversionPriceCurrent,2)}（觀測站 ${b.conversionPriceMonth} 月報${b.conversionResetDate?`，${b.conversionResetDate} 重設`:''}；發行時 ${fmt(b.conversionPriceAtIssue,2)}）`:`發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}（未含後續調整）`}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
   const body=cb.status==='failed'||cb.status==='insufficient'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
-  card('可轉債（櫃買自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
+- card('可轉債（櫃買自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
++ card('可轉債（櫃買＋觀測站自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6＋觀測站轉換變動月報（${cb.monthly?.month||'未取得'}${cb.monthly?.status==='snapshot'?'，沿用':''}${cb.monthly&&!['ok','snapshot'].includes(cb.monthly.status)?'：'+(cb.monthly.reason||'失敗'):''}）${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
 + const pctText=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';
 + const tqw=p.threeQuestions?.questions?.chips?.windows||{},lotsText=x=>Number.isFinite(x)?(x>0?'+':'')+Math.round(x/1000).toLocaleString('zh-TW')+'張':'缺值';
 + card('法人買賣超 5／10／20日',['d5','d10','d20'].map(k=>{const w=tqw[k];return `${k.slice(1)}日 外資 ${lotsText(w?.foreignShares)}、投信 ${lotsText(w?.trustShares)}`;}).join('；'),'FinMind 三大法人日資料；日期須與股價日期逐日對齊，不足就標缺值。');
@@ -64,8 +69,19 @@ index f70c063..caec829 100644
    },
    "devDependencies": {
      "drizzle-kit": "0.31.10",
+diff --git a/tests/convertible-bonds.test.mjs b/tests/convertible-bonds.test.mjs
+index 7ca812c..f6112f8 100644
+--- a/tests/convertible-bonds.test.mjs
++++ b/tests/convertible-bonds.test.mjs
+@@ -66,5 +66,5 @@ test('panels carry CB data and the page shows it without changing any score',()=
+   const host=new Element(),context=vm.createContext({document:{getElementById:()=>host,createElement:()=>new Element()},console});
+   vm.runInContext(readFileSync(new URL('../worker/panel-display.js',import.meta.url),'utf8'),context);
+   context.model={symbol:'8299',report:{advisoryPanels:panels}};vm.runInContext('renderAdvisoryPanels(model)',context);
+-  for(const label of ['可轉債（櫃買自動）','群聯三','價外','發行時轉換價','可能有遺漏'])assert.ok(host.textContent.includes(label),label);
++  for(const label of ['可轉債（櫃買＋觀測站自動）','群聯三','價外','發行時轉換價','可能有遺漏'])assert.ok(host.textContent.includes(label),label);
+ });
 diff --git a/tests/financial-analysis.test.mjs b/tests/financial-analysis.test.mjs
-index 3dfe79f..892df6c 100644
+index 3dfe79f..8a64864 100644
 --- a/tests/financial-analysis.test.mjs
 +++ b/tests/financial-analysis.test.mjs
 @@ -21,7 +21,7 @@ globalThis.fetch = async input => {
@@ -73,22 +89,23 @@ index 3dfe79f..892df6c 100644
   if(url.hostname==='doc.twse.com.tw'){filingLookups++;return new Response('<html>No PDF listed</html>',{status:200,headers:{'content-type':'text/html'}});}
   if(url.href==='https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/exports/gate5b/latest.json')return new Response('',{status:503});
 - const official=url.href==='https://openapi.twse.com.tw/v1/opendata/t187ap03_L'||url.href==='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv'||url.href==='https://www.tpex.org.tw/openapi/v1/tpex_margin_sbl'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/TWT93U';
-+ const official=url.href==='https://openapi.twse.com.tw/v1/opendata/t187ap03_L'||url.href==='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv'||url.href==='https://www.tpex.org.tw/openapi/v1/tpex_margin_sbl'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data'||url.href==='https://opendata.tdcc.com.tw/getOD.ashx?id=1-5'||url.href==='https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/MI_MARGN'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/TWT93U';
++ const official=url.href==='https://openapi.twse.com.tw/v1/opendata/t187ap03_L'||url.href==='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv'||url.href==='https://www.tpex.org.tw/openapi/v1/tpex_margin_sbl'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data'||url.href==='https://opendata.tdcc.com.tw/getOD.ashx?id=1-5'||url.href==='https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/MI_MARGN'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/TWT93U'||url.href==='https://www.tpex.org.tw/www/zh-tw/bond/cbnote?response=json'||url.hostname==='mopsov.twse.com.tw'&&/^\/nas\/t120\/CBTRN\d{6}\.htm$/.test(url.pathname);
   if(official){officialDataCalls++;return url.pathname.endsWith('.csv')?new Response('公司代號,產業別,已發行普通股數或TDR原股發行股數\n'):Response.json([]);}
   providerCalls++;throw Error('Unexpected external provider');
  };
 diff --git a/tests/owner-bundle2.test.mjs b/tests/owner-bundle2.test.mjs
 new file mode 100644
-index 0000000..f2a9ab3
+index 0000000..1634a2e
 --- /dev/null
 +++ b/tests/owner-bundle2.test.mjs
-@@ -0,0 +1,94 @@
+@@ -0,0 +1,134 @@
 +import test from 'node:test';
 +import assert from 'node:assert/strict';
 +import {readFileSync} from 'node:fs';
 +import vm from 'node:vm';
 +import {dividendYieldBand,rsi14,betaVsTaiex,largeHolders,buildStockPanels} from '../worker/panel-calculations.mjs';
-+import {parseTdccHolders,selectAndSaveHolders,computeMarginMaintenance,collectMarginMaintenance,TWSE_STOCK_DAY_ALL_URL} from '../worker/panel-sources.mjs';
++import {parseTdccHolders,selectAndSaveHolders,computeMarginMaintenance,collectMarginMaintenance,TWSE_STOCK_DAY_ALL_URL,latestCbMonthlyFile,parseCbMonthly,collectCbMonthly,big5Subset,TPEX_CB_MONTHLY_INDEX_URL} from '../worker/panel-sources.mjs';
++import {convertibleBonds} from '../worker/panel-calculations.mjs';
 +
 +const days=(n,start='2025-06-02')=>{const out=[],d=new Date(start+'T00:00:00Z');while(out.length<n){const w=d.getUTCDay();if(w&&w!==6)out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;};
 +const memory=()=>{const store=new Map();return {read:async k=>store.has(k)?{fresh:true,payload:store.get(k)}:null,write:async(k,v)=>{store.set(k,v);return true;},store};};
@@ -177,6 +194,45 @@ index 0000000..f2a9ab3
 +  const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
 +  assert.match(html,/金價漲跌｜交叉確認/);assert.match(html,/金價漲跌 1日 \$\{goldPct\(metals\.ratio\?\.goldChange1d\)\}｜5日/);
 +});
++
++// Excerpt (3 rows, original Big5 bytes) of the MOPS monthly file CBTRN202609.htm fetched 2026-10-25, and the TPEx cbnote index that links it.
++const CBTRN=Buffer.from('PGh0bWw+CjxoZWFkPgo8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDtjaGFyc2V0PWJpZzUiPgo8L2hlYWQ+Cjxib2R5IGJhY2tncm91bmQ9Jy9pbWFnZS90NTZzZjAxLmpwZyc+PGNlbnRlcj4KPGgyIGFsaWduPSdjZW50ZXInPjxmb250IGNvbG9yPSdibHVlJz7C4LSrpL2lcbbFwuC0q8XcsMqxoafOpEDE/artPC9mb250PjwvaDI+CjxiPrjqrsamfqTroUc8L2I+MTE1pn45pOs8YnI+Cjx0YWJsZSBib3JkZXI9JzEnPgo8dHI+PHRoPqS9pXGlTri5PGJyPqZXutk8L3RoPjx0aD7D0qjppU64uTxicj7CsrrZPC90aD48dGg+pbuk67ZSpl6xabzGPC90aD48dGg+pbuk68LgtKuxabzGPC90aD48dGg+wuAopeYptKupzrt7qtG7+a7mKKS4KTwvdGg+PHRoPq2rs12k6bTBPC90aD48dGg+tsWo6cLgKKXmKbSrqc67e8HKtLazcarRPC90aD48L3RyPgo8dHI+PHRkPjExMDE8YnI+pXiqZDwvdGQ+PHRkPjExMDExPGJyPqV4qmSkQKXDPC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4wPC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4wPC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4zNC4wMDwvdGQ+PHRkIGFsaWduPSdjZW50ZXInPjExNS8wNy8wNzwvdGQ+PHRkIGFsaWduPSdyaWdodCc+MDwvdGQ+PC90cj4KPHRyPjx0ZD4zMDI4PGJyPrxXp0GxajwvdGQ+PHRkPjMwMjg2PGJyPrxXp0GxaqS7PC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4wPC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4wPC90ZD48dGQ+Jm5ic3A7PC90ZD48dGQ+Jm5ic3A7PC90ZD48dGQgYWxpZ249J3JpZ2h0Jz4wPC90ZD48L3RyPgo8dHI+PHRkPjgyOTk8YnI+uHPBcDwvdGQ+PHRkPjgyOTkzPGJyPrhzwXCkVDwvdGQ+PHRkIGFsaWduPSdyaWdodCc+MDwvdGQ+PHRkIGFsaWduPSdyaWdodCc+MDwvdGQ+PHRkIGFsaWduPSdyaWdodCc+Miw0NjguODA8L3RkPjx0ZCBhbGlnbj0nY2VudGVyJz4xMTUvMDcvMDY8L3RkPjx0ZCBhbGlnbj0ncmlnaHQnPjA8L3RkPjwvdHI+CjwvdGFibGU+PC9ib2R5PjwvaHRtbD4K','base64');
++const CBNOTE={tables:[{title:'轉(交)換債轉換暨累計彙總表',fields:['資料日期','轉(交)換債轉換暨累計彙總表'],data:[['115/08','https://mopsov.twse.com.tw/nas/t120/CBTRN202608.htm'],['115/09','https://mopsov.twse.com.tw/nas/t120/CBTRN202609.htm']]}],stat:'ok'};
++
++test('current conversion price: newest monthly file is chosen, Big5 parsed, blanks stay missing, wrong month refused',async()=>{
++  assert.deepEqual(latestCbMonthlyFile(CBNOTE),{url:'https://mopsov.twse.com.tw/nas/t120/CBTRN202609.htm',month:'2026-09'});
++  assert.throws(()=>latestCbMonthlyFile({stat:'ok',tables:[{data:[['115/09','https://evil.example/CBTRN202609.htm']]}]}),/NO_FILES/);
++  const text=big5Subset(CBTRN),parsed=parseCbMonthly(text,{month:'2026-09'});
++  assert.deepEqual(parseCbMonthly(new TextDecoder('big5').decode(CBTRN),{month:'2026-09'}),parsed,'subset decoder gives the same result as a full Big5 decoder');
++  assert.equal(parsed.month,'2026-09');assert.deepEqual(parsed.prices['82993'],{issuer:'8299',price:2468.8,resetDate:'2026-07-06'});
++  assert.deepEqual(parsed.prices['30286'],{issuer:'3028',price:null,resetDate:null});
++  assert.throws(()=>parseCbMonthly(text,{month:'2026-10'}),/MONTH_MISMATCH/);
++  const m=memory(),fetchImpl=async url=>url===TPEX_CB_MONTHLY_INDEX_URL?{ok:true,status:200,json:async()=>CBNOTE}:url.endsWith('CBTRN202609.htm')?{ok:true,status:200,arrayBuffer:async()=>CBTRN.buffer.slice(CBTRN.byteOffset,CBTRN.byteOffset+CBTRN.length)}:{ok:false,status:404};
++  const pool=await collectCbMonthly({read:m.read,write:m.write,fetchImpl,now:Date.parse('2026-10-25T12:00:00Z')});
++  assert.equal(pool.status,'ok');assert.equal(pool.prices['82993'].price,2468.8);assert.ok(m.store.has('panel:cb-monthly:v1:latest'));
++  const down=await collectCbMonthly({read:async()=>({fresh:false,payload:pool}),write:m.write,fetchImpl:async()=>({ok:false,status:503}),now:Date.parse('2026-10-26T12:00:00Z')});
++  assert.equal(down.status,'snapshot');assert.match(down.reason,/2026-09/);
++  const tooOld=await collectCbMonthly({read:async()=>({fresh:false,payload:pool}),write:m.write,fetchImpl:async()=>({ok:false,status:503}),now:Date.parse('2026-12-20T12:00:00Z')});
++  assert.equal(tooOld.status,'failed');
++});
++
++test('the CB card uses the monthly price for the TWD bond and keeps the issue price (labelled) for overseas bonds',()=>{
++  const reg={status:'ok',checkedAt:'2026-10-25T07:00:00Z',bonds:[
++    {issuer:'8299',id:'82993',name:'群聯三',kind:'domestic',currency:'TWD',outstandingFace:6000000000,conversionPriceAtIssue:2488,issueDate:'2026-02-06'},
++    {issuer:'8299',id:'XS3364922461',name:null,kind:'overseas',currency:'USD',outstandingFace:400000000,conversionPriceAtIssue:3418.75,issueDate:'2026-05-26'}],
++    monthly:{status:'ok',month:'2026-09',sourceUrl:'https://mopsov.twse.com.tw/nas/t120/CBTRN202609.htm',prices:{'82993':{issuer:'8299',price:2468.8,resetDate:'2026-07-06'}}}};
++  const cb=convertibleBonds(reg,{symbol:'8299',price:1880,priceDate:'2026-10-22',issuedShares:210000000});
++  const twd=cb.bonds.find(b=>b.id==='82993'),usd=cb.bonds.find(b=>b.currency==='USD');
++  assert.equal(twd.conversionPriceBasis,'MOPS_MONTHLY');assert.equal(twd.conversionPriceUsed,2468.8);assert.ok(Math.abs(twd.potentialShares-6000000000/2468.8)<1e-6);assert.equal(twd.inTheMoney,false);
++  assert.equal(usd.conversionPriceBasis,'AT_ISSUE');assert.equal(usd.conversionPriceUsed,3418.75);assert.equal(cb.scoreContribution,0);
++  const wrongIssuer=convertibleBonds({...reg,monthly:{...reg.monthly,prices:{'82993':{issuer:'9999',price:1,resetDate:null}}}},{symbol:'8299',price:1880});
++  assert.equal(wrongIssuer.bonds.find(b=>b.id==='82993').conversionPriceUsed,2488);
++  class Element{constructor(){this.children=[];this.style={};this.attributes={};this.hidden=false;}append(...x){this.children.push(...x);}replaceChildren(...x){this.children=x;this.text='';}set textContent(v){this.text=String(v);this.children=[];}get textContent(){return (this.text||'')+this.children.map(x=>x.textContent||String(x)).join(' ');}setAttribute(k,v){this.attributes[k]=v;}}
++  const host=new Element(),context=vm.createContext({document:{getElementById:()=>host,createElement:()=>new Element()},console});
++  vm.runInContext(readFileSync(new URL('../worker/panel-display.js',import.meta.url),'utf8'),context);
++  context.model={symbol:'8299',report:{advisoryPanels:{asOf:'2026-10-22',convertibleBonds:cb}}};vm.runInContext('renderAdvisoryPanels(model)',context);
++  for(const label of ['目前轉換價 2,468.8','2026-09 月報','2026-07-06 重設','發行時轉換價 3,418.75（未含後續調整）','觀測站轉換變動月報（2026-09）'])assert.ok(host.textContent.includes(label),label);
++});
 diff --git a/worker/macro.js b/worker/macro.js
 index 4452a0d..8ce7526 100644
 --- a/worker/macro.js
@@ -214,10 +270,34 @@ index e4791b4..f703821 100644
    if(ratio.status==='ok'&&trendGapsOk){
      const changes=last4.slice(1).map((x,i)=>x.ratio/last4[i].ratio-1),up=changes.every(x=>x>0),down=changes.every(x=>x<0);
 diff --git a/worker/panel-calculations.mjs b/worker/panel-calculations.mjs
-index 3bcb7eb..7539b11 100644
+index 3bcb7eb..9b19394 100644
 --- a/worker/panel-calculations.mjs
 +++ b/worker/panel-calculations.mjs
-@@ -135,12 +135,48 @@ export function dollarAxis(input,{asOf}={}){
+@@ -112,17 +112,20 @@ export function threeQuestions(stock,{asOf=stock?.price?.date}={}){
+ export function convertibleBonds(registry,{symbol,price=null,priceDate=null,issuedShares=null}={}){
+   if(!registry||!Array.isArray(registry.bonds))return missing('CB_REGISTRY_NOT_COLLECTED',{symbol,scoreContribution:0});
+   const close=Number.isFinite(price)&&price>0?price:null,shares=Number.isFinite(issuedShares)&&issuedShares>0?issuedShares:null;
++  const monthly=registry.monthly&&['ok','snapshot'].includes(registry.monthly.status)?registry.monthly:null;
+   const bonds=registry.bonds.filter(b=>b.issuer===symbol&&Number.isFinite(b.outstandingFace)&&b.outstandingFace>0).map(b=>{
+-    const conv=Number.isFinite(b.conversionPriceAtIssue)&&b.conversionPriceAtIssue>0?b.conversionPriceAtIssue:null;
++    const atIssue=Number.isFinite(b.conversionPriceAtIssue)&&b.conversionPriceAtIssue>0?b.conversionPriceAtIssue:null;
++    const m=monthly?.prices?.[b.id],current=m&&m.issuer===b.issuer&&Number.isFinite(m.price)&&m.price>0?m.price:null,conv=current??atIssue;
+     const ratio=close&&conv?close/conv:null,potential=b.currency==='TWD'&&conv?b.outstandingFace/conv:null;
+-    return {...b,priceToConversion:ratio,inTheMoney:ratio===null?null:ratio>=1,conversionPremiumPct:ratio?(1/ratio-1)*100:null,potentialShares:potential,dilutionPct:potential&&shares?potential/shares*100:null,
++    return {...b,conversionPriceCurrent:current,conversionResetDate:current?m.resetDate||null:null,conversionPriceMonth:current?monthly.month:null,conversionPriceBasis:current?'MOPS_MONTHLY':atIssue?'AT_ISSUE':null,conversionPriceUsed:conv,priceToConversion:ratio,inTheMoney:ratio===null?null:ratio>=1,conversionPremiumPct:ratio?(1/ratio-1)*100:null,potentialShares:potential,dilutionPct:potential&&shares?potential/shares*100:null,
+       dilutionReason:b.currency!=='TWD'?'FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY':!conv?'CONVERSION_PRICE_MISSING':!shares?'ISSUED_SHARES_MISSING':null};
+   }).sort((a,b)=>String(a.issueDate||'').localeCompare(String(b.issueDate||'')));
+   const failedKinds=(registry.errors||[]).map(e=>e.kind);
+   const twd=bonds.filter(b=>Number.isFinite(b.dilutionPct));
+   return {status:registry.status==='ok'?'ok':registry.status==='partial'?'partial':'failed',symbol,count:bonds.length,bonds,price:close,priceDate,issuedShares:shares,
+     twdDilutionPct:twd.length?twd.reduce((t,b)=>t+b.dilutionPct,0):null,checkedAt:registry.checkedAt||null,sources:registry.sources||[],failedKinds,
+-    note:'櫃買中心登錄的發行時轉換價，未含期後調整；現行轉換價以公開資訊觀測站調整公告為準。外幣債需契約固定匯率才能換算股數。',scoreContribution:0};
++    monthly:registry.monthly?{status:registry.monthly.status,month:registry.monthly.month||null,sourceUrl:registry.monthly.sourceUrl||null,reason:registry.monthly.reason||null}:null,
++    note:'國內債用觀測站「轉換公司債轉換變動情形」月報的轉換價（月底狀態）；月報沒有的債（海外債）用櫃買登錄的發行時轉換價，未含期後調整。外幣債需契約固定匯率才能換算股數。',scoreContribution:0};
+ }
+ /** 美元指數零軸：用回測同一條 FRED DTWEXAFEGS（先進經濟體美元指數，非 ICE DXY）。觀測日 d 依回測規則視為 d+8 日起可用；只顯示，草案 >0 −1、走弱不加分。 */
+ export function dollarAxis(input,{asOf}={}){
+@@ -135,12 +138,48 @@ export function dollarAxis(input,{asOf}={}){
    return {...axis,source:input.source,sourceDate:latest.date,fetchedAt:input.fetchedAt,knownFrom:'觀測日＋8日（同回測）',label:'先進經濟體美元指數（FRED DTWEXAFEGS，非 ICE DXY）',
      draftPoints:axis.status==='ok'?(axis.value>0?-1:0):null,draftRule:'站上前20日高點（零軸>0）草案 −1；走弱不加分（擁有者 2026-10-21）',scoreContribution:0};
  }
@@ -269,13 +349,18 @@ index 3bcb7eb..7539b11 100644
 +  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:dollarAxis(inputs.dollarIndex,{asOf}),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:threeQuestions(stock,{asOf}),dividendYield:dividendYieldBand(inputs.yieldHistory||[],{asOf}),rsi:rsi14(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),beta:betaVsTaiex(stock.priceHistory||[],taiexHistory,{asOf}),largeHolders:largeHolders(inputs.holders,{asOf}),marginMaintenance:inputs.marginMaintenance||missing('MARGIN_MAINTENANCE_NOT_COLLECTED',{scoreContribution:0}),convertibleBonds:convertibleBonds(inputs.cbRegistry,{symbol:stock.id,price:stock.price?.value??null,priceDate:stock.price?.date??null,issuedShares:inputs.issuer?.date&&inputs.issuer.date<=asOf&&Number.isFinite(inputs.issuer.shares)?inputs.issuer.shares:stock.valuationInputs?.issuedShares??null})};
  }
 diff --git a/worker/panel-display.js b/worker/panel-display.js
-index ef3b0b4..e7d9900 100644
+index ef3b0b4..2aa4e67 100644
 --- a/worker/panel-display.js
 +++ b/worker/panel-display.js
-@@ -31,6 +31,14 @@ function renderAdvisoryPanels(model){
-  const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
+@@ -28,9 +28,17 @@ function renderAdvisoryPanels(model){
+  const eps=p.quarterEps||{};card('季 EPS 創高',`${eps.newHigh===true?'觀測區間創高':eps.newHigh===false?'未創觀測區間新高':'資料不足'}｜${eps.date||'期別缺值'} EPS ${show(eps.value)}`,`${eps.observations||0}季；${eps.source||eps.reason||''}；單季、已調整股數口徑，不代表季度共識。`);
+  const lend=p.lending||{};card('借券賣出餘額',`${lend.status==='ok'?Number(lend.balanceShares).toLocaleString('zh-TW')+' 股':'待確認'}｜占同日發行股數 ${show(lend.balanceRatioPct)}%`,`${lend.date||'日期缺值'}；${lend.market||''}；${lend.history?.length||0}筆已保存日資料；${lend.sourceUrl||lend.reason||''}${lend.ratioReason?'；'+lend.ratioReason:''}`);
+  const cb=p.convertibleBonds||{};{const fmt=(x,d=0)=>Number.isFinite(x)?x.toLocaleString('zh-TW',{maximumFractionDigits:d}):'缺值';
+- const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
++ const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜${b.conversionPriceBasis==='MOPS_MONTHLY'?`目前轉換價 ${fmt(b.conversionPriceCurrent,2)}（觀測站 ${b.conversionPriceMonth} 月報${b.conversionResetDate?`，${b.conversionResetDate} 重設`:''}；發行時 ${fmt(b.conversionPriceAtIssue,2)}）`:`發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}（未含後續調整）`}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
   const body=cb.status==='failed'||cb.status==='insufficient'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
-  card('可轉債（櫃買自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
+- card('可轉債（櫃買自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
++ card('可轉債（櫃買＋觀測站自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6＋觀測站轉換變動月報（${cb.monthly?.month||'未取得'}${cb.monthly?.status==='snapshot'?'，沿用':''}${cb.monthly&&!['ok','snapshot'].includes(cb.monthly.status)?'：'+(cb.monthly.reason||'失敗'):''}）${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
 + const pctText=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';
 + const tqw=p.threeQuestions?.questions?.chips?.windows||{},lotsText=x=>Number.isFinite(x)?(x>0?'+':'')+Math.round(x/1000).toLocaleString('zh-TW')+'張':'缺值';
 + card('法人買賣超 5／10／20日',['d5','d10','d20'].map(k=>{const w=tqw[k];return `${k.slice(1)}日 外資 ${lotsText(w?.foreignShares)}、投信 ${lotsText(w?.trustShares)}`;}).join('；'),'FinMind 三大法人日資料；日期須與股價日期逐日對齊，不足就標缺值。');
@@ -288,13 +373,20 @@ index ef3b0b4..e7d9900 100644
   const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸（先進經濟體美元指數）',dxy.status==='ok'?`目前 ${show(dxy.value)}｜5個觀測前 ${show(dxy.previous5?.value)}｜${dxy.value>0?'站上前20日高點':dxy.value<-100?'跌破前20日低點（走弱）':'區間內'}｜草案 ${dxy.draftPoints===-1?'−1':'0'}；0＝前20日最高，−100＝前20日最低`:`待補：${dxy.reason||'缺值'}`,`觀測 ${dxy.date||dxy.sourceDate||'日期缺值'}（${dxy.knownFrom||'觀測日＋8日起可用'}）；FRED DTWEXAFEGS，非 ICE DXY；${dxy.draftRule||'草案 >0 −1、走弱不加分'}；前20日不含當期。`); advisoryAxis(dxCard,dxy,'美元指數零軸',{min:-100,max:60,step:10});
   const mapping=p.industryMapping||{},sector=p.linkedUSSector||{};card('自動對應美股板塊',mapping.sector?`${mapping.industry||mapping.industryCode} → ${mapping.sector}｜${sector.classification||'強弱缺值'}`:`對應不明：${mapping.reason||'缺官方產業別'}`,`${mapping.date||'產業日期缺值'}；${mapping.sourceUrl||''}；新增±1僅試算，未納入正式評級。`);
 diff --git a/worker/panel-site.js b/worker/panel-site.js
-index 43b8142..cb831d1 100644
+index 43b8142..666cdb8 100644
 --- a/worker/panel-site.js
 +++ b/worker/panel-site.js
-@@ -19,5 +19,14 @@ async function attachPanelSources(stock,env={}){
+@@ -19,5 +19,21 @@ async function attachPanelSources(stock,env={}){
      const pool=await PANEL_SOURCES.collectCbRegistry({read,write});
      inputs.cbRegistry={checkedAt:pool.checkedAt,status:pool.status,sources:pool.sources,errors:pool.errors,bonds:(pool.bonds||[]).filter(b=>b.issuer===stock.id)};
    }catch{inputs.cbRegistry={status:'failed',bonds:[],sources:[],errors:[{kind:'all',code:'CB_REGISTRY_COLLECTION_FAILED'}]};}
++  try{
++    // 目前轉換價：觀測站轉換變動月報（國內債）；只帶本股、且代號在櫃買登錄裡的債。
++    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
++    const monthly=await PANEL_SOURCES.collectCbMonthly({read,write}),ids=new Set((inputs.cbRegistry.bonds||[]).map(b=>b.id));
++    inputs.cbRegistry.monthly={status:monthly.status,month:monthly.month||null,sourceUrl:monthly.sourceUrl||null,checkedAt:monthly.checkedAt||null,reason:monthly.reason||null,
++      prices:Object.fromEntries(Object.entries(monthly.prices||{}).filter(([id,v])=>ids.has(id)&&v.issuer===stock.id))};
++  }catch{inputs.cbRegistry.monthly={status:'failed',prices:{},reason:'CB_MONTHLY_COLLECTION_FAILED'};}
 +  try{
 +    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
 +    const pool=await PANEL_SOURCES.collectTdccHolders({read,write});
@@ -307,13 +399,75 @@ index 43b8142..cb831d1 100644
    return {...stock,panelInputs:inputs};
  }
 diff --git a/worker/panel-sources.mjs b/worker/panel-sources.mjs
-index f45fd2b..8427a1e 100644
+index f45fd2b..04c4b72 100644
 --- a/worker/panel-sources.mjs
 +++ b/worker/panel-sources.mjs
-@@ -85,3 +85,77 @@ export async function collectCbRegistry({read,write,fetchImpl=fetch,now=Date.now
+@@ -85,3 +85,139 @@ export async function collectCbRegistry({read,write,fetchImpl=fetch,now=Date.now
    })().finally(()=>cbTasks.delete(key));
    cbTasks.set(key,task);return task;
  }
++
++/** 可轉債「目前轉換價」：櫃買「轉(交)換債轉換暨累計彙總表」（bond/cbnote）列出觀測站每月檔 CBTRNyyyymm.htm（Big5）。
++ *  只含國內債；是月報（月底狀態），月中調整要等下個月檔。取不到就沿用發行時轉換價並標示，不手動填值。 */
++export const TPEX_CB_MONTHLY_INDEX_URL='https://www.tpex.org.tw/www/zh-tw/bond/cbnote?response=json';
++const CBTRN_URL=/^https:\/\/mopsov\.twse\.com\.tw\/nas\/t120\/CBTRN(\d{4})(\d{2})\.htm$/;
++export function latestCbMonthlyFile(json){
++  const rows=json?.stat==='ok'?json.tables?.[0]?.data:null;
++  if(!Array.isArray(rows))throw Error('CB_MONTHLY_INDEX_SCHEMA');
++  const files=rows.map(r=>{const url=String(r?.[1]||'').trim(),m=url.match(CBTRN_URL);return m?{url,month:`${m[1]}-${m[2]}`}:null;}).filter(Boolean).sort((a,b)=>b.month.localeCompare(a.month));
++  if(!files.length)throw Error('CB_MONTHLY_INDEX_NO_FILES');
++  return files[0];
++}
++// 只解碼檢查欄名與年月要用到的 Big5 字，其餘中文字變 U+FFFD；數字、日期、代號都是 ASCII。不依賴執行環境是否支援 TextDecoder('big5')。
++const BIG5_NEEDED=Object.freeze({0xA5E6:'交',0xBBF9:'價',0xA4B8:'元',0xA67E:'年',0xA9CE:'或',0xB4AB:'換',0xAEC6:'料',0xA4E9:'日',0xA4EB:'月',0xB4C1:'期',0xAEE6:'格',0xAAD1:'股',0xB35D:'設',0xBB7B:'認',0xB8EA:'資',0xC2E0:'轉',0xADAB:'重',0xA147:'：'});
++export function big5Subset(bytes){
++  const b=bytes instanceof Uint8Array?bytes:new Uint8Array(bytes);let out='';
++  for(let i=0;i<b.length;i++){const x=b[i];if(x<0x80){out+=String.fromCharCode(x);continue;}if(x>=0x81&&x<=0xFE&&i+1<b.length){out+=BIG5_NEEDED[(x<<8)|b[i+1]]||'\uFFFD';i++;}else out+='\uFFFD';}
++  return out;
++}
++const cellText=c=>String(c).replace(/<[^>]+>/g,' ').replace(/&nbsp;/g,' ').replace(/\s+/g,' ').trim();
++const firstLine=c=>cellText(String(c).split(/<br\s*\/?>/i)[0]);
++const rocSlashDay=v=>{const m=String(v||'').trim().match(/^(\d{2,3})\/(\d{2})\/(\d{2})$/);if(!m)return null;const d=`${Number(m[1])+1911}-${m[2]}-${m[3]}`;return day(d)?d:null;};
++export function parseCbMonthly(text,{month}={}){
++  const html=String(text||''),ym=html.match(/資料年月：\s*(?:<\/b>)?\s*(\d{2,3})年(\d{1,2})月/);
++  const fileMonth=ym?`${Number(ym[1])+1911}-${String(ym[2]).padStart(2,'0')}`:null;
++  if(!fileMonth||(month&&fileMonth!==month))throw Error('CB_MONTHLY_MONTH_MISMATCH');
++  if(!html.includes('轉(交)換或認股價格(元)')||!html.includes('重設日期'))throw Error('CB_MONTHLY_SCHEMA');
++  const prices={};
++  for(const m of html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)){
++    const cells=[...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(c=>c[1]);
++    if(cells.length!==7)continue;
++    const issuer=firstLine(cells[0]),id=firstLine(cells[1]);
++    if(!/^\d{4,6}$/.test(issuer)||!/^\d{5,7}$/.test(id))continue;
++    const price=cbNumber(cellText(cells[4]));
++    prices[id]={issuer,price:price>0?price:null,resetDate:rocSlashDay(cellText(cells[5]))};
++  }
++  if(!Object.keys(prices).length)throw Error('CB_MONTHLY_NO_ROWS');
++  return {month:fileMonth,prices};
++}
++const cbMonthlyTasks=new Map();
++export async function collectCbMonthly({read,write,fetchImpl=fetch,now=Date.now()}){
++  const key='panel:cb-monthly:v1:latest',old=await read(key);
++  if(old?.fresh)return old.payload;
++  if(cbMonthlyTasks.has(key))return cbMonthlyTasks.get(key);
++  const task=(async()=>{
++    const checkedAt=new Date(now).toISOString();
++    try{
++      const ir=await fetchImpl(TPEX_CB_MONTHLY_INDEX_URL,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(6000)});if(!ir.ok)throw Error(`HTTP_${ir.status}`);
++      const file=latestCbMonthlyFile(await ir.json());
++      const fr=await fetchImpl(file.url,{headers:{Accept:'text/html'},signal:AbortSignal.timeout(8000)});if(!fr.ok)throw Error(`HTTP_${fr.status}`);
++      const parsed=parseCbMonthly(big5Subset(await fr.arrayBuffer()),{month:file.month});
++      const payload={status:'ok',...parsed,sourceUrl:file.url,indexUrl:TPEX_CB_MONTHLY_INDEX_URL,checkedAt};
++      if(!await write(key,payload,12*3600000))return {...payload,storageStatus:'failed'};
++      return payload;
++    }catch(error){
++      const code=/^HTTP_\d+$|^CB_MONTHLY_/.test(error.message)?error.message:'CB_MONTHLY_UNAVAILABLE';
++      const keep=old?.payload,monthEnd=keep?.month?Date.parse(`${keep.month}-01T00:00:00Z`)+31*86400000:NaN;
++      return keep?.prices&&now-monthEnd<=45*86400000?{...keep,status:'snapshot',reason:`本輪未更新（${code}）；沿用 ${keep.month} 月報`}:{status:'failed',prices:{},checkedAt,reason:code};
++    }
++  })().finally(()=>cbMonthlyTasks.delete(key));
++  cbMonthlyTasks.set(key,task);return task;
++}
 +
 +/** 集保結算所「集保戶股權分散表」（每週，全部股票一個 CSV）。只留每檔分級15（1,000,001股以上）與合計。 */
 +export const TDCC_HOLDERS_URL='https://opendata.tdcc.com.tw/getOD.ashx?id=1-5';
