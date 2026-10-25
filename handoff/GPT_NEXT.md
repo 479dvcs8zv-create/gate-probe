@@ -16,5 +16,6 @@
 ## 之後的排隊（做完上一項、擁有者說繼續才開始，一次一項）
 1. 汰弱留強三問（規格見 CLAUDE_TO_GPT_LATEST.md「2026-10-25 14:50」第 1 點，只讀那一段）。
 2. 免費資料缺項，一次一個：法人 10／20 日 → 殖利率 → RSI → Beta → 集保大戶 → 大盤融資維持率。
+3. Gate 4 可轉債：用櫃買 OpenAPI `bond_ISSBD5_data`／`bond_ISSBD6_data` 顯示每檔流通餘額、發行時轉換價、價內／價外、潛在稀釋股數占股本（用官方發行股數；海外債用契約固定匯率）；現行轉換價以公開資訊觀測站調整公告為準，沒有就標「待核」。Claude 已查好群聯的官方資料：`results/cb/8299-2026-10-25.md`。
 （Gemini 第二意見的比對改由 Claude 做，GPT 不用處理。）
 （GPT 讀不到擁有者的 Google 雲端硬碟；Gemini 的資料一律由 Claude 讀取後轉存到 gate-probe，例如 `results/second-opinion/8299-2026-10-22.md`。GPT 不必、也不要嘗試讀雲端硬碟。）
