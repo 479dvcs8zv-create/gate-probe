@@ -1,0 +1,18 @@
+HTTP/2 200 
+date: Sun, 25 Oct 2026 07:23:19 GMT
+content-type: application/x-zip-compressed
+content-length: 71400
+cache-control: public, max-age=31536000
+accept-ranges: bytes
+server: cloudflare
+strict-transport-security: max-age=2592000
+content-disposition: attachment; filename=%E6%99%AF%E6%B0%A3%E6%8C%87%E6%A8%99%E5%8F%8A%E7%87%88%E8%99%9F.zip
+x-content-type-options: nosniff
+x-powered-by: ASP.NET
+set-cookie: __cf_bm=G5K6UvDkHFVzx.LparD6fa6zm43atblAU.lffcwrCRQ-1792912999.4728758-1.0.1.1-IF3lsYylB96oZ4VfOGd1_mzahQe9z9R8BnSJXz6mEB70T.LdUWiG.GYPsIo7dTWc4gm5ziZJrhEDdteRf3LluKqA4yPaS1f4nky8fOPB6HOCon2xqyyt5hO7Rv5T2L.C; HttpOnly; SameSite=None; Secure; Path=/; Domain=ndc.gov.tw; Expires=Sun, 25 Oct 2026 07:53:19 GMT
+last-modified: Sun, 25 Oct 2026 07:23:19 GMT
+expires: Mon, 25 Oct 2027 07:23:19 GMT
+cf-cache-status: HIT
+cf-ray: a4ff79a6ba8b8bdc-MSP
+alt-svc: h3=":443"; ma=86400
+
