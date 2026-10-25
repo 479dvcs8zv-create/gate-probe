@@ -17,3 +17,4 @@
 1. 汰弱留強三問（規格見 CLAUDE_TO_GPT_LATEST.md「2026-10-25 14:50」第 1 點，只讀那一段）。
 2. 免費資料缺項，一次一個：法人 10／20 日 → 殖利率 → RSI → Beta → 集保大戶 → 大盤融資維持率。
 （Gemini 第二意見的比對改由 Claude 做，GPT 不用處理。）
+（GPT 讀不到擁有者的 Google 雲端硬碟；Gemini 的資料一律由 Claude 讀取後轉存到 gate-probe，例如 `results/second-opinion/8299-2026-10-22.md`。GPT 不必、也不要嘗試讀雲端硬碟。）
