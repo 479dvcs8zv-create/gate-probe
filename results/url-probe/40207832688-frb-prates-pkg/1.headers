@@ -1,0 +1,14 @@
+HTTP/2 200 
+date: Sun, 25 Oct 2026 15:37:49 GMT
+content-type: text/csv
+set-cookie: __cf_bm=pRrE8atTTNpUG22e3d_Cf7xL1px5STPuu94ztsf5mwM-1792942669.7562418-1.0.1.1-_FlBpP7h1A.e2i0Mht_ukhN0.b7DvanOfESu0EJKH2Ic05Ky6ZxDMwmtvg16PpYKkg6uqLxPdp3wO7_LewXp70hFy_tJ4S.YH.2izLaI7tn7K6d_MBOqkzyUJ4sYu1QK; HttpOnly; SameSite=None; Secure; Path=/; Domain=federalreserve.gov; Expires=Sun, 25 Oct 2026 16:07:49 GMT
+set-cookie: _cfuvid=thkF6iDsUcewupluo3nDXeJaqS1dPkg7ItDc9d.CnOQ-1792942669.7562418-1.0.1.1-u4ebvsIfUozx1hX8UsKgM5mhEMKSsnvRp4lf9P.3_54; HttpOnly; SameSite=None; Secure; Path=/; Domain=federalreserve.gov
+cf-ray: a5024e05fab1a86a-LAX
+cf-cache-status: EXPIRED
+cache-control: private
+content-disposition: attachment; filename=FRB_PRATES.csv
+last-modified: Sun, 25 Oct 2026 15:37:49 GMT
+server: cloudflare
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+
