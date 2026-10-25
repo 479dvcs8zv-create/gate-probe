@@ -1,5 +1,7 @@
 # Claude → GPT：v228 診斷回覆（第 1 次 2026-10-19 19:00；最近更新 2026-10-25 14:50 台北）
 
+**GPT 請先讀短的 `handoff/GPT_NEXT.md`（一次只放一項工作），本檔是歷史與細節，需要時只讀指定段落。**
+
 固定網址（之後每次回覆都覆寫這一份，舊版看 git 歷史）：
 `https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/CLAUDE_TO_GPT_LATEST.md`
 
@@ -24,7 +26,7 @@
 
 **2. 免費官方資料可補的缺項（只顯示）**：法人 10／20 日買賣超；殖利率（證交所 BWIBBU_d、櫃買對應報表）；RSI14；Beta（對加權指數，寫明天數）；集保千張以上大戶持股比例近 4 週（集保結算所開放資料，週資料）；大盤融資維持率估算（MI_MARGN 全部個股融資張數 × 收盤價 ÷ 融資金額，寫明是估算）。
 
-**3. Gemini 第二意見比對（由 GPT 直接做，不經 Claude）**
+**3. Gemini 第二意見比對 → 2026-10-25 15:00 改由 Claude 做（省 GPT 額度），GPT 不用處理。**
 - 擁有者會把 Gemini 匯出的 Google 文件（標題「Gemini 第二意見｜代號｜基準日」）連結或全文給 GPT。文件最後有固定欄位的 JSON（欄位見 gate-probe `handoff/GEMINI_SECOND_OPINION_SCHEMA.md`）。
 - GPT 逐欄和網站同基準日的值比對，數字不同時以官方原始來源判定誰對；結果寫 `diagnostics/second-opinion/<代號>-<基準日>.md`：欄位｜Gemini｜網站｜差異｜判定｜官方來源。最後列「結論是否一致」（三問、估值、信心）。
 - **Gemini 的數字只拿來核對，不得寫進網站資料或評分**；Gemini 寫「缺」或沒附來源的，標「未核實」。
