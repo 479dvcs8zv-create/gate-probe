@@ -1,0 +1,758 @@
+diff --git a/build.mjs b/build.mjs
+index ac82550..0d2a6b8 100644
+--- a/build.mjs
++++ b/build.mjs
+@@ -30,7 +30,7 @@ const tiingoMarket=`const TIINGO_MARKET=(()=>{${readFileSync(new URL('./worker/t
+ const tiingoStore=`const TIINGO_STORE=(()=>{${readFileSync(new URL('./worker/tiingo-store.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {createPrivateStore};})();`;
+ const tiingoSite=readFileSync(new URL('./worker/tiingo-site.js',import.meta.url),'utf8');
+ const panelCalculations=`const PANEL_CALCULATIONS=(()=>{${readFileSync(new URL('./worker/panel-calculations.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildStockPanels};})();`;
+-const panelSources=`const PANEL_SOURCES=(()=>{${readFileSync(new URL('./worker/panel-sources.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {officialDay,collectLending,selectAndSaveLending};})();\n${readFileSync(new URL('./worker/panel-site.js',import.meta.url),'utf8')}`;
++const panelSources=`const PANEL_SOURCES=(()=>{${readFileSync(new URL('./worker/panel-sources.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {officialDay,collectLending,selectAndSaveLending,collectCbRegistry};})();\n${readFileSync(new URL('./worker/panel-site.js',import.meta.url),'utf8')}`;
+ const advisoryDecision=`const ADVISORY_DECISION=(()=>{${readFileSync(new URL('./worker/advisory-decision.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildAdvisoryDecision};})();`;
+ const marketTimeline = readFileSync(new URL('./worker/market-timeline.js', import.meta.url), 'utf8');
+ const masterEvidence = readFileSync(new URL('./worker/master-evidence.js', import.meta.url), 'utf8');
+diff --git a/dist/index.html b/dist/index.html
+index 41b37a3..77dd467 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -932,6 +932,7 @@ function renderAdvisoryPanels(model){
+  const title=document.createElement('h4');title.textContent='補充觀測｜計算已接入，評分門檻為草案';host.append(title);
+  const note=document.createElement('p');note.className='tiny';note.textContent=`${model.symbol||''}｜台股基準 ${p.asOf||'缺值'}。新增觀測不改既有總分、Gate 或風險預算；缺資料保留缺項。`;host.append(note);
+  if(model.report?.advisoryDecision)renderAdvisoryDecision(host,model.report.advisoryDecision);
++ if(p.threeQuestions)renderThreeQuestions(host,p.threeQuestions);
+  const observations=document.createElement('details'),openLabel=document.createElement('summary');openLabel.textContent='展開補充觀測與計算';observations.append(openLabel);host.append(observations);
+  const grid=document.createElement('div');grid.className='advisory-grid';observations.append(grid);
+  const show=x=>Number.isFinite(x)?x.toFixed(2):'缺值';
+@@ -942,13 +943,25 @@ function renderAdvisoryPanels(model){
+  const rev=p.revenue||{};card('月營收創高',`${rev.newHigh===true?'觀測區間創高':rev.newHigh===false?'未創觀測區間新高':'資料不足'}｜${rev.period||'月份缺值'}；近3月YoY連續為正：${rev.threePositiveYoY===null||rev.threePositiveYoY===undefined?'待確認':rev.threePositiveYoY?'是':'否'}`,`${rev.from||'起月缺值'}起 ${rev.observations||0}月；${rev.source||rev.reason||''}；不是全歷史紀錄。`);
+  const eps=p.quarterEps||{};card('季 EPS 創高',`${eps.newHigh===true?'觀測區間創高':eps.newHigh===false?'未創觀測區間新高':'資料不足'}｜${eps.date||'期別缺值'} EPS ${show(eps.value)}`,`${eps.observations||0}季；${eps.source||eps.reason||''}；單季、已調整股數口徑，不代表季度共識。`);
+  const lend=p.lending||{};card('借券賣出餘額',`${lend.status==='ok'?Number(lend.balanceShares).toLocaleString('zh-TW')+' 股':'待確認'}｜占同日發行股數 ${show(lend.balanceRatioPct)}%`,`${lend.date||'日期缺值'}；${lend.market||''}；${lend.history?.length||0}筆已保存日資料；${lend.sourceUrl||lend.reason||''}${lend.ratioReason?'；'+lend.ratioReason:''}`);
++ const cb=p.convertibleBonds||{};{const fmt=(x,d=0)=>Number.isFinite(x)?x.toLocaleString('zh-TW',{maximumFractionDigits:d}):'缺值';
++ const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
++ const body=cb.status==='failed'||cb.status==='insufficient'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
++ card('可轉債（櫃買自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
+  const pb=p.priceBook||{};card('股價淨值比歷史區間',pb.status==='ok'?`P/B ${show(pb.current)} 倍｜P20 ${show(pb.p20)}／中位 ${show(pb.median)}／P80 ${show(pb.p80)}`:`待補：${pb.reason||'缺值'}`,`${pb.from||'起日缺值'}～${pb.through||p.asOf||'迄日缺值'}；${pb.observations||0}筆；自身可得樣本，不代替既有P/E。`);
+- const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸',`目前 ${show(dxy.value)}｜5交易日前 ${show(dxy.previous5?.value)}；0＝前20日最高，−100＝前20日最低`,`${dxy.date||dxy.sourceDate||'日期缺值'}；${dxy.source||dxy.reason||'缺值'}；前20日不含今日。`);advisoryAxis(dxCard,dxy,'美元指數零軸');
++ const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸（先進經濟體美元指數）',dxy.status==='ok'?`目前 ${show(dxy.value)}｜5個觀測前 ${show(dxy.previous5?.value)}｜${dxy.value>0?'站上前20日高點':dxy.value<-100?'跌破前20日低點（走弱）':'區間內'}｜草案 ${dxy.draftPoints===-1?'−1':'0'}；0＝前20日最高，−100＝前20日最低`:`待補：${dxy.reason||'缺值'}`,`觀測 ${dxy.date||dxy.sourceDate||'日期缺值'}（${dxy.knownFrom||'觀測日＋8日起可用'}）；FRED DTWEXAFEGS，非 ICE DXY；${dxy.draftRule||'草案 >0 −1、走弱不加分'}；前20日不含當期。`); advisoryAxis(dxCard,dxy,'美元指數零軸',{min:-100,max:60,step:10});
+  const mapping=p.industryMapping||{},sector=p.linkedUSSector||{};card('自動對應美股板塊',mapping.sector?`${mapping.industry||mapping.industryCode} → ${mapping.sector}｜${sector.classification||'強弱缺值'}`:`對應不明：${mapping.reason||'缺官方產業別'}`,`${mapping.date||'產業日期缺值'}；${mapping.sourceUrl||''}；新增±1僅試算，未納入正式評級。`);
+  const breadth=model.report?.usSectorContext?.breadth;
+  if(breadth){const s=breadth.sectorBreadth,g=breadth.globalBreadth;card('美股與全球寬度',`美股類股 ${s.above}/${s.coverage} 在200日線上（涵蓋${s.coverage}/11）；全球 ${g.spyAvailable?`${g.above}/${g.coverage}`:'SPY缺值，不算比例'}（涵蓋${g.coverage}/10）；RSP/SPY20日 ${show(breadth.equalWeightRatio20d)}%`,`Tiingo adjClose；每市場一票；全球缺${g.missing.join('、')||'無'}；非S&P500成分股廣度。`);}
+  const gold=p.goldZeroAxis||{};card('黃金背景參考',`金價零軸 ${show(gold.value)}｜5交易日前 ${show(gold.previous5?.value)}；不計分`,`${gold.date||'日期缺值'}；${gold.source||gold.reason||'缺值'}。`);
+ }
++function renderThreeQuestions(host,tq){
++ const box=document.createElement('section');box.className='advisory-decision';
++ const title=document.createElement('b');title.textContent='汰弱留強三問｜只顯示，不改評級';box.append(title);
++ const label={pass:'過',fail:'不過',insufficient:'資料不足'};
++ for(const [key,name] of [['technical','技術'],['chips','籌碼'],['fundamental','基本']]){const q=tq.questions?.[key]||{};const row=document.createElement('p');row.textContent=`${name}：${label[q.result]||'資料不足'}｜${q.basis||q.reason||'缺值'}`;box.append(row);}
++ const rules=document.createElement('p');rules.className='tiny';rules.textContent='規則：'+[tq.rules?.technical,tq.rules?.chips,tq.rules?.fundamental].filter(Boolean).join('；');box.append(rules);
++ const note=document.createElement('p');note.className='tiny';note.textContent=tq.note||'';box.append(note);host.append(box);
++}
+ function renderAdvisoryDecision(host,decision){
+  const box=document.createElement('section');box.className='advisory-decision';
+  const divergence=decision.valuationDivergence;
+@@ -1177,7 +1190,7 @@ function marketScoreModels(){
+   {key:'inflation',name:'物價與通膨（美國）',weight:20,expected:usDefs.find(x=>x.key==='inflation').expected},
+   {key:'growth',name:'成長與就業（美國）',weight:25,expected:usDefs.find(x=>x.key==='growth').expected},
+   {key:'rates',name:'利率、信用與流動性（美國）',weight:25,expected:usDefs.find(x=>x.key==='rates').expected},
+-  {key:'local',name:'台股本土景氣／廣度／交易',weight:30,expected:8,expectedNames:['台股上市證券漲跌家數','台股上櫃證券漲跌家數','發行量加權股價指數','電子工業類指數','台灣外銷訂單年增率','國發會景氣對策信號','M1B−M2 年增率差','台股當沖比／非當沖量'],expectedIds:{'台股上櫃證券漲跌家數':'TPEX_BREADTH'}}
++  {key:'local',name:'台股本土景氣／廣度／交易',weight:30,expected:7,expectedNames:['台股上市證券漲跌家數','台股上櫃證券漲跌家數','發行量加權股價指數','電子工業類指數','國發會景氣對策信號','M1B−M2 年增率差','台股當沖比／非當沖量'],expectedIds:{'台股上櫃證券漲跌家數':'TPEX_BREADTH'}}
+  ]);
+  for(const key of ['inflation','growth','rates']){
+   const source=usDefs.find(x=>x.key===key),target=twDefs.find(x=>x.key===key);
+@@ -1188,7 +1201,7 @@ function marketScoreModels(){
+  const momentumScore=v=>v<=-2?20:v<=-0.5?40:v<0.5?55:v<=2?75:65;
+  add(twDefs,'local','發行量加權股價指數',momentumScore,v=>v>0.5?`加權指數單日上漲 ${fmt(v,2)}%，只作短線動能訊號。`:null,v=>v<=-0.5?`加權指數單日下跌 ${fmt(v,2)}%，需觀察是否擴散至廣度與成交。`:null,'percent');
+  add(twDefs,'local','電子工業類指數',momentumScore,v=>v>0.5?`電子類指數單日上漲 ${fmt(v,2)}%，科技權值短線有支撐。`:null,v=>v<=-0.5?`電子類指數單日下跌 ${fmt(v,2)}%，科技權值短線承壓。`:null,'percent');
+- add(twDefs,'local','台灣外銷訂單年增率',v=>v>=10?80:v>0?65:v>=-10?45:25,v=>v>0?`外銷訂單年增 ${fmt(v,1)}%，出口動能仍正向。`:null,v=>v<0?`外銷訂單年減 ${fmt(v,1)}%，出口循環需留意。`:null);
++ // 外銷訂單改用國發會擴散指數（2026-10-25），舊年增率門檻不適用；新門檻待回測核准前不計分。
+  add(twDefs,'local','國發會景氣對策信號',v=>v>=23&&v<=31?75:v>=32?45:v>=17?60:v>=9?45:25,v=>v>=23&&v<=31?`國發會景氣分數 ${fmt(v,0)}，位於綠燈區間。`:null,v=>v>=32?`國發會景氣分數 ${fmt(v,0)}，黃紅／紅燈區需留意過熱與回落風險。`:v<17?`國發會景氣分數 ${fmt(v,0)}，景氣燈號位於偏弱區。`:null);
+  add(twDefs,'local','M1B−M2 年增率差',v=>v>0?65:45,v=>v>0?`M1B−M2 為 ${fmt(v,2)} 個百分點，狹義貨幣增速較快；不等於資金已流入股市。`:null,v=>v<0?`M1B−M2 為 ${fmt(v,2)} 個百分點，廣義貨幣增速較快；不直接代表股市資金撤出。`:null);
+  add(twDefs,'local','台股當沖比／非當沖量',v=>v<30?60:v<=38?70:v<=44?50:25,v=>v>=30&&v<=38?`當沖比 ${fmt(v,1)}%，落在模型常態換手參考帶。`:null,v=>v>44?`當沖比 ${fmt(v,1)}%，短線投機交易偏熱。`:v>38?`當沖比 ${fmt(v,1)}%，高於常態換手參考帶。`:null);
+@@ -1352,7 +1365,7 @@ const MACRO_DIMENSIONS=[
+  {title:'2｜就業與勞動',items:[['初領失業金 4 週平均','derived'],['續領失業金 4 週平均','derived'],['非農新增就業（NFP）','derived'],['美國失業率','derived'],['Sahm Rule','derived']],note:'BLS 月度 Employment Situation 新聞稿可在 API 配額失敗時提供最新非農月增與失業率；Sahm Rule 仍需至少 14 個月連續失業率資料。'},
+  {title:'3｜景氣與製造業',items:[['費城聯儲新訂單（區域參照，非 ISM）','NOCDFSA066MSFRBPHI'],['紐約聯儲新訂單（區域參照，非 ISM）','NYFED_EMPIRE_ORDERS'],['達拉斯聯儲德州新訂單（區域參照，非 ISM）','DALLAS_TMOS_ORDERS'],['美國零售銷售 MoM（名目）','derived'],['Atlanta Fed GDPNow','GDPNOW']],note:'三項新訂單均為區域聯儲擴散指數，定義與地區不同，不能互相平均或替代全美 ISM；ISM PMI 50 分界不套用於這些區域指數。'},
+  {title:'4｜利率、信用、流動性與風險放大器',items:[['10 年實質殖利率','DFII10'],['美元指數 DXY','ICE_DXY'],['SOFR−IORB（同日）','derived'],['高收益債利差','BAMLH0A0HYM2'],['10Y−2Y 利差','T10Y2Y'],['CNN Fear & Greed Index','CNN_FEAR_GREED'],['黃金現貨參考價（XAU/USD）','XAU'],['白銀現貨參考價（XAG/USD）','XAG'],['金銀比（XAU/XAG）','XAU_XAG']],note:'CNN Fear & Greed 與 VIX、信用需求、Put/Call 及廣度重疊，只作交叉確認。金價需與 10Y TIPS 實質利率、DXY 同看；XAU/XAG 上升表示黃金相對白銀走強，可提示防禦偏好或白銀／工業需求轉弱，仍須 VIX、HY 與融資訊號確認。金價與金銀比不另加權、不重複計入總分；歷史樣本未滿前只列資料，不判方向。其他位階是模型參考區間：實質利率 >2% 偏高；DXY 100–105 中性；SOFR−IORB ≤0 基本正常；HY OAS 3% 以下偏窄、5% 以上警戒；10Y−2Y <0 為倒掛。曲線轉正仍須辨別牛市／熊市陡峭。'},
+- {title:'5｜台灣景氣與市場資金',items:[['加權指數','TWSE_TAIEX'],['集中市場成交值','TWSE_TOTAL_TRADE_VALUE'],['當沖比／非當沖量','TWSE_DAYTRADE'],['外銷訂單年增率','TW_EXPORT_ORDERS'],['國發會景氣對策信號','TW_NDC_SIGNAL'],['M1B−M2 年增率差','TW_M1B_M2']],note:'外銷訂單取經濟部統計處單月年增率；景氣燈號取國發會月度分數。M1B−M2 使用央行日平均年增率差，正值代表 M1B 年增較快，不等同資金已流入股市。'}
++ {title:'5｜台灣景氣與市場資金',items:[['加權指數','TWSE_TAIEX'],['集中市場成交值','TWSE_TOTAL_TRADE_VALUE'],['當沖比／非當沖量','TWSE_DAYTRADE'],['外銷訂單動向指數（國發會）','TW_EXPORT_ORDERS'],['國發會景氣對策信號','TW_NDC_SIGNAL'],['M1B−M2 年增率差','TW_M1B_M2']],note:'外銷訂單改取國發會外銷訂單動向指數（以家數計，50＝持平），口徑與舊年增率不同，門檻核准前不計分；景氣燈號取國發會月度分數。M1B−M2 使用央行日平均年增率差，正值代表 M1B 年增較快，不等同資金已流入股市。'}
+ ];
+ function renderMacroDimensions(data){deferCompactSection(document.getElementById('macroDimensions'),()=>renderMacroDimensionsNow(data))}
+ function renderMacroDimensionsNow(data){
+diff --git a/package.json b/package.json
+index cad3063..f70c063 100644
+--- a/package.json
++++ b/package.json
+@@ -5,7 +5,7 @@
+     "build": "node build.mjs",
+     "test:master-validation": "node tests/master-model-validation.test.mjs",
+     "db:generate": "drizzle-kit generate",
+-    "test": "npm run test:legacy && npm run test:advisory-integration && npm run test:fixpack && npm run test:c2 && npm run test:credit-window && npm run test:source-recovery",
++    "test": "npm run test:legacy && npm run test:advisory-integration && npm run test:fixpack && npm run test:c2 && npm run test:credit-window && npm run test:source-recovery && npm run test:owner-20261025",
+     "test:source-recovery": "node --test tests/source-recovery.test.mjs tests/official-session-regression.test.mjs",
+     "test:credit-window": "node --test tests/credit-capture-window.test.mjs tests/refresh-persistence.test.mjs tests/refresh-resume.test.mjs",
+     "test:remediation": "node tests/master-remediation.test.mjs",
+@@ -20,7 +20,8 @@
+     "test:legacy": "node tests/runtime-cache.test.mjs && node tests/master-gate-evidence.test.mjs && node tests/master-gate-pipeline.test.mjs && node tests/research-package-cloud.test.mjs && node tests/data-package.test.mjs && node tests/guidance-report.test.mjs && node tests/automatic-research.test.mjs && node tests/site-automation.test.mjs && node tests/site-module-contract.test.mjs && node tests/valuation-render.test.mjs && node tests/macro-market-state.test.mjs && node tests/core-cpi-ingestion.test.mjs && node tests/core-cpi-collector.test.mjs && node tests/cnn-fear-greed.test.mjs && node tests/financial-quality.test.mjs && node tests/relay-freshness.test.mjs && node tests/observation-freshness.test.mjs && node tests/monthly-release-news.test.mjs && node tests/macro-source-isolation.test.mjs && node tests/financial-analysis.test.mjs && node tests/official-collector.test.mjs && node tests/official-data-import.test.mjs && node tests/source-research.test.mjs && node tests/dashboard-interactions.test.mjs && node tests/master-model-validation.test.mjs && node tests/master-remediation.test.mjs && node tests/master-input-wiring.test.mjs && node tests/qualified-output.test.mjs && node tests/client-diagnostics.test.mjs && node tests/fallback-rating.test.mjs && npm run test:cross-market && npm run test:report-context && npm run test:stock-relay && npm run test:us-sector-site && npm run test:market-timeline && node tests/phison-panel.test.mjs",
+     "test:advisory-integration": "node --test tests/tiingo-market.test.mjs tests/tiingo-site.test.mjs tests/panel-calculations.test.mjs tests/panel-sources.test.mjs tests/panel-display.test.mjs tests/advisory-decision.test.mjs && node tests/build-reproducibility.test.mjs",
+     "test:fixpack": "node --test tests/fixpack.test.mjs",
+-    "test:c2": "node --test tests/valuation-divergence.test.mjs"
++    "test:c2": "node --test tests/valuation-divergence.test.mjs",
++    "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/scripts/collect-official-data.py b/scripts/collect-official-data.py
+index 7e698a4..57b4fa5 100644
+--- a/scripts/collect-official-data.py
++++ b/scripts/collect-official-data.py
+@@ -132,17 +132,17 @@ def collect_core_cpi():
+ 
+ def collect_macro():
+     series=[]; errors=[]
+-    source_ids={key:key for key in ['DCOILBRENTEU','DHHNGSP','DEXJPUS','DCOILWTICO','IORB']}
++    source_ids={key:key for key in ['DCOILBRENTEU','DHHNGSP','DEXJPUS','DCOILWTICO','IORB','DTWEXAFEGS']}
+     source_ids.update({'US3M':'DTB3','US10Y':'DGS10','US30Y':'DGS30'})
+     for key,source_id in source_ids.items():
+         try:
+-            start=(dt.date.today()-dt.timedelta(days=145 if key=='DEXJPUS' else 45)).isoformat()
++            start=(dt.date.today()-dt.timedelta(days=145 if key in ('DEXJPUS','DTWEXAFEGS') else 45)).isoformat()
+             url='https://fred.stlouisfed.org/graph/fredgraph.csv?'+urllib.parse.urlencode({'id':source_id,'cosd':start})
+             raw=fetch(url); (rawdir/(key+'.csv')).write_text(raw); history=[]
+             for row in csv.DictReader(io.StringIO(raw)):
+                 value=number(row[source_id])
+                 if value is not None and value>0 and row['observation_date']<=dt.date.today().isoformat(): history.append({'date':row['observation_date'],'value':value})
+-            if len(history)<(65 if key=='DEXJPUS' else 3): raise ValueError('Insufficient official history: '+key)
++            if len(history)<(65 if key=='DEXJPUS' else 26 if key=='DTWEXAFEGS' else 3): raise ValueError('Insufficient official history: '+key)
+             record={'id':key,'source':url,'fetchedAt':now(),'history':history}
+             try:
+                 source='https://fred.stlouisfed.org/series/'+source_id
+@@ -183,7 +183,7 @@ if args.cpi_only:
+ if not args.issuer_only and not args.market_only:
+     macro_status=collect_macro()
+     if args.macro_only:
+-        raise SystemExit(0 if len(macro_status['series'])==8 and macro_status['marketStatisticsDate'] and macro_status['coreCpi']['passed'] else 1)
++        raise SystemExit(0 if len(macro_status['series'])==9 and macro_status['marketStatisticsDate'] and macro_status['coreCpi']['passed'] else 1)
+ 
+ sources = {'twse':'https://openapi.twse.com.tw/v1/opendata/t187ap03_L','tpex':'https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O'}
+ meta = {}; metadata_errors = []
+diff --git a/tests/convertible-bonds.test.mjs b/tests/convertible-bonds.test.mjs
+new file mode 100644
+index 0000000..7ca812c
+--- /dev/null
++++ b/tests/convertible-bonds.test.mjs
+@@ -0,0 +1,70 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import vm from 'node:vm';
++import {parseCbRegistry,collectCbRegistry,TPEX_CB_DOMESTIC_URL,TPEX_CB_OVERSEAS_URL} from '../worker/panel-sources.mjs';
++import {convertibleBonds,buildStockPanels} from '../worker/panel-calculations.mjs';
++
++// Rows copied from TPEx OpenAPI responses fetched 2026-10-25 (bond_ISSBD5_data / bond_ISSBD6_data).
++const DOMESTIC=[
++ {Date:'20261025',IssuerCode:'8299',IssuerName:'群聯',BondCode:'82993',ShortName:'群聯三',IssueDate:'20260206',MaturityDate:'20310206',IssueAmount:'6000000000',OutstandingAmount:'6000000000',Currency:'1',PutOptionDate:'20290206',PutOptionPrice:'100.0000','Conversion/ExchangePriceAtIssuance':'2488.0000','Conversion/ExchangePeriodStartDate':'20260507','Conversion/ExchangePeriodEndDate':'20310206'},
++ {Date:'20261025',IssuerCode:'00009815',IssuerName:'史坦賽薾',BondCode:'',ShortName:'史坦私債一',IssueDate:'20260309',MaturityDate:'20360308',IssueAmount:'2000000',OutstandingAmount:'1500000',Currency:'2',PutOptionDate:'',PutOptionPrice:'0.0000','Conversion/ExchangePriceAtIssuance':'0.0000','Conversion/ExchangePeriodStartDate':'20260309','Conversion/ExchangePeriodEndDate':'20360308'},
++ {Date:'20261025',IssuerCode:'1234',IssuerName:'測試',BondCode:'12341',ShortName:'測試一',IssueDate:'20240101',MaturityDate:'20290101',IssueAmount:'1000000000',OutstandingAmount:'0',Currency:'1',PutOptionDate:'',PutOptionPrice:'0','Conversion/ExchangePriceAtIssuance':'50','Conversion/ExchangePeriodStartDate':'20240401','Conversion/ExchangePeriodEndDate':'20290101'}
++];
++const OVERSEAS=[
++ {Date:'20261025',IssuerCode:'8299',IssuerName:'群聯',BondCode:'XS3364922461',ShortName:'無',IssueDate:'20260526',MaturityDate:'20310526',IssueAmount:'400000000',OutstandingAmount:'400000000',Currency:'2',PutOptionDate:'20280526',PutOptionPrice:'99.5000','Conversion/ExchangePriceAtIssuance':'3418.7500','Conversion/ExchangePeriodStartDate':'20260827','Conversion/ExchangePeriodEndDate':'20310516'},
++ {Date:'20261025',IssuerCode:'8299',IssuerName:'群聯',BondCode:'XS3364929045',ShortName:'無',IssueDate:'20260526',MaturityDate:'20310526',IssueAmount:'400000000',OutstandingAmount:'400000000',Currency:'2',PutOptionDate:'20290528',PutOptionPrice:'99.2500','Conversion/ExchangePriceAtIssuance':'3555.5000','Conversion/ExchangePeriodStartDate':'20260827','Conversion/ExchangePeriodEndDate':'20310516'}
++];
++const memory=()=>{const store=new Map();return {read:async k=>store.has(k)?{fresh:true,payload:store.get(k)}:null,write:async(k,v)=>{store.set(k,v);return true;},store};};
++const okFetch=async url=>({ok:true,status:200,json:async()=>url===TPEX_CB_DOMESTIC_URL?DOMESTIC:OVERSEAS});
++
++test('registry parser keeps official fields, skips non-stock issuers and blank codes',()=>{
++  const rows=parseCbRegistry(DOMESTIC,{sourceUrl:TPEX_CB_DOMESTIC_URL,kind:'domestic',capturedAt:'2026-10-25T07:00:00Z'});
++  assert.equal(rows.length,2);
++  const b=rows.find(r=>r.id==='82993');
++  assert.equal(b.currency,'TWD');assert.equal(b.conversionPriceAtIssue,2488);assert.equal(b.outstandingFace,6000000000);
++  assert.equal(b.putDate,'2029-02-06');assert.equal(b.conversionStart,'2026-05-07');assert.equal(b.name,'群聯三');
++  assert.throws(()=>parseCbRegistry({}, {kind:'domestic'}),/CB_REGISTRY_SCHEMA/);
++});
++
++test('Phison: three outstanding bonds, all out of the money at 1,880; only the TWD bond gets a dilution figure',async()=>{
++  const m=memory(),pool=await collectCbRegistry({read:m.read,write:m.write,fetchImpl:okFetch,now:Date.parse('2026-10-25T07:00:00Z')});
++  assert.equal(pool.status,'ok');
++  const cb=convertibleBonds({...pool,bonds:pool.bonds.filter(b=>b.issuer==='8299')},{symbol:'8299',price:1880,priceDate:'2026-10-22',issuedShares:210000000});
++  assert.equal(cb.count,3);assert.equal(cb.scoreContribution,0);
++  assert.ok(cb.bonds.every(b=>b.inTheMoney===false));
++  const twd=cb.bonds.find(b=>b.id==='82993');
++  assert.ok(Math.abs(twd.potentialShares-6000000000/2488)<1e-6);
++  assert.ok(Math.abs(twd.dilutionPct-6000000000/2488/210000000*100)<1e-9);
++  assert.ok(Math.abs(twd.conversionPremiumPct-(2488/1880-1)*100)<1e-9);
++  for(const b of cb.bonds.filter(x=>x.currency==='USD')){assert.equal(b.dilutionPct,null);assert.equal(b.dilutionReason,'FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY');}
++});
++
++test('a bond with zero outstanding is not shown; an issuer with none says so',()=>{
++  const reg={status:'ok',checkedAt:'x',bonds:parseCbRegistry(DOMESTIC,{kind:'domestic'})};
++  assert.equal(convertibleBonds(reg,{symbol:'1234',price:60}).count,0);
++  assert.equal(convertibleBonds(reg,{symbol:'2330',price:1000}).count,0);
++});
++
++test('one registry failing is partial, both failing is failed, and nothing is cached on total failure',async()=>{
++  const m=memory();
++  const half=async url=>url===TPEX_CB_OVERSEAS_URL?{ok:false,status:503}:{ok:true,status:200,json:async()=>DOMESTIC};
++  const p=await collectCbRegistry({read:m.read,write:m.write,fetchImpl:half,now:Date.parse('2026-10-25T07:00:00Z')});
++  assert.equal(p.status,'partial');assert.deepEqual(p.errors,[{kind:'overseas',code:'HTTP_503'}]);
++  const m2=memory(),dead=async()=>{throw Error('network');};
++  const f=await collectCbRegistry({read:m2.read,write:m2.write,fetchImpl:dead,now:Date.parse('2026-10-25T07:00:00Z')});
++  assert.equal(f.status,'failed');assert.equal(m2.store.size,0);
++  assert.equal(convertibleBonds(null,{symbol:'8299'}).status,'insufficient');
++});
++
++test('panels carry CB data and the page shows it without changing any score',()=>{
++  const reg={status:'partial',checkedAt:'2026-10-25T07:00:00Z',errors:[{kind:'overseas',code:'HTTP_503'}],bonds:parseCbRegistry(DOMESTIC,{kind:'domestic'}).filter(b=>b.issuer==='8299')};
++  const stock={id:'8299',price:{date:'2026-10-22',value:1880},priceHistory:[],panelInputs:{cbRegistry:reg,issuer:{shares:210000000,date:'2026-10-22'}}};
++  const panels=buildStockPanels(stock);
++  assert.equal(panels.convertibleBonds.count,1);assert.equal(panels.activeScoreContribution,0);
++  class Element{constructor(){this.children=[];this.style={};this.attributes={};this.hidden=false;}append(...x){this.children.push(...x);}replaceChildren(...x){this.children=x;this.text='';}set textContent(v){this.text=String(v);this.children=[];}get textContent(){return (this.text||'')+this.children.map(x=>x.textContent||String(x)).join(' ');}setAttribute(k,v){this.attributes[k]=v;}}
++  const host=new Element(),context=vm.createContext({document:{getElementById:()=>host,createElement:()=>new Element()},console});
++  vm.runInContext(readFileSync(new URL('../worker/panel-display.js',import.meta.url),'utf8'),context);
++  context.model={symbol:'8299',report:{advisoryPanels:panels}};vm.runInContext('renderAdvisoryPanels(model)',context);
++  for(const label of ['可轉債（櫃買自動）','群聯三','價外','發行時轉換價','可能有遺漏'])assert.ok(host.textContent.includes(label),label);
++});
+diff --git a/tests/dollar-axis.test.mjs b/tests/dollar-axis.test.mjs
+new file mode 100644
+index 0000000..960ddd7
+--- /dev/null
++++ b/tests/dollar-axis.test.mjs
+@@ -0,0 +1,43 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {dollarAxis,buildStockPanels} from '../worker/panel-calculations.mjs';
++import {buildAdvisoryDecision} from '../worker/advisory-decision.mjs';
++
++const days=(n,start='2026-08-03')=>Array.from({length:n},(_,i)=>new Date(Date.parse(start)+i*86400000).toISOString().slice(0,10));
++const input=(values,start)=>({id:'DTWEXAFEGS',history:days(values.length,start).map((date,i)=>({date,value:values[i]})),source:'https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXAFEGS',fetchedAt:'2026-10-24T14:00:00Z'});
++
++test('uses only observations at least 8 days old (same rule as the backtest)',()=>{
++  const flat=Array.from({length:60},(_,i)=>110+(i%5)*0.1);
++  const series=input([...flat,500],'2026-08-01'),last=series.history.at(-1).date;
++  const asOfSameWeek=new Date(Date.parse(last)+3*86400000).toISOString().slice(0,10);
++  const a=dollarAxis(series,{asOf:asOfSameWeek});
++  assert.equal(a.status,'ok');assert.notEqual(a.date,last);assert.ok(a.value<=0,'the spike is not yet known');
++  const later=new Date(Date.parse(last)+8*86400000).toISOString().slice(0,10);
++  const b=dollarAxis(series,{asOf:later});assert.equal(b.date,last);assert.ok(b.value>0);assert.equal(b.draftPoints,-1);
++});
++
++test('a weak dollar below the prior 20-day low gets 0, never a plus',()=>{
++  const values=[...Array.from({length:40},(_,i)=>120+(i%3)),90];
++  const s=input(values,'2026-08-01'),asOf=new Date(Date.parse(s.history.at(-1).date)+8*86400000).toISOString().slice(0,10);
++  const a=dollarAxis(s,{asOf});assert.ok(a.value<-100);assert.equal(a.draftPoints,0);assert.equal(a.scoreContribution,0);
++});
++
++test('missing, wrong series or stale observations stay insufficient',()=>{
++  assert.equal(dollarAxis(null,{asOf:'2026-10-22'}).status,'insufficient');
++  assert.equal(dollarAxis({id:'DTWEXBGS',history:[]},{asOf:'2026-10-22'}).reason,'DOLLAR_INDEX_NOT_IMPORTED');
++  const old=input(Array.from({length:40},(_,i)=>100+i),'2026-06-01');
++  assert.equal(dollarAxis(old,{asOf:'2026-10-22'}).reason,'DOLLAR_INDEX_OBSERVATION_STALE');
++  const short=input([100,101,102],'2026-10-01');
++  assert.equal(dollarAxis(short,{asOf:'2026-10-22'}).status,'insufficient');
++});
++
++test('panels use the imported series; the decision factor never adds a point for a weak dollar',()=>{
++  const values=[...Array.from({length:40},(_,i)=>120+(i%3)),90];
++  const di=input(values,'2026-08-20'),asOf=new Date(Date.parse(di.history.at(-1).date)+8*86400000).toISOString().slice(0,10);
++  const stock={id:'7788',price:{date:asOf},priceHistory:[],panelInputs:{dollarIndex:di},financialQuality:{}};
++  const panels=buildStockPanels(stock);
++  assert.equal(panels.dollarZeroAxis.status,'ok');assert.match(panels.dollarZeroAxis.label,/非 ICE DXY/);
++  const decision=buildAdvisoryDecision({stock,panels,existingRating:{available:true,grade:'C'},veto:{status:'unknown'},gates:[]});
++  const f=decision.globalFactors.find(x=>x.id==='dxy');
++  assert.equal(f.draftPoints,0);assert.equal(f.activeContribution,0);assert.match(f.rule,/走弱不加分/);
++});
+diff --git a/tests/financial-analysis.test.mjs b/tests/financial-analysis.test.mjs
+index dc1beb6..3dfe79f 100644
+--- a/tests/financial-analysis.test.mjs
++++ b/tests/financial-analysis.test.mjs
+@@ -21,7 +21,7 @@ globalThis.fetch = async input => {
+  const url=new URL(String(input));
+  if(url.hostname==='doc.twse.com.tw'){filingLookups++;return new Response('<html>No PDF listed</html>',{status:200,headers:{'content-type':'text/html'}});}
+  if(url.href==='https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/exports/gate5b/latest.json')return new Response('',{status:503});
+- const official=url.href==='https://openapi.twse.com.tw/v1/opendata/t187ap03_L'||url.href==='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv'||url.href==='https://www.tpex.org.tw/openapi/v1/tpex_margin_sbl'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/TWT93U';
++ const official=url.href==='https://openapi.twse.com.tw/v1/opendata/t187ap03_L'||url.href==='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv'||url.href==='https://www.tpex.org.tw/openapi/v1/tpex_margin_sbl'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/TWT93U';
+  if(official){officialDataCalls++;return url.pathname.endsWith('.csv')?new Response('公司代號,產業別,已發行普通股數或TDR原股發行股數\n'):Response.json([]);}
+  providerCalls++;throw Error('Unexpected external provider');
+ };
+diff --git a/tests/ndc-export-orders.test.mjs b/tests/ndc-export-orders.test.mjs
+new file mode 100644
+index 0000000..e530231
+--- /dev/null
++++ b/tests/ndc-export-orders.test.mjs
+@@ -0,0 +1,42 @@
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import {deflateRawSync,crc32} from 'node:zlib';
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {loadNdcExportOrderIndex,parseNdcExportOrderCsv,zipEntryText,SERIES};').toString('base64'));
++
++// Header and rows copied from the NDC open-data ZIP (景氣指標及燈號, 領先指標構成項目.csv) fetched 2026-10-25.
++const HEADER='"Date","外銷訂單動向指數(以家數計)","貨幣總計數M1B(百萬元)","股價指數(Index1966=100)","工業及服務業受僱員工淨進入率(%)","建築物開工樓地板面積(住宅類住宅、商業辦公、工業倉儲)(千平方公尺)","名目半導體設備進口(新臺幣百萬元)"';
++const CSV='﻿'+[HEADER,'202605,50.08,30618881,41932.916,0.09,1258.803,129635','202606,50.34,30748857,45392.44762,0.12,1266.127,192581','202607,48.8,30530948,44366.29,0.49,1696.495,149586','202608,49.68,30750789,45124.96143,,1569.338,132457'].join('\r\n')+'\r\n';
++
++function zip(files){
++  const locals=[],centrals=[];let offset=0;
++  for(const [name,text] of files){
++    const nameBytes=Buffer.from(name,'utf8'),raw=Buffer.from(text,'utf8'),data=deflateRawSync(raw),crc=crc32(raw);
++    const local=Buffer.alloc(30);local.writeUInt32LE(0x04034b50,0);local.writeUInt16LE(20,4);local.writeUInt16LE(0x0808,6);local.writeUInt16LE(8,8);local.writeUInt16LE(nameBytes.length,26);
++    const desc=Buffer.alloc(16);desc.writeUInt32LE(0x08074b50,0);desc.writeUInt32LE(crc>>>0,4);desc.writeUInt32LE(data.length,8);desc.writeUInt32LE(raw.length,12);
++    const central=Buffer.alloc(46);central.writeUInt32LE(0x02014b50,0);central.writeUInt16LE(20,4);central.writeUInt16LE(20,6);central.writeUInt16LE(0x0808,8);central.writeUInt16LE(8,10);central.writeUInt32LE(crc>>>0,16);central.writeUInt32LE(data.length,20);central.writeUInt32LE(raw.length,24);central.writeUInt16LE(nameBytes.length,28);central.writeUInt32LE(offset,42);
++    locals.push(local,nameBytes,data,desc);centrals.push(central,nameBytes);offset+=30+nameBytes.length+data.length+16;
++  }
++  const cd=Buffer.concat(centrals),end=Buffer.alloc(22);end.writeUInt32LE(0x06054b50,0);end.writeUInt16LE(files.length,8);end.writeUInt16LE(files.length,10);end.writeUInt32LE(cd.length,12);end.writeUInt32LE(offset,16);
++  return Buffer.concat([...locals,cd,end]);
++}
++
++assert.equal(api.SERIES.TW_EXPORT_ORDERS[2],'指數（50＝持平）');
++const history=api.parseNdcExportOrderCsv(CSV);
++assert.deepEqual(history.at(-1),{date:'2026-08-01',value:49.68});assert.equal(history.length,4);
++assert.throws(()=>api.parseNdcExportOrderCsv('"Date","其他"\n202608,1'),/欄位不符/);
++
++const archive=zip([['schema-領先指標構成項目.csv','"name","title"\n'],['領先指標構成項目.csv',CSV],['景氣指標與燈號.csv','"Date","景氣對策信號綜合分數"\n202608,41\n']]);
++assert.equal((await api.zipEntryText(new Uint8Array(archive),n=>n.includes('領先指標構成項目')&&!n.startsWith('schema'))).replace(/^﻿/,'').split(/\r?\n/)[0],HEADER);
++
++const previousFetch=globalThis.fetch,previousNow=Date.now;
++try{
++  Date.now=()=>Date.parse('2026-10-25T06:00:00Z');
++  globalThis.fetch=async url=>{assert.match(String(url),/^https:\/\/ws\.ndc\.gov\.tw\/Download\.ashx\?/);return new Response(archive,{status:200,headers:{'content-type':'application/zip'}});};
++  const row=await api.loadNdcExportOrderIndex();
++  assert.equal(row.id,'TW_EXPORT_ORDERS');assert.equal(row.value,49.68);assert.equal(row.date,'2026-08-01');assert.equal(row.status,'ok');
++  assert.equal(row.scoring,'pending_threshold_approval');assert.match(row.detail,/口徑不同/);assert.equal(row.history.length,4);
++  globalThis.fetch=async()=>new Response('not a zip',{status:200});
++  await assert.rejects(api.loadNdcExportOrderIndex(),/ZIP/);
++}finally{globalThis.fetch=previousFetch;Date.now=previousNow;}
++console.log('NDC export-order diffusion index: official ZIP parsed, 50-based index kept separate from old YoY thresholds, bad archives rejected');
+diff --git a/tests/three-questions.test.mjs b/tests/three-questions.test.mjs
+new file mode 100644
+index 0000000..b64fe58
+--- /dev/null
++++ b/tests/three-questions.test.mjs
+@@ -0,0 +1,90 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import vm from 'node:vm';
++import {threeQuestions,buildStockPanels} from '../worker/panel-calculations.mjs';
++
++function sessions(count,start='2026-05-04'){
++  const out=[],d=new Date(start+'T00:00:00Z');
++  while(out.length<count){const w=d.getUTCDay();if(w!==0&&w!==6)out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}
++  return out;
++}
++function makeStock({closes,flows=null,lending=null,revenue=null}){
++  const dates=sessions(closes.length),asOf=dates.at(-1);
++  return {id:'9999',price:{date:asOf,value:closes.at(-1)},technical:{historyState:'DATED_HISTORY'},
++    priceHistory:dates.map((date,i)=>({date,close:closes[i]})),
++    marketActivity:{institutionalHistory:(flows||[]).map((f,i,a)=>({date:dates[dates.length-a.length+i],foreign:f[0],trust:f[1],dealer:0,net:f[0]+f[1]}))},
++    panelInputs:{lending:lending?{history:lending.map((b,i,a)=>({date:dates[dates.length-a.length+i],balanceShares:b}))}:{status:'insufficient',history:[]},
++      revenueHistory:revenue||[]}};
++}
++const rising=n=>Array.from({length:n},(_,i)=>100+i);
++const rev=(rows)=>rows.map(([y,m,v,c])=>({revenue_year:y,revenue_month:m,revenue:v,create_time:c||null}));
++
++test('technical: six sessions under a falling 60-day line fails; above the line passes; short history is insufficient',()=>{
++  const down=[...rising(70),...Array.from({length:8},(_,i)=>120-i*3)];
++  const t=threeQuestions(makeStock({closes:down})).questions.technical;
++  assert.equal(t.result,'fail');assert.ok(t.daysBelowMa60>5);assert.equal(t.ma60Falling,true);
++  assert.equal(threeQuestions(makeStock({closes:rising(80)})).questions.technical.result,'pass');
++  const short=threeQuestions(makeStock({closes:rising(65)})).questions.technical;
++  assert.equal(short.result,'insufficient');assert.equal(short.reason,'REQUIRE_66_OBSERVED_SESSIONS');
++});
++
++test('technical: five sessions under the line is not yet a fail (rule says more than five)',()=>{
++  const closes=[...rising(75),...Array.from({length:5},()=>100)];
++  const t=threeQuestions(makeStock({closes})).questions.technical;
++  assert.equal(t.daysBelowMa60,5);assert.equal(t.result,'pass');
++});
++
++test('chips: zero buying by foreign plus trust over 5 and 10 sessions fails even without lending history',()=>{
++  const flows=Array.from({length:20},()=>[-1000,200]);
++  const c=threeQuestions(makeStock({closes:rising(80),flows})).questions.chips;
++  assert.equal(c.result,'fail');assert.equal(c.zeroBuy,true);assert.equal(c.lendingHigh20,null);
++  assert.equal(c.windows.d5.combinedShares,-4000);assert.equal(c.windows.d20.combinedShares,-16000);
++  assert.ok(c.basis.includes('-4張'));
++});
++
++test('chips: buying plus 21 aligned lending days without a new high passes; lending at a 20-day high fails',()=>{
++  const flows=Array.from({length:20},()=>[3000,500]);
++  const flat=Array.from({length:21},(_,i)=>i===5?9000:5000);
++  assert.equal(threeQuestions(makeStock({closes:rising(80),flows,lending:flat})).questions.chips.result,'pass');
++  const high=Array.from({length:21},(_,i)=>5000+i);
++  const c=threeQuestions(makeStock({closes:rising(80),flows,lending:high})).questions.chips;
++  assert.equal(c.result,'fail');assert.equal(c.lendingHigh20,true);
++});
++
++test('chips: buying but short lending history stays insufficient, never assumed safe',()=>{
++  const flows=Array.from({length:20},()=>[3000,500]);
++  const c=threeQuestions(makeStock({closes:rising(80),flows,lending:[5000,5100,5200]})).questions.chips;
++  assert.equal(c.result,'insufficient');assert.equal(c.lendingObservations,3);
++});
++
++test('chips: institutional dates that do not match price dates are not used',()=>{
++  const s=makeStock({closes:rising(80),flows:Array.from({length:12},()=>[-1000,0])});
++  s.marketActivity.institutionalHistory=s.marketActivity.institutionalHistory.map(r=>({...r,date:'2026-01-0'+(1+Number(r.date.slice(-1))%9)}));
++  const c=threeQuestions(s).questions.chips;
++  assert.equal(c.windows.d5,null);assert.equal(c.result,'insufficient');
++});
++
++test('fundamental: negative YoY fails, positive passes, missing base month or future publication is excluded',()=>{
++  const closes=rising(80),asOf=sessions(80).at(-1);
++  const base=[[2025,7,100],[2026,7,90]];
++  assert.equal(threeQuestions(makeStock({closes,revenue:rev(base)})).questions.fundamental.result,'fail');
++  assert.equal(threeQuestions(makeStock({closes,revenue:rev([[2025,7,100],[2026,7,130]])})).questions.fundamental.result,'pass');
++  assert.equal(threeQuestions(makeStock({closes,revenue:rev([[2026,7,130]])})).questions.fundamental.result,'insufficient');
++  const future=rev([[2025,7,100],[2026,7,130],[2025,8,100],[2026,8,50,'2099-01-01']]);
++  const f=threeQuestions(makeStock({closes,revenue:future})).questions.fundamental;
++  assert.equal(f.period,'2026-07');assert.equal(f.result,'pass');assert.equal(f.guidanceChecked,false);
++  assert.ok(asOf>='2026-08-01');
++});
++
++test('panels carry the three questions with zero score contribution and the page shows them',()=>{
++  const stock=makeStock({closes:[...rising(70),...Array.from({length:8},(_,i)=>120-i*3)],flows:Array.from({length:20},()=>[-1000,0]),revenue:rev([[2025,7,100],[2026,7,130]])});
++  const panels=buildStockPanels(stock);
++  assert.equal(panels.threeQuestions.scoreContribution,0);assert.equal(panels.activeScoreContribution,0);
++  assert.equal(panels.threeQuestions.summary,'技術不過｜籌碼不過｜基本過');
++  class Element{constructor(){this.children=[];this.style={};this.attributes={};this.hidden=false;}append(...x){this.children.push(...x);}replaceChildren(...x){this.children=x;this.text='';}set textContent(v){this.text=String(v);this.children=[];}get textContent(){return (this.text||'')+this.children.map(x=>x.textContent||String(x)).join(' ');}setAttribute(k,v){this.attributes[k]=v;}}
++  const host=new Element(),context=vm.createContext({document:{getElementById:()=>host,createElement:()=>new Element()},console});
++  vm.runInContext(readFileSync(new URL('../worker/panel-display.js',import.meta.url),'utf8'),context);
++  context.model={symbol:'9999',report:{advisoryPanels:panels}};vm.runInContext('renderAdvisoryPanels(model)',context);
++  for(const label of ['汰弱留強三問','技術：不過','籌碼：不過','基本：過','只顯示，不改評級','資料不足不當成過'])assert.ok(host.textContent.includes(label),label);
++});
+diff --git a/worker/advisory-decision.mjs b/worker/advisory-decision.mjs
+index 37c7966..a8ef28e 100644
+--- a/worker/advisory-decision.mjs
++++ b/worker/advisory-decision.mjs
+@@ -80,7 +80,7 @@ export function buildAdvisoryDecision({stock,panels,sectorContext,macroRows=[],m
+  const rotation=attackDefense(sectorContext),credit=changes(get('BAMLH0A0HYM2'),20,asOf),annualLine=marketAnnualLine(crossSnapshot,asOf);
+  const breadth=sectorContext?.breadth?.sectorBreadth;
+  const globalFactors=[
+-  factor('dxy','美元零軸',axis.value,axis.status==='ok'?(axis.value>0?-1:axis.value<-100?1:0):null,'草案：>0 −1；<−100 +1；其間0',{date:axis.date,source:axis.source,reason:axis.reason}),
++  factor('dxy','美元零軸（FRED DTWEXAFEGS）',axis.value,axis.status==='ok'?(axis.value>0?-1:0):null,'草案：>0 −1；走弱不加分（擁有者 2026-10-21）',{date:axis.date,source:axis.source,reason:axis.reason}),
+   factor('rotation','美股攻守零軸',rotation.value,rotation.status==='ok'?Math.sign(rotation.value):null,'草案：攻擊型平均−防守型平均；正+1／負−1',{date:rotation.date,source:rotation.source,detail:rotation}),
+   factor('credit','高收益債利差20日變化',credit.value,null,'「明顯擴大」幅度未定；先列變化，不替缺門檻填0',{date:credit.date,source:credit.source,detail:credit,reason:credit.reason||'THRESHOLD_PENDING'}),
+   factor('annual_line','台股240日線',annualLine.price,annualLine.status==='ok'?annualLine.draftPoints:null,'草案：站上且線向上+1；跌破且線向下−1',{detail:annualLine,date:annualLine.date,source:annualLine.source,reason:annualLine.reason}),
+diff --git a/worker/data-import.js b/worker/data-import.js
+index a2cf124..b70ded1 100644
+--- a/worker/data-import.js
++++ b/worker/data-import.js
+@@ -1,6 +1,6 @@
+ // This writer is protected by Sites' owner-only service access boundary, like
+ // /api/automation/refresh-all. Never expose it on a public/shared audience.
+-const OFFICIAL_IMPORT_SERIES = new Set(['DCOILBRENTEU','DHHNGSP','DEXJPUS','DCOILWTICO','IORB','US3M','US10Y','US30Y']);
++const OFFICIAL_IMPORT_SERIES = new Set(['DCOILBRENTEU','DHHNGSP','DEXJPUS','DCOILWTICO','IORB','US3M','US10Y','US30Y','DTWEXAFEGS']);
+ const MARKET_QUOTE_BASIS = 'TWSE-MI_INDEX/TPEx-otc-v1';
+ function officialImportDate(value) {
+   const timestamp=Date.parse(`${value}T00:00:00Z`);
+diff --git a/worker/macro-scoring.js b/worker/macro-scoring.js
+index c4a7755..e0ab281 100644
+--- a/worker/macro-scoring.js
++++ b/worker/macro-scoring.js
+@@ -63,7 +63,7 @@ function backendMarketScoreModels(macroState,expandedMacroData,liveMarketRows=[]
+   {key:'inflation',name:'物價與通膨（美國）',weight:20,expected:usDefs.find(x=>x.key==='inflation').expected},
+   {key:'growth',name:'成長與就業（美國）',weight:25,expected:usDefs.find(x=>x.key==='growth').expected},
+   {key:'rates',name:'利率、信用與流動性（美國）',weight:25,expected:usDefs.find(x=>x.key==='rates').expected},
+-  {key:'local',name:'台股本土景氣／廣度／交易',weight:30,expected:8,expectedNames:['台股上市證券漲跌家數','台股上櫃證券漲跌家數','發行量加權股價指數','電子工業類指數','台灣外銷訂單年增率','國發會景氣對策信號','M1B−M2 年增率差','台股當沖比／非當沖量'],expectedIds:{'台股上櫃證券漲跌家數':'TPEX_BREADTH'}}
++  {key:'local',name:'台股本土景氣／廣度／交易',weight:30,expected:7,expectedNames:['台股上市證券漲跌家數','台股上櫃證券漲跌家數','發行量加權股價指數','電子工業類指數','國發會景氣對策信號','M1B−M2 年增率差','台股當沖比／非當沖量'],expectedIds:{'台股上櫃證券漲跌家數':'TPEX_BREADTH'}}
+  ]);
+  for(const key of ['inflation','growth','rates']){
+   const source=usDefs.find(x=>x.key===key),target=twDefs.find(x=>x.key===key);
+@@ -74,7 +74,7 @@ function backendMarketScoreModels(macroState,expandedMacroData,liveMarketRows=[]
+  const momentumScore=v=>v<=-2?20:v<=-0.5?40:v<0.5?55:v<=2?75:65;
+  add(twDefs,'local','發行量加權股價指數',momentumScore,v=>v>0.5?`加權指數單日上漲 ${fmt(v,2)}%，只作短線動能訊號。`:null,v=>v<=-0.5?`加權指數單日下跌 ${fmt(v,2)}%，需觀察是否擴散至廣度與成交。`:null,'percent');
+  add(twDefs,'local','電子工業類指數',momentumScore,v=>v>0.5?`電子類指數單日上漲 ${fmt(v,2)}%，科技權值短線有支撐。`:null,v=>v<=-0.5?`電子類指數單日下跌 ${fmt(v,2)}%，科技權值短線承壓。`:null,'percent');
+- add(twDefs,'local','台灣外銷訂單年增率',v=>v>=10?80:v>0?65:v>=-10?45:25,v=>v>0?`外銷訂單年增 ${fmt(v,1)}%，出口動能仍正向。`:null,v=>v<0?`外銷訂單年減 ${fmt(v,1)}%，出口循環需留意。`:null);
++ // 外銷訂單改用國發會擴散指數（2026-10-25），舊年增率門檻不適用；新門檻待回測核准前不計分。
+  add(twDefs,'local','國發會景氣對策信號',v=>v>=23&&v<=31?75:v>=32?45:v>=17?60:v>=9?45:25,v=>v>=23&&v<=31?`國發會景氣分數 ${fmt(v,0)}，位於綠燈區間。`:null,v=>v>=32?`國發會景氣分數 ${fmt(v,0)}，黃紅／紅燈區需留意過熱與回落風險。`:v<17?`國發會景氣分數 ${fmt(v,0)}，景氣燈號位於偏弱區。`:null);
+  add(twDefs,'local','M1B−M2 年增率差',v=>v>0?65:45,v=>v>0?`M1B−M2 為 ${fmt(v,2)} 個百分點，狹義貨幣增速較快；不等於資金已流入股市。`:null,v=>v<0?`M1B−M2 為 ${fmt(v,2)} 個百分點，廣義貨幣增速較快；不直接代表股市資金撤出。`:null);
+  add(twDefs,'local','台股當沖比／非當沖量',v=>v<30?60:v<=38?70:v<=44?50:25,v=>v>=30&&v<=38?`當沖比 ${fmt(v,1)}%，落在模型常態換手參考帶。`:null,v=>v>44?`當沖比 ${fmt(v,1)}%，短線投機交易偏熱。`:v>38?`當沖比 ${fmt(v,1)}%，高於常態換手參考帶。`:null);
+diff --git a/worker/macro.js b/worker/macro.js
+index ad0d5d0..4452a0d 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -470,6 +470,7 @@ async function buildTaiwanStockSnapshot(id, env = {}) {
+   const marketActivity={date:institutionalHistory.at(-1)?.date||latestMargin?.date||null,
+     institutional5dNet:fiveInstitutional.length===5?fiveInstitutional.reduce((sum,x)=>sum+x.net,0):null,
+     institutionalDaily:institutionalHistory.at(-1)||null,institutional5dObservations:fiveInstitutional.length,
++    institutionalHistory:institutionalHistory.slice(-30),
+     marginBalance:finiteNumber(latestMargin?.MarginPurchaseTodayBalance)?Number(latestMargin.MarginPurchaseTodayBalance):null,
+     marginChange:finiteNumber(latestMargin?.MarginPurchaseTodayBalance)&&finiteNumber(latestMargin?.MarginPurchaseYesterdayBalance)?Number(latestMargin.MarginPurchaseTodayBalance)-Number(latestMargin.MarginPurchaseYesterdayBalance):null,
+     shortBalance:finiteNumber(latestMargin?.ShortSaleTodayBalance)?Number(latestMargin.ShortSaleTodayBalance):null,
+diff --git a/worker/observations.js b/worker/observations.js
+index edb2c46..e4791b4 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -56,7 +56,7 @@ const SERIES = {
+   DEXJPUS: ['美元兌日圓參考匯率（FRED H.10；ECB 備援）', '曲線／放大器', '日圓/美元', 7],
+   WALCL: ['聯準會總資產', '曲線／放大器', '百萬美元', 18],
+   WCESTUS1: ['美國商業原油庫存（不含 SPR）', '能源供給', '百萬桶', 12],
+-  TW_EXPORT_ORDERS: ['台灣外銷訂單年增率', '台灣景氣', '%', 45],
++  TW_EXPORT_ORDERS: ['外銷訂單動向指數（國發會，以家數計）', '台灣景氣', '指數（50＝持平）', 110],
+   TW_NDC_SIGNAL: ['國發會景氣對策信號', '台灣景氣', '分', 45],
+   TW_M1B_M2: ['M1B−M2 年增率差', '台灣景氣', '百分點', 75],
+ };
+@@ -276,26 +276,44 @@ async function loadBlsEmploymentRelease(){
+  blsReleasePending=promise;return promise;
+ }
+ function cleanTaiwanNumber(raw){const normalized=String(raw??'').replace(/\s/g,'').replace(/,/g,'').replace(/[−–]/g,'-').trim();if(!normalized||normalized==='-'||normalized==='—')return NaN;return Number(normalized);}
+-async function loadTaiwanExportOrders(){
+- const source='https://service.moea.gov.tw/EE521/common/Common.aspx?code=B&no=1',response=await keylessFetch(source,{headers:{Accept:'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8'}},'MOEA export orders table');
+- const html=await response.text();if(html.length>5_000_000)throw Error('經濟部外銷訂單頁面超出預期大小');
+- const rows=[...html.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)].map(match=>[...match[1].matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi)].map(cell=>stripHtmlText(cell[1])));
+- let rocYear=null,latest=null;
+- for(const cells of rows){
+-  const joined=cells.join(' '),yearMatch=joined.match(/(?:民國\s*)?(\d{2,3})\s*年/);if(yearMatch)rocYear=Number(yearMatch[1]);
+-  const monthMatch=joined.match(/(?:^|\s)(\d{1,2})\s*月(?:\s|$)/);if(!monthMatch||/1\s*-\s*\d{1,2}\s*月/.test(joined)||!rocYear)continue;
+-  const numeric=cells.map(cleanTaiwanNumber),month=Number(monthMatch[1]);
+-  // Table columns are year, month, USD amount, USD YoY, NTD amount, NTD YoY.
+-  const value=numeric.find((x,i)=>i>=2&&i<=3&&Number.isFinite(x));
+-  const yoyIndex=cells.findIndex((cell,i)=>i>=2&&Number.isFinite(cleanTaiwanNumber(cell)));
+-  const yoy=yoyIndex>=0?cleanTaiwanNumber(cells[yoyIndex+1]):NaN;
+-  if(month<1||month>12||!Number.isFinite(yoy))continue;
+-  const date=`${rocYear+1911}-${String(month).padStart(2,'0')}-01`;
+-  if(!latest||date>latest.date)latest={date,value:Number.isFinite(value)?value:null,yoy};
++// 經濟部外銷訂單原始表從雲端主機（含 GitHub）都被 Cloudflare 擋（HTTP 403）。擁有者 2026-10-25 決定改用國發會
++// 「景氣指標及燈號」開放資料 ZIP 內「領先指標構成項目.csv」的「外銷訂單動向指數(以家數計)」。這是擴散指數（50＝持平），
++// 與舊的「外銷訂單年增率 %」口徑不同，舊門檻不得沿用；判讀門檻待回測核准前不計分。
++const NDC_INDICATORS_ZIP='https://ws.ndc.gov.tw/Download.ashx?icon=.zip&n=5pmv5rCj5oyH5qiZ5Y%2BK54eI6JmfLnppcA%3D%3D&u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvNTc4MS82MzkyL2VhMjM1YmQ5LWQwNTItNGE2OS1hYmZjLWQ1Yzc4NWQzZDBlMi56aXA%3D';
++async function zipEntryText(bytes,match){
++ const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
++ let eocd=-1;for(let i=bytes.length-22;i>=Math.max(0,bytes.length-65557);i--){if(view.getUint32(i,true)===0x06054b50){eocd=i;break;}}
++ if(eocd<0)throw Error('ZIP 結構無效');
++ const count=view.getUint16(eocd+10,true);let p=view.getUint32(eocd+16,true);
++ for(let n=0;n<count;n++){
++  if(view.getUint32(p,true)!==0x02014b50)throw Error('ZIP 目錄無效');
++  const method=view.getUint16(p+10,true),size=view.getUint32(p+20,true),nameLength=view.getUint16(p+28,true),extra=view.getUint16(p+30,true),comment=view.getUint16(p+32,true),local=view.getUint32(p+42,true);
++  const name=new TextDecoder('utf-8').decode(bytes.subarray(p+46,p+46+nameLength));p+=46+nameLength+extra+comment;
++  if(!match(name))continue;
++  if(view.getUint32(local,true)!==0x04034b50)throw Error('ZIP 檔頭無效');
++  const start=local+30+view.getUint16(local+26,true)+view.getUint16(local+28,true),data=bytes.subarray(start,start+size);
++  if(method===0)return new TextDecoder('utf-8').decode(data);
++  if(method!==8)throw Error('ZIP 壓縮方式不支援');
++  const inflated=await new Response(new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer();
++  return new TextDecoder('utf-8').decode(inflated);
+  }
+- if(!latest)throw Error('經濟部官方表格找不到有效的單月外銷訂單年增率');
+- const stale=age(latest.date)>SERIES.RSAFS[3];
+- return {id:'TW_EXPORT_ORDERS',name:'台灣外銷訂單年增率',group:'台灣景氣',unit:'%',date:latest.date,value:latest.yoy,status:stale?'stale':'ok',reason:stale?'經濟部外銷訂單觀測較舊':null,provider:'經濟部統計處｜外銷訂單統計',source,history:[{date:latest.date,value:latest.yoy}],detail:`單月外銷訂單總額年增率；不採用累計列。觀測月份 ${latest.date.slice(0,7)}。`};
++ throw Error('ZIP 內找不到領先指標構成項目');
++}
++function parseNdcExportOrderCsv(text){
++ const lines=String(text||'').replace(/^﻿/,'').split(/\r?\n/).filter(Boolean),cells=line=>line.split(',').map(x=>x.trim().replace(/^"|"$/g,''));
++ const header=cells(lines[0]||''),col=header.findIndex(name=>name.startsWith('外銷訂單動向指數'));
++ if(header[0]!=='Date'||col<0)throw Error('國發會領先指標欄位不符');
++ const history=[];
++ for(const line of lines.slice(1)){const row=cells(line);if(!/^\d{6}$/.test(row[0]))continue;const value=row[col]===''?NaN:Number(row[col]);if(!Number.isFinite(value)||value<0||value>100)continue;history.push({date:`${row[0].slice(0,4)}-${row[0].slice(4,6)}-01`,value});}
++ if(!history.length)throw Error('國發會外銷訂單動向指數沒有有效數值');
++ return history.sort((a,b)=>a.date.localeCompare(b.date));
++}
++async function loadNdcExportOrderIndex(){
++ const response=await keylessFetch(NDC_INDICATORS_ZIP,{headers:{Accept:'application/zip,application/octet-stream,*/*'}},'NDC business indicators ZIP');
++ const bytes=new Uint8Array(await response.arrayBuffer());if(bytes.length>5_000_000)throw Error('國發會景氣指標 ZIP 超出預期大小');
++ const history=parseNdcExportOrderCsv(await zipEntryText(bytes,name=>name.includes('領先指標構成項目')&&!name.startsWith('schema'))),latest=history.at(-1);
++ const stale=age(latest.date)>SERIES.TW_EXPORT_ORDERS[3];
++ return {id:'TW_EXPORT_ORDERS',name:SERIES.TW_EXPORT_ORDERS[0],group:'台灣景氣',unit:SERIES.TW_EXPORT_ORDERS[2],date:latest.date,value:latest.value,status:stale?'stale':'ok',is_stale:stale,reason:stale?'國發會外銷訂單動向指數觀測較舊':null,provider:'國家發展委員會｜景氣指標及燈號（政府資料開放平台）',source:'https://data.gov.tw/dataset/6099',sourceFile:'領先指標構成項目.csv',history:history.slice(-24),scoring:'pending_threshold_approval',detail:`${latest.date.slice(0,7)} 外銷訂單動向指數（以家數計）${latest.value.toFixed(2)}；擴散指數，50 以上代表多數廠商訂單增加。與經濟部「外銷訂單年增率」口徑不同；判讀門檻待回測核准前不計入總經分數。`};
+ }
+ function ndcLightName(score){if(score>=38&&score<=45)return '紅燈';if(score>=32&&score<=37)return '黃紅燈';if(score>=23&&score<=31)return '綠燈';if(score>=17&&score<=22)return '黃藍燈';if(score>=9&&score<=16)return '藍燈';return null;}
+ async function loadTaiwanStatsNdc(){
+@@ -506,7 +524,7 @@ async function loadExpandedSeries(id,env={}){
+  }
+  if(id==='DALLAS_TMOS_ORDERS')return loadDallasNewOrders();
+  if(id==='TW_M1B_M2')try{return await loadTaiwanMoneySupplySpread()}catch(error){const stale=Date.now()>Date.parse('2026-10-22T23:59:59Z');return {...missing(id,`中央銀行即時來源失敗（${error.message||'不可用'}）；顯示已核實官方快照${stale?'，已過有效期':''}`),value:-0.14,date:'2026-08-01',status:stale?'stale':'snapshot',snapshot:true,is_stale:stale,m1bYoy:6.65,m2Yoy:6.79,provider:'中央銀行｜115年8月金融情況官方快照',source:'https://www.cbc.gov.tw/tw/cp-302-192915-c5b42-1.html',detail:`2026-08：M1B 日平均年增率 6.65% − M2 日平均年增率 6.79% = −0.14 個百分點；發布日 2026-09-23。負值表示 M1B 年增較慢，不直接代表資金已流出股市。${stale?'快照已過有效期，不納入判讀。':''}`}}
+- if(id==='TW_EXPORT_ORDERS')try{return await loadTaiwanExportOrders()}catch(error){const stale=Date.now()>Date.parse('2026-10-19T23:59:59Z');return {...missing(id,`經濟部即時來源失敗（${error.message||'不可用'}）；顯示已核實官方快照${stale?'，已過有效期':''}`),name:'台灣外銷訂單年增率',group:SERIES.TW_EXPORT_ORDERS[1],unit:'%',date:'2026-08-01',releaseDate:'2026-09-22',value:71.4,status:stale?'stale':'snapshot',snapshot:true,is_stale:stale,provider:'經濟部統計處｜115年8月外銷訂單官方快照',source:'https://www.moea.gov.tw/mns/Populace/news/News.aspx?kind=1&menu_id=40&news_id=124026',detail:`2026-08 單月外銷訂單年增率 +71.4%；發布日 2026-09-22。採單月年增率，非累計年增率。${stale?'快照已過有效期，不納入判讀。':''}`}}
++ if(id==='TW_EXPORT_ORDERS')try{return await loadNdcExportOrderIndex()}catch(error){return {...missing(id,`國發會開放資料讀取失敗（${error.message||'不可用'}）；不以經濟部舊快照或其他口徑補值`),name:SERIES.TW_EXPORT_ORDERS[0],group:SERIES.TW_EXPORT_ORDERS[1],unit:SERIES.TW_EXPORT_ORDERS[2]};}
+  if(id==='TW_NDC_SIGNAL')try{return await loadNdcBusinessSignal()}catch(error){
+   const officialError=error.message||'國發會官方來源不可用';
+   const stale=Date.now()>Date.parse('2026-09-27T23:59:59Z');return {...missing(id,`國發會即時來源失敗（${officialError}）；顯示已核實官方快照${stale?'，已過有效期':''}`),name:'國發會景氣對策信號',group:'台灣景氣',unit:'分',date:'2026-07-01',releaseDate:'2026-08-27',value:41,light:'紅燈',status:stale?'stale':'snapshot',snapshot:true,is_stale:stale,provider:'國家發展委員會｜景氣指標查詢系統官方快照',source:'https://index.ndc.gov.tw/n/zh_tw/data/search',detail:`2026-07 綜合判斷分數 41 分，紅燈；國發會發布日 2026-08-27。${stale?'快照已過有效期，等待下一期官方發布。':''}`}
+diff --git a/worker/panel-calculations.mjs b/worker/panel-calculations.mjs
+index c6156cf..3bcb7eb 100644
+--- a/worker/panel-calculations.mjs
++++ b/worker/panel-calculations.mjs
+@@ -64,12 +64,83 @@ export function mapIndustry(issuer,{asOf='9999-12-31'}={}){
+   if(code==='31'&&!hasBusiness)sector=null; // Other-electronics includes engineering; do not silently map a known mixed category to technology.
+   return {status:sector?'ok':'ambiguous',sector,industryCode:code,industry:issuer.industryName||code,date:issuer.date,sourceUrl:issuer.sourceUrl,businessEvidence:hasBusiness?business:null,reason:sector?null:'MIXED_OR_AMBIGUOUS_OFFICIAL_INDUSTRY',draft:true,scoreContribution:0};
+ }
++const QUESTION_LABEL=Object.freeze({pass:'過',fail:'不過',insufficient:'資料不足'});
++const lots=x=>{const v=Math.round(x/1000);return (v>0?'+':'')+v.toLocaleString('en-US')+'張';};
++const fixed=x=>Number.isFinite(x)?x.toFixed(2):'缺值';
++/** 汰弱留強三問（擁有者原型）。只顯示，scoreContribution 恆為 0；任何一題缺資料就標資料不足，不當成過。 */
++export function threeQuestions(stock,{asOf=stock?.price?.date}={}){
++  asOf=day(asOf)?asOf:'0000-01-01';
++  const closes=series(stock?.priceHistory||[],'close',asOf).filter(r=>r.value>0),n=closes.length,priceDates=closes.map(r=>r.date);
++  const aligned=stock?.technical?.historyState!=='UNKNOWN'&&closes.at(-1)?.date===asOf;
++  // 1. 技術：收盤連續超過 5 個交易日低於 60 日線，且 60 日線比前一日低 → 不過。
++  let technical;
++  if(!aligned)technical={result:'insufficient',reason:'PRICE_HISTORY_NOT_ALIGNED',basis:'股價歷史與基準日不一致'};
++  else if(n<66)technical={result:'insufficient',reason:'REQUIRE_66_OBSERVED_SESSIONS',observations:n,basis:`股價歷史 ${n}/66 筆，不足以判斷`};
++  else{
++    const ma60=i=>mean(closes.slice(i-59,i+1).map(r=>r.value)),today=ma60(n-1),previous=ma60(n-2),falling=today<previous;
++    let days=0,i=n-1;while(i>=59&&closes[i].value<ma60(i)){days++;i--;}
++    const truncated=i<59,fail=days>5&&falling;
++    technical={result:fail?'fail':'pass',date:asOf,close:closes[n-1].value,ma60:today,ma60Previous:previous,ma60Falling:falling,daysBelowMa60:days,daysBelowTruncated:truncated,
++      basis:`收盤 ${fixed(closes[n-1].value)}／60日線 ${fixed(today)}（前一日 ${fixed(previous)}，${falling?'下彎':'未下彎'}）；連續 ${days}${truncated?'+':''} 個交易日收在60日線下｜${asOf}`};
++  }
++  // 2. 籌碼：外資＋投信 5 日與 10 日合計都 ≤ 0（零買盤），或借券賣出餘額創 20 個交易日新高 → 不過。
++  const flows=[...new Map((stock?.marketActivity?.institutionalHistory||[]).filter(r=>day(r?.date)&&r.date<=asOf&&Number.isFinite(r.foreign)&&Number.isFinite(r.trust)).map(r=>[r.date,r])).values()].sort((a,b)=>a.date.localeCompare(b.date));
++  const flowWindow=k=>{const f=flows.slice(-k),d=priceDates.slice(-k);if(!aligned||f.length<k||d.length<k||f.some((r,j)=>r.date!==d[j]))return null;const foreign=f.reduce((t,r)=>t+r.foreign,0),trust=f.reduce((t,r)=>t+r.trust,0);return {sessions:k,foreignShares:foreign,trustShares:trust,combinedShares:foreign+trust,from:f[0].date,to:f.at(-1).date};};
++  const w5=flowWindow(5),w10=flowWindow(10),w20=flowWindow(20),zeroBuy=w5&&w10?w5.combinedShares<=0&&w10.combinedShares<=0:null;
++  const lending=stock?.panelInputs?.lending,history=[...new Map((lending?.history||[]).filter(r=>day(r?.date)&&r.date<=asOf&&Number.isFinite(r.balanceShares)).map(r=>[r.date,r])).values()].sort((a,b)=>a.date.localeCompare(b.date));
++  const recent=history.slice(-21),recentDates=priceDates.slice(-21);
++  const lendingReady=aligned&&recent.length===21&&recentDates.length===21&&recent.every((r,j)=>r.date===recentDates[j]);
++  const lendingHigh=lendingReady?recent[20].balanceShares>Math.max(...recent.slice(0,20).map(r=>r.balanceShares)):null;
++  const chipsResult=zeroBuy===true||lendingHigh===true?'fail':zeroBuy===false&&lendingHigh===false?'pass':'insufficient';
++  const flowText=w5&&w10?`外資＋投信 5日 ${lots(w5.combinedShares)}、10日 ${lots(w10.combinedShares)}${w20?`、20日 ${lots(w20.combinedShares)}`:''}`:`法人資料與股價日期未對齊或不足（${flows.length}筆）`;
++  const lendText=lendingHigh===null?`借券賣出餘額 ${history.length}/21 筆，尚不能判斷20日新高`:`借券賣出餘額${lendingHigh?'創':'未創'}20日新高`;
++  const chips={result:chipsResult,date:asOf,windows:{d5:w5,d10:w10,d20:w20},zeroBuy,lendingHigh20:lendingHigh,lendingObservations:history.length,basis:`${flowText}；${lendText}｜${asOf}`};
++  // 3. 基本：最新月營收年增率 < 0 → 不過。法說展望下修尚未有結構化資料，只依月營收，並明示。
++  const revenue=new Map();
++  for(const r of stock?.panelInputs?.revenueHistory||[]){const y=Number(r.revenue_year),m=Number(r.revenue_month),v=number(r.revenue);if(!Number.isInteger(y)||!Number.isInteger(m)||m<1||m>12||v===null)continue;if(day(r.create_time)&&r.create_time>asOf)continue;if(`${y}-${String(m).padStart(2,'0')}`>asOf.slice(0,7))continue;revenue.set(y*12+m-1,{period:`${y}-${String(m).padStart(2,'0')}`,value:v});}
++  const lastKey=[...revenue.keys()].sort((a,b)=>a-b).at(-1),latest=revenue.get(lastKey),base=lastKey===undefined?null:revenue.get(lastKey-12);
++  const yoy=latest&&base?.value>0?(latest.value/base.value-1)*100:null;
++  const fundamental=yoy===null?{result:'insufficient',reason:latest?'SAME_MONTH_LAST_YEAR_MISSING':'MONTHLY_REVENUE_NOT_CONNECTED',basis:'月營收或去年同月資料不足'}:{result:yoy<0?'fail':'pass',period:latest.period,yoyPct:yoy,guidanceChecked:false,basis:`${latest.period} 月營收年增 ${fixed(yoy)}%；法說展望下修尚未自動判讀，只依月營收`};
++  const questions={technical,chips,fundamental},results=Object.values(questions).map(q=>q.result);
++  return {version:'three-questions-v1',asOf,draft:true,scoreContribution:0,questions,
++    summary:`技術${QUESTION_LABEL[technical.result]}｜籌碼${QUESTION_LABEL[chips.result]}｜基本${QUESTION_LABEL[fundamental.result]}`,
++    counts:{pass:results.filter(x=>x==='pass').length,fail:results.filter(x=>x==='fail').length,insufficient:results.filter(x=>x==='insufficient').length},
++    rules:{technical:'收盤連續超過5個交易日低於60日線，且60日線下彎 → 不過',chips:'外資＋投信5日與10日合計都≤0，或借券賣出餘額創20個交易日新高 → 不過',fundamental:'最新月營收年增率<0 → 不過（法說下修待自動化）'},
++    note:'擁有者原型「汰弱留強三問」；門檻未回測，只顯示，不改評級、Gate 或風險預算；資料不足不當成過。'};
++}
++/** 可轉債（櫃買登錄自動抓取）。只顯示；發行時轉換價未含期後調整；外幣債沒有契約固定匯率時不算稀釋。 */
++export function convertibleBonds(registry,{symbol,price=null,priceDate=null,issuedShares=null}={}){
++  if(!registry||!Array.isArray(registry.bonds))return missing('CB_REGISTRY_NOT_COLLECTED',{symbol,scoreContribution:0});
++  const close=Number.isFinite(price)&&price>0?price:null,shares=Number.isFinite(issuedShares)&&issuedShares>0?issuedShares:null;
++  const bonds=registry.bonds.filter(b=>b.issuer===symbol&&Number.isFinite(b.outstandingFace)&&b.outstandingFace>0).map(b=>{
++    const conv=Number.isFinite(b.conversionPriceAtIssue)&&b.conversionPriceAtIssue>0?b.conversionPriceAtIssue:null;
++    const ratio=close&&conv?close/conv:null,potential=b.currency==='TWD'&&conv?b.outstandingFace/conv:null;
++    return {...b,priceToConversion:ratio,inTheMoney:ratio===null?null:ratio>=1,conversionPremiumPct:ratio?(1/ratio-1)*100:null,potentialShares:potential,dilutionPct:potential&&shares?potential/shares*100:null,
++      dilutionReason:b.currency!=='TWD'?'FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY':!conv?'CONVERSION_PRICE_MISSING':!shares?'ISSUED_SHARES_MISSING':null};
++  }).sort((a,b)=>String(a.issueDate||'').localeCompare(String(b.issueDate||'')));
++  const failedKinds=(registry.errors||[]).map(e=>e.kind);
++  const twd=bonds.filter(b=>Number.isFinite(b.dilutionPct));
++  return {status:registry.status==='ok'?'ok':registry.status==='partial'?'partial':'failed',symbol,count:bonds.length,bonds,price:close,priceDate,issuedShares:shares,
++    twdDilutionPct:twd.length?twd.reduce((t,b)=>t+b.dilutionPct,0):null,checkedAt:registry.checkedAt||null,sources:registry.sources||[],failedKinds,
++    note:'櫃買中心登錄的發行時轉換價，未含期後調整；現行轉換價以公開資訊觀測站調整公告為準。外幣債需契約固定匯率才能換算股數。',scoreContribution:0};
++}
++/** 美元指數零軸：用回測同一條 FRED DTWEXAFEGS（先進經濟體美元指數，非 ICE DXY）。觀測日 d 依回測規則視為 d+8 日起可用；只顯示，草案 >0 −1、走弱不加分。 */
++export function dollarAxis(input,{asOf}={}){
++  if(!input||input.id!=='DTWEXAFEGS'||!Array.isArray(input.history))return missing('DOLLAR_INDEX_NOT_IMPORTED',{id:'DTWEXAFEGS',draftPoints:null,scoreContribution:0});
++  const cutoff=day(asOf)?new Date(Date.parse(asOf)-8*86400000).toISOString().slice(0,10):'0000-01-01';
++  const rows=series(input.history,'value',cutoff),latest=rows.at(-1);
++  if(!latest)return missing('DOLLAR_INDEX_NO_KNOWN_OBSERVATION',{id:'DTWEXAFEGS',draftPoints:null,scoreContribution:0});
++  if(Date.parse(cutoff)-Date.parse(latest.date)>14*86400000)return missing('DOLLAR_INDEX_OBSERVATION_STALE',{id:'DTWEXAFEGS',date:latest.date,draftPoints:null,scoreContribution:0});
++  const axis=zeroAxis(rows,{id:'DTWEXAFEGS'});
++  return {...axis,source:input.source,sourceDate:latest.date,fetchedAt:input.fetchedAt,knownFrom:'觀測日＋8日（同回測）',label:'先進經濟體美元指數（FRED DTWEXAFEGS，非 ICE DXY）',
++    draftPoints:axis.status==='ok'?(axis.value>0?-1:0):null,draftRule:'站上前20日高點（零軸>0）草案 −1；走弱不加分（擁有者 2026-10-21）',scoreContribution:0};
++}
+ export function buildStockPanels(stock,marketRows=[],sectorContext=null,{asOf=stock.price?.date}={}){
+   asOf=day(asOf)?asOf:'0000-01-01';
+   const inputs=stock.panelInputs||{},ma=movingAverageStrength(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),mapping=mapIndustry(inputs.issuer,{asOf});
+-  const dxy=marketRows.find(r=>r.id==='ICE_DXY'),gold=marketRows.find(r=>r.id==='XAU');
++  const gold=marketRows.find(r=>r.id==='XAU');
+   const available=r=>r&&['ok','snapshot'].includes(r.status)&&!r.is_stale&&day(r.date)&&r.date<=asOf;
+   const axis=r=>available(r)&&r.history?.at(-1)?.date===r.date?{...zeroAxis(r.history,{id:r.id,asOf}),source:r.source,sourceDate:r.date}:missing('SOURCE_MISSING_STALE_OR_NOT_ALIGNED',{id:r?.id||null});
+   const sector=mapping.sector?sectorContext?.sectors?.[mapping.sector]:null;
+-  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:axis(dxy),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0}};
++  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:dollarAxis(inputs.dollarIndex,{asOf}),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:threeQuestions(stock,{asOf}),convertibleBonds:convertibleBonds(inputs.cbRegistry,{symbol:stock.id,price:stock.price?.value??null,priceDate:stock.price?.date??null,issuedShares:inputs.issuer?.date&&inputs.issuer.date<=asOf&&Number.isFinite(inputs.issuer.shares)?inputs.issuer.shares:stock.valuationInputs?.issuedShares??null})};
+ }
+diff --git a/worker/panel-display.js b/worker/panel-display.js
+index e4e11dd..ef3b0b4 100644
+--- a/worker/panel-display.js
++++ b/worker/panel-display.js
+@@ -16,6 +16,7 @@ function renderAdvisoryPanels(model){
+  const title=document.createElement('h4');title.textContent='補充觀測｜計算已接入，評分門檻為草案';host.append(title);
+  const note=document.createElement('p');note.className='tiny';note.textContent=`${model.symbol||''}｜台股基準 ${p.asOf||'缺值'}。新增觀測不改既有總分、Gate 或風險預算；缺資料保留缺項。`;host.append(note);
+  if(model.report?.advisoryDecision)renderAdvisoryDecision(host,model.report.advisoryDecision);
++ if(p.threeQuestions)renderThreeQuestions(host,p.threeQuestions);
+  const observations=document.createElement('details'),openLabel=document.createElement('summary');openLabel.textContent='展開補充觀測與計算';observations.append(openLabel);host.append(observations);
+  const grid=document.createElement('div');grid.className='advisory-grid';observations.append(grid);
+  const show=x=>Number.isFinite(x)?x.toFixed(2):'缺值';
+@@ -26,13 +27,25 @@ function renderAdvisoryPanels(model){
+  const rev=p.revenue||{};card('月營收創高',`${rev.newHigh===true?'觀測區間創高':rev.newHigh===false?'未創觀測區間新高':'資料不足'}｜${rev.period||'月份缺值'}；近3月YoY連續為正：${rev.threePositiveYoY===null||rev.threePositiveYoY===undefined?'待確認':rev.threePositiveYoY?'是':'否'}`,`${rev.from||'起月缺值'}起 ${rev.observations||0}月；${rev.source||rev.reason||''}；不是全歷史紀錄。`);
+  const eps=p.quarterEps||{};card('季 EPS 創高',`${eps.newHigh===true?'觀測區間創高':eps.newHigh===false?'未創觀測區間新高':'資料不足'}｜${eps.date||'期別缺值'} EPS ${show(eps.value)}`,`${eps.observations||0}季；${eps.source||eps.reason||''}；單季、已調整股數口徑，不代表季度共識。`);
+  const lend=p.lending||{};card('借券賣出餘額',`${lend.status==='ok'?Number(lend.balanceShares).toLocaleString('zh-TW')+' 股':'待確認'}｜占同日發行股數 ${show(lend.balanceRatioPct)}%`,`${lend.date||'日期缺值'}；${lend.market||''}；${lend.history?.length||0}筆已保存日資料；${lend.sourceUrl||lend.reason||''}${lend.ratioReason?'；'+lend.ratioReason:''}`);
++ const cb=p.convertibleBonds||{};{const fmt=(x,d=0)=>Number.isFinite(x)?x.toLocaleString('zh-TW',{maximumFractionDigits:d}):'缺值';
++ const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
++ const body=cb.status==='failed'||cb.status==='insufficient'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
++ card('可轉債（櫃買自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
+  const pb=p.priceBook||{};card('股價淨值比歷史區間',pb.status==='ok'?`P/B ${show(pb.current)} 倍｜P20 ${show(pb.p20)}／中位 ${show(pb.median)}／P80 ${show(pb.p80)}`:`待補：${pb.reason||'缺值'}`,`${pb.from||'起日缺值'}～${pb.through||p.asOf||'迄日缺值'}；${pb.observations||0}筆；自身可得樣本，不代替既有P/E。`);
+- const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸',`目前 ${show(dxy.value)}｜5交易日前 ${show(dxy.previous5?.value)}；0＝前20日最高，−100＝前20日最低`,`${dxy.date||dxy.sourceDate||'日期缺值'}；${dxy.source||dxy.reason||'缺值'}；前20日不含今日。`);advisoryAxis(dxCard,dxy,'美元指數零軸');
++ const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸（先進經濟體美元指數）',dxy.status==='ok'?`目前 ${show(dxy.value)}｜5個觀測前 ${show(dxy.previous5?.value)}｜${dxy.value>0?'站上前20日高點':dxy.value<-100?'跌破前20日低點（走弱）':'區間內'}｜草案 ${dxy.draftPoints===-1?'−1':'0'}；0＝前20日最高，−100＝前20日最低`:`待補：${dxy.reason||'缺值'}`,`觀測 ${dxy.date||dxy.sourceDate||'日期缺值'}（${dxy.knownFrom||'觀測日＋8日起可用'}）；FRED DTWEXAFEGS，非 ICE DXY；${dxy.draftRule||'草案 >0 −1、走弱不加分'}；前20日不含當期。`); advisoryAxis(dxCard,dxy,'美元指數零軸',{min:-100,max:60,step:10});
+  const mapping=p.industryMapping||{},sector=p.linkedUSSector||{};card('自動對應美股板塊',mapping.sector?`${mapping.industry||mapping.industryCode} → ${mapping.sector}｜${sector.classification||'強弱缺值'}`:`對應不明：${mapping.reason||'缺官方產業別'}`,`${mapping.date||'產業日期缺值'}；${mapping.sourceUrl||''}；新增±1僅試算，未納入正式評級。`);
+  const breadth=model.report?.usSectorContext?.breadth;
+  if(breadth){const s=breadth.sectorBreadth,g=breadth.globalBreadth;card('美股與全球寬度',`美股類股 ${s.above}/${s.coverage} 在200日線上（涵蓋${s.coverage}/11）；全球 ${g.spyAvailable?`${g.above}/${g.coverage}`:'SPY缺值，不算比例'}（涵蓋${g.coverage}/10）；RSP/SPY20日 ${show(breadth.equalWeightRatio20d)}%`,`Tiingo adjClose；每市場一票；全球缺${g.missing.join('、')||'無'}；非S&P500成分股廣度。`);}
+  const gold=p.goldZeroAxis||{};card('黃金背景參考',`金價零軸 ${show(gold.value)}｜5交易日前 ${show(gold.previous5?.value)}；不計分`,`${gold.date||'日期缺值'}；${gold.source||gold.reason||'缺值'}。`);
+ }
++function renderThreeQuestions(host,tq){
++ const box=document.createElement('section');box.className='advisory-decision';
++ const title=document.createElement('b');title.textContent='汰弱留強三問｜只顯示，不改評級';box.append(title);
++ const label={pass:'過',fail:'不過',insufficient:'資料不足'};
++ for(const [key,name] of [['technical','技術'],['chips','籌碼'],['fundamental','基本']]){const q=tq.questions?.[key]||{};const row=document.createElement('p');row.textContent=`${name}：${label[q.result]||'資料不足'}｜${q.basis||q.reason||'缺值'}`;box.append(row);}
++ const rules=document.createElement('p');rules.className='tiny';rules.textContent='規則：'+[tq.rules?.technical,tq.rules?.chips,tq.rules?.fundamental].filter(Boolean).join('；');box.append(rules);
++ const note=document.createElement('p');note.className='tiny';note.textContent=tq.note||'';box.append(note);host.append(box);
++}
+ function renderAdvisoryDecision(host,decision){
+  const box=document.createElement('section');box.className='advisory-decision';
+  const divergence=decision.valuationDivergence;
+diff --git a/worker/panel-site.js b/worker/panel-site.js
+index a93e647..43b8142 100644
+--- a/worker/panel-site.js
++++ b/worker/panel-site.js
+@@ -9,5 +9,15 @@ async function attachPanelSources(stock,env={}){
+     const officialMarket=inputs.issuer?.market||stock.quoteIntegration?.price?.market;
+     inputs.lending=await PANEL_SOURCES.selectAndSaveLending({pool,symbol:stock.id,market:officialMarket,asOf:stock.price.date,issuer:inputs.issuer,priceDates:(stock.priceHistory||[]).map(r=>r.date),read,write});
+   }catch{inputs.lending={status:'insufficient',reason:'OFFICIAL_LENDING_COLLECTION_FAILED',history:[]};}
++  try{
++    // 回測用的同一條美元指數（FRED DTWEXAFEGS，經官方匯入保存）；不是 ICE DXY。
++    const saved=await readRuntimeCache(env,'official-series:v1:DTWEXAFEGS'),input=saved?.payload;
++    inputs.dollarIndex=input&&saved.fresh&&Date.now()-Date.parse(input.fetchedAt)<=36*3600000?{id:'DTWEXAFEGS',history:input.history||[],source:input.source,fetchedAt:input.fetchedAt,releaseVerification:input.releaseVerification||null}:null;
++  }catch{inputs.dollarIndex=null;}
++  try{
++    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
++    const pool=await PANEL_SOURCES.collectCbRegistry({read,write});
++    inputs.cbRegistry={checkedAt:pool.checkedAt,status:pool.status,sources:pool.sources,errors:pool.errors,bonds:(pool.bonds||[]).filter(b=>b.issuer===stock.id)};
++  }catch{inputs.cbRegistry={status:'failed',bonds:[],sources:[],errors:[{kind:'all',code:'CB_REGISTRY_COLLECTION_FAILED'}]};}
+   return {...stock,panelInputs:inputs};
+ }
+diff --git a/worker/panel-sources.mjs b/worker/panel-sources.mjs
+index 978f838..f45fd2b 100644
+--- a/worker/panel-sources.mjs
++++ b/worker/panel-sources.mjs
+@@ -47,3 +47,41 @@ export async function selectAndSaveLending({pool,symbol,market,asOf,issuer,price
+   for(const n of [1,3,5,10]){const slice=retained.slice(-n-1),dates=priceDates.filter(d=>d<=asOf).slice(-n-1);deltas[n]=slice.length===n+1&&dates.length===n+1&&slice.every((r,i)=>r.date===dates[i])?{changeShares:point.balanceShares-slice[0].balanceShares,consecutiveIncrease:slice.slice(1).every((r,i)=>r.balanceShares>slice[i].balanceShares)}:null;}
+   return {...point,status:saved?'ok':'storage_failed',balanceRatioPct:sameShares?point.balanceShares/issuer.shares*100:null,ratioReason:sameShares?null:'SAME_DAY_ISSUED_SHARES_MISSING',shareSource:sameShares?issuer.sourceUrl:null,history:retained,deltas,storageStatus:saved?'saved':'failed',scoreContribution:0};
+ }
++
++/** 櫃買中心可轉換公司債登錄資料（國內 bond_ISSBD5、海外 bond_ISSBD6）。上市、上櫃公司的可轉債都在櫃買登錄。 */
++export const TPEX_CB_DOMESTIC_URL='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data';
++export const TPEX_CB_OVERSEAS_URL='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data';
++const CB_CURRENCY=Object.freeze({'1':'TWD','2':'USD'});
++const cbNumber=v=>{const t=String(v??'').trim().replaceAll(',','');if(!t)return null;const n=Number(t);return Number.isFinite(n)?n:null;};
++export function parseCbRegistry(rows,{sourceUrl,kind,capturedAt}={}){
++  if(!Array.isArray(rows))throw Error('CB_REGISTRY_SCHEMA');
++  const out=[];
++  for(const r of rows){
++    const issuer=String(r?.IssuerCode??'').trim(),id=String(r?.BondCode??'').trim();
++    if(!/^\d{4,6}$/.test(issuer)||!id)continue;
++    const price=cbNumber(r['Conversion/ExchangePriceAtIssuance']),name=String(r.ShortName??'').trim();
++    out.push({issuer,id,name:name&&name!=='無'?name:null,kind,currency:CB_CURRENCY[String(r.Currency??'').trim()]||null,currencyCode:String(r.Currency??'').trim(),
++      issueDate:officialDay(r.IssueDate),maturityDate:officialDay(r.MaturityDate),issuedFace:cbNumber(r.IssueAmount),outstandingFace:cbNumber(r.OutstandingAmount),
++      conversionPriceAtIssue:price>0?price:null,conversionStart:officialDay(r['Conversion/ExchangePeriodStartDate']),conversionEnd:officialDay(r['Conversion/ExchangePeriodEndDate']),
++      putDate:officialDay(r.PutOptionDate),putPrice:cbNumber(r.PutOptionPrice),registryDate:officialDay(r.Date),sourceUrl,capturedAt});
++  }
++  if(!out.length)throw Error('CB_REGISTRY_NO_ROWS');
++  return out;
++}
++const cbTasks=new Map();
++export async function collectCbRegistry({read,write,fetchImpl=fetch,now=Date.now()}){
++  const localDay=new Date(now+8*3600000).toISOString().slice(0,10),key=`panel:cb-registry:v1:${localDay}`,old=await read(key);
++  if(old?.fresh)return old.payload;
++  if(cbTasks.has(key))return cbTasks.get(key);
++  const task=(async()=>{
++    const bonds=[],errors=[],sources=[],capturedAt=new Date(now).toISOString();
++    for(const [kind,sourceUrl] of [['domestic',TPEX_CB_DOMESTIC_URL],['overseas',TPEX_CB_OVERSEAS_URL]]){
++      try{const r=await fetchImpl(sourceUrl,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(6000)});if(!r.ok)throw Error(`HTTP_${r.status}`);const rows=await r.json();bonds.push(...parseCbRegistry(rows,{sourceUrl,kind,capturedAt}));sources.push({kind,sourceUrl,rows:rows.length});}
++      catch(error){errors.push({kind,code:/^HTTP_\d+$/.test(error.message)?error.message:'CB_REGISTRY_UNAVAILABLE_OR_SCHEMA'});}
++    }
++    const payload={checkedAt:capturedAt,bonds,sources,errors,status:errors.length?(bonds.length?'partial':'failed'):'ok'};
++    if(bonds.length&&!await write(key,payload,errors.length?3600000:12*3600000))return {...payload,storageStatus:'failed'};
++    return payload;
++  })().finally(()=>cbTasks.delete(key));
++  cbTasks.set(key,task);return task;
++}

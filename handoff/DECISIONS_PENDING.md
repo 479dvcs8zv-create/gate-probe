@@ -6,6 +6,11 @@
 
 ---
 
+## 擁有者 2026-10-25 20:17「好 一起處理」：可轉債自動抓、美元零軸（DTWEXAFEGS）、外銷訂單（國發會）與三問合併一次上線
+Patch `handoff/patches/owner-bundle-20261025.patch`（SHA 25ad8327…6afb，取代 three-questions-v1）。外銷訂單新口徑判讀門檻、美元零軸 −1 是否正式計分、持股換算，仍待回測與擁有者核准。
+
+---
+
 ## 擁有者 2026-10-25 20:15 授權：部署「汰弱留強三問」（`handoff/patches/three-questions-v1.patch`，SHA 72d083cf…f499，基線 v234）
 GPT 額度用完，等額度恢復後照 `handoff/GPT_NEXT.md` 套用與上線。
 
