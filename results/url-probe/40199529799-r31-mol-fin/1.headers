@@ -1,0 +1,18 @@
+HTTP/1.1 200 
+Date: Sun, 25 Oct 2026 13:51:35 GMT
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=31536000;includeSubdomains; preload
+Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-molopendata==' 'sha256-MJq+4b3dA/4WwZbizAC1gxj/cHdkgk2bcaOPZnc2cg0=' 'sha256-2a8ZwAOVZsJAc3RInrkcTNAEtkMO849Ruz4CC53lEjo=' 'sha256-0oLmY0tfi955mdCIfbjFEWY+zCJoZz8+1AK89dru+iQ=' 'sha256-ovbiQ06LLsMKSB/zapOpBuRgwq3l3EzgdPxksDVnso0=' 'sha256-g9AU/iYV00EcBpLIyh46zM7vj+hVrse8Cgj5ZlpkZ6I=' 'sha256-K8V/mhQCZnxGhNaw4dzfe1GXq6l8hE5slu5WqWtW4JU=' 'sha256-q7xMFEQUTqkRjPL18bELNdqXHzdRh5lTmAMQa9hJ4DY=' ; style-src 'self' 'nonce-molopendata==' 'sha256-kwpt3lQZ21rs4cld7/uEm9qI5yAbjYzx+9FGm/XmwNU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-c823gKh+osiEtapTIYig0VtEe3NHj+8T2vWNPUjhcNQ=' 'sha256-p08VBe6m5i8+qtXWjnH/AN3klt1l4uoOLsjNn8BjdQo=' 'unsafe-eval'; font-src 'self'; connect-src 'self'; img-src 'self' data: validator.swagger.io; frame-src 'none'; frame-ancestors 'none'; media-src 'none'; object-src 'none'; manifest-src 'none'; worker-src 'none'; form-action 'self'; base-uri 'none'
+Cross-Origin-Embedder-Policy: require-corp
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+Content-Disposition: inline; filename="A17030000J-000037-51i.csv"
+Content-Type: text/csv;charset=UTF-8
+Content-Length: 1682
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Cache-Control: private, no-cache, no-store, proxy-revalidate, must-revalidate, no-transform
+Pragma: no-cache
+Set-Cookie: ROUTEID=.1; path=/;SameSite=Lax;Secure;HttpOnly;Secure
+Set-Cookie: TS01d922ee=012f7f7792af571f85edb0fad6c2e227603ccbda98cc637393e0eb81a357aeb6686ccc72982ad646eba3cadb10f5abdd860b05f36c899b2c4014cab6417e7edf7569abf950; Path=/
+
