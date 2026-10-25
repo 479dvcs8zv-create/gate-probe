@@ -1,0 +1,60 @@
+name: gate-probe-stock-prices
+# 個股回測用：上市／上櫃每日全部普通股收盤（唯讀 GET、每次間隔 4 秒、可分次接續）。不使用任何金鑰。
+# 只寫入 gate-probe 的 results/backtest-data/stock-prices/。上市與上櫃各自一個排隊群組，可同時跑。
+on:
+  workflow_dispatch:
+    inputs:
+      market:
+        description: twse 或 tpex
+        required: true
+        default: twse
+      start:
+        description: 起日 YYYY-MM-DD
+        required: true
+        default: '2006-01-01'
+      end:
+        description: 迄日 YYYY-MM-DD
+        required: true
+        default: '2026-12-31'
+      minutes:
+        description: 本次最多執行分鐘數（上限 320）
+        required: true
+        default: '320'
+permissions:
+  contents: write
+concurrency:
+  group: gate-probe-stock-prices-${{ inputs.market }}
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect
+        env:
+          MARKET: ${{ inputs.market }}
+          START: ${{ inputs.start }}
+          END: ${{ inputs.end }}
+          MINUTES: ${{ inputs.minutes }}
+        run: |
+          case "$MARKET" in twse|tpex) ;; *) echo "bad market"; exit 1;; esac
+          case "$START$END" in *[!0-9-]*) echo "bad date"; exit 1;; esac
+          case "$MINUTES" in *[!0-9]*|"") echo "bad minutes"; exit 1;; esac
+          [ "$MINUTES" -le 320 ] || MINUTES=320
+          python3 -I tools/build_stock_prices.py "$MARKET" results/backtest-data/stock-prices "$START" "$END" "$MINUTES" results/backtest-data/twse-cache
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/backtest-data/stock-prices
+          git commit -m "stock prices ${{ inputs.market }} ${{ inputs.start }}..${{ inputs.end }} run ${GITHUB_RUN_ID}" || exit 0
+          for n in 1 2 3 4 5 6; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            sleep 15
+          done
+          exit 1
