@@ -5,7 +5,7 @@
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
 
-## 現在：上線「汰弱留強三問」（Claude 寫好、測完；**等擁有者說「授權」才部署**）
+## 現在：上線「汰弱留強三問」（Claude 寫好、測完；**擁有者已授權：2026-10-25 20:15 台北，在與 Claude 的對話中說「我授權」**；範圍只有 three-questions-v1.patch）
 - Patch：`handoff/patches/three-questions-v1.patch`（SHA-256 `72d083cf…f499`）。基線＝v234 來源 commit faf5eb7（488b8bc＋final.patch）。
 - 內容：`worker/panel-calculations.mjs` 新增 `threeQuestions()` 並放進 `buildStockPanels` 的 `threeQuestions` 欄；`worker/macro.js` 的 marketActivity 多帶 `institutionalHistory`（最近 30 筆，FinMind 原資料）；`worker/panel-display.js` 在綜合觀察下方顯示三問；新增 `tests/three-questions.test.mjs`（8 項）並加入 `npm test`。`scoreContribution=0`，不改評級／Gate／風險預算。
 - 步驟：`git apply three-questions-v1.patch`（patch 不含 dist/server/index.js）→ `node build.mjs` → `TZ=UTC npm test` → 部署；v234 留回滾。

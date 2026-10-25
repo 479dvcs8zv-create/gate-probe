@@ -6,6 +6,11 @@
 
 ---
 
+## 擁有者 2026-10-25 20:15 授權：部署「汰弱留強三問」（`handoff/patches/three-questions-v1.patch`，SHA 72d083cf…f499，基線 v234）
+GPT 額度用完，等額度恢復後照 `handoff/GPT_NEXT.md` 套用與上線。
+
+---
+
 ## 擁有者 2026-10-25 15:22：外銷訂單改用國發會「外銷訂單動向指數（以家數計）」
 - 經濟部原始 CSV（service.moea.gov.tw/EE520/opendata/b.csv）從 GitHub 雲端主機也被 Cloudflare 擋（403，gate-probe `results/url-probe/*moea-export-orders`），雲端無法自動抓。
 - 替代：中繼已在下載的國發會「景氣指標及燈號」ZIP 內 `領先指標構成項目.csv` 欄位「外銷訂單動向指數(以家數計)」（Claude 10-25 實抓：最新 202608＝49.68；gate-probe `results/url-probe/*ndc-indicators-full`）。
