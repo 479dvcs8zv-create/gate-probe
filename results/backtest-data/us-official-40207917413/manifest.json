@@ -1,0 +1,366 @@
+{
+ "generated_at": "2026-10-25T15:41:18.295183+00:00",
+ "complete": false,
+ "failures": [
+  {
+   "source": "BLS",
+   "years": "2025-2026",
+   "error": "ValueError(\"could not convert string to float: '-'\")"
+  }
+ ],
+ "counts": {
+  "cpilfesl": 251,
+  "payems": 240,
+  "unrate": 240,
+  "dgs2": 5457,
+  "dgs10": 5457,
+  "dfii10": 5457,
+  "sofr": 2138,
+  "ioer": 4676,
+  "iorb": 1916
+ },
+ "files": [
+  {
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/?POST startyear=2005&endyear=2014",
+   "file": "raw/bls_2005_2014.json",
+   "sha256": "8671eecd0fa07237a238fe5cddbd09a4ebd6097cfdc8eaedd71ec00b43ac1166",
+   "bytes": 31295
+  },
+  {
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/?POST startyear=2015&endyear=2024",
+   "file": "raw/bls_2015_2024.json",
+   "sha256": "8156857c9561a5238fb5cad3773a4accc6564ce12df465ec0acf5bc04f1adf7a",
+   "bytes": 31346
+  },
+  {
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/?POST startyear=2025&endyear=2026",
+   "file": "raw/bls_2025_2026.json",
+   "sha256": "5a1b18992ad90d13ae6ef297d848fb82fad75638d02210b60877ace1ea7bfb88",
+   "bytes": 6058
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2005/all?type=daily_treasury_yield_curve&field_tdr_date_value=2005&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2005.csv",
+   "sha256": "ecf2ab3d1ca1b6ee8e916fee90474028c2d1221b8d236131621ad58020db0552",
+   "bytes": 15326
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2005/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2005&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2005.csv",
+   "sha256": "91c99c6193f8551a659011f9c75a3d63b60d314b030b7e0b91863b7bbfdd62d3",
+   "bytes": 7784
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2006/all?type=daily_treasury_yield_curve&field_tdr_date_value=2006&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2006.csv",
+   "sha256": "cdbdcd8b32735caa453e00280232ff70c7012c055b7daf7b8cf1d9aaa8c66bfe",
+   "bytes": 16480
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2006/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2006&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2006.csv",
+   "sha256": "ddfe25bb8680405c263628a32d9ddebe6b3825625bd7e5e67b40ee7f18e41d93",
+   "bytes": 7784
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2007/all?type=daily_treasury_yield_curve&field_tdr_date_value=2007&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2007.csv",
+   "sha256": "297f6be4059a605b1ec0f266eb7b8467c3d40504a0dd53341746223276e6e6d8",
+   "bytes": 16650
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2007/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2007&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2007.csv",
+   "sha256": "07fb955fe47935bb5df515b5bdeba5579d24ae5431a2d9bf6ab0450a26bb215d",
+   "bytes": 7815
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2008/all?type=daily_treasury_yield_curve&field_tdr_date_value=2008&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2008.csv",
+   "sha256": "686db01584dd45f67addc243ee0c42339d491171a0e947c8f88ecac78ee0e9ea",
+   "bytes": 16638
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2008/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2008&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2008.csv",
+   "sha256": "8d79576383af601010f6c4e8c0240a0e6f8fd1c04eec05e6b8d89ebb9c327232",
+   "bytes": 7815
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2009/all?type=daily_treasury_yield_curve&field_tdr_date_value=2009&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2009.csv",
+   "sha256": "3c9294cfa71136e1d5330b09a00bf996ecf86c865d593d7ee954d11984a5bdb1",
+   "bytes": 16584
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2009/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2009&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2009.csv",
+   "sha256": "68f1f8b2de5234e2e4650de06c6786dbb4fbec6ea3894bd4edb73930e32843c4",
+   "bytes": 7784
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2010/all?type=daily_treasury_yield_curve&field_tdr_date_value=2010&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2010.csv",
+   "sha256": "f973bd3988989d3e408655cbc7fed89faefbaa8a1c111ec313241fb47fc75e2d",
+   "bytes": 16672
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2010/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2010&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2010.csv",
+   "sha256": "c16d0db0208b7e016a35c93cd1b354cbe735002683fe66063fa6371aae3f3bc2",
+   "bytes": 9003
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2011/all?type=daily_treasury_yield_curve&field_tdr_date_value=2011&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2011.csv",
+   "sha256": "224eaf29d6fe7cbccc746c7a8c845f189cf91424bab43f46ca386a74e98d81f7",
+   "bytes": 16584
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2011/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2011&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2011.csv",
+   "sha256": "d1bd695b0764e2af85373f6b2909a57217cb575ba21e131853a512af5d3ec63b",
+   "bytes": 9390
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2012.csv",
+   "sha256": "9c889b6e3cb87f40f3760bddb69f05f7525800ac480ef5712b2cf318765fa184",
+   "bytes": 16584
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2012/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2012&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2012.csv",
+   "sha256": "6ee991ccdbdaa615bf329cdfd79fcd813a9fbd88e1795b13e77ff0c76c905ec4",
+   "bytes": 9849
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2013/all?type=daily_treasury_yield_curve&field_tdr_date_value=2013&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2013.csv",
+   "sha256": "1e1a98426d9274afcc68467962f9238104db775b8765e48f45ac7488b33ff338",
+   "bytes": 16584
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2013/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2013&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2013.csv",
+   "sha256": "6819c5fbbbbfbd511dd7fef270857db7cf2c97f862805fd24589af7af2df8c15",
+   "bytes": 9523
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2014/all?type=daily_treasury_yield_curve&field_tdr_date_value=2014&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2014.csv",
+   "sha256": "8d560698e03e4c0d8d22ff8be7f5f7c5c0d472b1e33a22b6a75373a57e84aa0f",
+   "bytes": 16584
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2014/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2014&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2014.csv",
+   "sha256": "1b7365254bdc3bd75a1fef774c9bba0a39fa3d499a13ae80e65a4eda4c61a92d",
+   "bytes": 9204
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2015/all?type=daily_treasury_yield_curve&field_tdr_date_value=2015&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2015.csv",
+   "sha256": "b7665d1ce46d6ed6d08fbda34aae1831de38e274e3c7caed81904042aac9b5bc",
+   "bytes": 16650
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2015/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2015&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2015.csv",
+   "sha256": "aec6d36e527bab697717aea76a04113e168392a15944bc8461690d05f9aa0b47",
+   "bytes": 9157
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2016.csv",
+   "sha256": "b4d0a8d86e2734bc64d84d9a9824434d841737621582daeac58f13c7129f325c",
+   "bytes": 16584
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2016/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2016&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2016.csv",
+   "sha256": "b38e72f59b7edbc660b00be57e1a82e1a49bc7f3128fcb520faddd05d99f7c49",
+   "bytes": 9343
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2017/all?type=daily_treasury_yield_curve&field_tdr_date_value=2017&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2017.csv",
+   "sha256": "56074da7c32103a28cf4ba2bdf5eaa12f98fd49852047aef1a6eb16e64bd6e83",
+   "bytes": 16584
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2017/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2017&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2017.csv",
+   "sha256": "94b310fafe718ca3f6717b7da4cd7d7bf335faecf1a302793f0f34733f164473",
+   "bytes": 9054
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2018/all?type=daily_treasury_yield_curve&field_tdr_date_value=2018&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2018.csv",
+   "sha256": "e8375524a7a8d3e8091bbe7690d0378b9365be09efff5b18b8eefddc25f718d3",
+   "bytes": 16978
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2018/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2018&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2018.csv",
+   "sha256": "d1ef01905a1608957d06cbcd26593eac1e8b9bff9e92a1fa3a1b142a97ef0a95",
+   "bytes": 9006
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2019/all?type=daily_treasury_yield_curve&field_tdr_date_value=2019&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2019.csv",
+   "sha256": "83fc47c17325e222c45fd3a1eb26c69ae01f62d33b793030b4b8b350ca0a290b",
+   "bytes": 17841
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2019/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2019&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2019.csv",
+   "sha256": "593741b038e0970fe5be65a04e0047e17f00809da64e84948d1d306ab032e207",
+   "bytes": 9055
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2020/all?type=daily_treasury_yield_curve&field_tdr_date_value=2020&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2020.csv",
+   "sha256": "edcf1c8be9622f3cd92eb7de1847aefc3977e2118e2ff9af67f46614a5c306a7",
+   "bytes": 17912
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2020/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2020&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2020.csv",
+   "sha256": "30c98a2d75a4474e08a338bc3874745241d63be8f4a0d07a7f04a454a332921c",
+   "bytes": 10177
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2021/all?type=daily_treasury_yield_curve&field_tdr_date_value=2021&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2021.csv",
+   "sha256": "1be57e49c63a99f6002431a1030c8fbe539b71066c3eaf14f9f58ddc34492cea",
+   "bytes": 17912
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2021/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2021&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2021.csv",
+   "sha256": "9c614f8b16db601f1dc01ddd77db42d4e4a54b7243db4b4fc228270a08f747d3",
+   "bytes": 10275
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2022/all?type=daily_treasury_yield_curve&field_tdr_date_value=2022&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2022.csv",
+   "sha256": "c33cb2758e5e34c2c23b7ab759d18681091860f3f9e5960112859f64f31cd814",
+   "bytes": 18226
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2022/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2022&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2022.csv",
+   "sha256": "70b21a92a05801c479f1ddaee21137b7f842d43d883d32d57f9bbae272111a48",
+   "bytes": 9390
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2023/all?type=daily_treasury_yield_curve&field_tdr_date_value=2023&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2023.csv",
+   "sha256": "edb7f3904e11dcaa502cdcc03ad9b1b16c893802d166ce9bc5fa1118251249d4",
+   "bytes": 19098
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2023/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2023&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2023.csv",
+   "sha256": "ef28bcafaca75c45bb6b3491b4df4bd1b5e2ab7ff35ac014b6f8362df330c0ca",
+   "bytes": 9042
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2024/all?type=daily_treasury_yield_curve&field_tdr_date_value=2024&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2024.csv",
+   "sha256": "6775840b76cd7fd41121f61d6f6c60184eca6b2ba49954ec7372c463cbeef34d",
+   "bytes": 19098
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2024/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2024&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2024.csv",
+   "sha256": "d3ff00a9287ebf68fdc80e72fb2d1895a73c84b3ff2a6ca8c6d64648cb470f16",
+   "bytes": 9042
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2025/all?type=daily_treasury_yield_curve&field_tdr_date_value=2025&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2025.csv",
+   "sha256": "cf2fa3da7f160384b63d2ead698532b1d76cd9f789ce4911e2304db85b14e6d5",
+   "bytes": 20155
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2025/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2025&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2025.csv",
+   "sha256": "d3d3131c41e1f93f4661d227ce7079049d51888b395aaff863b6ad8e08838b64",
+   "bytes": 9006
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_yield_curve_2026.csv",
+   "sha256": "a3469c2af859a7b9ecf9a63db9f2cd045c86ae973ba28c71d0bf612fcd301287",
+   "bytes": 16634
+  },
+  {
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2026&page&_format=csv",
+   "file": "raw/treasury_daily_treasury_real_yield_curve_2026.csv",
+   "sha256": "fdc7c08fc76db7abf7784355516aec1b98d0a7cbcac88ca465587281cb082202",
+   "bytes": 7386
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2018-04-01&endDate=2018-12-31",
+   "file": "raw/sofr_2018.json",
+   "sha256": "0652bd78da1372b5a4a89eb10b54148b6cc0dabf528a139a2ac23b0f7052e46f",
+   "bytes": 44575
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2019-01-01&endDate=2019-12-31",
+   "file": "raw/sofr_2019.json",
+   "sha256": "8ef5f77a6bcf145b83ffc3600beffc1f96ee7d3be17ce16d892a7bcb78926c60",
+   "bytes": 59462
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2020-01-01&endDate=2020-12-31",
+   "file": "raw/sofr_2020.json",
+   "sha256": "6303924b8ba2eb14fb35c84586cc7ccfa9b62227307f145492902ccdcd86f1d5",
+   "bytes": 59635
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2021-01-01&endDate=2021-12-31",
+   "file": "raw/sofr_2021.json",
+   "sha256": "1d81e7212f3791a9691e77d552bc933b17b1aacdf11a0200a056961e60c3f8cd",
+   "bytes": 59404
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2022-01-01&endDate=2022-12-31",
+   "file": "raw/sofr_2022.json",
+   "sha256": "db885b1e5fcb68859e56428441835e8b37e2ebbe227ddc06cc95f62fd1fddd0c",
+   "bytes": 59113
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2023-01-01&endDate=2023-12-31",
+   "file": "raw/sofr_2023.json",
+   "sha256": "e2fcdcea3fbf9dd6b160d8e2ae5ce27463a9fba0642bfdcfbbe38b415c0e461c",
+   "bytes": 59280
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2024-01-01&endDate=2024-12-31",
+   "file": "raw/sofr_2024.json",
+   "sha256": "381fc266d1dac1f2937c8293c2e9657011aa53160e40519dc5b20392a02ce278",
+   "bytes": 59518
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2025-01-01&endDate=2025-12-31",
+   "file": "raw/sofr_2025.json",
+   "sha256": "fafbcc840cf1a71ffdce5314f9b3dac6ba57ec1fb2f14c9b7667d3a19ea5b84d",
+   "bytes": 59280
+  },
+  {
+   "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2026-01-01&endDate=2026-12-31",
+   "file": "raw/sofr_2026.json",
+   "sha256": "b0597c92632236e729cbfec866b50f6c9ad70a49b90dd27d935d1b5e9a6d2642",
+   "bytes": 48094
+  },
+  {
+   "url": "https://www.federalreserve.gov/datadownload/Output.aspx?rel=PRATES&series=c27939ee810cb2e929a920a6bd77d9f6&lastobs=&from=&to=&filetype=csv&label=include&layout=seriescolumn&type=package",
+   "file": "raw/frb_prates.csv",
+   "sha256": "58e3345d9fdadd9e65f05e3d1418c5ac38dd1d238d4734906a7a177a91432c71",
+   "bytes": 144404
+  }
+ ]
+}
