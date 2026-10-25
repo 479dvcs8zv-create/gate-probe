@@ -1,36 +1,27 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-26 01:05 台北（Claude）
+更新：2026-10-26 08:20 台北（Claude）
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
 
-## 現在：兩份修改包**依序套用、一次部署**（Claude 寫好、測完；擁有者都已授權）
-- 10-26 00:53 第一次嘗試：執行環境離線（No usable execution environment），未套用、未部署，仍是 v234（報告 `diagnostics/deploy-20261026/report.md`）。**環境恢復後重做同一件事，不需要重新授權。**
-- 完整 SHA-256（核對用）：
-  - `owner-bundle-20261025.patch` = `25ad83272642ef3038f79ba0025e264317086b3511d9adb3d5980b528b216afb`
-  - `owner-bundle2-20261025.patch` = `f5068830265e6b0ace2ee881656d1a9ddbf33460b26d3f774644e0485168c334`
-  - 只套第一包後 `dist/index.html` = `fa1412dcc763c376322676c6900380033c6c7a0d415c4e60e2ba092522609f68`
-  - 兩包都套後 `dist/index.html` = `2b707b79fc43e8a9f2c29da15cb42ed7cbe906b3ea66aa5b428d4305f4a27544`
-- 憑證（10/25 事故）：`siwc_bypass_bearer_token` **已於 10-26 01:00 輪替**（擁有者授權）。環境恢復後補查本機呼叫端（importerNode、site_private_fetch.mjs、deploy-readback.mjs、poll_existing_run.mjs）都改為每次動態取得、沒有寫死舊值。
-- **部署後恢復每日巡檢（已授權：擁有者 2026-10-26 01:01「好」）**，順序固定：
-  1. 兩包部署並完成讀回①～⑥。
-  2. 手動跑一次完整巡檢（官方行情、官方序列匯入含 DTWEXAFEGS、整站刷新），逐項讀回確認真的寫入（ok:true＋讀回日期），不能只看排程顯示成功。
-  3. 第 2 步全部通過才重新啟用「台股整站每日巡檢」排程；任何一項失敗就保持停用，把失敗項寫進報告。
-  - 外部收集包裝檢查系列數若是 8，改成 9（多了 DTWEXAFEGS）。
-**授權**：擁有者 2026-10-25 20:15「我授權」（三問）＋20:17「好 一起處理」（同意可轉債、美元零軸、外銷訂單與三問合併一次上線）。範圍只有下面這一份 patch。
-- Patch：`handoff/patches/owner-bundle-20261025.patch`（SHA-256 `25ad8327…6afb`），**取代** three-questions-v1.patch（不要兩份疊套）。基線＝v234 來源 faf5eb7（488b8bc＋final.patch）。patch 不含 dist/server/index.js，build 重建。
-- 內容（全部只顯示，`scoreContribution=0`，不改評級／Gate／風險預算）：
-  1. 汰弱留強三問（同 three-questions-v1）。
-  2. 可轉債自動抓：`panel-sources.mjs` 抓櫃買 OpenAPI bond_ISSBD5／ISSBD6（每日快取），`panel-site.js` 只帶該股，`panel-calculations.mjs` 算價內外與台幣債稀釋，畫面卡片「可轉債（櫃買自動）」。`build.mjs` 的 PANEL_SOURCES 多匯出 collectCbRegistry。測試白名單加這兩個官方網址。
-  3. 美元零軸改用回測同一條 FRED **DTWEXAFEGS**：`scripts/collect-official-data.py` 多抓 DTWEXAFEGS（145 天、至少 26 筆，**系列數 8→9**）；`data-import.js` 白名單加 DTWEXAFEGS；`panel-site.js` 讀 `official-series:v1:DTWEXAFEGS`；觀測日＋8 日才採用；草案 >0 −1、走弱不加分（`advisory-decision.mjs` 同步）。ICE DXY 報價卡不變。
-  4. 外銷訂單改國發會：`observations.js` 從國發會景氣指標 ZIP 讀「外銷訂單動向指數(以家數計)」，移除經濟部抓取與舊快照；`macro-scoring.js`（及 dist/index.html 內同一份）**把外銷訂單從台股本土維度評分移除，expected 8→7**（新口徑門檻未核准前不計分）。
-- 步驟（兩包一起）：`git apply owner-bundle-20261025.patch` → `git apply owner-bundle2-20261025.patch` → `node build.mjs` → `TZ=UTC npm test` → 部署**一次**；v234 留回滾。預期 `dist/index.html` SHA-256＝`2b707b79…7544`。
-- Claude 已在乾淨 v234 重放：套用無衝突，`dist/index.html` SHA-256 `fa1412dc…9f68`，完整 `npm test` exit 0（新增 `test:owner-20261025` 17/17＋國發會 ZIP 測試）。也用 10-25 真實國發會 ZIP 驗過：320 個月，最新 2026-08＝49.68。
-- **你那邊的外部收集包裝（例如 macro_morning.py）若檢查系列數＝8，要改成 9**；下一次官方匯入後美元零軸才會出現，之前顯示「待補」是正常。
-- 部署後只讀回（報告 40 行內）：①四檔三問；②四檔可轉債卡（群聯應為 3 檔、全部價外；兩包一起上線後，群聯三顯示目前轉換價 2,468.8，詳見⑥）；③下一次官方匯入後美元零軸狀態與草案分數；④TW_EXPORT_ORDERS 值與日期、status、未計分；台股總經分數前後與原因（外銷訂單原本就因 403 過期未計入，預期不變）；⑤四檔評級、Gate、風險許可不變。
-- 待說明（只寫名稱）：10/25 工具事故印出的是哪一把憑證。
-- 對照補充（Gemini 第 30 輪線索）：群聯三 2026-07-06 因除息把轉換價調為 2,468.8；卡片寫「發行時轉換價 2,488」是對的（櫃買 OpenAPI 只有發行時價格），結論仍是價外。
+## 已完成：兩包 → **v235**（10-26 05:34 部署；SHA 全對、npm test exit 0；報告 `diagnostics/deploy-20261026/report.md`）
+- 讀回 ①③⑤ PASS；②④ FAIL、⑥ PARTIAL；手動巡檢 partial、Gate 審計 4/4 step_timeout；每日巡檢保持停用（正確）。
+
+## 現在：上線「v235 修補」（Claude 寫好、測完；**等擁有者授權**）
+- Patch：`handoff/patches/v235-hotfix-20261026.patch`，SHA-256 `c46c98406536419d722bbdb20a73a1ba844545edce56624b11b5a816317911ac`。基線＝v235 來源（你的 commit 4ac4af9＝Claude 重放結果）。不含 dist/server/index.js，build 重建。
+- 修什麼（原因都是 Claude 第二包的錯，不是你的操作）：
+  1. **Gate 審計 step_timeout**：第二包讓 `attachPanelSources` 逐項依序等（櫃買 2 次、觀測站、集保、證交所 2 次），冷快取或來源慢時一檔就超過 16 秒步驟上限。改成**同時抓、整體最多等 7 秒**；沒趕上的項目顯示「讀取中」，背景完成後寫快取，下一檔／下次直接用。
+  2. **可轉債收集 failed**：櫃買回應本文慢，6 秒不夠 → 改 15 秒（月報索引 10 秒、月報檔 12 秒）；失敗後 20 分鐘內不重抓（只存失敗碼，不存資料）。集保、融資維持率同樣加失敗記憶。
+  3. **④外銷訂單仍是經濟部 62.36**：`loadExpandedSeries` 先讀外部排程快照（macro-relay-service 的 keyless_snapshot 仍有經濟部舊值），蓋過國發會。改成外銷訂單不讀那份快照。
+- 新測試 `test:v235-hotfix` 2 項（先用 v235 程式確認兩項都會失敗，修補後通過）；Claude 在乾淨 v235 重放：無衝突、完整 `npm test` exit 0、`dist/index.html` SHA-256 `2d51dc256651a1afac37dc26388aec909dbd29301f0530edd006cb2e44534f92`。
+- 步驟：`git apply v235-hotfix-20261026.patch` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（v235 留回滾）。
+- 部署後：手動跑一次完整巡檢，讀回（報告 30 行內，寫在 `diagnostics/deploy-20261026/hotfix.md`）：
+  ① Gate 審計 4/4 `recorded:true`、沒有 step_timeout；
+  ② 巡檢結束後再開 8299：可轉債 3 檔、群聯三「目前轉換價 2,468.8（觀測站 2026-09 月報，2026-07-06 重設）」、海外兩檔標「未含後續調整」；若仍「讀取中／失敗」，寫出失敗碼；
+  ③ TW_EXPORT_ORDERS＝國發會 49.68、2026-08-01、`scoring:pending_threshold_approval`、未計分；
+  ④ 四檔評級、Gate、風險許可與 v235 相同（5009 的變化是手動更新造成，照實寫）。
+- 恢復每日巡檢（擁有者 10-26 01:01 已授權）：上面 ①～③ 都通過才啟用。**M1B−M2、市場／貴金屬 pending 等是原有的來源問題，寫進報告即可，不擋恢復。**
 
 ## 第二修改包（**已授權**：擁有者 2026-10-25 21:25「好一起授權」）——與上面那份依序套用、同一次部署
 - Patch：`handoff/patches/owner-bundle2-20261025.patch`（SHA-256 `f5068830…c334`），**疊在 owner-bundle-20261025.patch 之後**，不含 dist/server/index.js。

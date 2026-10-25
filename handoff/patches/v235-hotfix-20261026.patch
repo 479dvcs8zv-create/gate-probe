@@ -1,0 +1,338 @@
+diff --git a/dist/index.html b/dist/index.html
+index c55d5ab..1bcece6 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -945,7 +945,7 @@ function renderAdvisoryPanels(model){
+  const lend=p.lending||{};card('借券賣出餘額',`${lend.status==='ok'?Number(lend.balanceShares).toLocaleString('zh-TW')+' 股':'待確認'}｜占同日發行股數 ${show(lend.balanceRatioPct)}%`,`${lend.date||'日期缺值'}；${lend.market||''}；${lend.history?.length||0}筆已保存日資料；${lend.sourceUrl||lend.reason||''}${lend.ratioReason?'；'+lend.ratioReason:''}`);
+  const cb=p.convertibleBonds||{};{const fmt=(x,d=0)=>Number.isFinite(x)?x.toLocaleString('zh-TW',{maximumFractionDigits:d}):'缺值';
+  const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜${b.conversionPriceBasis==='MOPS_MONTHLY'?`目前轉換價 ${fmt(b.conversionPriceCurrent,2)}（觀測站 ${b.conversionPriceMonth} 月報${b.conversionResetDate?`，${b.conversionResetDate} 重設`:''}；發行時 ${fmt(b.conversionPriceAtIssue,2)}）`:`發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}（未含後續調整）`}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
+- const body=cb.status==='failed'||cb.status==='insufficient'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
++ const body=cb.status==='insufficient'?`待補：${cb.reason==='CB_REGISTRY_STILL_LOADING'?'櫃買清單讀取中，稍後重新整理即可':cb.reason||'缺值'}`:cb.status==='failed'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
+  card('可轉債（櫃買＋觀測站自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6＋觀測站轉換變動月報（${cb.monthly?.month||'未取得'}${cb.monthly?.status==='snapshot'?'，沿用':''}${cb.monthly&&!['ok','snapshot'].includes(cb.monthly.status)?'：'+(cb.monthly.reason||'失敗'):''}）${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
+  const pctText=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';
+  const tqw=p.threeQuestions?.questions?.chips?.windows||{},lotsText=x=>Number.isFinite(x)?(x>0?'+':'')+Math.round(x/1000).toLocaleString('zh-TW')+'張':'缺值';
+diff --git a/package.json b/package.json
+index caec829..0a21bf7 100644
+--- a/package.json
++++ b/package.json
+@@ -5,7 +5,7 @@
+     "build": "node build.mjs",
+     "test:master-validation": "node tests/master-model-validation.test.mjs",
+     "db:generate": "drizzle-kit generate",
+-    "test": "npm run test:legacy && npm run test:advisory-integration && npm run test:fixpack && npm run test:c2 && npm run test:credit-window && npm run test:source-recovery && npm run test:owner-20261025 && npm run test:owner-bundle2",
++    "test": "npm run test:legacy && npm run test:advisory-integration && npm run test:fixpack && npm run test:c2 && npm run test:credit-window && npm run test:source-recovery && npm run test:owner-20261025 && npm run test:owner-bundle2 && npm run test:v235-hotfix",
+     "test:source-recovery": "node --test tests/source-recovery.test.mjs tests/official-session-regression.test.mjs",
+     "test:credit-window": "node --test tests/credit-capture-window.test.mjs tests/refresh-persistence.test.mjs tests/refresh-resume.test.mjs",
+     "test:remediation": "node tests/master-remediation.test.mjs",
+@@ -22,7 +22,8 @@
+     "test:fixpack": "node --test tests/fixpack.test.mjs",
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+-    "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs"
++    "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/convertible-bonds.test.mjs b/tests/convertible-bonds.test.mjs
+index f6112f8..a3b0650 100644
+--- a/tests/convertible-bonds.test.mjs
++++ b/tests/convertible-bonds.test.mjs
+@@ -53,7 +53,9 @@ test('one registry failing is partial, both failing is failed, and nothing is ca
+   assert.equal(p.status,'partial');assert.deepEqual(p.errors,[{kind:'overseas',code:'HTTP_503'}]);
+   const m2=memory(),dead=async()=>{throw Error('network');};
+   const f=await collectCbRegistry({read:m2.read,write:m2.write,fetchImpl:dead,now:Date.parse('2026-10-25T07:00:00Z')});
+-  assert.equal(f.status,'failed');assert.equal(m2.store.size,0);
++  assert.equal(f.status,'failed');assert.deepEqual([...m2.store.keys()],['panel:cb-registry:v1:2026-10-25:fail'],'only a short failure marker is stored, never a result');
++  let calls=0;const again=await collectCbRegistry({read:m2.read,write:m2.write,fetchImpl:async()=>{calls++;throw Error('network');},now:Date.parse('2026-10-25T07:05:00Z')});
++  assert.equal(again.status,'failed');assert.equal(calls,0,'within 20 minutes a failed source is not fetched again');
+   assert.equal(convertibleBonds(null,{symbol:'8299'}).status,'insufficient');
+ });
+ 
+diff --git a/tests/owner-bundle2.test.mjs b/tests/owner-bundle2.test.mjs
+index 1634a2e..a37db9b 100644
+--- a/tests/owner-bundle2.test.mjs
++++ b/tests/owner-bundle2.test.mjs
+@@ -58,7 +58,7 @@ test('maintenance ratio: same-day prices and margin only; result is the estimate
+   assert.throws(()=>computeMarginMaintenance(prices,margin('20261021',[['2330',1]])),/MARGIN_DATE_NOT_ALIGNED/);
+   const m=memory(),fetchImpl=async url=>({ok:true,status:200,json:async()=>url===TWSE_STOCK_DAY_ALL_URL?prices:{stat:'很抱歉，沒有符合條件的資料'}});
+   const pending=await collectMarginMaintenance({read:m.read,write:m.write,fetchImpl});
+-  assert.equal(pending.status,'insufficient');assert.equal(m.store.size,0,'unpublished margin is not cached as a result');
++  assert.equal(pending.status,'insufficient');assert.deepEqual([...m.store.keys()],['panel:margin-maintenance:v1:latest:fail'],'unpublished margin is not cached as a result');
+   const kept={status:'ok',date:'2026-10-22',ratioPct:176.99};
+   const stale=async(payload,now)=>collectMarginMaintenance({read:async()=>({fresh:false,payload}),write:m.write,fetchImpl,now:Date.parse(now)});
+   const recent=await stale(kept,'2026-10-25T08:00:00Z');assert.equal(recent.status,'snapshot');assert.equal(recent.ratioPct,176.99);assert.match(recent.reason,/2026-10-22/);
+diff --git a/tests/v235-hotfix.test.mjs b/tests/v235-hotfix.test.mjs
+new file mode 100644
+index 0000000..48143ce
+--- /dev/null
++++ b/tests/v235-hotfix.test.mjs
+@@ -0,0 +1,55 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import {deflateRawSync,crc32} from 'node:zlib';
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {attachPanelSources,loadExpandedSeries};').toString('base64'));
++
++function fakeDb(){const rows=new Map();return {prepare(sql){let args=[];const stmt={bind(...a){args=a;return stmt;},async run(){if(/^INSERT INTO site_runtime_cache/.test(sql))rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true,meta:{changes:1}};},async all(){const r=/FROM site_runtime_cache/.test(sql)?rows.get(args[0]):null;return {results:r?[r]:[]};}};return stmt;},rows};}
++const hang=(init)=>new Promise((_,reject)=>init?.signal?.addEventListener('abort',()=>reject(init.signal.reason||Error('aborted'))));
++
++test('v235 巡檢逾時修正：面板來源同時抓，整體 7 秒內回來；慢的項目顯示讀取中，不拖住 Gate 審計',async()=>{
++  const previous=globalThis.fetch;
++  globalThis.fetch=async(url,init)=>{
++    const u=String(url);
++    if(/t187ap03|tpex_mainboard|TWT93U|SBL|sbl|margin_sbl/i.test(u))return new Response('[]',{status:404});
++    return hang(init); // 櫃買、觀測站、集保、證交所行情全部卡住
++  };
++  try{
++    const stock={id:'8299',price:{date:'2026-10-22',value:1880},priceHistory:[],panelInputs:{}};
++    const started=Date.now(),out=await api.attachPanelSources(stock,{DB:fakeDb()}),elapsed=Date.now()-started;
++    assert.ok(elapsed<9000,`returned in ${elapsed} ms`);
++    const p=out.panelInputs;
++    assert.equal(p.cbRegistry.status,'pending');assert.equal(p.cbRegistry.monthly.status,'pending');
++    assert.equal(p.holders.reason,'TDCC_STILL_LOADING');assert.equal(p.marginMaintenance.reason,'MARGIN_MAINTENANCE_STILL_LOADING');
++    assert.equal(p.marginMaintenance.scoreContribution,0);
++  }finally{globalThis.fetch=previous;}
++});
++
++// Header and rows copied from the NDC open-data ZIP (景氣指標及燈號, 領先指標構成項目.csv) fetched 2026-10-25.
++const HEADER='"Date","外銷訂單動向指數(以家數計)","貨幣總計數M1B(百萬元)","股價指數(Index1966=100)","工業及服務業受僱員工淨進入率(%)","建築物開工樓地板面積(住宅類住宅、商業辦公、工業倉儲)(千平方公尺)","名目半導體設備進口(新臺幣百萬元)"';
++const CSV='﻿'+[HEADER,'202607,48.8,30530948,44366.29,0.49,1696.495,149586','202608,49.68,30750789,45124.96143,,1569.338,132457'].join('\r\n')+'\r\n';
++function zip(name,text){
++  const nameBytes=Buffer.from(name,'utf8'),raw=Buffer.from(text,'utf8'),data=deflateRawSync(raw),crc=crc32(raw);
++  const local=Buffer.alloc(30);local.writeUInt32LE(0x04034b50,0);local.writeUInt16LE(20,4);local.writeUInt16LE(0x0808,6);local.writeUInt16LE(8,8);local.writeUInt16LE(nameBytes.length,26);
++  const desc=Buffer.alloc(16);desc.writeUInt32LE(0x08074b50,0);desc.writeUInt32LE(crc>>>0,4);desc.writeUInt32LE(data.length,8);desc.writeUInt32LE(raw.length,12);
++  const central=Buffer.alloc(46);central.writeUInt32LE(0x02014b50,0);central.writeUInt16LE(20,4);central.writeUInt16LE(20,6);central.writeUInt16LE(0x0808,8);central.writeUInt16LE(8,10);central.writeUInt32LE(crc>>>0,16);central.writeUInt32LE(data.length,20);central.writeUInt32LE(raw.length,24);central.writeUInt16LE(nameBytes.length,28);
++  const cd=Buffer.concat([central,nameBytes]),end=Buffer.alloc(22),offset=30+nameBytes.length+data.length+16;end.writeUInt32LE(0x06054b50,0);end.writeUInt16LE(1,8);end.writeUInt16LE(1,10);end.writeUInt32LE(cd.length,12);end.writeUInt32LE(offset,16);
++  return Buffer.concat([local,nameBytes,data,desc,cd,end]);
++}
++
++test('v235 讀回④修正：外部排程快照裡的經濟部舊值（62.36%、403 過期）不能蓋過國發會擴散指數',async()=>{
++  const previous=globalThis.fetch,previousNow=Date.now;
++  // The relay entry exactly as published in macro-relay-service data/keyless_snapshot.json on 2026-10-26.
++  const relay={schema_version:1,generated_at:'2026-10-25T20:58:00Z',series:{TW_EXPORT_ORDERS:{value:62.36,date:'2026-09-01',unit:'%',status:'stale',provider:'經濟部統計處｜外銷訂單統計',source:'https://service.moea.gov.tw/EE521/common/Common.aspx?code=B&no=1',history:[{date:'2026-09-01',value:62.36}],fetched_at:'2026-10-21T21:49:35.183199+00:00',max_age_days:85,error:'HTTP Error 403: Forbidden'}}};
++  try{
++    Date.now=()=>Date.parse('2026-10-26T00:00:00Z');
++    globalThis.fetch=async url=>{const u=String(url);
++      if(u.includes('keyless_snapshot.json'))return new Response(JSON.stringify(relay),{status:200});
++      if(u.startsWith('https://ws.ndc.gov.tw/Download.ashx?'))return new Response(zip('領先指標構成項目.csv',CSV),{status:200});
++      return new Response('not found',{status:404});};
++    const row=await api.loadExpandedSeries('TW_EXPORT_ORDERS');
++    assert.equal(row.value,49.68);assert.equal(row.date,'2026-08-01');assert.equal(row.unit,'指數（50＝持平）');
++    assert.equal(row.scoring,'pending_threshold_approval');assert.doesNotMatch(String(row.provider||''),/經濟部/);
++  }finally{globalThis.fetch=previous;Date.now=previousNow;}
++});
+diff --git a/worker/observations.js b/worker/observations.js
+index f703821..eb16fa9 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -517,7 +517,8 @@ async function loadAtlantaFedGDPNow(){
+  return {id:'GDPNOW',name:SERIES.GDPNOW[0],group:SERIES.GDPNOW[1],unit:SERIES.GDPNOW[2],date,value,delta:null,previousDate:null,percent:null,changeLabel:'官方模型更新',status:stale?'stale':'ok',reason:stale?`Atlanta Fed 頁面更新日 ${date}，資料較舊`:null,source,provider:'Federal Reserve Bank of Atlanta｜GDPNow 官方頁面',history:[{date,value}],detail:`${quarter} 實質 GDP 季增年率（SAAR）；Atlanta Fed 更新日 ${date}。GDPNow 是模型 nowcast，不是官方 GDP 統計值或 Fed 政策預測。`};
+ }
+ async function loadExpandedSeries(id,env={}){
+-  const relay=await relaySeries(id);if(relay)return relay;
++  // 外銷訂單改用國發會擴散指數（2026-10-25）；外部排程快照仍是經濟部年增率（不同口徑、403 過期），不可蓋過。
++  const relay=id==='TW_EXPORT_ORDERS'?null:await relaySeries(id);if(relay)return relay;
+  if(id==='NYFED_EMPIRE_ORDERS')try{return await loadNyEmpireNewOrders()}catch(error){
+   const date='2026-09-01',value=2,releaseDate='2026-09-15',source='https://www.newyorkfed.org/medialibrary/media/survey/empire/empire2026/2026_09-empire-state-manufacturing-survey.pdf',stale=Date.now()>Date.parse('2026-10-14T23:59:59Z');
+   return regionalResult(id,{date,value,releaseDate,source,provider:'Federal Reserve Bank of New York｜官方 Empire State 月報快照',snapshot:true,staleAfter:'2026-10-15',reason:`官方即時頁面不可用（${error.message||'來源暫不可用'}）；顯示已核實官方快照${stale?'，已過期':''}`,detail:`2026-09 紐約州製造業新訂單季調擴散指數 2.0；官方月報發布日 2026-09-15。即時抓取失敗時使用已核實快照；區域調查，不等同全美 ISM。`});
+diff --git a/worker/panel-calculations.mjs b/worker/panel-calculations.mjs
+index 9b19394..2493f89 100644
+--- a/worker/panel-calculations.mjs
++++ b/worker/panel-calculations.mjs
+@@ -111,6 +111,7 @@ export function threeQuestions(stock,{asOf=stock?.price?.date}={}){
+ /** 可轉債（櫃買登錄自動抓取）。只顯示；發行時轉換價未含期後調整；外幣債沒有契約固定匯率時不算稀釋。 */
+ export function convertibleBonds(registry,{symbol,price=null,priceDate=null,issuedShares=null}={}){
+   if(!registry||!Array.isArray(registry.bonds))return missing('CB_REGISTRY_NOT_COLLECTED',{symbol,scoreContribution:0});
++  if(registry.status==='pending')return missing('CB_REGISTRY_STILL_LOADING',{symbol,scoreContribution:0});
+   const close=Number.isFinite(price)&&price>0?price:null,shares=Number.isFinite(issuedShares)&&issuedShares>0?issuedShares:null;
+   const monthly=registry.monthly&&['ok','snapshot'].includes(registry.monthly.status)?registry.monthly:null;
+   const bonds=registry.bonds.filter(b=>b.issuer===symbol&&Number.isFinite(b.outstandingFace)&&b.outstandingFace>0).map(b=>{
+diff --git a/worker/panel-display.js b/worker/panel-display.js
+index 2aa4e67..0426266 100644
+--- a/worker/panel-display.js
++++ b/worker/panel-display.js
+@@ -29,7 +29,7 @@ function renderAdvisoryPanels(model){
+  const lend=p.lending||{};card('借券賣出餘額',`${lend.status==='ok'?Number(lend.balanceShares).toLocaleString('zh-TW')+' 股':'待確認'}｜占同日發行股數 ${show(lend.balanceRatioPct)}%`,`${lend.date||'日期缺值'}；${lend.market||''}；${lend.history?.length||0}筆已保存日資料；${lend.sourceUrl||lend.reason||''}${lend.ratioReason?'；'+lend.ratioReason:''}`);
+  const cb=p.convertibleBonds||{};{const fmt=(x,d=0)=>Number.isFinite(x)?x.toLocaleString('zh-TW',{maximumFractionDigits:d}):'缺值';
+  const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜${b.conversionPriceBasis==='MOPS_MONTHLY'?`目前轉換價 ${fmt(b.conversionPriceCurrent,2)}（觀測站 ${b.conversionPriceMonth} 月報${b.conversionResetDate?`，${b.conversionResetDate} 重設`:''}；發行時 ${fmt(b.conversionPriceAtIssue,2)}）`:`發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}（未含後續調整）`}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
+- const body=cb.status==='failed'||cb.status==='insufficient'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
++ const body=cb.status==='insufficient'?`待補：${cb.reason==='CB_REGISTRY_STILL_LOADING'?'櫃買清單讀取中，稍後重新整理即可':cb.reason||'缺值'}`:cb.status==='failed'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
+  card('可轉債（櫃買＋觀測站自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6＋觀測站轉換變動月報（${cb.monthly?.month||'未取得'}${cb.monthly?.status==='snapshot'?'，沿用':''}${cb.monthly&&!['ok','snapshot'].includes(cb.monthly.status)?'：'+(cb.monthly.reason||'失敗'):''}）${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
+  const pctText=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';
+  const tqw=p.threeQuestions?.questions?.chips?.windows||{},lotsText=x=>Number.isFinite(x)?(x>0?'+':'')+Math.round(x/1000).toLocaleString('zh-TW')+'張':'缺值';
+diff --git a/worker/panel-site.js b/worker/panel-site.js
+index 666cdb8..273696c 100644
+--- a/worker/panel-site.js
++++ b/worker/panel-site.js
+@@ -1,39 +1,44 @@
++// 面板資料來源同時抓、整體最多等 PANEL_SOURCE_BUDGET_MS；沒趕上的項目顯示「讀取中」，背景任務完成後寫入快取，下次直接用。
++// （v235 巡檢：逐項依序等待＋櫃買逾時，讓每檔 Gate 審計超過 16 秒步驟上限。）
++const PANEL_SOURCE_BUDGET_MS=7000;
++function panelWithin(task,fallback,ms=PANEL_SOURCE_BUDGET_MS){
++  let timer;
++  const guarded=Promise.resolve().then(task).catch(()=>fallback('failed'));
++  return Promise.race([guarded,new Promise(resolve=>{timer=setTimeout(()=>resolve(fallback('loading')),ms);})]).finally(()=>clearTimeout(timer));
++}
+ async function attachPanelSources(stock,env={}){
+   if(!stock?.price?.date||!env.DB)return stock;
+   const inputs={...stock.panelInputs},registry=await getOfficialIssuedShares(env),current=registry.data.get(stock.id);
+   // Current classification never reconstructs a past information set.
+   inputs.issuer=current?.date&&current.date<=stock.price.date?current:inputs.issuer||null;
+-  try{
+-    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
+-    const pool=await PANEL_SOURCES.collectLending({asOf:stock.price.date,read,write});
+-    const officialMarket=inputs.issuer?.market||stock.quoteIntegration?.price?.market;
+-    inputs.lending=await PANEL_SOURCES.selectAndSaveLending({pool,symbol:stock.id,market:officialMarket,asOf:stock.price.date,issuer:inputs.issuer,priceDates:(stock.priceHistory||[]).map(r=>r.date),read,write});
+-  }catch{inputs.lending={status:'insufficient',reason:'OFFICIAL_LENDING_COLLECTION_FAILED',history:[]};}
+-  try{
+-    // 回測用的同一條美元指數（FRED DTWEXAFEGS，經官方匯入保存）；不是 ICE DXY。
+-    const saved=await readRuntimeCache(env,'official-series:v1:DTWEXAFEGS'),input=saved?.payload;
+-    inputs.dollarIndex=input&&saved.fresh&&Date.now()-Date.parse(input.fetchedAt)<=36*3600000?{id:'DTWEXAFEGS',history:input.history||[],source:input.source,fetchedAt:input.fetchedAt,releaseVerification:input.releaseVerification||null}:null;
+-  }catch{inputs.dollarIndex=null;}
+-  try{
+-    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
+-    const pool=await PANEL_SOURCES.collectCbRegistry({read,write});
+-    inputs.cbRegistry={checkedAt:pool.checkedAt,status:pool.status,sources:pool.sources,errors:pool.errors,bonds:(pool.bonds||[]).filter(b=>b.issuer===stock.id)};
+-  }catch{inputs.cbRegistry={status:'failed',bonds:[],sources:[],errors:[{kind:'all',code:'CB_REGISTRY_COLLECTION_FAILED'}]};}
+-  try{
+-    // 目前轉換價：觀測站轉換變動月報（國內債）；只帶本股、且代號在櫃買登錄裡的債。
+-    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
+-    const monthly=await PANEL_SOURCES.collectCbMonthly({read,write}),ids=new Set((inputs.cbRegistry.bonds||[]).map(b=>b.id));
+-    inputs.cbRegistry.monthly={status:monthly.status,month:monthly.month||null,sourceUrl:monthly.sourceUrl||null,checkedAt:monthly.checkedAt||null,reason:monthly.reason||null,
+-      prices:Object.fromEntries(Object.entries(monthly.prices||{}).filter(([id,v])=>ids.has(id)&&v.issuer===stock.id))};
+-  }catch{inputs.cbRegistry.monthly={status:'failed',prices:{},reason:'CB_MONTHLY_COLLECTION_FAILED'};}
+-  try{
+-    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
+-    const pool=await PANEL_SOURCES.collectTdccHolders({read,write});
+-    inputs.holders=await PANEL_SOURCES.selectAndSaveHolders({pool,symbol:stock.id,read,write});
+-  }catch{inputs.holders={history:[],reason:'TDCC_COLLECTION_FAILED'};}
+-  try{
+-    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
+-    inputs.marginMaintenance=await PANEL_SOURCES.collectMarginMaintenance({read,write});
+-  }catch{inputs.marginMaintenance={status:'insufficient',reason:'MARGIN_MAINTENANCE_COLLECTION_FAILED',scoreContribution:0};}
++  const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
++  const officialMarket=inputs.issuer?.market||stock.quoteIntegration?.price?.market;
++  const code=(kind,prefix)=>kind==='loading'?`${prefix}_STILL_LOADING`:`${prefix}_COLLECTION_FAILED`;
++  const [lending,dollarIndex,cbRegistry,cbMonthly,holders,marginMaintenance]=await Promise.all([
++    panelWithin(async()=>{
++      const pool=await PANEL_SOURCES.collectLending({asOf:stock.price.date,read,write});
++      return PANEL_SOURCES.selectAndSaveLending({pool,symbol:stock.id,market:officialMarket,asOf:stock.price.date,issuer:inputs.issuer,priceDates:(stock.priceHistory||[]).map(r=>r.date),read,write});
++    },kind=>({status:'insufficient',reason:code(kind,'OFFICIAL_LENDING'),history:[]})),
++    panelWithin(async()=>{
++      // 回測用的同一條美元指數（FRED DTWEXAFEGS，經官方匯入保存）；不是 ICE DXY。
++      const saved=await readRuntimeCache(env,'official-series:v1:DTWEXAFEGS'),input=saved?.payload;
++      return input&&saved.fresh&&Date.now()-Date.parse(input.fetchedAt)<=36*3600000?{id:'DTWEXAFEGS',history:input.history||[],source:input.source,fetchedAt:input.fetchedAt,releaseVerification:input.releaseVerification||null}:null;
++    },()=>null),
++    panelWithin(async()=>{
++      const pool=await PANEL_SOURCES.collectCbRegistry({read,write});
++      return {checkedAt:pool.checkedAt,status:pool.status,sources:pool.sources,errors:pool.errors,bonds:(pool.bonds||[]).filter(b=>b.issuer===stock.id)};
++    },kind=>({status:kind==='loading'?'pending':'failed',bonds:[],sources:[],errors:[{kind:'all',code:code(kind,'CB_REGISTRY')}]})),
++    // 目前轉換價：觀測站轉換變動月報（國內債）。和登錄清單同時抓，之後只留本股、且代號在櫃買登錄裡的債。
++    panelWithin(()=>PANEL_SOURCES.collectCbMonthly({read,write}),kind=>({status:kind==='loading'?'pending':'failed',prices:{},reason:code(kind,'CB_MONTHLY')})),
++    panelWithin(async()=>{
++      const pool=await PANEL_SOURCES.collectTdccHolders({read,write});
++      return PANEL_SOURCES.selectAndSaveHolders({pool,symbol:stock.id,read,write});
++    },kind=>({history:[],reason:code(kind,'TDCC')})),
++    panelWithin(()=>PANEL_SOURCES.collectMarginMaintenance({read,write}),kind=>({status:'insufficient',reason:code(kind,'MARGIN_MAINTENANCE'),scoreContribution:0}))
++  ]);
++  const ids=new Set((cbRegistry.bonds||[]).map(b=>b.id));
++  inputs.lending=lending;inputs.dollarIndex=dollarIndex;inputs.holders=holders;inputs.marginMaintenance=marginMaintenance;
++  inputs.cbRegistry={...cbRegistry,monthly:{status:cbMonthly.status,month:cbMonthly.month||null,sourceUrl:cbMonthly.sourceUrl||null,checkedAt:cbMonthly.checkedAt||null,reason:cbMonthly.reason||null,
++    prices:Object.fromEntries(Object.entries(cbMonthly.prices||{}).filter(([id,v])=>ids.has(id)&&v.issuer===stock.id))}};
+   return {...stock,panelInputs:inputs};
+ }
+diff --git a/worker/panel-sources.mjs b/worker/panel-sources.mjs
+index 04c4b72..587ddbc 100644
+--- a/worker/panel-sources.mjs
++++ b/worker/panel-sources.mjs
+@@ -48,6 +48,11 @@ export async function selectAndSaveLending({pool,symbol,market,asOf,issuer,price
+   return {...point,status:saved?'ok':'storage_failed',balanceRatioPct:sameShares?point.balanceShares/issuer.shares*100:null,ratioReason:sameShares?null:'SAME_DAY_ISSUED_SHARES_MISSING',shareSource:sameShares?issuer.sourceUrl:null,history:retained,deltas,storageStatus:saved?'saved':'failed',scoreContribution:0};
+ }
+ 
++/** 來源失敗後 20 分鐘內不再重抓（避免巡檢每一檔都重新等逾時）；只記失敗代碼，不當作資料。 */
++const FAILURE_MEMORY_MS=20*60000;
++async function recentFailure(read,key){try{const f=await read(`${key}:fail`);return f?.fresh?f.payload:null;}catch{return null;}}
++async function rememberFailure(write,key,code,now){try{await write(`${key}:fail`,{code,at:new Date(now).toISOString()},FAILURE_MEMORY_MS);}catch{}}
++
+ /** 櫃買中心可轉換公司債登錄資料（國內 bond_ISSBD5、海外 bond_ISSBD6）。上市、上櫃公司的可轉債都在櫃買登錄。 */
+ export const TPEX_CB_DOMESTIC_URL='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data';
+ export const TPEX_CB_OVERSEAS_URL='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data';
+@@ -73,13 +78,17 @@ export async function collectCbRegistry({read,write,fetchImpl=fetch,now=Date.now
+   const localDay=new Date(now+8*3600000).toISOString().slice(0,10),key=`panel:cb-registry:v1:${localDay}`,old=await read(key);
+   if(old?.fresh)return old.payload;
+   if(cbTasks.has(key))return cbTasks.get(key);
++  const failed=await recentFailure(read,key);
++  if(failed)return {checkedAt:failed.at,bonds:[],sources:[],errors:[{kind:'all',code:failed.code}],status:'failed',retryAfterFailure:true};
+   const task=(async()=>{
+     const bonds=[],errors=[],sources=[],capturedAt=new Date(now).toISOString();
+     for(const [kind,sourceUrl] of [['domestic',TPEX_CB_DOMESTIC_URL],['overseas',TPEX_CB_OVERSEAS_URL]]){
+-      try{const r=await fetchImpl(sourceUrl,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(6000)});if(!r.ok)throw Error(`HTTP_${r.status}`);const rows=await r.json();bonds.push(...parseCbRegistry(rows,{sourceUrl,kind,capturedAt}));sources.push({kind,sourceUrl,rows:rows.length});}
++      // 櫃買回應本文有時傳得很慢（HTTP 200 後讀取逾時），給 15 秒；呼叫端另有總時限，不會拖住整頁。
++      try{const r=await fetchImpl(sourceUrl,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error(`HTTP_${r.status}`);const rows=await r.json();bonds.push(...parseCbRegistry(rows,{sourceUrl,kind,capturedAt}));sources.push({kind,sourceUrl,rows:rows.length});}
+       catch(error){errors.push({kind,code:/^HTTP_\d+$/.test(error.message)?error.message:'CB_REGISTRY_UNAVAILABLE_OR_SCHEMA'});}
+     }
+     const payload={checkedAt:capturedAt,bonds,sources,errors,status:errors.length?(bonds.length?'partial':'failed'):'ok'};
++    if(!bonds.length)await rememberFailure(write,key,errors.map(e=>`${e.kind}:${e.code}`).join(',')||'CB_REGISTRY_UNAVAILABLE',now);
+     if(bonds.length&&!await write(key,payload,errors.length?3600000:12*3600000))return {...payload,storageStatus:'failed'};
+     return payload;
+   })().finally(()=>cbTasks.delete(key));
+@@ -129,18 +138,21 @@ export async function collectCbMonthly({read,write,fetchImpl=fetch,now=Date.now(
+   const key='panel:cb-monthly:v1:latest',old=await read(key);
+   if(old?.fresh)return old.payload;
+   if(cbMonthlyTasks.has(key))return cbMonthlyTasks.get(key);
++  const failed=await recentFailure(read,key);
+   const task=(async()=>{
+     const checkedAt=new Date(now).toISOString();
+     try{
+-      const ir=await fetchImpl(TPEX_CB_MONTHLY_INDEX_URL,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(6000)});if(!ir.ok)throw Error(`HTTP_${ir.status}`);
++      if(failed)throw Error(failed.code);
++      const ir=await fetchImpl(TPEX_CB_MONTHLY_INDEX_URL,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(10000)});if(!ir.ok)throw Error(`HTTP_${ir.status}`);
+       const file=latestCbMonthlyFile(await ir.json());
+-      const fr=await fetchImpl(file.url,{headers:{Accept:'text/html'},signal:AbortSignal.timeout(8000)});if(!fr.ok)throw Error(`HTTP_${fr.status}`);
++      const fr=await fetchImpl(file.url,{headers:{Accept:'text/html'},signal:AbortSignal.timeout(12000)});if(!fr.ok)throw Error(`HTTP_${fr.status}`);
+       const parsed=parseCbMonthly(big5Subset(await fr.arrayBuffer()),{month:file.month});
+       const payload={status:'ok',...parsed,sourceUrl:file.url,indexUrl:TPEX_CB_MONTHLY_INDEX_URL,checkedAt};
+       if(!await write(key,payload,12*3600000))return {...payload,storageStatus:'failed'};
+       return payload;
+     }catch(error){
+       const code=/^HTTP_\d+$|^CB_MONTHLY_/.test(error.message)?error.message:'CB_MONTHLY_UNAVAILABLE';
++      if(!failed)await rememberFailure(write,key,code,now);
+       const keep=old?.payload,monthEnd=keep?.month?Date.parse(`${keep.month}-01T00:00:00Z`)+31*86400000:NaN;
+       return keep?.prices&&now-monthEnd<=45*86400000?{...keep,status:'snapshot',reason:`本輪未更新（${code}）；沿用 ${keep.month} 月報`}:{status:'failed',prices:{},checkedAt,reason:code};
+     }
+@@ -169,11 +181,13 @@ export async function collectTdccHolders({read,write,fetchImpl=fetch,now=Date.no
+   const key='panel:tdcc-latest:v1',old=await read(key);
+   if(old?.fresh)return old.payload;
+   if(tdccTasks.has(key))return tdccTasks.get(key);
++  const failed=await recentFailure(read,key);
++  if(failed)return {status:'failed',stocks:{},checkedAt:failed.at,error:failed.code,retryAfterFailure:true};
+   const task=(async()=>{
+     try{const r=await fetchImpl(TDCC_HOLDERS_URL,{headers:{Accept:'text/csv,*/*'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error(`HTTP_${r.status}`);const text=await r.text();if(text.length>8_000_000)throw Error('TDCC_TOO_LARGE');
+       const parsed=parseTdccHolders(text),payload={...parsed,checkedAt:new Date(now).toISOString(),sourceUrl:TDCC_HOLDERS_URL,status:'ok'};
+       await write(key,payload,12*3600000);return payload;}
+-    catch(error){return {status:'failed',stocks:{},checkedAt:new Date(now).toISOString(),error:/^HTTP_\d+$|^TDCC_/.test(error.message)?error.message:'TDCC_UNAVAILABLE'};}
++    catch(error){const code=/^HTTP_\d+$|^TDCC_/.test(error.message)?error.message:'TDCC_UNAVAILABLE';await rememberFailure(write,key,code,now);return {status:'failed',stocks:{},checkedAt:new Date(now).toISOString(),error:code};}
+   })().finally(()=>tdccTasks.delete(key));
+   tdccTasks.set(key,task);return task;
+ }
+@@ -206,8 +220,10 @@ export async function collectMarginMaintenance({read,write,fetchImpl=fetch,now=D
+   const latestKey='panel:margin-maintenance:v1:latest',old=await read(latestKey);
+   if(old?.fresh)return old.payload;
+   if(maintenanceTasks.has(latestKey))return maintenanceTasks.get(latestKey);
++  const failed=await recentFailure(read,latestKey);
+   const task=(async()=>{
+     try{
++      if(failed)throw Error(failed.code);
+       const pr=await fetchImpl(TWSE_STOCK_DAY_ALL_URL,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!pr.ok)throw Error(`HTTP_${pr.status}`);const prices=await pr.json();
+       const sessionDay=officialDay(prices?.[0]?.Date);if(!sessionDay)throw Error('PRICE_SCHEMA');
+       const url=`https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?date=${sessionDay.replaceAll('-','')}&selectType=ALL&response=json`;
+@@ -215,6 +231,7 @@ export async function collectMarginMaintenance({read,write,fetchImpl=fetch,now=D
+       const result={...computeMarginMaintenance(prices,await mr.json()),sourceUrls:[TWSE_STOCK_DAY_ALL_URL,url],checkedAt:new Date(now).toISOString()};
+       await write(latestKey,result,6*3600000);return result;
+     }catch(error){
++      if(!failed)await rememberFailure(write,latestKey,/^HTTP_\d+$|^(PRICE|MARGIN)_/.test(error.message)?error.message:'MARGIN_MAINTENANCE_UNAVAILABLE',now);
+       const keep=old?.payload,keepAge=now-Date.parse(`${keep?.date}T00:00:00Z`);
+       return keep&&keepAge<=10*86400000?{...keep,status:'snapshot',reason:`本輪未更新（${error.message}）；顯示 ${keep.date} 的估算`}:{status:'insufficient',reason:/^HTTP_\d+$|^(PRICE|MARGIN)_/.test(error.message)?error.message:'MARGIN_MAINTENANCE_UNAVAILABLE',scoreContribution:0};
+     }
