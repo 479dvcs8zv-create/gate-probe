@@ -1,0 +1,12 @@
+HTTP/2 200 
+date: Sun, 25 Oct 2026 07:13:52 GMT
+content-type: text/html;charset=utf-8
+x-powered-by: Nuxt
+via: 1.1 google
+strict-transport-security: max-age=15552000; includeSubDomains; preload
+cf-cache-status: DYNAMIC
+set-cookie: __cf_bm=FCK9oUnYKnszCQC8hFC.yw_35XLO_5XE4CM_L_TDLCg-1792912431.428868-1.0.1.1-Z_ImF2XkU3pIhsaD1mtgjb9FkuP6CZdN4J.wb3_wCMunPAZvg4VLp0tl0qLJiBAII_Z.pixO88Pc_c.qA5X3yu5_wfDYyes_G9WheyowcRJf4WvnW5D232N3P86mxfQK; HttpOnly; SameSite=None; Secure; Path=/; Domain=data.gov.tw; Expires=Sun, 25 Oct 2026 07:43:52 GMT
+x-content-type-options: nosniff
+server: cloudflare
+cf-ray: a4ff6bc8697e9b2d-IAD
+
