@@ -6,6 +6,14 @@
 
 ---
 
+## 擁有者 2026-10-25 15:22：外銷訂單改用國發會「外銷訂單動向指數（以家數計）」
+- 經濟部原始 CSV（service.moea.gov.tw/EE520/opendata/b.csv）從 GitHub 雲端主機也被 Cloudflare 擋（403，gate-probe `results/url-probe/*moea-export-orders`），雲端無法自動抓。
+- 替代：中繼已在下載的國發會「景氣指標及燈號」ZIP 內 `領先指標構成項目.csv` 欄位「外銷訂單動向指數(以家數計)」（Claude 10-25 實抓：最新 202608＝49.68；gate-probe `results/url-probe/*ndc-indicators-full`）。
+- 注意口徑不同：原本是「外銷訂單年增率 %」，新的是擴散指數（50 以上＝擴張），顯示與任何判讀門檻都要照新口徑改，不能沿用舊門檻；月資料、約落後兩個月。
+- 由 Claude 拿到網站來源後一併寫程式，GPT 套用上線。
+
+---
+
 ## 擁有者 2026-10-25 14:50 授權：部署 10-25 三項修補（`diagnostics/local-fix-20261025/final.patch`，SHA d4940c2d…3899）
 最新交易日改以官方實際資料為準、verifiedAt 不被覆寫、run 摘要與直接讀回一致。步驟與驗收見 `handoff/GPT_NEXT.md`。
 
