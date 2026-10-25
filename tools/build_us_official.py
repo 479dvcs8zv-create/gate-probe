@@ -47,8 +47,11 @@ def main(out, start_year=2005):
         files.append({"url": url, "file": f"raw/{name}", "sha256": hashlib.sha256(body).hexdigest(), "bytes": len(body)})
 
     def put(series, date, value):
-        if value not in (None, "", "."):
-            cols.setdefault(series, {})[date] = float(value)
+        try:
+            v = float(str(value).replace(",", ""))
+        except (TypeError, ValueError):
+            return  # "-"（例如 2025 年政府關門未公布）、空白、"." 都當缺值
+        cols.setdefault(series, {})[date] = v
 
     # BLS
     bls = {"CUSR0000SA0L1E": "cpilfesl", "CES0000000001": "payems", "LNS14000000": "unrate"}
