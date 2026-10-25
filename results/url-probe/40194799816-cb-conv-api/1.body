@@ -1,0 +1,2448 @@
+
+
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):e.moment=t()}(this,function(){"use strict";var H;function _(){return H.apply(null,arguments)}function y(e){return e instanceof Array||"[object Array]"===Object.prototype.toString.call(e)}function F(e){return null!=e&&"[object Object]"===Object.prototype.toString.call(e)}function c(e,t){return Object.prototype.hasOwnProperty.call(e,t)}function L(e){if(Object.getOwnPropertyNames)return 0===Object.getOwnPropertyNames(e).length;for(var t in e)if(c(e,t))return;return 1}function g(e){return void 0===e}function w(e){return"number"==typeof e||"[object Number]"===Object.prototype.toString.call(e)}function V(e){return e instanceof Date||"[object Date]"===Object.prototype.toString.call(e)}function G(e,t){for(var n=[],s=e.length,i=0;i<s;++i)n.push(t(e[i],i));return n}function E(e,t){for(var n in t)c(t,n)&&(e[n]=t[n]);return c(t,"toString")&&(e.toString=t.toString),c(t,"valueOf")&&(e.valueOf=t.valueOf),e}function l(e,t,n,s){return Wt(e,t,n,s,!0).utc()}function p(e){return null==e._pf&&(e._pf={empty:!1,unusedTokens:[],unusedInput:[],overflow:-2,charsLeftOver:0,nullInput:!1,invalidEra:null,invalidMonth:null,invalidFormat:!1,userInvalidated:!1,iso:!1,parsedDateParts:[],era:null,meridiem:null,rfc2822:!1,weekdayMismatch:!1}),e._pf}function A(e){var t,n,s=e._d&&!isNaN(e._d.getTime());return s&&(t=p(e),n=j.call(t.parsedDateParts,function(e){return null!=e}),s=t.overflow<0&&!t.empty&&!t.invalidEra&&!t.invalidMonth&&!t.invalidWeekday&&!t.weekdayMismatch&&!t.nullInput&&!t.invalidFormat&&!t.userInvalidated&&(!t.meridiem||t.meridiem&&n),e._strict)&&(s=s&&0===t.charsLeftOver&&0===t.unusedTokens.length&&void 0===t.bigHour),null!=Object.isFrozen&&Object.isFrozen(e)?s:(e._isValid=s,e._isValid)}function I(e){var t=l(NaN);return null!=e?E(p(t),e):p(t).userInvalidated=!0,t}var j=Array.prototype.some||function(e){for(var t=Object(this),n=t.length>>>0,s=0;s<n;s++)if(s in t&&e.call(this,t[s],s,t))return!0;return!1},Z=_.momentProperties=[],z=!1;function q(e,t){var n,s,i,r=Z.length;if(g(t._isAMomentObject)||(e._isAMomentObject=t._isAMomentObject),g(t._i)||(e._i=t._i),g(t._f)||(e._f=t._f),g(t._l)||(e._l=t._l),g(t._strict)||(e._strict=t._strict),g(t._tzm)||(e._tzm=t._tzm),g(t._isUTC)||(e._isUTC=t._isUTC),g(t._offset)||(e._offset=t._offset),g(t._pf)||(e._pf=p(t)),g(t._locale)||(e._locale=t._locale),0<r)for(n=0;n<r;n++)g(i=t[s=Z[n]])||(e[s]=i);return e}function $(e){q(this,e),this._d=new Date(null!=e._d?e._d.getTime():NaN),this.isValid()||(this._d=new Date(NaN)),!1===z&&(z=!0,_.updateOffset(this),z=!1)}function k(e){return e instanceof $||null!=e&&null!=e._isAMomentObject}function B(e){!1===_.suppressDeprecationWarnings&&"undefined"!=typeof console&&console.warn&&console.warn("Deprecation warning: "+e)}function e(r,a){var o=!0;return E(function(){if(null!=_.deprecationHandler&&_.deprecationHandler(null,r),o){for(var e,t,n=[],s=arguments.length,i=0;i<s;i++){if(e="","object"==typeof arguments[i]){for(t in e+="\n["+i+"] ",arguments[0])c(arguments[0],t)&&(e+=t+": "+arguments[0][t]+", ");e=e.slice(0,-2)}else e=arguments[i];n.push(e)}B(r+"\nArguments: "+Array.prototype.slice.call(n).join("")+"\n"+(new Error).stack),o=!1}return a.apply(this,arguments)},a)}var J={};function Q(e,t){null!=_.deprecationHandler&&_.deprecationHandler(e,t),J[e]||(B(t),J[e]=!0)}function a(e){return"undefined"!=typeof Function&&e instanceof Function||"[object Function]"===Object.prototype.toString.call(e)}function X(e,t){var n,s=E({},e);for(n in t)c(t,n)&&(F(e[n])&&F(t[n])?(s[n]={},E(s[n],e[n]),E(s[n],t[n])):null!=t[n]?s[n]=t[n]:delete s[n]);for(n in e)c(e,n)&&!c(t,n)&&F(e[n])&&(s[n]=E({},s[n]));return s}function K(e){null!=e&&this.set(e)}_.suppressDeprecationWarnings=!1,_.deprecationHandler=null;var ee=Object.keys||function(e){var t,n=[];for(t in e)c(e,t)&&n.push(t);return n};function r(e,t,n){var s=""+Math.abs(e);return(0<=e?n?"+":"":"-")+Math.pow(10,Math.max(0,t-s.length)).toString().substr(1)+s}var te=/(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|N{1,5}|YYYYYY|YYYYY|YYYY|YY|y{2,4}|yo?|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g,ne=/(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,se={},ie={};function s(e,t,n,s){var i="string"==typeof s?function(){return this[s]()}:s;e&&(ie[e]=i),t&&(ie[t[0]]=function(){return r(i.apply(this,arguments),t[1],t[2])}),n&&(ie[n]=function(){return this.localeData().ordinal(i.apply(this,arguments),e)})}function re(e,t){return e.isValid()?(t=ae(t,e.localeData()),se[t]=se[t]||function(s){for(var e,i=s.match(te),t=0,r=i.length;t<r;t++)ie[i[t]]?i[t]=ie[i[t]]:i[t]=(e=i[t]).match(/\[[\s\S]/)?e.replace(/^\[|\]$/g,""):e.replace(/\\/g,"");return function(e){for(var t="",n=0;n<r;n++)t+=a(i[n])?i[n].call(e,s):i[n];return t}}(t),se[t](e)):e.localeData().invalidDate()}function ae(e,t){var n=5;function s(e){return t.longDateFormat(e)||e}for(ne.lastIndex=0;0<=n&&ne.test(e);)e=e.replace(ne,s),ne.lastIndex=0,--n;return e}var oe={D:"date",dates:"date",date:"date",d:"day",days:"day",day:"day",e:"weekday",weekdays:"weekday",weekday:"weekday",E:"isoWeekday",isoweekdays:"isoWeekday",isoweekday:"isoWeekday",DDD:"dayOfYear",dayofyears:"dayOfYear",dayofyear:"dayOfYear",h:"hour",hours:"hour",hour:"hour",ms:"millisecond",milliseconds:"millisecond",millisecond:"millisecond",m:"minute",minutes:"minute",minute:"minute",M:"month",months:"month",month:"month",Q:"quarter",quarters:"quarter",quarter:"quarter",s:"second",seconds:"second",second:"second",gg:"weekYear",weekyears:"weekYear",weekyear:"weekYear",GG:"isoWeekYear",isoweekyears:"isoWeekYear",isoweekyear:"isoWeekYear",w:"week",weeks:"week",week:"week",W:"isoWeek",isoweeks:"isoWeek",isoweek:"isoWeek",y:"year",years:"year",year:"year"};function o(e){return"string"==typeof e?oe[e]||oe[e.toLowerCase()]:void 0}function ue(e){var t,n,s={};for(n in e)c(e,n)&&(t=o(n))&&(s[t]=e[n]);return s}var le={date:9,day:11,weekday:11,isoWeekday:11,dayOfYear:4,hour:13,millisecond:16,minute:14,month:8,quarter:7,second:15,weekYear:1,isoWeekYear:1,week:5,isoWeek:5,year:1};var de=/\d/,t=/\d\d/,he=/\d{3}/,ce=/\d{4}/,fe=/[+-]?\d{6}/,n=/\d\d?/,me=/\d\d\d\d?/,_e=/\d\d\d\d\d\d?/,ye=/\d{1,3}/,ge=/\d{1,4}/,we=/[+-]?\d{1,6}/,pe=/\d+/,ke=/[+-]?\d+/,Me=/Z|[+-]\d\d:?\d\d/gi,ve=/Z|[+-]\d\d(?::?\d\d)?/gi,i=/[0-9]{0,256}['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFF07\uFF10-\uFFEF]{1,256}|[\u0600-\u06FF\/]{1,256}(\s*?[\u0600-\u06FF]{1,256}){1,2}/i,u=/^[1-9]\d?/,d=/^([1-9]\d|\d)/;function h(e,n,s){Ye[e]=a(n)?n:function(e,t){return e&&s?s:n}}function De(e,t){return c(Ye,e)?Ye[e](t._strict,t._locale):new RegExp(f(e.replace("\\","").replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,function(e,t,n,s,i){return t||n||s||i})))}function f(e){return e.replace(/[-\/\\^$*+?.()|[\]{}]/g,"\\$&")}function m(e){return e<0?Math.ceil(e)||0:Math.floor(e)}function M(e){var e=+e,t=0;return t=0!=e&&isFinite(e)?m(e):t}var Ye={},Se={};function v(e,n){var t,s,i=n;for("string"==typeof e&&(e=[e]),w(n)&&(i=function(e,t){t[n]=M(e)}),s=e.length,t=0;t<s;t++)Se[e[t]]=i}function Oe(e,i){v(e,function(e,t,n,s){n._w=n._w||{},i(e,n._w,n,s)})}function be(e){return e%4==0&&e%100!=0||e%400==0}var D=0,Y=1,S=2,O=3,b=4,T=5,Te=6,xe=7,Ne=8;function We(e){return be(e)?366:365}s("Y",0,0,function(){var e=this.year();return e<=9999?r(e,4):"+"+e}),s(0,["YY",2],0,function(){return this.year()%100}),s(0,["YYYY",4],0,"year"),s(0,["YYYYY",5],0,"year"),s(0,["YYYYYY",6,!0],0,"year"),h("Y",ke),h("YY",n,t),h("YYYY",ge,ce),h("YYYYY",we,fe),h("YYYYYY",we,fe),v(["YYYYY","YYYYYY"],D),v("YYYY",function(e,t){t[D]=2===e.length?_.parseTwoDigitYear(e):M(e)}),v("YY",function(e,t){t[D]=_.parseTwoDigitYear(e)}),v("Y",function(e,t){t[D]=parseInt(e,10)}),_.parseTwoDigitYear=function(e){return M(e)+(68<M(e)?1900:2e3)};var x,Pe=Re("FullYear",!0);function Re(t,n){return function(e){return null!=e?(Ue(this,t,e),_.updateOffset(this,n),this):Ce(this,t)}}function Ce(e,t){if(!e.isValid())return NaN;var n=e._d,s=e._isUTC;switch(t){case"Milliseconds":return s?n.getUTCMilliseconds():n.getMilliseconds();case"Seconds":return s?n.getUTCSeconds():n.getSeconds();case"Minutes":return s?n.getUTCMinutes():n.getMinutes();case"Hours":return s?n.getUTCHours():n.getHours();case"Date":return s?n.getUTCDate():n.getDate();case"Day":return s?n.getUTCDay():n.getDay();case"Month":return s?n.getUTCMonth():n.getMonth();case"FullYear":return s?n.getUTCFullYear():n.getFullYear();default:return NaN}}function Ue(e,t,n){var s,i,r;if(e.isValid()&&!isNaN(n)){switch(s=e._d,i=e._isUTC,t){case"Milliseconds":return i?s.setUTCMilliseconds(n):s.setMilliseconds(n);case"Seconds":return i?s.setUTCSeconds(n):s.setSeconds(n);case"Minutes":return i?s.setUTCMinutes(n):s.setMinutes(n);case"Hours":return i?s.setUTCHours(n):s.setHours(n);case"Date":return i?s.setUTCDate(n):s.setDate(n);case"FullYear":break;default:return}t=n,r=e.month(),e=29!==(e=e.date())||1!==r||be(t)?e:28,i?s.setUTCFullYear(t,r,e):s.setFullYear(t,r,e)}}function He(e,t){var n;return isNaN(e)||isNaN(t)?NaN:(n=(t%(n=12)+n)%n,e+=(t-n)/12,1==n?be(e)?29:28:31-n%7%2)}x=Array.prototype.indexOf||function(e){for(var t=0;t<this.length;++t)if(this[t]===e)return t;return-1},s("M",["MM",2],"Mo",function(){return this.month()+1}),s("MMM",0,0,function(e){return this.localeData().monthsShort(this,e)}),s("MMMM",0,0,function(e){return this.localeData().months(this,e)}),h("M",n,u),h("MM",n,t),h("MMM",function(e,t){return t.monthsShortRegex(e)}),h("MMMM",function(e,t){return t.monthsRegex(e)}),v(["M","MM"],function(e,t){t[Y]=M(e)-1}),v(["MMM","MMMM"],function(e,t,n,s){s=n._locale.monthsParse(e,s,n._strict);null!=s?t[Y]=s:p(n).invalidMonth=e});var Fe="January_February_March_April_May_June_July_August_September_October_November_December".split("_"),Le="Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),Ve=/D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,Ge=i,Ee=i;function Ae(e,t){if(e.isValid()){if("string"==typeof t)if(/^\d+$/.test(t))t=M(t);else if(!w(t=e.localeData().monthsParse(t)))return;var n=(n=e.date())<29?n:Math.min(n,He(e.year(),t));e._isUTC?e._d.setUTCMonth(t,n):e._d.setMonth(t,n)}}function Ie(e){return null!=e?(Ae(this,e),_.updateOffset(this,!0),this):Ce(this,"Month")}function je(){function e(e,t){return t.length-e.length}for(var t,n,s=[],i=[],r=[],a=0;a<12;a++)n=l([2e3,a]),t=f(this.monthsShort(n,"")),n=f(this.months(n,"")),s.push(t),i.push(n),r.push(n),r.push(t);s.sort(e),i.sort(e),r.sort(e),this._monthsRegex=new RegExp("^("+r.join("|")+")","i"),this._monthsShortRegex=this._monthsRegex,this._monthsStrictRegex=new RegExp("^("+i.join("|")+")","i"),this._monthsShortStrictRegex=new RegExp("^("+s.join("|")+")","i")}function Ze(e,t,n,s,i,r,a){var o;return e<100&&0<=e?(o=new Date(e+400,t,n,s,i,r,a),isFinite(o.getFullYear())&&o.setFullYear(e)):o=new Date(e,t,n,s,i,r,a),o}function ze(e){var t;return e<100&&0<=e?((t=Array.prototype.slice.call(arguments))[0]=e+400,t=new Date(Date.UTC.apply(null,t)),isFinite(t.getUTCFullYear())&&t.setUTCFullYear(e)):t=new Date(Date.UTC.apply(null,arguments)),t}function qe(e,t,n){n=7+t-n;return n-(7+ze(e,0,n).getUTCDay()-t)%7-1}function $e(e,t,n,s,i){var r,t=1+7*(t-1)+(7+n-s)%7+qe(e,s,i),n=t<=0?We(r=e-1)+t:t>We(e)?(r=e+1,t-We(e)):(r=e,t);return{year:r,dayOfYear:n}}function Be(e,t,n){var s,i,r=qe(e.year(),t,n),r=Math.floor((e.dayOfYear()-r-1)/7)+1;return r<1?s=r+N(i=e.year()-1,t,n):r>N(e.year(),t,n)?(s=r-N(e.year(),t,n),i=e.year()+1):(i=e.year(),s=r),{week:s,year:i}}function N(e,t,n){var s=qe(e,t,n),t=qe(e+1,t,n);return(We(e)-s+t)/7}s("w",["ww",2],"wo","week"),s("W",["WW",2],"Wo","isoWeek"),h("w",n,u),h("ww",n,t),h("W",n,u),h("WW",n,t),Oe(["w","ww","W","WW"],function(e,t,n,s){t[s.substr(0,1)]=M(e)});function Je(e,t){return e.slice(t,7).concat(e.slice(0,t))}s("d",0,"do","day"),s("dd",0,0,function(e){return this.localeData().weekdaysMin(this,e)}),s("ddd",0,0,function(e){return this.localeData().weekdaysShort(this,e)}),s("dddd",0,0,function(e){return this.localeData().weekdays(this,e)}),s("e",0,0,"weekday"),s("E",0,0,"isoWeekday"),h("d",n),h("e",n),h("E",n),h("dd",function(e,t){return t.weekdaysMinRegex(e)}),h("ddd",function(e,t){return t.weekdaysShortRegex(e)}),h("dddd",function(e,t){return t.weekdaysRegex(e)}),Oe(["dd","ddd","dddd"],function(e,t,n,s){s=n._locale.weekdaysParse(e,s,n._strict);null!=s?t.d=s:p(n).invalidWeekday=e}),Oe(["d","e","E"],function(e,t,n,s){t[s]=M(e)});var Qe="Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),Xe="Sun_Mon_Tue_Wed_Thu_Fri_Sat".split("_"),Ke="Su_Mo_Tu_We_Th_Fr_Sa".split("_"),et=i,tt=i,nt=i;function st(){function e(e,t){return t.length-e.length}for(var t,n,s,i=[],r=[],a=[],o=[],u=0;u<7;u++)s=l([2e3,1]).day(u),t=f(this.weekdaysMin(s,"")),n=f(this.weekdaysShort(s,"")),s=f(this.weekdays(s,"")),i.push(t),r.push(n),a.push(s),o.push(t),o.push(n),o.push(s);i.sort(e),r.sort(e),a.sort(e),o.sort(e),this._weekdaysRegex=new RegExp("^("+o.join("|")+")","i"),this._weekdaysShortRegex=this._weekdaysRegex,this._weekdaysMinRegex=this._weekdaysRegex,this._weekdaysStrictRegex=new RegExp("^("+a.join("|")+")","i"),this._weekdaysShortStrictRegex=new RegExp("^("+r.join("|")+")","i"),this._weekdaysMinStrictRegex=new RegExp("^("+i.join("|")+")","i")}function it(){return this.hours()%12||12}function rt(e,t){s(e,0,0,function(){return this.localeData().meridiem(this.hours(),this.minutes(),t)})}function at(e,t){return t._meridiemParse}s("H",["HH",2],0,"hour"),s("h",["hh",2],0,it),s("k",["kk",2],0,function(){return this.hours()||24}),s("hmm",0,0,function(){return""+it.apply(this)+r(this.minutes(),2)}),s("hmmss",0,0,function(){return""+it.apply(this)+r(this.minutes(),2)+r(this.seconds(),2)}),s("Hmm",0,0,function(){return""+this.hours()+r(this.minutes(),2)}),s("Hmmss",0,0,function(){return""+this.hours()+r(this.minutes(),2)+r(this.seconds(),2)}),rt("a",!0),rt("A",!1),h("a",at),h("A",at),h("H",n,d),h("h",n,u),h("k",n,u),h("HH",n,t),h("hh",n,t),h("kk",n,t),h("hmm",me),h("hmmss",_e),h("Hmm",me),h("Hmmss",_e),v(["H","HH"],O),v(["k","kk"],function(e,t,n){e=M(e);t[O]=24===e?0:e}),v(["a","A"],function(e,t,n){n._isPm=n._locale.isPM(e),n._meridiem=e}),v(["h","hh"],function(e,t,n){t[O]=M(e),p(n).bigHour=!0}),v("hmm",function(e,t,n){var s=e.length-2;t[O]=M(e.substr(0,s)),t[b]=M(e.substr(s)),p(n).bigHour=!0}),v("hmmss",function(e,t,n){var s=e.length-4,i=e.length-2;t[O]=M(e.substr(0,s)),t[b]=M(e.substr(s,2)),t[T]=M(e.substr(i)),p(n).bigHour=!0}),v("Hmm",function(e,t,n){var s=e.length-2;t[O]=M(e.substr(0,s)),t[b]=M(e.substr(s))}),v("Hmmss",function(e,t,n){var s=e.length-4,i=e.length-2;t[O]=M(e.substr(0,s)),t[b]=M(e.substr(s,2)),t[T]=M(e.substr(i))});i=Re("Hours",!0);var ot,ut={calendar:{sameDay:"[Today at] LT",nextDay:"[Tomorrow at] LT",nextWeek:"dddd [at] LT",lastDay:"[Yesterday at] LT",lastWeek:"[Last] dddd [at] LT",sameElse:"L"},longDateFormat:{LTS:"h:mm:ss A",LT:"h:mm A",L:"MM/DD/YYYY",LL:"MMMM D, YYYY",LLL:"MMMM D, YYYY h:mm A",LLLL:"dddd, MMMM D, YYYY h:mm A"},invalidDate:"Invalid date",ordinal:"%d",dayOfMonthOrdinalParse:/\d{1,2}/,relativeTime:{future:"in %s",past:"%s ago",s:"a few seconds",ss:"%d seconds",m:"a minute",mm:"%d minutes",h:"an hour",hh:"%d hours",d:"a day",dd:"%d days",w:"a week",ww:"%d weeks",M:"a month",MM:"%d months",y:"a year",yy:"%d years"},months:Fe,monthsShort:Le,week:{dow:0,doy:6},weekdays:Qe,weekdaysMin:Ke,weekdaysShort:Xe,meridiemParse:/[ap]\.?m?\.?/i},W={},lt={};function dt(e){return e&&e.toLowerCase().replace("_","-")}function ht(e){for(var t,n,s,i,r=0;r<e.length;){for(t=(i=dt(e[r]).split("-")).length,n=(n=dt(e[r+1]))?n.split("-"):null;0<t;){if(s=ct(i.slice(0,t).join("-")))return s;if(n&&n.length>=t&&function(e,t){for(var n=Math.min(e.length,t.length),s=0;s<n;s+=1)if(e[s]!==t[s])return s;return n}(i,n)>=t-1)break;t--}r++}return ot}function ct(t){var e,n;if(void 0===W[t]&&"undefined"!=typeof module&&module&&module.exports&&(n=t)&&n.match("^[^/\\\\]*$"))try{e=ot._abbr,require("./locale/"+t),ft(e)}catch(e){W[t]=null}return W[t]}function ft(e,t){return e&&((t=g(t)?P(e):mt(e,t))?ot=t:"undefined"!=typeof console&&console.warn&&console.warn("Locale "+e+" not found. Did you forget to load it?")),ot._abbr}function mt(e,t){if(null===t)return delete W[e],null;var n,s=ut;if(t.abbr=e,null!=W[e])Q("defineLocaleOverride","use moment.updateLocale(localeName, config) to change an existing locale. moment.defineLocale(localeName, config) should only be used for creating a new locale See http://momentjs.com/guides/#/warnings/define-locale/ for more info."),s=W[e]._config;else if(null!=t.parentLocale)if(null!=W[t.parentLocale])s=W[t.parentLocale]._config;else{if(null==(n=ct(t.parentLocale)))return lt[t.parentLocale]||(lt[t.parentLocale]=[]),lt[t.parentLocale].push({name:e,config:t}),null;s=n._config}return W[e]=new K(X(s,t)),lt[e]&&lt[e].forEach(function(e){mt(e.name,e.config)}),ft(e),W[e]}function P(e){var t;if(!(e=e&&e._locale&&e._locale._abbr?e._locale._abbr:e))return ot;if(!y(e)){if(t=ct(e))return t;e=[e]}return ht(e)}function _t(e){var t=e._a;return t&&-2===p(e).overflow&&(t=t[Y]<0||11<t[Y]?Y:t[S]<1||t[S]>He(t[D],t[Y])?S:t[O]<0||24<t[O]||24===t[O]&&(0!==t[b]||0!==t[T]||0!==t[Te])?O:t[b]<0||59<t[b]?b:t[T]<0||59<t[T]?T:t[Te]<0||999<t[Te]?Te:-1,p(e)._overflowDayOfYear&&(t<D||S<t)&&(t=S),p(e)._overflowWeeks&&-1===t&&(t=xe),p(e)._overflowWeekday&&-1===t&&(t=Ne),p(e).overflow=t),e}var yt=/^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,gt=/^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d|))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,wt=/Z|[+-]\d\d(?::?\d\d)?/,pt=[["YYYYYY-MM-DD",/[+-]\d{6}-\d\d-\d\d/],["YYYY-MM-DD",/\d{4}-\d\d-\d\d/],["GGGG-[W]WW-E",/\d{4}-W\d\d-\d/],["GGGG-[W]WW",/\d{4}-W\d\d/,!1],["YYYY-DDD",/\d{4}-\d{3}/],["YYYY-MM",/\d{4}-\d\d/,!1],["YYYYYYMMDD",/[+-]\d{10}/],["YYYYMMDD",/\d{8}/],["GGGG[W]WWE",/\d{4}W\d{3}/],["GGGG[W]WW",/\d{4}W\d{2}/,!1],["YYYYDDD",/\d{7}/],["YYYYMM",/\d{6}/,!1],["YYYY",/\d{4}/,!1]],kt=[["HH:mm:ss.SSSS",/\d\d:\d\d:\d\d\.\d+/],["HH:mm:ss,SSSS",/\d\d:\d\d:\d\d,\d+/],["HH:mm:ss",/\d\d:\d\d:\d\d/],["HH:mm",/\d\d:\d\d/],["HHmmss.SSSS",/\d\d\d\d\d\d\.\d+/],["HHmmss,SSSS",/\d\d\d\d\d\d,\d+/],["HHmmss",/\d\d\d\d\d\d/],["HHmm",/\d\d\d\d/],["HH",/\d\d/]],Mt=/^\/?Date\((-?\d+)/i,vt=/^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|([+-]\d{4}))$/,Dt={UT:0,GMT:0,EDT:-240,EST:-300,CDT:-300,CST:-360,MDT:-360,MST:-420,PDT:-420,PST:-480};function Yt(e){var t,n,s,i,r,a,o=e._i,u=yt.exec(o)||gt.exec(o),o=pt.length,l=kt.length;if(u){for(p(e).iso=!0,t=0,n=o;t<n;t++)if(pt[t][1].exec(u[1])){i=pt[t][0],s=!1!==pt[t][2];break}if(null==i)e._isValid=!1;else{if(u[3]){for(t=0,n=l;t<n;t++)if(kt[t][1].exec(u[3])){r=(u[2]||" ")+kt[t][0];break}if(null==r)return void(e._isValid=!1)}if(s||null==r){if(u[4]){if(!wt.exec(u[4]))return void(e._isValid=!1);a="Z"}e._f=i+(r||"")+(a||""),xt(e)}else e._isValid=!1}}else e._isValid=!1}function St(e,t,n,s,i,r){e=[function(e){e=parseInt(e,10);{if(e<=49)return 2e3+e;if(e<=999)return 1900+e}return e}(e),Le.indexOf(t),parseInt(n,10),parseInt(s,10),parseInt(i,10)];return r&&e.push(parseInt(r,10)),e}function Ot(e){var t,n,s=vt.exec(e._i.replace(/\([^()]*\)|[\n\t]/g," ").replace(/(\s\s+)/g," ").replace(/^\s\s*/,"").replace(/\s\s*$/,""));s?(t=St(s[4],s[3],s[2],s[5],s[6],s[7]),function(e,t,n){if(!e||Xe.indexOf(e)===new Date(t[0],t[1],t[2]).getDay())return 1;p(n).weekdayMismatch=!0,n._isValid=!1}(s[1],t,e)&&(e._a=t,e._tzm=(t=s[8],n=s[9],s=s[10],t?Dt[t]:n?0:60*(((t=parseInt(s,10))-(n=t%100))/100)+n),e._d=ze.apply(null,e._a),e._d.setUTCMinutes(e._d.getUTCMinutes()-e._tzm),p(e).rfc2822=!0)):e._isValid=!1}function bt(e,t,n){return null!=e?e:null!=t?t:n}function Tt(e){var t,n,s,i,r,a,o,u,l,d,h,c=[];if(!e._d){for(s=e,i=new Date(_.now()),n=s._useUTC?[i.getUTCFullYear(),i.getUTCMonth(),i.getUTCDate()]:[i.getFullYear(),i.getMonth(),i.getDate()],e._w&&null==e._a[S]&&null==e._a[Y]&&(null!=(i=(s=e)._w).GG||null!=i.W||null!=i.E?(u=1,l=4,r=bt(i.GG,s._a[D],Be(R(),1,4).year),a=bt(i.W,1),((o=bt(i.E,1))<1||7<o)&&(d=!0)):(u=s._locale._week.dow,l=s._locale._week.doy,h=Be(R(),u,l),r=bt(i.gg,s._a[D],h.year),a=bt(i.w,h.week),null!=i.d?((o=i.d)<0||6<o)&&(d=!0):null!=i.e?(o=i.e+u,(i.e<0||6<i.e)&&(d=!0)):o=u),a<1||a>N(r,u,l)?p(s)._overflowWeeks=!0:null!=d?p(s)._overflowWeekday=!0:(h=$e(r,a,o,u,l),s._a[D]=h.year,s._dayOfYear=h.dayOfYear)),null!=e._dayOfYear&&(i=bt(e._a[D],n[D]),(e._dayOfYear>We(i)||0===e._dayOfYear)&&(p(e)._overflowDayOfYear=!0),d=ze(i,0,e._dayOfYear),e._a[Y]=d.getUTCMonth(),e._a[S]=d.getUTCDate()),t=0;t<3&&null==e._a[t];++t)e._a[t]=c[t]=n[t];for(;t<7;t++)e._a[t]=c[t]=null==e._a[t]?2===t?1:0:e._a[t];24===e._a[O]&&0===e._a[b]&&0===e._a[T]&&0===e._a[Te]&&(e._nextDay=!0,e._a[O]=0),e._d=(e._useUTC?ze:Ze).apply(null,c),r=e._useUTC?e._d.getUTCDay():e._d.getDay(),null!=e._tzm&&e._d.setUTCMinutes(e._d.getUTCMinutes()-e._tzm),e._nextDay&&(e._a[O]=24),e._w&&void 0!==e._w.d&&e._w.d!==r&&(p(e).weekdayMismatch=!0)}}function xt(e){if(e._f===_.ISO_8601)Yt(e);else if(e._f===_.RFC_2822)Ot(e);else{e._a=[],p(e).empty=!0;for(var t,n,s,i,r,a=""+e._i,o=a.length,u=0,l=ae(e._f,e._locale).match(te)||[],d=l.length,h=0;h<d;h++)n=l[h],(t=(a.match(De(n,e))||[])[0])&&(0<(s=a.substr(0,a.indexOf(t))).length&&p(e).unusedInput.push(s),a=a.slice(a.indexOf(t)+t.length),u+=t.length),ie[n]?(t?p(e).empty=!1:p(e).unusedTokens.push(n),s=n,r=e,null!=(i=t)&&c(Se,s)&&Se[s](i,r._a,r,s)):e._strict&&!t&&p(e).unusedTokens.push(n);p(e).charsLeftOver=o-u,0<a.length&&p(e).unusedInput.push(a),e._a[O]<=12&&!0===p(e).bigHour&&0<e._a[O]&&(p(e).bigHour=void 0),p(e).parsedDateParts=e._a.slice(0),p(e).meridiem=e._meridiem,e._a[O]=function(e,t,n){if(null==n)return t;return null!=e.meridiemHour?e.meridiemHour(t,n):null!=e.isPM?((e=e.isPM(n))&&t<12&&(t+=12),t=e||12!==t?t:0):t}(e._locale,e._a[O],e._meridiem),null!==(o=p(e).era)&&(e._a[D]=e._locale.erasConvertYear(o,e._a[D])),Tt(e),_t(e)}}function Nt(e){var t,n,s,i=e._i,r=e._f;if(e._locale=e._locale||P(e._l),null===i||void 0===r&&""===i)return I({nullInput:!0});if("string"==typeof i&&(e._i=i=e._locale.preparse(i)),k(i))return new $(_t(i));if(V(i))e._d=i;else if(y(r)){var a,o,u,l,d,h,c=e,f=!1,m=c._f.length;if(0===m)p(c).invalidFormat=!0,c._d=new Date(NaN);else{for(l=0;l<m;l++)d=0,h=!1,a=q({},c),null!=c._useUTC&&(a._useUTC=c._useUTC),a._f=c._f[l],xt(a),A(a)&&(h=!0),d=(d+=p(a).charsLeftOver)+10*p(a).unusedTokens.length,p(a).score=d,f?d<u&&(u=d,o=a):(null==u||d<u||h)&&(u=d,o=a,h)&&(f=!0);E(c,o||a)}}else if(r)xt(e);else if(g(r=(i=e)._i))i._d=new Date(_.now());else V(r)?i._d=new Date(r.valueOf()):"string"==typeof r?(n=i,null!==(t=Mt.exec(n._i))?n._d=new Date(+t[1]):(Yt(n),!1===n._isValid&&(delete n._isValid,Ot(n),!1===n._isValid)&&(delete n._isValid,n._strict?n._isValid=!1:_.createFromInputFallback(n)))):y(r)?(i._a=G(r.slice(0),function(e){return parseInt(e,10)}),Tt(i)):F(r)?(t=i)._d||(s=void 0===(n=ue(t._i)).day?n.date:n.day,t._a=G([n.year,n.month,s,n.hour,n.minute,n.second,n.millisecond],function(e){return e&&parseInt(e,10)}),Tt(t)):w(r)?i._d=new Date(r):_.createFromInputFallback(i);return A(e)||(e._d=null),e}function Wt(e,t,n,s,i){var r={};return!0!==t&&!1!==t||(s=t,t=void 0),!0!==n&&!1!==n||(s=n,n=void 0),(F(e)&&L(e)||y(e)&&0===e.length)&&(e=void 0),r._isAMomentObject=!0,r._useUTC=r._isUTC=i,r._l=n,r._i=e,r._f=t,r._strict=s,(i=new $(_t(Nt(i=r))))._nextDay&&(i.add(1,"d"),i._nextDay=void 0),i}function R(e,t,n,s){return Wt(e,t,n,s,!1)}_.createFromInputFallback=e("value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.",function(e){e._d=new Date(e._i+(e._useUTC?" UTC":""))}),_.ISO_8601=function(){},_.RFC_2822=function(){};me=e("moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/",function(){var e=R.apply(null,arguments);return this.isValid()&&e.isValid()?e<this?this:e:I()}),_e=e("moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/",function(){var e=R.apply(null,arguments);return this.isValid()&&e.isValid()?this<e?this:e:I()});function Pt(e,t){var n,s;if(!(t=1===t.length&&y(t[0])?t[0]:t).length)return R();for(n=t[0],s=1;s<t.length;++s)t[s].isValid()&&!t[s][e](n)||(n=t[s]);return n}var Rt=["year","quarter","month","week","day","hour","minute","second","millisecond"];function Ct(e){var e=ue(e),t=e.year||0,n=e.quarter||0,s=e.month||0,i=e.week||e.isoWeek||0,r=e.day||0,a=e.hour||0,o=e.minute||0,u=e.second||0,l=e.millisecond||0;this._isValid=function(e){var t,n,s=!1,i=Rt.length;for(t in e)if(c(e,t)&&(-1===x.call(Rt,t)||null!=e[t]&&isNaN(e[t])))return!1;for(n=0;n<i;++n)if(e[Rt[n]]){if(s)return!1;parseFloat(e[Rt[n]])!==M(e[Rt[n]])&&(s=!0)}return!0}(e),this._milliseconds=+l+1e3*u+6e4*o+1e3*a*60*60,this._days=+r+7*i,this._months=+s+3*n+12*t,this._data={},this._locale=P(),this._bubble()}function Ut(e){return e instanceof Ct}function Ht(e){return e<0?-1*Math.round(-1*e):Math.round(e)}function Ft(e,n){s(e,0,0,function(){var e=this.utcOffset(),t="+";return e<0&&(e=-e,t="-"),t+r(~~(e/60),2)+n+r(~~e%60,2)})}Ft("Z",":"),Ft("ZZ",""),h("Z",ve),h("ZZ",ve),v(["Z","ZZ"],function(e,t,n){n._useUTC=!0,n._tzm=Vt(ve,e)});var Lt=/([\+\-]|\d\d)/gi;function Vt(e,t){var t=(t||"").match(e);return null===t?null:0===(t=60*(e=((t[t.length-1]||[])+"").match(Lt)||["-",0,0])[1]+M(e[2]))?0:"+"===e[0]?t:-t}function Gt(e,t){var n;return t._isUTC?(t=t.clone(),n=(k(e)||V(e)?e:R(e)).valueOf()-t.valueOf(),t._d.setTime(t._d.valueOf()+n),_.updateOffset(t,!1),t):R(e).local()}function Et(e){return-Math.round(e._d.getTimezoneOffset())}function At(){return!!this.isValid()&&this._isUTC&&0===this._offset}_.updateOffset=function(){};var It=/^(-|\+)?(?:(\d*)[. ])?(\d+):(\d+)(?::(\d+)(\.\d*)?)?$/,jt=/^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/;function C(e,t){var n,s=e;return Ut(e)?s={ms:e._milliseconds,d:e._days,M:e._months}:w(e)||!isNaN(+e)?(s={},t?s[t]=+e:s.milliseconds=+e):(t=It.exec(e))?(n="-"===t[1]?-1:1,s={y:0,d:M(t[S])*n,h:M(t[O])*n,m:M(t[b])*n,s:M(t[T])*n,ms:M(Ht(1e3*t[Te]))*n}):(t=jt.exec(e))?(n="-"===t[1]?-1:1,s={y:Zt(t[2],n),M:Zt(t[3],n),w:Zt(t[4],n),d:Zt(t[5],n),h:Zt(t[6],n),m:Zt(t[7],n),s:Zt(t[8],n)}):null==s?s={}:"object"==typeof s&&("from"in s||"to"in s)&&(t=function(e,t){var n;if(!e.isValid()||!t.isValid())return{milliseconds:0,months:0};t=Gt(t,e),e.isBefore(t)?n=zt(e,t):((n=zt(t,e)).milliseconds=-n.milliseconds,n.months=-n.months);return n}(R(s.from),R(s.to)),(s={}).ms=t.milliseconds,s.M=t.months),n=new Ct(s),Ut(e)&&c(e,"_locale")&&(n._locale=e._locale),Ut(e)&&c(e,"_isValid")&&(n._isValid=e._isValid),n}function Zt(e,t){e=e&&parseFloat(e.replace(",","."));return(isNaN(e)?0:e)*t}function zt(e,t){var n={};return n.months=t.month()-e.month()+12*(t.year()-e.year()),e.clone().add(n.months,"M").isAfter(t)&&--n.months,n.milliseconds=+t-+e.clone().add(n.months,"M"),n}function qt(s,i){return function(e,t){var n;return null===t||isNaN(+t)||(Q(i,"moment()."+i+"(period, number) is deprecated. Please use moment()."+i+"(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info."),n=e,e=t,t=n),$t(this,C(e,t),s),this}}function $t(e,t,n,s){var i=t._milliseconds,r=Ht(t._days),t=Ht(t._months);e.isValid()&&(s=null==s||s,t&&Ae(e,Ce(e,"Month")+t*n),r&&Ue(e,"Date",Ce(e,"Date")+r*n),i&&e._d.setTime(e._d.valueOf()+i*n),s)&&_.updateOffset(e,r||t)}C.fn=Ct.prototype,C.invalid=function(){return C(NaN)};Fe=qt(1,"add"),Qe=qt(-1,"subtract");function Bt(e){return"string"==typeof e||e instanceof String}function Jt(e){return k(e)||V(e)||Bt(e)||w(e)||function(t){var e=y(t),n=!1;e&&(n=0===t.filter(function(e){return!w(e)&&Bt(t)}).length);return e&&n}(e)||function(e){var t,n,s=F(e)&&!L(e),i=!1,r=["years","year","y","months","month","M","days","day","d","dates","date","D","hours","hour","h","minutes","minute","m","seconds","second","s","milliseconds","millisecond","ms"],a=r.length;for(t=0;t<a;t+=1)n=r[t],i=i||c(e,n);return s&&i}(e)||null==e}function Qt(e,t){var n,s;return e.date()<t.date()?-Qt(t,e):-((n=12*(t.year()-e.year())+(t.month()-e.month()))+(t-(s=e.clone().add(n,"months"))<0?(t-s)/(s-e.clone().add(n-1,"months")):(t-s)/(e.clone().add(1+n,"months")-s)))||0}function Xt(e){return void 0===e?this._locale._abbr:(null!=(e=P(e))&&(this._locale=e),this)}_.defaultFormat="YYYY-MM-DDTHH:mm:ssZ",_.defaultFormatUtc="YYYY-MM-DDTHH:mm:ss[Z]";Ke=e("moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.",function(e){return void 0===e?this.localeData():this.locale(e)});function Kt(){return this._locale}var en=126227808e5;function tn(e,t){return(e%t+t)%t}function nn(e,t,n){return e<100&&0<=e?new Date(e+400,t,n)-en:new Date(e,t,n).valueOf()}function sn(e,t,n){return e<100&&0<=e?Date.UTC(e+400,t,n)-en:Date.UTC(e,t,n)}function rn(e,t){return t.erasAbbrRegex(e)}function an(){for(var e,t,n,s=[],i=[],r=[],a=[],o=this.eras(),u=0,l=o.length;u<l;++u)e=f(o[u].name),t=f(o[u].abbr),n=f(o[u].narrow),i.push(e),s.push(t),r.push(n),a.push(e),a.push(t),a.push(n);this._erasRegex=new RegExp("^("+a.join("|")+")","i"),this._erasNameRegex=new RegExp("^("+i.join("|")+")","i"),this._erasAbbrRegex=new RegExp("^("+s.join("|")+")","i"),this._erasNarrowRegex=new RegExp("^("+r.join("|")+")","i")}function on(e,t){s(0,[e,e.length],0,t)}function un(e,t,n,s,i){var r;return null==e?Be(this,s,i).year:(r=N(e,s,i),function(e,t,n,s,i){e=$e(e,t,n,s,i),t=ze(e.year,0,e.dayOfYear);return this.year(t.getUTCFullYear()),this.month(t.getUTCMonth()),this.date(t.getUTCDate()),this}.call(this,e,t=r<t?r:t,n,s,i))}s("N",0,0,"eraAbbr"),s("NN",0,0,"eraAbbr"),s("NNN",0,0,"eraAbbr"),s("NNNN",0,0,"eraName"),s("NNNNN",0,0,"eraNarrow"),s("y",["y",1],"yo","eraYear"),s("y",["yy",2],0,"eraYear"),s("y",["yyy",3],0,"eraYear"),s("y",["yyyy",4],0,"eraYear"),h("N",rn),h("NN",rn),h("NNN",rn),h("NNNN",function(e,t){return t.erasNameRegex(e)}),h("NNNNN",function(e,t){return t.erasNarrowRegex(e)}),v(["N","NN","NNN","NNNN","NNNNN"],function(e,t,n,s){s=n._locale.erasParse(e,s,n._strict);s?p(n).era=s:p(n).invalidEra=e}),h("y",pe),h("yy",pe),h("yyy",pe),h("yyyy",pe),h("yo",function(e,t){return t._eraYearOrdinalRegex||pe}),v(["y","yy","yyy","yyyy"],D),v(["yo"],function(e,t,n,s){var i;n._locale._eraYearOrdinalRegex&&(i=e.match(n._locale._eraYearOrdinalRegex)),n._locale.eraYearOrdinalParse?t[D]=n._locale.eraYearOrdinalParse(e,i):t[D]=parseInt(e,10)}),s(0,["gg",2],0,function(){return this.weekYear()%100}),s(0,["GG",2],0,function(){return this.isoWeekYear()%100}),on("gggg","weekYear"),on("ggggg","weekYear"),on("GGGG","isoWeekYear"),on("GGGGG","isoWeekYear"),h("G",ke),h("g",ke),h("GG",n,t),h("gg",n,t),h("GGGG",ge,ce),h("gggg",ge,ce),h("GGGGG",we,fe),h("ggggg",we,fe),Oe(["gggg","ggggg","GGGG","GGGGG"],function(e,t,n,s){t[s.substr(0,2)]=M(e)}),Oe(["gg","GG"],function(e,t,n,s){t[s]=_.parseTwoDigitYear(e)}),s("Q",0,"Qo","quarter"),h("Q",de),v("Q",function(e,t){t[Y]=3*(M(e)-1)}),s("D",["DD",2],"Do","date"),h("D",n,u),h("DD",n,t),h("Do",function(e,t){return e?t._dayOfMonthOrdinalParse||t._ordinalParse:t._dayOfMonthOrdinalParseLenient}),v(["D","DD"],S),v("Do",function(e,t){t[S]=M(e.match(n)[0])});ge=Re("Date",!0);s("DDD",["DDDD",3],"DDDo","dayOfYear"),h("DDD",ye),h("DDDD",he),v(["DDD","DDDD"],function(e,t,n){n._dayOfYear=M(e)}),s("m",["mm",2],0,"minute"),h("m",n,d),h("mm",n,t),v(["m","mm"],b);var ln,ce=Re("Minutes",!1),we=(s("s",["ss",2],0,"second"),h("s",n,d),h("ss",n,t),v(["s","ss"],T),Re("Seconds",!1));for(s("S",0,0,function(){return~~(this.millisecond()/100)}),s(0,["SS",2],0,function(){return~~(this.millisecond()/10)}),s(0,["SSS",3],0,"millisecond"),s(0,["SSSS",4],0,function(){return 10*this.millisecond()}),s(0,["SSSSS",5],0,function(){return 100*this.millisecond()}),s(0,["SSSSSS",6],0,function(){return 1e3*this.millisecond()}),s(0,["SSSSSSS",7],0,function(){return 1e4*this.millisecond()}),s(0,["SSSSSSSS",8],0,function(){return 1e5*this.millisecond()}),s(0,["SSSSSSSSS",9],0,function(){return 1e6*this.millisecond()}),h("S",ye,de),h("SS",ye,t),h("SSS",ye,he),ln="SSSS";ln.length<=9;ln+="S")h(ln,pe);function dn(e,t){t[Te]=M(1e3*("0."+e))}for(ln="S";ln.length<=9;ln+="S")v(ln,dn);fe=Re("Milliseconds",!1),s("z",0,0,"zoneAbbr"),s("zz",0,0,"zoneName");u=$.prototype;function hn(e){return e}u.add=Fe,u.calendar=function(e,t){1===arguments.length&&(arguments[0]?Jt(arguments[0])?(e=arguments[0],t=void 0):function(e){for(var t=F(e)&&!L(e),n=!1,s=["sameDay","nextDay","lastDay","nextWeek","lastWeek","sameElse"],i=0;i<s.length;i+=1)n=n||c(e,s[i]);return t&&n}(arguments[0])&&(t=arguments[0],e=void 0):t=e=void 0);var e=e||R(),n=Gt(e,this).startOf("day"),n=_.calendarFormat(this,n)||"sameElse",t=t&&(a(t[n])?t[n].call(this,e):t[n]);return this.format(t||this.localeData().calendar(n,this,R(e)))},u.clone=function(){return new $(this)},u.diff=function(e,t,n){var s,i,r;if(!this.isValid())return NaN;if(!(s=Gt(e,this)).isValid())return NaN;switch(i=6e4*(s.utcOffset()-this.utcOffset()),t=o(t)){case"year":r=Qt(this,s)/12;break;case"month":r=Qt(this,s);break;case"quarter":r=Qt(this,s)/3;break;case"second":r=(this-s)/1e3;break;case"minute":r=(this-s)/6e4;break;case"hour":r=(this-s)/36e5;break;case"day":r=(this-s-i)/864e5;break;case"week":r=(this-s-i)/6048e5;break;default:r=this-s}return n?r:m(r)},u.endOf=function(e){var t,n;if(void 0!==(e=o(e))&&"millisecond"!==e&&this.isValid()){switch(n=this._isUTC?sn:nn,e){case"year":t=n(this.year()+1,0,1)-1;break;case"quarter":t=n(this.year(),this.month()-this.month()%3+3,1)-1;break;case"month":t=n(this.year(),this.month()+1,1)-1;break;case"week":t=n(this.year(),this.month(),this.date()-this.weekday()+7)-1;break;case"isoWeek":t=n(this.year(),this.month(),this.date()-(this.isoWeekday()-1)+7)-1;break;case"day":case"date":t=n(this.year(),this.month(),this.date()+1)-1;break;case"hour":t=this._d.valueOf(),t+=36e5-tn(t+(this._isUTC?0:6e4*this.utcOffset()),36e5)-1;break;case"minute":t=this._d.valueOf(),t+=6e4-tn(t,6e4)-1;break;case"second":t=this._d.valueOf(),t+=1e3-tn(t,1e3)-1;break}this._d.setTime(t),_.updateOffset(this,!0)}return this},u.format=function(e){return e=e||(this.isUtc()?_.defaultFormatUtc:_.defaultFormat),e=re(this,e),this.localeData().postformat(e)},u.from=function(e,t){return this.isValid()&&(k(e)&&e.isValid()||R(e).isValid())?C({to:this,from:e}).locale(this.locale()).humanize(!t):this.localeData().invalidDate()},u.fromNow=function(e){return this.from(R(),e)},u.to=function(e,t){return this.isValid()&&(k(e)&&e.isValid()||R(e).isValid())?C({from:this,to:e}).locale(this.locale()).humanize(!t):this.localeData().invalidDate()},u.toNow=function(e){return this.to(R(),e)},u.get=function(e){return a(this[e=o(e)])?this[e]():this},u.invalidAt=function(){return p(this).overflow},u.isAfter=function(e,t){return e=k(e)?e:R(e),!(!this.isValid()||!e.isValid())&&("millisecond"===(t=o(t)||"millisecond")?this.valueOf()>e.valueOf():e.valueOf()<this.clone().startOf(t).valueOf())},u.isBefore=function(e,t){return e=k(e)?e:R(e),!(!this.isValid()||!e.isValid())&&("millisecond"===(t=o(t)||"millisecond")?this.valueOf()<e.valueOf():this.clone().endOf(t).valueOf()<e.valueOf())},u.isBetween=function(e,t,n,s){return e=k(e)?e:R(e),t=k(t)?t:R(t),!!(this.isValid()&&e.isValid()&&t.isValid())&&("("===(s=s||"()")[0]?this.isAfter(e,n):!this.isBefore(e,n))&&(")"===s[1]?this.isBefore(t,n):!this.isAfter(t,n))},u.isSame=function(e,t){var e=k(e)?e:R(e);return!(!this.isValid()||!e.isValid())&&("millisecond"===(t=o(t)||"millisecond")?this.valueOf()===e.valueOf():(e=e.valueOf(),this.clone().startOf(t).valueOf()<=e&&e<=this.clone().endOf(t).valueOf()))},u.isSameOrAfter=function(e,t){return this.isSame(e,t)||this.isAfter(e,t)},u.isSameOrBefore=function(e,t){return this.isSame(e,t)||this.isBefore(e,t)},u.isValid=function(){return A(this)},u.lang=Ke,u.locale=Xt,u.localeData=Kt,u.max=_e,u.min=me,u.parsingFlags=function(){return E({},p(this))},u.set=function(e,t){if("object"==typeof e)for(var n=function(e){var t,n=[];for(t in e)c(e,t)&&n.push({unit:t,priority:le[t]});return n.sort(function(e,t){return e.priority-t.priority}),n}(e=ue(e)),s=n.length,i=0;i<s;i++)this[n[i].unit](e[n[i].unit]);else if(a(this[e=o(e)]))return this[e](t);return this},u.startOf=function(e){var t,n;if(void 0!==(e=o(e))&&"millisecond"!==e&&this.isValid()){switch(n=this._isUTC?sn:nn,e){case"year":t=n(this.year(),0,1);break;case"quarter":t=n(this.year(),this.month()-this.month()%3,1);break;case"month":t=n(this.year(),this.month(),1);break;case"week":t=n(this.year(),this.month(),this.date()-this.weekday());break;case"isoWeek":t=n(this.year(),this.month(),this.date()-(this.isoWeekday()-1));break;case"day":case"date":t=n(this.year(),this.month(),this.date());break;case"hour":t=this._d.valueOf(),t-=tn(t+(this._isUTC?0:6e4*this.utcOffset()),36e5);break;case"minute":t=this._d.valueOf(),t-=tn(t,6e4);break;case"second":t=this._d.valueOf(),t-=tn(t,1e3);break}this._d.setTime(t),_.updateOffset(this,!0)}return this},u.subtract=Qe,u.toArray=function(){var e=this;return[e.year(),e.month(),e.date(),e.hour(),e.minute(),e.second(),e.millisecond()]},u.toObject=function(){var e=this;return{years:e.year(),months:e.month(),date:e.date(),hours:e.hours(),minutes:e.minutes(),seconds:e.seconds(),milliseconds:e.milliseconds()}},u.toDate=function(){return new Date(this.valueOf())},u.toISOString=function(e){var t;return this.isValid()?(t=(e=!0!==e)?this.clone().utc():this).year()<0||9999<t.year()?re(t,e?"YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]":"YYYYYY-MM-DD[T]HH:mm:ss.SSSZ"):a(Date.prototype.toISOString)?e?this.toDate().toISOString():new Date(this.valueOf()+60*this.utcOffset()*1e3).toISOString().replace("Z",re(t,"Z")):re(t,e?"YYYY-MM-DD[T]HH:mm:ss.SSS[Z]":"YYYY-MM-DD[T]HH:mm:ss.SSSZ"):null},u.inspect=function(){var e,t,n;return this.isValid()?(t="moment",e="",this.isLocal()||(t=0===this.utcOffset()?"moment.utc":"moment.parseZone",e="Z"),t="["+t+'("]',n=0<=this.year()&&this.year()<=9999?"YYYY":"YYYYYY",this.format(t+n+"-MM-DD[T]HH:mm:ss.SSS"+(e+'[")]'))):"moment.invalid(/* "+this._i+" */)"},"undefined"!=typeof Symbol&&null!=Symbol.for&&(u[Symbol.for("nodejs.util.inspect.custom")]=function(){return"Moment<"+this.format()+">"}),u.toJSON=function(){return this.isValid()?this.toISOString():null},u.toString=function(){return this.clone().locale("en").format("ddd MMM DD YYYY HH:mm:ss [GMT]ZZ")},u.unix=function(){return Math.floor(this.valueOf()/1e3)},u.valueOf=function(){return this._d.valueOf()-6e4*(this._offset||0)},u.creationData=function(){return{input:this._i,format:this._f,locale:this._locale,isUTC:this._isUTC,strict:this._strict}},u.eraName=function(){for(var e,t=this.localeData().eras(),n=0,s=t.length;n<s;++n){if(e=this.clone().startOf("day").valueOf(),t[n].since<=e&&e<=t[n].until)return t[n].name;if(t[n].until<=e&&e<=t[n].since)return t[n].name}return""},u.eraNarrow=function(){for(var e,t=this.localeData().eras(),n=0,s=t.length;n<s;++n){if(e=this.clone().startOf("day").valueOf(),t[n].since<=e&&e<=t[n].until)return t[n].narrow;if(t[n].until<=e&&e<=t[n].since)return t[n].narrow}return""},u.eraAbbr=function(){for(var e,t=this.localeData().eras(),n=0,s=t.length;n<s;++n){if(e=this.clone().startOf("day").valueOf(),t[n].since<=e&&e<=t[n].until)return t[n].abbr;if(t[n].until<=e&&e<=t[n].since)return t[n].abbr}return""},u.eraYear=function(){for(var e,t,n=this.localeData().eras(),s=0,i=n.length;s<i;++s)if(e=n[s].since<=n[s].until?1:-1,t=this.clone().startOf("day").valueOf(),n[s].since<=t&&t<=n[s].until||n[s].until<=t&&t<=n[s].since)return(this.year()-_(n[s].since).year())*e+n[s].offset;return this.year()},u.year=Pe,u.isLeapYear=function(){return be(this.year())},u.weekYear=function(e){return un.call(this,e,this.week(),this.weekday()+this.localeData()._week.dow,this.localeData()._week.dow,this.localeData()._week.doy)},u.isoWeekYear=function(e){return un.call(this,e,this.isoWeek(),this.isoWeekday(),1,4)},u.quarter=u.quarters=function(e){return null==e?Math.ceil((this.month()+1)/3):this.month(3*(e-1)+this.month()%3)},u.month=Ie,u.daysInMonth=function(){return He(this.year(),this.month())},u.week=u.weeks=function(e){var t=this.localeData().week(this);return null==e?t:this.add(7*(e-t),"d")},u.isoWeek=u.isoWeeks=function(e){var t=Be(this,1,4).week;return null==e?t:this.add(7*(e-t),"d")},u.weeksInYear=function(){var e=this.localeData()._week;return N(this.year(),e.dow,e.doy)},u.weeksInWeekYear=function(){var e=this.localeData()._week;return N(this.weekYear(),e.dow,e.doy)},u.isoWeeksInYear=function(){return N(this.year(),1,4)},u.isoWeeksInISOWeekYear=function(){return N(this.isoWeekYear(),1,4)},u.date=ge,u.day=u.days=function(e){var t,n,s;return this.isValid()?(t=Ce(this,"Day"),null!=e?(n=e,s=this.localeData(),e="string"!=typeof n?n:isNaN(n)?"number"==typeof(n=s.weekdaysParse(n))?n:null:parseInt(n,10),this.add(e-t,"d")):t):null!=e?this:NaN},u.weekday=function(e){var t;return this.isValid()?(t=(this.day()+7-this.localeData()._week.dow)%7,null==e?t:this.add(e-t,"d")):null!=e?this:NaN},u.isoWeekday=function(e){var t,n;return this.isValid()?null!=e?(t=e,n=this.localeData(),n="string"==typeof t?n.weekdaysParse(t)%7||7:isNaN(t)?null:t,this.day(this.day()%7?n:n-7)):this.day()||7:null!=e?this:NaN},u.dayOfYear=function(e){var t=Math.round((this.clone().startOf("day")-this.clone().startOf("year"))/864e5)+1;return null==e?t:this.add(e-t,"d")},u.hour=u.hours=i,u.minute=u.minutes=ce,u.second=u.seconds=we,u.millisecond=u.milliseconds=fe,u.utcOffset=function(e,t,n){var s,i=this._offset||0;if(!this.isValid())return null!=e?this:NaN;if(null==e)return this._isUTC?i:Et(this);if("string"==typeof e){if(null===(e=Vt(ve,e)))return this}else Math.abs(e)<16&&!n&&(e*=60);return!this._isUTC&&t&&(s=Et(this)),this._offset=e,this._isUTC=!0,null!=s&&this.add(s,"m"),i!==e&&(!t||this._changeInProgress?$t(this,C(e-i,"m"),1,!1):this._changeInProgress||(this._changeInProgress=!0,_.updateOffset(this,!0),this._changeInProgress=null)),this},u.utc=function(e){return this.utcOffset(0,e)},u.local=function(e){return this._isUTC&&(this.utcOffset(0,e),this._isUTC=!1,e)&&this.subtract(Et(this),"m"),this},u.parseZone=function(){var e;return null!=this._tzm?this.utcOffset(this._tzm,!1,!0):"string"==typeof this._i&&(null!=(e=Vt(Me,this._i))?this.utcOffset(e):this.utcOffset(0,!0)),this},u.hasAlignedHourOffset=function(e){return!!this.isValid()&&(e=e?R(e).utcOffset():0,(this.utcOffset()-e)%60==0)},u.isDST=function(){return this.utcOffset()>this.clone().month(0).utcOffset()||this.utcOffset()>this.clone().month(5).utcOffset()},u.isLocal=function(){return!!this.isValid()&&!this._isUTC},u.isUtcOffset=function(){return!!this.isValid()&&this._isUTC},u.isUtc=At,u.isUTC=At,u.zoneAbbr=function(){return this._isUTC?"UTC":""},u.zoneName=function(){return this._isUTC?"Coordinated Universal Time":""},u.dates=e("dates accessor is deprecated. Use date instead.",ge),u.months=e("months accessor is deprecated. Use month instead",Ie),u.years=e("years accessor is deprecated. Use year instead",Pe),u.zone=e("moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/",function(e,t){return null!=e?(this.utcOffset(e="string"!=typeof e?-e:e,t),this):-this.utcOffset()}),u.isDSTShifted=e("isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information",function(){var e,t;return g(this._isDSTShifted)&&(q(e={},this),(e=Nt(e))._a?(t=(e._isUTC?l:R)(e._a),this._isDSTShifted=this.isValid()&&0<function(e,t,n){for(var s=Math.min(e.length,t.length),i=Math.abs(e.length-t.length),r=0,a=0;a<s;a++)(n&&e[a]!==t[a]||!n&&M(e[a])!==M(t[a]))&&r++;return r+i}(e._a,t.toArray())):this._isDSTShifted=!1),this._isDSTShifted});d=K.prototype;function cn(e,t,n,s){var i=P(),s=l().set(s,t);return i[n](s,e)}function fn(e,t,n){if(w(e)&&(t=e,e=void 0),e=e||"",null!=t)return cn(e,t,n,"month");for(var s=[],i=0;i<12;i++)s[i]=cn(e,i,n,"month");return s}function mn(e,t,n,s){t=("boolean"==typeof e?w(t)&&(n=t,t=void 0):(t=e,e=!1,w(n=t)&&(n=t,t=void 0)),t||"");var i,r=P(),a=e?r._week.dow:0,o=[];if(null!=n)return cn(t,(n+a)%7,s,"day");for(i=0;i<7;i++)o[i]=cn(t,(i+a)%7,s,"day");return o}d.calendar=function(e,t,n){return a(e=this._calendar[e]||this._calendar.sameElse)?e.call(t,n):e},d.longDateFormat=function(e){var t=this._longDateFormat[e],n=this._longDateFormat[e.toUpperCase()];return t||!n?t:(this._longDateFormat[e]=n.match(te).map(function(e){return"MMMM"===e||"MM"===e||"DD"===e||"dddd"===e?e.slice(1):e}).join(""),this._longDateFormat[e])},d.invalidDate=function(){return this._invalidDate},d.ordinal=function(e){return this._ordinal.replace("%d",e)},d.preparse=hn,d.postformat=hn,d.relativeTime=function(e,t,n,s){var i=this._relativeTime[n];return a(i)?i(e,t,n,s):i.replace(/%d/i,e)},d.pastFuture=function(e,t){return a(e=this._relativeTime[0<e?"future":"past"])?e(t):e.replace(/%s/i,t)},d.set=function(e){var t,n;for(n in e)c(e,n)&&(a(t=e[n])?this[n]=t:this["_"+n]=t);this._config=e,this._dayOfMonthOrdinalParseLenient=new RegExp((this._dayOfMonthOrdinalParse.source||this._ordinalParse.source)+"|"+/\d{1,2}/.source)},d.eras=function(e,t){for(var n,s=this._eras||P("en")._eras,i=0,r=s.length;i<r;++i){switch(typeof s[i].since){case"string":n=_(s[i].since).startOf("day"),s[i].since=n.valueOf();break}switch(typeof s[i].until){case"undefined":s[i].until=1/0;break;case"string":n=_(s[i].until).startOf("day").valueOf(),s[i].until=n.valueOf();break}}return s},d.erasParse=function(e,t,n){var s,i,r,a,o,u=this.eras();for(e=e.toUpperCase(),s=0,i=u.length;s<i;++s)if(r=u[s].name.toUpperCase(),a=u[s].abbr.toUpperCase(),o=u[s].narrow.toUpperCase(),n)switch(t){case"N":case"NN":case"NNN":if(a===e)return u[s];break;case"NNNN":if(r===e)return u[s];break;case"NNNNN":if(o===e)return u[s];break}else if(0<=[r,a,o].indexOf(e))return u[s]},d.erasConvertYear=function(e,t){var n=e.since<=e.until?1:-1;return void 0===t?_(e.since).year():_(e.since).year()+(t-e.offset)*n},d.erasAbbrRegex=function(e){return c(this,"_erasAbbrRegex")||an.call(this),e?this._erasAbbrRegex:this._erasRegex},d.erasNameRegex=function(e){return c(this,"_erasNameRegex")||an.call(this),e?this._erasNameRegex:this._erasRegex},d.erasNarrowRegex=function(e){return c(this,"_erasNarrowRegex")||an.call(this),e?this._erasNarrowRegex:this._erasRegex},d.months=function(e,t){return e?(y(this._months)?this._months:this._months[(this._months.isFormat||Ve).test(t)?"format":"standalone"])[e.month()]:y(this._months)?this._months:this._months.standalone},d.monthsShort=function(e,t){return e?(y(this._monthsShort)?this._monthsShort:this._monthsShort[Ve.test(t)?"format":"standalone"])[e.month()]:y(this._monthsShort)?this._monthsShort:this._monthsShort.standalone},d.monthsParse=function(e,t,n){var s,i;if(this._monthsParseExact)return function(e,t,n){var s,i,r,e=e.toLocaleLowerCase();if(!this._monthsParse)for(this._monthsParse=[],this._longMonthsParse=[],this._shortMonthsParse=[],s=0;s<12;++s)r=l([2e3,s]),this._shortMonthsParse[s]=this.monthsShort(r,"").toLocaleLowerCase(),this._longMonthsParse[s]=this.months(r,"").toLocaleLowerCase();return n?"MMM"===t?-1!==(i=x.call(this._shortMonthsParse,e))?i:null:-1!==(i=x.call(this._longMonthsParse,e))?i:null:"MMM"===t?-1!==(i=x.call(this._shortMonthsParse,e))||-1!==(i=x.call(this._longMonthsParse,e))?i:null:-1!==(i=x.call(this._longMonthsParse,e))||-1!==(i=x.call(this._shortMonthsParse,e))?i:null}.call(this,e,t,n);for(this._monthsParse||(this._monthsParse=[],this._longMonthsParse=[],this._shortMonthsParse=[]),s=0;s<12;s++){if(i=l([2e3,s]),n&&!this._longMonthsParse[s]&&(this._longMonthsParse[s]=new RegExp("^"+this.months(i,"").replace(".","")+"$","i"),this._shortMonthsParse[s]=new RegExp("^"+this.monthsShort(i,"").replace(".","")+"$","i")),n||this._monthsParse[s]||(i="^"+this.months(i,"")+"|^"+this.monthsShort(i,""),this._monthsParse[s]=new RegExp(i.replace(".",""),"i")),n&&"MMMM"===t&&this._longMonthsParse[s].test(e))return s;if(n&&"MMM"===t&&this._shortMonthsParse[s].test(e))return s;if(!n&&this._monthsParse[s].test(e))return s}},d.monthsRegex=function(e){return this._monthsParseExact?(c(this,"_monthsRegex")||je.call(this),e?this._monthsStrictRegex:this._monthsRegex):(c(this,"_monthsRegex")||(this._monthsRegex=Ee),this._monthsStrictRegex&&e?this._monthsStrictRegex:this._monthsRegex)},d.monthsShortRegex=function(e){return this._monthsParseExact?(c(this,"_monthsRegex")||je.call(this),e?this._monthsShortStrictRegex:this._monthsShortRegex):(c(this,"_monthsShortRegex")||(this._monthsShortRegex=Ge),this._monthsShortStrictRegex&&e?this._monthsShortStrictRegex:this._monthsShortRegex)},d.week=function(e){return Be(e,this._week.dow,this._week.doy).week},d.firstDayOfYear=function(){return this._week.doy},d.firstDayOfWeek=function(){return this._week.dow},d.weekdays=function(e,t){return t=y(this._weekdays)?this._weekdays:this._weekdays[e&&!0!==e&&this._weekdays.isFormat.test(t)?"format":"standalone"],!0===e?Je(t,this._week.dow):e?t[e.day()]:t},d.weekdaysMin=function(e){return!0===e?Je(this._weekdaysMin,this._week.dow):e?this._weekdaysMin[e.day()]:this._weekdaysMin},d.weekdaysShort=function(e){return!0===e?Je(this._weekdaysShort,this._week.dow):e?this._weekdaysShort[e.day()]:this._weekdaysShort},d.weekdaysParse=function(e,t,n){var s,i;if(this._weekdaysParseExact)return function(e,t,n){var s,i,r,e=e.toLocaleLowerCase();if(!this._weekdaysParse)for(this._weekdaysParse=[],this._shortWeekdaysParse=[],this._minWeekdaysParse=[],s=0;s<7;++s)r=l([2e3,1]).day(s),this._minWeekdaysParse[s]=this.weekdaysMin(r,"").toLocaleLowerCase(),this._shortWeekdaysParse[s]=this.weekdaysShort(r,"").toLocaleLowerCase(),this._weekdaysParse[s]=this.weekdays(r,"").toLocaleLowerCase();return n?"dddd"===t?-1!==(i=x.call(this._weekdaysParse,e))?i:null:"ddd"===t?-1!==(i=x.call(this._shortWeekdaysParse,e))?i:null:-1!==(i=x.call(this._minWeekdaysParse,e))?i:null:"dddd"===t?-1!==(i=x.call(this._weekdaysParse,e))||-1!==(i=x.call(this._shortWeekdaysParse,e))||-1!==(i=x.call(this._minWeekdaysParse,e))?i:null:"ddd"===t?-1!==(i=x.call(this._shortWeekdaysParse,e))||-1!==(i=x.call(this._weekdaysParse,e))||-1!==(i=x.call(this._minWeekdaysParse,e))?i:null:-1!==(i=x.call(this._minWeekdaysParse,e))||-1!==(i=x.call(this._weekdaysParse,e))||-1!==(i=x.call(this._shortWeekdaysParse,e))?i:null}.call(this,e,t,n);for(this._weekdaysParse||(this._weekdaysParse=[],this._minWeekdaysParse=[],this._shortWeekdaysParse=[],this._fullWeekdaysParse=[]),s=0;s<7;s++){if(i=l([2e3,1]).day(s),n&&!this._fullWeekdaysParse[s]&&(this._fullWeekdaysParse[s]=new RegExp("^"+this.weekdays(i,"").replace(".","\\.?")+"$","i"),this._shortWeekdaysParse[s]=new RegExp("^"+this.weekdaysShort(i,"").replace(".","\\.?")+"$","i"),this._minWeekdaysParse[s]=new RegExp("^"+this.weekdaysMin(i,"").replace(".","\\.?")+"$","i")),this._weekdaysParse[s]||(i="^"+this.weekdays(i,"")+"|^"+this.weekdaysShort(i,"")+"|^"+this.weekdaysMin(i,""),this._weekdaysParse[s]=new RegExp(i.replace(".",""),"i")),n&&"dddd"===t&&this._fullWeekdaysParse[s].test(e))return s;if(n&&"ddd"===t&&this._shortWeekdaysParse[s].test(e))return s;if(n&&"dd"===t&&this._minWeekdaysParse[s].test(e))return s;if(!n&&this._weekdaysParse[s].test(e))return s}},d.weekdaysRegex=function(e){return this._weekdaysParseExact?(c(this,"_weekdaysRegex")||st.call(this),e?this._weekdaysStrictRegex:this._weekdaysRegex):(c(this,"_weekdaysRegex")||(this._weekdaysRegex=et),this._weekdaysStrictRegex&&e?this._weekdaysStrictRegex:this._weekdaysRegex)},d.weekdaysShortRegex=function(e){return this._weekdaysParseExact?(c(this,"_weekdaysRegex")||st.call(this),e?this._weekdaysShortStrictRegex:this._weekdaysShortRegex):(c(this,"_weekdaysShortRegex")||(this._weekdaysShortRegex=tt),this._weekdaysShortStrictRegex&&e?this._weekdaysShortStrictRegex:this._weekdaysShortRegex)},d.weekdaysMinRegex=function(e){return this._weekdaysParseExact?(c(this,"_weekdaysRegex")||st.call(this),e?this._weekdaysMinStrictRegex:this._weekdaysMinRegex):(c(this,"_weekdaysMinRegex")||(this._weekdaysMinRegex=nt),this._weekdaysMinStrictRegex&&e?this._weekdaysMinStrictRegex:this._weekdaysMinRegex)},d.isPM=function(e){return"p"===(e+"").toLowerCase().charAt(0)},d.meridiem=function(e,t,n){return 11<e?n?"pm":"PM":n?"am":"AM"},ft("en",{eras:[{since:"0001-01-01",until:1/0,offset:1,name:"Anno Domini",narrow:"AD",abbr:"AD"},{since:"0000-12-31",until:-1/0,offset:1,name:"Before Christ",narrow:"BC",abbr:"BC"}],dayOfMonthOrdinalParse:/\d{1,2}(th|st|nd|rd)/,ordinal:function(e){var t=e%10;return e+(1===M(e%100/10)?"th":1==t?"st":2==t?"nd":3==t?"rd":"th")}}),_.lang=e("moment.lang is deprecated. Use moment.locale instead.",ft),_.langData=e("moment.langData is deprecated. Use moment.localeData instead.",P);var _n=Math.abs;function yn(e,t,n,s){t=C(t,n);return e._milliseconds+=s*t._milliseconds,e._days+=s*t._days,e._months+=s*t._months,e._bubble()}function gn(e){return e<0?Math.floor(e):Math.ceil(e)}function wn(e){return 4800*e/146097}function pn(e){return 146097*e/4800}function kn(e){return function(){return this.as(e)}}de=kn("ms"),t=kn("s"),ye=kn("m"),he=kn("h"),Fe=kn("d"),_e=kn("w"),me=kn("M"),Qe=kn("Q"),i=kn("y"),ce=de;function Mn(e){return function(){return this.isValid()?this._data[e]:NaN}}var we=Mn("milliseconds"),fe=Mn("seconds"),ge=Mn("minutes"),Pe=Mn("hours"),d=Mn("days"),vn=Mn("months"),Dn=Mn("years");var Yn=Math.round,Sn={ss:44,s:45,m:45,h:22,d:26,w:null,M:11};function On(e,t,n,s){var i=C(e).abs(),r=Yn(i.as("s")),a=Yn(i.as("m")),o=Yn(i.as("h")),u=Yn(i.as("d")),l=Yn(i.as("M")),d=Yn(i.as("w")),i=Yn(i.as("y")),r=(r<=n.ss?["s",r]:r<n.s&&["ss",r])||(a<=1?["m"]:a<n.m&&["mm",a])||(o<=1?["h"]:o<n.h&&["hh",o])||(u<=1?["d"]:u<n.d&&["dd",u]);return(r=(r=null!=n.w?r||(d<=1?["w"]:d<n.w&&["ww",d]):r)||(l<=1?["M"]:l<n.M&&["MM",l])||(i<=1?["y"]:["yy",i]))[2]=t,r[3]=0<+e,r[4]=s,function(e,t,n,s,i){return i.relativeTime(t||1,!!n,e,s)}.apply(null,r)}var bn=Math.abs;function Tn(e){return(0<e)-(e<0)||+e}function xn(){var e,t,n,s,i,r,a,o,u,l,d;return this.isValid()?(e=bn(this._milliseconds)/1e3,t=bn(this._days),n=bn(this._months),(o=this.asSeconds())?(s=m(e/60),i=m(s/60),e%=60,s%=60,r=m(n/12),n%=12,a=e?e.toFixed(3).replace(/\.?0+$/,""):"",u=Tn(this._months)!==Tn(o)?"-":"",l=Tn(this._days)!==Tn(o)?"-":"",d=Tn(this._milliseconds)!==Tn(o)?"-":"",(o<0?"-":"")+"P"+(r?u+r+"Y":"")+(n?u+n+"M":"")+(t?l+t+"D":"")+(i||s||e?"T":"")+(i?d+i+"H":"")+(s?d+s+"M":"")+(e?d+a+"S":"")):"P0D"):this.localeData().invalidDate()}var U=Ct.prototype;return U.isValid=function(){return this._isValid},U.abs=function(){var e=this._data;return this._milliseconds=_n(this._milliseconds),this._days=_n(this._days),this._months=_n(this._months),e.milliseconds=_n(e.milliseconds),e.seconds=_n(e.seconds),e.minutes=_n(e.minutes),e.hours=_n(e.hours),e.months=_n(e.months),e.years=_n(e.years),this},U.add=function(e,t){return yn(this,e,t,1)},U.subtract=function(e,t){return yn(this,e,t,-1)},U.as=function(e){if(!this.isValid())return NaN;var t,n,s=this._milliseconds;if("month"===(e=o(e))||"quarter"===e||"year"===e)switch(t=this._days+s/864e5,n=this._months+wn(t),e){case"month":return n;case"quarter":return n/3;case"year":return n/12}else switch(t=this._days+Math.round(pn(this._months)),e){case"week":return t/7+s/6048e5;case"day":return t+s/864e5;case"hour":return 24*t+s/36e5;case"minute":return 1440*t+s/6e4;case"second":return 86400*t+s/1e3;case"millisecond":return Math.floor(864e5*t)+s;default:throw new Error("Unknown unit "+e)}},U.asMilliseconds=de,U.asSeconds=t,U.asMinutes=ye,U.asHours=he,U.asDays=Fe,U.asWeeks=_e,U.asMonths=me,U.asQuarters=Qe,U.asYears=i,U.valueOf=ce,U._bubble=function(){var e=this._milliseconds,t=this._days,n=this._months,s=this._data;return 0<=e&&0<=t&&0<=n||e<=0&&t<=0&&n<=0||(e+=864e5*gn(pn(n)+t),n=t=0),s.milliseconds=e%1e3,e=m(e/1e3),s.seconds=e%60,e=m(e/60),s.minutes=e%60,e=m(e/60),s.hours=e%24,t+=m(e/24),n+=e=m(wn(t)),t-=gn(pn(e)),e=m(n/12),n%=12,s.days=t,s.months=n,s.years=e,this},U.clone=function(){return C(this)},U.get=function(e){return e=o(e),this.isValid()?this[e+"s"]():NaN},U.milliseconds=we,U.seconds=fe,U.minutes=ge,U.hours=Pe,U.days=d,U.weeks=function(){return m(this.days()/7)},U.months=vn,U.years=Dn,U.humanize=function(e,t){var n,s;return this.isValid()?(n=!1,s=Sn,"object"==typeof e&&(t=e,e=!1),"boolean"==typeof e&&(n=e),"object"==typeof t&&(s=Object.assign({},Sn,t),null!=t.s)&&null==t.ss&&(s.ss=t.s-1),e=this.localeData(),t=On(this,!n,s,e),n&&(t=e.pastFuture(+this,t)),e.postformat(t)):this.localeData().invalidDate()},U.toISOString=xn,U.toString=xn,U.toJSON=xn,U.locale=Xt,U.localeData=Kt,U.toIsoString=e("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)",xn),U.lang=Ke,s("X",0,0,"unix"),s("x",0,0,"valueOf"),h("x",ke),h("X",/[+-]?\d+(\.\d{1,3})?/),v("X",function(e,t,n){n._d=new Date(1e3*parseFloat(e))}),v("x",function(e,t,n){n._d=new Date(M(e))}),_.version="2.30.1",H=R,_.fn=u,_.min=function(){return Pt("isBefore",[].slice.call(arguments,0))},_.max=function(){return Pt("isAfter",[].slice.call(arguments,0))},_.now=function(){return Date.now?Date.now():+new Date},_.utc=l,_.unix=function(e){return R(1e3*e)},_.months=function(e,t){return fn(e,t,"months")},_.isDate=V,_.locale=ft,_.invalid=I,_.duration=C,_.isMoment=k,_.weekdays=function(e,t,n){return mn(e,t,n,"weekdays")},_.parseZone=function(){return R.apply(null,arguments).parseZone()},_.localeData=P,_.isDuration=Ut,_.monthsShort=function(e,t){return fn(e,t,"monthsShort")},_.weekdaysMin=function(e,t,n){return mn(e,t,n,"weekdaysMin")},_.defineLocale=mt,_.updateLocale=function(e,t){var n,s;return null!=t?(s=ut,null!=W[e]&&null!=W[e].parentLocale?W[e].set(X(W[e]._config,t)):(t=X(s=null!=(n=ct(e))?n._config:s,t),null==n&&(t.abbr=e),(s=new K(t)).parentLocale=W[e],W[e]=s),ft(e)):null!=W[e]&&(null!=W[e].parentLocale?(W[e]=W[e].parentLocale,e===ft()&&ft(e)):null!=W[e]&&delete W[e]),W[e]},_.locales=function(){return ee(W)},_.weekdaysShort=function(e,t,n){return mn(e,t,n,"weekdaysShort")},_.normalizeUnits=o,_.relativeTimeRounding=function(e){return void 0===e?Yn:"function"==typeof e&&(Yn=e,!0)},_.relativeTimeThreshold=function(e,t){return void 0!==Sn[e]&&(void 0===t?Sn[e]:(Sn[e]=t,"s"===e&&(Sn.ss=t-1),!0))},_.calendarFormat=function(e,t){return(e=e.diff(t,"days",!0))<-6?"sameElse":e<-1?"lastWeek":e<0?"lastDay":e<1?"sameDay":e<2?"nextDay":e<7?"nextWeek":"sameElse"},_.prototype=u,_.HTML5_FMT={DATETIME_LOCAL:"YYYY-MM-DDTHH:mm",DATETIME_LOCAL_SECONDS:"YYYY-MM-DDTHH:mm:ss",DATETIME_LOCAL_MS:"YYYY-MM-DDTHH:mm:ss.SSS",DATE:"YYYY-MM-DD",TIME:"HH:mm",TIME_SECONDS:"HH:mm:ss",TIME_MS:"HH:mm:ss.SSS",WEEK:"GGGG-[W]WW",MONTH:"YYYY-MM"},_});
+
+
+
+/**
+* @version: 3.1
+* @author: Dan Grossman http://www.dangrossman.info/
+* @copyright: Copyright (c) 2012-2019 Dan Grossman. All rights reserved.
+* @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
+* @website: http://www.daterangepicker.com/
+*/
+!function(t,e){if("function"==typeof define&&define.amd)define(["moment","jquery"],(function(t,a){return a.fn||(a.fn={}),"function"!=typeof t&&t.hasOwnProperty("default")&&(t=t.default),e(t,a)}));else if("object"==typeof module&&module.exports){var a="undefined"!=typeof window?window.jQuery:void 0;a||(a=require("jquery")).fn||(a.fn={});var i="undefined"!=typeof window&&void 0!==window.moment?window.moment:require("moment");module.exports=e(i,a)}else t.daterangepicker=e(t.moment,t.jQuery)}("undefined"!=typeof window?window:this,(function(t,e){var a=function(a,i,s){if(this.parentEl="body",this.element=e(a),this.startDate=t().startOf("day"),this.endDate=t().endOf("day"),this.minDate=!1,this.maxDate=!1,this.maxSpan=!1,this.autoApply=!1,this.singleDatePicker=!1,this.showDropdowns=!1,this.minYear=t().subtract(100,"year").format("YYYY"),this.maxYear=t().add(100,"year").format("YYYY"),this.showWeekNumbers=!1,this.showISOWeekNumbers=!1,this.showCustomRangeLabel=!0,this.timePicker=!1,this.timePicker24Hour=!1,this.timePickerIncrement=1,this.timePickerSeconds=!1,this.linkedCalendars=!0,this.autoUpdateInput=!0,this.alwaysShowCalendars=!1,this.isWeekRange=!1,this.isROC=!1,this.customHTML="",this.monthOnly=!1,this.monthOnlyAll=!1,this.yearOnly=!1,this.yearOnlyAll=!1,this.beforeShow=function(){},this.ranges={},this.opens="right",this.element.hasClass("pull-right")&&(this.opens="left"),this.drops="down",this.element.hasClass("dropup")&&(this.drops="up"),this.buttonClasses="btn btn-sm",this.applyButtonClasses="btn-primary",this.cancelButtonClasses="btn-default",this.locale={direction:"ltr",format:t.localeData().longDateFormat("L"),separator:" - ",applyLabel:"Apply",cancelLabel:"Cancel",weekLabel:"W",customRangeLabel:"Custom Range",daysOfWeek:t.weekdaysMin(),monthNames:t.monthsShort(),firstDay:t.localeData().firstDayOfWeek()},this.callback=function(){},this.isShowing=!1,this.leftCalendar={},this.rightCalendar={},"object"==typeof i&&null!==i||(i={}),"string"==typeof(i=e.extend(this.element.data(),i)).template||i.template instanceof e||(i.template='<div class="daterangepicker"><div class="ranges"></div><div class="drp-calendar left"><div class="calendar-table"></div><div class="calendar-time"></div></div><div class="drp-calendar right"><div class="calendar-table"></div><div class="calendar-time"></div></div><div class="drp-buttons"><span class="drp-custom">'+(i.customHTML||"")+'</span><span class="drp-selected"></span><button class="cancelBtn" type="button"></button><button class="applyBtn" disabled="disabled" type="button"></button> </div></div>'),this.parentEl=i.parentEl&&e(i.parentEl).length?e(i.parentEl):e(this.parentEl),this.container=e(i.template).appendTo(this.parentEl),"object"==typeof i.locale&&("string"==typeof i.locale.direction&&(this.locale.direction=i.locale.direction),"string"==typeof i.locale.format&&(this.locale.format=i.locale.format),"string"==typeof i.locale.separator&&(this.locale.separator=i.locale.separator),"object"==typeof i.locale.daysOfWeek&&(this.locale.daysOfWeek=i.locale.daysOfWeek.slice()),"object"==typeof i.locale.monthNames&&(this.locale.monthNames=i.locale.monthNames.slice()),"number"==typeof i.locale.firstDay&&(this.locale.firstDay=i.locale.firstDay),"string"==typeof i.locale.applyLabel&&(this.locale.applyLabel=i.locale.applyLabel),"string"==typeof i.locale.cancelLabel&&(this.locale.cancelLabel=i.locale.cancelLabel),"string"==typeof i.locale.weekLabel&&(this.locale.weekLabel=i.locale.weekLabel),"string"==typeof i.locale.customRangeLabel)){(f=document.createElement("textarea")).innerHTML=i.locale.customRangeLabel;var n=f.value;this.locale.customRangeLabel=n}if(this.container.addClass(this.locale.direction),"string"==typeof i.startDate&&(this.startDate=t(i.startDate,this.locale.format)),"string"==typeof i.endDate&&(this.endDate=t(i.endDate,this.locale.format)),"string"==typeof i.minDate&&(this.minDate=t(i.minDate,this.locale.format)),"string"==typeof i.maxDate&&(this.maxDate=t(i.maxDate,this.locale.format)),"object"==typeof i.startDate&&(this.startDate=t(i.startDate)),"object"==typeof i.endDate&&(this.endDate=t(i.endDate)),"object"==typeof i.minDate&&(this.minDate=t(i.minDate)),"object"==typeof i.maxDate&&(this.maxDate=t(i.maxDate)),this.minDate&&this.startDate.isBefore(this.minDate)&&(this.startDate=this.minDate.clone()),this.maxDate&&this.endDate.isAfter(this.maxDate)&&(this.endDate=this.maxDate.clone()),"string"==typeof i.applyButtonClasses&&(this.applyButtonClasses=i.applyButtonClasses),"string"==typeof i.applyClass&&(this.applyButtonClasses=i.applyClass),"string"==typeof i.cancelButtonClasses&&(this.cancelButtonClasses=i.cancelButtonClasses),"string"==typeof i.cancelClass&&(this.cancelButtonClasses=i.cancelClass),"object"==typeof i.maxSpan&&(this.maxSpan=i.maxSpan),"object"==typeof i.dateLimit&&(this.maxSpan=i.dateLimit),"string"==typeof i.opens&&(this.opens=i.opens),"string"==typeof i.drops&&(this.drops=i.drops),"boolean"==typeof i.showWeekNumbers&&(this.showWeekNumbers=i.showWeekNumbers),"boolean"==typeof i.showISOWeekNumbers&&(this.showISOWeekNumbers=i.showISOWeekNumbers),"boolean"==typeof i.isWeekRange&&(this.isWeekRange=i.isWeekRange),"boolean"==typeof i.isROC&&(this.isROC=i.isROC),"function"==typeof i.beforeShow&&(this.beforeShow=i.beforeShow),"boolean"==typeof i.monthOnly&&(this.monthOnly=i.monthOnly),"boolean"==typeof i.monthOnlyAll&&(this.monthOnlyAll=i.monthOnlyAll),"boolean"==typeof i.yearOnly&&(this.yearOnly=i.yearOnly),"boolean"==typeof i.yearOnlyAll&&(this.yearOnlyAll=i.yearOnlyAll),"string"==typeof i.buttonClasses&&(this.buttonClasses=i.buttonClasses),"object"==typeof i.buttonClasses&&(this.buttonClasses=i.buttonClasses.join(" ")),"boolean"==typeof i.showDropdowns&&(this.showDropdowns=i.showDropdowns),"number"==typeof i.minYear&&(this.minYear=i.minYear),"number"==typeof i.maxYear&&(this.maxYear=i.maxYear),"boolean"==typeof i.showCustomRangeLabel&&(this.showCustomRangeLabel=i.showCustomRangeLabel),"boolean"==typeof i.singleDatePicker&&(this.singleDatePicker=i.singleDatePicker,this.singleDatePicker&&(this.endDate=this.startDate.clone())),"boolean"==typeof i.timePicker&&(this.timePicker=i.timePicker),"boolean"==typeof i.timePickerSeconds&&(this.timePickerSeconds=i.timePickerSeconds),"number"==typeof i.timePickerIncrement&&(this.timePickerIncrement=i.timePickerIncrement),"boolean"==typeof i.timePicker24Hour&&(this.timePicker24Hour=i.timePicker24Hour),"boolean"==typeof i.autoApply&&(this.autoApply=i.autoApply),"boolean"==typeof i.autoUpdateInput&&(this.autoUpdateInput=i.autoUpdateInput),"boolean"==typeof i.linkedCalendars&&(this.linkedCalendars=i.linkedCalendars),"function"==typeof i.isInvalidDate&&(this.isInvalidDate=i.isInvalidDate),"function"==typeof i.isCustomDate&&(this.isCustomDate=i.isCustomDate),"boolean"==typeof i.alwaysShowCalendars&&(this.alwaysShowCalendars=i.alwaysShowCalendars),0!=this.locale.firstDay)for(var r=this.locale.firstDay;r>0;)this.locale.daysOfWeek.push(this.locale.daysOfWeek.shift()),r--;var o,l,h;if(void 0===i.startDate&&void 0===i.endDate&&e(this.element).is(":text")){var d=e(this.element).val(),c=d.split(this.locale.separator);o=l=null,2==c.length?(o=t(c[0],this.locale.format),l=t(c[1],this.locale.format)):this.singleDatePicker&&""!==d&&(o=t(d,this.locale.format),l=t(d,this.locale.format)),null!==o&&null!==l&&(this.setStartDate(o),this.setEndDate(l))}if("object"==typeof i.ranges){for(h in i.ranges){o="string"==typeof i.ranges[h][0]?t(i.ranges[h][0],this.locale.format):t(i.ranges[h][0]),l="string"==typeof i.ranges[h][1]?t(i.ranges[h][1],this.locale.format):t(i.ranges[h][1]),this.minDate&&o.isBefore(this.minDate)&&(o=this.minDate.clone());var m=this.maxDate;if(this.maxSpan&&m&&o.clone().add(this.maxSpan).isAfter(m)&&(m=o.clone().add(this.maxSpan)),m&&l.isAfter(m)&&(l=m.clone()),!(this.minDate&&l.isBefore(this.minDate,this.timepicker?"minute":"day")||m&&o.isAfter(m,this.timepicker?"minute":"day"))){var f;(f=document.createElement("textarea")).innerHTML=h;n=f.value;this.ranges[n]=[o,l]}}var p="<ul>";for(h in this.ranges)p+='<li data-range-key="'+h+'">'+h+"</li>";this.showCustomRangeLabel&&(p+='<li data-range-key="'+this.locale.customRangeLabel+'">'+this.locale.customRangeLabel+"</li>"),p+="</ul>",this.container.find(".ranges").prepend(p)}"function"==typeof s&&(this.callback=s),this.timePicker||(this.startDate=this.startDate.startOf("day"),this.endDate=this.endDate.endOf("day"),this.container.find(".calendar-time").hide()),this.timePicker&&this.autoApply&&(this.autoApply=!1),this.autoApply&&this.container.addClass("auto-apply"),"object"==typeof i.ranges&&this.container.addClass("show-ranges"),this.singleDatePicker&&(this.container.addClass("single"),this.container.find(".drp-calendar.left").addClass("single"),this.container.find(".drp-calendar.left").show(),this.container.find(".drp-calendar.right").hide(),!this.timePicker&&this.autoApply&&this.container.addClass("auto-apply")),this.isWeekRange&&this.container.addClass("week-range"),this.monthOnly&&this.container.find(".drp-calendar.left").addClass("month-only"),this.yearOnly&&this.container.find(".drp-calendar.left").addClass("year-only"),(void 0===i.ranges&&!this.singleDatePicker||this.alwaysShowCalendars)&&this.container.addClass("show-calendar"),this.container.addClass("opens"+this.opens),this.container.find(".applyBtn, .cancelBtn").addClass(this.buttonClasses),this.applyButtonClasses.length&&this.container.find(".applyBtn").addClass(this.applyButtonClasses),this.cancelButtonClasses.length&&this.container.find(".cancelBtn").addClass(this.cancelButtonClasses),this.container.find(".applyBtn").html(this.locale.applyLabel),this.container.find(".cancelBtn").html(this.locale.cancelLabel),this.container.find(".drp-calendar").on("click.daterangepicker",".prev",this.clickPrev.bind(this)).on("click.daterangepicker",".next",this.clickNext.bind(this)).on("mousedown.daterangepicker","td.available",this.clickDate.bind(this)).on("mouseenter.daterangepicker","td.available",this.hoverDate.bind(this)).on("change.daterangepicker","select.yearselect",this.monthOrYearChanged.bind(this)).on("change.daterangepicker","select.monthselect",this.monthOrYearChanged.bind(this)).on("change.daterangepicker","select.hourselect,select.minuteselect,select.secondselect,select.ampmselect",this.timeChanged.bind(this)),this.container.find(".ranges").on("click.daterangepicker","li",this.clickRange.bind(this)),this.container.find(".drp-buttons").on("click.daterangepicker","button.applyBtn",this.clickApply.bind(this)).on("click.daterangepicker","button.cancelBtn",this.clickCancel.bind(this)).on("click.daterangepicker",".drp-custom a",this.clickCustomHTML.bind(this)),this.element.is("input")||this.element.is("button")?this.element.on({"click.daterangepicker":this.show.bind(this),"focus.daterangepicker":this.show.bind(this),"keyup.daterangepicker":this.elementChanged.bind(this),"keydown.daterangepicker":this.keydown.bind(this)}):(this.element.on("click.daterangepicker",this.toggle.bind(this)),this.element.on("keydown.daterangepicker",this.toggle.bind(this))),this.updateElement()};return a.prototype={constructor:a,setStartDate:function(e){"string"==typeof e&&(this.startDate=t(e,this.locale.format)),"object"==typeof e&&(this.startDate=t(e)),this.timePicker||(this.startDate=this.startDate.startOf("day")),this.timePicker&&this.timePickerIncrement&&this.startDate.minute(Math.round(this.startDate.minute()/this.timePickerIncrement)*this.timePickerIncrement),this.minDate&&this.startDate.isBefore(this.minDate)&&(this.startDate=this.minDate.clone(),this.timePicker&&this.timePickerIncrement&&this.startDate.minute(Math.round(this.startDate.minute()/this.timePickerIncrement)*this.timePickerIncrement)),this.maxDate&&this.startDate.isAfter(this.maxDate)&&(this.startDate=this.maxDate.clone(),this.timePicker&&this.timePickerIncrement&&this.startDate.minute(Math.floor(this.startDate.minute()/this.timePickerIncrement)*this.timePickerIncrement)),this.isShowing||this.updateElement(),this.updateMonthsInView()},setEndDate:function(e){"string"==typeof e&&(this.endDate=t(e,this.locale.format)),"object"==typeof e&&(this.endDate=t(e)),this.timePicker||(this.endDate=this.endDate.endOf("day")),this.timePicker&&this.timePickerIncrement&&this.endDate.minute(Math.round(this.endDate.minute()/this.timePickerIncrement)*this.timePickerIncrement),this.endDate.isBefore(this.startDate)&&(this.endDate=this.startDate.clone()),this.maxDate&&this.endDate.isAfter(this.maxDate)&&(this.endDate=this.maxDate.clone()),this.maxSpan&&this.startDate.clone().add(this.maxSpan).isBefore(this.endDate)&&(this.endDate=this.startDate.clone().add(this.maxSpan)),this.previousRightTime=this.endDate.clone(),this.container.find(".drp-selected").html(this.startDate.format(this.locale.format)+this.locale.separator+this.endDate.format(this.locale.format)),this.isShowing||this.updateElement(),this.updateMonthsInView()},isInvalidDate:function(){return!1},isCustomDate:function(){return!1},updateView:function(){this.timePicker&&(this.renderTimePicker("left"),this.renderTimePicker("right"),this.endDate?this.container.find(".right .calendar-time select").prop("disabled",!1).removeClass("disabled"):this.container.find(".right .calendar-time select").prop("disabled",!0).addClass("disabled")),this.endDate&&this.container.find(".drp-selected").html(this.startDate.format(this.locale.format)+this.locale.separator+this.endDate.format(this.locale.format)+(this.isWeekRange?" (共計 "+(this.endDate.diff(this.startDate,"weeks")+1)+" 週)":"")),this.updateMonthsInView(),this.updateCalendars(),this.updateFormInputs()},updateMonthsInView:function(){if(this.endDate){if(!this.singleDatePicker&&this.leftCalendar.month&&this.rightCalendar.month&&(this.startDate.format("YYYY-MM")==this.leftCalendar.month.format("YYYY-MM")||this.startDate.format("YYYY-MM")==this.rightCalendar.month.format("YYYY-MM"))&&(this.endDate.format("YYYY-MM")==this.leftCalendar.month.format("YYYY-MM")||this.endDate.format("YYYY-MM")==this.rightCalendar.month.format("YYYY-MM")))return;this.leftCalendar.month=this.startDate.clone().date(2),this.linkedCalendars||this.endDate.month()==this.startDate.month()&&this.endDate.year()==this.startDate.year()?this.rightCalendar.month=this.startDate.clone().date(2).add(1,"month"):this.rightCalendar.month=this.endDate.clone().date(2)}else this.leftCalendar.month.format("YYYY-MM")!=this.startDate.format("YYYY-MM")&&this.rightCalendar.month.format("YYYY-MM")!=this.startDate.format("YYYY-MM")&&(this.leftCalendar.month=this.startDate.clone().date(2),this.rightCalendar.month=this.startDate.clone().date(2).add(1,"month"));this.maxDate&&this.linkedCalendars&&!this.singleDatePicker&&this.rightCalendar.month>this.maxDate&&(this.rightCalendar.month=this.maxDate.clone().date(2),this.leftCalendar.month=this.maxDate.clone().date(2).subtract(1,"month"))},updateCalendars:function(){if(this.timePicker){var t,e,a,i;if(this.endDate){if(t=parseInt(this.container.find(".left .hourselect").val(),10),e=parseInt(this.container.find(".left .minuteselect").val(),10),isNaN(e)&&(e=parseInt(this.container.find(".left .minuteselect option:last").val(),10)),a=this.timePickerSeconds?parseInt(this.container.find(".left .secondselect").val(),10):0,!this.timePicker24Hour)"PM"===(i=this.container.find(".left .ampmselect").val())&&t<12&&(t+=12),"AM"===i&&12===t&&(t=0)}else if(t=parseInt(this.container.find(".right .hourselect").val(),10),e=parseInt(this.container.find(".right .minuteselect").val(),10),isNaN(e)&&(e=parseInt(this.container.find(".right .minuteselect option:last").val(),10)),a=this.timePickerSeconds?parseInt(this.container.find(".right .secondselect").val(),10):0,!this.timePicker24Hour)"PM"===(i=this.container.find(".right .ampmselect").val())&&t<12&&(t+=12),"AM"===i&&12===t&&(t=0);this.leftCalendar.month.hour(t).minute(e).second(a),this.rightCalendar.month.hour(t).minute(e).second(a)}this.renderCalendar("left"),this.renderCalendar("right"),this.container.find(".ranges li").removeClass("active"),null!=this.endDate&&this.calculateChosenLabel()},renderCalendar:function(a){var i,s=(i="left"==a?this.leftCalendar:this.rightCalendar).month.month(),n=i.month.year(),r=i.month.hour(),o=i.month.minute(),l=i.month.second(),h=t([n,s]).daysInMonth(),d=t([n,s,1]),c=t([n,s,h]),m=t(d).subtract(1,"month").month(),f=t(d).subtract(1,"month").year(),p=t([f,m]).daysInMonth(),u=d.day();(i=[]).firstDay=d,i.lastDay=c;for(var D=0;D<6;D++)i[D]=[];var g=p-u+this.locale.firstDay+1;g>p&&(g-=7),u==this.locale.firstDay&&(g=p-6);for(var y=t([f,m,g,12,o,l]),k=(D=0,0),b=0;D<42;D++,k++,y=t(y).add(24,"hour"))D>0&&k%7==0&&(k=0,b++),i[b][k]=y.clone().hour(r).minute(o).second(l),y.hour(12),this.minDate&&i[b][k].format("YYYY-MM-DD")==this.minDate.format("YYYY-MM-DD")&&i[b][k].isBefore(this.minDate)&&"left"==a&&(i[b][k]=this.minDate.clone()),this.maxDate&&i[b][k].format("YYYY-MM-DD")==this.maxDate.format("YYYY-MM-DD")&&i[b][k].isAfter(this.maxDate)&&"right"==a&&(i[b][k]=this.maxDate.clone());"left"==a?this.leftCalendar.calendar=i:this.rightCalendar.calendar=i;var C="left"==a?this.minDate:this.startDate,v=this.maxDate,Y=("left"==a?this.startDate:this.endDate,this.locale.direction,'<table class="table-condensed">');Y+="<thead>",Y+="<tr>",(this.showWeekNumbers||this.showISOWeekNumbers)&&(Y+="<th></th>"),C&&!C.isBefore(i.firstDay)||this.linkedCalendars&&"left"!=a?Y+="<th></th>":Y+='<th class="prev available"><span></span></th>';var w=this.locale.monthNames[i[1][1].month()]+i[1][1].format(" YYYY");if(this.showDropdowns){var P=i[1][1].month(),M=i[1][1].year(),x=v&&v.year()||this.maxYear,S=C&&C.year()||this.minYear,I=M==S,O=M==x,A='<select class="monthselect">';this.monthOnlyAll&&(A+='<option value="">'+(this.isROC?"全年":"All")+"</option>");for(var B=0;B<12;B++)(!I||C&&B>=C.month())&&(!O||v&&B<=v.month())?A+="<option value='"+B+"'"+(B===P?" selected='selected'":"")+">"+this.locale.monthNames[B]+"</option>":A+="<option value='"+B+"'"+(B===P?" selected='selected'":"")+" disabled='disabled'>"+this.locale.monthNames[B]+"</option>";A+="</select>";for(var L='<select class="yearselect">',N=this.isROC?1911:0,W=x;W>=S;W--)L+='<option value="'+W+'"'+(W===M?' selected="selected"':"")+">"+(W-N)+(this.isROC?"年":"")+"</option>";L+="</select>",w=this.isROC?"民國 "+L+A:A+L}if(this.isROC&&(w=w.replace(/^(\S+) (\S+)$/,((t,e,a)=>`民國 ${a-1911} 年 ${e}`))),Y+='<th colspan="5" class="month">'+w+"</th>",v&&!v.isAfter(i.lastDay)||this.linkedCalendars&&"right"!=a&&!this.singleDatePicker?Y+="<th></th>":Y+='<th class="next available"><span></span></th>',Y+="</tr>",Y+="<tr>",(this.showWeekNumbers||this.showISOWeekNumbers)&&(Y+='<th class="week">'+this.locale.weekLabel+"</th>"),e.each(this.locale.daysOfWeek,(function(t,e){Y+="<th>"+e+"</th>"})),Y+="</tr>",Y+="</thead>",Y+="<tbody>",null==this.endDate&&this.maxSpan){var E=this.startDate.clone().add(this.maxSpan).endOf("day");v&&!E.isBefore(v)||(v=E)}for(b=0;b<6;b++){Y+="<tr>",this.showWeekNumbers?Y+='<td class="week">'+i[b][0].week()+"</td>":this.showISOWeekNumbers&&(Y+='<td class="week">'+i[b][0].isoWeek()+"</td>");for(k=0;k<7;k++){var R=[];i[b][k].isSame(new Date,"day")&&R.push("today"),i[b][k].isoWeekday()>5&&R.push("weekend"),i[b][k].month()!=i[1][1].month()&&R.push("off","ends"),this.minDate&&i[b][k].isBefore(this.minDate,"day")&&R.push("off","disabled"),v&&i[b][k].isAfter(v,"day")&&R.push("off","disabled"),this.isInvalidDate(i[b][k])&&R.push("off","disabled"),i[b][k].format("YYYY-MM-DD")==this.startDate.format("YYYY-MM-DD")&&R.push("active","start-date"),null!=this.endDate&&i[b][k].format("YYYY-MM-DD")==this.endDate.format("YYYY-MM-DD")&&R.push("active","end-date"),null!=this.endDate&&i[b][k]>this.startDate&&i[b][k]<this.endDate&&R.push("in-range");var H=this.isCustomDate(i[b][k]);!1!==H&&("string"==typeof H?R.push(H):Array.prototype.push.apply(R,H));var j="",T=!1;for(D=0;D<R.length;D++)j+=R[D]+" ","disabled"==R[D]&&(T=!0);T||(j+="available"),Y+='<td class="'+j.replace(/^\s+|\s+$/g,"")+'" data-title="r'+b+"c"+k+'">'+i[b][k].date()+"</td>"}Y+="</tr>"}Y+="</tbody>",Y+="</table>",this.container.find(".drp-calendar."+a+" .calendar-table").html(Y),"left"==a&&(this.monthOnly||this.yearOnly)&&(this.setStartDate(d),this.setEndDate(c))},renderTimePicker:function(t){if("right"!=t||this.endDate){var e,a,i,s=this.maxDate;if(!this.maxSpan||this.maxDate&&!this.startDate.clone().add(this.maxSpan).isBefore(this.maxDate)||(s=this.startDate.clone().add(this.maxSpan)),"left"==t)a=this.startDate.clone(),i=this.minDate;else if("right"==t){a=this.endDate.clone(),i=this.startDate;var n=this.container.find(".drp-calendar.right .calendar-time");if(""!=n.html()&&(a.hour(isNaN(a.hour())?n.find(".hourselect option:selected").val():a.hour()),a.minute(isNaN(a.minute())?n.find(".minuteselect option:selected").val():a.minute()),a.second(isNaN(a.second())?n.find(".secondselect option:selected").val():a.second()),!this.timePicker24Hour)){var r=n.find(".ampmselect option:selected").val();"PM"===r&&a.hour()<12&&a.hour(a.hour()+12),"AM"===r&&12===a.hour()&&a.hour(0)}a.isBefore(this.startDate)&&(a=this.startDate.clone()),s&&a.isAfter(s)&&(a=s.clone())}e='<select class="hourselect">';for(var o=this.timePicker24Hour?0:1,l=this.timePicker24Hour?23:12,h=o;h<=l;h++){var d=h;this.timePicker24Hour||(d=a.hour()>=12?12==h?12:h+12:12==h?0:h);var c=a.clone().hour(d),m=!1;i&&c.minute(59).isBefore(i)&&(m=!0),s&&c.minute(0).isAfter(s)&&(m=!0),d!=a.hour()||m?e+=m?'<option value="'+h+'" disabled="disabled" class="disabled">'+h+"</option>":'<option value="'+h+'">'+h+"</option>":e+='<option value="'+h+'" selected="selected">'+h+"</option>"}e+="</select> ",e+=': <select class="minuteselect">';for(h=0;h<60;h+=this.timePickerIncrement){var f=h<10?"0"+h:h;c=a.clone().minute(h),m=!1;i&&c.second(59).isBefore(i)&&(m=!0),s&&c.second(0).isAfter(s)&&(m=!0),a.minute()!=h||m?e+=m?'<option value="'+h+'" disabled="disabled" class="disabled">'+f+"</option>":'<option value="'+h+'">'+f+"</option>":e+='<option value="'+h+'" selected="selected">'+f+"</option>"}if(e+="</select> ",this.timePickerSeconds){e+=': <select class="secondselect">';for(h=0;h<60;h++){f=h<10?"0"+h:h,c=a.clone().second(h),m=!1;i&&c.isBefore(i)&&(m=!0),s&&c.isAfter(s)&&(m=!0),a.second()!=h||m?e+=m?'<option value="'+h+'" disabled="disabled" class="disabled">'+f+"</option>":'<option value="'+h+'">'+f+"</option>":e+='<option value="'+h+'" selected="selected">'+f+"</option>"}e+="</select> "}if(!this.timePicker24Hour){e+='<select class="ampmselect">';var p="",u="";i&&a.clone().hour(12).minute(0).second(0).isBefore(i)&&(p=' disabled="disabled" class="disabled"'),s&&a.clone().hour(0).minute(0).second(0).isAfter(s)&&(u=' disabled="disabled" class="disabled"'),a.hour()>=12?e+='<option value="AM"'+p+'>AM</option><option value="PM" selected="selected"'+u+">PM</option>":e+='<option value="AM" selected="selected"'+p+'>AM</option><option value="PM"'+u+">PM</option>",e+="</select>"}this.container.find(".drp-calendar."+t+" .calendar-time").html(e)}},updateFormInputs:function(){this.singleDatePicker||this.endDate&&(this.startDate.isBefore(this.endDate)||this.startDate.isSame(this.endDate))?this.container.find("button.applyBtn").prop("disabled",!1):this.container.find("button.applyBtn").prop("disabled",!0)},move:function(){var t,a={top:0,left:0},i=this.drops,s=e(window).width();switch(this.parentEl.is("body")||(a={top:this.parentEl.offset().top-this.parentEl.scrollTop(),left:this.parentEl.offset().left-this.parentEl.scrollLeft()},s=this.parentEl[0].clientWidth+this.parentEl.offset().left),i){case"auto":(t=this.element.offset().top+this.element.outerHeight()-a.top)+this.container.outerHeight()>=this.parentEl[0].scrollHeight&&(t=this.element.offset().top-this.container.outerHeight()-a.top,i="up");break;case"up":t=this.element.offset().top-this.container.outerHeight()-a.top;break;default:t=this.element.offset().top+this.element.outerHeight()-a.top}this.container.css({top:0,left:0,right:"auto"});var n=this.container.outerWidth();if(this.container.toggleClass("drop-up","up"==i),"left"==this.opens){var r=s-this.element.offset().left-this.element.outerWidth();n+r>e(window).width()?this.container.css({top:t,right:"auto",left:9}):this.container.css({top:t,right:r,left:"auto"})}else if("center"==this.opens){(o=this.element.offset().left-a.left+this.element.outerWidth()/2-n/2)<0?this.container.css({top:t,right:"auto",left:9}):o+n>e(window).width()?this.container.css({top:t,left:"auto",right:0}):this.container.css({top:t,left:o,right:"auto"})}else{var o;(o=this.element.offset().left-a.left)+n>e(window).width()?this.container.css({top:t,left:"auto",right:0}):this.container.css({top:t,left:o,right:"auto"})}},show:function(t){this.isShowing||(this.beforeShow(this),this._outsideClickProxy=function(t){this.outsideClick(t)}.bind(this),e(document).on("mousedown.daterangepicker",this._outsideClickProxy).on("touchend.daterangepicker",this._outsideClickProxy).on("click.daterangepicker","[data-toggle=dropdown]",this._outsideClickProxy).on("focusin.daterangepicker",this._outsideClickProxy),e(window).on("resize.daterangepicker",function(t){this.move(t)}.bind(this)),this.oldStartDate=this.startDate.clone(),this.oldEndDate=this.endDate.clone(),this.previousRightTime=this.endDate.clone(),this.updateView(),this.container.show(),this.move(),this.element.trigger("show.daterangepicker",this),this.isShowing=!0)},hide:function(t){this.isShowing&&(this.endDate||(this.startDate=this.oldStartDate.clone(),this.endDate=this.oldEndDate.clone()),this.startDate.isSame(this.oldStartDate)&&this.endDate.isSame(this.oldEndDate)||this.callback(this.startDate.clone(),this.endDate.clone(),this.chosenLabel),this.updateElement(),e(document).off(".daterangepicker"),e(window).off(".daterangepicker"),this.container.hide(),this.element.trigger("hide.daterangepicker",this),this.isShowing=!1)},toggle:function(t){this.isShowing?this.hide():this.show()},outsideClick:function(t){var a=e(t.target);"focusin"==t.type||a.closest(this.element).length||a.closest(this.container).length||a.closest(".calendar-table").length||(this.hide(),this.element.trigger("outsideClick.daterangepicker",this))},showCalendars:function(){this.container.addClass("show-calendar"),this.move(),this.element.trigger("showCalendar.daterangepicker",this)},hideCalendars:function(){this.container.removeClass("show-calendar"),this.element.trigger("hideCalendar.daterangepicker",this)},clickRange:function(t){var e=t.target.getAttribute("data-range-key");if(this.chosenLabel=e,e==this.locale.customRangeLabel)this.showCalendars();else{var a=this.ranges[e];this.startDate=a[0],this.endDate=a[1],this.timePicker||(this.startDate.startOf("day"),this.endDate.endOf("day")),this.alwaysShowCalendars||this.hideCalendars(),this.clickApply()}},clickPrev:function(t){var a=e(t.target).parents(".drp-calendar");this.yearOnly?this.leftCalendar.month.subtract(12,"month"):a.hasClass("left")?(this.leftCalendar.month.subtract(1,"month"),this.linkedCalendars&&this.rightCalendar.month.subtract(1,"month")):this.rightCalendar.month.subtract(1,"month"),this.updateCalendars()},clickNext:function(t){var a=e(t.target).parents(".drp-calendar");this.yearOnly?this.leftCalendar.month.add(12,"month"):a.hasClass("left")?this.leftCalendar.month.add(1,"month"):(this.rightCalendar.month.add(1,"month"),this.linkedCalendars&&this.leftCalendar.month.add(1,"month")),this.updateCalendars()},hoverDate:function(t){if(e(t.target).hasClass("available")){var a=e(t.target).attr("data-title"),i=a.substr(1,1),s=a.substr(3,1),n=e(t.target).parents(".drp-calendar").hasClass("left")?this.leftCalendar.calendar[i][s]:this.rightCalendar.calendar[i][s],r=this.leftCalendar,o=this.rightCalendar,l=this.startDate;this.endDate||this.container.find(".drp-calendar tbody td").each((function(t,a){if(!e(a).hasClass("week")){var i=e(a).attr("data-title"),s=i.substr(1,1),h=i.substr(3,1),d=e(a).parents(".drp-calendar").hasClass("left")?r.calendar[s][h]:o.calendar[s][h];d.isAfter(l)&&d.isBefore(n)||d.isSame(n,"day")?e(a).addClass("in-range"):e(a).removeClass("in-range")}}))}},clickDate:function(t){if(e(t.target).hasClass("available")){var a=e(t.target).attr("data-title"),i=a.substr(1,1),s=a.substr(3,1),n=e(t.target).parents(".drp-calendar"),r=n.hasClass("left")?this.leftCalendar.calendar[i][s]:this.rightCalendar.calendar[i][s];if(this.endDate||r.isBefore(this.startDate,"day")){if(this.timePicker){var o=parseInt(this.container.find(".left .hourselect").val(),10);if(!this.timePicker24Hour)"PM"===(d=this.container.find(".left .ampmselect").val())&&o<12&&(o+=12),"AM"===d&&12===o&&(o=0);var l=parseInt(this.container.find(".left .minuteselect").val(),10);isNaN(l)&&(l=parseInt(this.container.find(".left .minuteselect option:last").val(),10));var h=this.timePickerSeconds?parseInt(this.container.find(".left .secondselect").val(),10):0;r=r.clone().hour(o).minute(l).second(h)}this.endDate=null,this.isWeekRange&&(r=n.hasClass("left")?this.leftCalendar.calendar[i][0]:this.rightCalendar.calendar[i][0]),this.setStartDate(r.clone()),this.element.trigger("picking.start",this)}else if(!this.endDate&&r.isBefore(this.startDate))this.setEndDate(this.startDate.clone());else{if(this.timePicker){var d;o=parseInt(this.container.find(".right .hourselect").val(),10);if(!this.timePicker24Hour)"PM"===(d=this.container.find(".right .ampmselect").val())&&o<12&&(o+=12),"AM"===d&&12===o&&(o=0);l=parseInt(this.container.find(".right .minuteselect").val(),10);isNaN(l)&&(l=parseInt(this.container.find(".right .minuteselect option:last").val(),10));h=this.timePickerSeconds?parseInt(this.container.find(".right .secondselect").val(),10):0;r=r.clone().hour(o).minute(l).second(h)}this.isWeekRange&&(r=n.hasClass("left")?this.leftCalendar.calendar[i][6]:this.rightCalendar.calendar[i][6]),this.setEndDate(r.clone()),this.autoApply&&(this.calculateChosenLabel(),this.clickApply()),this.element.trigger("picking.end",this)}this.singleDatePicker&&(this.setEndDate(this.startDate),!this.timePicker&&this.autoApply&&this.clickApply()),this.updateView(),t.stopPropagation()}},calculateChosenLabel:function(){var t=!0,e=0;for(var a in this.ranges){if(this.timePicker){var i=this.timePickerSeconds?"YYYY-MM-DD HH:mm:ss":"YYYY-MM-DD HH:mm";if(this.startDate.format(i)==this.ranges[a][0].format(i)&&this.endDate.format(i)==this.ranges[a][1].format(i)){t=!1,this.chosenLabel=this.container.find(".ranges li:eq("+e+")").addClass("active").attr("data-range-key");break}}else if(this.startDate.format("YYYY-MM-DD")==this.ranges[a][0].format("YYYY-MM-DD")&&this.endDate.format("YYYY-MM-DD")==this.ranges[a][1].format("YYYY-MM-DD")){t=!1,this.chosenLabel=this.container.find(".ranges li:eq("+e+")").addClass("active").attr("data-range-key");break}e++}t&&(this.showCustomRangeLabel?this.chosenLabel=this.container.find(".ranges li:last").addClass("active").attr("data-range-key"):this.chosenLabel=null,this.showCalendars())},clickApply:function(t){this.hide(),this.element.trigger("apply.daterangepicker",this)},clickCancel:function(t){this.startDate=this.oldStartDate,this.endDate=this.oldEndDate,this.hide(),this.element.trigger("cancel.daterangepicker",this)},clickCustomHTML:function(t){return this.hide(),this.element.trigger("clickCustomA.daterangepicker",[this,t]),!1},monthOrYearChanged:function(t){var a=e(t.target).closest(".drp-calendar").hasClass("left"),i=a?"left":"right",s=this.container.find(".drp-calendar."+i),n=parseInt(s.find(".monthselect").val(),10);if(isNaN(n))this.element.trigger("apply.daterangepicker",this);else{var r=s.find(".yearselect").val();a||(r<this.startDate.year()||r==this.startDate.year()&&n<this.startDate.month())&&(n=this.startDate.month(),r=this.startDate.year()),this.minDate&&(r<this.minDate.year()||r==this.minDate.year()&&n<this.minDate.month())&&(n=this.minDate.month(),r=this.minDate.year()),this.maxDate&&(r>this.maxDate.year()||r==this.maxDate.year()&&n>this.maxDate.month())&&(n=this.maxDate.month(),r=this.maxDate.year()),a?(this.leftCalendar.month.month(n).year(r),this.linkedCalendars&&(this.rightCalendar.month=this.leftCalendar.month.clone().add(1,"month"))):(this.rightCalendar.month.month(n).year(r),this.linkedCalendars&&(this.leftCalendar.month=this.rightCalendar.month.clone().subtract(1,"month"))),this.updateCalendars()}},timeChanged:function(t){var a=e(t.target).closest(".drp-calendar"),i=a.hasClass("left"),s=parseInt(a.find(".hourselect").val(),10),n=parseInt(a.find(".minuteselect").val(),10);isNaN(n)&&(n=parseInt(a.find(".minuteselect option:last").val(),10));var r=this.timePickerSeconds?parseInt(a.find(".secondselect").val(),10):0;if(!this.timePicker24Hour){var o=a.find(".ampmselect").val();"PM"===o&&s<12&&(s+=12),"AM"===o&&12===s&&(s=0)}if(i){var l=this.startDate.clone();l.hour(s),l.minute(n),l.second(r),this.setStartDate(l),this.singleDatePicker?this.endDate=this.startDate.clone():this.endDate&&this.endDate.format("YYYY-MM-DD")==l.format("YYYY-MM-DD")&&this.endDate.isBefore(l)&&this.setEndDate(l.clone())}else if(this.endDate){var h=this.endDate.clone();h.hour(s),h.minute(n),h.second(r),this.setEndDate(h)}this.updateCalendars(),this.updateFormInputs(),this.renderTimePicker("left"),this.renderTimePicker("right")},elementChanged:function(){if(this.element.is("input")&&this.element.val().length){var e=this.element.val().split(this.locale.separator),a=null,i=null;2===e.length&&(a=t(e[0],this.locale.format),i=t(e[1],this.locale.format)),(this.singleDatePicker||null===a||null===i)&&(i=a=t(this.element.val(),this.locale.format)),a.isValid()&&i.isValid()&&(this.setStartDate(a),this.setEndDate(i),this.updateView())}},keydown:function(t){9!==t.keyCode&&13!==t.keyCode||this.hide(),27===t.keyCode&&(t.preventDefault(),t.stopPropagation(),this.hide())},updateElement:function(){if(this.element.is("input")&&this.autoUpdateInput){var t=this.startDate.format(this.locale.format);this.singleDatePicker||(t+=this.locale.separator+this.endDate.format(this.locale.format)),t!==this.element.val()&&this.element.val(t).trigger("change")}},remove:function(){this.container.remove(),this.element.off(".daterangepicker"),this.element.removeData()}},e.fn.daterangepicker=function(t,i){var s=e.extend(!0,{},e.fn.daterangepicker.defaultOptions,t);return this.each((function(){var t=e(this);t.data("daterangepicker")&&t.data("daterangepicker").remove(),t.data("daterangepicker",new a(t,s,i))})),this},a}));
+
+
+"use strict";
+
+//報表功能
+class bxRport {
+
+  /*
+   避免程式中大量的 this，通在會在函式開頭指定 _ 變數為這個類別
+   避免 this 變成 jQuery 的，可以用 $.proxy
+   開頭 # 為私有變數
+  */
+
+
+  //自動固定欄名
+  #reAutoFixed = /^(?:名稱|證券商名稱|Name|Securities Firms Code)$/i;
+
+  //自動置中: 完整符合 $| 部份符合
+  #reAutoCenter = /(?:^(?:累計|下載|下載\s*\w{3,5}|\w{3,5}\s*下載|\w{3,5}\s*檔案下載|項次|Number of Announcement|Number|Download|Download\s*\w{3,5}|No\.)$|序號|編號|排名|排行|代號|日期|Code|Rank|Ranking|Date)/i;
+
+  //自動漲跌色的欄名:
+  #reAutoColor = /^(?:漲跌|漲\/跌|Change)/i;
+
+  //自動欄寬
+  #autoWidth =  {
+    '名稱': 8,
+    'Name': 20
+  }
+
+  //最近一次查詢
+  #formData = {}
+  
+  //分頁預設參數
+  #paginationOptions = {}
+
+
+  //在 constructor() 定值
+  #isDev; //網址為 localhost
+  #i18n; //多國語言字串
+  #lan; // zh jp en
+  #day; //日期相關內容
+  #$ = {}; // jQuery HTML 元素
+
+  submitCount = 0; //Submit次數
+  lastSubmitTime = 0; //最後一次Submit時間
+  tableHeadStickyTop = 0; //表頭吸頂的位置 初始及resize事件會更新此值
+  elStickyTitle;
+
+
+
+  //在 init() 定值
+  #option;
+  #tmpTableHead;  //複雜表頭範本
+  apiAction = ''; //API路徑: 報表
+  apiOption = ''; //API路徑: 選項
+  apiAutocomplete = ''; //API路徑: 自動完成
+
+  //在 #renderReports 定初值、排序時會變更這
+  #JsonTables = [];
+  
+  //上次查詢回傳的日期
+  #JsonDate = [];
+
+  constructor() {
+    const _ = this;
+
+    if(typeof jQuery !== 'function') console.error('jQuery 需要先載入');
+
+    _.#isDev = /^localhost\b/.test(location.host);
+
+    const elMap = {
+      body: 'body',
+      form: '#tables-form',
+      reports: '#reports',
+      content: '#tables-content',
+      message: '#tables-message'
+    }
+    for(let key in elMap) _.#$[key] = $(elMap[key]);
+
+    const docLang = document.documentElement.lang;
+    _.#lan = /^zh/i.test(docLang)?'zh':(/jp/i.test(docLang)?'jp':'en');
+
+    ////// _.#lan = 'en'; /////測試英文版
+
+
+    const isZ = _.#lan==='zh';
+    const dToday = new Date(); //今日
+    const dTomorrow = new Date(); dTomorrow.setDate(dToday.getDate()+1); //明日
+    const dEndOfYear = new Date(dToday.getFullYear(),11,31); //年底 今年最後一天日期
+    
+    
+
+    _.#day = {
+      start: new Date(2009,0,1), //預設起始日 20090101
+      today: dToday,
+      tomorrow: dTomorrow,
+      yearEnd: dEndOfYear,
+      ymd: 'yyyy/mm/dd',
+      WEEK: isZ?' (週)':' (Week)',
+      YMD: isZ?'YYY/m/d':'mmm d, yyyy', //日期格式
+      YM:  isZ?'YYY年m月':'mmm yyyy', //日期格式
+      Y:   isZ?'YYY年':'yyyy' //日期格式
+    }
+
+    _.#i18n = isZ?{
+      date:     '資料日期：',
+      notes:    '註：',
+      pageShow: '每頁 %s 筆',
+      pageAll:  '全部',
+      pagePrev: '上一頁',
+      pageNext: '下一頁',
+      pageFirst: '第一頁',
+      pageLast:  '最後一頁',
+      pageNumber: '第 %s~%s 筆，共 %s 筆'
+    }:{
+      date:     'Date: ',
+      notes:    'Notes: ',
+      pageShow: '%s records per page',
+      pageAll:  'All',
+      pagePrev: 'Prev',
+      pageNext: 'Next',
+      pageFirst: 'First',
+      pageLast:  'Last',
+      pageNumber: '%s-%s of %s records'
+    }
+
+    //分頁預設參數 https://flaviusmatis.github.io/simplePagination.js/
+    _.#paginationOptions = {
+      displayedPages: 3, //秀幾頁，最小3
+      edges: 1, //尾秀幾頁
+      ellipsePageSet: false, //中間點點點不能點
+      prevText:  _.#i18n.pagePrev,
+      nextText:  _.#i18n.pageNext,
+      firstText: _.#i18n.pageFirst,
+      lastText:  _.#i18n.pageLast,
+      //以下須在創建時指定
+      //items: allRecords, //資料總筆數
+      //itemsOnPage: pageSize, //每頁筆數
+      //onPageClick: $.proxy(_.#changePage, _, $pagination)  //翻頁事件
+    }
+
+
+
+
+
+  }
+
+  init(cfg) {
+
+    const _ = this;
+    const $form = _.#$.form;
+    const defaultOption = {
+      pattern: '/{LANG}/{ACTION}',    //API路徑
+      action: '',                     //報表API (必要) 會套入上面 PATTERN
+      option: '',                     //選項API (非必要) 會套入上面 PATTERN
+      autocomplete: 'api/codeQuery',  //自動完成API (不設時預設為api/codeQuery) 會套入上面 PATTERN
+      autoLoad: false,           //頁面載入後自動查詢一次
+      autoChange: false,         //變更表單時自動重新查詢
+      serverPaging: false,       //分頁時採用 server 端分頁
+      width: 6,                  //預設欄寬(中文字數或'auto')。(可無，預設7)
+      paramKey: 'id',            //網址參數預設key。(可無)
+      beforeInit: (cfg)=>{},     //callbacks: 在初始化之前被呼叫 (可無)
+      afterFormInit: (cfg)=>{},  //callbacks: 表單初始後，下拉選項有值之後。 (可無)
+      beforeRender: (J)=>{},     //callbacks: 表格API載入後、表格還沒繪出前(可無)。參數為即API讀取之JSON存入的變數(by reference)
+      afterRender: ()=>{},       //callbacks: 頁面表格繪製完被呼叫 (可無)。若觸發分頁/排序事件只要表格內容重秀，都會重新被呼叫。
+      customTable: {},           //客製表格type函式: {'名稱':(fields,data)=>{ 回傳完整HTML }}
+      tables:[]                  //依照JSON回傳會有數量不同的選項
+    }
+    const defaultTableOption = {
+      type: 'horizontal',      //表格型態。 可無。 (horizontal預設水平表格、vertical垂直表格)
+      class: '',               //  <table> 上一層 .rwd-table 附加的 class 樣式
+      align: '',               //對齊指令: 可無(自動)。
+      sortable: false,         //排序: 可無，或 false 不排序。
+      fieldTypes: [],          //強制指定欄位形態為 'String' 或 'Number'。例: [{index:0,type:'String'}]
+      pagin: 0,                //每頁筆數: 可無，或 0不分頁 或 [10,25,50,100,0]。
+      paginBtn: 3,             //分頁按鈕數，預設3
+      title: '',               //表格大標題: 可無
+      title2: '',              //表格大標題下面的大字: 可無
+      subtitle: '',            //上左文字: 可無
+      subtitle2: '',           //上右文字: 可無
+      footnote: '',            //下左文字: 可無 (若用了「分頁器」，此值會被忽略。會顯示: 第x至x筆，共x筆)
+      footnote2: '',           //下右文字: 可無 (若用了「分頁下拉選項」，此值會被忽略)
+      notes: []                //表格下的註
+    }
+
+    if($form.length===0) console.error('頁面中需要 #tables-form 元素');
+    if(_.#$.content.length===0) console.error('頁面中需要 #tables-content 元素');
+
+    if(_.#$.reports.length===0) { //有些頁面漏掉  #reports
+      const div = _.#$.content.parent();
+      if(div[0].tagName==='DIV') {
+        _.#$.reports = _.#$.content.parent();
+        _.#$.reports.attr('id','reports');
+      }
+    }
+
+    _.#$.reports.addClass('hide');
+
+
+    $form.on('submit',()=>{ return false; }); //讓表單不能submit
+
+    _.#option = Object.assign({},defaultOption,cfg);
+
+
+    if(_.#option.width === '') _.#option.width = 6;
+
+
+    if(cfg?.tables.length) { //看有幾個表格，補充表格預設值
+      for(let i=0;i<cfg.tables.length;i++) _.#option.tables[i] = Object.assign({},defaultTableOption,cfg.tables[i]);
+      _.#tmpTableHead = new Array(cfg.tables.length);
+    }
+
+    //複雜表頭範本 放入 _.#tmpTableHead 陣列
+    let tmpTH = document.getElementById('theads');
+    if(tmpTH !== null) {
+      let theads = [...tmpTH.content.querySelectorAll('thead')].map(el=>el.innerHTML.strTrim().replace(/>\s+</g,'><'));
+      for(let i=0;i<_.#tmpTableHead.length;i++) _.#tmpTableHead[i] = theads[i] || '';
+    }
+    else {
+      for(let i=0;i<_.#tmpTableHead.length;i++) _.#tmpTableHead[i] = '';
+    }
+
+
+    const opt = _.#option;
+    const langDir = { 'zh': 'zh-tw', 'en': 'en-us', 'jp': 'ja-jp' }
+
+    //API路徑: 報表、選項
+    _.apiAction   = opt.action?opt.pattern.replace(/\{LANG\}/,langDir[_.#lan]).replace(/\{ACTION\}/,opt.action):'';
+    _.apiOption   = opt.option?opt.pattern.replace(/\{LANG\}/,langDir[_.#lan]).replace(/\{ACTION\}/,opt.option):'';
+    _.apiAutocomplete = opt.autocomplete?opt.pattern.replace(/\{LANG\}/,langDir[_.#lan]).replace(/\{ACTION\}/,opt.autocomplete):'';
+
+    _.#option.beforeInit(_.#option);
+
+
+    //表頭吸頂的位置 初始及resize事件會更新此值
+/*之前是動態多多出來的
+    $('#layout>header').whenHas('.sticky-top.thehead',(el)=>{
+      _.elStickyTitle = $('.sticky-top.thehead',el)[0];
+      initShadowScrollbar();
+    });
+    現在又改回固定了
+*/
+
+    _.elStickyTitle = $('body>header')[0]; //固定的頁眉
+
+
+
+    //各種初始, 順序不可變
+    initTable();
+    initScrollingState();
+    initShadowScrollbar();
+    initStickyTableHeaders();
+    initForm(()=>{
+      //待下拉選項載入完成要做的事...
+
+      initURL();
+
+      _.#option.afterFormInit(_.#option); //表單完成後
+
+      if(opt.autoLoad) { //自動載入
+        _.#doSubmitForm();
+      }
+
+      if(opt.autoChange) { //自動查詢
+        $('[name]',$form).on('change',(ev)=>{
+          const $input = $(ev.target);
+          const isAutocomplete = $input.data('autocomplete') !== undefined; //自動完成輸入框
+          
+          const isTrusted = ev?.originalEvent?.isTrusted === true; //系統change事件
+          
+          if(isAutocomplete && isTrusted) return; //不理會: 自動完成且系統事件, 因為可能打一半
+          //console.log('input change',$input.val());
+          
+          
+          setTimeout(()=>{
+            _.#doSubmitForm.bind(_)(); //棄用 $.proxy(_.#doSubmitForm,_)();  
+          },300);
+          
+          
+          
+          
+          
+        });
+      }
+
+    });
+    initAutocomplete();
+    initPaging();
+
+    //<a data-action="aaa/bbb">下載</a> 生出 href
+    $('a[data-action]').each((i,a)=>{
+      let $a = $(a);
+      let url = opt.pattern.replace(/\{LANG\}/,langDir[_.#lan]).replace(/\{ACTION\}/,$a.data('action'));
+      $a.prop('href',url);
+    });
+
+
+    ////////////////////////////////////////////////////////
+
+    //初始: 網址參數填入表單
+    function initURL() {
+
+      const isZ = _.#lan==='zh';
+      
+      const day = _.#day;
+
+      let qs = QUERY_STRING; //來自 _common.js
+      if(!/[=]/.test(qs)) qs = (_.#option.paramKey+'='+qs);
+      const params = new URLSearchParams(qs); //繞過弱掃
+      const keys = [...new Set([...params.keys()])]; //不重覆的 key
+      for(let key of keys) {
+        let $input = $(`[name=${key}]`,$form).first();
+        let value = params.get(key);
+
+        if($input.length===0) { //input 不存在
+          let el = document.createElement('input');
+          el.type = 'hidden';
+          el.name = key;
+          el.value = value;
+          $form[0].appendChild(el);
+        }
+        else {
+
+          let type = ($input.attr('type') || $input[0].tagName).toLocaleLowerCase();
+
+          //console.log(key,type,value);
+          if($input.length===0) continue; //無此輸入
+
+          if($input.hasClass('date')) { //日期類的
+            _.#setDateValue($input,value)
+          }
+          else if(type === 'radio') {
+            $(`[name="${key}"][value="${value}"]`,$form).prop('checked',true);
+          }
+          else if(type === 'checkbox') {
+            let aValue = params.getAll(key);
+            console.log(aValue);
+            let $boxs = $(`[name="${key}"]`,$form).prop('checked',false);
+            $boxs.each((i,el)=>{
+              let $box = $(el);
+              if(aValue.includes($box.val())) $box.prop('checked',true);
+            });
+          }
+          else if(type === 'select') {
+            //檢查 <option> 值存在才放值
+            if( $(`[value="${value}"]`,$input).length ) $input.val(value);
+          }
+          else { //文字或其他
+            $input.val(value);
+          }
+
+        }
+      }
+
+
+    }
+
+    //初始: 空 table
+    function initTable() {
+      const opt = _.#option;
+
+      //建立多個表格區空結構
+      for(let tOpt of opt.tables) {
+
+        let noteLI = tOpt.notes.map(s=>`<li>${s}</li>`).join('');
+
+        let fieldWidth =
+          isNaN(opt.width)? //非數字可用 '6em' 'auto' 等
+            opt.width:
+            ((Number(opt.width)+(tOpt.sortable?1.5:1))+'em'); //有排序還要加上左右白邊
+
+        let htm = `
+          <div class="table">
+            <h2 aria-hidden="${tOpt.title?'false':'true'}">${tOpt.title}</h2>
+            <h3 aria-hidden="${tOpt.title2?'false':'true'}">${tOpt.title2}</h3>
+            <div class="top-hints"><div>${tOpt.subtitle}</div><div>${tOpt.subtitle2}</div></div>
+            <div class="main-content">
+              <div class="shadow-scrollbar"><b><i></i></b></div>
+              <div class="rwd-table${tOpt?.class?(' '+tOpt.class):''}${tOpt?.type?(' type-'+tOpt.type):''}" style="--field-width: ${fieldWidth};"></div>
+            </div>
+            <div class="bottom-hints"><div>${tOpt.footnote}</div><div>${tOpt.footnote2}</div></div>
+            <div class="pagination light-theme simple-pagination"></div>
+            <div class="noteblock"><strong>${_.#i18n.notes}</strong><ol>${noteLI}</ol></div>
+          </div>
+        `;
+        _.#$.content.append(htm);
+      }
+
+
+      //如果 <tr> 可以點擊 的事件
+      $('.rwd-table.row-clickable',_.#$.content).on('click','tr',(ev)=>{
+        const $tr = $(ev.currentTarget);
+        const $a = $('a',$tr).first();
+        window.open($a.attr('href'),$a.attr('target') || '_self');
+        return false;
+      });
+
+    }
+
+    //初始: 捲軸已捲動時在 .rwd-table 加上 scrolling，為了已捲時固定加陰影
+    function initScrollingState() {
+      const SCROLLING = 'scrolling';
+      $('.rwd-table',_.#$.content).each((idx,wp)=>{
+        let $wp = $(wp);
+        let isScrolling = false;
+        $wp.on('scroll',()=>{
+          if(wp.scrollLeft>0 && !isScrolling) {
+            $wp.addClass(SCROLLING);
+            isScrolling = true;
+          }
+          if(wp.scrollLeft==0 && isScrolling) {
+            $wp.removeClass(SCROLLING);
+            isScrolling = false;
+          }
+        });
+      });
+    }
+
+    //初始: 影子卷軸 <div class="shadow-scrollbar"><b><i></i></b></div>
+    function initShadowScrollbar() {
+
+      //計算頁眉高度: 當視窗 resize 時在 #tables-content 加上 --headerH: 標記
+      //const layoutHeader = $('body>header')[0]; //elStickyTitle
+
+
+      //計算layout固定標題位置的下面
+      const calcHeaderSize = (ev)=>{
+        const pos = _.elStickyTitle.getBoundingClientRect();
+        _.#$.content[0].style.setProperty('--hh',`${parseInt(pos.top+pos.height,10)}px`);
+      }
+      window.addEventListener('resize',calcHeaderSize);
+      calcHeaderSize();
+
+
+/*
+      //監視浮動標題樣式改變
+      new MutationObserver((mutationsList, observer) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'style') calcHeaderSize();
+        }
+      }).observe(_.elStickyTitle, { childList: true, attributes: true });
+*/
+
+
+
+
+
+      $('.main-content',_.#$.content).each((idx, mainContent)=>{ //報表區 容器s
+
+
+        let $wp = $('>.rwd-table',mainContent); // <table>的外包
+        let $sc = $('>.shadow-scrollbar>b',mainContent); //捲軸框
+
+        //上下雙軸同步捲動
+        $wp.on('scroll',()=>{ $sc.scrollLeft($wp.scrollLeft()); }); //表格捲軸
+        $sc.on('scroll',()=>{ $wp.scrollLeft($sc.scrollLeft()); }); //影子卷軸
+
+
+        //監視表格出現，複製表格寬
+        monitorTebleGenerated(mainContent,(mc)=>{
+
+
+
+
+
+          let $table = $('table',$wp).first();
+          if($table.length === 0) return;
+          let changeValues = ()=>{
+            mainContent.style.setProperty('--ssF', $table.css('width') ); //填充寬
+            //仿製下卷軸大小
+            mainContent.style.setProperty('--ssW',($wp[0].offsetWidth - $wp[0].clientWidth)+'px'); //軸寬
+            mainContent.style.setProperty('--ssH',($wp[0].offsetHeight - $wp[0].clientHeight) +'px'); //軸高
+          }
+          changeValues();
+
+          monitorTebleWidth($table[0],changeValues);
+          monitorWidth($wp[0],changeValues);
+        });
+
+
+      });
+
+      //監視表格 出現
+      function monitorTebleGenerated(outer,callback) {
+        new MutationObserver((mutationsList, observer) => {
+          for (const mutation of mutationsList) {
+            if (mutation.type === 'childList') callback(outer);
+          }
+        }).observe(outer, { childList: true, subtree: true });
+      }
+      //監視表格 寬改變
+      function monitorTebleWidth(table,callback) {
+        new MutationObserver((mutationsList, observer) => {
+          for (const mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'style') callback(table);
+          }
+        }).observe(table, { childList: true });
+      }
+      //監視寬度改變
+      function monitorWidth(el,callback) {
+        new ResizeObserver((entries) => {
+          for (const entry of entries) {
+            if (entry.borderBoxSize) callback(entry);
+          }
+        }).observe(el);
+      }
+    }
+
+    //初始: 吸頂表頭
+    function initStickyTableHeaders() {
+
+
+
+
+      const calcTHeadOffset = ()=>{
+
+        if(_.elStickyTitle === undefined) return; //如果在頁面中間重載，頁眉會沒出現
+
+        let y = window.scrollY; // = document.documentElement.scrollTop
+
+        let hH = _.elStickyTitle.offsetTop + _.elStickyTitle.clientHeight; //頁眉高度
+
+        //console.log(_.elStickyTitle);
+
+
+        let wB = window.innerHeight + y; // 視窗底
+
+
+        //表格s 只有 全秀無內Y軸 的
+        document.querySelectorAll('.rwd-table').forEach((outer)=>{
+
+
+          const table = outer.querySelector('table');
+          const thead = outer.querySelector('thead');
+          const shadowScrollbarHeight = outer.previousElementSibling.offsetHeight; //影子卷軸高
+          //const shadowScrollbarHeight2 = parseInt(outer.parentElement.style.getPropertyValue('--ssH').slice(0,-2),10); //與上面那行等效
+
+
+
+          if( table == null || thead == null) return;
+
+          const t  = table.getBoundingClientRect();
+          const tTY = y  + t.top;    //表格 頂Y
+          const tBY = tTY+ t.height; //表格 底Y
+
+          //console.log(`${tTY} > ${wB} ? ${tBY} < ${y}? `);
+
+          if(tTY > wB) return; //表頂 在可視下面
+          if(tBY < y ) return;   //表底 在可視上面
+
+          let topPaddingH = hH+shadowScrollbarHeight; ///眉高+軸高
+
+          let theadOffset = t.top > topPaddingH ? 0: Math.round((t.top*-1)+topPaddingH) ; //表格 在 螢幕上緣 之下 或 上
+
+          thead.style.setProperty('--thead-offset',`${theadOffset}px`);
+        });
+
+
+
+      }
+
+      window.addEventListener('scroll',calcTHeadOffset);
+      window.addEventListener('resize',calcTHeadOffset);
+
+
+    }
+
+
+    //初始: form
+    function initForm(cb) {
+      const isZ = _.#lan==='zh';
+      const day = _.#day;
+
+      const datePickerLocale = isZ? {
+        "format": "YYYY/MM/DD",
+        "separator": " 至 ",
+        "applyLabel": "確定",
+        "cancelLabel": "清除",
+        "fromLabel": "從",
+        "toLabel": "至",
+        "customRangeLabel": "Custom",
+        "weekLabel": "星期",
+        "daysOfWeek": ["日","一","二","三","四","五","六"],
+        "monthNames": ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+        "firstDay": 1
+      }:{
+        "format": "YYYY/MM/DD",
+        "separator": " - ",
+        "applyLabel": "Apply",
+        "cancelLabel": "Clear",
+        "fromLabel": "From",
+        "toLabel": "To",
+        "customRangeLabel": "Custom",
+        "weekLabel": "W",
+        "daysOfWeek": ["Su","Mo","Tu","We","Th","Fr","Sa"],
+        "monthNames": ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'],
+        "firstDay": 1
+      }
+
+
+      //選日預設選項
+      const drpDefOption = {
+        "isROC": isZ,
+        "autoUpdateInput": false,
+        "singleDatePicker": true,
+        "showDropdowns": true,
+        "locale": datePickerLocale,
+        "autoApply": true,
+        "maxDate": day.yearEnd
+      }
+
+      const fnClear = (ev,picker)=>{
+        picker.element.val('');
+      }
+
+      const drp = '.daterangepicker'; // events: show hide apply cancel showCalendar hideCalendar
+      const cdrp = 'Calendar.daterangepicker';
+
+      //選日事件
+      const drpEvH = (ev,picker)=>{
+        //console.log('drp event:',ev.type);
+        const $input = $(ev.target);
+        const d = picker.startDate.toDate(); //目前選中日期
+        const calendarD = picker.leftCalendar.calendar.firstDay._d; //月曆的第1天
+
+        switch(ev.type) {
+          case 'apply': //[確定]
+            $input.val(d.format(day.YMD));           //顯示用
+            $input.data('value',d.format(day.ymd));  //表單用
+            $input.trigger('change');
+            break;
+        }
+      }
+
+      //選日
+      $('input.date[data-format=D]',$form).each((idx,input)=>{
+        let $input = $(input);
+
+        let opt = $.extend({},drpDefOption,{ //克隆預設選項
+          "minDate": $input.data('start')?.toString().toDate() || day.start //起始日
+        });
+
+        if($input.data('end')) opt.maxDate = $input.data('end').toString().toDate(); //若有限日曆最後一天
+
+        $input.prop('readonly',true).daterangepicker(opt)
+        .on('show'+drp,drpEvH)
+        .on('hide'+drp,drpEvH)
+        .on('apply'+drp,drpEvH)
+        .on('show'+cdrp,drpEvH)
+        .on('hide'+cdrp,drpEvH);
+
+/*
+        .on('apply'+drp, (ev,picker)=>{
+          console.log('Event:',ev.type);
+          const $input = $(ev.target);
+          const d = picker.startDate.toDate();
+          $input.val(d.format(day.YMD));
+          $input.data('value',d.format(day.ymd));
+          $input.trigger('change');
+        });
+*/
+
+        //表單預設值
+        if($input.val()){
+          let defDay = $input.val().toDate();
+          $input.data('daterangepicker').setStartDate(defDay); //預設日
+          $input.data('value',defDay.format(day.ymd));  //表單用
+        }
+
+
+      });
+
+
+      //選週
+      $('input.date[data-format=W]',$form).each((idx,input)=>{
+        let $input = $(input);
+        let opt = $.extend({},drpDefOption,{ //克隆預設選項
+          "isWeekRange": true,
+          "minDate": $input.data('start')?.toString().toDate() || day.start //起始日
+        });
+
+        if($input.data('end')) opt.maxDate = $input.data('end').toString().toDate(); //若有限日曆最後一天
+
+
+        $input.prop('readonly',true).daterangepicker(opt)
+        .on('apply.daterangepicker', function(ev,picker) {
+          const $input = $(ev.target);
+          const d = picker.startDate.toDate();
+          $input.val(d.format(day.YMD)+day.WEEK);
+          $input.data('value',d.format(day.ymd));
+          $input.trigger('change');
+        });
+
+
+
+
+
+
+
+
+        //表單預設值
+        if($input.val()){
+          let defDay = $input.val().toDate();
+          $input.data('daterangepicker').setStartDate(defDay); //預設日
+          $input.data('value',defDay.format(day.ymd));  //表單用
+        }
+
+      });
+
+
+      //選年月: 長出下拉選項
+      $('input.date[data-format=M],input.date[data-format=MA],input.date[data-format=Y],input.date[data-format=YA]',$form).each((idx,input)=>{
+
+        const $input = $(input);
+        const inputFormat = $input.data('format');
+        const minDate = $input.data('start')?.toString().toDate() || day.start //起始日
+        const maxDate = $input.data('end')?.toString().toDate() || day.tomorrow; //結束日
+        const minY = minDate.getFullYear();
+        const maxY = maxDate.getFullYear();
+
+
+        //產生年月下拉選項
+        let yOp = ''; for(let y=maxY; y>=minY; y--) yOp += `<option value="${y}">${isZ?(y-1911)+'年':y}</option>`;
+        let mOp = datePickerLocale.monthNames.map((v,i)=>`<option value="${i+1}">${v}</option>`).join('');
+
+        if(inputFormat==='MA') mOp = `<option value="">${isZ?'年度':'All'}</option>`+mOp;
+        if(inputFormat==='YA') yOp = `<option value="ALL">${isZ?'全部':'All'}</option>`+yOp;
+
+        if(/^M/.test(inputFormat))
+          $input.after(`<select class="select-year">${yOp}</select><select class="select-month">${mOp}</select>`);
+        else if(/^Y/.test(inputFormat))
+          $input.after(`<select class="select-year">${yOp}</select>`);
+
+        //預設始值
+        const $selY = $input.next();
+        const $selM = /^M/.test(inputFormat)?$selY.next():null;
+        const today = _.#str864ToDate( $input.val() );
+        const todayY = today.getFullYear();
+        const todayM = today.getMonth();
+        const month1st = new Date(todayY,todayM,1); //該月1日
+
+
+        const initVal = $input.data('initial');
+
+        //console.log(inputFormat,$input.val(),today.format(day.ymd));
+        //值為 "2024/06/01"
+        if(inputFormat==='M') { //年月
+          $input.val(initVal===undefined?month1st.format(day.ymd):initVal);
+          $selY.val(todayY);
+          $selM.val(todayM+1);
+        }
+        else if(inputFormat==='Y') { //年
+          $input.val(initVal===undefined?todayY:initVal);
+          $selY.val(todayY);
+        }
+        else if(inputFormat==='MA') { //年月含全部
+          let v = $input.val().replace(/\D/g,'');
+          if(v.length===4) {
+            $selY.val(v);
+          }
+          else if(v.length>=6) {
+            $selY.val(v.substr(0,4));
+            $selM.val(parseInt(v.substr(4,2),10));
+          }
+        }
+        else if(inputFormat==='YA') { //年含全部
+          let v = $input.val();
+          if(/^(\d{4})/.test(v)){ // input 有指定值就改變 下拉位置,
+            $selY.val(RegExp.$1);
+          }
+          else { //否則就放預設值:下拉預設(第一個)
+            $input.val($selY.val());
+          }
+
+        }
+      });
+
+
+      //選年月: 下拉選項事件
+      $('.select-year, .select-month',$form).on('change',(ev)=>{
+        const $el = $(ev.target);
+        let $selY = null;
+        let $selM = null;
+        let isChangeY = false; //變更年事件
+
+        //決定年月的<select>
+        if($el.hasClass('select-month')){
+          $selM = $el;
+          $selY = $selM.prev();
+        }
+        else if($el.hasClass('select-year')) {
+          $selY = $el;
+          isChangeY = true;
+        }
+        if($selM===null && $selY.next().hasClass('select-month')) $selM = $selY.next();
+
+
+        const $input = $selY.prev();
+        const inputFormat = $input.data('format');
+        const minDate = $input.data('start')?.toString().toDate() || day.start //起始日 或用 預設
+        const maxDate = $input.data('end')?.toString().toDate() || day.tomorrow; //結束日  或用 預設
+        const minY = minDate.getFullYear();
+        const maxY = maxDate.getFullYear();
+        const minM = minDate.getMonth() + 1;
+        const maxM = maxDate.getMonth() + 1;
+        const selY = parseInt($selY.val(),10); //目前選中的 年
+
+        //禁用月份超過的選項
+        if(isChangeY && $selM!==null) {
+          const $optM = $('option',$selM).prop('disabled',false);
+          if(selY === maxY) {
+            $optM.filter((i,el)=>(parseInt($(el).val(),10) || 0)>maxM).prop('disabled',true);
+          }
+          else if(selY === minY) {
+            $optM.filter((i,el)=>(parseInt($(el).val(),10) || 0)<minM).prop('disabled',true);
+          }
+        }
+
+
+
+
+
+        let srtVal = '';
+
+        if(inputFormat==='M') {
+          srtVal = new Date($selY.val(),$selM.val()-1,1).format(day.ymd);
+        }
+        if(inputFormat==='MA') {
+          let y = $selY.val()
+          let m = $selM.val()
+          srtVal = m===''?y:(y+String(m).padStart(2,'0'));
+        }
+        if(/^Y/.test(inputFormat)) {
+          srtVal = $selY.val();
+        }
+
+        $input.data('value',srtVal).val(srtVal).trigger('change');
+
+      });
+
+      //日期選項不可大於當月
+      //$('input.date[data-format^=M]+select',$form).trigger('change');
+
+
+
+
+
+
+
+      //無障礙自動ID
+      let autoNum = 1;
+      $('label+input, label+select',$form).each((idx,input)=>{
+        let $input = $(input);
+        const $label = $input.prev();
+        if($input.is(':hidden')) $input = $input.next(); // input[data-format=M Y MA MY] 是隱藏的，用下一個
+        let idName = $input.attr('id');
+        if(typeof idName === 'undefined') { //沒有ID的給定一個流水號ID
+          idName = '___auto'+(autoNum++);
+          $input.attr('id',idName);
+        }
+        $label.attr('for',idName);
+      });
+      //點擊radio後面的input，要選取它
+      $('input[type=radio]+.row',$form).on('click',(ev)=>{
+        const $row = $(ev.currentTarget);
+        const $radio = $row.prev();
+        $radio.prop('checked',true).trigger('change');
+      });
+
+
+      //======== 按鈕
+
+      //查詢
+      $('[type=submit]',$form).on('click',_.#doSubmitForm.bind(_)); // 棄用$.proxy(_.#doSubmitForm,_)
+
+      //下載 / 列印
+      $('button.response',$form).on('click',(ev)=>{
+        
+        const $button = $(ev.target);
+        const FORMAT = $button.data('format');
+        
+        //前端列印功能
+        if(FORMAT==='print') {
+          _.doPrintTable($button);
+          return;
+        }
+        
+        
+
+        //檢查表單驗證
+        if(!$form[0].checkValidity()){
+            $form[0].reportValidity();
+            return false;
+        }
+
+        const $captcha = $('[data-format=captcha]',$form);
+        if($captcha.length && $captcha.val()==='') {
+          alert('請勾選我不是機器人!');
+          return;
+        }
+
+
+        let strData = _.#getFromSerialize();
+        strData += ('&response='+FORMAT);
+        
+        
+        //排序參數 order=0&sort=asc|desc
+        const $table1 = $('.table',_.#$.content).first();
+        const $sortTH = $('.rwd-table.sortable thead',$table1).find('.desc, .asc'); //第1個表格 有 asc desc 的
+        const orderIdx = $sortTH.index();
+        if(orderIdx>-1) strData += ( '&order='+ orderIdx +'&sort='+ ($sortTH.hasClass('desc')?'desc':'asc') );
+
+
+        window.open(_.apiAction+'?'+strData,'_blank');
+
+        //重置我不是機器人
+        if($captcha.length) {
+          $captcha.val('');
+          grecaptcha.reset();
+        }
+
+
+      });
+      
+      
+      //返回 按鈕
+      $('button.home',$form).on('click',(ev)=>{ window.location.href = '/'; });
+      $('button.back',$form).on('click',(ev)=>{ history.back();});
+
+      //下拉選單
+      if(_.apiOption) {
+
+        let keys = [...$('select[data-option]',$form)].map(el=>$(el).data('option'));
+        let argv = keys.map(s=>'name='+s).join('&');
+
+        $.get(_.apiOption,argv,(J)=>{
+
+          if(J?.stat !== 'ok') {
+            console.error('Error:', J?.stat); return;
+          }
+
+          for(let key of keys){
+            if(!(key in J.options)) {
+              console.error(`Option '${key}' not exist.`);
+              continue;
+            }
+
+            const $select = $(`select[data-option="${key}"]`,$form);
+
+            for(let o of J.options[key]) {
+              let op = new Option(o.text,o.value);
+              $select[0].add(op);
+            }
+
+          }
+
+          cb();
+        });
+
+
+
+      }
+      else {
+        cb();
+      }
+
+      //<select>樣式
+      $('select',$form).addClass('selectobj');
+
+
+      //我不是機器人
+      const $captcha = $('[data-format=captcha]',$form);
+      if($captcha.length==1) {
+        if(typeof(grecaptcha) !== 'object') {
+          console.error('需要 <script src="https://www.google.com/recaptcha/api.js?render=explicit"></script>');
+          return;
+        }
+
+        $captcha.after('<div id="gRecaptcha"></div>');
+
+        setTimeout(()=>{
+          grecaptcha.render('gRecaptcha',{
+            'theme':'light',
+            'size':'normal',
+            'sitekey':RECAPTCHA,
+            'callback':(resp)=>{
+              $captcha.val(resp);
+            },
+            'expired-callback': ()=>{
+              $captcha.val('');
+              grecaptcha.reset();
+            }
+          });
+        },300)
+
+
+
+
+
+      }
+      if($captcha.length>1) {
+        console.error('不適用多個captcha');
+      }
+
+
+    }
+
+    //初始: 自動完成
+    function initAutocomplete() {
+
+      //if(isDev) { _.apiAutocomplete = '/test-proxy/tpex_www/zh-tw/api/codeQuery'; }
+
+
+      const types = {
+        '/mainboard/': 'stk_reg',
+        '/esb/': 'stk_esb',
+        '/gisa/': 'stk_gisa'
+      }
+
+      const colors = {
+        '上櫃': ' mega1',
+        '興櫃': ' mega2',
+        '創櫃': ' mega3'
+      }
+
+
+      let defaultType = 'stk_all';
+      for(let key of Object.keys(types)) if(REQUEST_URI.indexOf(key)>-1) defaultType = types[key]; //網址符合的類別
+
+      //https://github.com/devbridge/jQuery-Autocomplete
+      $('[data-autocomplete]',$form).each((undefined,input)=>{
+        
+        let strType  = $(input).data('autocomplete') || defaultType;
+        
+        //https://github.com/devbridge/jQuery-Autocomplete
+        $(input).autocomplete({
+          width: 180,
+          serviceUrl: _.apiAutocomplete,
+          dataType: 'json',
+          params: { type: strType },
+          groupBy: 'category',
+          preserveInput: true,  //股票自動完成，鍵盤上下選動時(沒點或按Enter前)，不改變input值
+          formatGroup: (suggestion, category)=> {
+            let clsName = ' mega11'; //預設顏色
+            for(let key of Object.keys(colors)) if(category.indexOf(key) ===0) clsName = colors[key];
+            return `<div class="autocomplete-group${clsName}">${category}</div>`;
+          },
+          transformResult: (resp)=>{
+            const out = [];
+            for(let oCategory of resp.suggestions) {
+              for(let strVal of oCategory.data ) {
+                let v = strVal.split('\t');
+                out.push({ value: v[0], data: { category: oCategory.type, sid: v[1] } });
+              }
+            }
+            return({suggestions:out});
+          },
+          onSelect: (suggestion)=>{
+            input.value = suggestion.data.sid;
+            $(input).trigger('blur'); //按Enter後關掉
+            
+            //$(input).trigger('change'); //人工觸發 會造成 自動完成再出現
+            _.#doSubmitForm(); //不能用 _.#doSubmitForm.bind(_); 因為還沒初始
+            
+          }
+        }).on('focus',(ev)=>{
+          $(ev.target).trigger('select');
+        }).on('keydown',(ev)=>{
+          //按 Enter 要送出表單
+          //if(ev.key==='Enter') $(input).trigger('change');  //  不能用 _.#doSubmitForm.bind(_); 因為還沒初始
+          if(ev.key==='Enter') _.#doSubmitForm();
+        });
+
+
+      });
+
+    }
+    
+    
+
+    //初始: 分頁器
+    function initPaging() {
+
+      const i18n = _.#i18n;
+      const $content = _.#$.content; //報表區 容器
+      const $paginations = $('.pagination',$content); //分頁器 容器(多個)
+      const $bottomHints = $('.bottom-hints',$content); //每頁幾筆 容器(多個)
+
+      $paginations.each((idx,$pagination)=>{
+        let opt = _.#option.tables[idx]; //表格設定選項
+        if(Array.isArray(opt.pagin)) { //每頁幾筆 下拉選單
+          let pageOpts = opt.pagin.map(n=>`<option value="${n}">${n===0?i18n.pageAll:n}</option>`); //全部
+          let pageSelect = i18n.pageShow.replace('%s',`<select>${pageOpts}</select>`); //每頁 %s 筆
+          let $div = $bottomHints.eq(idx).find('div:last-child');
+          $div.html(pageSelect).find('select').on('change',changePageSize.bind(_));  //棄用 $.proxy(changePageSize,_)
+        }
+      });
+      //////////
+      //分頁器: 更換每頁筆數
+      function changePageSize(ev) {
+
+        const _ = this;
+
+        const $pageSizeSelect = $(ev.target);
+        const $wp = $pageSizeSelect.closest('.table');
+        const $mainContent = $('>.main-content',$wp);
+        const $tableTag = $('.rwd-table>table',$wp);
+
+        const tableIndex = $wp.index(); //此表索引
+        const op = _.#option.tables[tableIndex]; //此表選項
+        const pageSize = parseInt( Array.isArray(op.pagin)? $('.bottom-hints select',$wp).val(): op.pagin,10);
+
+        //let tbodyData = _.#JsonTables[tableIndex].data; //完整的 tbody 資料
+
+        const $pagination = $('.pagination',$wp);
+        if(!$pagination.is(':empty')) $pagination.pagination('destroy'); //先移掉舊的分頁器
+
+        //重建分頁器
+        if(pageSize>0) {  //要分頁 (總筆數>0)
+
+          let t = _.#JsonTables[tableIndex];
+
+          let allRecords = opt.serverPaging?t.totalCount:t.data.length; //實際總筆數(不分前後端)
+
+          //創建分頁器
+          $pagination.pagination(Object.assign({},_.#paginationOptions,{
+            items: allRecords, //資料總筆數
+            itemsOnPage: pageSize, //每頁筆數
+            displayedPages: op.paginBtn, //分頁按鈕數量
+            onPageClick: _.#changePage.bind(_,$pagination)  //翻頁事件 棄用 $.proxy(_.#changePage, _, $pagination)
+          }));
+
+        }
+
+
+        $mainContent.addClass('load');
+
+
+        //擷取要顯示的那頁資料, 因為會有後端分頁所以會有 callback
+        _.#loadTablePageData(tableIndex,1,pageSize,(displayArray, recordInfo)=>{
+
+          //左下文字
+          if(recordInfo !== null) $('.bottom-hints>div:first-child',$wp).text(recordInfo);
+
+          //tbody內容
+          $('tbody',$wp).html(displayArray.map( tr => '<tr>'+tr.map(td=>`<td>${td?td.toString():''}</td>`).join('')+'</tr>').join(''));
+          _.#autoChangeColor(); //漲跌顏色
+          opt.afterRender(_,tableIndex,displayArray); //分頁/排序器產表完成後
+
+
+          $mainContent.removeClass('load');
+
+        });
+
+      }
+
+    }
+
+  }
+
+
+  //轉日期 年月日、年月、年
+  #str864ToDate(str) {
+    let v = str.replace(/\D/g,'');
+    if(v.length===4) v += '0101';
+    else if(v.length===6) v += '01';
+    else if(v.length!==8) return new Date(); //日期格式不對回傳今日
+
+    let d = new Date(parseInt(v.substr(0,4),10), parseInt(v.substr(4,2),10)-1, parseInt(v.substr(6,2),10));
+
+    return d;
+  }
+
+  //取得 form 全部元素的值: 資料物件
+  #getFromSerializeObject() {
+    const _ = this;
+    _.submitCount++; //第幾次submit
+
+    let o = _.#$.form.serializeObject();
+    if('g-recaptcha-response' in o) delete o['g-recaptcha-response']; //移掉我不是機器人, 用自己的
+    for(let key of Object.keys(o)) {
+      let $input = $(`[name="${key}"]`,_.#$.form);
+      let value = $input.data('value');
+      let dataFormat = $input.data('format');
+      let dataInitial = $input.data('initial');
+
+      if(typeof(value) !== 'undefined') o[key] = value; //日期欄 data-format="D" 或 data-format="W"
+
+      if(_.submitCount===1 && dataFormat === 'YA' && typeof(dataInitial) !== 'undefined') {
+        o[key] = dataInitial;
+      }
+
+
+    }
+    return o;
+  }
+  //取得 form 全部元素的值: 查詢字串
+  #getFromSerialize() {
+    const _ = this;
+    const o = _.#getFromSerializeObject();
+
+
+    const searchParams = new URLSearchParams();
+    for(let key of Object.keys(o)) {
+      if(Array.isArray(o[key])) {
+        o[key].forEach(v=>searchParams.append(key,v));
+      }
+      else {
+        searchParams.append(key, o[key]);
+      }
+    }
+
+    return searchParams.toString();
+  }
+
+  //填入日期值
+  #setDateValue($input,value) {
+    if($input.length===0) return;
+
+    const _ = this;
+    const drp = $input.data('daterangepicker');
+    const day = _.#day;
+    let d = _.#str864ToDate(value);
+
+
+
+    let f = $input[0].dataset.format; //有時讀不到$input.data('format');
+
+    if(f=='D') {
+      if(value==='') {
+        $input.data('value',''); //給選日的預設值
+        $input.val(''); //顯示
+        return;
+      }
+      $input.data('value',d.format(day.ymd)); //給選日的預設值
+      $input.val(d.format(day.YMD)); //顯示
+      drp?.setStartDate(d);
+      drp?.setEndDate(d);
+    }
+    if(f=='W') {
+      $input.data('value',d.format(day.ymd)); //給選日的預設值
+      $input.val(d.format(day.YMD)+day.WEEK); //顯示
+    }
+    if(f=='M' || f=='MA') {
+      $input.val(d.format(day.ymd));
+      let $sY = $input.next();
+      let $sM = $sY.next();
+      $sY.val(d.getFullYear()); //還原下拉
+      $sM.val(d.getMonth()+1);
+    }
+    if(f=='Y') {
+      $input.val(d.getFullYear());
+      let $sY = $input.next();
+      $sY.val(d.getFullYear()); //還原下拉
+    }
+    if(f=='YA') {
+      $input.val(value);
+      let $sY = $input.next();
+      $sY.val(value==='ALL'?'ALL':d.getFullYear()); //還原下拉
+    }
+
+  }
+
+  //Submit Form動作
+  #doSubmitForm() {
+    
+    
+    //此函式呼叫要經過 $.proxy，否則 this 無法預期
+    const _ = this;
+    //console.log('dosubmit',_);
+    
+    const opt = _.#option;
+
+    //避免短時間submit
+    const currentTime = new Date().getTime();
+    if (currentTime - _.lastSubmitTime < 500) return;
+    _.lastSubmitTime = currentTime;
+
+    //非翻頁 且 表單驗證不過  
+    if(!opt.serverPaging){
+      if(!(_.#$.form[0].checkValidity())) {
+        _.#$.form[0].reportValidity();
+        return; 
+      }
+    } 
+    
+    
+    
+    
+
+    //有我不是機器人而且沒勾
+    const $captcha = $('[data-format=captcha]',_.#$.form);
+    if($captcha.length && $captcha.val()==='') {
+      alert('請勾選我不是機器人!');
+      return;
+    }
+
+
+    _.#$.reports.removeClass('error').addClass('load');
+    _.#$.message.empty();
+
+    _.#formData = _.#getFromSerializeObject(); //保留最近一次查詢給後端翻頁用
+
+
+
+    let oData = Object.assign({},_.#formData); //克隆最近一次查詢
+    oData['response'] = 'json';
+
+
+    if(opt.serverPaging) { //後端分頁
+      oData['paging-offset'] = 0;
+      const pgSize = opt.tables[0].pagin;
+      oData['paging-size'] = Array.isArray(pgSize)?pgSize[0]:pgSize;
+    }
+
+
+
+    if(_.apiAction==='') { //沒有 action 參數時
+      _.#renderReports({stat:'ok'});
+    }
+    else {
+
+      $.post(_.apiAction,oData, _.#renderReports.bind(_) ,'json'); //棄用 $.proxy(_.#renderReports,_)
+
+      //重置我不是機器人
+      if($captcha.length) {
+        $captcha.val('');
+        grecaptcha.reset();
+      }
+
+    }
+
+
+
+
+  }
+
+  //按查詢載入JSON後: 更新表格內容
+  #renderReports(J) {
+    //此函式呼叫要經過 $.proxy，否則 this 無法預期
+    const _ = this;
+    const $form = _.#$.form;
+    const $content = _.#$.content;
+
+    /*
+    _.#$.body: 'body',
+    _.#$.form: '#tables-form',
+    _.#$.reports: '#reports',
+    _.#$.content: '#tables-content',
+    _.#$.message: '#tables-message',
+    _.#$.notes: '#tables-notes'
+    */
+
+
+    if(J.stat!=='ok') {
+      _.#$.message.safeHtml(J.stat.replace(/\n/g,'<br>'));
+      _.#$.reports.removeClass('hide load').addClass('error');
+      return;
+    }
+
+    const opt = _.#option;
+
+    opt.beforeRender(J); //修飾JSON變數 by reference
+    
+
+
+
+
+    if(opt.tables.length != J.tables.length) {
+      alert('系統維護中');
+      console.error(`表格數量無法匹配。初始 ${opt.tables.length} 個、API ${J.tables.length} 個`);
+      return;
+    }
+
+
+    _.#JsonTables = J.tables; //表格資料存入公用區
+    
+    
+
+    if(!('tables' in J)) {
+       _.#$.message.text('系統維護中');
+       _.#$.reports.removeClass('hide load').addClass('error');
+      console.error("No 'tables' in the returned JSON.");
+      return;
+    }
+
+    //回填 form 中的日期
+    if(J?.date) {
+      let aDate = J.date.split(/[\s\~\-\,]+/);
+      _.#JsonDate = [];
+      aDate.forEach((v,i)=>{
+        _.#setDateValue($('input.date',$form).eq(i),v);
+        _.#JsonDate.push(v.toDate()); 
+      });
+    }
+    else {
+      _.#JsonDate = [];
+    }
+
+    // 覆寫 options 的 tables 的 title title2 subtitle subtitle2 footnote footnote2 notes
+    _.#JsonTables.forEach((t,i)=>{
+      for(let key of ['title','title2','subtitle','subtitle2','footnote','footnote2','notes']) {
+        if(key in t) opt.tables[i][key] = t[key];
+      }
+    });
+
+
+
+
+    //更新 至 view 標題及說明等
+    opt.tables.forEach((o,i)=>{
+      const $t= $('>.table',$content).eq(i);
+      const $topHints = $('.top-hints>div',$t);
+      const $bottomHints = $('.bottom-hints>div',$t);
+
+      $('h2',$t).html(o.title).attr('aria-hidden',o.title?'false':'true');
+      $('h3',$t).html(o.title2).attr('aria-hidden',o.title2?'false':'true');
+      
+
+      $topHints.eq(0).html(o.subtitle);
+      $topHints.eq(1).html(o.subtitle2);
+      $bottomHints.eq(0).html(o.footnote);
+      if(!Array.isArray(o.pagin)) $bottomHints.eq(1).html(o.footnote2); //不為分頁下拉才可以更新成文字
+      $('.noteblock>ol',$t).html(o.notes.map(s=>`<li>${s}</li>`).join(''));
+    });
+
+    //產表格
+    _.#JsonTables.forEach((t,i)=>{
+
+      //t: API回傳的每個表格資料 {}
+
+      const op = opt.tables[i]; //此表選項
+      
+      const $table = $('>.table',$content).eq(i); //各組報表最外層
+      const $rwdTable = $('.rwd-table',$table); //<table>上一層
+
+      //表格API為空( data 都不存在就整個表格不秀)
+      if(!('data' in t)) {
+        console.log('empty table',i);
+        $rwdTable.empty();
+        $table.addClass('hide');
+        return;
+      }
+      $table.removeClass('hide');
+
+      //有 data 但 null 不秀表格但標題那些要秀
+      if(t.data===null) {
+        $rwdTable.empty();
+        return;
+      }
+
+
+      const tth = _.#tmpTableHead[i]; //複雜表頭HTML
+
+      //每頁筆數: 若沒分頁則 0，有則取數字或第一個陣列值
+      const pageSize = parseInt( Array.isArray(op.pagin)? $('.bottom-hints select',$table).val(): op.pagin,10);
+
+      //判斷各欄是否為數字，把結果加入JSON  tables[n].fieldsIsNum
+      //視為數字的格式: 123、1.23、1,234、1,234.5、.1234、前有無 +-$ 號、後有無%、 ---
+      t.fieldsIsNum = (t.data?.length && Array.isArray(t.data[0]))? t.data[0].map(s => /^(?:[\-\+\$]?\s?[\d,]+(?:\.\d+)?%?|[\-]{1,3}|\.\d+)$/.test(s) ):[];
+      //強制指定某欄為字串或數字 (給排序使用)
+      if(t.fieldsIsNum.length && op.fieldTypes.length ) {
+        for(let col of op.fieldTypes) {
+          t.fieldsIsNum[col.index] = col.type === 'Number'?true:false;
+        }
+      }
+      
+      //console.log('fieldsIsNum:',t.fieldsIsNum);
+      
+
+      //是否為民國日期
+      t['fieldsIsROC'] = (t.data?.length && Array.isArray(t.data[0]))? t.data[0].map(s => /^\d{2,3}[\/\.\-]\d{1,2}[\/\.\-]\d{1,2}$/.test(s) ):[];
+
+
+      //需要前端對資料預先排序?
+      _.#sortTableJsonArray(t,op.sortable);
+
+
+      //參數: (表格陣列,每頁筆數,頁碼)。回傳: 要顯示的陣列、「%s - %s 筆，共 %s 筆」
+      let {displayArray,recordInfo} = _.#pageViewOfArray(t,pageSize,1);
+
+
+      //左下文字
+      if(pageSize && recordInfo !== null) $('.bottom-hints>div:first-child',$table).text(recordInfo);
+
+      //產<table>內容
+      let htm = '';
+
+      //產完整的<table>內容
+      switch(op.type) {
+        case 'horizontal': //正常: 橫式表格
+          htm = makeTable(tth || t?.fields || '',displayArray,t?.summary || []);
+          //console.log(htm);
+          break;
+        case 'vertical': //直式表格
+        case 'grid': //網格
+          htm = htm = makeTableVertical(t?.fields || '', displayArray);
+          break;
+        case 'link': //連結按鈕
+          htm = makeTableLinkButton(t?.fields || '', displayArray);
+          break;
+        default: //客製表格
+          if( op.type in opt.customTable ) {
+            htm = opt.customTable[op.type](t?.fields || '', displayArray);
+          }
+          else {
+            console.error(`Custom Table does not exist: ${op.type}`);
+          }
+          break;
+      }
+      $rwdTable.html(htm);
+
+      let $tableTag = $('>table',$rwdTable);
+      let $thead = $('thead',$tableTag);
+
+
+
+
+
+
+
+      //初始化: 排序
+      makeSortableTH(op,$thead);
+
+      //對齊類別
+      if(op.type==='horizontal') makeAlignStyle(op,t,$tableTag);
+
+
+      //開發時欄順序數字
+      if(_.#isDev) {
+        $('.sort',$thead).each((idx,sort)=>{
+          $(sort).append(`<i>${idx+1}</i>`);
+        });
+      }
+
+
+      //重建分頁器
+      if(pageSize>0) {  //要分頁 (總筆數>0)
+
+        let $pagination = $('.pagination',$table);
+        if(!$pagination.is(':empty')) $pagination.pagination('destroy'); //先移掉舊的分頁器
+
+        let allRecords = opt.serverPaging?t.totalCount:t.data.length; //實際總筆數(不分前後端)
+
+        if(allRecords>pageSize) { //總筆數 > 分頁數 才秀分頁器
+
+          //創建分頁器
+          $pagination.pagination(Object.assign({},_.#paginationOptions,{
+            items: allRecords, //資料總筆數
+            itemsOnPage: pageSize, //每頁筆數
+            displayedPages: op.paginBtn, //分頁按鈕數量
+            onPageClick: _.#changePage.bind(_, $pagination)  //翻頁事件  棄用$.proxy(_.#changePage, _, $pagination)
+          }));
+          
+
+        }
+
+
+      }
+
+
+
+
+
+    });
+
+    //表格外的總結
+    $('+.blockset',_.#$.content).remove(); //表格區(#tables-content)下面的總結
+    if(J?.summary) {
+      _.#$.content.after('<div class="blockset center">'+Object.keys(J.summary).map(k=>`<div class="item"><p>${k}</p><p class="h2">${J.summary[k]}</p></div>`).join('')+'</div>');
+    }
+
+    //下載按鈕狀態
+    const allRec = J.tables.reduce( (recSum,a)=>recSum + (a?.data?.length || 0) , 0); //不分表格全部的資料筆數
+
+    $('button[data-format]',_.#$.form).prop('disabled',allRec===0?true:false);
+
+
+    _.#autoChangeColor(); //漲跌顏色
+    opt.afterRender(_,-1,J); //首次產表產完成後
+
+    _.#$.reports.removeClass('hide load');
+
+    /////////////////////////////////
+
+
+
+    //對齊指令
+    function makeAlignStyle(op,t,$tableTag){
+
+
+      const fields = t.fields; //欄名
+
+      let aCMD = []; //對齊指令
+      let isAuto = op.align === ''; //自動模式
+
+      if(!isAuto) {
+        aCMD = op.align.strTrim().split(/\s+/);
+        if(aCMD[0]==='auto') {  //自動+手動模式
+          aCMD.shift();
+          isAuto = true;
+        }
+      }
+
+      //收集
+      const maxIdx = t.fieldsIsNum.length - 1; //最大索引
+      let aLRC = new Array(maxIdx+1).fill(''); //即將要放入各欄是 R|L|C
+
+      let colWidth = new Array(maxIdx+1); // 欄寬 [[欄,寬],...]
+      let minWidth = new Array(maxIdx+1); // 最小 [[欄,寬],...]
+      let maxWidth = new Array(maxIdx+1); // 最大 [[欄,寬],...]
+
+      let classNames = []; //歸納結果
+      let fixedIndex = -1; //固定欄
+
+      //自動
+      if(isAuto){
+
+        fixedIndex = 0; //固定第1欄
+
+        //依是否數字決定左右
+        aLRC = t.fieldsIsNum.map(isNum=>isNum?'R':'L');
+
+        //自動置中 or 自動欄寬
+        fields?.forEach((strField,i)=>{
+          if(_.#reAutoCenter.test(strField)) aLRC[i] = 'C'; //自動置中
+          if(strField in _.#autoWidth) minWidth[i] = _.#autoWidth[strField]; //自動欄寬
+          
+          if(_.#reAutoFixed.test(strField)) fixedIndex = i; //自動固定
+        });
+
+      }
+
+      //手動
+      if(aCMD.length > 0) {
+        aCMD.sort();
+        for (let cmd of aCMD) {
+
+          if(/^([FLRC])(\d+)$/.test(cmd)) {
+            let c = v(1);  // F R L C
+            let colIdx = v(2)-1; //欄索引
+            if(c==='F') fixedIndex = colIdx; else aLRC[colIdx] = c;
+          }
+          else if(/^([LRC])(\d+)[~_]$/.test(cmd)) {
+            let c = v(1);  // R L C
+            let colIdx = v(2)-1; //欄索引
+            for(let i=colIdx;i<=maxIdx;i++) aLRC[i] = c;
+          }
+          else if(/^W(\d+)=(\d+)$/.test(cmd)) { //欄寬
+            colWidth[v(1)-1] = v(2);
+          }
+          else if(/^mW(\d+)=(\d+)$/.test(cmd)) { //最小寬
+            minWidth[v(1)-1] = v(2);
+          }
+          else if(/^MW(\d+)=(\d+)$/.test(cmd)) { //最大寬
+            maxWidth[v(1)-1] = v(2);
+          }
+          else {
+            console.warn('未知 align 指令:',cmd);
+          }
+
+
+
+        }
+
+      }
+
+
+      //歸納結果、連序LR簡化
+      if(fixedIndex>-1) classNames.push('F'+(fixedIndex+1));
+
+      //若與上個相同就變底線
+      let preC = '';
+      aLRC.forEach((c,i)=>{
+        if(c===preC) aLRC[i] = '_';
+        preC = c;
+      });
+       //本身: 加上索引數字+1，下個若是底線再加底線在自己
+      aLRC.forEach((c,i)=>{
+        let nextC = aLRC[i+1] || ''; //下個
+        if(/^[LRC]$/.test(c)) {
+          aLRC[i] = c + (i+1);
+          if(nextC==='_') aLRC[i] += '_';
+        }
+      });
+      //不要底線及空白
+      for(let c of aLRC) {
+        if(!(c == '_' || c == '')) classNames.push(c);
+      }
+
+      let srtClassNames = classNames.join(' ');
+      $tableTag.addClass(srtClassNames);
+
+      const cellPadding = op.sortable?1.5:1; //左右留白em數
+      //欄寬 //左0.5+右1留白
+      colWidth.forEach((w,i)=>{ if(w) $(`>thead th.sort[data-col-index=${i}]`,$tableTag).css('width',w+cellPadding+'em'); });
+      minWidth.forEach((w,i)=>{ if(w) $(`>thead th.sort[data-col-index=${i}]`,$tableTag).css('minWidth',w+cellPadding+'em'); });
+      maxWidth.forEach((w,i)=>{ if(w) $(`>thead th.sort[data-col-index=${i}]`,$tableTag).css('minWidth',w+cellPadding+'em'); });
+
+
+      /////////
+      function v(n) {
+        let v = RegExp['$'+n];
+        return isNaN(v)?v:parseInt(v,10);
+      }
+
+
+    }
+
+    //產 <table> html (正常橫式表格)
+    function makeTable(fields,data,summary) {
+
+      let tbodyHtml = '';
+
+      if(Array.isArray(data)) {
+        tbodyHtml = data.map( tr => '<tr>'+tr.map(td=>`<td>${td?td.toString():''}</td>`).join('')+'</tr>').join('');
+      }
+      else if(typeof data === 'string') {
+        tbodyHtml = data;
+      }
+
+      //fields 為字串(表頭html) 或 陣列(欄名)
+      let head = (typeof fields === 'string')?`<thead>${fields}</thead>`:`<thead><tr>${fields.map(s=>`<th scope="col">${s.toString()}</th>`).join('')}</tr></thead>`;
+      let body = '<tbody>'+tbodyHtml+'</tbody>';
+      let foot = '<tfoot>'+summary.map( tr => '<tr>'+tr.map(td=>`<td>${td?td.toString():''}</td>`).join('')+'</tr>').join('')+'</tfoot>';
+      return '<table>'+head+body+foot+'</table>';
+    }
+
+    //產 <table> html (直式表格: 標題，內容)
+    function makeTableVertical(fields,data) {
+      let bodys = data.map(row=>{
+        let body = '';
+        for(let i in fields) body += `<tr><th scope="row">${fields[i]}</th><td>${row[i]}</td></tr>`;
+        return '<tbody>'+body+'</body>';
+      });
+      return '<table>'+bodys.join('')+'</table>';
+    }
+
+    //產 <table> html (連結按鈕)
+    function makeTableLinkButton(fields,data) {
+
+      let body = data.map(col=>`<a class="btn" href="${col[1]}" target="_blank" title="開啟新視窗，連結至：${col[0]}">${col[0]}</a>`).join('')
+
+      return '<div class="section11 row btnsetblock">'+body+'</div>';
+
+    }
+
+    //在 th 直向最後一格類別加 sortable
+    function makeSortableTH(op,$thead) {
+
+      //無論跨欄在thead 加 data-col-index 欄索引值
+      $thead.addColRowIndexData();
+
+      let allTH = [... $('th',$thead)];
+      let maxColIdx = Math.max(...allTH.map(th=>$(th).data('col-index'))); //最大欄索引
+
+      //在 th 最底欄加 sort (留意可能有跨欄)
+      for(let i=0;i<=maxColIdx;i++) {
+        let aTH = allTH.filter(th=> $(th).data('col-index') == i );
+        let lastTH = aTH[aTH.length-1];
+        $(lastTH).addClass('sort');
+      }
+
+
+      if(op.sortable) {
+
+        $thead.closest('.rwd-table').addClass('sortable');
+
+        $('.sort',$thead).on('click',sortClick.bind(_));  //棄用 $.proxy(sortClick, _)
+
+
+        //排序欄預設樣式
+        if(typeof op.sortable === 'number') { //如果是數字就預設排那欄
+          // 負值就是 desc
+          $('.sort',$thead).eq(Math.abs(op.sortable)-1).addClass(op.sortable<0?'desc':'asc');
+        }
+
+
+
+      }
+
+      ///////////////////
+      //排序
+      function sortClick(ev) {
+
+
+        const $th = $(ev.target); //點擊的TH
+        const colIdx = $th.data('col-index'); //要排序的欄索引
+        const $thead = $th.closest('thead'); //所在 <thead>
+        const $table = $thead.closest('table'); //所在 <table>
+        const $wp = $table.closest('.table');
+        const $mainContent = $('>.main-content',$wp);
+        const $pagination = $('.pagination',$wp); //分頁器外層
+
+        const sortMode    = $th.hasClass('asc')?'desc':'asc';  //即將要做的升降 密
+        const tablesIndex = $wp.index(); //第幾個表格索引
+
+
+        //改變上下箭頭狀態
+        $('.sort',$thead).removeClass('asc desc');
+        $th.addClass(sortMode);
+
+        //轉轉轉
+        $mainContent.addClass('load');
+
+
+        if(opt.serverPaging) { //後端分頁
+          //跳回第一頁 會觸發 renderTBody
+          $pagination.pagination('selectPage',1);
+        }
+        else { //前端分頁
+          
+          let sortable = colIdx+1;  //第幾欄要排
+          
+          
+          
+          if(sortMode==='desc') sortable*=-1; //負值為desc
+
+          
+          const tableJson = _.#JsonTables[tablesIndex];
+
+          _.#sortTableJsonArray(tableJson,sortable);
+          
+          
+          
+
+          //重秀表格內容
+          if(!$pagination.is(':empty')) { //有分頁時
+            //按排序跳回第一頁 會觸發 renderTBody
+            $pagination.pagination('selectPage',1);
+          }
+          else {
+            //全部重秀
+            $('tbody',$table).html(tableJson.data.map( tr => '<tr>'+tr.map(td=>`<td>${td?td.toString():''}</td>`).join('')+'</tr>').join(''));
+            _.#autoChangeColor(); //漲跌顏色
+            opt.afterRender(_,tablesIndex,tableJson.data); //分頁/排序器產表完成後
+            $mainContent.removeClass('load');
+          }
+
+        }
+
+
+
+
+      }
+      
+      
+
+
+    }
+
+  }
+  
+  //對this物件已存之表格陣列排序
+  #sortTableJsonArray(t,sortable) {
+    // 同等變數 ref
+    // 表格JSON物件: t = _.#JsonTables[索引]
+    // 要排第幾欄: sortable =  _.#option.tables[索引].sortable、負值表示desc
+    
+    //true/false/0 不排
+    if(typeof sortable !== 'number') return;
+    if(sortable === 0) return;
+
+    //排序資料
+    const colsIsNum   = t.fieldsIsNum; //各欄位是否為數字
+    const colsIsRoc   = t.fieldsIsROC; //各欄位是否為民國日
+    const rows        = t.data; //完整的 tbody 資料
+    
+    const colIdx = Math.abs(sortable)-1;
+    const sortMode = sortable<0?'desc':'asc';
+    
+        
+    //console.log(colIdx,sortMode,colsIsNum[colIdx],colsIsRoc[colIdx]);
+    
+        
+
+    let fnSortByColIdx; //排序規則函式
+
+    if(colsIsNum[colIdx]){ //為數字
+      fnSortByColIdx = (a,b)=>{
+        const A = num2float(a[colIdx]);
+        const B = num2float(b[colIdx]);
+        
+        return sortMode==='asc'?(A-B):(B-A);
+      }
+    }
+    else if(colsIsRoc[colIdx]) { //為民國日期
+      fnSortByColIdx = (a,b)=>{
+        const A = roc2number(a[colIdx]);
+        const B = roc2number(b[colIdx]);
+        return sortMode==='asc'?(A-B):(B-A);
+      }
+    }
+    else { //為文字
+      fnSortByColIdx = (a,b)=>{
+        const A = a[colIdx];
+        const B = b[colIdx];
+        return sortMode==='asc'?
+          A.localeCompare(B,'zh-Hant-TW'):
+          B.localeCompare(A,'zh-Hant-TW');
+      }
+    }
+
+    rows.sort(fnSortByColIdx); //對資料排序
+        
+    ///////////////////////
+
+    //民國字串轉 6~7 碼數字方便排序
+    function roc2number (str) {
+      if(!/^(\d+)\D(\d+)\D(\d+)$/.test(str)) return 0;
+      return RegExp.$1 * 10000 + RegExp.$2 * 100 + RegExp.$3;
+    }
+    
+    //任何數字轉成可排序之浮點數
+    function num2float(str) {
+      if(typeof str !== 'string') return str;
+      str = str.replace(/[^\d\.\-]/g,'');
+      if(str === '' || /^[\-]+$/.test(str)) return -Number.MAX_VALUE; // 數字欄位中出現 ---，回傳JS最小負數
+      return parseFloat(str);
+    }
+  }
+
+
+  //漲跌顏色 #reAutoColor
+  #autoChangeColor(){
+    const _ = this;
+
+    _.#JsonTables.forEach((t,iTable)=>{
+
+      const op = _.#option.tables[iTable];
+      const $t = $('>.table',_.#$.content).eq(iTable);
+
+      if(op.type !== 'horizontal') return; //正常橫式表格才需要變色
+
+      if(!('data' in t)) return;
+      if(!('fields' in t)) return;
+      if(t.data === null || t.data.length===0) return; //空表格
+
+      for(let iField in t.fields) {
+        iField = parseInt(iField,10);
+        let fieldName = t.fields[iField].strTrim();
+        if(_.#reAutoColor.test(fieldName)) { //找出欄名有 "漲跌" 字樣
+          $(`tr>td:nth-child(${iField+1})`,$t).each((iTD,td)=>{
+            //在 td 上加 class = up或dn 漲跌顏色
+            let txt = $(td).text().strTrim().replace(/,/g,'');
+            let cls = /^-/.test(txt)?'dn':'up';
+            if(txt === '' || isNaN(txt) || parseFloat(txt)==0) cls = ''; //0值不加色
+            if(cls) $(td).addClass(cls)
+          });
+        }
+      }
+    });
+  }
+
+  //前端 取得顯示頁的陣列
+  #pageViewOfArray(oTable,per,num) {
+    //參數: (全表陣列,每頁筆數,頁碼)。
+
+    const _ = this;
+
+    let aData = oTable.data;
+    if(typeof aData === 'string')  return { displayArray: aData, recordInfo: '' };
+
+
+    let strRecInfo = _.#i18n.pageNumber; // %s - %s 筆，共 %s 筆
+    let totalRec = oTable?.totalCount || aData?.length;  //全部筆數
+
+
+    if(typeof totalRec === 'undefined') return { displayArray: [], recordInfo: '' };
+
+
+    if(per==0) { //不分頁
+      return { displayArray: aData, recordInfo: sprintf(strRecInfo,[1,totalRec,totalRec]) };
+    }
+
+
+    let startIdx = per*(num - 1);
+    let endIdx   = startIdx + per;
+    if(endIdx>(totalRec-1)) endIdx = totalRec;
+
+    strRecInfo = sprintf(strRecInfo,[startIdx+1,endIdx,totalRec].map(v=>v.toLocaleString('en')));
+
+    //回傳: 要顯示的陣列、「%s - %s 筆，共 %s 筆」
+
+    return { displayArray: aData.slice(startIdx,endIdx), recordInfo: strRecInfo };
+
+  }
+  //後端 取得顯示頁的陣列 參數:(哪個表格,每頁筆數,頁碼,callback)。回傳: 要顯示的陣列、「%s - %s 筆，共 %s 筆」
+  #pageViewOfServer(tableIndex,pageSize,pageNum,callback) {
+    const _ = this; //bxRport
+
+    let oData = Object.assign({},_.#formData); //克隆最近一次查詢
+    oData['response'] = 'json';
+
+    oData['paging-table'] = tableIndex;
+    oData['paging-size'] = pageSize;
+    oData['paging-offset'] = (pageNum-1)*pageSize;
+
+
+    //#tables-content 找 第 tableIndex 個 .table 即 $wp
+    const $wp = $(`.table:eq(${tableIndex})`,_.#$.content);
+    const $thead = $('.rwd-table thead',$wp); //所在 <table> thead
+    const $th = $('th.asc, th.desc',$thead); //要排序的th: 在 thead 中 找 th.asc 或 th.desc 只會找到1個或無
+
+    if($th.length==0) { //沒有排序
+      oData['paging-order'] = 0;
+      oData['paging-dir'] = 'asc';
+    }
+    else {
+      oData['paging-order'] = $th.data('col-index')+1; //要排序的欄
+      oData['paging-dir'] = $th.hasClass('asc')?'asc':'desc';
+    }
+
+    let act = _.apiAction;
+    if(/\.json$/.test(act) && ('paging-table' in oData) ) act = act.replace(/\.json$/,'1.json'); //測試用
+
+    $.post(act,oData,(J)=>{
+
+      if(J.stat !== 'ok') {
+        alert('系統維護中');
+        return;
+      }
+
+      const opt = _.#option;
+      opt.beforeRender(J); //修飾JSON變數 by reference
+
+
+
+      let totalRec = J.totalCount;
+      let startIdx = pageSize*(pageNum - 1);
+      let endIdx   = startIdx + pageSize;
+      if(endIdx>(totalRec-1)) endIdx = totalRec;
+      let strRecInfo = _.#i18n.pageNumber; // %s - %s 筆，共 %s 筆
+      strRecInfo = sprintf(strRecInfo,[startIdx+1,endIdx,totalRec].map(v=>v.toLocaleString('en')));
+
+
+      callback(J.data,strRecInfo);
+
+
+    },'json');
+
+  }
+
+
+
+  //擷取要顯示的那頁資料, 因為會有後端分頁所以會有 callback
+  #loadTablePageData(tableIndex,pageNum,pageSize,callback) {
+    const _ = this; //bxRport
+    const opt = _.#option;  //總選項
+
+    //分頁方式
+    if(opt.serverPaging) { //後端
+      //參數:(哪個表格,每頁筆數,頁碼,callback)
+      //callback 傳入 要顯示的表格陣列displayArray, 左下角文字recordInfo
+      _.#pageViewOfServer(tableIndex,pageSize,pageNum,callback);
+    }
+    else { //前端
+      // {要顯示的陣列, "%s - %s 筆，共 %s 筆"}
+      let {displayArray,recordInfo} =  _.#pageViewOfArray(_.#JsonTables[tableIndex],pageSize,pageNum); //參數:(全表陣列,每頁筆數,頁碼)
+      callback(displayArray,recordInfo);
+    }
+
+  }
+
+
+
+  //分頁器: 翻頁(分頁器,頁碼,事件)
+  #changePage($pagination,pageNum,ev) {
+
+    const _ = this; //bxRport
+    const $wp = $pagination.closest('.table');
+    const tableIndex = $wp.index();
+    const $tableTag = $('table',$wp);
+    const $mainContent = $('>.main-content',$wp);
+
+    const opt = _.#option;  //總選項
+    const op = opt.tables[tableIndex]; //此表選項
+    let pageSize = parseInt( Array.isArray(op.pagin)? $('.bottom-hints select',$wp).val(): op.pagin,10);
+
+
+    //跳到表格開頭 (當表格捲到可視區外才要跳)
+    const hH = _.elStickyTitle.clientHeight; //頁眉高度
+    const ssH = $('.main-content',$wp)[0].style.getPropertyValue('--ssH').replace('px',''); //影子卷軸高
+    const docY = document.documentElement.scrollTop;
+    const tY = parseInt($tableTag[0].getBoundingClientRect().top+docY); //表格位置
+    const toY = tY-hH-ssH;
+    if(docY>tY) window.scroll(0,toY);
+
+
+
+    $mainContent.addClass('load');
+
+
+    //擷取要顯示的那頁資料, 因為會有後端分頁所以會有 callback
+    _.#loadTablePageData(tableIndex,pageNum,pageSize,(displayArray, recordInfo)=>{
+
+      //左下文字
+      if(recordInfo !== null) $('.bottom-hints>div:first-child',$wp).text(recordInfo);
+
+      //tbody內容
+      $('tbody',$wp).html(displayArray.map( tr => '<tr>'+tr.map(td=>`<td>${td?td.toString():''}</td>`).join('')+'</tr>').join(''));
+
+
+      _.#autoChangeColor(); //漲跌顏色
+      opt.afterRender(_,tableIndex,displayArray); //分頁器產表完成後
+
+      $mainContent.removeClass('load');
+
+    });
+
+
+    return false;
+  }
+
+
+
+  //垂直方向依資料相同做跨欄，(tbody,依據欄,[要合並哪些欄])
+  rowSpan(indexTable, iCol, aCols) {
+    const _ = this;
+    const $tbody = $('.table',_.#$.content).eq(indexTable).find('tbody');
+
+    if($tbody.length !== 1) return;
+
+    const $trs  = $('tr',$tbody);
+    if($trs.length===0) return;
+
+    let preSN = null; //依據值
+    let $spanTDs; //開始直向跨欄的格子
+    let rowSpan; //跨幾欄
+
+    $trs.each((idxTR,tr)=>{
+      const $tds = $('td',tr);
+      const sn = $tds.eq(iCol).text();
+      if(sn == preSN) {
+        $tds.filter(isSpanCol).addClass('hide');
+        rowSpan++;
+      }
+      else {
+        if(preSN !== null){
+          $spanTDs.filter(isSpanCol).attr('rowspan',rowSpan);
+        }
+        rowSpan = 1;
+        $spanTDs = $('td',tr);
+      }
+      preSN = sn;
+    });
+    $spanTDs.filter(isSpanCol).attr('rowspan',rowSpan);
+
+
+    function isSpanCol(i,td) { return aCols.includes(i); }
+
+  }
+
+  //列印
+  doPrintTable($button) {
+    const _ = this;
+    
+    
+    let newTab = window.open('','_blank');
+    
+    
+    if (typeof newTab !== 'object') {
+      alert("無法開啟新的分頁，請檢查瀏覽器設定。");
+      return;
+    }
+    
+    const base = location.origin;
+    const doc = newTab.document;
+    
+
+    doc.documentElement.lang = document.documentElement.lang;
+    doc.title = document.title ;
+    
+   
+    const JsonDate = _.#JsonDate; // 查詢日期
+    const JsonTables = _.#JsonTables; // 表格資料
+    
+        
+    //<link href="/rsrc/css/tables.css" rel="stylesheet">
+    
+   
+
+    $(doc.head).append(`
+      <script src="${base + $('script[src*="jquery-3"]').safeAttr('src')}"></script>
+      <link href="${base + $('link[href*="tables.css"]').safeAttr('href').replace('tables','print')}" rel="stylesheet">
+    `);
+ 
+    
+    //頁面最大標題 如果 JSON 有date 回傳則 +資料時間
+    let titleH1 = $('section.title>div:first-child').safeText(); 
+    if(JsonDate.length) titleH1 += ('\t'+ _.#i18n.date + JsonDate.map(d=>d.format(_.#day.YMD)).join(' ~ ')); //資料日期：
+    
+    
+    
+    let body = `<div id="paper"><h1>${titleH1}</h1>`;
+    
+    //要移除的欄名
+    let removes = $button.data('hide')?.toString().split(/,/) || [];
+    
+    
+    _.#JsonTables.forEach((J,i)=>{
+      const $t= $('>.table',_.#$.content).eq(i);      //每個 .table
+      const $topHints = $('.top-hints>div',$t);       //表上方左右兩個DIV
+      const $bottomHints = $('.bottom-hints>div',$t); //表下方左右兩個DIV
+
+      //表格標題
+      let title2 = $('h2',$t).text();
+      let title3 = $('h3',$t).text();
+      if(title3) title2 += ` (${title3})`;
+      
+      //表格四角落文字
+      const hints = [...$('.top-hints>div',$t),...$('.bottom-hints>div',$t)].map(el=>el.innerText);
+      hints[2] = hints[2].replace(/^.+筆，/,'').replace(/^\d+-\d+ of /,'');
+      hints[3] = hints[3].replace(/^每頁.+/s,'').replace(/^\d records per page/,'');
+      
+      //說明
+      let noteHtml = $('.noteblock',$t)[0].outerHTML;
+      let tableClass = $('table',$t).attr('class');
+      
+      let fields = [...J.fields]; //克隆欄名
+      let removeCols = []; //即將移掉的欄位索引
+      fields.forEach((v,i)=>{
+        for(let rm of removes) if(v==rm) removeCols.unshift(i);
+      }); //倒序存入
+      for(let rm of removes) {
+         if(/^\d+$/.test(rm)) removeCols.unshift(parseInt(rm,10)-1); //第幾欄
+      }
+
+      //移除欄名
+      for(let idx of removeCols) { fields.splice(idx,1); }
+      fields = fields.map(s=>`<th scope="col">${s.toString()}</th>`).join('');
+      let thead  = _.#tmpTableHead[i] || `<tr>${fields}</tr>`;
+      
+      
+      //資料
+      let tbody = J.data.map(tr=>{
+        for(let idx of removeCols) { tr.splice(idx,1); }
+        return '<tr>'+tr.map(td=>`<td>${td?td.toString():''}</td>`).join('')+'</tr>';
+      }).join('');
+      
+      //總計
+      let tfoot = J.summary.map( tr => {
+        for(let idx of removeCols) { tr.splice(idx,1); }
+        return '<tr>'+tr.map(td=>`<td>${td?td.toString():''}</td>`).join('')+'</tr>';
+      }).join('');
+
+      body += `
+        <h2>${title2}</h2>
+        <div class="top-hints"><div>${hints[0]}</div><div>${hints[1]}</div></div>
+        <table class="${tableClass}"><thead>${thead}</thead><tbody>${tbody}</tbody><tfoot>${tfoot}</tfoot></table>
+        <div class="bottom-hints"><div>${hints[2]}</div><div>${hints[3]}</div></div>
+        <br><br>
+        ${noteHtml}
+        <br><br>
+      `;
+
+
+    });
+    
+    
+    const outerNote = $('#tables-notes');
+    if(outerNote.length > 0) body += outerNote[0].outerHTML;
+    
+
+    body += '</div>';
+    
+    body += `<script src="${base + $('script[src*="tables.js"]').safeAttr('src').replace('tables','print')}"></script>`;
+    
+   
+    $(doc.body).append(body);
+
+    
+  }
+
+
+}
+
+
+
+//內頁套版功能
+class bxTemplate {
+
+
+  //在 constructor() 定值
+  #lan; // zh jp en
+  $content;
+
+
+  //在 init() 定值
+  #option;
+  apiAction = ''; //API路徑: 報表
+  JsonData = {};
+
+  constructor() {
+    this.#lan = /^zh/i.test(docLang)?'zh':(/jp/i.test(document.documentElement.lang)?'jp':'en');
+    this.$content = $('#templates-content');
+  }
+
+
+  //要在 #tables-content 先加
+  init(cfg) {
+
+
+
+    const _ = this;
+
+    if(_.$content.length===0) console.error('頁面中需要 #templates-content 元素');
+
+    //_.$content.addClass('load');
+
+    const defaultOption = {
+      pattern: '/{LANG}/{ACTION}',    //API路徑
+      action: '',                     //報表API (必要) 會套入上面 PATTERN
+      beforeInit: ()=>{},
+      beforeRender: ()=>{},
+      afterRender: ()=>{}
+    }
+
+    _.#option = Object.assign({},defaultOption,cfg);
+    const opt = _.#option;
+
+    //實際API完整路徑
+    const langDir = { 'zh': 'zh-tw', 'en': 'en-us', 'jp': 'ja-jp' }
+    _.apiAction   = opt.action?opt.pattern.replace(/\{LANG\}/,langDir[_.#lan]).replace(/\{ACTION\}/,opt.action):'';
+
+
+    //參數轉物件
+    const params = Object.fromEntries(new URLSearchParams(window.location.search));
+
+    // 只有1個參數且不是 key=value 時，把它變成 id
+    // 避免分享連結被FB等加上 fbclid 等追蹤參數時 (?23020&fbclid=xxx)，id須正確解析
+    const bareKey = Object.keys(params).find(key => params[key] === '');
+    if(bareKey !== undefined) {
+      params['id'] = bareKey;
+      delete params[bareKey];
+    }
+
+
+    opt.beforeInit(params);
+
+    
+    $.post(_.apiAction,params,(J)=>{
+      
+      opt.beforeRender(J);
+
+      if(J.stat!=='ok') {
+        $('#tables-message').text(J.stat);
+        _.$content.removeClass('hide load');
+        return;
+      }
+      
+      
+      
+      
+
+      _.JsonData = J.data; //資料存入公用區
+
+
+      //HTML
+      $('[data-name]',_.$content).each((idx,span)=>{
+        const $span = $(span);
+        const key = $span.data('name');
+        if(key in J.data) $span.safeHtml(J.data[key]);
+      });
+
+      opt.afterRender(_);
+      _.$content.removeClass('load');
+    });
+
+
+
+
+
+
+
+
+  }
+
+
+
+}
+
+
+
+//彈跳視窗
+class bxPopupWindow {
+  $po;
+  constructor() {}
+
+  init() {
+    const _ = this;
+    _.$po = $('<div class="popup-overlay"><div class="win"><button class="close" title="關閉"></button><div class="content"></div></div></div>').appendTo('body');
+
+
+
+    _.$po.on('click',(ev)=>{
+      const $el = $(ev.target);
+      if($el.hasClass('close') || $el.hasClass('popup-overlay')) _.$po.addClass('close');
+    });
+
+
+
+    _.$po.on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd',(ev)=>{
+      if(_.$po.is('.active.close')){
+        _.$po.removeClass('active'); //關閉動畫完成
+        setTimeout(()=>{_.$po.removeClass('close');},300);
+      }
+    });
+
+  }
+  
+  //加入視窗 className
+  setClass(className) {
+    this.$po.find('.win').addClass(className);
+  }
+
+  //關閉彈窗
+  close() {
+    this.$po.addClass('close');
+  }
+
+  open(htm) {
+    if(typeof htm === 'string') $('>.win>.content',this.$po).safeHtml(htm);
+    this.$po.addClass('active');
+  }
+
+}
+
+/////////////////////////////////////////////////////////////////
+
+
+let tables = new bxRport();
+let templates = new bxTemplate();
+let popupWindow = new bxPopupWindow();
