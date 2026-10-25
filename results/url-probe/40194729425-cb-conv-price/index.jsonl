@@ -1,0 +1,3 @@
+{"n":1,"url":"https://www.tpex.org.tw/zh-tw/bond/issue/cbond/listed.html","started_at":"2026-10-25T12:48:16Z","http_status":"200","sha256":"5775ba36501be7ec87fdfda8d9db5a87ddde248f09d2b9a59dfe7da71ba3cb7d","bytes":11568}
+{"n":2,"url":"https://www.tpex.org.tw/zh-tw/bond/announce/close.html","started_at":"2026-10-25T12:48:20Z","http_status":"200","sha256":"58b3c04e49eb543b435f1fce6bc7bf90303ba2db50207ef147243990e47a296a","bytes":11220}
+{"n":3,"url":"https://mopsov.twse.com.tw/mops/web/ajax_t120sb01?encodeURIComponent=1&step=1&firstin=1&off=1&TYPEK=otc&year=115&month=09","started_at":"2026-10-25T12:48:26Z","http_status":"000curl_error","sha256":"","bytes":0}
