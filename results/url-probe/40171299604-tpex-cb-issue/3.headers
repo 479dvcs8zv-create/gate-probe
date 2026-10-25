@@ -1,0 +1,13 @@
+HTTP/2 200 
+date: Sun, 25 Oct 2026 07:03:06 GMT
+content-type: application/json
+content-length: 181
+server: cloudflare
+last-modified: Sun, 25 Oct 2026 06:04:27 GMT
+etag: "6add9beb-b5"
+content-disposition: attachment;filename=bond_cb_daily.json
+accept-ranges: bytes
+cache-control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
+cf-cache-status: DYNAMIC
+cf-ray: a4ff5c0aa8a01425-MSP
+
