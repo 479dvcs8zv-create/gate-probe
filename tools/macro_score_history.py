@@ -105,9 +105,17 @@ def read_dataset(paths):
         cols["t10y2y"] = {d: v - cols["dgs2"][d] for d, v in cols["dgs10"].items() if d in cols["dgs2"]}
     if "sahmrealtime" not in cols and "unrate" in cols:
         u = {day(k).replace(day=1): v for k, v in cols["unrate"].items()}
-        avg3 = {m: (u[m] + u[month_add(m, -1)] + u[month_add(m, -2)]) / 3 for m in u if month_add(m, -1) in u and month_add(m, -2) in u}
-        cols["sahmrealtime"] = {m.isoformat(): v - min(avg3[month_add(m, -k)] for k in range(1, 13)) for m, v in avg3.items()
-                                if all(month_add(m, -k) in avg3 for k in range(1, 13))}
+        # 2025-10 因政府關門沒有公布：3 個月平均至少要有 2 個月、前 12 個月至少要有 10 個平均值才計算。
+        avg3 = {}
+        for m in u:
+            got = [u[month_add(m, -k)] for k in range(3) if month_add(m, -k) in u]
+            if len(got) >= 2:
+                avg3[m] = sum(got) / len(got)
+        cols["sahmrealtime"] = {}
+        for m, v in avg3.items():
+            prior = [avg3[month_add(m, -k)] for k in range(1, 13) if month_add(m, -k) in avg3]
+            if len(prior) >= 10:
+                cols["sahmrealtime"][m.isoformat()] = v - min(prior)
         cols["_sahm_computed"] = {"1": 1.0}
     return cols
 
