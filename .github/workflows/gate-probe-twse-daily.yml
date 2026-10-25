@@ -16,6 +16,10 @@ on:
         description: 本次最多執行分鐘數（上限 320）
         required: true
         default: '320'
+      kind:
+        description: daily＝每日漲跌家數；daytrade＝當沖占比月表
+        required: true
+        default: daily
 permissions:
   contents: write
 concurrency:
@@ -35,11 +39,16 @@ jobs:
           START: ${{ inputs.start }}
           END: ${{ inputs.end }}
           MINUTES: ${{ inputs.minutes }}
+          KIND: ${{ inputs.kind }}
         run: |
           case "$START$END" in *[!0-9-]*) echo "bad date"; exit 1;; esac
           case "$MINUTES" in *[!0-9]*|"") echo "bad minutes"; exit 1;; esac
           [ "$MINUTES" -le 320 ] || MINUTES=320
-          python3 -I tools/build_twse_daily.py results/backtest-data/twse-daily "$START" "$END" "$MINUTES" results/backtest-data/twse-cache
+          if [ "$KIND" = daytrade ]; then
+            python3 -I tools/build_twse_daytrade.py results/backtest-data/twse-daily results/backtest-data/twse-cache
+          else
+            python3 -I tools/build_twse_daily.py results/backtest-data/twse-daily "$START" "$END" "$MINUTES" results/backtest-data/twse-cache
+          fi
       - name: Commit
         if: always()
         run: |

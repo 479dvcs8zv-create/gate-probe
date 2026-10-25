@@ -3,7 +3,7 @@
 
 用法：python3 -I build_twse_daily.py <輸出資料夾> <起日 YYYY-MM-DD> <迄日> <可用分鐘數> [交易日快取資料夾]
 - 交易日清單：讀加權指數月檔快取（MI_5MINS_HIST_*.json，已存在 repo），只請求真的有開盤的日子。
-- 每日請求：MI_INDEX?type=ALLBUT0999（全部上市證券，不含權證、牛熊證）；2014-01-06 起另請求 TWTB4U（當沖）。
+- 每日請求：MI_INDEX?type=ALLBUT0999（全部上市證券，不含權證、牛熊證）。當沖占比改由 build_twse_daytrade.py 用月表抓（一個月一次請求）。
 - 漲跌家數：逐檔看「漲跌(+/-)」欄，上漲＝+、下跌＝-，和網站用 STOCK_DAY_ALL 逐檔數的口徑相同（不含權證）。
 - 電子類：「價格指數(臺灣證券交易所)」表中的電子工業類指數漲跌百分比；早年回應沒有這張表就留空，不補值。
 - 每次請求間隔 4 秒；連續 5 次失敗就停（可能被擋），已完成的先存。原始回應不存（太大），只存 SHA-256 與位元組數。
@@ -118,10 +118,6 @@ def main(out, start, end, minutes, cache="results/backtest-data/twse-cache"):
             row.update(adv=adv, dec=dec, unch=unch, rows=rows, breadth_pct=f"{adv / (adv + dec) * 100:.4f}" if adv + dec else "",
                        elec_pct="" if elec is None else elec, mi_sha256=hashlib.sha256(body).hexdigest(), mi_bytes=len(body))
             time.sleep(4)
-            if d >= dt.date(2014, 1, 6):
-                b2 = fetch(f"https://www.twse.com.tw/rwd/zh/dayTrading/TWTB4U?date={ymd}&selectType=All&response=json")
-                row.update(daytrade_share=parse_dt(b2, ymd), dt_sha256=hashlib.sha256(b2).hexdigest())
-                time.sleep(4)
             done[row["date"]] = row
             streak = 0
         except Exception as e:  # noqa: BLE001
