@@ -1,0 +1,6 @@
+{"n":1,"url":"https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE","started_at":"2026-10-25T15:35:11Z","http_status":"000curl_error","sha256":"","bytes":0}
+{"n":2,"url":"https://fred.stlouisfed.org/data/UNRATE.txt","started_at":"2026-10-25T15:35:15Z","http_status":"000curl_error","sha256":"","bytes":0}
+{"n":3,"url":"https://fred.stlouisfed.org/series/UNRATE","started_at":"2026-10-25T15:35:18Z","http_status":"000curl_error","sha256":"","bytes":0}
+{"n":4,"url":"https://api.bls.gov/publicAPI/v1/timeseries/data/LNS14000000","started_at":"2026-10-25T15:35:21Z","http_status":"200","sha256":"25e9923ab40e69b0fd4440e3bc66c88eb2fae9952033a1b9c4a8bea0c5c88026","bytes":3153}
+{"n":5,"url":"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2008/all?type=daily_treasury_real_yield_curve&field_tdr_date_value=2008&page&_format=csv","started_at":"2026-10-25T15:35:24Z","http_status":"200","sha256":"8d79576383af601010f6c4e8c0240a0e6f8fd1c04eec05e6b8d89ebb9c327232","bytes":7815}
+{"n":6,"url":"https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2018-04-01&endDate=2018-04-10","started_at":"2026-10-25T15:35:28Z","http_status":"200","sha256":"0df4d0767868130a9abdbf7c3ea9060c59ec0f3518f8c81bbb4f1e954b04611f","bytes":1677}
