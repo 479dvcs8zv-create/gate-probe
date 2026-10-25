@@ -1,0 +1,3 @@
+{"n":1,"url":"https://data.gov.tw/api/v2/rest/dataset/30815","started_at":"2026-10-25T13:50:44Z","http_status":"200","sha256":"e449975a0328dba94a8309ebb87d3a00a0c5108c3cdf2e6b096f2e1d793ba809","bytes":10040}
+{"n":2,"url":"https://www.twse.com.tw/rwd/zh/dayTrading/TWTB4U2?date=20140701&stockNo=&response=json","started_at":"2026-10-25T13:50:47Z","http_status":"200","sha256":"3b19484562fcc51974739c75905ad386b156304e79b71cbb96ef43735baa9fd8","bytes":2677}
+{"n":3,"url":"https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2007/07/02&response=json","started_at":"2026-10-25T13:50:52Z","http_status":"200","sha256":"13f6ed43f87d6783c3c36af3dd41f46553ea0d5a151a28f029e85deed692a8d8","bytes":122213}
