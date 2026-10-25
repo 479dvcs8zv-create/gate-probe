@@ -2,7 +2,7 @@
 """第 31 輪：重建 2006–2026 每日「台股總經與市場位階」分數（照網站 worker/macro-scoring.js 的規則），
 再回測「只在極端時調整持股」的做法。規則全部寫在這裡、看結果之前寫定。
 
-用法：python3 -I tools/macro_score_history.py <資料集 CSV> <國發會 ZIP> <輸出資料夾> [台股每日 CSV] [央行 CSV]
+用法：python3 -I tools/macro_score_history.py <資料集 CSV（可用逗號串多個）> <國發會 ZIP> <輸出資料夾> [台股每日 CSV] [央行 CSV]
 
 一、計分（與網站相同）
 - 台股模型＝美國「物價」20、「成長就業」25、「利率信用流動性」25 ＋ 台股「本土」30；
@@ -91,13 +91,24 @@ DIMS = {"inflation": (20, 2), "growth": (25, 5), "rates": (25, 4), "local": (30,
 STALE = {"monthly": 45, "weekly": 14, "daily": 7}
 
 
-def read_dataset(path):
+def read_dataset(paths):
+    """一個或多個 CSV（逗號分隔路徑），欄名相同時後面的檔案不覆蓋前面已有的值。"""
     cols = {}
-    with open(path) as f:
-        for r in csv.DictReader(f):
-            for k, v in r.items():
-                if k != "date" and v not in ("", "."):
-                    cols.setdefault(k, {})[r["date"]] = float(v)
+    for path in paths.split(","):
+        with open(path) as f:
+            for r in csv.DictReader(f):
+                for k, v in r.items():
+                    if k != "date" and v not in ("", "."):
+                        cols.setdefault(k, {}).setdefault(r["date"], float(v))
+    # FRED 連不上時由官方原始資料推得：T10Y2Y＝10 年−2 年；Sahm＝失業率 3 個月平均 − 前 12 個月 3 個月平均的最低值（用現行數字，非即時版）。
+    if "t10y2y" not in cols and "dgs10" in cols and "dgs2" in cols:
+        cols["t10y2y"] = {d: v - cols["dgs2"][d] for d, v in cols["dgs10"].items() if d in cols["dgs2"]}
+    if "sahmrealtime" not in cols and "unrate" in cols:
+        u = {day(k).replace(day=1): v for k, v in cols["unrate"].items()}
+        avg3 = {m: (u[m] + u[month_add(m, -1)] + u[month_add(m, -2)]) / 3 for m in u if month_add(m, -1) in u and month_add(m, -2) in u}
+        cols["sahmrealtime"] = {m.isoformat(): v - min(avg3[month_add(m, -k)] for k in range(1, 13)) for m, v in avg3.items()
+                                if all(month_add(m, -k) in avg3 for k in range(1, 13))}
+        cols["_sahm_computed"] = {"1": 1.0}
     return cols
 
 
