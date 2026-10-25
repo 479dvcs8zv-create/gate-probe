@@ -1,11 +1,18 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-25 21:30 台北（Claude）
+更新：2026-10-26 01:00 台北（Claude）
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
 
 ## 現在：兩份修改包**依序套用、一次部署**（Claude 寫好、測完；擁有者都已授權）
+- 10-26 00:53 第一次嘗試：執行環境離線（No usable execution environment），未套用、未部署，仍是 v234（報告 `diagnostics/deploy-20261026/report.md`）。**環境恢復後重做同一件事，不需要重新授權。**
+- 完整 SHA-256（核對用）：
+  - `owner-bundle-20261025.patch` = `25ad83272642ef3038f79ba0025e264317086b3511d9adb3d5980b528b216afb`
+  - `owner-bundle2-20261025.patch` = `f5068830265e6b0ace2ee881656d1a9ddbf33460b26d3f774644e0485168c334`
+  - 只套第一包後 `dist/index.html` = `fa1412dcc763c376322676c6900380033c6c7a0d415c4e60e2ba092522609f68`
+  - 兩包都套後 `dist/index.html` = `2b707b79fc43e8a9f2c29da15cb42ed7cbe906b3ea66aa5b428d4305f4a27544`
+- 憑證（10/25 事故）：`siwc_bypass_bearer_token`。下次回報只要多寫一行：這把 token 會不會自動過期、Sites 有沒有撤銷／重新產生的方法（只寫方法，不要輸出值）。
 **授權**：擁有者 2026-10-25 20:15「我授權」（三問）＋20:17「好 一起處理」（同意可轉債、美元零軸、外銷訂單與三問合併一次上線）。範圍只有下面這一份 patch。
 - Patch：`handoff/patches/owner-bundle-20261025.patch`（SHA-256 `25ad8327…6afb`），**取代** three-questions-v1.patch（不要兩份疊套）。基線＝v234 來源 faf5eb7（488b8bc＋final.patch）。patch 不含 dist/server/index.js，build 重建。
 - 內容（全部只顯示，`scoreContribution=0`，不改評級／Gate／風險預算）：
