@@ -1,0 +1,17 @@
+HTTP/1.1 200 
+Server: HiNetCDN
+Date: Sun, 25 Oct 2026 12:36:29 GMT
+Content-Type: text/csv;charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Application-Context: application:production
+Content-Disposition: attachment; filename="STOCK_DAY_ALL_20261022.csv"
+Content-Security-Policy: frame-ancestors 'self' *.twse.com.tw *.tdcc.com.tw http://digitalprocesssyst-epassbook.cdn.hinet.net digitalprocesssys-epassbook.cdn.hinet.net;
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(),microphone=(),geolocation=(),sync-xhr=*,gyroscope=()
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Access-Control-Allow-Origin: *
+X-Cache: HIT
+x-request-id: c8d0114a7eee03c0350dec8ba4491fc9
+

@@ -1,0 +1,3 @@
+{"n":1,"url":"https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL","started_at":"2026-10-25T12:36:18Z","http_status":"200","sha256":"279454be41ee236def2c7bea080d7339633320c7f8bd21838b51e8ccc31273be","bytes":320388}
+{"n":2,"url":"https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?date=20261022&selectType=ALL&response=json","started_at":"2026-10-25T12:36:24Z","http_status":"200","sha256":"7f0e9387df720ce531150d30996c9e1bb78c02d1520f2a68c7f220cc0aca9963","bytes":129327}
+{"n":3,"url":"https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY_ALL?response=json","started_at":"2026-10-25T12:36:29Z","http_status":"200","sha256":"79bdd059e75a0a829dfef1e5c1330cb48a84b302e04ce040e77ee0dd35e5ec6a","bytes":137956}
