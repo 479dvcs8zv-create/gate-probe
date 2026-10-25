@@ -1,0 +1,12 @@
+HTTP/2 200 
+date: Sun, 25 Oct 2026 15:37:27 GMT
+content-type: text/html; charset=utf-8
+set-cookie: __cf_bm=6DIJ8Wraj.upRPQRoGSLFo8R3.HCiOELAr.ahcXswUc-1792942647.3113656-1.0.1.1-UOheo5onTBSwg_03eAU_D1IXO1heOv15.5Jck8yN_6oK3ObL3vzwmIBMuJgqi3ZdveXTugUxjQ_TBvwh4zGYVtJtTzddDKIsBZcmE.7nn5.MJ3R1ptHUkDtYOjswNANf; HttpOnly; SameSite=None; Secure; Path=/; Domain=federalreserve.gov; Expires=Sun, 25 Oct 2026 16:07:27 GMT
+set-cookie: _cfuvid=Cbd2UNca39vj.Rvs_HU1MRJIyx6jBeFJUKbsEM3C6fM-1792942647.3113656-1.0.1.1-8bHmAQeB_LnnNRN3SWaQWR9J_sOfmK4bIhERIIyNsX8; HttpOnly; SameSite=None; Secure; Path=/; Domain=federalreserve.gov
+cf-ray: a5024d79a9b238ab-IAD
+cf-cache-status: BYPASS
+cache-control: private
+server: cloudflare
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+

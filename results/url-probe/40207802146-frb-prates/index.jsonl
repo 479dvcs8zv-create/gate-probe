@@ -1,0 +1,2 @@
+{"n":1,"url":"https://www.federalreserve.gov/datadownload/Output.aspx?rel=PRATES&lastobs=&from=01/01/2008&to=10/25/2026&filetype=csv&label=include&layout=seriescolumn","started_at":"2026-10-25T15:37:24Z","http_status":"200","sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","bytes":0}
+{"n":2,"url":"https://www.federalreserve.gov/datadownload/Choose.aspx?rel=PRates","started_at":"2026-10-25T15:37:27Z","http_status":"200","sha256":"0e7f4770ed2d2537a4c56bfb222338674bc14d19d584452064e23c2b3f4692b4","bytes":82314}
