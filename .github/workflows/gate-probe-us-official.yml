@@ -1,0 +1,42 @@
+name: gate-probe-us-official
+# 回測用美國官方資料（BLS、財政部、紐約聯儲、聯準會），唯讀 GET／BLS 公開 POST，不使用任何金鑰。
+# 只寫入 gate-probe 的 results/backtest-data/us-official-<run id>/。
+on:
+  workflow_dispatch:
+    inputs:
+      start_year:
+        description: 起始年
+        required: true
+        default: '2005'
+permissions:
+  contents: write
+concurrency:
+  group: gate-probe-us-official
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build
+        env:
+          START_YEAR: ${{ inputs.start_year }}
+        run: |
+          case "$START_YEAR" in *[!0-9]*|"") echo "bad year"; exit 1;; esac
+          python3 -I tools/build_us_official.py "results/backtest-data/us-official-${GITHUB_RUN_ID}" "$START_YEAR"
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/backtest-data
+          git commit -m "us official data run ${GITHUB_RUN_ID}" || exit 0
+          for n in 1 2 3 4 5; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            sleep 10
+          done
+          exit 1
