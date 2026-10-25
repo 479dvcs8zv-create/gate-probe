@@ -9,6 +9,13 @@
 - 部署後只讀回三件事：①10/22 信用可被接受、觀測日仍 10/22、`calendarDiscrepancy=true`；②信用列 `verifiedAt` 不是本輪時間；③run 摘要與 /api/macro 一致。
 - **10/27（週二）22:30 晚間巡檢**：信用要被接受；10/28 上午讀回 `verifiedAt` 沒被改寫、10/22 升 final。
 
+## 同一輪順便做（擁有者 10-25 15:18：之後的功能改由 Claude 寫程式，GPT 只負責套用與上線）
+- 把網站來源 **commit 488b8bc（v233，尚未套 final.patch）** 打包成一個 zip 交給擁有者下載（**不要放進任何公開 repo**）。
+- 包含：全部原始碼與測試（worker/、tests/、build.mjs、package.json、package-lock.json、dist/index.html、遷移檔等，能在乾淨環境 `npm ci && npm test`）。
+- 排除：任何金鑰／.env／憑證、`dist/server/index.js`（生成檔，含私人操作說明）、node_modules、私人網址與專案代號。
+- 附檔案清單與每個檔的 SHA-256；在 report.md 寫一行 zip 的 SHA-256。
+- 之後流程：Claude 用這份來源寫好功能＋測試、自己跑完整 `npm test`，把 patch 放 gate-probe；GPT 只要套用、跑測試、擁有者授權後上線。
+
 ## 回報方式（省額度）
 - 只寫一個檔：`diagnostics/deploy-20261025/report.md`，40 行以內；附 patch SHA、部署版本號、三項讀回結果、npm test 是否 exit 0。
 - 不要每一步各開一個 commit；完成後一次提交。
