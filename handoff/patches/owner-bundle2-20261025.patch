@@ -1,0 +1,390 @@
+diff --git a/build.mjs b/build.mjs
+index 0d2a6b8..1539d7c 100644
+--- a/build.mjs
++++ b/build.mjs
+@@ -30,7 +30,7 @@ const tiingoMarket=`const TIINGO_MARKET=(()=>{${readFileSync(new URL('./worker/t
+ const tiingoStore=`const TIINGO_STORE=(()=>{${readFileSync(new URL('./worker/tiingo-store.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {createPrivateStore};})();`;
+ const tiingoSite=readFileSync(new URL('./worker/tiingo-site.js',import.meta.url),'utf8');
+ const panelCalculations=`const PANEL_CALCULATIONS=(()=>{${readFileSync(new URL('./worker/panel-calculations.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildStockPanels};})();`;
+-const panelSources=`const PANEL_SOURCES=(()=>{${readFileSync(new URL('./worker/panel-sources.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {officialDay,collectLending,selectAndSaveLending,collectCbRegistry};})();\n${readFileSync(new URL('./worker/panel-site.js',import.meta.url),'utf8')}`;
++const panelSources=`const PANEL_SOURCES=(()=>{${readFileSync(new URL('./worker/panel-sources.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {officialDay,collectLending,selectAndSaveLending,collectCbRegistry,collectTdccHolders,selectAndSaveHolders,collectMarginMaintenance};})();\n${readFileSync(new URL('./worker/panel-site.js',import.meta.url),'utf8')}`;
+ const advisoryDecision=`const ADVISORY_DECISION=(()=>{${readFileSync(new URL('./worker/advisory-decision.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildAdvisoryDecision};})();`;
+ const marketTimeline = readFileSync(new URL('./worker/market-timeline.js', import.meta.url), 'utf8');
+ const masterEvidence = readFileSync(new URL('./worker/master-evidence.js', import.meta.url), 'utf8');
+diff --git a/dist/index.html b/dist/index.html
+index 77dd467..9e85500 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -947,6 +947,14 @@ function renderAdvisoryPanels(model){
+  const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
+  const body=cb.status==='failed'||cb.status==='insufficient'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
+  card('可轉債（櫃買自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
++ const pctText=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';
++ const tqw=p.threeQuestions?.questions?.chips?.windows||{},lotsText=x=>Number.isFinite(x)?(x>0?'+':'')+Math.round(x/1000).toLocaleString('zh-TW')+'張':'缺值';
++ card('法人買賣超 5／10／20日',['d5','d10','d20'].map(k=>{const w=tqw[k];return `${k.slice(1)}日 外資 ${lotsText(w?.foreignShares)}、投信 ${lotsText(w?.trustShares)}`;}).join('；'),'FinMind 三大法人日資料；日期須與股價日期逐日對齊，不足就標缺值。');
++ const dy=p.dividendYield||{};card('殖利率歷史區間',dy.status==='ok'?`殖利率 ${show(dy.current)}%｜P20 ${show(dy.p20)}／中位 ${show(dy.median)}／P80 ${show(dy.p80)}｜目前位於 ${show(dy.percentileRank)} 百分位`:`待補：${dy.reason||'缺值'}`,`${dy.from||'起日缺值'}～${dy.through||p.asOf||'迄日缺值'}；${dy.observations||0}筆；${dy.source||''}；只顯示。`);
++ const rsi=p.rsi||{};card('RSI（14日）',rsi.status==='ok'?`${show(rsi.value)}｜${rsi.note}`:`待補：${rsi.reason||'缺值'}`,`${rsi.date||'日期缺值'}；${rsi.method||'Wilder RSI(14)'}；只顯示。`);
++ const beta=p.beta||{};card('Beta（對加權指數，近120日）',beta.status==='ok'?`${show(beta.value)}｜${beta.value>1?'波動大於大盤':'波動小於大盤'}`:`待補：${beta.reason||'缺值'}`,`${beta.from||'起日缺值'}～${beta.to||'迄日缺值'}；${beta.method||''}；只顯示。`);
++ const lh=p.largeHolders||{};card('集保千張以上大戶（週）',lh.status==='ok'?`${show(lh.pct15)}%（${lh.holders15??'缺值'} 人）｜${lh.weeksObserved}週：${(lh.weeks||[]).map(w=>`${w.date.slice(5)} ${show(w.pct15)}%`).join('、')}${Number.isFinite(lh.changeVsFirst)?`｜期間變化 ${lh.changeVsFirst>=0?'+':''}${lh.changeVsFirst.toFixed(2)} 個百分點`:''}`:`待補：${lh.reason||'缺值'}`,`${lh.date||'日期缺值'}；${lh.source||'集保結算所'}；網站從上線起每週累積，滿4週才看得到4週變化；只顯示。`);
++ const mm=p.marginMaintenance||{};card('大盤融資維持率（上市，估算）',['ok','snapshot'].includes(mm.status)?`${show(mm.ratioPct)}%｜${mm.date}${mm.status==='snapshot'?'（'+mm.reason+'）':''}`:`待補：${mm.reason||'缺值'}`,`${mm.method||'Σ融資餘額×收盤價÷融資金額'}；${mm.stocks||0}檔計入、缺價 ${mm.missingPrice??0} 檔；證交所 STOCK_DAY_ALL＋MI_MARGN；非官方公布值，只顯示。`);
+  const pb=p.priceBook||{};card('股價淨值比歷史區間',pb.status==='ok'?`P/B ${show(pb.current)} 倍｜P20 ${show(pb.p20)}／中位 ${show(pb.median)}／P80 ${show(pb.p80)}`:`待補：${pb.reason||'缺值'}`,`${pb.from||'起日缺值'}～${pb.through||p.asOf||'迄日缺值'}；${pb.observations||0}筆；自身可得樣本，不代替既有P/E。`);
+  const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸（先進經濟體美元指數）',dxy.status==='ok'?`目前 ${show(dxy.value)}｜5個觀測前 ${show(dxy.previous5?.value)}｜${dxy.value>0?'站上前20日高點':dxy.value<-100?'跌破前20日低點（走弱）':'區間內'}｜草案 ${dxy.draftPoints===-1?'−1':'0'}；0＝前20日最高，−100＝前20日最低`:`待補：${dxy.reason||'缺值'}`,`觀測 ${dxy.date||dxy.sourceDate||'日期缺值'}（${dxy.knownFrom||'觀測日＋8日起可用'}）；FRED DTWEXAFEGS，非 ICE DXY；${dxy.draftRule||'草案 >0 −1、走弱不加分'}；前20日不含當期。`); advisoryAxis(dxCard,dxy,'美元指數零軸',{min:-100,max:60,step:10});
+  const mapping=p.industryMapping||{},sector=p.linkedUSSector||{};card('自動對應美股板塊',mapping.sector?`${mapping.industry||mapping.industryCode} → ${mapping.sector}｜${sector.classification||'強弱缺值'}`:`對應不明：${mapping.reason||'缺官方產業別'}`,`${mapping.date||'產業日期缺值'}；${mapping.sourceUrl||''}；新增±1僅試算，未納入正式評級。`);
+@@ -1265,8 +1273,8 @@ function renderMacroScores(){
+   const methodology=document.createElement('p');methodology.className='score-note';methodology.textContent='CNN 合成指數含波動、信用需求、Put/Call 與市場廣度成分，和模型既有訊號重疊；只作交叉確認，不納入美股或台股總分。';card.append(methodology);root.append(card);
+  }
+  const metals=preciousMetalsDecision(),metalCard=document.createElement('article');metalCard.className=`score-card ${metals.ready?'score-yellow':'score-incomplete'}`;
+- const metalHead=document.createElement('div');metalHead.className='score-card-head';const metalTitle=document.createElement('div');const metalKicker=document.createElement('span');metalKicker.className='score-kicker';metalKicker.textContent='通膨／美元／風險偏好交叉確認｜貴金屬（不計分）';const metalLight=document.createElement('h4');metalLight.textContent=metals.ready?'金價與金銀比｜交叉確認':metals.ratio?.value!=null?'金銀比已計算｜來源未核實':'金價／金銀比資料未齊';metalTitle.append(metalKicker,metalLight);const metalValue=document.createElement('strong');metalValue.textContent=metals.ratio?.value!=null?fmt(metals.ratio.value,2):'—';const metalUnit=document.createElement('small');metalUnit.textContent=metals.ratio?.status==='ok'?' XAU/XAG':' XAU/XAG 未核實';metalValue.append(metalUnit);metalHead.append(metalTitle,metalValue);metalCard.append(metalHead);
+- const metalPrices=document.createElement('p');metalPrices.className='score-coverage';metalPrices.textContent=`金價 ${metals.gold?.value!=null&&Number.isFinite(Number(metals.gold.value))?`${fmt(metals.gold.value,2)} USD/oz`:'缺值'}（${metals.gold?.sourceVerification?.passed?'三來源 2/3 通過':'未核實'}）｜銀價 ${metals.silver?.value!=null&&Number.isFinite(Number(metals.silver.value))?`${fmt(metals.silver.value,3)} USD/oz`:'缺值'}（${metals.silver?.sourceVerification?.passed?'三來源 2/3 通過':'未核實'}）｜觀測 ${metals.ratio?.date||'缺值'}｜日樣本 ${Number(metals.ratio?.historyObservations)||0}/21`;metalCard.append(metalPrices);
++ const metalHead=document.createElement('div');metalHead.className='score-card-head';const metalTitle=document.createElement('div');const metalKicker=document.createElement('span');metalKicker.className='score-kicker';metalKicker.textContent='通膨／美元／風險偏好交叉確認｜貴金屬（不計分）';const metalLight=document.createElement('h4');metalLight.textContent=metals.ready?'金價漲跌｜交叉確認':metals.ratio?.value!=null?'金價已取得｜來源未全數核實':'金價／金銀比資料未齊';metalTitle.append(metalKicker,metalLight);const metalValue=document.createElement('strong');metalValue.textContent=metals.gold?.value!=null&&Number.isFinite(Number(metals.gold.value))?fmt(metals.gold.value,2):'—';const metalUnit=document.createElement('small');metalUnit.textContent=metals.gold?.sourceVerification?.passed?' USD/oz':' USD/oz 未核實';metalValue.append(metalUnit);metalHead.append(metalTitle,metalValue);metalCard.append(metalHead);
++ const metalPrices=document.createElement('p');metalPrices.className='score-coverage';const goldPct=x=>Number.isFinite(Number(x))&&x!==null?`${Number(x)>=0?'+':''}${fmt(Number(x),2)}%`:'樣本不足';metalPrices.textContent=`金價漲跌 1日 ${goldPct(metals.ratio?.goldChange1d)}｜5日 ${goldPct(metals.ratio?.goldChange5d)}｜20日 ${goldPct(metals.ratio?.trendValidationState==='validated'?metals.ratio?.goldChange20d:null)}｜金銀比 ${metals.ratio?.value!=null?fmt(metals.ratio.value,2):'缺值'}（${metals.ratio?.status==='ok'?'已核實':'未核實'}，只作輔助）｜金價 ${metals.gold?.value!=null&&Number.isFinite(Number(metals.gold.value))?`${fmt(metals.gold.value,2)} USD/oz`:'缺值'}（${metals.gold?.sourceVerification?.passed?'三來源 2/3 通過':'未核實'}）｜銀價 ${metals.silver?.value!=null&&Number.isFinite(Number(metals.silver.value))?`${fmt(metals.silver.value,3)} USD/oz`:'缺值'}（${metals.silver?.sourceVerification?.passed?'三來源 2/3 通過':'未核實'}）｜觀測 ${metals.ratio?.date||'缺值'}｜日樣本 ${Number(metals.ratio?.historyObservations)||0}/21`;metalCard.append(metalPrices);
+  const metalNote=document.createElement('p');metalNote.className='score-note';metalNote.textContent=metals.interpretation;metalCard.append(metalNote);
+  const metalMethod=document.createElement('p');metalMethod.className='score-method';metalMethod.textContent=`Gold API、Standard Bullion、GoldPriceZone/MetalFlow 同時取 XAU/USD、XAG/USD；三個不同來源通道至少兩個需各自在 60 分鐘內、同為 USD/金衡盎司，且兩來源時間差 ≤30 分鐘、價差 ≤1% 才通過。單源或來源不一致時仍顯示參考值，但不計算有效金銀比、不納入判讀。後台保存三來源快照、來源家族、報價時間、差異與錯誤。Standard Bullion 使用 bid/ask 中間價；GoldPriceZone 公開 JSON 每 60 秒快取。金銀比 = 核實後 XAU/USD ÷ XAG/USD；每日累積，需 21 點且日期缺口不超過 5 日才判 20 日趨勢。與 10Y TIPS、DXY、VIX、HY 及融資訊號交叉核對，重疊訊號不重複計分。${metals.cross}。`;metalCard.append(metalMethod);const attributionLink=document.createElement('a');attributionLink.href='https://standardbullion.com/';attributionLink.target='_blank';attributionLink.rel='noopener';attributionLink.textContent='Data by Standard Bullion';metalCard.append(attributionLink);const thirdAttribution=document.createElement('a');thirdAttribution.href='https://goldpricezone.com/';thirdAttribution.target='_blank';thirdAttribution.rel='noopener';thirdAttribution.textContent='Data by GoldPriceZone';metalCard.append(thirdAttribution);const auditLink=document.createElement('a');auditLink.href='/api/market-source-audit';auditLink.target='_blank';auditLink.rel='noopener';auditLink.textContent='開啟後台三來源核對紀錄';metalCard.append(auditLink);root.append(metalCard);
+  renderMacroFiveLines();
+diff --git a/package.json b/package.json
+index f70c063..caec829 100644
+--- a/package.json
++++ b/package.json
+@@ -5,7 +5,7 @@
+     "build": "node build.mjs",
+     "test:master-validation": "node tests/master-model-validation.test.mjs",
+     "db:generate": "drizzle-kit generate",
+-    "test": "npm run test:legacy && npm run test:advisory-integration && npm run test:fixpack && npm run test:c2 && npm run test:credit-window && npm run test:source-recovery && npm run test:owner-20261025",
++    "test": "npm run test:legacy && npm run test:advisory-integration && npm run test:fixpack && npm run test:c2 && npm run test:credit-window && npm run test:source-recovery && npm run test:owner-20261025 && npm run test:owner-bundle2",
+     "test:source-recovery": "node --test tests/source-recovery.test.mjs tests/official-session-regression.test.mjs",
+     "test:credit-window": "node --test tests/credit-capture-window.test.mjs tests/refresh-persistence.test.mjs tests/refresh-resume.test.mjs",
+     "test:remediation": "node tests/master-remediation.test.mjs",
+@@ -21,7 +21,8 @@
+     "test:advisory-integration": "node --test tests/tiingo-market.test.mjs tests/tiingo-site.test.mjs tests/panel-calculations.test.mjs tests/panel-sources.test.mjs tests/panel-display.test.mjs tests/advisory-decision.test.mjs && node tests/build-reproducibility.test.mjs",
+     "test:fixpack": "node --test tests/fixpack.test.mjs",
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+-    "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs"
++    "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
++    "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/financial-analysis.test.mjs b/tests/financial-analysis.test.mjs
+index 3dfe79f..892df6c 100644
+--- a/tests/financial-analysis.test.mjs
++++ b/tests/financial-analysis.test.mjs
+@@ -21,7 +21,7 @@ globalThis.fetch = async input => {
+  const url=new URL(String(input));
+  if(url.hostname==='doc.twse.com.tw'){filingLookups++;return new Response('<html>No PDF listed</html>',{status:200,headers:{'content-type':'text/html'}});}
+  if(url.href==='https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/exports/gate5b/latest.json')return new Response('',{status:503});
+- const official=url.href==='https://openapi.twse.com.tw/v1/opendata/t187ap03_L'||url.href==='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv'||url.href==='https://www.tpex.org.tw/openapi/v1/tpex_margin_sbl'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/TWT93U';
++ const official=url.href==='https://openapi.twse.com.tw/v1/opendata/t187ap03_L'||url.href==='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv'||url.href==='https://www.tpex.org.tw/openapi/v1/tpex_margin_sbl'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data'||url.href==='https://opendata.tdcc.com.tw/getOD.ashx?id=1-5'||url.href==='https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/MI_MARGN'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/TWT93U';
+  if(official){officialDataCalls++;return url.pathname.endsWith('.csv')?new Response('公司代號,產業別,已發行普通股數或TDR原股發行股數\n'):Response.json([]);}
+  providerCalls++;throw Error('Unexpected external provider');
+ };
+diff --git a/tests/owner-bundle2.test.mjs b/tests/owner-bundle2.test.mjs
+new file mode 100644
+index 0000000..f2a9ab3
+--- /dev/null
++++ b/tests/owner-bundle2.test.mjs
+@@ -0,0 +1,94 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import vm from 'node:vm';
++import {dividendYieldBand,rsi14,betaVsTaiex,largeHolders,buildStockPanels} from '../worker/panel-calculations.mjs';
++import {parseTdccHolders,selectAndSaveHolders,computeMarginMaintenance,collectMarginMaintenance,TWSE_STOCK_DAY_ALL_URL} from '../worker/panel-sources.mjs';
++
++const days=(n,start='2025-06-02')=>{const out=[],d=new Date(start+'T00:00:00Z');while(out.length<n){const w=d.getUTCDay();if(w&&w!==6)out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;};
++const memory=()=>{const store=new Map();return {read:async k=>store.has(k)?{fresh:true,payload:store.get(k)}:null,write:async(k,v)=>{store.set(k,v);return true;},store};};
++
++test('dividend yield band needs a same-day value and 250 observations; zero yield is a valid value',()=>{
++  const d=days(300),rows=d.map((date,i)=>({date,dividend_yield:i%10===0?0:1+i/300}));
++  const band=dividendYieldBand(rows,{asOf:d.at(-1)});
++  assert.equal(band.status,'ok');assert.ok(band.p20<band.median&&band.median<band.p80);assert.equal(band.scoreContribution,0);
++  assert.equal(dividendYieldBand(rows,{asOf:'2099-01-01'}).reason,'SAME_DAY_YIELD_MISSING');
++  assert.equal(dividendYieldBand(rows.slice(-100),{asOf:d.at(-1)}).reason,'REQUIRE_250_YIELD_OBSERVATIONS');
++});
++
++test('RSI(14): steady rises give 100, alternating moves sit near 50, short history is insufficient',()=>{
++  const d=days(80);
++  assert.equal(rsi14(d.map((date,i)=>({date,close:100+i})),{asOf:d.at(-1)}).value,100);
++  const alt=rsi14(d.map((date,i)=>({date,close:100+(i%2?1:0)})),{asOf:d.at(-1)});assert.ok(Math.abs(alt.value-50)<5);
++  assert.equal(rsi14(d.slice(-30).map((date,i)=>({date,close:100+i})),{asOf:d.at(-1)}).reason,'REQUIRE_60_OBSERVED_SESSIONS');
++});
++
++test('beta: a stock that moves twice the index has beta 2; unaligned dates are refused',()=>{
++  const d=days(130);let m=20000,s=100;const market=[],stock=[];
++  d.forEach((date,i)=>{const r=Math.sin(i)*0.01;m*=1+r;s*=1+2*r;market.push({date,value:m});stock.push({date,close:s});});
++  const b=betaVsTaiex(stock,market,{asOf:d.at(-1)});assert.equal(b.status,'ok');assert.ok(Math.abs(b.value-2)<1e-6);
++  assert.equal(betaVsTaiex(stock,market.slice(0,-1),{asOf:d.at(-1)}).reason,'STOCK_OR_TAIEX_NOT_ALIGNED');
++});
++
++// Rows copied from the TDCC open-data CSV (getOD.ashx?id=1-5) fetched 2026-10-25, data date 2026-10-22.
++const TDCC='﻿資料日期,證券代號,持股分級,人數,股數,占集保庫存數比例%\n'+
++ '20261022,8299  ,14,10,8939057,4.03\n20261022,8299  ,15,23,59326535,26.79\n20261022,8299  ,16,0,0,0.00\n20261022,8299  ,17,211833,221439247,100.00\n'+
++ '20261022,000218,15,0,0,0.00\n20261022,000218,17,0,0,100.00\n';
++
++test('TDCC: level 15 is the 1,000-lot-plus group; weekly points accumulate per stock',async()=>{
++  const pool={...parseTdccHolders(TDCC),status:'ok',checkedAt:'2026-10-25T12:00:00Z'};
++  assert.equal(pool.date,'2026-10-22');assert.deepEqual(pool.stocks['8299'],{holders15:23,shares15:59326535,pct15:26.79,totalHolders:211833,totalShares:221439247});
++  assert.throws(()=>parseTdccHolders('a,b\n1,2'),/TDCC_SCHEMA/);
++  const m=memory();
++  await m.write('panel:tdcc-history:v1:8299',{history:[{date:'2026-10-02',pct15:27.9},{date:'2026-10-08',pct15:27.6},{date:'2026-10-16',pct15:27.41}]});
++  const saved=await selectAndSaveHolders({pool,symbol:'8299',read:m.read,write:m.write});
++  const h=largeHolders(saved,{asOf:'2026-10-22'});
++  assert.equal(h.status,'ok');assert.equal(h.weeksObserved,4);assert.equal(h.pct15,26.79);assert.ok(Math.abs(h.changeVsFirst-(26.79-27.9))<1e-9);
++  assert.equal(largeHolders({history:[]},{asOf:'2026-10-22'}).status,'insufficient');
++});
++
++const fields=['代號','名稱','買進','賣出','現金償還','前日餘額','今日餘額','次一營業日限額','買進','賣出','現券償還','前日餘額','今日餘額','次一營業日限額','資券互抵','註記'];
++const margin=(date,lots)=>({stat:'OK',date,tables:[{title:'信用交易統計',fields:['項目','買進','賣出','現金(券)償還','前日餘額','今日餘額'],data:[['融資(交易單位)','0','0','0','0','0'],['融券(交易單位)','0','0','0','0','0'],['融資金額(仟元)','0','0','0','0','1,000']]},{title:'融資融券彙總 (全部)',fields,data:lots.map(([c,l])=>[c,'x','0','0','0','0',String(l),'0','0','0','0','0','0','0','0',' '])}]});
++
++test('maintenance ratio: same-day prices and margin only; result is the estimate formula',async()=>{
++  const prices=[{Date:'1151022',Code:'2330',ClosingPrice:'1,000.00'},{Date:'1151022',Code:'1101',ClosingPrice:'50.00'}];
++  const r=computeMarginMaintenance(prices,margin('20261022',[['2330',1],['1101',2],['9999',3]]));
++  assert.ok(Math.abs(r.ratioPct-(1*1000*1000+2*1000*50)/1000000*100)<1e-9);assert.equal(r.missingPrice,1);assert.equal(r.scoreContribution,0);
++  assert.throws(()=>computeMarginMaintenance(prices,margin('20261021',[['2330',1]])),/MARGIN_DATE_NOT_ALIGNED/);
++  const m=memory(),fetchImpl=async url=>({ok:true,status:200,json:async()=>url===TWSE_STOCK_DAY_ALL_URL?prices:{stat:'很抱歉，沒有符合條件的資料'}});
++  const pending=await collectMarginMaintenance({read:m.read,write:m.write,fetchImpl});
++  assert.equal(pending.status,'insufficient');assert.equal(m.store.size,0,'unpublished margin is not cached as a result');
++  const kept={status:'ok',date:'2026-10-22',ratioPct:176.99};
++  const stale=async(payload,now)=>collectMarginMaintenance({read:async()=>({fresh:false,payload}),write:m.write,fetchImpl,now:Date.parse(now)});
++  const recent=await stale(kept,'2026-10-25T08:00:00Z');assert.equal(recent.status,'snapshot');assert.equal(recent.ratioPct,176.99);assert.match(recent.reason,/2026-10-22/);
++  assert.equal((await stale(kept,'2026-11-10T08:00:00Z')).status,'insufficient','an old estimate older than 10 days is not shown as current');
++});
++
++test('the page shows the new cards and nothing changes a score',()=>{
++  const d=days(130,'2026-04-27'),stock={id:'8299',price:{date:d.at(-1),value:100},technical:{historyState:'DATED_HISTORY'},priceHistory:d.map((date,i)=>({date,close:100+i%7})),
++    panelInputs:{yieldHistory:d.map(date=>({date,dividend_yield:1.2})),holders:{history:[{date:'2026-10-22',pct15:26.79,holders15:23}]},marginMaintenance:{status:'ok',date:'2026-10-22',ratioPct:176.99,stocks:1231,missingPrice:4,method:'估算'}}};
++  const panels=buildStockPanels(stock,[],null,{taiexHistory:d.map((date,i)=>({date,value:20000+i%5}))});
++  assert.equal(panels.activeScoreContribution,0);assert.equal(panels.rsi.scoreContribution,0);assert.equal(panels.beta.scoreContribution,0);
++  class Element{constructor(){this.children=[];this.style={};this.attributes={};this.hidden=false;}append(...x){this.children.push(...x);}replaceChildren(...x){this.children=x;this.text='';}set textContent(v){this.text=String(v);this.children=[];}get textContent(){return (this.text||'')+this.children.map(x=>x.textContent||String(x)).join(' ');}setAttribute(k,v){this.attributes[k]=v;}}
++  const host=new Element(),context=vm.createContext({document:{getElementById:()=>host,createElement:()=>new Element()},console});
++  vm.runInContext(readFileSync(new URL('../worker/panel-display.js',import.meta.url),'utf8'),context);
++  context.model={symbol:'8299',report:{advisoryPanels:panels}};vm.runInContext('renderAdvisoryPanels(model)',context);
++  for(const label of ['法人買賣超','殖利率歷史區間','RSI（14日）','Beta（對加權指數','集保千張以上大戶','26.79%','大盤融資維持率（上市，估算）','176.99%'])assert.ok(host.textContent.includes(label),label);
++});
++
++function fakeDb(){const rows=new Map();return {prepare(sql){let args=[];const stmt={bind(...a){args=a;return stmt;},async run(){if(/^INSERT/.test(sql))rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true};},async all(){const r=rows.get(args[0]);return {results:r?[r]:[]};}};return stmt;},rows};}
++
++test('gold change: 1-day and 5-day moves come from the stored daily history; a gap over 5 days gives no number',async()=>{
++  const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++  const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {updatePreciousMetalHistory};').toString('base64'));
++  const dates=['2026-10-14','2026-10-15','2026-10-16','2026-10-19','2026-10-20','2026-10-21'],golds=[4000,4040,4080,4000,3960,4100];
++  const env={DB:fakeDb()},history=dates.slice(0,-1).map((date,i)=>({date,gold:golds[i],silver:50,ratio:golds[i]/50}));
++  env.DB.rows.set('macro-metals-history:v1',{payload:JSON.stringify({history}),updated_at:'2026-10-20T00:00:00Z',expires_at:'2099-01-01T00:00:00Z'});
++  const ratio=await api.updatePreciousMetalHistory(env,{status:'ok',date:'2026-10-21',goldPrice:4100,silverPrice:50,value:82,detail:''});
++  assert.ok(Math.abs(ratio.goldChange1d-(4100/3960-1)*100)<1e-9);assert.ok(Math.abs(ratio.goldChange5d-(4100/4000-1)*100)<1e-9);
++  const gapEnv={DB:fakeDb()};gapEnv.DB.rows.set('macro-metals-history:v1',{payload:JSON.stringify({history:[{date:'2026-10-01',gold:4000,silver:50,ratio:80}]}),updated_at:'x',expires_at:'2099-01-01T00:00:00Z'});
++  const gap=await api.updatePreciousMetalHistory(gapEnv,{status:'ok',date:'2026-10-21',goldPrice:4100,silverPrice:50,value:82,detail:''});
++  assert.equal(gap.goldChange1d,null);assert.equal(gap.goldChange5d,null);
++  const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++  assert.match(html,/金價漲跌｜交叉確認/);assert.match(html,/金價漲跌 1日 \$\{goldPct\(metals\.ratio\?\.goldChange1d\)\}｜5日/);
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 4452a0d..8ce7526 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -553,7 +553,7 @@ async function buildTaiwanStockSnapshot(id, env = {}) {
+     financialQuality, marketActivity,
+     priceHistory:priceRows.slice(-800).map(row=>({date:row.date,close:Number(row.close),...(finiteNumber(row.Trading_Volume)?{Trading_Volume:Number(row.Trading_Volume)}:{}),...(finiteNumber(row.Trading_money)?{Trading_money:Number(row.Trading_money)}:{})})),
+     valuationInputs:{issuedShares,shareSource,shareErrors:officialShares.errors,revenueHistory:revenueRows.slice(-24)},
+-    panelInputs:{issuer:shareRecord||null,revenueHistory:revenueRows,pbrHistory:per.rows.map(row=>({date:row.date,PBR:row.PBR})),pbrRequestedFrom:peSince,epsBasis:'single_quarter',epsBasisSource:'https://finmind.github.io/tutor/TaiwanMarket/Fundamental/'},
++    panelInputs:{issuer:shareRecord||null,revenueHistory:revenueRows,pbrHistory:per.rows.map(row=>({date:row.date,PBR:row.PBR})),yieldHistory:per.rows.map(row=>({date:row.date,dividend_yield:row.dividend_yield})),pbrRequestedFrom:peSince,epsBasis:'single_quarter',epsBasisSource:'https://finmind.github.io/tutor/TaiwanMarket/Fundamental/'},
+     datasetStatus,
+     errors: { price: prices.error || (!latestPrice && '沒有可用收盤價'), revenue: revenues.error || (!latestRevenue && '沒有可用月營收'),
+       valuation: !estimateAvailable ? (forecastEps.reason || '今年預估 EPS 資料不足') : !valuationPe ? (per.error || `本代號缺少歷史 P/E 區間，且無核准模型倍數（${peValues.length}/250）`) : !Object.values(valuationEps).every(x=>Number.isFinite(x)&&x>0) ? '今年 EPS 情境含非正值；P/E 乘數不適用，需改用 DCF／資產價值等方法' : null,
+@@ -831,7 +831,7 @@ function evaluateMasterModel(stock, macro, market, freshness = {}, gateEvidence
+   report.rateContext=rateContext;report.macro+=` ${rateContext.summary}`;
+   report.researchContext=researchContext;
+   report.usSectorContext=usSectorContext;report.market+=` ${usSectorContext.summary}`;
+-  if(typeof PANEL_CALCULATIONS!=='undefined')report.advisoryPanels=PANEL_CALCULATIONS.buildStockPanels(stock,freshness.marketFresh?market?.rows||[]:[],usSectorContext);
++  if(typeof PANEL_CALCULATIONS!=='undefined')report.advisoryPanels=PANEL_CALCULATIONS.buildStockPanels(stock,freshness.marketFresh?market?.rows||[]:[],usSectorContext,{taiexHistory:gateEvidence.crossMarketSnapshot?.markets?.TWSE_TAIEX?.history||[]});
+   if(typeof ADVISORY_DECISION!=='undefined'&&report.advisoryPanels)report.advisoryDecision=ADVISORY_DECISION.buildAdvisoryDecision({stock,panels:report.advisoryPanels,sectorContext:usSectorContext,macroRows:freshness.macroFresh?rows:[],marketRows:freshness.marketFresh?market?.rows||[]:[],crossSnapshot:gateEvidence.crossMarketSnapshot,existingRating:adaptiveRating,veto,gates,freshness});
+   report.valuationDivergence=valuationDivergence;
+   if(valuationDivergence.divergent)report.valuation=valuationDivergence.reason+' 下次'+valuationDivergence.nextDisclosure.period+'：'+valuationDivergence.nextDisclosure.date+'（'+valuationDivergence.nextDisclosure.basis+'）。歷史情境僅作原始數據參考。';
+diff --git a/worker/observations.js b/worker/observations.js
+index e4791b4..f703821 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -1598,6 +1598,9 @@ async function updatePreciousMetalHistory(env,ratio) {
+   if(ratio.status==='ok'&&gapsOk&&span<=40*86400000){
+     const first=last21[0],latest=last21.at(-1);ratio.change20d=(latest.ratio/first.ratio-1)*100;ratio.goldChange20d=(latest.gold/first.gold-1)*100;ratio.trendValidationState='validated';
+   }
++  // C3（擁有者 10/20：看金價漲跌，不用金銀比當主角）：金價 1／5 日變化，日期缺口須 ≤5 日；20 日沿用上方驗證。
++  const goldChange=n=>{const s=history.slice(-n-1);return ratio.status==='ok'&&s.length===n+1&&s.slice(1).every((x,i)=>Date.parse(`${x.date}T00:00:00Z`)-Date.parse(`${s[i].date}T00:00:00Z`)<=5*86400000)?(s.at(-1).gold/s[0].gold-1)*100:null;};
++  ratio.goldChange1d=goldChange(1);ratio.goldChange5d=goldChange(5);
+   const last4=history.slice(-4),trendGapsOk=last4.length===4&&last4.slice(1).every((x,i)=>Date.parse(`${x.date}T00:00:00Z`)-Date.parse(`${last4[i].date}T00:00:00Z`)<=5*86400000);
+   if(ratio.status==='ok'&&trendGapsOk){
+     const changes=last4.slice(1).map((x,i)=>x.ratio/last4[i].ratio-1),up=changes.every(x=>x>0),down=changes.every(x=>x<0);
+diff --git a/worker/panel-calculations.mjs b/worker/panel-calculations.mjs
+index 3bcb7eb..7539b11 100644
+--- a/worker/panel-calculations.mjs
++++ b/worker/panel-calculations.mjs
+@@ -135,12 +135,48 @@ export function dollarAxis(input,{asOf}={}){
+   return {...axis,source:input.source,sourceDate:latest.date,fetchedAt:input.fetchedAt,knownFrom:'觀測日＋8日（同回測）',label:'先進經濟體美元指數（FRED DTWEXAFEGS，非 ICE DXY）',
+     draftPoints:axis.status==='ok'?(axis.value>0?-1:0):null,draftRule:'站上前20日高點（零軸>0）草案 −1；走弱不加分（擁有者 2026-10-21）',scoreContribution:0};
+ }
+-export function buildStockPanels(stock,marketRows=[],sectorContext=null,{asOf=stock.price?.date}={}){
++/** 殖利率歷史區間（FinMind TaiwanStockPER dividend_yield，證交所／櫃買彙整）。只顯示。 */
++export function dividendYieldBand(rows,{asOf}={}){
++  const data=series((rows||[]).map(r=>({date:r.date,value:r.dividend_yield??r.yield})),'value',asOf).filter(r=>r.value>=0),current=data.findLast(r=>r.date===asOf);
++  if(!current||data.length<250)return missing(!current?'SAME_DAY_YIELD_MISSING':'REQUIRE_250_YIELD_OBSERVATIONS',{observations:data.length,date:asOf||null,scoreContribution:0});
++  const values=data.map(r=>r.value).sort((a,b)=>a-b),pct=p=>{const i=(values.length-1)*p,a=Math.floor(i),b=Math.ceil(i);return values[a]+(values[b]-values[a])*(i-a);};
++  return {status:'ok',date:asOf,current:current.value,p20:pct(.2),median:pct(.5),p80:pct(.8),percentileRank:values.filter(x=>x<=current.value).length/values.length*100,from:data[0].date,through:data.at(-1).date,observations:data.length,source:'FinMind TaiwanStockPER dividend_yield；TWSE/TPEx 彙整',scoreContribution:0};
++}
++/** RSI(14)，Wilder 平滑；需至少 60 筆收盤。>80 只作高檔鈍化參考，不計分。 */
++export function rsi14(rows,{asOf,aligned=true}={}){
++  const data=series(rows,'close',asOf||'9999-12-31').filter(r=>r.value>0);
++  if(!aligned||data.at(-1)?.date!==asOf)return missing('PRICE_HISTORY_NOT_ALIGNED',{scoreContribution:0});
++  if(data.length<60)return missing('REQUIRE_60_OBSERVED_SESSIONS',{observations:data.length,scoreContribution:0});
++  let gain=0,loss=0;
++  for(let i=1;i<=14;i++){const d=data[i].value-data[i-1].value;gain+=Math.max(d,0);loss+=Math.max(-d,0);}
++  gain/=14;loss/=14;
++  for(let i=15;i<data.length;i++){const d=data[i].value-data[i-1].value;gain=(gain*13+Math.max(d,0))/14;loss=(loss*13+Math.max(-d,0))/14;}
++  const value=loss===0?100:100-100/(1+gain/loss);
++  return {status:'ok',date:asOf,value,observations:data.length,method:'Wilder RSI(14)，收盤價，未還原除權息',note:value>80?'高於80：高檔鈍化參考':value<20?'低於20：超賣參考':'區間內',scoreContribution:0};
++}
++/** Beta：個股與加權指數同日日報酬，近 120 個共同交易日。股價未還原除權息。 */
++export function betaVsTaiex(stockRows,taiexRows,{asOf,sessions=120}={}){
++  const s=series(stockRows,'close',asOf).filter(r=>r.value>0),m=new Map(series((taiexRows||[]).map(r=>({date:r.date,value:r.value??r.close})),'value',asOf).filter(r=>r.value>0).map(r=>[r.date,r.value]));
++  if(s.at(-1)?.date!==asOf||!m.has(asOf))return missing('STOCK_OR_TAIEX_NOT_ALIGNED',{scoreContribution:0});
++  const common=s.filter(r=>m.has(r.date)).slice(-(sessions+1));
++  if(common.length<sessions+1)return missing('REQUIRE_121_COMMON_SESSIONS',{observations:common.length,scoreContribution:0});
++  const rs=[],rm=[];for(let i=1;i<common.length;i++){rs.push(common[i].value/common[i-1].value-1);rm.push(m.get(common[i].date)/m.get(common[i-1].date)-1);}
++  const ms=mean(rs),mm=mean(rm),cov=rs.reduce((t,x,i)=>t+(x-ms)*(rm[i]-mm),0)/(rs.length-1),varm=rm.reduce((t,x)=>t+(x-mm)**2,0)/(rm.length-1);
++  return varm>0?{status:'ok',date:asOf,value:cov/varm,sessions,from:common[0].date,to:common.at(-1).date,method:'日報酬共變異數÷加權指數變異數；收盤價未還原除權息',scoreContribution:0}:missing('TAIEX_VARIANCE_ZERO',{scoreContribution:0});
++}
++/** 集保千張以上大戶（持股分級15＝1,000,001股以上）近4週。只顯示。 */
++export function largeHolders(input,{asOf}={}){
++  const rows=(input?.history||[]).filter(r=>day(r?.date)&&r.date<=asOf&&Number.isFinite(r.pct15)).sort((a,b)=>a.date.localeCompare(b.date)).slice(-4);
++  if(!rows.length)return missing(input?.reason||'TDCC_HOLDERS_NOT_COLLECTED',{scoreContribution:0});
++  const last=rows.at(-1);
++  return {status:'ok',date:last.date,pct15:last.pct15,holders15:last.holders15??null,totalHolders:last.totalHolders??null,weeks:rows,changeVsFirst:rows.length>1?last.pct15-rows[0].pct15:null,weeksObserved:rows.length,source:'集保結算所 集保戶股權分散表（週）',scoreContribution:0};
++}
++export function buildStockPanels(stock,marketRows=[],sectorContext=null,{asOf=stock.price?.date,taiexHistory=[]}={}){
+   asOf=day(asOf)?asOf:'0000-01-01';
+   const inputs=stock.panelInputs||{},ma=movingAverageStrength(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),mapping=mapIndustry(inputs.issuer,{asOf});
+   const gold=marketRows.find(r=>r.id==='XAU');
+   const available=r=>r&&['ok','snapshot'].includes(r.status)&&!r.is_stale&&day(r.date)&&r.date<=asOf;
+   const axis=r=>available(r)&&r.history?.at(-1)?.date===r.date?{...zeroAxis(r.history,{id:r.id,asOf}),source:r.source,sourceDate:r.date}:missing('SOURCE_MISSING_STALE_OR_NOT_ALIGNED',{id:r?.id||null});
+   const sector=mapping.sector?sectorContext?.sectors?.[mapping.sector]:null;
+-  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:dollarAxis(inputs.dollarIndex,{asOf}),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:threeQuestions(stock,{asOf}),convertibleBonds:convertibleBonds(inputs.cbRegistry,{symbol:stock.id,price:stock.price?.value??null,priceDate:stock.price?.date??null,issuedShares:inputs.issuer?.date&&inputs.issuer.date<=asOf&&Number.isFinite(inputs.issuer.shares)?inputs.issuer.shares:stock.valuationInputs?.issuedShares??null})};
++  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:dollarAxis(inputs.dollarIndex,{asOf}),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:threeQuestions(stock,{asOf}),dividendYield:dividendYieldBand(inputs.yieldHistory||[],{asOf}),rsi:rsi14(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),beta:betaVsTaiex(stock.priceHistory||[],taiexHistory,{asOf}),largeHolders:largeHolders(inputs.holders,{asOf}),marginMaintenance:inputs.marginMaintenance||missing('MARGIN_MAINTENANCE_NOT_COLLECTED',{scoreContribution:0}),convertibleBonds:convertibleBonds(inputs.cbRegistry,{symbol:stock.id,price:stock.price?.value??null,priceDate:stock.price?.date??null,issuedShares:inputs.issuer?.date&&inputs.issuer.date<=asOf&&Number.isFinite(inputs.issuer.shares)?inputs.issuer.shares:stock.valuationInputs?.issuedShares??null})};
+ }
+diff --git a/worker/panel-display.js b/worker/panel-display.js
+index ef3b0b4..e7d9900 100644
+--- a/worker/panel-display.js
++++ b/worker/panel-display.js
+@@ -31,6 +31,14 @@ function renderAdvisoryPanels(model){
+  const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
+  const body=cb.status==='failed'||cb.status==='insufficient'?`抓取失敗：${cb.reason||(cb.failedKinds||[]).join('、')||'來源不可用'}`:(cb.count?list.join('；'):'櫃買登錄查無流通中可轉債')+(cb.status==='partial'?'（部分清單抓取失敗，可能有遺漏）':'');
+  card('可轉債（櫃買自動）',body,`${cb.checkedAt||'時間缺值'}；櫃買 OpenAPI bond_ISSBD5／ISSBD6${cb.status==='partial'?`；${(cb.failedKinds||[]).join('、')}清單失敗`:''}；${cb.note||''}`);}
++ const pctText=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';
++ const tqw=p.threeQuestions?.questions?.chips?.windows||{},lotsText=x=>Number.isFinite(x)?(x>0?'+':'')+Math.round(x/1000).toLocaleString('zh-TW')+'張':'缺值';
++ card('法人買賣超 5／10／20日',['d5','d10','d20'].map(k=>{const w=tqw[k];return `${k.slice(1)}日 外資 ${lotsText(w?.foreignShares)}、投信 ${lotsText(w?.trustShares)}`;}).join('；'),'FinMind 三大法人日資料；日期須與股價日期逐日對齊，不足就標缺值。');
++ const dy=p.dividendYield||{};card('殖利率歷史區間',dy.status==='ok'?`殖利率 ${show(dy.current)}%｜P20 ${show(dy.p20)}／中位 ${show(dy.median)}／P80 ${show(dy.p80)}｜目前位於 ${show(dy.percentileRank)} 百分位`:`待補：${dy.reason||'缺值'}`,`${dy.from||'起日缺值'}～${dy.through||p.asOf||'迄日缺值'}；${dy.observations||0}筆；${dy.source||''}；只顯示。`);
++ const rsi=p.rsi||{};card('RSI（14日）',rsi.status==='ok'?`${show(rsi.value)}｜${rsi.note}`:`待補：${rsi.reason||'缺值'}`,`${rsi.date||'日期缺值'}；${rsi.method||'Wilder RSI(14)'}；只顯示。`);
++ const beta=p.beta||{};card('Beta（對加權指數，近120日）',beta.status==='ok'?`${show(beta.value)}｜${beta.value>1?'波動大於大盤':'波動小於大盤'}`:`待補：${beta.reason||'缺值'}`,`${beta.from||'起日缺值'}～${beta.to||'迄日缺值'}；${beta.method||''}；只顯示。`);
++ const lh=p.largeHolders||{};card('集保千張以上大戶（週）',lh.status==='ok'?`${show(lh.pct15)}%（${lh.holders15??'缺值'} 人）｜${lh.weeksObserved}週：${(lh.weeks||[]).map(w=>`${w.date.slice(5)} ${show(w.pct15)}%`).join('、')}${Number.isFinite(lh.changeVsFirst)?`｜期間變化 ${lh.changeVsFirst>=0?'+':''}${lh.changeVsFirst.toFixed(2)} 個百分點`:''}`:`待補：${lh.reason||'缺值'}`,`${lh.date||'日期缺值'}；${lh.source||'集保結算所'}；網站從上線起每週累積，滿4週才看得到4週變化；只顯示。`);
++ const mm=p.marginMaintenance||{};card('大盤融資維持率（上市，估算）',['ok','snapshot'].includes(mm.status)?`${show(mm.ratioPct)}%｜${mm.date}${mm.status==='snapshot'?'（'+mm.reason+'）':''}`:`待補：${mm.reason||'缺值'}`,`${mm.method||'Σ融資餘額×收盤價÷融資金額'}；${mm.stocks||0}檔計入、缺價 ${mm.missingPrice??0} 檔；證交所 STOCK_DAY_ALL＋MI_MARGN；非官方公布值，只顯示。`);
+  const pb=p.priceBook||{};card('股價淨值比歷史區間',pb.status==='ok'?`P/B ${show(pb.current)} 倍｜P20 ${show(pb.p20)}／中位 ${show(pb.median)}／P80 ${show(pb.p80)}`:`待補：${pb.reason||'缺值'}`,`${pb.from||'起日缺值'}～${pb.through||p.asOf||'迄日缺值'}；${pb.observations||0}筆；自身可得樣本，不代替既有P/E。`);
+  const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸（先進經濟體美元指數）',dxy.status==='ok'?`目前 ${show(dxy.value)}｜5個觀測前 ${show(dxy.previous5?.value)}｜${dxy.value>0?'站上前20日高點':dxy.value<-100?'跌破前20日低點（走弱）':'區間內'}｜草案 ${dxy.draftPoints===-1?'−1':'0'}；0＝前20日最高，−100＝前20日最低`:`待補：${dxy.reason||'缺值'}`,`觀測 ${dxy.date||dxy.sourceDate||'日期缺值'}（${dxy.knownFrom||'觀測日＋8日起可用'}）；FRED DTWEXAFEGS，非 ICE DXY；${dxy.draftRule||'草案 >0 −1、走弱不加分'}；前20日不含當期。`); advisoryAxis(dxCard,dxy,'美元指數零軸',{min:-100,max:60,step:10});
+  const mapping=p.industryMapping||{},sector=p.linkedUSSector||{};card('自動對應美股板塊',mapping.sector?`${mapping.industry||mapping.industryCode} → ${mapping.sector}｜${sector.classification||'強弱缺值'}`:`對應不明：${mapping.reason||'缺官方產業別'}`,`${mapping.date||'產業日期缺值'}；${mapping.sourceUrl||''}；新增±1僅試算，未納入正式評級。`);
+diff --git a/worker/panel-site.js b/worker/panel-site.js
+index 43b8142..cb831d1 100644
+--- a/worker/panel-site.js
++++ b/worker/panel-site.js
+@@ -19,5 +19,14 @@ async function attachPanelSources(stock,env={}){
+     const pool=await PANEL_SOURCES.collectCbRegistry({read,write});
+     inputs.cbRegistry={checkedAt:pool.checkedAt,status:pool.status,sources:pool.sources,errors:pool.errors,bonds:(pool.bonds||[]).filter(b=>b.issuer===stock.id)};
+   }catch{inputs.cbRegistry={status:'failed',bonds:[],sources:[],errors:[{kind:'all',code:'CB_REGISTRY_COLLECTION_FAILED'}]};}
++  try{
++    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
++    const pool=await PANEL_SOURCES.collectTdccHolders({read,write});
++    inputs.holders=await PANEL_SOURCES.selectAndSaveHolders({pool,symbol:stock.id,read,write});
++  }catch{inputs.holders={history:[],reason:'TDCC_COLLECTION_FAILED'};}
++  try{
++    const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
++    inputs.marginMaintenance=await PANEL_SOURCES.collectMarginMaintenance({read,write});
++  }catch{inputs.marginMaintenance={status:'insufficient',reason:'MARGIN_MAINTENANCE_COLLECTION_FAILED',scoreContribution:0};}
+   return {...stock,panelInputs:inputs};
+ }
+diff --git a/worker/panel-sources.mjs b/worker/panel-sources.mjs
+index f45fd2b..8427a1e 100644
+--- a/worker/panel-sources.mjs
++++ b/worker/panel-sources.mjs
+@@ -85,3 +85,77 @@ export async function collectCbRegistry({read,write,fetchImpl=fetch,now=Date.now
+   })().finally(()=>cbTasks.delete(key));
+   cbTasks.set(key,task);return task;
+ }
++
++/** 集保結算所「集保戶股權分散表」（每週，全部股票一個 CSV）。只留每檔分級15（1,000,001股以上）與合計。 */
++export const TDCC_HOLDERS_URL='https://opendata.tdcc.com.tw/getOD.ashx?id=1-5';
++export function parseTdccHolders(text){
++  const lines=String(text||'').replace(/^﻿/,'').split(/\r?\n/);
++  if(!/^資料日期,證券代號,持股分級,人數,股數,占集保庫存數比例%/.test(lines[0]||''))throw Error('TDCC_SCHEMA');
++  const stocks={};let date=null;
++  for(const line of lines.slice(1)){
++    const c=line.split(',').map(x=>x.trim());if(c.length<6)continue;
++    const d=officialDay(c[0]),code=c[1],level=Number(c[2]);if(!d||!/^\d{4,6}[A-Z]?$/.test(code))continue;
++    if(date&&d!==date)throw Error('TDCC_MIXED_DATES');date=d;
++    if(level===15){const r=stocks[code]||(stocks[code]={});r.holders15=Number(c[3]);r.shares15=Number(c[4]);r.pct15=Number(c[5]);}
++    else if(level===17){const r=stocks[code]||(stocks[code]={});r.totalHolders=Number(c[3]);r.totalShares=Number(c[4]);}
++  }
++  if(!date||!Object.keys(stocks).length)throw Error('TDCC_NO_ROWS');
++  return {date,stocks};
++}
++const tdccTasks=new Map();
++export async function collectTdccHolders({read,write,fetchImpl=fetch,now=Date.now()}){
++  const key='panel:tdcc-latest:v1',old=await read(key);
++  if(old?.fresh)return old.payload;
++  if(tdccTasks.has(key))return tdccTasks.get(key);
++  const task=(async()=>{
++    try{const r=await fetchImpl(TDCC_HOLDERS_URL,{headers:{Accept:'text/csv,*/*'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error(`HTTP_${r.status}`);const text=await r.text();if(text.length>8_000_000)throw Error('TDCC_TOO_LARGE');
++      const parsed=parseTdccHolders(text),payload={...parsed,checkedAt:new Date(now).toISOString(),sourceUrl:TDCC_HOLDERS_URL,status:'ok'};
++      await write(key,payload,12*3600000);return payload;}
++    catch(error){return {status:'failed',stocks:{},checkedAt:new Date(now).toISOString(),error:/^HTTP_\d+$|^TDCC_/.test(error.message)?error.message:'TDCC_UNAVAILABLE'};}
++  })().finally(()=>tdccTasks.delete(key));
++  tdccTasks.set(key,task);return task;
++}
++export async function selectAndSaveHolders({pool,symbol,read,write}){
++  const key=`panel:tdcc-history:v1:${symbol}`,old=(await read(key))?.payload,history=Array.isArray(old?.history)?old.history:[];
++  const point=pool?.status==='ok'?pool.stocks?.[symbol]:null;
++  if(!point||!Number.isFinite(point.pct15))return {history,reason:pool?.status==='ok'?'TDCC_SYMBOL_NOT_LISTED':pool?.error||'TDCC_UNAVAILABLE'};
++  const row={date:pool.date,pct15:point.pct15,holders15:point.holders15,shares15:point.shares15,totalHolders:point.totalHolders,totalShares:point.totalShares};
++  const retained=[...new Map([...history,row].map(r=>[r.date,r])).values()].sort((a,b)=>a.date.localeCompare(b.date)).slice(-12);
++  await write(key,{symbol,history:retained},400*86400000);
++  return {history:retained,sourceUrl:TDCC_HOLDERS_URL,checkedAt:pool.checkedAt};
++}
++/** 上市大盤融資維持率（估算）＝Σ個股融資今日餘額(張)×1000×同日收盤價 ÷ 融資金額。兩份官方報表必須同一交易日。 */
++export const TWSE_STOCK_DAY_ALL_URL='https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL';
++export function computeMarginMaintenance(prices,margin){
++  if(!Array.isArray(prices)||!prices.length)throw Error('PRICE_SCHEMA');
++  const priceDate=officialDay(prices[0]?.Date);if(!priceDate||prices.some(r=>officialDay(r.Date)!==priceDate))throw Error('PRICE_DATE_MIXED');
++  if(margin?.stat!=='OK'||officialDay(margin.date)!==priceDate)throw Error('MARGIN_DATE_NOT_ALIGNED');
++  const summary=margin.tables?.[0],detail=margin.tables?.[1];
++  if(!summary?.fields?.includes('今日餘額')||detail?.fields?.[6]!=='今日餘額'||detail?.fields?.[0]!=='代號')throw Error('MARGIN_SCHEMA');
++  const amountRow=summary.data?.find(r=>String(r[0]).startsWith('融資金額')),amount=Number(String(amountRow?.[5]||'').replaceAll(',',''))*1000;
++  if(!(amount>0))throw Error('MARGIN_AMOUNT_MISSING');
++  const close=new Map(prices.map(r=>[String(r.Code).trim(),Number(String(r.ClosingPrice).replaceAll(',',''))]));
++  let value=0,counted=0,missingPrice=0,missingLots=0,totalLots=0;
++  for(const r of detail.data||[]){const lots=Number(String(r[6]).replaceAll(',',''));if(!(lots>0))continue;totalLots+=lots;const p=close.get(String(r[0]).trim());if(p>0){value+=lots*1000*p;counted++;}else{missingPrice++;missingLots+=lots;}}
++  return {status:'ok',date:priceDate,ratioPct:value/amount*100,marketValue:value,marginAmount:amount,stocks:counted,missingPrice,missingLotsPct:totalLots?missingLots/totalLots*100:null,method:'Σ個股融資今日餘額×1000×同日收盤價 ÷ 融資金額；上市，估算',scoreContribution:0};
++}
++const maintenanceTasks=new Map();
++export async function collectMarginMaintenance({read,write,fetchImpl=fetch,now=Date.now()}){
++  const latestKey='panel:margin-maintenance:v1:latest',old=await read(latestKey);
++  if(old?.fresh)return old.payload;
++  if(maintenanceTasks.has(latestKey))return maintenanceTasks.get(latestKey);
++  const task=(async()=>{
++    try{
++      const pr=await fetchImpl(TWSE_STOCK_DAY_ALL_URL,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!pr.ok)throw Error(`HTTP_${pr.status}`);const prices=await pr.json();
++      const sessionDay=officialDay(prices?.[0]?.Date);if(!sessionDay)throw Error('PRICE_SCHEMA');
++      const url=`https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?date=${sessionDay.replaceAll('-','')}&selectType=ALL&response=json`;
++      const mr=await fetchImpl(url,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!mr.ok)throw Error(`HTTP_${mr.status}`);
++      const result={...computeMarginMaintenance(prices,await mr.json()),sourceUrls:[TWSE_STOCK_DAY_ALL_URL,url],checkedAt:new Date(now).toISOString()};
++      await write(latestKey,result,6*3600000);return result;
++    }catch(error){
++      const keep=old?.payload,keepAge=now-Date.parse(`${keep?.date}T00:00:00Z`);
++      return keep&&keepAge<=10*86400000?{...keep,status:'snapshot',reason:`本輪未更新（${error.message}）；顯示 ${keep.date} 的估算`}:{status:'insufficient',reason:/^HTTP_\d+$|^(PRICE|MARGIN)_/.test(error.message)?error.message:'MARGIN_MAINTENANCE_UNAVAILABLE',scoreContribution:0};
++    }
++  })().finally(()=>maintenanceTasks.delete(latestKey));
++  maintenanceTasks.set(latestKey,task);return task;
++}
