@@ -2,7 +2,7 @@
 """第 31 輪：重建 2006–2026 每日「台股總經與市場位階」分數（照網站 worker/macro-scoring.js 的規則），
 再回測「只在極端時調整持股」的做法。規則全部寫在這裡、看結果之前寫定。
 
-用法：python3 -I tools/macro_score_history.py <資料集 CSV（可用逗號串多個）> <國發會 ZIP> <輸出資料夾> [台股每日 CSV] [央行 CSV]
+用法：python3 -I tools/macro_score_history.py <資料集 CSV（可用逗號串多個）> <國發會 ZIP> <輸出資料夾> [證交所每日資料夾] [央行 CSV]
 
 一、計分（與網站相同）
 - 台股模型＝美國「物價」20、「成長就業」25、「利率信用流動性」25 ＋ 台股「本土」30；
@@ -235,11 +235,17 @@ def main(dataset, ndc_zip, out, tw_daily_csv=None, cbc_csv=None):
     ds = read_dataset(dataset)
     tw = {}
     if tw_daily_csv:
-        with open(tw_daily_csv) as f:
-            for r in csv.DictReader(f):
-                for k, v in r.items():
-                    if k != "date" and v not in ("", "."):
-                        tw.setdefault(k, {})[r["date"]] = float(v)
+        # 證交所每日資料夾（build_twse_daily.py 的 daily.csv ＋ build_twse_daytrade.py 的 daytrade.csv）
+        src = Path(tw_daily_csv)
+        mapping = [(src / "daily.csv", {"breadth_pct": "twse_breadth", "elec_pct": "elec_1d"}),
+                   (src / "daytrade.csv", {"daytrade_share": "daytrade"})]
+        for path, cols_map in mapping:
+            if path.exists():
+                with open(path) as f:
+                    for r in csv.DictReader(f):
+                        for a, b in cols_map.items():
+                            if r.get(a) not in (None, "", "."):
+                                tw.setdefault(b, {})[r["date"]] = float(r[a])
     cbc = None
     if cbc_csv:
         with open(cbc_csv) as f:
@@ -295,6 +301,16 @@ def main(dataset, ndc_zip, out, tw_daily_csv=None, cbc_csv=None):
             p(f"{label} {name}: {len(idx)} 天｜之後60日平均 {pct(sum(fwd) / len(fwd))}｜60日內平均最大跌幅 {pct(sum(dd) / len(dd))}")
     allfwd = [closes[i + 60] / closes[i] - 1 for i in range(len(rows) - 60)]
     p(f"所有日子：之後60日平均 {pct(sum(allfwd) / len(allfwd))}")
+    p("\n## 同上，分兩段（20日平均分數）")
+    for lo, hi in ((D(2006, 1, 1), D(2015, 12, 31)), (D(2016, 1, 1), D(2026, 12, 31))):
+        base = [closes[i + 60] / closes[i] - 1 for i in range(len(rows) - 60) if lo <= dates[i] <= hi]
+        p(f"{lo.year}–{hi.year if hi.year < 2026 else dates[-1].year}：所有日子 {pct(sum(base) / len(base))}")
+        for name, f in bands:
+            idx = [i for i in range(len(rows) - 60) if lo <= dates[i] <= hi and f(ma20[i])]
+            if idx:
+                fwd = [closes[i + 60] / closes[i] - 1 for i in idx]
+                dd = [min(closes[i + k] for k in range(1, 61)) / closes[i] - 1 for i in idx]
+                p(f"  {name}: {len(idx)} 天｜之後60日 {pct(sum(fwd) / len(fwd))}｜平均最大跌幅 {pct(sum(dd) / len(dd))}")
     # 持股規則
     def b3(enter=40, exit_=45, high=None):
         out_w, state = [], 0.65
