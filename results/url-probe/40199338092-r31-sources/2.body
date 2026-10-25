@@ -1,0 +1,502 @@
+<script>
+    if (top.frames.length != 0)
+        alert('error');
+</script>
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+    <title>中央銀行統計資料庫</title>
+    <link href="/Css/Css?v=j_KOoR6AcbQRD4Oel7Fvm90XiL8YzSkcBslLajjaqzQ1" rel="stylesheet"/>
+
+    
+</head>
+<body>
+    <div class="topnav" id="top-menu">
+        <img id="Logo" src="/Content/image/CBC_LOGO.png" alt="央行LOGO標誌" style="" />
+        <p><a id="title-text" href="/Tree/TreeSelect">中央銀行統計資料庫</a></p>
+
+
+<div class="">
+    <form method="post" name="form" action="/Language/LangChange" id="Form">
+        <input name="__RequestVerificationToken" type="hidden" value="2X5gaYhxHc4uLKgEpCquPGDqXJ712QBe8covt0mWXKwtc4_nZfLOwmfSYQaZHJcy8D2qrlaWiheqLUW5XTNxh08_nvdzYvsSZHiAQaWe9Ng1" />
+        <input type="text" name="Lang" id="Lang" style="display:none;" />        
+            <button class="Languages" type="button" style="background-color:transparent;color:#DDDDDD;border-color:transparent;border-bottom:2px;border-top:0px;padding-top:0px;" value="en-US">English</button>
+    </form>
+</div>
+
+        <a href="/Tree/TreeSelect#OtherDB">其他相關資料庫</a>
+        
+        
+        <a href="/Tree/TreeSelect#Guide">操作說明</a>
+        <a href="/Tree/TreeSelect#Content">統計資料庫</a>
+        <a href="javascript:void(0);" class="menu-icon">&#9776;</a>
+    </div>
+
+    <div class="popup" data-popup="popup-1" >
+        <div class="popup-inner">
+            <div class="h2">如何設定查詢條件選單</div>
+            <br />
+            <p class="title">選取選單下所有項目</p>
+            <p class="text">• 選取選單的第一項後，再同時按「Shift」及「End」鍵，可選取該選單所有項目；或直接選取「全選」。</p>
+            <br />
+            <p class="title">選取或取消選取選單中的某一項目</p>
+            <p class="text">• 按住「Ctrl」鍵，再以滑鼠左鍵點選該項目，即可增加或取消該項目。</p>
+            <br />
+            <p class="title">選取選單中的一段區塊 </p>
+            <p class="text">• 直接以滑鼠左鍵拉選；或點選某一項目後使用「Shift」+方向鍵 選取。</p>
+            <p class="text"></p>            
+            <p class="text-right"><a class="btn btn-outline-dark" style="margin-right:20px;" data-popup-close="popup-1" href="#">關閉</a></p>
+        </div>
+    </div>
+
+    <div class="popup" data-popup="popup-2">
+        <div id="datatables_buttons_info2" class="dt-button-info">
+            <h2>請輸入小數位數</h2>
+            <div>
+                &nbsp;&nbsp;<label for="floatcnt">位數:</label><input type="text" id="floatcnt" size="10" style="height:30px;"/> <a class="btn btn-default" id="btn_confirm">確認</a>
+                <a class="btn btn-default" style="margin-right:20px;" data-popup-close="popup-2" href="#">關閉</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="loadingDIV" class="text-center" style="display:none;">
+        <div id="l2" class="lds-css ng-scope">
+            <div class="lds-spinner" style="width:100%;height:100%;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <span unselectable="on" class="h1 text-center">LOADING...</span>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top" data-ripple="rgba(255,255,255, 1)">Back to Top</a>
+
+    
+
+
+<div class="section" style="height:auto;">
+    <div class="page-content" style="height:auto;">
+        <p class="page-title"></p>
+        <p style="padding-left:30px; font-size:20px;font-family: 'Microsoft JhengHei';">請選擇查詢條件，每項請至少選擇一項。(資料至多16000列與350欄)<a class="btn btn-success" style="font-size:20px;font-weight:bold;" data-popup-open="popup-1" href="#">？</a></p>
+        
+        <center>
+            <br />
+            <div class="x-scroll">
+                <table id="default-block">
+                    <tr id="block_tr"></tr>
+                </table>
+            </div>
+            <hr />
+            <button class="print" style=""><span> 查 詢 </span></button>
+            
+        </center>
+    </div>
+</div>
+
+   
+
+
+
+    <div id="footer">
+        <div id="footer-content" class="text-center">
+            <div id="footer-logo-side">
+                <img src="/Content/image/CBC_LOGO.png" alt="央行LOGO"/>
+                <span>中央銀行</span>
+            </div>
+            <div style="height:100%;vertical-align:middle;display:inline-block;">
+            </div>
+            <div id="footer-text-side">
+                <span>聯絡地址：100243台北市中正區羅斯福路一段2號</span><br />
+                <span>中央銀行：(02)2393-6161 傳真：(02)23571974</span>
+            </div>
+            <div id="footer-mail-side">
+                <a href='https://www.cbc.gov.tw/tw/sp-opma-form-1.html' class="btn btn-light btn-lg">服務窗口</a>
+                <a href='/Tree/PublicStatement' class="btn btn-light btn-lg">政府網站資料開放宣告</a>
+                <a href='/Tree/PrivacyStatement' class="btn btn-light btn-lg">隱私權宣告</a>
+                <a href='/Tree/SecureStatement' class="btn btn-light btn-lg">資訊安全政策宣告</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/bundles/jquery?v=LYwc5OxGSW7ZpkTf7ckY3GOdqafOvzeknRc1cFb3gaI1"></script>
+
+    <script src="/bundles/jquery-ui?v=Fl3AwJLR23_RlnecO27XYtF9snlytG66lwgqxqLieHo1"></script>
+
+    <script src="/bundles/bootstrap?v=oQWAQtvVD0wp70CXYSAgIWpPAVIfYUvX7B7jAP1OMvE1"></script>
+
+    <script src="/bundles/Tree?v=GZjpqSZRvWWfbIS1XZb8DSYB4asDMZX_0RuUvnA3XY41"></script>
+
+    
+   
+    <script type="text/javascript">
+        $(function () {
+            $("#loadingDIV").show();
+            var filename = getUrlVars()['pxfilename'];
+            var para = '{"pxfilename":"' + filename + '"}';
+            var prevfilename = JSON.parse(window.sessionStorage.getItem("filename"));
+
+            if (filename != prevfilename) {
+                SaveFileNameToSessionStorage(filename);
+                $.ajax({
+                    data: para,
+                    dataType: "json",
+                    url: "../Range/GetJsonRangeData",
+                    type: "POST",
+                    contentType: "application/json",
+                    success: function (range_response) {
+                        SaveToSessionStorage(range_response);
+                        BuildLists(range_response);
+                        $("#loadingDIV").fadeOut("slow");
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error.message + ":" + xhr.responseText);
+                    }
+                });
+            } else {
+                var res = JSON.parse(window.sessionStorage.getItem("range_response"));
+                BuildLists(res);
+                $("#loadingDIV").fadeOut("slow");
+            }
+
+            function BuildLists(response) {
+                var values = response.values;
+                var htmltext = "";
+                var list_selected = JSON.parse(window.sessionStorage.getItem("list-selected"));
+                $(".page-title").text(response.title);
+                for (var v in values) {
+
+                    //把項目名稱有括號的篩選掉
+                    var ItemName = TrimSpecialSign(values[v].Key);
+                    
+                    $("#block_tr").append($("<td>").attr("id", "LIST_TD" + ItemName));
+
+                    //插入項目標題
+                    $("#LIST_TD" + ItemName).append($("<div>").addClass("LIST_Title_" + ItemName).addClass("LIST_Title"));
+                    //fix checkmarx
+                    //------------------------------------------------------
+                    //$(".LIST_Title_" + ItemName).append($("<div>").addClass("TitleText_div").text(values[v].Key + ""));
+                    var checkmarx = $(".LIST_Title_" + ItemName);
+                    var checkmarx2 = $("<div>");
+                    checkmarx2 = checkmarx2.addClass("TitleText_div");
+                    checkmarx2.text(values[v].Key + "");
+                    checkmarx.append(checkmarx2);
+                    //------------------------------------------------------
+
+                    $(".LIST_Title_" + ItemName).append($("<div>").addClass("SelectInput_div" + ItemName));
+
+                    //加入全選按鈕
+                    var testval = Encode("value");// for checkmarx
+                    $(".SelectInput_div" + ItemName).append($("<input>").attr("type", "button").attr("id", "Select_" + ItemName).attr(testval, "全選").addClass("SelectAll"));
+                    $(".SelectInput_div" + ItemName).append($("<input>").attr("type", "button").attr("id", "Unselect_" + ItemName).attr(testval, "不全選").addClass("UnselectAll"));
+
+
+                    $("#LIST_TD" + ItemName).append($("<div>").addClass("select_LIST_div").append($("<select multiple id='LIST_" + ItemName + "'>")));
+
+                    //塞計數的
+                    $("#LIST_TD" + ItemName).append($("<div>").addClass("Count_div").append("<table id='LISTCountTb_" + ItemName + "'>"));
+                    $("#LISTCountTb_" + ItemName).append($("<tr>").append("<td id='CountChoose_" + ItemName + "'>").append("<td id='CountSum_" + ItemName + "'>"));
+                    //fix checkmarx
+                    //------------------------------
+                    //$("#LISTCountTb_" + ItemName).append($("<tr>").append($("<td>").text("已選取")).append($("<td>").text("總數")));
+                    var checkmarx = $("<tr>").append($("<td>"));
+                    checkmarx.text("已選取");
+                    checkmarx = checkmarx.append($("<td>"));
+                    checkmarx.text("總數")
+                    $("#LISTCountTb_" + ItemName).append(checkmarx);
+                    //------------------------------
+                    //塞維度項目
+                    for (var i = 0; i < values[v].Value.length; i++) {
+                        $("#LIST_" + ItemName).append(function () {                            
+                            //var listss = $('list_' + ItemName + (i + 1));//看起來不用存ID
+                            var myOpt = document.createElement('option');
+                            //myOpt.id = listss;//看起來不用存ID
+                            myOpt.innerText = values[v].Value[i];
+                            return myOpt;
+                        });
+                    }
+
+                    //讓上次選取的設成已選取
+                    if (list_selected != null && filename == prevfilename) {
+                        for (var i = 0; i < values[v].Value.length; i++) {
+                            if ($.inArray(values[v].Value[i], list_selected[v].value) >= 0) {
+                                $('#list_' + ItemName + (i + 1)).attr('selected', 'selected');
+                            }
+                        }
+                        $("#CountChoose_" + ItemName).html(list_selected[v].value.length);
+                    } else
+                    {
+                        $("#CountChoose_" + ItemName).html("0");
+                    }
+                    $("#CountSum_" + ItemName).html(values[v].Value.length);
+                   
+                    
+
+                }
+
+                //計算已選取項目總數
+                $("select").on("change", function () {
+                    var itemid = $(this).prop("id");
+                    var itemName = itemid.substr(itemid.search("_") + 1);
+                    //每次清空<p>
+                    //fix checkmarx
+                    //------------------------------
+                    //$("#CountChoose_" + itemName).text("");
+                    var checkmarx3 = $("#CountChoose_" + itemName);
+                    checkmarx3.text("");
+                    //------------------------------
+                    var count = 0;
+                    //fix checkmarx
+                    //------------------------------
+                    //var count = $("#LIST_" + itemName + " option:selected").length;
+                    var checkmarx4 = $("#LIST_" + itemName + " option:selected");
+                    var count = checkmarx4.length;
+                    //------------------------------
+
+                    if (count < 10) {
+                        count = " " + count;
+                    }
+                    //fix checkmarx
+                    //------------------------------
+                    //$("#CountChoose_" + itemName).text(count);
+                    checkmarx3.text(count);
+                    //------------------------------
+                });
+            }
+            function Encode(str) {
+                return str;
+            }
+
+            // Encryption function
+            function Encrypt(str, key) {
+                // Convert the key to a byte array
+                var keyBytes = new TextEncoder().encode(key);
+
+                // Convert the plaintext to a byte array
+                var textBytes = new TextEncoder().encode(str);                
+                var rtnStr = new TextDecoder().decode(textBytes);;
+                return rtnStr; 
+                // Generate an AES key using the Crypto API
+                crypto.subtle.importKey("raw", keyBytes, "AES-CBC", false, ["encrypt"]).then(function (key) {
+                    // Encrypt using AES algorithm
+                    crypto.subtle.encrypt({ name: "AES-CBC", iv: new Uint8Array(16) }, key, textBytes).then(function (encryptedBytes) {
+                        // Convert the encrypted byte array to a Base64 string
+                        var encryptedBase64 = btoa(String.fromCharCode.apply(null, new Uint8Array(encryptedBytes)));
+                        console.log("Encrypted string: ", encryptedBase64);
+                    });
+                });
+            }
+
+            // Decryption function
+            function decrypt(encryptedBase64, key) {
+                // Convert the key to a byte array
+                var keyBytes = new TextEncoder().encode(key);
+
+                // Convert the Base64 string to a byte array
+                var encryptedBytes = new Uint8Array(atob(encryptedBase64).split("").map(function (c) { return c.charCodeAt(0); }));
+
+                // Generate an AES key using the Crypto API
+                crypto.subtle.importKey("raw", keyBytes, "AES-CBC", false, ["decrypt"]).then(function (key) {
+                    // Decrypt using AES algorithm
+                    crypto.subtle.decrypt({ name: "AES-CBC", iv: new Uint8Array(16) }, key, encryptedBytes).then(function (decryptedBytes) {
+                        // Convert the decrypted byte array to a string
+                        var decryptedText = new TextDecoder().decode(decryptedBytes);
+                        console.log("Decrypted string: ", decryptedText);
+                    });
+                });
+            }
+
+            function RemoveScript(myPara) {
+                myPara = decodeURI(encodeURI(myPara)).replaceAll("<", "").replaceAll(">", "")
+                    .replaceAll("script", "").replaceAll("app.", "")
+                    .replaceAll("/JavaScript >>", "").replaceAll(" << /JS", "")
+                    .replaceAll("submitForm", "").replaceAll("exportDataObject", "")
+                    .replaceAll("app.alert", "");
+                return myPara;
+            }
+
+            function getUrlVars() {
+                var vars = [], hash;
+                var hashes = Object.create(null);                
+                //window.location.href.slice = Object.create(null);
+                //hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');  
+                
+                var url = new URL(window.location.href);
+                var myPara = url.searchParams.get("pxfilename");
+
+                
+                //避免Client DOM XSS
+                /*
+                myPara = myPara.replace(/[&<>"'/]/g, char => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;',
+                    '/': '&#x2F;'
+                })[char])
+                    .replace(/javascript:/gi, '')
+                    .replace(/on\w+=/gi, '');*/
+
+               myPara = RemoveScript(myPara);
+               var query = "pxfilename=" + myPara;
+               //var query = window.location.search.substr(1);
+                
+                //var MyString = Encrypt(query,'PasswordPassword');                
+                var allowed = new Set(['pxfilename']);
+                var result = query.split('&').reduce((p, part) => {
+                    var item = part.split('=');
+                    if (allowed.has(item[0])) {
+                        hashes = ['pxfilename=' + item[1]];
+                        for (var i = 0; i < hashes.length; i++) {
+                            hash = hashes[i].split('=');
+                            vars.push(hash[0]);
+                            vars[hash[0]] = hash[1];
+                        }
+                        
+                    }
+                    
+                }, {})
+                return vars;                
+                
+            }
+
+            function SaveRangeParaToSessionStorage(range_para) {
+                window.sessionStorage.setItem("range_para", JSON.stringify(range_para));
+            }
+
+            function SaveToSessionStorage(range_response) {
+                window.sessionStorage.setItem("range_response", JSON.stringify(range_response));
+            }
+
+            function SaveListStateToSessionStorage(listselected) {
+                window.sessionStorage.setItem("list-selected", JSON.stringify(listselected));
+            }
+
+            function SaveFileNameToSessionStorage(filename) {
+                window.sessionStorage.setItem("filename", JSON.stringify(filename));
+            }
+
+            //把項目名稱有括號的篩選掉
+            function TrimSpecialSign(input) {
+                var ItemNametest = input.indexOf("(");
+
+                if (ItemNametest == -1) {
+                    ItemNametest = input.indexOf("/");
+                }
+                
+                if (ItemNametest == -1)
+                {
+                    ItemNametest = input.indexOf("&");
+                }
+
+                if (ItemNametest != -1) {
+                    return input.substring(0, ItemNametest).trim();
+                }
+                else {
+                    input = input.replace(' ', ''); //修正例如"interest rate"，項目中有空白符號
+                    return input;
+                }
+            }
+
+            //全選事件
+            function SelectSelectableElement(selectableContainer, elementsToSelect) {
+                $(elementsToSelect).prop("selected", "selected");
+            }
+            //不全選事件
+            function UnselectSelectableElement(selectableContainer, elementsToSelect) {
+                $(elementsToSelect).prop("selected", "");
+            }
+
+
+            //測試全選
+            $("body").on("click", ".SelectAll", function () {
+                var itemId = event.target.id;
+                var itemName = itemId.substr(itemId.search("_") + 1);
+                SelectSelectableElement($("#LIST_" + itemName), $("#LIST_" + itemName).children());
+
+                var sum = $("#LIST_" + itemName + ">option").length;
+                $("#CountChoose_" + itemName).text(sum);
+            });
+            //測試不全選
+            $("body").on("click", ".UnselectAll", function () {
+                var itemId = event.target.id;
+                var itemName = itemId.substr(itemId.search("_") + 1);
+                UnselectSelectableElement($("#LIST_" + itemName), $("#LIST_" + itemName).children());
+                $("#CountChoose_" + itemName).text("0");
+            });
+
+
+            $(".print").mousedown(function () {
+                $(this).css("transition", "0s").css("margin", "0px -1px -1px 0px;").css("box-shadow", "1px 1px 2px rgba(0,0,0,.4)");
+            }).mouseup(function () {
+                $(this).css("transition", "0s").css("margin", "0px").css("box-shadow", "3px 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23)");;
+            });
+
+            $(".print").click(function () {
+                var res = JSON.parse(window.sessionStorage.getItem("range_response"));
+                //console.log();
+                var values = res.values;
+                var dict = [];
+                var icnt = 0;
+                var rowcnt = 1;
+                for (var v in values) {
+                    var ItemName = TrimSpecialSign(values[v].Key);
+                    var list = [];
+                    icnt = 0;
+                    $("#LIST_" + ItemName).each(function () {
+                        $(this).find("option:selected").each(function () {
+                            list.push($(this).text());
+                            icnt++;
+                        });
+                    });
+                    if (v != 0)
+                        rowcnt = rowcnt * icnt;
+                    if (icnt == 0)
+                    {
+                        alert('一個項目請您至少挑選一個數值。');
+                        return;
+                    } else if (icnt > 16000 && v == 0)
+                    {
+                        alert('您的選擇已經超過列數、欄數限制');
+                        return;
+                    } else if (rowcnt > 350)
+                    {
+                        alert('您的選擇已經超過列數、欄數限制');
+                        return;
+                    }
+                    dict.push({
+                        key: values[v].Key,
+                        value: list
+                    });
+                }
+                SaveListStateToSessionStorage(dict);
+
+
+                res.values = dict;
+                var filename = getUrlVars()['pxfilename'];
+                var para = '{"rotateCnt":0,"pxfilename":"' + filename + '","range":' + JSON.stringify(res) + '}';
+                $.ajax({
+                    data: para,
+                    dataType: "json",
+                    url: "../Data/SetJsonFromArray",
+                    type: "POST",
+                    contentType: "application/json",
+                    success: function (response) {
+                        if (response.result == "Redirect") {
+                            SaveRangeParaToSessionStorage(res);
+                            window.location = response.url + "/?pxfilename=" + filename;
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error.message);
+                    }
+                });
+            });
+        })
+    </script>
+
+
+</body>
+</html>
