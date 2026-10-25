@@ -6,6 +6,11 @@
 
 ---
 
+## 擁有者 2026-10-25 14:50 授權：部署 10-25 三項修補（`diagnostics/local-fix-20261025/final.patch`，SHA d4940c2d…3899）
+最新交易日改以官方實際資料為準、verifiedAt 不被覆寫、run 摘要與直接讀回一致。步驟與驗收見 `handoff/GPT_NEXT.md`。
+
+---
+
 ## 擁有者 2026-10-25 14:31 決定：GPT 補上缺項（先三問）＋Gemini 第二意見由 GPT 直接比對（細節見 CLAUDE_TO_GPT_LATEST「14:50」）
 
 （以下為 14:45 的對照紀錄）
