@@ -1,0 +1,14 @@
+HTTP/1.1 404 Not Found
+Server: TWSE Server
+Date: Mon, 26 Oct 2026 01:06:29 GMT
+Content-type: text/html
+X-Content-Type-Options:nosniff 
+X-Content-Security-Policy: frame-ancestors 'self' *.twse.com.tw 
+Content-Security-Policy: frame-ancestors 'self' *.twse.com.tw; script-src 'self' https://*.twse.com.tw http://www.google-analytics.com/ https://www.google-analytics.com/ https://code.jquery.com/ https://unpkg.com https://www.gstatic.com https://www.googletagmanager.com 'unsafe-inline' 'unsafe-eval';
+Referrer-Policy: no-referrer
+Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+X-XSS-Protection: 1;mode=block
+Strict-Transport-Security:max-age=31536000; includeSubDomains; preload
+Content-length: 160
+Connection: close
+
