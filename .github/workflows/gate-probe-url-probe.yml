@@ -11,6 +11,10 @@ on:
       urls:
         description: 以空白分隔的網址（僅限 https）
         required: true
+      ua:
+        description: User-Agent（mozilla＝預設研究用字串；none＝不送；node＝模擬 Node fetch）
+        required: false
+        default: mozilla
 permissions:
   contents: write
 concurrency:
@@ -26,6 +30,7 @@ jobs:
         env:
           LABEL: ${{ inputs.label }}
           URLS: ${{ inputs.urls }}
+          UA_KIND: ${{ inputs.ua }}
         run: |
           set -u
           case "$LABEL" in *[!A-Za-z0-9_-]*|"") echo "bad label"; exit 1;; esac
@@ -36,9 +41,11 @@ jobs:
             case "$u" in https://*) ;; *) echo "skip non-https: $u"; continue;; esac
             i=$((i+1))
             started=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-            code=$(curl -sS -L --max-time 30 -A "Mozilla/5.0 (gate-probe research)" -D "$out/$i.headers" -o "$out/$i.body" -w '%{http_code}' "$u" || echo "curl_error")
+            case "${UA_KIND:-mozilla}" in none) ua=();; node) ua=(-A "node");; *) ua=(-A "Mozilla/5.0 (gate-probe research)");; esac
+            res=$(curl -sS -L --max-time 30 "${ua[@]}" -D "$out/$i.headers" -o "$out/$i.body" -w '%{http_code} %{time_starttransfer} %{time_total}' "$u" || echo "curl_error 0 0")
+            code=${res%% *}; rest=${res#* }; ttfb=${rest%% *}; total=${rest##* }
             sha=$(sha256sum "$out/$i.body" 2>/dev/null | cut -c1-64)
-            printf '{"n":%d,"url":"%s","started_at":"%s","http_status":"%s","sha256":"%s","bytes":%s}\n' "$i" "$u" "$started" "$code" "$sha" "$(stat -c %s "$out/$i.body" 2>/dev/null || echo 0)" >> "$out/index.jsonl"
+            printf '{"n":%d,"url":"%s","started_at":"%s","http_status":"%s","ttfb_s":"%s","total_s":"%s","ua":"%s","sha256":"%s","bytes":%s}\n' "$i" "$u" "$started" "$code" "$ttfb" "$total" "${UA_KIND:-mozilla}" "$sha" "$(stat -c %s "$out/$i.body" 2>/dev/null || echo 0)" >> "$out/index.jsonl"
             echo "$i $code $u"; head -c 300 "$out/$i.body" 2>/dev/null || echo "(no body)"; echo
             sleep 3
           done
