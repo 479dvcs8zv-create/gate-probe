@@ -1,0 +1,14 @@
+HTTP/2 200 
+server: myracloud
+date: Mon, 26 Oct 2026 02:05:10 GMT
+content-type: text/csv
+cache-control: max-age=30
+content-disposition: attachment;filename=data.csv
+last-modified: Fri, 23 Oct 2026 13:57:09 GMT
+strict-transport-security: max-age=31536000 ; includeSubDomains
+vary: accept
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 0
+expires: Mon, 26 Oct 2026 02:05:40 GMT
+

@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Server: Microsoft-IIS/10.0
+X-AspNet-Version: 2.0.50727
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000
+X-Akamai-Transformed: 9 243862 0 pmb=mRUM,1
+Expires: Mon, 26 Oct 2026 02:05:03 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Mon, 26 Oct 2026 02:05:03 GMT
+Transfer-Encoding:  chunked
+Connection: keep-alive
+Connection: Transfer-Encoding
+Alt-Svc: h3=":443"; ma=93600
+

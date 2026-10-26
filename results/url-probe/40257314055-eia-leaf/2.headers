@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: text/html
+Last-Modified: Wed, 21 Oct 2026 15:16:24 GMT
+Accept-Ranges: bytes
+ETag: "0548e226f61dd1:0"
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000
+Content-Length: 36453
+Expires: Mon, 26 Oct 2026 02:05:06 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Mon, 26 Oct 2026 02:05:06 GMT
+Connection: keep-alive
+Alt-Svc: h3=":443"; ma=93600
+
