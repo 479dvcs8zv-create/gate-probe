@@ -1,6 +1,6 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-26 10:25 台北（Claude）
+更新：2026-10-26 19:35 台北（Claude）
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
@@ -12,7 +12,7 @@
 - ① Gate 審計 4/4 recorded、無逾時 PASS；③ 國發會 49.68 PASS；② 可轉債仍 `CB_REGISTRY_STILL_LOADING` FAIL；每日巡檢保持停用（正確）。
 
 ## 現在：兩份修補，同一次處理（Claude 寫好、測完；**都已授權**）
-**授權**：擁有者 2026-10-26 08:49「授權」（可轉債修補）＋08:55「m1 資料來源補齊、小項也處理」＋09:13「好」（IORB 未來日期、巡檢模組 pending）＋09:30「好」（產業研究來源、缺收盤分類、重大訊息識別）＋09:55（巡檢要自動跟著追蹤清單，持股會變成 1 檔或 5 檔）＋10:02「剩下的做完」（EIA、日圓時效統一）。擁有者說要晚點做，等他叫你再開始。
+**授權**：擁有者 2026-10-26 08:49「授權」（可轉債修補）＋08:55「m1 資料來源補齊、小項也處理」＋09:13「好」（IORB 未來日期、巡檢模組 pending）＋09:30「好」（產業研究來源、缺收盤分類、重大訊息識別）＋09:55（巡檢要自動跟著追蹤清單，持股會變成 1 檔或 5 檔）＋10:02「剩下的做完」（EIA、日圓時效統一）。**擁有者 10-26 19:28：GPT 已有額度，可以開始做 A、B。**
 
 ### A. 網站 v236 修補（一次部署）
 - Patch：`handoff/patches/v236-fixes-20261026.patch`，SHA-256 `f6479e9ed71886fd3f878252db42fcb8917abb3ea5953fe02641a4e40a7fa25f`（**取代**先前的 0563b78c…、f610cbc4…、39f976bf… 與 v236-cb-keepalive；同檔名已覆蓋）。基線＝v236 來源（你的 88f5f89＝Claude 重放 3c2a5e0）。不含 dist/server/index.js。
@@ -32,7 +32,7 @@
 ### B. 中繼 macro-relay-service：M1B−M2 改由排程代抓（不用部署網站）
 - Patch：`handoff/patches/relay-cbc-m1b-20261026.patch`（`git format-patch`，SHA-256 `65e8150fad72099b7d3bd699bc81aa19e49d58140d2a915e58054daea7bc9ddb`，**三個 commit**，取代 1852ccc6…），在 macro-relay-service 用 `git am` 套用後推上 main；推送會觸發 keyless 工作流程（先跑 unittest 再發布）。
 - 內容：`sync_keyless.py` 新增 `TW_M1B_M2`：抓央行「貨幣總計數」頁（M1B、M2 日平均年增率）＋同頁 `ms.ods` 歷史互相核對，發布近 24 個月 M1B−M2（max_age 95 天）；網站 `loadExpandedSeries` 會先讀這份中繼。網站 Worker 直連央行常被擋、目前停在舊快照 −0.14。另外**移除經濟部外銷訂單**抓取（每輪 403；網站已改國發會），並從快照刪掉舊值。第二個 commit：IORB 是聯準會提前公布的下一營業日利率，FRED 會列未來日期；原本 `validate` 把未來日期當過期（快照裡 IORB 一直 stale），改成 IORB 允許最多 4 天後。第三個 commit：EIA 原油庫存另存 `release_date`、`next_release_date`、`raw_thousand_barrels`、`page_sha256`（從同一頁解析；日期不合理就不寫）。
-- 測試：新增 `tests/test_cbc_money.py` 4 項（用 10-26 的真實央行頁面）＋IORB 1 項；新增 `tests/test_eia_release.py` 2 項（10-26 真實 EIA 頁面）；Claude 在乾淨 850e87e 上 `git am` 後 `python -m unittest discover -s tests` 31/31 通過；若 main 已有新的排程資料 commit，用 `git am -3`；只有 `data/keyless_snapshot.json` 衝突時保留 main 版本、再刪掉其中 `TW_EXPORT_ORDERS` 一項；也用真實 ms.ods 驗過：1983-01～2026-08 共 524 個月，2026-08 = −0.14（6.65 − 6.79）。
+- 測試：新增 `tests/test_cbc_money.py` 4 項（用 10-26 的真實央行頁面）＋IORB 1 項；新增 `tests/test_eia_release.py` 2 項（10-26 真實 EIA 頁面）；Claude 在乾淨 850e87e 上 `git am` 後 `python -m unittest discover -s tests` 31/31 通過；patch 不改 `data/` 資料檔（舊的 TW_EXPORT_ORDERS 由程式在發布時移除），19:35 已在最新 main d337fad 重放 `git am` 無衝突、31/31 通過；也用真實 ms.ods 驗過：1983-01～2026-08 共 524 個月，2026-08 = −0.14（6.65 − 6.79）。
 
 ### 讀回（報告 25 行內，`diagnostics/deploy-20261026/hotfix2.md`）
 - A 部署後手動巡檢一次，然後開 8299 最多 3 次（間隔 30 秒）：① Gate 審計 N/N recorded、無逾時（N＝本次巡檢檔數，跟著追蹤清單，最多 6）；② 可轉債 3 檔、群聯三「目前轉換價 2,468.8（觀測站 2026-09 月報，2026-07-06 重設）」、海外兩檔「未含後續調整」，失敗就寫 reason／errors；③ 外銷訂單仍是國發會 49.68；④ 8299 估值分歧文字出現「類型：」，評級仍未評；⑤ 巡檢最終讀回的市場／貴金屬、美股指數若快照是本輪更新，狀態為 ok 並有 `refreshedThisRun`；⑥ 8299 產業研究來源不再 403（TrendForce 半導體有筆數）、消費電子來源 ok；巡檢文字有「當日無收盤價 N 檔」那句（寫出三類數字）；⑦ 總經 WCESTUS1 有 `validThrough`（應為官方下一期發布日）與 `releaseDateBasis`；日圓若走 Frankfurter，JPY_HV20／60 為 `unofficial_source`（走 FRED／ECB 則照常）；⑧ 請擁有者部署後打開網站一次，下一次排程巡檢的 `watchlistSource` 應為 `latest_synced`、`watchlist` 等於擁有者的追蹤清單（寫出檔數與代號）。
