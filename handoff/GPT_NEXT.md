@@ -1,6 +1,6 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-26 08:15 台北（Claude）
+更新：2026-10-26 08:45 台北（Claude）
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
@@ -8,20 +8,21 @@
 ## 已完成：兩包 → **v235**（10-26 05:34 部署；SHA 全對、npm test exit 0；報告 `diagnostics/deploy-20261026/report.md`）
 - 讀回 ①③⑤ PASS；②④ FAIL、⑥ PARTIAL；手動巡檢 partial、Gate 審計 4/4 step_timeout；每日巡檢保持停用（正確）。
 
-## 現在：上線「v235 修補」（Claude 寫好、測完；**已授權：擁有者 2026-10-26 08:10「修補授權」**）
-- Patch：`handoff/patches/v235-hotfix-20261026.patch`，SHA-256 `c46c98406536419d722bbdb20a73a1ba844545edce56624b11b5a816317911ac`。基線＝v235 來源（你的 commit 4ac4af9＝Claude 重放結果）。不含 dist/server/index.js，build 重建。
-- 修什麼（原因都是 Claude 第二包的錯，不是你的操作）：
-  1. **Gate 審計 step_timeout**：第二包讓 `attachPanelSources` 逐項依序等（櫃買 2 次、觀測站、集保、證交所 2 次），冷快取或來源慢時一檔就超過 16 秒步驟上限。改成**同時抓、整體最多等 7 秒**；沒趕上的項目顯示「讀取中」，背景完成後寫快取，下一檔／下次直接用。
-  2. **可轉債收集 failed**：櫃買回應本文慢，6 秒不夠 → 改 15 秒（月報索引 10 秒、月報檔 12 秒）；失敗後 20 分鐘內不重抓（只存失敗碼，不存資料）。集保、融資維持率同樣加失敗記憶。
-  3. **④外銷訂單仍是經濟部 62.36**：`loadExpandedSeries` 先讀外部排程快照（macro-relay-service 的 keyless_snapshot 仍有經濟部舊值），蓋過國發會。改成外銷訂單不讀那份快照。
-- 新測試 `test:v235-hotfix` 2 項（先用 v235 程式確認兩項都會失敗，修補後通過）；Claude 在乾淨 v235 重放：無衝突、完整 `npm test` exit 0、`dist/index.html` SHA-256 `2d51dc256651a1afac37dc26388aec909dbd29301f0530edd006cb2e44534f92`。
-- 步驟：`git apply v235-hotfix-20261026.patch` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（v235 留回滾）。
-- 部署後：手動跑一次完整巡檢，讀回（報告 30 行內，寫在 `diagnostics/deploy-20261026/hotfix.md`）：
-  ① Gate 審計 4/4 `recorded:true`、沒有 step_timeout；
-  ② 巡檢結束後再開 8299：可轉債 3 檔、群聯三「目前轉換價 2,468.8（觀測站 2026-09 月報，2026-07-06 重設）」、海外兩檔標「未含後續調整」；若仍「讀取中／失敗」，寫出失敗碼；
-  ③ TW_EXPORT_ORDERS＝國發會 49.68、2026-08-01、`scoring:pending_threshold_approval`、未計分；
-  ④ 四檔評級、Gate、風險許可與 v235 相同（5009 的變化是手動更新造成，照實寫）。
-- 恢復每日巡檢（擁有者 10-26 01:01 已授權）：上面 ①～③ 都通過才啟用。**M1B−M2、市場／貴金屬 pending 等是原有的來源問題，寫進報告即可，不擋恢復。**
+## 已完成：v235 修補 → **v236**（10-26 08:0x；報告 `diagnostics/deploy-20261026/hotfix.md`）
+- ① Gate 審計 4/4 recorded、無逾時 PASS；③ 國發會 49.68 PASS；② 可轉債仍 `CB_REGISTRY_STILL_LOADING` FAIL；每日巡檢保持停用（正確）。
+
+## 現在：v236 可轉債修補（Claude 寫好、測完；**等擁有者授權**）
+- Patch：`handoff/patches/v236-cb-keepalive-20261026.patch`，SHA-256 `4798d5bd2522cb6e80f4ff7c07c0fafdda693d83e0cffccd58d874e73e2d199b`。基線＝v236 來源（你的 88f5f89＝Claude 重放 3c2a5e0）。不含 dist/server/index.js。
+- 原因（你的推論正確）：
+  1. 7 秒沒趕上的來源，回應送出後背景任務被平台取消，所以永遠「讀取中」。→ 交給 `ctx.waitUntil` 跑完並寫快取；巡檢 Gate 步驟以 `{panelWaitUntil}` 傳入（只給面板來源用，不改其他模組的 ctx 行為）。
+  2. 櫃買（Cloudflare 後面）對不帶 User-Agent 的請求明顯變慢、偶爾本文傳一半就斷（gate-probe 10-26 實測：無 UA 5.3 秒、有 UA 1.1 秒；連續第二次請求傳到 179,836／453,761 位元組中斷）。→ 櫃買、觀測站、集保、證交所面板請求都帶瀏覽器式 User-Agent；櫃買本文解析失敗時重試一次。
+- 新測試 3 項（先用 v236 程式確認會失敗）；Claude 在乾淨 v236 重放：無衝突、完整 `npm test` exit 0；`dist/index.html` 不變（`2d51dc25…4f92`，只改伺服器端）。
+- 步驟：`git apply` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（v236 留回滾）。
+- 部署後：手動巡檢一次，然後開 8299 最多 3 次（間隔 30 秒）。讀回（報告 20 行內，`diagnostics/deploy-20261026/hotfix2.md`）：
+  ① Gate 審計仍 4/4 recorded、無逾時；
+  ② 8299 可轉債 3 檔、群聯三「目前轉換價 2,468.8（觀測站 2026-09 月報，2026-07-06 重設）」、海外兩檔「未含後續調整」；第 3 次仍讀取中／失敗就寫出 reason 與 errors；
+  ③ 外銷訂單仍是國發會 49.68。
+- ①～③ 都通過就啟用每日巡檢（擁有者 10-26 01:01 已授權）；②仍失敗就保持停用，改由 Claude 評估改用 GitHub 排程代抓。
 
 ## 已完成（v235）：第二修改包內容（保留供對照，不要重套）
 - Patch：`handoff/patches/owner-bundle2-20261025.patch`（SHA-256 `f5068830…c334`），**疊在 owner-bundle-20261025.patch 之後**，不含 dist/server/index.js。

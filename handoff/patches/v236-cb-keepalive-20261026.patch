@@ -1,0 +1,217 @@
+diff --git a/package.json b/package.json
+index 0a21bf7..6afc2d3 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/convertible-bonds.test.mjs b/tests/convertible-bonds.test.mjs
+index a3b0650..74d3e69 100644
+--- a/tests/convertible-bonds.test.mjs
++++ b/tests/convertible-bonds.test.mjs
+@@ -70,3 +70,12 @@ test('panels carry CB data and the page shows it without changing any score',()=
+   context.model={symbol:'8299',report:{advisoryPanels:panels}};vm.runInContext('renderAdvisoryPanels(model)',context);
+   for(const label of ['可轉債（櫃買＋觀測站自動）','群聯三','價外','發行時轉換價','可能有遺漏'])assert.ok(host.textContent.includes(label),label);
+ });
++
++test('a TPEx body cut off mid-transfer is retried once; a second cut-off is a failure, not data',async()=>{
++  let calls=0;const cut={ok:true,status:200,json:async()=>{throw SyntaxError('Unexpected end of JSON input');}};
++  const flaky=async url=>{calls++;if(url===TPEX_CB_DOMESTIC_URL&&calls===1)return cut;return {ok:true,status:200,json:async()=>url===TPEX_CB_DOMESTIC_URL?DOMESTIC:OVERSEAS};};
++  const m=memory(),pool=await collectCbRegistry({read:m.read,write:m.write,fetchImpl:flaky,now:Date.parse('2026-10-25T07:00:00Z')});
++  assert.equal(pool.status,'ok');assert.equal(pool.bonds.filter(b=>b.issuer==='8299').length,3);
++  const m2=memory(),dead=await collectCbRegistry({read:m2.read,write:m2.write,fetchImpl:async()=>cut,now:Date.parse('2026-10-25T07:00:00Z')});
++  assert.equal(dead.status,'failed');
++});
+diff --git a/tests/v236-keepalive.test.mjs b/tests/v236-keepalive.test.mjs
+new file mode 100644
+index 0000000..6d49f26
+--- /dev/null
++++ b/tests/v236-keepalive.test.mjs
+@@ -0,0 +1,27 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++// 獨立模組實例：避免和其他測試共用「進行中任務」快取。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\n// v236 keep-alive test instance\nexport {attachPanelSources};').toString('base64'));
++function fakeDb(){const rows=new Map();return {prepare(sql){let args=[];const stmt={bind(...a){args=a;return stmt;},async run(){if(/^INSERT INTO site_runtime_cache/.test(sql))rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true,meta:{changes:1}};},async all(){const r=/FROM site_runtime_cache/.test(sql)?rows.get(args[0]):null;return {results:r?[r]:[]};}};return stmt;},rows};}
++// v236 讀回② 仍「讀取中」：背景任務在回應送出後被取消、櫃買對無 User-Agent 的請求變慢或中斷。
++test('v236 修補：沒趕上的來源交給 waitUntil 跑完並寫入快取；請求帶瀏覽器式 User-Agent',async()=>{
++  const previous=globalThis.fetch,uaSeen=[];
++  const rows=[{Date:'20261025',IssuerCode:'8299',IssuerName:'群聯',BondCode:'82993',ShortName:'群聯三',IssueDate:'20260206',MaturityDate:'20310206',IssueAmount:'6000000000',OutstandingAmount:'6000000000',Currency:'1',PutOptionDate:'20290206',PutOptionPrice:'100.0000','Conversion/ExchangePriceAtIssuance':'2488.0000','Conversion/ExchangePeriodStartDate':'20260507','Conversion/ExchangePeriodEndDate':'20310206'}];
++  globalThis.fetch=async(url,init)=>{
++    const u=String(url);
++    if(/tpex\.org\.tw\/openapi\/v1\/bond_ISSBD[56]_data/.test(u)){uaSeen.push(new Headers(init?.headers).get('user-agent'));await new Promise(r=>setTimeout(r,8500));return new Response(JSON.stringify(u.includes('ISSBD5')?rows:[]),{status:200});}
++    return new Response('not found',{status:404});
++  };
++  try{
++    const db=fakeDb(),kept=[],stock={id:'8299',price:{date:'2026-10-22',value:1880},priceHistory:[],panelInputs:{}};
++    const out=await api.attachPanelSources(stock,{DB:db},{waitUntil:p=>kept.push(p)});
++    assert.equal(out.panelInputs.cbRegistry.status,'pending');assert.ok(kept.length>=1,'unfinished sources were handed to waitUntil');
++    await Promise.all(kept);
++    assert.ok([...db.rows.keys()].some(k=>/^panel:cb-registry:v1:\d{4}-\d\d-\d\d$/.test(k)),'the registry was cached after the response');
++    assert.ok(uaSeen.length===2&&uaSeen.every(ua=>/Mozilla\/5\.0/.test(ua||'')),'TPEx requests carry a browser-like User-Agent');
++    const again=await api.attachPanelSources(stock,{DB:db},{waitUntil:p=>kept.push(p)});
++    assert.equal(again.panelInputs.cbRegistry.status,'partial');assert.equal(again.panelInputs.cbRegistry.bonds[0].id,'82993');
++  }finally{globalThis.fetch=previous;}
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 8ce7526..ea116e8 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -850,7 +850,7 @@ async function masterModelResponse(request, env = {}, ctx = {}) {
+   if (!stock) { const persisted = await readRuntimeCache(env, `stock:v5:${id}`); stock = persisted?.payload || null; stockFresh = Boolean(persisted?.fresh); }
+   if (!stock || stock.pending) return Response.json({ status: 'pending', symbol: id, message: '個股資料快照尚未完成；資料讀取完成後即可由後台執行模型。' }, { headers: jsonHeaders });
+   stock=applyStockRelayQuote(stock,await readStockRelay(env,ctx));
+-  if(typeof attachPanelSources==='function')stock=await attachPanelSources(stock,env);
++  if(typeof attachPanelSources==='function')stock=await attachPanelSources(stock,env,ctx);
+   const userId = String(request.headers.get('oai-authenticated-user-id') || '').trim();
+   let [macro, market, evidence, scanner, automation, pool, expanded, company, sources, crossSnapshot, usSectorSnapshot, gate5bBoundaries] = await Promise.all([readRuntimeCache(env, 'macro:v1'), readRuntimeCache(env, 'macro-market:v7'), userId ? readRuntimeCache(env, `master-gate-evidence:v1:${userId}:${id}`) : null, readRuntimeCache(env, MARKET_SCANNER_LATEST_KEY), readRuntimeCache(env, SITE_AUTO_REFRESH_KEY), readMasterResearchPool(env, userId, id), readRuntimeCache(env,'macro-expanded:v1'),readRuntimeCache(env,`company-evidence:v1:${id}`),readRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`),readCrossMarketSnapshot(env,ctx),readUSSectorSnapshot(env,ctx),readMasterGate5bBoundaries(id)]);
+   if (!market?.fresh) { await macroMarketResponse(env, ctx);market=await readRuntimeCache(env,'macro-market:v7')||market; }
+@@ -1437,7 +1437,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     try {
+       // Preserve the caller's actual identity; service access never creates one.
+       const headers=userId?{'oai-authenticated-user-id':userId}:{};
+-      const model=await (await masterModelResponse(new Request(`https://site.internal/api/master-model?id=${row.id}`,{headers}),env,{})).json();
++      const model=await (await masterModelResponse(new Request(`https://site.internal/api/master-model?id=${row.id}`,{headers}),env,{panelWaitUntil:p=>{try{ctx?.waitUntil?.(p);}catch{}}})).json();
+       const key=`site-master-audit:v1:${run.runId}:${row.id}`;
+       const written=await writeRuntimeCache(env,key,{runId:run.runId,symbol:row.id,checkedAt:new Date().toISOString(),model},365*86400000);
+       const saved=written?await readRuntimeCache(env,key):null;
+diff --git a/worker/panel-site.js b/worker/panel-site.js
+index 273696c..39a9470 100644
+--- a/worker/panel-site.js
++++ b/worker/panel-site.js
+@@ -1,12 +1,16 @@
+ // 面板資料來源同時抓、整體最多等 PANEL_SOURCE_BUDGET_MS；沒趕上的項目顯示「讀取中」，背景任務完成後寫入快取，下次直接用。
+ // （v235 巡檢：逐項依序等待＋櫃買逾時，讓每檔 Gate 審計超過 16 秒步驟上限。）
+ const PANEL_SOURCE_BUDGET_MS=7000;
+-function panelWithin(task,fallback,ms=PANEL_SOURCE_BUDGET_MS){
++function panelWithin(task,fallback,keepAlive,ms=PANEL_SOURCE_BUDGET_MS){
+   let timer;
+   const guarded=Promise.resolve().then(task).catch(()=>fallback('failed'));
+-  return Promise.race([guarded,new Promise(resolve=>{timer=setTimeout(()=>resolve(fallback('loading')),ms);})]).finally(()=>clearTimeout(timer));
++  return Promise.race([guarded,new Promise(resolve=>{timer=setTimeout(()=>{
++    // 沒趕上的來源交給平台的 waitUntil 繼續跑完、寫進快取；否則回應送出後背景任務會被取消（v236 讀回②一直「讀取中」的原因）。
++    try{keepAlive?.(guarded);}catch{}
++    resolve(fallback('loading'));
++  },ms);})]).finally(()=>clearTimeout(timer));
+ }
+-async function attachPanelSources(stock,env={}){
++async function attachPanelSources(stock,env={},ctx={}){
+   if(!stock?.price?.date||!env.DB)return stock;
+   const inputs={...stock.panelInputs},registry=await getOfficialIssuedShares(env),current=registry.data.get(stock.id);
+   // Current classification never reconstructs a past information set.
+@@ -14,27 +18,28 @@ async function attachPanelSources(stock,env={}){
+   const read=key=>readRuntimeCache(env,key),write=(key,value,ttl)=>writeRuntimeCache(env,key,value,ttl);
+   const officialMarket=inputs.issuer?.market||stock.quoteIntegration?.price?.market;
+   const code=(kind,prefix)=>kind==='loading'?`${prefix}_STILL_LOADING`:`${prefix}_COLLECTION_FAILED`;
++  const keepAlive=typeof ctx?.panelWaitUntil==='function'?ctx.panelWaitUntil:typeof ctx?.waitUntil==='function'?p=>ctx.waitUntil(p):null;
+   const [lending,dollarIndex,cbRegistry,cbMonthly,holders,marginMaintenance]=await Promise.all([
+     panelWithin(async()=>{
+       const pool=await PANEL_SOURCES.collectLending({asOf:stock.price.date,read,write});
+       return PANEL_SOURCES.selectAndSaveLending({pool,symbol:stock.id,market:officialMarket,asOf:stock.price.date,issuer:inputs.issuer,priceDates:(stock.priceHistory||[]).map(r=>r.date),read,write});
+-    },kind=>({status:'insufficient',reason:code(kind,'OFFICIAL_LENDING'),history:[]})),
++    },kind=>({status:'insufficient',reason:code(kind,'OFFICIAL_LENDING'),history:[]}),keepAlive),
+     panelWithin(async()=>{
+       // 回測用的同一條美元指數（FRED DTWEXAFEGS，經官方匯入保存）；不是 ICE DXY。
+       const saved=await readRuntimeCache(env,'official-series:v1:DTWEXAFEGS'),input=saved?.payload;
+       return input&&saved.fresh&&Date.now()-Date.parse(input.fetchedAt)<=36*3600000?{id:'DTWEXAFEGS',history:input.history||[],source:input.source,fetchedAt:input.fetchedAt,releaseVerification:input.releaseVerification||null}:null;
+-    },()=>null),
++    },()=>null,keepAlive),
+     panelWithin(async()=>{
+       const pool=await PANEL_SOURCES.collectCbRegistry({read,write});
+       return {checkedAt:pool.checkedAt,status:pool.status,sources:pool.sources,errors:pool.errors,bonds:(pool.bonds||[]).filter(b=>b.issuer===stock.id)};
+-    },kind=>({status:kind==='loading'?'pending':'failed',bonds:[],sources:[],errors:[{kind:'all',code:code(kind,'CB_REGISTRY')}]})),
++    },kind=>({status:kind==='loading'?'pending':'failed',bonds:[],sources:[],errors:[{kind:'all',code:code(kind,'CB_REGISTRY')}]}),keepAlive),
+     // 目前轉換價：觀測站轉換變動月報（國內債）。和登錄清單同時抓，之後只留本股、且代號在櫃買登錄裡的債。
+-    panelWithin(()=>PANEL_SOURCES.collectCbMonthly({read,write}),kind=>({status:kind==='loading'?'pending':'failed',prices:{},reason:code(kind,'CB_MONTHLY')})),
++    panelWithin(()=>PANEL_SOURCES.collectCbMonthly({read,write}),kind=>({status:kind==='loading'?'pending':'failed',prices:{},reason:code(kind,'CB_MONTHLY')}),keepAlive),
+     panelWithin(async()=>{
+       const pool=await PANEL_SOURCES.collectTdccHolders({read,write});
+       return PANEL_SOURCES.selectAndSaveHolders({pool,symbol:stock.id,read,write});
+-    },kind=>({history:[],reason:code(kind,'TDCC')})),
+-    panelWithin(()=>PANEL_SOURCES.collectMarginMaintenance({read,write}),kind=>({status:'insufficient',reason:code(kind,'MARGIN_MAINTENANCE'),scoreContribution:0}))
++    },kind=>({history:[],reason:code(kind,'TDCC')}),keepAlive),
++    panelWithin(()=>PANEL_SOURCES.collectMarginMaintenance({read,write}),kind=>({status:'insufficient',reason:code(kind,'MARGIN_MAINTENANCE'),scoreContribution:0}),keepAlive)
+   ]);
+   const ids=new Set((cbRegistry.bonds||[]).map(b=>b.id));
+   inputs.lending=lending;inputs.dollarIndex=dollarIndex;inputs.holders=holders;inputs.marginMaintenance=marginMaintenance;
+diff --git a/worker/panel-sources.mjs b/worker/panel-sources.mjs
+index 587ddbc..876af80 100644
+--- a/worker/panel-sources.mjs
++++ b/worker/panel-sources.mjs
+@@ -3,6 +3,8 @@ export const TPEX_LENDING_URL='https://www.tpex.org.tw/openapi/v1/tpex_margin_sb
+ export const TWSE_LENDING_BASE='https://www.twse.com.tw/rwd/zh/marginTrading/TWT93U';
+ const day=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&Number.isFinite(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s;
+ export function officialDay(raw){const s=String(raw||'').trim();const date=/^\d{7}$/.test(s)?`${Number(s.slice(0,3))+1911}-${s.slice(3,5)}-${s.slice(5)}`:/^\d{8}$/.test(s)?`${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6)}`:s;return day(date)?date:null;}
++// 櫃買、觀測站、集保在 Cloudflare 後面：不帶瀏覽器式 User-Agent 時回應明顯變慢、偶爾傳一半就斷（gate-probe 10-26 實測）。
++export const PANEL_FETCH_HEADERS=Object.freeze({'User-Agent':'Mozilla/5.0 (compatible; TaiwanStockMaster/1.0; +official public data)'});
+ const quantity=s=>typeof s==='number'?Number.isSafeInteger(s)&&s>=0?s:null:/^\d[\d,]*$/.test(String(s||'').trim())?Number(String(s).replaceAll(',','')):null;
+ export function parseLending(payload,market,{capturedAt,sourceUrl,asOf}={}){
+   const records={};
+@@ -26,7 +28,7 @@ export async function collectLending({asOf,read,write,fetchImpl=fetch,now=Date.n
+     const stocks={},errors=[];
+     const urls=[['TWSE',`${TWSE_LENDING_BASE}?date=${asOf.replaceAll('-','')}&response=json`],['TPEx',TPEX_LENDING_URL]];
+     const results=await Promise.all(urls.map(async([market,sourceUrl])=>{
+-      try{const r=await fetchImpl(sourceUrl,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(4500)});if(!r.ok)throw Error(`HTTP_${r.status}`);return {market,records:parseLending(await r.json(),market,{asOf,sourceUrl,capturedAt:new Date(now).toISOString()})};}
++      try{const r=await fetchImpl(sourceUrl,{headers:{...PANEL_FETCH_HEADERS,Accept:'application/json'},signal:AbortSignal.timeout(4500)});if(!r.ok)throw Error(`HTTP_${r.status}`);return {market,records:parseLending(await r.json(),market,{asOf,sourceUrl,capturedAt:new Date(now).toISOString()})};}
+       catch(error){return {market,error:/^HTTP_\d+$/.test(error.message)?error.message:'OFFICIAL_LENDING_UNAVAILABLE_OR_SCHEMA'};}
+     }));
+     for(const r of results)if(r.records){Object.assign(stocks,r.records);if(Object.values(r.records).every(point=>point.date<asOf))errors.push({market:r.market,code:'LATEST_SESSION_MISSING'});}else errors.push({market:r.market,code:r.error});
+@@ -84,7 +86,15 @@ export async function collectCbRegistry({read,write,fetchImpl=fetch,now=Date.now
+     const bonds=[],errors=[],sources=[],capturedAt=new Date(now).toISOString();
+     for(const [kind,sourceUrl] of [['domestic',TPEX_CB_DOMESTIC_URL],['overseas',TPEX_CB_OVERSEAS_URL]]){
+       // 櫃買回應本文有時傳得很慢（HTTP 200 後讀取逾時），給 15 秒；呼叫端另有總時限，不會拖住整頁。
+-      try{const r=await fetchImpl(sourceUrl,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error(`HTTP_${r.status}`);const rows=await r.json();bonds.push(...parseCbRegistry(rows,{sourceUrl,kind,capturedAt}));sources.push({kind,sourceUrl,rows:rows.length});}
++      try{
++        let rows,lastError;
++        for(let attempt=0;attempt<2&&!rows;attempt++){
++          // 本文傳一半就斷（JSON 解析失敗）時再試一次；HTTP 錯誤不重試。
++          const r=await fetchImpl(sourceUrl,{headers:{...PANEL_FETCH_HEADERS,Accept:'application/json'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error(`HTTP_${r.status}`);
++          try{rows=await r.json();}catch(error){lastError=error;}
++        }
++        if(!rows)throw lastError||Error('CB_REGISTRY_BODY');
++        bonds.push(...parseCbRegistry(rows,{sourceUrl,kind,capturedAt}));sources.push({kind,sourceUrl,rows:rows.length});}
+       catch(error){errors.push({kind,code:/^HTTP_\d+$/.test(error.message)?error.message:'CB_REGISTRY_UNAVAILABLE_OR_SCHEMA'});}
+     }
+     const payload={checkedAt:capturedAt,bonds,sources,errors,status:errors.length?(bonds.length?'partial':'failed'):'ok'};
+@@ -143,9 +153,9 @@ export async function collectCbMonthly({read,write,fetchImpl=fetch,now=Date.now(
+     const checkedAt=new Date(now).toISOString();
+     try{
+       if(failed)throw Error(failed.code);
+-      const ir=await fetchImpl(TPEX_CB_MONTHLY_INDEX_URL,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(10000)});if(!ir.ok)throw Error(`HTTP_${ir.status}`);
++      const ir=await fetchImpl(TPEX_CB_MONTHLY_INDEX_URL,{headers:{...PANEL_FETCH_HEADERS,Accept:'application/json'},signal:AbortSignal.timeout(10000)});if(!ir.ok)throw Error(`HTTP_${ir.status}`);
+       const file=latestCbMonthlyFile(await ir.json());
+-      const fr=await fetchImpl(file.url,{headers:{Accept:'text/html'},signal:AbortSignal.timeout(12000)});if(!fr.ok)throw Error(`HTTP_${fr.status}`);
++      const fr=await fetchImpl(file.url,{headers:{...PANEL_FETCH_HEADERS,Accept:'text/html'},signal:AbortSignal.timeout(12000)});if(!fr.ok)throw Error(`HTTP_${fr.status}`);
+       const parsed=parseCbMonthly(big5Subset(await fr.arrayBuffer()),{month:file.month});
+       const payload={status:'ok',...parsed,sourceUrl:file.url,indexUrl:TPEX_CB_MONTHLY_INDEX_URL,checkedAt};
+       if(!await write(key,payload,12*3600000))return {...payload,storageStatus:'failed'};
+@@ -184,7 +194,7 @@ export async function collectTdccHolders({read,write,fetchImpl=fetch,now=Date.no
+   const failed=await recentFailure(read,key);
+   if(failed)return {status:'failed',stocks:{},checkedAt:failed.at,error:failed.code,retryAfterFailure:true};
+   const task=(async()=>{
+-    try{const r=await fetchImpl(TDCC_HOLDERS_URL,{headers:{Accept:'text/csv,*/*'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error(`HTTP_${r.status}`);const text=await r.text();if(text.length>8_000_000)throw Error('TDCC_TOO_LARGE');
++    try{const r=await fetchImpl(TDCC_HOLDERS_URL,{headers:{...PANEL_FETCH_HEADERS,Accept:'text/csv,*/*'},signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error(`HTTP_${r.status}`);const text=await r.text();if(text.length>8_000_000)throw Error('TDCC_TOO_LARGE');
+       const parsed=parseTdccHolders(text),payload={...parsed,checkedAt:new Date(now).toISOString(),sourceUrl:TDCC_HOLDERS_URL,status:'ok'};
+       await write(key,payload,12*3600000);return payload;}
+     catch(error){const code=/^HTTP_\d+$|^TDCC_/.test(error.message)?error.message:'TDCC_UNAVAILABLE';await rememberFailure(write,key,code,now);return {status:'failed',stocks:{},checkedAt:new Date(now).toISOString(),error:code};}
+@@ -224,10 +234,10 @@ export async function collectMarginMaintenance({read,write,fetchImpl=fetch,now=D
+   const task=(async()=>{
+     try{
+       if(failed)throw Error(failed.code);
+-      const pr=await fetchImpl(TWSE_STOCK_DAY_ALL_URL,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!pr.ok)throw Error(`HTTP_${pr.status}`);const prices=await pr.json();
++      const pr=await fetchImpl(TWSE_STOCK_DAY_ALL_URL,{headers:{...PANEL_FETCH_HEADERS,Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!pr.ok)throw Error(`HTTP_${pr.status}`);const prices=await pr.json();
+       const sessionDay=officialDay(prices?.[0]?.Date);if(!sessionDay)throw Error('PRICE_SCHEMA');
+       const url=`https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?date=${sessionDay.replaceAll('-','')}&selectType=ALL&response=json`;
+-      const mr=await fetchImpl(url,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!mr.ok)throw Error(`HTTP_${mr.status}`);
++      const mr=await fetchImpl(url,{headers:{...PANEL_FETCH_HEADERS,Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!mr.ok)throw Error(`HTTP_${mr.status}`);
+       const result={...computeMarginMaintenance(prices,await mr.json()),sourceUrls:[TWSE_STOCK_DAY_ALL_URL,url],checkedAt:new Date(now).toISOString()};
+       await write(latestKey,result,6*3600000);return result;
+     }catch(error){
