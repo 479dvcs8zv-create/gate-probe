@@ -25,7 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 350
     steps:
+      # 排隊等待後才開始的執行，要拿分支最新版（含前一次執行剛推上的資料），推送時才不會衝突。
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

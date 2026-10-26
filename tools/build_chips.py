@@ -169,10 +169,14 @@ def main(kind, out, start, end, minutes, cache="results/backtest-data/twse-cache
     deadline = time.time() + float(minutes) * 60
     days = [d for d in trading_days(cache) if max(start, FIRST[kind]) <= d.isoformat() <= end]
     log = out / f"{kind}-days.csv"
+    # 完成與否以「年檔裡真的有這天的資料」或「官方當天沒有資料（empty）」為準，不只看紀錄檔：
+    # 中途被取消的執行可能記了 ok 卻沒寫進年檔。
     done = set()
     if log.exists():
         with open(log) as f:
-            done = {r["date"] for r in csv.DictReader(f) if r["status"] in ("ok", "empty")}
+            done = {r["date"] for r in csv.DictReader(f) if r["status"].strip() == "empty"}
+    for p in out.glob(f"{kind}-[0-9][0-9][0-9][0-9].csv.gz"):
+        done |= set(load_year(p))
     newlog = not log.exists()
     lf = open(log, "a", newline="")
     lw = csv.DictWriter(lf, fieldnames=["date", "rows", "sha256", "bytes", "status"])
