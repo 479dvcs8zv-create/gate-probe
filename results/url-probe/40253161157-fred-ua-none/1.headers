@@ -1,0 +1,17 @@
+HTTP/2 200 
+last-modified: Wed, 30 Sep 2026 12:43:28 GMT
+content-type: application/csv
+server: Apache
+content-disposition: attachment; filename="PCEPILFE.csv"
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+content-length: 4816
+cache-control: public, max-age=600
+expires: Mon, 26 Oct 2026 01:23:41 GMT
+date: Mon, 26 Oct 2026 01:13:41 GMT
+alt-svc: h3=":443"; ma=93600
+strict-transport-security: max-age=86400
+x-location: cfs
+set-cookie: _abck=2B70B1993FF58FAB461530F44B8EC329~-1~YAAQjW0+F/Vw4zqhAQAAsDjFdRDcW2Kw/p3o71UylI7DXWfOo2r8wfaTIWJQ0gu9O4iSVuJcYlzPlCBMRiNstJqufeUrFO9NMHK8HGl95+LKBSYcNAXdn2d47Wrs2QM/z4L8/gIRdsEeuKvWfIKkjlmLVdE1WLV9XxGipRXhE7MUd2a921oFgwLPQfPkDAX7FYwMPGlpfqypeg0kFP4UShdYLzpryMTNLqPi5+4ii/uM6yA0cPBeS8L269NUf8VTneCkrSYJKEasdK6h96wFd0W0Ar1u58RE0Gotk4PSSNw1X0MY8tSUx1zppp6Dyam/UYnm/Nwrr4T6NP2Btda0NwIDfSLou4kKza/9Hp4zeEku2LGhymeGT+pMQtie4RCRYOQUQtCCrkPCQst0l1vhRKJKk4ngypJw5NJmcZN8ti+T/yEDDGAc+UK5scEx/19ANL2MNlinP39C~-1~-1~-1~-1~-1; Domain=.stlouisfed.org; Path=/; Expires=Tue, 26 Oct 2027 01:13:41 GMT; Max-Age=31536000; Secure
+set-cookie: bm_sz=B4EA459CD05EC4EFA6E9D2D85C132598~YAAQjW0+F/Zw4zqhAQAAsDjFdQHmm/kVSs1NeGf1xcIT7HZIVydGofrOcnbcDpr5oRxPrlZ5s7gmVWJqd84ua1H5QSIbVzz2dqXFkjyEdA6qPdAQme4ELgjk+C4g+eLVlMsNiGSI7ICQQhIE4cJNKLa5H26Ta3EVTTUVnqGUYmC9OJZdssKy488GIuq9BKh0HnDgOsN0cuLDifzGPhSAlTAcwySGo3MTTeU/ClIBKttAGYi35HvIMPZJ1v9QzE/0gW+G9YdmarahGpAHvh2YRh0SQVceM7psFpo9Pg8AbN6bqCR95jebDDjn5fLLkz7tgWOYyvXnm/ckY2Y88c6L3SI92BvGjQLmcgm/u6f/BG5Z1/3jMa5ZOVTyqw==~4474417~4338224; Domain=.stlouisfed.org; Path=/; Expires=Mon, 26 Oct 2026 05:13:41 GMT; Max-Age=14400
+

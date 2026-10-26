@@ -1,0 +1,17 @@
+HTTP/2 200 
+server: Apache
+last-modified: Thu, 22 Oct 2026 12:34:23 GMT
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+content-type: application/csv
+content-disposition: attachment; filename="IC4WSA.csv"
+content-length: 20529
+cache-control: public, max-age=600
+expires: Mon, 26 Oct 2026 01:23:45 GMT
+date: Mon, 26 Oct 2026 01:13:45 GMT
+alt-svc: h3=":443"; ma=93600
+strict-transport-security: max-age=86400
+x-location: cfs
+set-cookie: _abck=69D190361BCC7F0D61ADAC4D3217DA04~-1~YAAQjW0+F9By4zqhAQAALkXFdRDs5EeHyZIipMP0VFGnvOH7ZAJuFjKuDHStyZJJuOvM1ISfwxAtsxwaupe/b59ShrBTTu7jrCht5UgPwZoeycN9pnDEQdFgFjVjqET+/opv2l3vQlU1LHs1KTOnSwhDDyWuTf4Tk8SF2VnFUHLj667dDbh9opfBR9Lha3eLyiyecE8+ySjjwkJEsPxQyD5KDL6kdT0cXDz1ucfvsESjQPNJmvbwlWF4NeKxCw10nIe3AyVmHFOnqTj3ThCsBCqclRuW0I86wGSWmam64NHBE8dLHlgYp92dWWO46t8OXHFRtK81Cx8gBoMyT8Bws+yAqVjudBs5eYVSDvsN6LFPy331ZigA6RChAuwB38pgLV8osSqtrdqdL1sNKNs+sdgR54LXXQN8ZsC32QszTHF7QghZ99QFYWh3BHs2l8XcA4DqINJbEv5b~-1~-1~-1~-1~-1; Domain=.stlouisfed.org; Path=/; Expires=Tue, 26 Oct 2027 01:13:45 GMT; Max-Age=31536000; Secure
+set-cookie: bm_sz=F525558FEFAA0F8255F49779C0D4929B~YAAQjW0+F9Fy4zqhAQAALkXFdQF+XfX6ioXhXgWNrrLLMbuh3akD9hKmzXyU/AAHM47lB40+tbuJBKmft108aH8O0h/Sm9JWzd14tA1swoBLRKkdhenAB01oGZLJEhdiuIrsWPkOlUlddNFvrH6jiWs81BaXHeV37jDNZWBtW7mujX6LogZhvbvVi1M4+/0MokvGCf7TxfwhhBrsc2ETLFS55ElU+Hbe6RT2/n8OIr1NeM7hRheR+aw+pQXkRlkVWiARkAkKKi+iCw49O/w5j+ILBiAa9nDE2yxRrfRcn7H8J2U2fbp20x9ljBzSipmXVvJhuc82CGQShwnppGw7y8IyR/xZTNT0DfF88UFxKBbd4hzLwMHqiNrrwg==~4273464~4600624; Domain=.stlouisfed.org; Path=/; Expires=Mon, 26 Oct 2026 05:13:44 GMT; Max-Age=14399
+

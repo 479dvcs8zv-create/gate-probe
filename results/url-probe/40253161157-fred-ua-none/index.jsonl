@@ -1,0 +1,2 @@
+{"n":1,"url":"https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCEPILFE&cosd=2005-01-01","started_at":"2026-10-26T01:13:41Z","http_status":"200","ttfb_s":"0.651488","total_s":"0.651691","ua":"none","sha256":"54fde093f247dcec3af8a9fd375fee11b5f6f2a6d89b7e2183ccbba3d2e832f3","bytes":4816}
+{"n":2,"url":"https://fred.stlouisfed.org/graph/fredgraph.csv?id=IC4WSA&cosd=2005-01-01","started_at":"2026-10-26T01:13:44Z","http_status":"200","ttfb_s":"0.173446","total_s":"0.174280","ua":"none","sha256":"fb6f258d2f0949c66fc00f53ee31edd1e8e11f150209817101b74923a5495235","bytes":20529}
