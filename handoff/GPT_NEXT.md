@@ -1,6 +1,6 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-26 08:45 台北（Claude）
+更新：2026-10-26 09:40 台北（Claude）
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
@@ -11,18 +11,26 @@
 ## 已完成：v235 修補 → **v236**（10-26 08:0x；報告 `diagnostics/deploy-20261026/hotfix.md`）
 - ① Gate 審計 4/4 recorded、無逾時 PASS；③ 國發會 49.68 PASS；② 可轉債仍 `CB_REGISTRY_STILL_LOADING` FAIL；每日巡檢保持停用（正確）。
 
-## 現在：v236 可轉債修補（Claude 寫好、測完；**已授權：擁有者 2026-10-26 08:49「授權」，擁有者稍後再請你執行**）
-- Patch：`handoff/patches/v236-cb-keepalive-20261026.patch`，SHA-256 `4798d5bd2522cb6e80f4ff7c07c0fafdda693d83e0cffccd58d874e73e2d199b`。基線＝v236 來源（你的 88f5f89＝Claude 重放 3c2a5e0）。不含 dist/server/index.js。
-- 原因（你的推論正確）：
-  1. 7 秒沒趕上的來源，回應送出後背景任務被平台取消，所以永遠「讀取中」。→ 交給 `ctx.waitUntil` 跑完並寫快取；巡檢 Gate 步驟以 `{panelWaitUntil}` 傳入（只給面板來源用，不改其他模組的 ctx 行為）。
-  2. 櫃買（Cloudflare 後面）對不帶 User-Agent 的請求明顯變慢、偶爾本文傳一半就斷（gate-probe 10-26 實測：無 UA 5.3 秒、有 UA 1.1 秒；連續第二次請求傳到 179,836／453,761 位元組中斷）。→ 櫃買、觀測站、集保、證交所面板請求都帶瀏覽器式 User-Agent；櫃買本文解析失敗時重試一次。
-- 新測試 3 項（先用 v236 程式確認會失敗）；Claude 在乾淨 v236 重放：無衝突、完整 `npm test` exit 0；`dist/index.html` 不變（`2d51dc25…4f92`，只改伺服器端）。
+## 現在：兩份修補，同一次處理（Claude 寫好、測完；**都已授權**）
+**授權**：擁有者 2026-10-26 08:49「授權」（可轉債修補）＋08:55「m1 資料來源補齊、小項也處理」。擁有者說要晚點做，等他叫你再開始。
+
+### A. 網站 v236 修補（一次部署）
+- Patch：`handoff/patches/v236-fixes-20261026.patch`，SHA-256 `66e1765abab99bbed31350d52f290c2d3d72ae4c67f53d26ffd43c602e19570f`（**取代**先前的 v236-cb-keepalive）。基線＝v236 來源（你的 88f5f89＝Claude 重放 3c2a5e0）。不含 dist/server/index.js。
+- 內容：
+  1. 可轉債：7 秒沒趕上的來源交給 `ctx.waitUntil` 跑完並寫快取（巡檢 Gate 步驟傳 `{panelWaitUntil}`，只給面板來源用）；櫃買／觀測站／集保／證交所面板請求帶瀏覽器式 User-Agent；櫃買本文中斷重試一次。（實測：無 UA 5.3 秒、有 UA 1.1 秒；連續第二次請求本文傳到一半中斷。）
+  2. C2 估值分歧分兩種說法（仍未評、風險限制不變）：當期來源彼此在 2 倍內、差距只來自歷史常態 → 「獲利遠高（低）於過去常態，屬景氣高峰（谷底）位置的風險」；否則 → 「各來源 EPS 互相分歧，需用財報與法說核對」。新增欄位 `divergenceKind`、`currentRatio`。
+- Claude 在乾淨 v236 重放：無衝突、完整 `npm test` exit 0；`dist/index.html` SHA-256 `d11d8e9dfaab0e26227d2f8e0e19142117362c95d4c409eaf1b8530fc11cdc6b`。
 - 步驟：`git apply` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（v236 留回滾）。
-- 部署後：手動巡檢一次，然後開 8299 最多 3 次（間隔 30 秒）。讀回（報告 20 行內，`diagnostics/deploy-20261026/hotfix2.md`）：
-  ① Gate 審計仍 4/4 recorded、無逾時；
-  ② 8299 可轉債 3 檔、群聯三「目前轉換價 2,468.8（觀測站 2026-09 月報，2026-07-06 重設）」、海外兩檔「未含後續調整」；第 3 次仍讀取中／失敗就寫出 reason 與 errors；
-  ③ 外銷訂單仍是國發會 49.68。
-- ①～③ 都通過就啟用每日巡檢（擁有者 10-26 01:01 已授權）；②仍失敗就保持停用，改由 Claude 評估改用 GitHub 排程代抓。
+
+### B. 中繼 macro-relay-service：M1B−M2 改由排程代抓（不用部署網站）
+- Patch：`handoff/patches/relay-cbc-m1b-20261026.patch`（`git format-patch`，SHA-256 `4a8b24297f7a26eb5b549e051958f31a6ec15976eb254ee9b31aba0eb92e481d`），在 macro-relay-service 用 `git am` 套用後推上 main；推送會觸發 keyless 工作流程（先跑 unittest 再發布）。
+- 內容：`sync_keyless.py` 新增 `TW_M1B_M2`：抓央行「貨幣總計數」頁（M1B、M2 日平均年增率）＋同頁 `ms.ods` 歷史互相核對，發布近 24 個月 M1B−M2（max_age 95 天）；網站 `loadExpandedSeries` 會先讀這份中繼。網站 Worker 直連央行常被擋、目前停在舊快照 −0.14。另外**移除經濟部外銷訂單**抓取（每輪 403；網站已改國發會），並從快照刪掉舊值。
+- 測試：新增 `tests/test_cbc_money.py` 4 項（用 10-26 的真實央行頁面）；Claude 本機 `python -m unittest discover -s tests` 28/28 通過；也用真實 ms.ods 驗過：1983-01～2026-08 共 524 個月，2026-08 = −0.14（6.65 − 6.79）。
+
+### 讀回（報告 25 行內，`diagnostics/deploy-20261026/hotfix2.md`）
+- A 部署後手動巡檢一次，然後開 8299 最多 3 次（間隔 30 秒）：① Gate 審計 4/4 recorded、無逾時；② 可轉債 3 檔、群聯三「目前轉換價 2,468.8（觀測站 2026-09 月報，2026-07-06 重設）」、海外兩檔「未含後續調整」，失敗就寫 reason／errors；③ 外銷訂單仍是國發會 49.68；④ 8299 估值分歧文字出現「類型：」，評級仍未評。
+- B 推送後：keyless 工作流程通過；`data/keyless_snapshot.json` 有 `TW_M1B_M2`（status ok、最新月份與值），沒有 `TW_EXPORT_ORDERS`；網站總經 TW_M1B_M2 改讀中繼、不再是舊快照。
+- ①②③ 都通過就啟用每日巡檢（擁有者 10-26 01:01 已授權）；②失敗就保持停用，由 Claude 改用 GitHub 排程代抓可轉債。
 
 ## 已完成（v235）：第二修改包內容（保留供對照，不要重套）
 - Patch：`handoff/patches/owner-bundle2-20261025.patch`（SHA-256 `f5068830…c334`），**疊在 owner-bundle-20261025.patch 之後**，不含 dist/server/index.js。
