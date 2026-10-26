@@ -1,0 +1,9 @@
+HTTP/2 200 
+date: Mon, 26 Oct 2026 01:31:02 GMT
+content-type: text/xml; charset=utf-8
+server: nginx
+vary: Accept-Encoding
+cache-control: no-cache, private
+set-cookie: XSRF-TOKEN=eyJpdiI6IjRKQjFGckVrcnU3SGdlczQ5QXJ0WEE9PSIsInZhbHVlIjoid1hqa3hEZFJPdnhBZWttRmtzZ3o2VWJEMGtRZnZPeStua1lWYzJmYUs1dlRWeVwvVFwvMVB6WFZ0bGtPQUZtRWYxZWx0SmJPN081OUlnOVdJaXpVdXpyUT09IiwibWFjIjoiNDk1ZGJiZjk4MmM2NmJhMzRlOWNmOTg0NGMzZjZhYzQ3NjUwY2E5NTc2NzM5MTY2ZWQ2MTgxZjRlMGRhMGVkYSJ9; expires=Mon, 26-Oct-2026 03:31:02 GMT; Max-Age=7200; path=/
+set-cookie: laravel_session=eyJpdiI6ImxKbkFia3d2MkNxMG12dzVncTQxNGc9PSIsInZhbHVlIjoiUks3SXJOd1R2cjVkTUt3U1Nob3BDTjMwSDhIbjlqYVwvc0hHeVdmM2tYenBMa0ZoSmlrUkZaOTJvUzk0cHlmcHNGMll4TDRMSFwvWEMwSEQxUXRZMGlkUT09IiwibWFjIjoiOTRjOGMyOGMyMGRiNWYwZTQ5ZWUxMWJiM2E4YjYwMjYwNmJhMDg2N2IwMDJlODAwOWE2NzVlZWUxMDAzOGIwOCJ9; expires=Mon, 26-Oct-2026 03:31:02 GMT; Max-Age=7200; path=/; httponly
+
