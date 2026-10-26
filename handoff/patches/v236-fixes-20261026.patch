@@ -33,7 +33,7 @@ index 1bcece6..a4dcbc3 100644
    const addGroup=(title,lines)=>{if(!lines.length)return;const heading=document.createElement('strong');heading.textContent=title;const list=document.createElement('ul');for(const line of lines){const item=document.createElement('li');item.textContent=line;list.append(item)}report.append(heading,list)};
    const statusText=x=>({ok:'有效',partial:'部分有效',pending:'更新中',missing:'缺值',error:'錯誤',fresh:'快取有效',saved:'已保存',needs_refresh:'待搜尋',daily_limit:'達每日上限',auth_required:'排程未取得登入身分',deferred:'排入後續輪替',collecting_history:'已啟動快照累積',history_ready:'歷史樣本已成熟',source_error:'來源／日期／儲存錯誤'}[x]||x||'未知');
 diff --git a/package.json b/package.json
-index 0a21bf7..b7f71a4 100644
+index 0a21bf7..6475330 100644
 --- a/package.json
 +++ b/package.json
 @@ -23,7 +23,7 @@
@@ -41,7 +41,7 @@ index 0a21bf7..b7f71a4 100644
      "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
      "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
 -    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs"
-+    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs"
    },
    "devDependencies": {
      "drizzle-kit": "0.31.10",
@@ -62,6 +62,62 @@ index a3b0650..74d3e69 100644
 +  const m2=memory(),dead=await collectCbRegistry({read:m2.read,write:m2.write,fetchImpl:async()=>cut,now:Date.parse('2026-10-25T07:00:00Z')});
 +  assert.equal(dead.status,'failed');
 +});
+diff --git a/tests/fixtures/eia-wcestus1-leaf-20261026.html b/tests/fixtures/eia-wcestus1-leaf-20261026.html
+new file mode 100644
+index 0000000..0c4d525
+--- /dev/null
++++ b/tests/fixtures/eia-wcestus1-leaf-20261026.html
+@@ -0,0 +1,50 @@
++<!-- EIA WCESTUS1 LeafHandler page fetched 2026-10-26 02:10Z via gate-probe url-probe run 40257314055; last 3 monthly rows and the release-date table copied verbatim, rest of page removed. -->
++<table class='FloatTitle'>
++<tr>
++ <td class='B6'>&nbsp;&nbsp;2026-Aug</td>
++ <td class='B5'>08/07&nbsp;</td>
++ <td class='B3'>424,410&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>08/14&nbsp;</td>
++ <td class='B3'>428,815&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>08/21&nbsp;</td>
++ <td class='B3'>428,910&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>08/28&nbsp;</td>
++ <td class='B3'>424,460&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>&nbsp;</td>
++ <td class='B3'>&nbsp;&nbsp;&nbsp;</td>
++ </tr>
++<tr>
++ <td class='B6'>&nbsp;&nbsp;2026-Sep</td>
++ <td class='B5'>09/04&nbsp;</td>
++ <td class='B3'>424,069&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>09/11&nbsp;</td>
++ <td class='B3'>423,429&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>09/18&nbsp;</td>
++ <td class='B3'>426,398&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>09/25&nbsp;</td>
++ <td class='B3'>427,320&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>&nbsp;</td>
++ <td class='B3'>&nbsp;&nbsp;&nbsp;</td>
++ </tr>
++<tr>
++ <td class='B6'>&nbsp;&nbsp;2026-Oct</td>
++ <td class='B5'>10/02&nbsp;</td>
++ <td class='B3'>424,134&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>10/09&nbsp;</td>
++ <td class='B3'>415,577&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>10/16&nbsp;</td>
++ <td class='B3'>412,517&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>&nbsp;</td>
++ <td class='B3'>&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>&nbsp;</td>
++ <td class='B3'>&nbsp;&nbsp;&nbsp;</td>
++ </tr>
++</table>
++<table width='675' border='0' cellspacing='0' cellpadding='0'>
++ <tr>
++ <td class='F2'>Release Date: 10/21/2026</td>
++ </tr>
++ <tr>
++ <td class='F2'>Next Release Date: 10/28/2026</td>
++ </tr>
++ </table>
 diff --git a/tests/fixtures/t187ap04-20261026.json b/tests/fixtures/t187ap04-20261026.json
 new file mode 100644
 index 0000000..bbf2d90
@@ -132,6 +188,42 @@ index 0000000..5a9520b
 +                        TrendForce’s latest smartphone industry research indicates that Apple plans to adjust its product launch schedule starting in 2026, splitting new releases between fall and spring. This fall will see the debut of the flagship iPhone 18 Pro and Pro Max, along with the highly anticipated iPhone 18 Fold (tentative name), Apple’s first foldable smartphone. The standard iPhone 18 and other variants are expected to follow in the first quarter of 2027.
 +                    </p>
 +</div>
+diff --git a/tests/macro-market-state.test.mjs b/tests/macro-market-state.test.mjs
+index 339f7f6..30349d5 100644
+--- a/tests/macro-market-state.test.mjs
++++ b/tests/macro-market-state.test.mjs
+@@ -231,8 +231,11 @@ try {
+   const staleSecondary=await marketRows({secondaryAgeMinutes:75,failTertiary:true});
+   assert.equal(staleSecondary.rows.XAU.status,'stale','a matching but over-age second-site quote must not pass as current');
+   assert.equal(staleSecondary.rows.XAU_XAG.status,'unverified','raw ratio is visible but stale two-source data remains excluded from history and judgment');
+-  assert.equal(complete.rows.JPY_HV20.validationState, 'validated');
+-  assert.equal(complete.rows.JPY_HV60.validationState, 'validated');
++  // 2026-10-26 時效統一：Frankfurter 轉載 ECB 但不是官方網域，只顯示匯率；波動率只用 FRED／ECB 官方來源（見下方 ecb 案例）。
++  assert.equal(complete.rows.DEXJPUS.officialSource, false);
++  assert.equal(complete.rows.JPY_HV20.validationState, 'unofficial_source');
++  assert.equal(complete.rows.JPY_HV60.validationState, 'unofficial_source');
++  assert.equal(complete.rows.JPY_HV20.value, null);
+   assert.equal(complete.rows.JPY_HV60.requiredObservations, 61);
+   assert.equal(complete.rows.JPY_HV60.historyObservations, 70);
+ 
+@@ -268,13 +271,15 @@ try {
+   assert.match(ecb.rows.DEXJPUS.provider,/European Central Bank/);
+   assert.equal(ecb.rows.JPY_HV60.historyObservations,80);
+   assert.ok(ecb.calls.some(url=>url.hostname==='data-api.ecb.europa.eu'&&url.pathname.includes('D.JPY.EUR')));
+-  const expectedSep18Status=(Date.now()-Date.parse('2026-09-18T23:59:59Z'))/86400000>12?'stale':'snapshot';
++  // EIA 時效按官方發布日：2026-09-23 發布 → 有效到下一期發布日（＋7 天，假日再 1 天）2026-10-01。
++  const expectedSep18Status=Date.now()>Date.parse('2026-10-01T23:59:59Z')?'stale':'snapshot';
+   assert.equal(ecb.rows.WCESTUS1.status,expectedSep18Status,'oil inventory must retain its dated official observation and classify freshness from the current date');
+   assert.equal(ecb.rows.WCESTUS1.date,'2026-09-18');
+   assert.equal(ecb.rows.WCESTUS1.value,426.398);
+   const eia=await marketRows({eiaHtml:'<table><tr><td>2026-Sep</td><td>09/04</td><td>424,069</td><td>09/11</td><td>423,429</td><td>09/18</td><td>426,398</td></tr></table><p>Release Date: 9/23/2026</p>'});
+   assert.equal(eia.rows.WCESTUS1.provider,'U.S. Energy Information Administration｜Weekly Petroleum Status Report','live official EIA should be preferred over a cached weekly snapshot, even when the dated reading has since become stale');
+-  assert.equal(eia.rows.WCESTUS1.status,(Date.now()-Date.parse('2026-09-18T23:59:59Z'))/86400000>12?'stale':'ok');
++  assert.equal(eia.rows.WCESTUS1.status,Date.now()>Date.parse('2026-10-01T23:59:59Z')?'stale':'ok');
++  assert.equal(eia.rows.WCESTUS1.validThrough,'2026-10-01');
+   assert.equal(eia.rows.WCESTUS1.date,'2026-09-18');
+   assert.equal(eia.rows.WCESTUS1.value,426.398);
+   assert.match(eia.rows.WCESTUS1.detail,/發布日 2026-09-23/);
 diff --git a/tests/v236-keepalive.test.mjs b/tests/v236-keepalive.test.mjs
 new file mode 100644
 index 0000000..bf469d4
@@ -267,6 +359,83 @@ index 0000000..22aec18
 +    assert.equal(saved.counts.total+saved.missingBreakdown.total,saved.universe.total,'名冊每一檔都有歸屬');
 +    assert.match(api.scannerCoverageDetail(result),/當日無收盤價 6 檔，皆為官方狀態、不補價：零成交 2、只有零股成交 1、未列入當日行情表 3/);
 +  }finally{globalThis.fetch=previous;}
++});
+diff --git a/tests/v236-time-rules.test.mjs b/tests/v236-time-rules.test.mjs
+new file mode 100644
+index 0000000..4924e51
+--- /dev/null
++++ b/tests/v236-time-rules.test.mjs
+@@ -0,0 +1,71 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// 擁有者 2026-10-26 10:02「剩下的做完」：EIA 原油庫存、日圓代理匯率的時效改成按官方發布日，各路徑同一個判斷。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\n// v236-time-rules\nexport {eiaWeeklyWindow,eiaWeeklyCurrent,macroObservationCurrent,refreshingMacroSnapshot,loadMacroSeries,relaySeries,ECB_REFERENCE_MAX_AGE_DAYS};').toString('base64'));
++const leaf=readFileSync(new URL('./fixtures/eia-wcestus1-leaf-20261026.html',import.meta.url),'utf8');
++const at=s=>Date.parse(s);
++
++test('EIA：從發布日起有效，到官方「下一期發布日」為止；10/15 是哥倫布日延後的週四發布',()=>{
++  // 頁面同時有發布日與下一期發布日（10-26 實查 10/21、10/28）
++  const w=api.eiaWeeklyWindow({date:'2026-10-16',releaseDate:'2026-10-21',nextReleaseDate:'2026-10-28'});
++  assert.deepEqual(w,{releaseDate:'2026-10-21',basis:'EIA 頁面發布日',nextReleaseDate:'2026-10-28',validThrough:'2026-10-28'});
++  assert.equal(api.eiaWeeklyCurrent({date:'2026-10-16',releaseDate:'2026-10-21',nextReleaseDate:'2026-10-28'},at('2026-10-20T12:00:00Z')),false,'發布前不能用');
++  assert.equal(api.eiaWeeklyCurrent({date:'2026-10-16',releaseDate:'2026-10-21',nextReleaseDate:'2026-10-28'},at('2026-10-28T20:00:00Z')),true);
++  assert.equal(api.eiaWeeklyCurrent({date:'2026-10-16',releaseDate:'2026-10-21',nextReleaseDate:'2026-10-28'},at('2026-10-29T01:00:00Z')),false);
++  // 只有發布日：發布日＋7 天、假日再 1 天
++  assert.equal(api.eiaWeeklyWindow({date:'2026-10-02',releaseDate:'2026-10-07'}).validThrough,'2026-10-15');
++  // 舊規則（觀測日＋12 天＝10/14）在 10/15 週四發布前會誤判過期；新規則仍有效
++  assert.equal(api.eiaWeeklyCurrent({date:'2026-10-02',releaseDate:'2026-10-07'},at('2026-10-15T12:00:00Z')),true);
++  // FRED／中繼沒附發布日：依排程推算（週五後的週三），並標明
++  const fred=api.eiaWeeklyWindow({date:'2026-10-09'});
++  assert.equal(fred.releaseDate,'2026-10-14');assert.match(fred.basis,/排程推算/);assert.equal(fred.validThrough,'2026-10-22');
++  // 不合理的組合不算有效
++  assert.equal(api.eiaWeeklyWindow({date:'2026-10-08'}),null,'觀測日不是週五又沒有發布日');
++  assert.equal(api.eiaWeeklyWindow({date:'2026-10-02',releaseDate:'2026-10-20'}),null,'發布日離觀測日超過 10 天');
++  assert.equal(api.eiaWeeklyWindow({date:'2026-10-16',releaseDate:'2026-10-21',nextReleaseDate:'2026-12-01'}).validThrough,'2026-10-29','下一期日期不合理就不用');
++});
++
++test('EIA：真實頁面（10-26 抓取）解析出發布日、下一期發布日，狀態按發布日判斷',async()=>{
++  const previous=globalThis.fetch,previousNow=Date.now;
++  try{
++    Date.now=()=>at('2026-10-26T02:00:00Z');
++    globalThis.fetch=async url=>{const u=String(url);if(u.includes('eia.gov'))return new Response(leaf,{headers:{'Content-Type':'text/html'}});return new Response('unavailable',{status:503});};
++    const row=await api.loadMacroSeries('WCESTUS1',{});
++    assert.equal(row.date,'2026-10-16');assert.equal(row.value,412.517);
++    assert.equal(row.releaseDate,'2026-10-21');assert.equal(row.nextReleaseDate,'2026-10-28');
++    assert.equal(row.validThrough,'2026-10-28');assert.equal(row.status,'ok');
++    assert.equal(api.macroObservationCurrent({...row,verifiedAt:'2026-10-26T01:59:00Z'},{checkedAt:'2026-10-26T01:59:00Z'},at('2026-10-26T02:00:00Z')),true,'快取重讀用同一個規則');
++    assert.equal(api.macroObservationCurrent({...row,verifiedAt:'2026-10-28T20:00:00Z'},{checkedAt:'2026-10-28T20:00:00Z'},at('2026-10-29T02:00:00Z')),false,'過了下一期發布日就標示過期');
++  }finally{globalThis.fetch=previous;Date.now=previousNow;}
++});
++
++test('EIA：中繼快照帶 release_date／next_release_date 時照官方日期（沒帶時的排程推算見第一項）',async()=>{
++  const previous=globalThis.fetch,previousNow=Date.now;
++  const entry={history:[{date:'2026-10-09',value:415.577},{date:'2026-10-16',value:412.517}],date:'2026-10-16',value:412.517,unit:'百萬桶',provider:'U.S. Energy Information Administration｜WCESTUS1',source:'https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=WCESTUS1',status:'ok',fetched_at:'2026-10-26T01:00:00+00:00',max_age_days:14,release_date:'2026-10-21',next_release_date:'2026-10-28'};
++  try{
++    Date.now=()=>at('2026-10-26T02:20:00Z'); // 中繼快取 15 分鐘；與上一個測試錯開
++    globalThis.fetch=async url=>{const u=String(url);if(u.includes('keyless_snapshot.json'))return new Response(JSON.stringify({schema_version:1,generated_at:'2026-10-26T01:00:00Z',series:{WCESTUS1:entry}}));return new Response('unavailable',{status:503});};
++    const relay=await api.relaySeries('WCESTUS1');
++    assert.equal(relay.releaseDate,'2026-10-21');assert.equal(relay.nextReleaseDate,'2026-10-28');
++    const row=await api.loadMacroSeries('WCESTUS1',{});
++    assert.equal(row.status,'snapshot');assert.equal(row.validThrough,'2026-10-28');assert.match(row.reason,/2026-10-21 發布/);
++  }finally{globalThis.fetch=previous;Date.now=previousNow;}
++});
++
++test('日圓：ECB 參考匯率共用 5 天上限；Frankfurter 轉載只顯示，不算波動率',()=>{
++  assert.equal(api.ECB_REFERENCE_MAX_AGE_DAYS,5);
++  const day=n=>new Date(Date.now()-n*86400000).toISOString().slice(0,10),now=new Date().toISOString();
++  const parent=(date,src,extra={})=>({id:'DEXJPUS',status:'proxy',value:150,date,historyFetchState:'fetched',historyObservations:80,source:src,fetchedAt:now,...extra});
++  const hv=date=>({id:'JPY_HV20',derivedFrom:'DEXJPUS',status:'ok',validationState:'validated',value:8.1,date,parentDate:date});
++  const check=p=>api.refreshingMacroSnapshot({checkedAt:now,rows:[p,hv(p.date)]},false).rows.find(r=>r.id==='JPY_HV20');
++  assert.equal(check(parent(day(4),'https://data.ecb.europa.eu/data/datasets/EXR')).status,'ok','ECB 官方、4 天內');
++  const old=check(parent(day(6),'https://data.ecb.europa.eu/data/datasets/EXR'));
++  assert.equal(old.status,'missing');assert.equal(old.validationState,'source_stale','ECB 超過 5 天（原本 7 天）');
++  const mirror=check(parent(day(1),'https://api.frankfurter.dev/v1/latest?base=USD&symbols=JPY',{officialSource:false,provider:'Frankfurter API（非官方鏡像）｜轉載 ECB 日參考匯率'}));
++  assert.equal(mirror.status,'missing');assert.equal(mirror.validationState,'unofficial_source');assert.match(mirror.reason,/非官方鏡像/);
++  // 沒有 officialSource 標記的舊快取，也只認 ECB 官方網域
++  assert.equal(check(parent(day(1),'https://api.frankfurter.dev/v1/latest?base=USD&symbols=JPY')).status,'missing');
 +});
 diff --git a/tests/v236-watchlist.test.mjs b/tests/v236-watchlist.test.mjs
 new file mode 100644
@@ -539,6 +708,148 @@ index 8ce7526..4136d18 100644
  }
  
  async function siteAutoRefreshResponse(request, env = {}, ctx = {}) {
+diff --git a/worker/observation-freshness.js b/worker/observation-freshness.js
+index b013df9..b6ef7a5 100644
+--- a/worker/observation-freshness.js
++++ b/worker/observation-freshness.js
+@@ -71,6 +71,30 @@ async function retainedTaiwanCreditRows(env,now=Date.now()) {
+       reason:current?row.reason||null:'既有信用觀測已過有效期；22:30後再抓取核對。',...deferred};
+   });
+ }
++// 統一時效規則（2026-10-26）：
++// EIA 週報每週三公布上週五為止的庫存，遇聯邦假日延後一天。從發布日起算有效，到下一期發布日為止。
++// EIA 頁面同時寫「Release Date」與「Next Release Date」（2026-10-26 實查：10/21、10/28），兩者都有就照官方；
++// 只有發布日時用發布日＋7 天（假日最多再延 1 天）；FRED／中繼沒附發布日時，依 EIA 固定排程（週末日後的週三）推算並標明。
++// 即時抓取、中繼快照、快取重讀都用這一個函式。
++const EIA_WEEKLY_NEXT_RELEASE_DAYS=7,EIA_WEEKLY_HOLIDAY_DELAY_DAYS=1;
++function eiaWeeklyWindow(row){
++  const date=row?.date;if(!officialImportDate(date))return null;
++  let releaseDate=row?.releaseDate,basis='EIA 頁面發布日';
++  if(officialImportDate(releaseDate)){const gap=(Date.parse(releaseDate)-Date.parse(date))/86400000;if(gap<0||gap>10)return null;}
++  else{if(new Date(Date.parse(date)).getUTCDay()!==5)return null;releaseDate=new Date(Date.parse(date)+5*86400000).toISOString().slice(0,10);basis='依 EIA 排程推算（週末日後的週三）';}
++  const next=row?.nextReleaseDate,nextGap=officialImportDate(next)&&basis==='EIA 頁面發布日'?(Date.parse(next)-Date.parse(releaseDate))/86400000:NaN;
++  if(nextGap>=1&&nextGap<=14)return {releaseDate,basis,nextReleaseDate:next,validThrough:next};
++  return {releaseDate,basis,nextReleaseDate:null,validThrough:new Date(Date.parse(releaseDate)+(EIA_WEEKLY_NEXT_RELEASE_DAYS+EIA_WEEKLY_HOLIDAY_DELAY_DAYS)*86400000).toISOString().slice(0,10)};
++}
++function eiaWeeklyCurrent(row,now=Date.now()){
++  const w=eiaWeeklyWindow(row);
++  return !!w&&Date.parse(`${w.releaseDate}T00:00:00Z`)<=now&&now<=Date.parse(`${w.validThrough}T23:59:59Z`);
++}
++// ECB 每日參考匯率：每個 TARGET 營業日 14:15（歐洲中部時間）定價、約 16:00 公布當日匯率。最長正常空窗是復活節（週四→下週二）5 天。
++// ECB 直連、Frankfurter 顯示備援、日圓波動率母序列共用這個上限（原本分別是 7、5、7 天）。
++const ECB_REFERENCE_MAX_AGE_DAYS=5;
++// Frankfurter 轉載 ECB，但不是官方網域：只顯示匯率，不拿來算波動率、不計分。
++const ECB_OFFICIAL_HOSTS=['data.ecb.europa.eu','data-api.ecb.europa.eu'];
+ function officialFredSeriesId(id){return {US3M:'DTB3',US10Y:'DGS10',US30Y:'DGS30'}[id]||id}
+ function recentOfficialCapture(value,now=Date.now()) {
+   const stamp=Date.parse(value);return Number.isFinite(stamp)&&stamp<=now+60000&&now-stamp<OFFICIAL_CAPTURE_MAX_AGE_MS;
+@@ -173,9 +197,9 @@ function macroObservationCurrent(row,payload,now=Date.now()) {
+     // ECB/Frankfurter can provide a separately labeled reference-rate series
+     // with its own complete history. It may feed volatility, but never borrows
+     // the FRED release window; validate its capture, endpoint family and age.
+-    if(parent.status==='proxy'&&parent.historyFetchState==='fetched'&&parent.historyObservations>=65&&
+-      recentOfficialCapture(parent.verifiedAt||parent.fetchedAt||payload.checkedAt,now)&&age(parent.date)>=-1&&age(parent.date)<=(SERIES.DEXJPUS?.[3]??7)){
+-      try{const source=new URL(parent.source);return source.protocol==='https:'&&['data.ecb.europa.eu','api.frankfurter.dev'].includes(source.hostname);}catch{return false;}
++    if(parent.status==='proxy'&&parent.officialSource!==false&&parent.historyFetchState==='fetched'&&parent.historyObservations>=65&&
++      recentOfficialCapture(parent.verifiedAt||parent.fetchedAt||payload.checkedAt,now)&&age(parent.date)>=-1&&age(parent.date)<=ECB_REFERENCE_MAX_AGE_DAYS){
++      try{const source=new URL(parent.source);return source.protocol==='https:'&&ECB_OFFICIAL_HOSTS.includes(source.hostname);}catch{return false;}
+     }
+     return false;
+   }
+@@ -183,6 +207,7 @@ function macroObservationCurrent(row,payload,now=Date.now()) {
+   // A monthly BLS capture and a recent BLS/FRED comparison use distinct clocks.
+   if(row.id==='CPILFESL')return coreCpiVerificationCurrent(row,now);
+   if(!recentOfficialCapture(row.verifiedAt||row.fetchedAt||payload.checkedAt,now))return false;
++  if(row.id==='WCESTUS1')return eiaWeeklyCurrent(row,now);
+   if(releaseObservationCurrent(row.id,row,now))return true;
+   if(cbcMonthlyReleaseCurrent(row,now))return true;
+   const v=row.sessionVerification;
+@@ -244,6 +269,7 @@ function refreshingMacroSnapshot(payload,refreshing=true) {
+     const parent=parentPayload.rows.find(item=>item.id===parentId);
+     if(row.validationState!=='validated'||row.value==null)return row;
+     const dateMismatch=parent&&(parent.date!==row.date||row.parentDate!=null&&row.parentDate!==parent.date);
++    if(parent?.officialSource===false)return {...row,value:null,status:'missing',is_stale:false,validationState:'unofficial_source',reason:`母序列 ${parentId} 目前來自非官方鏡像（${parent.provider||'Frankfurter'}）；衍生波動率只在官方來源（FRED／ECB）時計算與計分。`};
+     if(!parent||dateMismatch||!macroObservationCurrent(row,parentPayload))return {...row,value:null,status:'missing',is_stale:false,validationState:!parent?'source_missing':dateMismatch?'source_date_mismatch':'source_stale',reason:`母序列 ${parentId} 過期、未核或日期不一致；衍生波動率不納入判讀。`};
+     return {...row,derivedFrom:parentId,parentDate:parent.date,status:row.snapshot?'snapshot':'ok',is_stale:false,reason:null};
+   });
+diff --git a/worker/observations.js b/worker/observations.js
+index eb16fa9..e1ae9bf 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -127,7 +127,8 @@ function summarize(id, history) {
+   const newest = history.at(-1), monthly = id==='CPILFESL'||SERIES[id][3] >= 80, weekly = ['ICSA','CCSA','WALCL','WCESTUS1'].includes(id);
+   const steps = 1;
+   const older = history.length > steps ? history.at(-steps-1) : null;
+-  const stale = age(newest.date) > SERIES[id][3];
++  // EIA 週報走發布日規則（eiaWeeklyCurrent），與快取重讀同一個判斷；其他序列仍用觀測日天數。
++  const stale = id==='WCESTUS1' ? !eiaWeeklyCurrent(newest) : age(newest.date) > SERIES[id][3];
+   return { id, name: SERIES[id][0], group: SERIES[id][1], unit: SERIES[id][2], ...newest,
+     status: stale ? 'stale' : 'ok', reason: stale ? '資料較舊，暫不納入判讀' : null,
+     delta: older ? newest.value - older.value : null, previousDate: older?.date ?? null, comparisonStart:older?.date??null,comparisonEnd:newest.date,comparisonObservations:older?1:0,
+@@ -1171,8 +1172,12 @@ async function loadEiaCrudeInventory(){
+   for(let i=1;i+1<cells.length;i+=2){const d=String(cells[i]||'').match(/^(\d{1,2})\/(\d{1,2})$/),raw=Number(String(cells[i+1]||'').replace(/,/g,''));if(!d||!Number.isFinite(raw)||raw<=0)continue;const date=`${year}-${String(monthIndex+1).padStart(2,'0')}-${d[2].padStart(2,'0')}`;points.push({date,value:raw/1000});}
+  }
+  const history=cleanHistory(points);if(history.length<2)throw Error('EIA 原油庫存表沒有至少兩週有效觀測');
+- const result=summarize('WCESTUS1',history),releaseMatch=cleanHtmlCell(html.replace(/<\/(?:tr|td|th|p|h\d|div)>/gi,' | ')).match(/Release Date:\s*(\d{1,2}\/\d{1,2}\/\d{4})/i),releaseDate=releaseMatch?dateFromUs(releaseMatch[1]):null;
+- return {...result,provider:'U.S. Energy Information Administration｜Weekly Petroleum Status Report',source:url,releaseDate,unit:'百萬桶',detail:`EIA 商業原油庫存（不含 SPR）；觀測週截至 ${result.date}${releaseDate?`，發布日 ${releaseDate}`:''}。單位由千桶換算為百萬桶；週變化 ${result.delta>=0?'+':''}${result.delta?.toFixed(3)??'缺值'} 百萬桶。`,method:'官方 EIA WCESTUS1｜千桶 ÷ 1,000；本期減前週'};
++ const pageText=cleanHtmlCell(html.replace(/<\/(?:tr|td|th|p|h\d|div)>/gi,' | ')),nextMatch=pageText.match(/Next Release Date:\s*(\d{1,2}\/\d{1,2}\/\d{4})/i);
++ const summary=summarize('WCESTUS1',history),releaseMatch=pageText.match(/(?<!Next )Release Date:\s*(\d{1,2}\/\d{1,2}\/\d{4})/i),releaseDate=releaseMatch?dateFromUs(releaseMatch[1]):null,nextReleaseDate=nextMatch?dateFromUs(nextMatch[1]):null;
++ // 時效依官方發布日（eiaWeeklyCurrent），不用觀測日固定天數；頁面沒有發布日就不算最新。
++ const current=eiaWeeklyCurrent({date:summary.date,releaseDate,nextReleaseDate}),window=eiaWeeklyWindow({date:summary.date,releaseDate,nextReleaseDate});
++ const result={...summary,status:current?'ok':'stale',is_stale:!current,validThrough:window?.validThrough||null,releaseDateBasis:window?.basis||null,reason:current?null:window?`EIA 下一期（${window.validThrough} 前）應已發布，本頁仍是 ${summary.date} 週資料；不納入最新判讀。`:'EIA 觀測日或發布日不符排程，無法判斷有效期；不納入最新判讀。'};
++ return {...result,provider:'U.S. Energy Information Administration｜Weekly Petroleum Status Report',source:url,releaseDate,nextReleaseDate,unit:'百萬桶',detail:`EIA 商業原油庫存（不含 SPR）；觀測週截至 ${result.date}${releaseDate?`，發布日 ${releaseDate}`:''}。單位由千桶換算為百萬桶；週變化 ${result.delta>=0?'+':''}${result.delta?.toFixed(3)??'缺值'} 百萬桶。`,method:'官方 EIA WCESTUS1｜千桶 ÷ 1,000；本期減前週'};
+ }
+ async function loadFedSloos(){
+  const source='https://www.federalreserve.gov/data/sloos/sloos-202607-chart-data.htm';
+@@ -1375,7 +1380,7 @@ async function loadUsdJpyReferenceRate(env={}) {
+     const [yenPerEur,usdPerEur]=await Promise.all([loadEcbSeries('D.JPY.EUR.SP00.A'),loadEcbSeries('D.USD.EUR.SP00.A')]),usdByDate=new Map(usdPerEur.map(x=>[x.date,x.value]));
+     const history=cleanHistory(yenPerEur.filter(x=>usdByDate.has(x.date)).map(x=>({date:x.date,value:x.value/usdByDate.get(x.date)})));
+     if(history.length<65)throw Error(`ECB 同日交叉匯率樣本不足（${history.length}/65）`);
+-    const latest=history.at(-1),previous=history.at(-2),stale=age(latest.date)>7;
++    const latest=history.at(-1),previous=history.at(-2),stale=age(latest.date)>ECB_REFERENCE_MAX_AGE_DAYS;
+     if(stale)throw Error(`ECB 最新匯率觀測過期（${latest.date}）`);
+     return {id:'DEXJPUS',name:'美元兌日圓日參考匯率（ECB 交叉匯率；非盤中）',unit:'日圓／美元',...latest,delta:previous?latest.value-previous.value:null,previousDate:previous?.date??null,percent:previous?((latest.value/previous.value)-1)*100:null,status:'proxy',historyFetchState:'fetched',historyObservations:history.length,changeLabel:'較前一工作日',provider:'European Central Bank｜EUR/JPY ÷ EUR/USD 每日參考匯率',source:'https://data.ecb.europa.eu/data/datasets/EXR',detail:`由 ECB 同一觀測日的 JPY/EUR ÷ USD/EUR 推算 USD/JPY；只保留兩序列共同發布日，不補週末／假日。最新觀測 ${latest.date}，${history.length} 筆有效歷史值。FRED 備援狀態：${fredReason}` ,history};
+   }catch(ecbError){
+@@ -1386,7 +1391,7 @@ async function loadUsdJpyReferenceRate(env={}) {
+       relayFallback=await relaySeries('DEXJPUS');
+     }catch{}
+   }
+-  const row={...missing('DEXJPUS','USD/JPY 歷史參考匯率尚未取回'),name:'美元兌日圓日參考匯率（ECB 備援，非盤中）',unit:'日圓／美元',provider:'Frankfurter API｜ECB 日參考匯率備援',source:'https://api.frankfurter.dev/v1/latest?base=USD&symbols=JPY'};
++  const row={...missing('DEXJPUS','USD/JPY 歷史參考匯率尚未取回'),name:'美元兌日圓日參考匯率（Frankfurter 轉載 ECB；非官方鏡像，只顯示）',unit:'日圓／美元',provider:'Frankfurter API（非官方鏡像）｜轉載 ECB 日參考匯率',source:'https://api.frankfurter.dev/v1/latest?base=USD&symbols=JPY',officialSource:false};
+   // The 60-session calculation needs 61 valid daily levels. Keep a wide
+   // calendar window and discard holidays/missing observations; never forward-fill.
+   const start=new Date(Date.now()-180*86400000).toISOString().slice(0,10),url=`https://api.frankfurter.dev/v1/${start}..?base=USD&symbols=JPY`;
+@@ -1398,8 +1403,8 @@ async function loadUsdJpyReferenceRate(env={}) {
+     if(body?.base!=='USD'||!body?.rates||typeof body.rates!=='object')throw Error('ECB 參考匯率回傳格式不符');
+     const history=[...new Map(Object.entries(body.rates).map(([date,rates])=>({date,value:Number(rates?.JPY)})).filter(x=>/^\d{4}-\d\d-\d\d$/.test(x.date)&&Number.isFinite(x.value)&&x.value>0).sort((a,b)=>a.date.localeCompare(b.date)).map(x=>[x.date,x])).values()];
+     const latest=history.at(-1),previous=history.at(-2);if(!latest)throw Error('ECB 參考匯率沒有有效 USD/JPY 觀測');
+-    const stale=age(latest.date)>5,delta=previous?latest.value-previous.value:null;
+-    return {...row,...latest,delta,previousDate:previous?.date??null,percent:previous?((latest.value/previous.value)-1)*100:null,status:stale?'stale':'proxy',historyFetchState:'fetched',historyObservations:history.length,changeLabel:'較前一工作日',detail:`ECB 每日參考匯率交叉換算；非即時即期報價。${fredReason}`,reason:stale?`ECB 最新可用參考匯率已超過 5 天；${fredReason}`:`FRED 備援未通過（${fredReason}）；已改用 ECB 日參考匯率，非 JPY CVOL。`,history};
++    const stale=age(latest.date)>ECB_REFERENCE_MAX_AGE_DAYS,delta=previous?latest.value-previous.value:null;
++    return {...row,...latest,delta,previousDate:previous?.date??null,percent:previous?((latest.value/previous.value)-1)*100:null,status:stale?'stale':'proxy',historyFetchState:'fetched',historyObservations:history.length,changeLabel:'較前一工作日',detail:`Frankfurter 轉載的 ECB 每日參考匯率；非官方網域，只顯示匯率，不計算波動率、不計分。${fredReason}`,reason:stale?`最新可用參考匯率已超過 ${ECB_REFERENCE_MAX_AGE_DAYS} 天；${fredReason}`:`FRED 與 ECB 官方來源未通過（${fredReason}；${ecbReason}）；暫以 Frankfurter 轉載值顯示，不計分。`,history};
+   } catch(error) {
+     if(fredHistory.length>=65)return {...fred,name:'美元兌日圓日參考匯率（FRED H.10；非盤中）',unit:'日圓／美元',provider:'Board of Governors of the Federal Reserve｜H.10｜FRED DEXJPUS',source:link('DEXJPUS'),historyFetchState:fred.status==='stale'?'source_stale':'fetched',historyObservations:fredHistory.length,reason:`ECB 備援失敗（${error.name==='AbortError'?'Frankfurter API 逾時':error.message||'來源暫不可用'}）；${fredReason}`,history:fredHistory};
+     if(relayFallback?.history?.length){const history=relayFallback.history,latest=history.at(-1);return {...relayFallback,name:'美元兌日圓日參考匯率（外部快照；非盤中）',unit:'日圓／美元',historyFetchState:'fetched',historyObservations:history.length,reason:`FRED／ECB 官方 API 失敗（${ecbReason}）；Frankfurter 備援失敗（${error.name==='AbortError'?'API 逾時':error.message||'來源暫不可用'}）；目前快照僅 ${history.length} 筆，波動率仍需完整樣本。`,detail:`最新快照觀測 ${latest.date}；僅顯示匯率參考，不足以計算 20／60 日波動率。`};}
+@@ -1477,8 +1482,8 @@ async function loadMacroSeries(id, env={}) {
+     if(official.status==='ok'&&Number.isFinite(official.value))return official;
+     const relay=await relaySeries(id);
+     if(relay?.history?.length&&(!official.date||relay.date>official.date)){
+-      const status=age(relay.date)>(SERIES.WCESTUS1?.[3]??12)?'stale':'snapshot';
+-      return {...relay,status,snapshot:true,is_stale:status==='stale',reason:status==='stale'?`EIA／FRED 即時來源暫不可用；保留 ${relay.date} 官方週資料快照，已過有效期限，不納入最新判讀。`:'EIA／FRED 即時來源暫不可用；使用已標明日期的 EIA 官方週資料快照。'};
++      const status=eiaWeeklyCurrent(relay)?'snapshot':'stale',window=eiaWeeklyWindow(relay);
++      return {...relay,status,snapshot:true,is_stale:status==='stale',validThrough:window?.validThrough||null,releaseDateBasis:window?.basis||null,reason:status==='stale'?`EIA／FRED 即時來源暫不可用；保留 ${relay.date} 官方週資料快照${window?`（${window.releaseDate} 發布，${window.basis}），已過下一期發布日 ${window.validThrough}`:'，觀測日不符排程'}，不納入最新判讀。`:`EIA／FRED 即時來源暫不可用；使用 ${window.releaseDate} 發布的 EIA 官方週資料快照（${window.basis}；有效到 ${window.validThrough}）。`};
+     }
+     return official;
+   }
+@@ -2202,7 +2207,7 @@ async function macroMarketResponse(env={},ctx={}) {
+     rows.push(...macroMarketRows.filter(row=>row.id!=='T10Y3M'));
+     rows.push(live10Y3MSpread(t10y3m?[...rows,t10y3m]:rows));
+     const yen=macroMarketRows.find(row=>row.id==='DEXJPUS'),yenHistory=yen?.history||[];
+-    const rollingVol=(n)=>{const required=n+1,points=yenHistory.slice(-required);if(yen?.historyFetchState==='fetch_failed'||!yenHistory.length)return {value:null,state:'fetch_failed',reason:yen?.reason||'匯率歷史來源沒有回應'};if(yen?.historyFetchState==='source_stale'||yen?.status==='stale')return {value:null,state:'source_stale',reason:yen.reason||'匯率來源觀測已過期'};if(points.length<required)return {value:null,state:'sample_insufficient',reason:`已取回 ${yenHistory.length} 筆；${n} 日波動率需 ${required} 筆交易日資料`};const gap=points.slice(1).find((x,i)=>Date.parse(x.date)-Date.parse(points[i].date)>5*86400000);if(gap)return {value:null,state:'sample_insufficient',reason:`已取回 ${yenHistory.length} 筆，但計算窗口含超過 5 日的觀測缺口，無法視為連續交易日樣本`};const returns=points.slice(1).map((x,i)=>Math.log(x.value/points[i].value)).filter(Number.isFinite);if(returns.length!==n)return {value:null,state:'sample_insufficient',reason:`有效日報酬 ${returns.length}/${n}；樣本不足`};const mean=returns.reduce((a,b)=>a+b,0)/n,variance=returns.reduce((s,x)=>s+(x-mean)**2,0)/(n-1);return {value:Math.sqrt(variance*252)*100,state:'validated',reason:null};};
++    const rollingVol=(n)=>{const required=n+1,points=yenHistory.slice(-required);if(yen?.historyFetchState==='fetch_failed'||!yenHistory.length)return {value:null,state:'fetch_failed',reason:yen?.reason||'匯率歷史來源沒有回應'};if(yen?.historyFetchState==='source_stale'||yen?.status==='stale')return {value:null,state:'source_stale',reason:yen.reason||'匯率來源觀測已過期'};if(points.length<required)return {value:null,state:'sample_insufficient',reason:`已取回 ${yenHistory.length} 筆；${n} 日波動率需 ${required} 筆交易日資料`};const gap=points.slice(1).find((x,i)=>Date.parse(x.date)-Date.parse(points[i].date)>5*86400000);if(gap)return {value:null,state:'sample_insufficient',reason:`已取回 ${yenHistory.length} 筆，但計算窗口含超過 5 日的觀測缺口，無法視為連續交易日樣本`};if(yen?.officialSource===false)return {value:null,state:'unofficial_source',reason:'匯率目前來自非官方鏡像（Frankfurter）；波動率只用 FRED／ECB 官方來源計算。'};const returns=points.slice(1).map((x,i)=>Math.log(x.value/points[i].value)).filter(Number.isFinite);if(returns.length!==n)return {value:null,state:'sample_insufficient',reason:`有效日報酬 ${returns.length}/${n}；樣本不足`};const mean=returns.reduce((a,b)=>a+b,0)/n,variance=returns.reduce((s,x)=>s+(x-mean)**2,0)/(n-1);return {value:Math.sqrt(variance*252)*100,state:'validated',reason:null};};
+     for(const n of [20,60]){const result=rollingVol(n);rows.push({id:`JPY_HV${n}`,name:`日圓匯率歷史波動率（${n} 日）`,group:'曲線／放大器',unit:'% 年化',value:result.value,date:yenHistory.at(-1)?.date||null,derivedFrom:'DEXJPUS',parentDate:yenHistory.at(-1)?.date||null,status:result.value==null?'missing':'ok',validationState:result.state,historyObservations:yenHistory.length,requiredObservations:n+1,reason:result.reason,provider:`${yen?.provider||'FRED／ECB 匯率來源'}；按日對數報酬年化標準差計算`,source:yen?.source||link('DEXJPUS')});}
+     const previous=await readRuntimeCache(env,'macro:v1');
+     const verified=completeIndicatorCatalog(retainTaiwanComparisonHistory(mergeVerifiedMacroRows(rows,[lastGood,previous?.payload]),[lastGood,previous?.payload]),'market');
 diff --git a/worker/panel-site.js b/worker/panel-site.js
 index 273696c..39a9470 100644
 --- a/worker/panel-site.js
@@ -671,6 +982,20 @@ index 587ddbc..876af80 100644
        const result={...computeMarginMaintenance(prices,await mr.json()),sourceUrls:[TWSE_STOCK_DAY_ALL_URL,url],checkedAt:new Date(now).toISOString()};
        await write(latestKey,result,6*3600000);return result;
      }catch(error){
+diff --git a/worker/relay.js b/worker/relay.js
+index eb27283..5de8fbb 100644
+--- a/worker/relay.js
++++ b/worker/relay.js
+@@ -42,6 +42,8 @@ async function relaySeries(id){
+  return {...row,status:stale?'stale':'ok',is_stale:stale,snapshot:true,
+   provider:`${entry.provider||'官方來源'}｜外部排程快照`,source:entry.source,
+   reason:stale?(entry.error||'排程快照或觀測期已過有效期；不納入最新判讀'):null,
+-  fetchedAt:entry.fetched_at,observationMaxAgeDays,light:entry.light,advancers:entry.advancers,decliners:entry.decliners,
++  fetchedAt:entry.fetched_at,observationMaxAgeDays,light:entry.light,
++  ...(/^\d{4}-\d{2}-\d{2}$/.test(String(entry.release_date||''))?{releaseDate:entry.release_date}:{}),
++  ...(/^\d{4}-\d{2}-\d{2}$/.test(String(entry.next_release_date||''))?{nextReleaseDate:entry.next_release_date}:{}),advancers:entry.advancers,decliners:entry.decliners,
+   detail:`免金鑰公開來源；觀測 ${latest.date}，抓取 ${entry.fetched_at}。${entry.method||''}${stale?' 舊資料，不代表最新訊號。':''}`};
+ }
 diff --git a/worker/source-research.js b/worker/source-research.js
 index abdf54e..6d11d69 100644
 --- a/worker/source-research.js

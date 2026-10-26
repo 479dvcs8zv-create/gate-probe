@@ -1,7 +1,7 @@
 From 557224ea1a02d8fca300975ef8280b46533fd4b3 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Mon, 26 Oct 2026 09:00:37 +0800
-Subject: [PATCH 1/2] =?UTF-8?q?keyless=20relay:=20M1B=E2=88=92M2=20from=20?=
+Subject: [PATCH 1/3] =?UTF-8?q?keyless=20relay:=20M1B=E2=88=92M2=20from=20?=
  =?UTF-8?q?the=20central=20bank=20page=20cross-checked=20with=20ms.ods;=20?=
  =?UTF-8?q?stop=20fetching=20the=20blocked=20MOEA=20export-orders=20page?=
 MIME-Version: 1.0
@@ -336,7 +336,7 @@ index 0000000..8bcd3f4
 From e35ead3ca8bcbf6c40dcc1126e9e2f369576e293 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Mon, 26 Oct 2026 09:13:55 +0800
-Subject: [PATCH 2/2] keyless relay: accept the Fed's next-business-day IORB
+Subject: [PATCH 2/3] keyless relay: accept the Fed's next-business-day IORB
  (up to 4 days ahead) instead of marking it stale
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
@@ -407,6 +407,184 @@ index 9f80eca..818eb7a 100644
 +
  if __name__ == "__main__":
      unittest.main()
+-- 
+2.43.0
+
+
+From d7f7bb8763aafd5da36014cce19fe811cbcff3c8 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 26 Oct 2026 10:14:29 +0800
+Subject: [PATCH 3/3] keyless relay: record EIA release date, next release
+ date, raw thousand barrels and page hash for WCESTUS1
+
+The site now judges crude-inventory freshness by the official release
+schedule (valid until the next release date) instead of a fixed number
+of days after the observation week.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ scripts/sync_keyless.py                       | 32 ++++++++++--
+ .../eia_wcestus1_leaf_2026-10-26.html         | 50 +++++++++++++++++++
+ tests/test_eia_release.py                     | 39 +++++++++++++++
+ 3 files changed, 117 insertions(+), 4 deletions(-)
+ create mode 100644 tests/fixtures/eia_wcestus1_leaf_2026-10-26.html
+ create mode 100644 tests/test_eia_release.py
+
+diff --git a/scripts/sync_keyless.py b/scripts/sync_keyless.py
+index b550370..edc6cfc 100644
+--- a/scripts/sync_keyless.py
++++ b/scripts/sync_keyless.py
+@@ -432,7 +432,22 @@ def nyfed_srp_metric():
+ def eia_commercial_crude_stocks():
+     """Parse the public EIA history table; keep the dashboard's million-barrel unit."""
+     url='https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=WCESTUS1'
+-    parser=legacy.TableParser();parser.feed(legacy.http_text(url))
++    return eia_crude_from_page(legacy.http_text(url),url)
++
++def eia_release_dates(page):
++    """EIA 頁面底部寫「Release Date: 10/21/2026」「Next Release Date: 10/28/2026」；網站用它判斷有效期（到下一期發布日）。"""
++    import re
++    def find(pattern):
++        m=re.search(pattern,page)
++        if not m:return None
++        month,day,year=map(int,m.groups())
++        try:return datetime(year,month,day).strftime('%Y-%m-%d')
++        except ValueError:return None
++    return find(r'(?<!Next )Release Date:\s*(\d{1,2})/(\d{1,2})/(\d{4})'),find(r'Next Release Date:\s*(\d{1,2})/(\d{1,2})/(\d{4})')
++
++def eia_crude_from_page(page,url):
++    import hashlib
++    parser=legacy.TableParser();parser.feed(page)
+     months={'Jan':1,'Feb':2,'Mar':3,'Apr':4,'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
+     points=[]
+     for cells in parser.rows:
+@@ -447,12 +462,21 @@ def eia_commercial_crude_stocks():
+             month,dom=map(int,day.groups())
+             try:date=f'{year:04d}-{month:02d}-{dom:02d}';datetime.strptime(date,'%Y-%m-%d')
+             except ValueError:continue
+-            points.append({'date':date,'value':float(value)/1000})
++            points.append({'date':date,'value':float(value)/1000,'raw':int(float(value))})
+     points=sorted({p['date']:p for p in points}.values(),key=lambda p:p['date'])
+     if not points:raise ValueError('EIA WCESTUS1 history table contains no weekly observations')
+-    return {'history':points[-20:],'date':points[-1]['date'],'value':points[-1]['value'],'unit':'百萬桶',
++    latest=points[-1];release,next_release=eia_release_dates(page)
++    entry={'history':[{'date':p['date'],'value':p['value']} for p in points[-20:]],'date':latest['date'],'value':latest['value'],'unit':'百萬桶',
+         'provider':'U.S. Energy Information Administration｜WCESTUS1',
+-        'source':url,'method':'EIA 官方週資料表；原始千桶除以 1,000 轉為百萬桶，不含 SPR。'}
++        'source':url,'method':'EIA 官方週資料表；原始千桶除以 1,000 轉為百萬桶，不含 SPR。',
++        'raw_thousand_barrels':latest['raw'],'page_sha256':hashlib.sha256(page.encode('utf-8')).hexdigest()}
++    # 發布日必須在觀測日後 0～10 天、下一期在發布日後 1～14 天，否則不寫（網站改用 EIA 排程推算並標明）。
++    if release:
++        gap=(datetime.strptime(release,'%Y-%m-%d')-datetime.strptime(latest['date'],'%Y-%m-%d')).days
++        if 0<=gap<=10:
++            entry['release_date']=release
++            if next_release and 1<=(datetime.strptime(next_release,'%Y-%m-%d')-datetime.strptime(release,'%Y-%m-%d')).days<=14:entry['next_release_date']=next_release
++    return entry
+ 
+ def twse_open_data_metric(metric):
+     """Read one validated field from the exchange's no-key daily market CSV."""
+diff --git a/tests/fixtures/eia_wcestus1_leaf_2026-10-26.html b/tests/fixtures/eia_wcestus1_leaf_2026-10-26.html
+new file mode 100644
+index 0000000..0c4d525
+--- /dev/null
++++ b/tests/fixtures/eia_wcestus1_leaf_2026-10-26.html
+@@ -0,0 +1,50 @@
++<!-- EIA WCESTUS1 LeafHandler page fetched 2026-10-26 02:10Z via gate-probe url-probe run 40257314055; last 3 monthly rows and the release-date table copied verbatim, rest of page removed. -->
++<table class='FloatTitle'>
++<tr>
++ <td class='B6'>&nbsp;&nbsp;2026-Aug</td>
++ <td class='B5'>08/07&nbsp;</td>
++ <td class='B3'>424,410&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>08/14&nbsp;</td>
++ <td class='B3'>428,815&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>08/21&nbsp;</td>
++ <td class='B3'>428,910&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>08/28&nbsp;</td>
++ <td class='B3'>424,460&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>&nbsp;</td>
++ <td class='B3'>&nbsp;&nbsp;&nbsp;</td>
++ </tr>
++<tr>
++ <td class='B6'>&nbsp;&nbsp;2026-Sep</td>
++ <td class='B5'>09/04&nbsp;</td>
++ <td class='B3'>424,069&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>09/11&nbsp;</td>
++ <td class='B3'>423,429&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>09/18&nbsp;</td>
++ <td class='B3'>426,398&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>09/25&nbsp;</td>
++ <td class='B3'>427,320&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>&nbsp;</td>
++ <td class='B3'>&nbsp;&nbsp;&nbsp;</td>
++ </tr>
++<tr>
++ <td class='B6'>&nbsp;&nbsp;2026-Oct</td>
++ <td class='B5'>10/02&nbsp;</td>
++ <td class='B3'>424,134&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>10/09&nbsp;</td>
++ <td class='B3'>415,577&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>10/16&nbsp;</td>
++ <td class='B3'>412,517&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>&nbsp;</td>
++ <td class='B3'>&nbsp;&nbsp;&nbsp;</td>
++ <td class='B5'>&nbsp;</td>
++ <td class='B3'>&nbsp;&nbsp;&nbsp;</td>
++ </tr>
++</table>
++<table width='675' border='0' cellspacing='0' cellpadding='0'>
++ <tr>
++ <td class='F2'>Release Date: 10/21/2026</td>
++ </tr>
++ <tr>
++ <td class='F2'>Next Release Date: 10/28/2026</td>
++ </tr>
++ </table>
+diff --git a/tests/test_eia_release.py b/tests/test_eia_release.py
+new file mode 100644
+index 0000000..763098a
+--- /dev/null
++++ b/tests/test_eia_release.py
+@@ -0,0 +1,39 @@
++import sys
++import unittest
++from pathlib import Path
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
++import sync_keyless as keyless
++
++# EIA WCESTUS1 歷史頁，2026-10-26 由 GitHub 取得（gate-probe url-probe 40257314055）；保留最後 3 個月與發布日表格。
++PAGE = (Path(__file__).resolve().parent / "fixtures" / "eia_wcestus1_leaf_2026-10-26.html").read_text(encoding="utf-8")
++URL = "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=WCESTUS1"
++
++
++class EiaReleaseDates(unittest.TestCase):
++    def test_real_page_release_and_next_release(self):
++        entry = keyless.eia_crude_from_page(PAGE, URL)
++        self.assertEqual(entry["date"], "2026-10-16")
++        self.assertAlmostEqual(entry["value"], 412.517)
++        self.assertEqual(entry["raw_thousand_barrels"], 412517)
++        self.assertEqual(entry["release_date"], "2026-10-21")
++        self.assertEqual(entry["next_release_date"], "2026-10-28")
++        self.assertEqual(len(entry["page_sha256"]), 64)
++        self.assertTrue(all(set(p) == {"date", "value"} for p in entry["history"]))
++        self.assertEqual([p["date"] for p in entry["history"][-2:]], ["2026-10-09", "2026-10-16"])
++
++    def test_missing_or_implausible_dates_are_not_written(self):
++        no_dates = PAGE.replace("Release Date: 10/21/2026", "").replace("Next Release Date: 10/28/2026", "")
++        entry = keyless.eia_crude_from_page(no_dates, URL)
++        self.assertNotIn("release_date", entry)
++        self.assertNotIn("next_release_date", entry)
++        far = PAGE.replace("Release Date: 10/21/2026", "Release Date: 11/30/2026")
++        self.assertNotIn("release_date", keyless.eia_crude_from_page(far, URL))
++        bad_next = PAGE.replace("Next Release Date: 10/28/2026", "Next Release Date: 12/30/2026")
++        entry = keyless.eia_crude_from_page(bad_next, URL)
++        self.assertEqual(entry["release_date"], "2026-10-21")
++        self.assertNotIn("next_release_date", entry)
++
++
++if __name__ == "__main__":
++    unittest.main()
 -- 
 2.43.0
 
