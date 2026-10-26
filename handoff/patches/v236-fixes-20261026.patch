@@ -1,5 +1,5 @@
 diff --git a/dist/index.html b/dist/index.html
-index 1bcece6..c86f894 100644
+index 1bcece6..a4dcbc3 100644
 --- a/dist/index.html
 +++ b/dist/index.html
 @@ -247,7 +247,19 @@ function evaluateValuationDivergence(stock,consensus,today,records=[]){
@@ -23,8 +23,17 @@ index 1bcece6..c86f894 100644
  }
  
  /* VALUATION_DIVERGENCE_END */
+@@ -381,7 +393,7 @@ async function updateSiteAutomationStatus(){
+   if(data.status==='waiting'){target.textContent='整站更新：後台每日 06:30、22:30（台灣）巡檢並留存快照；開啟網站時市場資料每 5／15 分鐘依來源更新。';report.textContent='首次排程尚未完成。資料源無新觀測、失敗或過期時會保留缺值／舊資料狀態。';return}
+   const modules=Object.entries(data.modules||{}),counts=modules.reduce((a,[,x])=>{a.ok+=x.status==='ok'?1:0;a.partial+=['partial','pending','error','missing'].includes(x.status)?1:0;return a},{ok:0,partial:0});
+   const stamp=data.completedAt||data.startedAt;
+-  target.textContent=`整站早晚巡檢｜06:30／22:30（台灣）｜${data.status==='complete'?'完成':data.status==='partial'?'部分完成':data.status}｜市場資料模組 ${counts.ok}/${modules.length} 全數有效${counts.partial?`；${counts.partial} 組缺值／待查`:''}｜本次更新 ${data.stocks?.length||0} 檔後台巡檢股；此瀏覽器追蹤 ${stocks.length} 檔，未涵蓋：${stocks.filter(s=>!(data.stocks||[]).some(x=>(x.id||x.symbol)===s.id)).map(s=>s.id).join('、')||'無'}（私人清單與後台巡檢清單分開，不宣稱全數更新）${data.deferredStockCount?`（${data.deferredStockCount} 檔輪替中）`:''}｜${stamp?new Date(stamp).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'}):'執行中'}`;
++  target.textContent=`整站早晚巡檢｜06:30／22:30（台灣）｜${data.status==='complete'?'完成':data.status==='partial'?'部分完成':data.status}｜市場資料模組 ${counts.ok}/${modules.length} 全數有效${counts.partial?`；${counts.partial} 組缺值／待查`:''}｜本次更新 ${data.stocks?.length||0} 檔後台巡檢股；此瀏覽器追蹤 ${stocks.length} 檔，未涵蓋：${stocks.filter(s=>!(data.stocks||[]).some(x=>(x.id||x.symbol)===s.id)).map(s=>s.id).join('、')||'無'}（巡檢清單：${data.watchlistSource==='latest_synced'?`自動跟隨你最近同步的追蹤清單${data.watchlistSyncedAt?`（${new Date(data.watchlistSyncedAt).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'})} 同步）`:''}`:data.watchlistSource==='signed_in_user'?'你的追蹤清單':'內建預設（追蹤清單尚未同步到雲端）'}）${data.deferredStockCount?`（${data.deferredStockCount} 檔輪替中）`:''}｜${stamp?new Date(stamp).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'}):'執行中'}`;
+   report.replaceChildren();
+   const addGroup=(title,lines)=>{if(!lines.length)return;const heading=document.createElement('strong');heading.textContent=title;const list=document.createElement('ul');for(const line of lines){const item=document.createElement('li');item.textContent=line;list.append(item)}report.append(heading,list)};
+   const statusText=x=>({ok:'有效',partial:'部分有效',pending:'更新中',missing:'缺值',error:'錯誤',fresh:'快取有效',saved:'已保存',needs_refresh:'待搜尋',daily_limit:'達每日上限',auth_required:'排程未取得登入身分',deferred:'排入後續輪替',collecting_history:'已啟動快照累積',history_ready:'歷史樣本已成熟',source_error:'來源／日期／儲存錯誤'}[x]||x||'未知');
 diff --git a/package.json b/package.json
-index 0a21bf7..b5f72a3 100644
+index 0a21bf7..b7f71a4 100644
 --- a/package.json
 +++ b/package.json
 @@ -23,7 +23,7 @@
@@ -32,7 +41,7 @@ index 0a21bf7..b5f72a3 100644
      "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
      "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
 -    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs"
-+    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs"
    },
    "devDependencies": {
      "drizzle-kit": "0.31.10",
@@ -259,6 +268,63 @@ index 0000000..22aec18
 +    assert.match(api.scannerCoverageDetail(result),/當日無收盤價 6 檔，皆為官方狀態、不補價：零成交 2、只有零股成交 1、未列入當日行情表 3/);
 +  }finally{globalThis.fetch=previous;}
 +});
+diff --git a/tests/v236-watchlist.test.mjs b/tests/v236-watchlist.test.mjs
+new file mode 100644
+index 0000000..9844d46
+--- /dev/null
++++ b/tests/v236-watchlist.test.mjs
+@@ -0,0 +1,51 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// 擁有者 2026-10-26 09:55：持股會換（可能剩 1 檔或 5 檔），巡檢要自動跟著網站上的追蹤清單，不能停在內建 4 檔。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\n// v236-watchlist\nexport {resolvePatrolWatchlist,siteWatchlistResponse};').toString('base64'));
++
++function makeEnv(){
++  const rows=new Map();
++  const DB={prepare(sql){return {run:async()=>({success:true}),bind(...a){return {run:async()=>{if(sql.includes('INSERT INTO site_runtime_cache'))rows.set(a[0],{cache_key:a[0],payload:a[1],updated_at:a[2],expires_at:a[3]});return {success:true};},all:async()=>({results:rows.has(a[0])?[rows.get(a[0])]:[]})};}};}};
++  return {env:{DB},rows};
++}
++const put=(env,list,user='owner-1')=>api.siteWatchlistResponse(new Request('https://site.test/api/watchlist',{method:'PUT',headers:{'Content-Type':'application/json',...(user?{'oai-authenticated-user-id':user}:{})},body:JSON.stringify({watchlist:list})}),env).then(r=>r.json().then(body=>({status:r.status,body})));
++const get=(env,user='owner-1')=>api.siteWatchlistResponse(new Request('https://site.test/api/watchlist',{headers:{'oai-authenticated-user-id':user}}),env).then(r=>r.json());
++const five=[['2330','台積電'],['2454','聯發科'],['8299','群聯'],['3017','奇鋐'],['6669','緯穎']].map(([id,name])=>({id,name}));
++
++test('沒有登入的排程巡檢：跟隨最近一次同步的追蹤清單（5 檔、換成 1 檔都跟著變）',async()=>{
++  const {env}=makeEnv();
++  assert.equal((await api.resolvePatrolWatchlist(env,'')).source,'built_in_default','從沒同步過才用內建');
++  const saved=await put(env,five);
++  assert.equal(saved.status,200);assert.equal(saved.body.patrolSynced,true);
++  let r=await api.resolvePatrolWatchlist(env,'');
++  assert.equal(r.source,'latest_synced');assert.deepEqual(r.watchlist.map(x=>x.id),['2330','2454','8299','3017','6669']);assert.ok(r.syncedAt);
++  await put(env,[{id:'5289',name:'宜鼎'}]);
++  r=await api.resolvePatrolWatchlist(env,'');
++  assert.deepEqual(r.watchlist.map(x=>x.id),['5289']);
++  // 空清單或格式錯誤不會蓋掉巡檢清單
++  assert.equal((await put(env,[])).status,400);assert.equal((await put(env,[{id:'abc',name:'x'}])).status,400);
++  assert.deepEqual((await api.resolvePatrolWatchlist(env,'')).watchlist.map(x=>x.id),['5289']);
++  // 沒登入不能改清單
++  assert.equal((await put(env,five,'')).status,401);
++  assert.deepEqual((await api.resolvePatrolWatchlist(env,'')).watchlist.map(x=>x.id),['5289']);
++});
++
++test('這版上線前就存好的追蹤清單：打開網站讀一次就同步給巡檢；有登入的巡檢仍用自己的清單',async()=>{
++  const {env,rows}=makeEnv();
++  const now=new Date().toISOString(),later=new Date(Date.now()+86400000).toISOString();
++  rows.set('site-watchlist:v1:owner-1',{cache_key:'site-watchlist:v1:owner-1',payload:JSON.stringify({watchlist:five.slice(0,3)}),updated_at:now,expires_at:later});
++  assert.equal((await api.resolvePatrolWatchlist(env,'')).source,'built_in_default');
++  assert.equal((await api.resolvePatrolWatchlist(env,'owner-1')).source,'signed_in_user');
++  const body=await get(env);
++  assert.deepEqual(body.watchlist.map(x=>x.id),['2330','2454','8299']);
++  const r=await api.resolvePatrolWatchlist(env,'');
++  assert.equal(r.source,'latest_synced');assert.deepEqual(r.watchlist.map(x=>x.id),['2330','2454','8299']);
++});
++
++test('巡檢狀態列寫出清單來源，不再寫「私人清單與後台巡檢清單分開」',()=>{
++  const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++  assert.match(html,/自動跟隨你最近同步的追蹤清單/);assert.doesNotMatch(html,/私人清單與後台巡檢清單分開/);
++});
 diff --git a/tests/valuation-divergence.test.mjs b/tests/valuation-divergence.test.mjs
 index 5290342..1d28eea 100644
 --- a/tests/valuation-divergence.test.mjs
@@ -314,7 +380,7 @@ index b70ded1..ec0faaa 100644
    const history=await readMarketScannerSnapshots(env),result=summarizeMarketSnapshotHistory(history,date,roster.payload.rows);result.sourceUrls=snapshot.sourceUrls;
    if(!await writeRuntimeCache(env,MARKET_SCANNER_LATEST_KEY,result,365*86400000))throw Error('市場摘要寫入失敗');
 diff --git a/worker/macro.js b/worker/macro.js
-index 8ce7526..53a8ef1 100644
+index 8ce7526..4136d18 100644
 --- a/worker/macro.js
 +++ b/worker/macro.js
 @@ -850,7 +850,7 @@ async function masterModelResponse(request, env = {}, ctx = {}) {
@@ -326,7 +392,16 @@ index 8ce7526..53a8ef1 100644
    const userId = String(request.headers.get('oai-authenticated-user-id') || '').trim();
    let [macro, market, evidence, scanner, automation, pool, expanded, company, sources, crossSnapshot, usSectorSnapshot, gate5bBoundaries] = await Promise.all([readRuntimeCache(env, 'macro:v1'), readRuntimeCache(env, 'macro-market:v7'), userId ? readRuntimeCache(env, `master-gate-evidence:v1:${userId}:${id}`) : null, readRuntimeCache(env, MARKET_SCANNER_LATEST_KEY), readRuntimeCache(env, SITE_AUTO_REFRESH_KEY), readMasterResearchPool(env, userId, id), readRuntimeCache(env,'macro-expanded:v1'),readRuntimeCache(env,`company-evidence:v1:${id}`),readRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`),readCrossMarketSnapshot(env,ctx),readUSSectorSnapshot(env,ctx),readMasterGate5bBoundaries(id)]);
    if (!market?.fresh) { await macroMarketResponse(env, ctx);market=await readRuntimeCache(env,'macro-market:v7')||market; }
-@@ -1099,6 +1099,8 @@ function summarizeMarketSnapshotHistory(snapshots, currentDate, issuerRows = [])
+@@ -977,6 +977,8 @@ const DEFAULT_SITE_WATCHLIST = [
+ const SITE_AUTO_REFRESH_KEY = 'site-auto-refresh:v1';
+ const SITE_AUTO_REFRESH_HISTORY_KEY = 'site-auto-refresh-history:v1';
+ const SITE_WATCHLIST_TTL = 10 * 365 * 86400000;
++// 擁有者會換股（可能剩 1 檔或 5 檔），排程巡檢沒有登入身分，所以另存「最近一次同步的追蹤清單」給巡檢讀；只存代號、名稱、產業。
++const SITE_WATCHLIST_LATEST_KEY = 'site-watchlist:v1:latest-synced';
+ const SITE_AUTO_REFRESH_HISTORY_LIMIT = 180;
+ const SITE_AUTO_STOCKS_PER_RUN = 6;
+ const SITE_AUTO_REFRESH_LOCK_TIMEOUT_MS = 60 * 1000;
+@@ -1099,6 +1101,8 @@ function summarizeMarketSnapshotHistory(snapshots, currentDate, issuerRows = [])
      universe: current?.universe || { twse: 0, tpex: 0, total: 0 },
      captured: current?.counts || { twse: 0, tpex: 0, total: 0 },
      coveragePercent: current?.coveragePercent ?? null, industryCoveragePercent: current?.industryCoveragePercent ?? null,
@@ -335,8 +410,37 @@ index 8ce7526..53a8ef1 100644
      sessions: usable.length, requiredSessionsForMa20: 20, requiredSessionsForMa60: 60,
      breadth: { advancers: adv, decliners: dec, unchanged: flat, advanceDecline: dec ? adv / dec : null, netAdvances: adv - dec, advancePercent: movement ? adv / movement * 100 : null },
      sectorBreadth: sectors, totalAmount, quoteBasis: current?.quoteBasis || 'exchange-openapi-v1',
-@@ -1245,7 +1247,7 @@ async function siteWatchlistResponse(request, env = {}) {
-   return Response.json({ saved: true, watchlist, updatedAt: new Date().toISOString() }, { headers: jsonHeaders });
+@@ -1228,13 +1232,22 @@ function normalizeSiteWatchlist(value) {
+   return rows;
+ }
+ 
++async function resolvePatrolWatchlist(env, userId) {
++  if (userId) { const own = normalizeSiteWatchlist((await readRuntimeCache(env, `site-watchlist:v1:${userId}`))?.payload?.watchlist); if (own?.length) return { watchlist: own, source: 'signed_in_user', syncedAt: null }; }
++  const latest = await readRuntimeCache(env, SITE_WATCHLIST_LATEST_KEY), rows = normalizeSiteWatchlist(latest?.payload?.watchlist);
++  if (rows?.length) return { watchlist: rows, source: 'latest_synced', syncedAt: latest.payload.savedAt || null };
++  return { watchlist: DEFAULT_SITE_WATCHLIST, source: 'built_in_default', syncedAt: null };
++}
++
+ async function siteWatchlistResponse(request, env = {}) {
+   const userId = researchUserId(request);
+   if (!userId) return Response.json({ error: 'sign_in_required', message: '請以網站擁有者帳號同步追蹤清單。' }, { status: 401, headers: jsonHeaders });
+   const key = `site-watchlist:v1:${userId}`;
+   if (request.method === 'GET') {
+     const saved = await readRuntimeCache(env, key);
+-    const rows = normalizeSiteWatchlist(saved?.payload?.watchlist) || DEFAULT_SITE_WATCHLIST;
++    const own = normalizeSiteWatchlist(saved?.payload?.watchlist), rows = own?.length ? own : DEFAULT_SITE_WATCHLIST;
++    // 已同步過的清單若還沒給巡檢用（例如這版上線前就存好的），打開網站時順手補上，不必等下一次增刪股票。
++    if (own?.length) { const latest = await readRuntimeCache(env, SITE_WATCHLIST_LATEST_KEY); if (JSON.stringify(normalizeSiteWatchlist(latest?.payload?.watchlist)) !== JSON.stringify(own)) await writeRuntimeCache(env, SITE_WATCHLIST_LATEST_KEY, { watchlist: own, savedAt: saved?.updatedAt || new Date().toISOString() }, SITE_WATCHLIST_TTL); }
+     return Response.json({ watchlist: rows, saved: Boolean(saved?.payload?.watchlist), updatedAt: saved?.updatedAt || null }, { headers: jsonHeaders });
+   }
+   if (request.method !== 'PUT') return Response.json({ error: 'method_not_allowed' }, { status: 405, headers: jsonHeaders });
+@@ -1242,10 +1255,11 @@ async function siteWatchlistResponse(request, env = {}) {
+   if (!watchlist?.length) return Response.json({ error: 'invalid_watchlist', message: '追蹤清單需包含至少一檔有效台股代號。' }, { status: 400, headers: jsonHeaders });
+   const saved = await writeRuntimeCache(env, key, { watchlist }, SITE_WATCHLIST_TTL);
+   if (!saved) return Response.json({ error: 'database_unavailable', message: '雲端清單未保存；保留此瀏覽器的本機清單。' }, { status: 503, headers: jsonHeaders });
+-  return Response.json({ saved: true, watchlist, updatedAt: new Date().toISOString() }, { headers: jsonHeaders });
++  const savedAt = new Date().toISOString(), patrolSynced = await writeRuntimeCache(env, SITE_WATCHLIST_LATEST_KEY, { watchlist, savedAt }, SITE_WATCHLIST_TTL);
++  return Response.json({ saved: true, watchlist, updatedAt: savedAt, patrolSynced: Boolean(patrolSynced) }, { headers: jsonHeaders });
  }
  
 -function summarizeSiteModule(id, payload) {
@@ -344,7 +448,7 @@ index 8ce7526..53a8ef1 100644
    if(id==='usSectors'){const report=evaluateUSSectorContext(payload);return {status:payload?.pending?'pending':report.status==='OK'?'ok':report.coverage.valid?'partial':'missing',usable:report.coverage.valid,total:11,checkedAt:payload?.generated_at||null,observations:Object.entries(report.sectors).map(([key,row])=>({id:key,name:US_SECTOR_NAMES[key],date:row.observedAt,status:row.status,source:report.sourceUrl})),judgment:[report.summary],error:report.errorCode||payload?.fetchError||null};}
    if(id==='crossMarket'){
      const entries=Object.entries(payload?.markets||{}),usable=entries.filter(([,entry])=>entry.status==='ok'&&entry.history?.length>=21).length;
-@@ -1256,7 +1258,11 @@ function summarizeSiteModule(id, payload) {
+@@ -1256,7 +1270,11 @@ function summarizeSiteModule(id, payload) {
    const dates = rows.map(row => row.date).filter(value => /^\d{4}-\d\d-\d\d$/.test(String(value || ''))).sort();
    const feeds = Array.isArray(payload?.feeds) ? payload.feeds : [];
    const usableFeeds = feeds.filter(feed => Array.isArray(feed.items) && feed.items.length > 0).length;
@@ -357,7 +461,7 @@ index 8ce7526..53a8ef1 100644
    const total = rows.length || feeds.length;
    const covered = rows.length ? usable : usableFeeds;
    const moduleStatus = stillRunning ? 'pending' : total && covered === total ? 'ok' : covered ? 'partial' : 'missing';
-@@ -1290,10 +1296,11 @@ function summarizeSiteModule(id, payload) {
+@@ -1290,10 +1308,11 @@ function summarizeSiteModule(id, payload) {
      ...(feeds.length ? { feeds: feeds.map(feed => ({ topic: feed.topic, source: feed.source, items: (feed.items || []).map(item => ({ title: item.title, date: item.date, url: item.url })), error: feed.error || null })) } : {}),
      ...(judgment.length ? { judgment: judgment.slice(0, 12) } : {}),
      ...(stillRunning ? { note: '來源仍在背景更新；排程會保留等待狀態。' } : {}),
@@ -370,7 +474,7 @@ index 8ce7526..53a8ef1 100644
    const readPayload = async () => {
      let timer;
      try {
-@@ -1307,7 +1314,7 @@ async function runSiteModule(id, start) {
+@@ -1307,7 +1326,7 @@ async function runSiteModule(id, start) {
      const { response, payload } = await readPayload();
      // A pending source refresh is recorded as pending and picked up on the
      // next scheduled run. Waiting here lets one slow feed hold the whole job.
@@ -379,7 +483,27 @@ index 8ce7526..53a8ef1 100644
    } catch (error) {
      return { status: 'error', checkedAt: new Date().toISOString(), error: String(error?.message || error).slice(0, 240) };
    }
-@@ -1405,7 +1412,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+@@ -1345,7 +1364,7 @@ async function persistSiteRefreshStatus(env, payload) {
+       status: payload.status || 'running', trigger: payload.trigger || null,
+       moduleCounts: Object.fromEntries(Object.entries(payload.modules || {}).map(([id, value]) => [id, value.status || 'unknown'])),
+       stockCount: Array.isArray(payload.stocks) ? payload.stocks.length : 0,
+-      deferredStockCount: Number(payload.deferredStockCount || 0), stockCursor: Number(payload.stockCursor || 0),
++      deferredStockCount: Number(payload.deferredStockCount || 0), stockCursor: Number(payload.stockCursor || 0), watchlistSource: payload.watchlistSource || null,
+       researchCount: Array.isArray(payload.research) ? payload.research.length : 0,
+       gateAuditCount: (payload.gateAudits||[]).filter(row=>row.recorded===true).length,
+     };
+@@ -1376,8 +1395,8 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     run.updatedAt=new Date().toISOString();await persistSiteRefreshStatus(env,run);return run;
+   };
+   if(step.stage==='initialize'){
+-    let watchlist=DEFAULT_SITE_WATCHLIST;
+-    if(userId){const saved=await readRuntimeCache(env,`site-watchlist:v1:${userId}`);watchlist=normalizeSiteWatchlist(saved?.payload?.watchlist)||DEFAULT_SITE_WATCHLIST;}
++    const resolved=await resolvePatrolWatchlist(env,userId),watchlist=resolved.watchlist;
++    run.watchlistSource=resolved.source;run.watchlistSyncedAt=resolved.syncedAt;
+     const history=await readRuntimeCache(env,SITE_AUTO_REFRESH_HISTORY_KEY);
+     const priorRuns=(history?.payload?.runs||[]).filter(row=>row.runId!==run.runId&&row.completedAt);
+     const previousCursor=Number(priorRuns.at(-1)?.stockCursor||0)%Math.max(1,watchlist.length);
+@@ -1405,7 +1424,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
      run.status='updating_market_modules';run.checkpoint={version:1,stage:'modules',index:0};return commit();
    }
    if(step.stage==='modules'){
@@ -388,7 +512,7 @@ index 8ce7526..53a8ef1 100644
      if(id==='usSectors'&&run.modules[id].status==='pending'){
        run.moduleAttempts={...run.moduleAttempts,[id]:(run.moduleAttempts?.[id]||0)+1};
        if(run.moduleAttempts[id]<30)return commit();
-@@ -1437,7 +1444,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+@@ -1437,7 +1456,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
      try {
        // Preserve the caller's actual identity; service access never creates one.
        const headers=userId?{'oai-authenticated-user-id':userId}:{};
@@ -397,7 +521,7 @@ index 8ce7526..53a8ef1 100644
        const key=`site-master-audit:v1:${run.runId}:${row.id}`;
        const written=await writeRuntimeCache(env,key,{runId:run.runId,symbol:row.id,checkedAt:new Date().toISOString(),model},365*86400000);
        const saved=written?await readRuntimeCache(env,key):null;
-@@ -1453,7 +1460,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+@@ -1453,7 +1472,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
    if(step.index<modules.length){
      const [id,start]=modules[step.index];
      const readback=id==='crossMarket'?async()=>Response.json(await readCrossMarketSnapshot(env,ctx)):id==='usSectors'?async()=>Response.json(await readUSSectorSnapshot(env,ctx)):start;
@@ -406,7 +530,7 @@ index 8ce7526..53a8ef1 100644
      const exhausted=id==='usSectors'&&result.status==='pending'&&run.moduleAttempts?.[id]>=30;
      const prior=run.modules[id],failedAttempt=prior?.error&&['error','missing'].includes(prior.status)&&!result.error;
      run.modules[id]={...result,...(failedAttempt?{status:prior.status,error:prior.error,latestReadback:result,sourceAttemptFailed:true}:{}),...(exhausted?{status:'partial',readbackStatus:result.status,error:'板塊分批更新尚未完成；已達本輪重試上限'}:{}),summaryScope:failedAttempt?'final_readback_with_source_failure':'final_readback',readbackAt:new Date().toISOString()};
-@@ -1530,7 +1537,7 @@ function scannerCoverageDetail(scan) {
+@@ -1530,7 +1549,7 @@ function scannerCoverageDetail(scan) {
    const diffusion = scan.diffusion || {};
    const incomplete=(scan.sectorBreadth||[]).filter(row=>assessMasterScannerSector(row,scan).state==='missing');
    const pending=incomplete.map(row=>`${row.industry}完整 RVOL20 覆蓋 ${row.rvolEligible}/${row.total} 檔（${Number(row.rvolCoveragePercent||0).toFixed(2)}%，未達 95%）${finiteNumber(row.matureRvol20)?`；成熟樣本 RVOL ${Number(row.matureRvol20).toFixed(2)}x（${row.rvolEligible}/${row.matureCount} 檔），僅作參考`:''}；${(scan.historyGaps||[]).filter(x=>x.industry===row.industry).map(x=>`${x.id} ${x.name} ${x.observations}/${x.requiredObservations} 筆${x.reason==='new_listing_warmup'?`（${x.listingDate} 掛牌；${x.missingObservations?'另有行情缺口':'新股暖機'}，仍需 ${x.remainingObservations} 筆）`:'（歷史行情待重查）'}`).join('、')}`).join('。');
