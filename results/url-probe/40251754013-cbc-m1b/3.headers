@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Server: HiNetCDN
+Date: Mon, 26 Oct 2026 00:56:47 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 45054
+Connection: keep-alive
+Vary: Accept-Encoding
+Cache-Control: private,no-cache
+X-UA-Compatible: IE=edge
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Permissions-Policy: fullscreen=()
+Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' data: code.jquery.com *.googletagmanager.com www.google-analytics.com *.googleapis.com *.gstatic.com *.google.com *.facebook.com *.facebook.net *.doubleclick.net *.youtube.com *.ntpc.gov.tw; frame-ancestors 'self';
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+X-POWERED-BY: 
+X-ASPNET-VERSION: 
+x-request-id: b42c8129d0375938f2f617b728c2c655
+X-Cache: -
+Accept-Ranges: bytes
+

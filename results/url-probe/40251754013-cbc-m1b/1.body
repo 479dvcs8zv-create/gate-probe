@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>貨幣總計數</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style type="text/css">
+        .appTable {
+            width: 100%;
+            border: 1px solid #BBCCD9;
+            border-collapse: collapse;
+            font: 0.9em Arial, Helvetica, sans-serif;
+        }
+
+            .appTable th {
+                border: 1px solid #BBCCD9;
+                color: #333;
+                background: #E1E9EE;
+                padding: 3px 5px;
+            }
+
+            .appTable td {
+                border: 1px solid #BBCCD9;
+                color: #333;
+                background: #FFF;
+                padding: 3px 5px;
+            }
+    </style>
+</head>
+<body>
+    <table border="0" width="100%">
+        <tr>
+            <th style="font-size: 120%">貨幣總計數</th>
+        </tr>
+        <tr>
+            <td align="center" style="font-size: 110%">
+                115年08月</td>
+        </tr>
+        <tr>
+            <td align="right">單位：新台幣億元；％</td>
+        </tr>
+        <tr>
+            <td>
+                <table border="1" width="100%" class="appTable">
+                    <tr>
+                        <td style="font-size: 110%" rowspan="2">M1A (日平均)</td>
+                        <td align="center">金　額</td>
+                        <td align="right">
+                            128,271</td>
+                    </tr>
+                    <tr>
+                        <td align="center">年增率</td>
+                        <td align="right">
+                            8.86</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 110%" rowspan="2">M1A (期　底)</td>
+                        <td align="center">金　額</td>
+                        <td align="right">
+                            128,155</td>
+                    </tr>
+                    <tr>
+                        <td align="center">年增率</td>
+                        <td align="right">
+                            8.34</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 110%" rowspan="2">M1B (日平均)</td>
+                        <td align="center">金　額</td>
+                        <td align="right">
+                            307,508</td>
+                    </tr>
+                    <tr>
+                        <td align="center">年增率</td>
+                        <td align="right">
+                            6.65</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 110%" rowspan="2">M1B (期　底)</td>
+                        <td align="center">金　額</td>
+                        <td align="right">
+                            309,594</td>
+                    </tr>
+                    <tr>
+                        <td align="center">年增率</td>
+                        <td align="right">
+                            7.18</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 110%" rowspan="2">M2　(日平均)</td>
+                        <td align="center">金　額</td>
+                        <td align="right">
+                            706,780</td>
+                    </tr>
+                    <tr>
+                        <td align="center">年增率</td>
+                        <td align="right">
+                            <p>6.79</p></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 110%" rowspan="2">M2　(期　底)</td>
+                        <td align="center">金　額</td>
+                        <td align="right">
+                            709,110</td>
+                    </tr>
+                    <tr>
+                        <td align="center">年增率</td>
+                        <td align="right">
+                            6.92</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <p>附檔下載：</p>
+    <ul>
+        <li><a href="https://www.cbc.gov.tw/tw/dl-227484-8eea119eb2a54663ae8855ce9bc5fc59.html">ms.ods</a></li><li><a href="https://www.cbc.gov.tw/tw/dl-227485-934f25a41b244f718a443b77dc1d7622.html">ms.pdf</a></li><li><a href="https://www.cbc.gov.tw/tw/dl-227486-dfc63ef50f094caea844190fed99348c.html">ms.xls</a></li>
+    </ul>
+
+</body>
+</html>
