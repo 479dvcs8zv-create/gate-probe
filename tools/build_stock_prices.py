@@ -14,6 +14,7 @@ import csv
 import datetime as dt
 import gzip
 import hashlib
+import http.client
 import io
 import json
 import re
@@ -27,8 +28,15 @@ CODE = re.compile(r"^[1-9]\d{3}$")
 
 
 def fetch(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=90) as r:
-        return r.read()
+    # 櫃買回應常傳到一半中斷（IncompleteRead）或逾時；同一網址最多再試 2 次，間隔 5 秒。
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=90) as r:
+                return r.read()
+        except (http.client.IncompleteRead, TimeoutError, ConnectionError) as e:
+            if attempt == 2:
+                raise
+            time.sleep(5)
 
 
 def strip(s):
