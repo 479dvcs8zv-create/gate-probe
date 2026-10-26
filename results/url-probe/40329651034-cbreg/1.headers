@@ -1,0 +1,13 @@
+HTTP/2 200 
+date: Mon, 26 Oct 2026 13:20:23 GMT
+content-type: application/json
+content-length: 452631
+server: cloudflare
+last-modified: Mon, 26 Oct 2026 12:00:13 GMT
+etag: "6adf40cd-6e817"
+content-disposition: attachment;filename=bond_ISSBD5_data.json
+accept-ranges: bytes
+cache-control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
+cf-cache-status: DYNAMIC
+cf-ray: a509c2036a0d4c96-MSP
+
