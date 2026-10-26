@@ -55,10 +55,10 @@ index a3b0650..74d3e69 100644
 +});
 diff --git a/tests/v236-keepalive.test.mjs b/tests/v236-keepalive.test.mjs
 new file mode 100644
-index 0000000..6d49f26
+index 0000000..bf469d4
 --- /dev/null
 +++ b/tests/v236-keepalive.test.mjs
-@@ -0,0 +1,27 @@
+@@ -0,0 +1,41 @@
 +import test from 'node:test';
 +import assert from 'node:assert/strict';
 +import {readFileSync} from 'node:fs';
@@ -86,6 +86,20 @@ index 0000000..6d49f26
 +    assert.equal(again.panelInputs.cbRegistry.status,'partial');assert.equal(again.panelInputs.cbRegistry.bonds[0].id,'82993');
 +  }finally{globalThis.fetch=previous;}
 +});
++
++test('v236 讀回：巡檢期間已更新的快照，即使背景又在跑下一次更新，也算本輪已更新；早於本輪的才維持 pending',async()=>{
++  const src=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++  const m=await import('data:text/javascript;base64,'+Buffer.from(src+'\n// summarize instance\nexport {summarizeSiteModule};').toString('base64'));
++  const rows=Array.from({length:36},(_,i)=>({id:'R'+i,status:'ok',value:1,date:'2026-10-26'}));
++  const since='2026-10-26T00:00:00.000Z';
++  const fresh=m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-26T00:03:10.000Z',refreshing:true,rows},{since});
++  assert.equal(fresh.status,'ok');assert.equal(fresh.usable,36);assert.equal(fresh.refreshedThisRun,true);
++  const old=m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-25T21:00:00.000Z',refreshing:true,rows},{since});
++  assert.equal(old.status,'pending');
++  const none=m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-26T00:03:10.000Z',pending:true,rows:[]},{since});
++  assert.equal(none.status,'pending','an explicit pending payload with no data stays pending');
++  assert.equal(m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-26T00:03:10.000Z',refreshing:true,rows}).status,'pending','without a run start time the old rule applies');
++});
 diff --git a/tests/valuation-divergence.test.mjs b/tests/valuation-divergence.test.mjs
 index 5290342..1d28eea 100644
 --- a/tests/valuation-divergence.test.mjs
@@ -109,7 +123,7 @@ index 5290342..1d28eea 100644
 +  const r=api.evaluateValuationDivergence(w,[],today);assert.equal(r.divergent,false);assert.equal(r.divergenceKind,null);assert.doesNotMatch(r.reason,/類型/);
 +});
 diff --git a/worker/macro.js b/worker/macro.js
-index 8ce7526..ea116e8 100644
+index 8ce7526..e3ce8b0 100644
 --- a/worker/macro.js
 +++ b/worker/macro.js
 @@ -850,7 +850,7 @@ async function masterModelResponse(request, env = {}, ctx = {}) {
@@ -121,7 +135,60 @@ index 8ce7526..ea116e8 100644
    const userId = String(request.headers.get('oai-authenticated-user-id') || '').trim();
    let [macro, market, evidence, scanner, automation, pool, expanded, company, sources, crossSnapshot, usSectorSnapshot, gate5bBoundaries] = await Promise.all([readRuntimeCache(env, 'macro:v1'), readRuntimeCache(env, 'macro-market:v7'), userId ? readRuntimeCache(env, `master-gate-evidence:v1:${userId}:${id}`) : null, readRuntimeCache(env, MARKET_SCANNER_LATEST_KEY), readRuntimeCache(env, SITE_AUTO_REFRESH_KEY), readMasterResearchPool(env, userId, id), readRuntimeCache(env,'macro-expanded:v1'),readRuntimeCache(env,`company-evidence:v1:${id}`),readRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`),readCrossMarketSnapshot(env,ctx),readUSSectorSnapshot(env,ctx),readMasterGate5bBoundaries(id)]);
    if (!market?.fresh) { await macroMarketResponse(env, ctx);market=await readRuntimeCache(env,'macro-market:v7')||market; }
-@@ -1437,7 +1437,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+@@ -1245,7 +1245,7 @@ async function siteWatchlistResponse(request, env = {}) {
+   return Response.json({ saved: true, watchlist, updatedAt: new Date().toISOString() }, { headers: jsonHeaders });
+ }
+ 
+-function summarizeSiteModule(id, payload) {
++function summarizeSiteModule(id, payload, { since = null } = {}) {
+   if(id==='usSectors'){const report=evaluateUSSectorContext(payload);return {status:payload?.pending?'pending':report.status==='OK'?'ok':report.coverage.valid?'partial':'missing',usable:report.coverage.valid,total:11,checkedAt:payload?.generated_at||null,observations:Object.entries(report.sectors).map(([key,row])=>({id:key,name:US_SECTOR_NAMES[key],date:row.observedAt,status:row.status,source:report.sourceUrl})),judgment:[report.summary],error:report.errorCode||payload?.fetchError||null};}
+   if(id==='crossMarket'){
+     const entries=Object.entries(payload?.markets||{}),usable=entries.filter(([,entry])=>entry.status==='ok'&&entry.history?.length>=21).length;
+@@ -1256,7 +1256,11 @@ function summarizeSiteModule(id, payload) {
+   const dates = rows.map(row => row.date).filter(value => /^\d{4}-\d\d-\d\d$/.test(String(value || ''))).sort();
+   const feeds = Array.isArray(payload?.feeds) ? payload.feeds : [];
+   const usableFeeds = feeds.filter(feed => Array.isArray(feed.items) && feed.items.length > 0).length;
+-  const stillRunning = Boolean(payload?.pending || payload?.refreshing);
++  // 背景「下一輪」更新中、但手上的快照是本次巡檢開始後才更新的 → 算本輪已更新（v236 讀回：市場／貴金屬 36/36 齊全卻一直記 pending，
++  // 原因是快取只有 5 分鐘、巡檢跑完前又開始下一次背景更新）。快照早於本輪開始才維持 pending。
++  const checkedMs = Date.parse(payload?.checkedAt || ''), sinceMs = Date.parse(since || '');
++  const refreshedThisRun = Boolean(payload?.refreshing && !payload?.pending && Number.isFinite(checkedMs) && Number.isFinite(sinceMs) && checkedMs >= sinceMs);
++  const stillRunning = Boolean(payload?.pending || (payload?.refreshing && !refreshedThisRun));
+   const total = rows.length || feeds.length;
+   const covered = rows.length ? usable : usableFeeds;
+   const moduleStatus = stillRunning ? 'pending' : total && covered === total ? 'ok' : covered ? 'partial' : 'missing';
+@@ -1290,10 +1294,11 @@ function summarizeSiteModule(id, payload) {
+     ...(feeds.length ? { feeds: feeds.map(feed => ({ topic: feed.topic, source: feed.source, items: (feed.items || []).map(item => ({ title: item.title, date: item.date, url: item.url })), error: feed.error || null })) } : {}),
+     ...(judgment.length ? { judgment: judgment.slice(0, 12) } : {}),
+     ...(stillRunning ? { note: '來源仍在背景更新；排程會保留等待狀態。' } : {}),
++    ...(refreshedThisRun ? { refreshedThisRun: true, note: '快照於本次巡檢期間更新；背景另有下一次更新進行中。' } : {}),
+   };
+ }
+ 
+-async function runSiteModule(id, start) {
++async function runSiteModule(id, start, options = {}) {
+   const readPayload = async () => {
+     let timer;
+     try {
+@@ -1307,7 +1312,7 @@ async function runSiteModule(id, start) {
+     const { response, payload } = await readPayload();
+     // A pending source refresh is recorded as pending and picked up on the
+     // next scheduled run. Waiting here lets one slow feed hold the whole job.
+-    return { ...summarizeSiteModule(id, payload), httpStatus: response.status };
++    return { ...summarizeSiteModule(id, payload, options), httpStatus: response.status };
+   } catch (error) {
+     return { status: 'error', checkedAt: new Date().toISOString(), error: String(error?.message || error).slice(0, 240) };
+   }
+@@ -1405,7 +1410,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     run.status='updating_market_modules';run.checkpoint={version:1,stage:'modules',index:0};return commit();
+   }
+   if(step.stage==='modules'){
+-    const [id,start]=modules[step.index];run.modules[id]=await runSiteModule(id,start);
++    const [id,start]=modules[step.index];run.modules[id]=await runSiteModule(id,start,{since:run.startedAt});
+     if(id==='usSectors'&&run.modules[id].status==='pending'){
+       run.moduleAttempts={...run.moduleAttempts,[id]:(run.moduleAttempts?.[id]||0)+1};
+       if(run.moduleAttempts[id]<30)return commit();
+@@ -1437,7 +1442,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
      try {
        // Preserve the caller's actual identity; service access never creates one.
        const headers=userId?{'oai-authenticated-user-id':userId}:{};
@@ -130,6 +197,15 @@ index 8ce7526..ea116e8 100644
        const key=`site-master-audit:v1:${run.runId}:${row.id}`;
        const written=await writeRuntimeCache(env,key,{runId:run.runId,symbol:row.id,checkedAt:new Date().toISOString(),model},365*86400000);
        const saved=written?await readRuntimeCache(env,key):null;
+@@ -1453,7 +1458,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+   if(step.index<modules.length){
+     const [id,start]=modules[step.index];
+     const readback=id==='crossMarket'?async()=>Response.json(await readCrossMarketSnapshot(env,ctx)):id==='usSectors'?async()=>Response.json(await readUSSectorSnapshot(env,ctx)):start;
+-    const result=await runSiteModule(id,readback);
++    const result=await runSiteModule(id,readback,{since:run.startedAt});
+     const exhausted=id==='usSectors'&&result.status==='pending'&&run.moduleAttempts?.[id]>=30;
+     const prior=run.modules[id],failedAttempt=prior?.error&&['error','missing'].includes(prior.status)&&!result.error;
+     run.modules[id]={...result,...(failedAttempt?{status:prior.status,error:prior.error,latestReadback:result,sourceAttemptFailed:true}:{}),...(exhausted?{status:'partial',readbackStatus:result.status,error:'板塊分批更新尚未完成；已達本輪重試上限'}:{}),summaryScope:failedAttempt?'final_readback_with_source_failure':'final_readback',readbackAt:new Date().toISOString()};
 diff --git a/worker/panel-site.js b/worker/panel-site.js
 index 273696c..39a9470 100644
 --- a/worker/panel-site.js
