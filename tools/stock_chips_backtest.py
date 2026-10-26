@@ -39,18 +39,18 @@ D = dt.date
 
 
 def load_chips(folder, kind):
-    """回傳 (有資料的日子集合, {code: {date: row}})。"""
+    """回傳 (有資料的日子集合, {code: {date: 數值}})。法人存 (外資＋投信, 投信)，借券存借券賣出當日餘額。
+    「有資料的日子」＝年檔裡真的有該日資料（不只看紀錄檔）。只存需要的欄位以節省記憶體。"""
     folder = Path(folder)
     ok_days = set()
-    log = folder / f"{kind}-days.csv"
-    if log.exists():
-        with open(log) as f:
-            ok_days = {D.fromisoformat(r["date"]) for r in csv.DictReader(f) if r["status"] == "ok"}
     data = defaultdict(dict)
+    insti = kind.endswith("insti")
     for p in sorted(folder.glob(f"{kind}-[0-9][0-9][0-9][0-9].csv.gz")):
         with gzip.open(p, "rt", newline="") as f:
-            for r in csv.DictReader(f):
-                data[r["code"]][D.fromisoformat(r["date"])] = r
+            rd = csv.reader(f); head = next(rd); ix = {k: i for i, k in enumerate(head)}
+            for r in rd:
+                d = D.fromisoformat(r[0]); ok_days.add(d)
+                data[r[1]][d] = (float(r[ix["foreign"]]) + float(r[ix["trust"]]), float(r[ix["trust"]])) if insti else float(r[ix["sbl_balance"]])
     return ok_days, data
 
 
@@ -78,13 +78,13 @@ def main(price_folder, chips_folder, out):
                 if r is None:
                     absent["insti"] += 1; ft[i] = 0.0; tt[i] = 0.0
                 else:
-                    ft[i] = (float(r["foreign"]) + float(r["trust"])) * close[i]; tt[i] = float(r["trust"]) * close[i]
+                    ft[i] = r[0] * close[i]; tt[i] = r[1] * close[i]
             if d in lok:
                 r = lmine.get(d)
                 if r is None:
                     absent["lending"] += 1
                 else:
-                    sbl[i] = float(r["sbl_balance"])
+                    sbl[i] = r
         for i in range(65, n - 1):
             d = dates[i]
             if d not in eval_days or close[i] < 10 or val20[i] < 1e7 or d > cal[-1] - dt.timedelta(days=95):
@@ -104,7 +104,7 @@ def main(price_folder, chips_folder, out):
     mean20 = {d: np.mean([x[7] for x in v]) for d, v in by_day.items()}
     mean60 = {d: np.mean([x[8] for x in v]) for d, v in by_day.items()}
     # 每個評估日、每個訊號的分組（只在該訊號可算的股票中分）
-    quint = {}
+    quint = {}  # (訊號欄, id(紀錄)) -> 組別
     for k in (3, 4, 5, 6):
         for d, v in by_day.items():
             xs = [r for r in v if not math.isnan(r[k])]
@@ -112,7 +112,7 @@ def main(price_folder, chips_folder, out):
                 continue
             xs.sort(key=lambda r: r[k])
             for j, r in enumerate(xs):
-                quint[(k, r[0], r[1], r[2])] = min(5, 1 + j * 5 // len(xs))
+                quint[(k, id(r))] = min(5, 1 + j * 5 // len(xs))
     lines = []
     p = lines.append
     first = {m: (min(chips[m]["insti"][0]) if chips[m]["insti"][0] else None, min(chips[m]["lending"][0]) if chips[m]["lending"][0] else None) for m in chips}
@@ -127,7 +127,7 @@ def main(price_folder, chips_folder, out):
             p(f"\n## {names[k]}（{pname}）")
             p("組 | 筆數 | 訊號中位數 | 20日超額 | 20日勝率 | 60日超額 | 60日勝率")
             for q in range(1, 6):
-                xs = [r for r in recs if pf(r) and quint.get((k, r[0], r[1], r[2])) == q]
+                xs = [r for r in recs if pf(r) and quint.get((k, id(r))) == q]
                 if not xs:
                     continue
                 e20 = [r[7] - mean20[r[0]] for r in xs]; e60 = [r[8] - mean60[r[0]] for r in xs]

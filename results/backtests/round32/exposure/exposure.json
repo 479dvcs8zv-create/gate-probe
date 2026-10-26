@@ -1,0 +1,342 @@
+{
+ "全期，上市＋上櫃": {
+  "A": {
+   "stocks": 1601,
+   "median_cagr": 0.016474951452376096,
+   "median_mdd": -0.546613360157653,
+   "median_cagr_vs_A": 0.0,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.0,
+   "share_mdd_better": 0.0,
+   "portfolio_cagr": 0.06634135900273819,
+   "portfolio_mdd": -0.5129153626337511
+  },
+  "T1": {
+   "stocks": 1601,
+   "median_cagr": 0.006753307346370807,
+   "median_mdd": -0.5170280366603885,
+   "median_cagr_vs_A": -0.007363599246023589,
+   "median_mdd_vs_A": 0.02470626686839661,
+   "share_cagr_better": 0.3404122423485322,
+   "share_mdd_better": 0.6608369768894441,
+   "portfolio_cagr": 0.05153819746279442,
+   "portfolio_mdd": -0.38955621510083116
+  },
+  "T2": {
+   "stocks": 1601,
+   "median_cagr": 0.013265374383237605,
+   "median_mdd": -0.49423793454811504,
+   "median_cagr_vs_A": -0.0030719320729477584,
+   "median_mdd_vs_A": 0.04076098877483314,
+   "share_cagr_better": 0.4084946908182386,
+   "share_mdd_better": 0.7557776389756402,
+   "portfolio_cagr": 0.05976238219048202,
+   "portfolio_mdd": -0.3466413595537172
+  },
+  "M": {
+   "stocks": 1601,
+   "median_cagr": 0.01079272062591552,
+   "median_mdd": -0.5435288250665096,
+   "median_cagr_vs_A": -0.004254402796913137,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.22423485321673953,
+   "share_mdd_better": 0.2754528419737664,
+   "portfolio_cagr": 0.05485564996202341,
+   "portfolio_mdd": -0.5129153626337511
+  },
+  "TM": {
+   "stocks": 1601,
+   "median_cagr": 0.015420253398186867,
+   "median_mdd": -0.5320523899950638,
+   "median_cagr_vs_A": -0.0014505138851070853,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.2941911305434104,
+   "share_mdd_better": 0.3997501561524047,
+   "portfolio_cagr": 0.06656531403762167,
+   "portfolio_mdd": -0.40226763525496
+  },
+  "TM2": {
+   "stocks": 1601,
+   "median_cagr": 0.012744325816230528,
+   "median_mdd": -0.49799214051047,
+   "median_cagr_vs_A": -0.003693269084836137,
+   "median_mdd_vs_A": 0.03693345820892957,
+   "share_cagr_better": 0.3935040599625234,
+   "share_mdd_better": 0.7439100562148657,
+   "portfolio_cagr": 0.05794753083829329,
+   "portfolio_mdd": -0.3466413595537172
+  }
+ },
+ "2006–2015": {
+  "A": {
+   "stocks": 976,
+   "median_cagr": 0.002567134723706843,
+   "median_mdd": -0.5041824390210125,
+   "median_cagr_vs_A": 0.0,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.0,
+   "share_mdd_better": 0.0,
+   "portfolio_cagr": 0.018900212412639616,
+   "portfolio_mdd": -0.5129153626337511
+  },
+  "T1": {
+   "stocks": 976,
+   "median_cagr": -0.000758991486487226,
+   "median_mdd": -0.4551753557326653,
+   "median_cagr_vs_A": 0.001507738180226481,
+   "median_mdd_vs_A": 0.0483756645578311,
+   "share_cagr_better": 0.5133196721311475,
+   "share_mdd_better": 0.7858606557377049,
+   "portfolio_cagr": 0.019220193051417533,
+   "portfolio_mdd": -0.38955621510083116
+  },
+  "T2": {
+   "stocks": 976,
+   "median_cagr": 0.012010645596421177,
+   "median_mdd": -0.42142117962390596,
+   "median_cagr_vs_A": 0.008532634886517287,
+   "median_mdd_vs_A": 0.07448110240771716,
+   "share_cagr_better": 0.6290983606557377,
+   "share_mdd_better": 0.8504098360655737,
+   "portfolio_cagr": 0.02663658647870837,
+   "portfolio_mdd": -0.3466413595537172
+  },
+  "M": {
+   "stocks": 976,
+   "median_cagr": 0.002567134723706843,
+   "median_mdd": -0.5041824390210125,
+   "median_cagr_vs_A": 0.0,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.0,
+   "share_mdd_better": 0.0,
+   "portfolio_cagr": 0.018900212412639616,
+   "portfolio_mdd": -0.5129153626337511
+  },
+  "TM": {
+   "stocks": 976,
+   "median_cagr": 0.007168536194266939,
+   "median_mdd": -0.46361163412442274,
+   "median_cagr_vs_A": 0.0,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.45389344262295084,
+   "share_mdd_better": 0.492827868852459,
+   "portfolio_cagr": 0.025436939211321397,
+   "portfolio_mdd": -0.40226763525496
+  },
+  "TM2": {
+   "stocks": 976,
+   "median_cagr": 0.012010645596421177,
+   "median_mdd": -0.42142117962390596,
+   "median_cagr_vs_A": 0.008532634886517287,
+   "median_mdd_vs_A": 0.07448110240771716,
+   "share_cagr_better": 0.6290983606557377,
+   "share_mdd_better": 0.8504098360655737,
+   "portfolio_cagr": 0.02663658647870837,
+   "portfolio_mdd": -0.3466413595537172
+  }
+ },
+ "2016–2026": {
+  "A": {
+   "stocks": 1319,
+   "median_cagr": 0.040488515752246546,
+   "median_mdd": -0.4436171626581693,
+   "median_cagr_vs_A": 0.0,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.0,
+   "share_mdd_better": 0.0,
+   "portfolio_cagr": 0.09678585134036788,
+   "portfolio_mdd": -0.24064658600395183
+  },
+  "T1": {
+   "stocks": 1319,
+   "median_cagr": 0.021685670596530704,
+   "median_mdd": -0.43728343606480247,
+   "median_cagr_vs_A": -0.01787906968285702,
+   "median_mdd_vs_A": 0.007715512129386148,
+   "share_cagr_better": 0.20545868081880211,
+   "share_mdd_better": 0.5511751326762699,
+   "portfolio_cagr": 0.06749821541188594,
+   "portfolio_mdd": -0.1745267533392676
+  },
+  "T2": {
+   "stocks": 1319,
+   "median_cagr": 0.024435675858885286,
+   "median_mdd": -0.42131617339525507,
+   "median_cagr_vs_A": -0.01422809768653166,
+   "median_mdd_vs_A": 0.02006465817602221,
+   "share_cagr_better": 0.23654283548142532,
+   "share_mdd_better": 0.643669446550417,
+   "portfolio_cagr": 0.07096708347856939,
+   "portfolio_mdd": -0.1881443362396995
+  },
+  "M": {
+   "stocks": 1319,
+   "median_cagr": 0.029687088179912724,
+   "median_mdd": -0.4380167935063819,
+   "median_cagr_vs_A": -0.011195047028790484,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.20545868081880211,
+   "share_mdd_better": 0.4200151630022744,
+   "portfolio_cagr": 0.07437713473193308,
+   "portfolio_mdd": -0.24064658600395183
+  },
+  "TM": {
+   "stocks": 1319,
+   "median_cagr": 0.03506121779282778,
+   "median_mdd": -0.44946726023132133,
+   "median_cagr_vs_A": -0.006486835379673983,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.14025777103866566,
+   "share_mdd_better": 0.23881728582259287,
+   "portfolio_cagr": 0.08608657542061948,
+   "portfolio_mdd": -0.24064658600395183
+  },
+  "TM2": {
+   "stocks": 1319,
+   "median_cagr": 0.023998291066849697,
+   "median_mdd": -0.42592786241255953,
+   "median_cagr_vs_A": -0.016254360821200353,
+   "median_mdd_vs_A": 0.014967235509269705,
+   "share_cagr_better": 0.221379833206975,
+   "share_mdd_better": 0.6163760424564063,
+   "portfolio_cagr": 0.06747384834330838,
+   "portfolio_mdd": -0.1881443362397005
+  }
+ },
+ "全期，只看上櫃": {
+  "A": {
+   "stocks": 646,
+   "median_cagr": 0.0007404233577631425,
+   "median_mdd": -0.5614546117710565,
+   "median_cagr_vs_A": 0.0,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.0,
+   "share_mdd_better": 0.0,
+   "portfolio_cagr": 0.03768842112725501,
+   "portfolio_mdd": -0.5742013662662282
+  },
+  "T1": {
+   "stocks": 646,
+   "median_cagr": -0.0007457580579992018,
+   "median_mdd": -0.5262350521411326,
+   "median_cagr_vs_A": -0.0032498871289654563,
+   "median_mdd_vs_A": 0.030662361208460276,
+   "share_cagr_better": 0.4179566563467492,
+   "share_mdd_better": 0.6904024767801857,
+   "portfolio_cagr": 0.0382534453225003,
+   "portfolio_mdd": -0.4248442923385417
+  },
+  "T2": {
+   "stocks": 646,
+   "median_cagr": 0.0031465801877449406,
+   "median_mdd": -0.5108790749739609,
+   "median_cagr_vs_A": -0.0008689474119296103,
+   "median_mdd_vs_A": 0.03698437358555917,
+   "share_cagr_better": 0.48142414860681115,
+   "share_mdd_better": 0.7368421052631579,
+   "portfolio_cagr": 0.04092041817918468,
+   "portfolio_mdd": -0.3805959668974551
+  },
+  "M": {
+   "stocks": 646,
+   "median_cagr": -0.0047923417627721565,
+   "median_mdd": -0.5558626879327752,
+   "median_cagr_vs_A": -0.0032576268767947614,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.25077399380804954,
+   "share_mdd_better": 0.3111455108359133,
+   "portfolio_cagr": 0.024280583916783005,
+   "portfolio_mdd": -0.5742013662662282
+  },
+  "TM": {
+   "stocks": 646,
+   "median_cagr": -0.0007529101702156704,
+   "median_mdd": -0.5554993015104013,
+   "median_cagr_vs_A": -0.0015780914816896363,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.22910216718266255,
+   "share_mdd_better": 0.2755417956656347,
+   "portfolio_cagr": 0.04001731538475872,
+   "portfolio_mdd": -0.46483007259208264
+  },
+  "TM2": {
+   "stocks": 646,
+   "median_cagr": 0.0023879915039414223,
+   "median_mdd": -0.5133453035878324,
+   "median_cagr_vs_A": -0.0017320764604101813,
+   "median_mdd_vs_A": 0.03248829414526894,
+   "share_cagr_better": 0.456656346749226,
+   "share_mdd_better": 0.7260061919504643,
+   "portfolio_cagr": 0.03816942292835179,
+   "portfolio_mdd": -0.3805959668974551
+  }
+ },
+ "全期，只看上市": {
+  "A": {
+   "stocks": 955,
+   "median_cagr": 0.027167866472139535,
+   "median_mdd": -0.5414894195622547,
+   "median_cagr_vs_A": 0.0,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.0,
+   "share_mdd_better": 0.0,
+   "portfolio_cagr": 0.07212105169201966,
+   "portfolio_mdd": -0.4812484846145373
+  },
+  "T1": {
+   "stocks": 955,
+   "median_cagr": 0.012377382707652096,
+   "median_mdd": -0.5107078354990175,
+   "median_cagr_vs_A": -0.010485641465302509,
+   "median_mdd_vs_A": 0.02097506110766567,
+   "share_cagr_better": 0.2879581151832461,
+   "share_mdd_better": 0.6408376963350786,
+   "portfolio_cagr": 0.051694330818392364,
+   "portfolio_mdd": -0.368430361101051
+  },
+  "T2": {
+   "stocks": 955,
+   "median_cagr": 0.019470787280991386,
+   "median_mdd": -0.4809045066022313,
+   "median_cagr_vs_A": -0.005066419883195339,
+   "median_mdd_vs_A": 0.04212614043598617,
+   "share_cagr_better": 0.35916230366492147,
+   "share_mdd_better": 0.768586387434555,
+   "portfolio_cagr": 0.06237697311623869,
+   "portfolio_mdd": -0.323208294643735
+  },
+  "M": {
+   "stocks": 955,
+   "median_cagr": 0.020862953856755517,
+   "median_mdd": -0.5372661562923398,
+   "median_cagr_vs_A": -0.004660543999126854,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.20628272251308902,
+   "share_mdd_better": 0.2513089005235602,
+   "portfolio_cagr": 0.0612233434119378,
+   "portfolio_mdd": -0.4812484846145373
+  },
+  "TM": {
+   "stocks": 955,
+   "median_cagr": 0.024633646937347153,
+   "median_mdd": -0.5129799201096124,
+   "median_cagr_vs_A": -0.0013469878996297258,
+   "median_mdd_vs_A": 0.0,
+   "share_cagr_better": 0.3382198952879581,
+   "share_mdd_better": 0.4837696335078534,
+   "portfolio_cagr": 0.07212349941383533,
+   "portfolio_mdd": -0.36756943213344917
+  },
+  "TM2": {
+   "stocks": 955,
+   "median_cagr": 0.01785607501475117,
+   "median_mdd": -0.48492386678020216,
+   "median_cagr_vs_A": -0.005350873590372562,
+   "median_mdd_vs_A": 0.039767544155276724,
+   "share_cagr_better": 0.3507853403141361,
+   "share_mdd_better": 0.7560209424083769,
+   "portfolio_cagr": 0.060904257987691945,
+   "portfolio_mdd": -0.323208294643735
+  }
+ }
+}
