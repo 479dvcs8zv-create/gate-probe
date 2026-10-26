@@ -1,11 +1,35 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-26 21:30 台北（Claude）
+更新：2026-10-26 21:55 台北（Claude）
 
 ## 現在（2026-10-26 21:25 擁有者授權）：**立刻啟用每日巡檢**
 - 擁有者 21:25「好開啟」：可轉債只顯示、不影響評級／Gate，**不再等②通過**；現在就把「台股整站每日巡檢」改為 is_enabled=true（06:30／22:30 時段不變）。
 - 啟用後下一次排程跑完，回報一行到 `diagnostics/deploy-20261026/patrol-enabled.md`：runId、完成時間、狀態、Gate 審計 N/N、`watchlistSource` 與檔數（擁有者打開網站後應為 `latest_synced`）。
 - 可轉債改由 GitHub 代抓：Claude 正在寫（網站修補＋中繼工作流程），寫好會放下一份 patch，屆時再請擁有者授權部署。
+
+## 下一份（**待擁有者授權後才做**）：v237 讀回後的補修（Claude 寫好、測完）
+順序：先 D（中繼）並手動跑一次，確認 `data/cb_snapshot.json` 有資料，再做 C（網站）。
+
+### D. 中繼：可轉債官方檔由 GitHub 代抓
+- Patch：`handoff/patches/relay-cb-snapshot-20261026.patch`（`git format-patch`，1 個 commit），SHA-256 `7b7eff0d2a2b8c652a5287bf7b97771a6025dc06202fa847d3c21baf6e1953cd`。在 macro-relay-service `git am` 後推上 main。只新增檔案（`scripts/sync_cb.py`、`tests/test_cb_snapshot.py`、4 個真實官方檔 fixture、`.github/workflows/cb_snapshot.yml`），不改既有程式與資料。
+- 內容：每天台北 08:47、17:47 抓櫃買 bond_ISSBD5／ISSBD6（只留網站用到的 15 欄）與 cbnote 索引列出的最新觀測站 CBTRN 月報（解析成 債券代號→發行公司、轉換價、重設日），保存原始回應 SHA-256；某部分失敗就沿用上次那份並保留原抓取時間。輸出 `data/cb_snapshot.json`（約 150 KB）。
+- 測試：Claude 在最新 main 51b089c 上 `git am` 後 `python -m unittest discover -s tests` 34/34 通過（新增 3 項，用 10-26 真實官方檔；群聯三 2,468.80、115/07/06 重設）。
+- 推上後到 Actions 手動執行「CB registry relay」一次。
+
+### C. 網站 v237 補修（一次部署，v237 留回滾）
+- Patch：`handoff/patches/v237-fixes-20261026.patch`，SHA-256 `5845b908ff711e632bf4310af1c150e6d382cacbf8aeeb437efcc183d68c307a`；基線＝v237 來源（＝Claude 的 cb1472d）。不含 dist/server/index.js。
+- 內容：
+  1. 可轉債：櫃買／觀測站直連失敗（或 20 分鐘內失敗過）就讀 `raw.githubusercontent.com/wcr0936531039-png/macro-relay-service/main/data/cb_snapshot.json`；來源網址必須是官方原網址、抓取時間 36 小時內、有 SHA-256，否則不用。卡片註明「網站直連失敗，改用 GitHub 排程代抓的同一份官方檔」。仍只顯示、不計分。
+  2. 缺收盤分類：外部收集程式 `scripts/collect-official-data.py` 送出 `notQuotedRows`；匯入時驗證（不得帶價格、不得與有行情者重複），`missingBreakdown` 由網站重算、不信任送來的計數。
+  3. M1B−M2：網站有效天數 75 → 95 天，與中繼一致（你回報的快取重讀誤判過期）。
+- 測試：新增 `tests/v237-cb-relay.test.mjs` 3 項（fixture＝中繼程式用真實官方檔產生的輸出）＋`tests/v237-fixes.test.mjs` 2 項，併入 `test:v235-hotfix`；`official-collector`、`convertible-bonds` 測試已同步。Claude 在乾淨 v237 重放無衝突、完整 `npm test` exit 0；`dist/index.html` SHA-256 `39bc726f8e3b0d0b5172fd5d32e9d776d63010f7747f4f2b11b8c50ba2dd3974`。
+- **外部收集程式要用新版**：部署後照 OPERATIONS.md 跑收集程式時，用這份 patch 裡的 `scripts/collect-official-data.py`。
+
+### 讀回（報告 20 行內，`diagnostics/deploy-20261026/hotfix3.md`）
+- D：工作流程 success；`cb_snapshot.json` 的 domestic／overseas 列數、monthly 月份與檔數、errors。
+- C：開 8299 最多 3 次（間隔 30 秒）：可轉債 3 檔、群聯三「目前轉換價 2,468.8（觀測站 2026-09 月報，2026-07-06 重設）」、海外兩檔「未含後續調整」；卡片是否寫 GitHub 代抓。
+- 下一次匯入官方行情後：市場摘要 `missingBreakdown` 不是 null（寫出三類數字）、巡檢文字有「當日無收盤價 N 檔」。
+- M1B−M2：快取重讀仍是 ok／snapshot，不變 stale。
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。

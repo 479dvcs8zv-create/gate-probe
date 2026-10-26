@@ -1,0 +1,764 @@
+From ef4ca26ed66b07f01eb7158e86c5fc3415606bb3 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 26 Oct 2026 21:26:47 +0800
+Subject: [PATCH] CB registry relay: fetch TPEx bond registries and the MOPS
+ monthly conversion-price file on GitHub for the site
+
+The site's server cannot reach TPEx (v237 readback: all CB sources failed three times).
+Keeps only the fields the site uses, records SHA-256, and carries an older part forward
+with its original fetch time when a part fails.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ .github/workflows/cb_snapshot.yml             |  41 ++
+ scripts/sync_cb.py                            | 162 +++++++
+ tests/fixtures/mops_CBTRN202609.htm           | 421 ++++++++++++++++++
+ .../fixtures/tpex_bond_ISSBD5_2026-10-26.json |   1 +
+ .../fixtures/tpex_bond_ISSBD6_2026-10-26.json |   1 +
+ tests/fixtures/tpex_cbnote_2026-10-26.json    |   1 +
+ tests/test_cb_snapshot.py                     |  60 +++
+ 7 files changed, 687 insertions(+)
+ create mode 100644 .github/workflows/cb_snapshot.yml
+ create mode 100644 scripts/sync_cb.py
+ create mode 100644 tests/fixtures/mops_CBTRN202609.htm
+ create mode 100644 tests/fixtures/tpex_bond_ISSBD5_2026-10-26.json
+ create mode 100644 tests/fixtures/tpex_bond_ISSBD6_2026-10-26.json
+ create mode 100644 tests/fixtures/tpex_cbnote_2026-10-26.json
+ create mode 100644 tests/test_cb_snapshot.py
+
+diff --git a/.github/workflows/cb_snapshot.yml b/.github/workflows/cb_snapshot.yml
+new file mode 100644
+index 0000000..4274cba
+--- /dev/null
++++ b/.github/workflows/cb_snapshot.yml
+@@ -0,0 +1,41 @@
++name: CB registry relay
++# ç¶²ç«™ä¼ºæœå™¨é€£ä¸åˆ°æ«ƒè²·ï¼è§€æ¸¬ç«™æ™‚ï¼Œç¶²ç«™æ”¹è®€é€™ä»½ã€‚åªæŠ“å®˜æ–¹æª”ã€ä¿å­˜ SHA-256ï¼Œä¸ä½¿ç”¨ä»»ä½•é‡‘é‘°ã€‚
++on:
++  push:
++    branches: [main]
++    paths: ['scripts/sync_cb.py', 'tests/test_cb_snapshot.py', '.github/workflows/cb_snapshot.yml']
++  workflow_dispatch:
++  schedule:
++    # å°åŒ— 08:47ã€17:47ï¼ˆæ«ƒè²·æ¯æ—¥ç™»éŒ„è³‡æ–™èˆ‡è§€æ¸¬ç«™æœˆå ±æ›´æ–°å¾Œï¼‰
++    - cron: '47 0,9 * * *'
++permissions:
++  contents: write
++concurrency:
++  group: cb-snapshot-publisher
++  cancel-in-progress: false
++jobs:
++  verify-publish:
++    runs-on: ubuntu-latest
++    timeout-minutes: 15
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-python@v5
++        with:
++          python-version: '3.12'
++      - name: Validate parser
++        run: python -m unittest tests.test_cb_snapshot -v
++      - name: Fetch official CB files
++        run: python scripts/sync_cb.py
++      - name: Publish
++        run: |
++          git config user.name 'github-actions[bot]'
++          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
++          cp data/cb_snapshot.json "$RUNNER_TEMP/cb_snapshot.json"
++          git fetch origin main
++          git reset --hard origin/main
++          cp "$RUNNER_TEMP/cb_snapshot.json" data/cb_snapshot.json
++          git add data/cb_snapshot.json
++          if ! git diff --cached --quiet; then
++            git commit -m 'Update official CB registry relay'
++            git push origin HEAD:main
++          fi
+diff --git a/scripts/sync_cb.py b/scripts/sync_cb.py
+new file mode 100644
+index 0000000..c658a99
+--- /dev/null
++++ b/scripts/sync_cb.py
+@@ -0,0 +1,162 @@
++"""å¯è½‰å‚µå®˜æ–¹è³‡æ–™ä»£æŠ“ï¼ˆç¶²ç«™ä¼ºæœå™¨é€£ä¸åˆ°æ«ƒè²·ï¼è§€æ¸¬ç«™æ™‚ç”¨ï¼‰ã€‚ä¸ä½¿ç”¨ä»»ä½•é‡‘é‘°ã€‚
++
++è¼¸å‡º data/cb_snapshot.jsonï¼š
++- registries.domesticï¼overseasï¼šæ«ƒè²· OpenAPI bond_ISSBD5_dataï¼bond_ISSBD6_dataï¼Œåªç•™ç¶²ç«™è¨ˆç®—ç”¨åˆ°çš„æ¬„ä½ï¼ŒåŸå§‹å›æ‡‰ SHA-256ã€‚
++- monthlyï¼šæ«ƒè²· cbnote ç´¢å¼•åˆ—å‡ºçš„æœ€æ–°è§€æ¸¬ç«™æœˆå ± CBTRNyyyymm.htmï¼ˆBig5ï¼‰ï¼Œè§£ææˆ å‚µåˆ¸ä»£è™Ÿ â†’ ç™¼è¡Œå…¬å¸ã€ç›®å‰è½‰æ›åƒ¹ã€é‡è¨­æ—¥ã€‚
++ä»»ä½•ä¸€éƒ¨åˆ†é€™æ¬¡æŠ“ä¸åˆ°ï¼Œå°±æ²¿ç”¨ä¸Šæ¬¡æˆåŠŸçš„é‚£ä¸€ä»½ï¼ˆä¿ç•™åŸæœ¬çš„æŠ“å–æ™‚é–“ï¼›ç¶²ç«™è¶…é 36 å°æ™‚å°±ä¸ç”¨ï¼‰ï¼Œä¸¦åœ¨ errors è¨»æ˜ã€‚
++ä¸è‡ªè¡Œæ¨ç®—æˆ–è£œå€¼ã€‚
++"""
++import hashlib
++import http.client
++import json
++import re
++import sys
++import time
++from datetime import datetime, timezone
++from pathlib import Path
++from urllib.request import Request, urlopen
++
++REGISTRIES = {"domestic": "https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data",
++              "overseas": "https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data"}
++INDEX_URL = "https://www.tpex.org.tw/www/zh-tw/bond/cbnote?response=json"
++CBTRN = re.compile(r"^https://mopsov\.twse\.com\.tw/nas/t120/CBTRN(\d{4})(\d{2})\.htm$")
++KEEP = ["Date", "IssuerCode", "IssuerName", "BondCode", "ShortName", "Currency", "IssueDate", "MaturityDate", "IssueAmount",
++        "OutstandingAmount", "Conversion/ExchangePriceAtIssuance", "Conversion/ExchangePeriodStartDate",
++        "Conversion/ExchangePeriodEndDate", "PutOptionDate", "PutOptionPrice"]
++UA = "Mozilla/5.0 (compatible; macro-relay-service/1.0; +official public data)"
++OUT = Path(__file__).resolve().parents[1] / "data" / "cb_snapshot.json"
++
++
++def now():
++    return datetime.now(timezone.utc).isoformat()
++
++
++def fetch(url, accept, limit=8_000_000):
++    """æ«ƒè²·å›æ‡‰å¸¸å‚³åˆ°ä¸€åŠä¸­æ–·ï¼›åŒä¸€ç¶²å€æœ€å¤šè©¦ 3 æ¬¡ã€‚"""
++    last = None
++    for attempt in range(3):
++        try:
++            with urlopen(Request(url, headers={"User-Agent": UA, "Accept": accept}), timeout=40) as r:
++                body = r.read(limit + 1)
++            if len(body) > limit:
++                raise ValueError("response too large")
++            return body
++        except (http.client.IncompleteRead, TimeoutError, ConnectionError, OSError) as e:
++            last = e
++            time.sleep(5)
++    raise last
++
++
++def registry_part(kind, body, fetched_at=None):
++    rows = json.loads(body.decode("utf-8-sig"))
++    if not isinstance(rows, list) or not rows:
++        raise ValueError(f"{kind}: registry is not a non-empty array")
++    if not all(isinstance(r, dict) and "IssuerCode" in r and "BondCode" in r for r in rows):
++        raise ValueError(f"{kind}: registry schema changed")
++    return {"source_url": REGISTRIES[kind], "fetched_at": fetched_at or now(), "sha256": hashlib.sha256(body).hexdigest(),
++            "total_rows": len(rows), "rows": [{k: r.get(k, "") for k in KEEP} for r in rows]}
++
++
++def latest_monthly(index_body):
++    j = json.loads(index_body.decode("utf-8-sig"))
++    rows = j.get("tables", [{}])[0].get("data") if str(j.get("stat")).lower() == "ok" else None
++    if not isinstance(rows, list):
++        raise ValueError("cbnote index schema changed")
++    files = []
++    for r in rows:
++        url = str(r[1] if len(r) > 1 else "").strip()
++        m = CBTRN.match(url)
++        if m:
++            files.append((f"{m[1]}-{m[2]}", url))
++    if not files:
++        raise ValueError("cbnote index lists no CBTRN file")
++    return max(files)
++
++
++def cell(c):
++    return re.sub(r"\s+", " ", re.sub(r"&nbsp;", " ", re.sub(r"<[^>]+>", " ", c))).strip()
++
++
++def first_line(c):
++    return cell(re.split(r"<br\s*/?>", c, flags=re.I)[0])
++
++
++def roc_slash(v):
++    m = re.fullmatch(r"(\d{2,3})/(\d{2})/(\d{2})", v.strip())
++    if not m:
++        return None
++    try:
++        return datetime(int(m[1]) + 1911, int(m[2]), int(m[3])).strftime("%Y-%m-%d")
++    except ValueError:
++        return None
++
++
++def num(v):
++    t = v.replace(",", "").strip()
++    try:
++        x = float(t)
++    except ValueError:
++        return None
++    return x if x > 0 else None
++
++
++def parse_monthly(body, month):
++    """èˆ‡ç¶²ç«™ parseCbMonthly åŒä¸€å¥—è¦å‰‡ï¼šè³‡æ–™å¹´æœˆè¦å°ã€æ¬„åè¦åœ¨ã€æ¯åˆ— 7 æ¬„ã€‚"""
++    html = body.decode("cp950", "replace")
++    ym = re.search(r"è³‡æ–™å¹´æœˆï¼š\s*(?:</b>)?\s*(\d{2,3})å¹´(\d{1,2})æœˆ", html)
++    file_month = f"{int(ym[1]) + 1911}-{int(ym[2]):02d}" if ym else None
++    if file_month != month:
++        raise ValueError(f"CBTRN month mismatch: {file_month} vs {month}")
++    if "è½‰(äº¤)æ›æˆ–èªè‚¡åƒ¹æ ¼(å…ƒ)" not in html or "é‡è¨­æ—¥æœŸ" not in html:
++        raise ValueError("CBTRN schema changed")
++    prices = {}
++    for tr in re.findall(r"<tr[^>]*>([\s\S]*?)</tr>", html, re.I):
++        cells = re.findall(r"<td[^>]*>([\s\S]*?)</td>", tr, re.I)
++        if len(cells) != 7:
++            continue
++        issuer, bond = first_line(cells[0]), first_line(cells[1])
++        if not re.fullmatch(r"\d{4,6}", issuer) or not re.fullmatch(r"\d{5,7}", bond):
++            continue
++        prices[bond] = {"issuer": issuer, "price": num(cell(cells[4])), "resetDate": roc_slash(cell(cells[5]))}
++    if not prices:
++        raise ValueError("CBTRN has no rows")
++    return prices
++
++
++def build(previous=None, fetcher=fetch):
++    previous = previous or {}
++    out = {"schema_version": 1, "generated_at": now(), "registries": {}, "monthly": None, "errors": []}
++    for kind, url in REGISTRIES.items():
++        try:
++            out["registries"][kind] = registry_part(kind, fetcher(url, "application/json"))
++        except Exception as e:  # noqa: BLE001
++            out["errors"].append({"part": kind, "error": str(e)[:200]})
++            old = (previous.get("registries") or {}).get(kind)
++            if old:
++                out["registries"][kind] = old
++    try:
++        month, url = latest_monthly(fetcher(INDEX_URL, "application/json"))
++        body = fetcher(url, "text/html")
++        out["monthly"] = {"month": month, "source_url": url, "index_url": INDEX_URL, "fetched_at": now(),
++                          "sha256": hashlib.sha256(body).hexdigest(), "prices": parse_monthly(body, month)}
++    except Exception as e:  # noqa: BLE001
++        out["errors"].append({"part": "monthly", "error": str(e)[:200]})
++        out["monthly"] = previous.get("monthly")
++    return out
++
++
++def main(path=OUT):
++    path = Path(path)
++    previous = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
++    out = build(previous)
++    if not out["registries"] and not out["monthly"]:
++        print(json.dumps(out["errors"], ensure_ascii=False))
++        raise SystemExit("no CB data available; nothing published")
++    path.parent.mkdir(parents=True, exist_ok=True)
++    path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
++    print(json.dumps({"registries": {k: v["total_rows"] for k, v in out["registries"].items()},
++                      "monthly": (out["monthly"] or {}).get("month"), "errors": out["errors"]}, ensure_ascii=False))
++
++
++if __name__ == "__main__":
++    main(*sys.argv[1:])
+diff --git a/tests/fixtures/mops_CBTRN202609.htm b/tests/fixtures/mops_CBTRN202609.htm
+new file mode 100644
+index 0000000..851f6a6
+--- /dev/null
++++ b/tests/fixtures/mops_CBTRN202609.htm
+@@ -0,0 +1,421 @@
++<html>
++<head>
++<meta http-equiv="Content-Type" content="text/html;charset=big5">
++</head>
++<body background='/image/t56sf01.jpg'><center>
++<h2 align='center'><font color='blue'>Âà´«¤½¥q¶ÅÂà´«ÅÜ°Ê±¡§Î¤@Äıªí</font></h2>
++<b>¸ê®Æ¦~¤ë¡G</b>115¦~9¤ë<br>
++<table border='1'>
++<tr><th>¤½¥q¥N¸¹<br>¦WºÙ</th><th>ÃÒ¨é¥N¸¹<br>Â²ºÙ</th><th>¥»¤ë¶R¦^±i¼Æ</th><th>¥»¤ëÂà´«±i¼Æ</th><th>Âà(¥æ)´«©Î»{ªÑ»ù®æ(¤¸)</th><th>­«³]¤é´Á</th><th>¶Å¨éÂà(¥æ)´«©Î»{ÁÊ´¶³qªÑ</th></tr>
++<tr><td>1101<br>¥xªd</td><td>11011<br>¥xªd¤@¥Ã</td><td align='right'>0</td><td align='right'>0</td><td align='right'>34.00</td><td align='center'>115/07/07</td><td align='right'>0</td></tr>
++<tr><td>1256<br>ÂA¬¡ªG¥Ä-KY</td><td>12561<br>ÂA¬¡ªG¥Ä¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>182.50</td><td align='center'>115/07/17</td><td align='right'>0</td></tr>
++<tr><td>1316<br>¤WÂ`</td><td>13166<br>¤WÂ`¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>17.30</td><td align='center'>115/07/15</td><td align='right'>0</td></tr>
++<tr><td>1338<br>¼sµØ-KY</td><td>13382<br>¼sµØ¤GKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>36.90</td><td align='center'>115/07/15</td><td align='right'>0</td></tr>
++<tr><td>1436<br>µØ¤ÍÁp</td><td>14363<br>µØ¤ÍÁp¤T</td><td align='right'>4</td><td align='right'>0</td><td align='right'>114.30</td><td align='center'>115/07/31</td><td align='right'>0</td></tr>
++<tr><td>1436<br>µØ¤ÍÁp</td><td>14364<br>µØ¤ÍÁp¥|</td><td align='right'>139</td><td align='right'>0</td><td align='right'>87.90</td><td align='center'>115/07/31</td><td align='right'>0</td></tr>
++<tr><td>1438<br>¤T¦a¶}µo</td><td>14381<br>¤T¦a¶}µo</td><td align='right'>0</td><td align='right'>0</td><td align='right'>51.28</td><td align='center'>115/09/15</td><td align='right'>0</td></tr>
++<tr><td>1466<br>»E¶©</td><td>14664<br>»E¶©¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>18.60</td><td align='center'>115/09/13</td><td align='right'>0</td></tr>
++<tr><td>1472<br>¤T¬v¹ê·~</td><td>14722<br>¤T¬v¹ê·~¤G</td><td align='right'>0</td><td align='right'>60</td><td align='right'>91.90</td><td align='center'>115/07/05</td><td align='right'>65,288</td></tr>
++<tr><td>1472<br>¤T¬v¹ê·~</td><td>14723<br>¤T¬v¹ê·~¤T</td><td align='right'>0</td><td align='right'>200</td><td align='right'>94.60</td><td align='center'>115/07/05</td><td align='right'>211,416</td></tr>
++<tr><td>1474<br>¥°¸Î</td><td>14743<br>¥°¸Î¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>13.70</td><td align='center'>115/08/10</td><td align='right'>0</td></tr>
++<tr><td>1514<br>¨È¤O</td><td>15142<br>¨È¤O¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>105.10</td><td align='center'>115/08/05</td><td align='right'>0</td></tr>
++<tr><td>1526<br>¤é¹£</td><td>15261<br>¤é¹£¤@</td><td align='right'>5,000</td><td align='right'>0</td><td align='right'>37.29</td><td align='center'>112/12/05</td><td align='right'>0</td></tr>
++<tr><td>1536<br>©M¤j</td><td>15364<br>©M¤j¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>71.47</td><td align='center'>114/04/16</td><td align='right'>0</td></tr>
++<tr><td>1560<br>¤¤¬â</td><td>15601<br>¤¤¬â¤@</td><td align='right'>0</td><td align='right'>25</td><td align='right'>282.70</td><td align='center'>115/07/22</td><td align='right'>8,836</td></tr>
++<tr><td>1560<br>¤¤¬â</td><td>15602<br>¤¤¬â¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>708.30</td><td align='center'>115/09/03</td><td align='right'>0</td></tr>
++<tr><td>1595<br>¤tÄ_</td><td>15952<br>¤tÄ_¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>37.70</td><td align='center'>115/08/27</td><td align='right'>0</td></tr>
++<tr><td>1598<br>©§¦t</td><td>15984<br>©§¦t¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>31.90</td><td align='center'>115/07/06</td><td align='right'>0</td></tr>
++<tr><td>1609<br>¤j¨È</td><td>16095<br>¤j¨È¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>50.40</td><td align='center'>115/06/29</td><td align='right'>0</td></tr>
++<tr><td>1623<br>¤jªF¹q</td><td>16231<br>¤jªF¹q¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>232.00</td><td align='center'>115/07/16</td><td align='right'>0</td></tr>
++<tr><td>1717<br>ªø¿³</td><td>17172<br>ªø¿³¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>75.70</td><td align='center'>115/07/22</td><td align='right'>0</td></tr>
++<tr><td>1781<br>¦X¥@</td><td>17813<br>¦X¥@¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>18.00</td><td align='center'>113/09/24</td><td align='right'>0</td></tr>
++<tr><td>1786<br>¬ì§°</td><td>17863<br>¬ì§°¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>112.80</td><td align='center'>115/05/05</td><td align='right'>0</td></tr>
++<tr><td>1909<br>ºa¦¨</td><td>19094<br>ºa¦¨¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>23.90</td><td align='center'>112/07/10</td><td align='right'>0</td></tr>
++<tr><td>2034<br>¤¹±j</td><td>20344<br>¤¹±j¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>22.80</td><td align='center'>115/07/23</td><td align='right'>0</td></tr>
++<tr><td>2104<br>°ê»Ú¤¤¾ó</td><td>21043<br>°ê»Ú¤¤¾ó¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>21.20</td><td align='center'>112/10/13</td><td align='right'>0</td></tr>
++<tr><td>2201<br>¸Î¶©</td><td>22013<br>¸Î¶©¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>73.50</td><td align='center'>115/08/31</td><td align='right'>0</td></tr>
++<tr><td>2221<br>¤j¥Ò</td><td>22211<br>¤j¥Ò¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>82.16</td><td align='center'>115/09/11</td><td align='right'>0</td></tr>
++<tr><td>2228<br>¼CÅï</td><td>22283<br>¼CÅï¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>80.91</td><td align='center'>115/07/21</td><td align='right'>0</td></tr>
++<tr><td>2233<br>¦t¶©</td><td>22331<br>¦t¶©¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>245.90</td><td align='center'>115/08/05</td><td align='right'>0</td></tr>
++<tr><td>2236<br>¦Ê¹F-KY</td><td>22363<br>¦Ê¹F¤TKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>118.10</td><td align='center'>115/02/10</td><td align='right'>0</td></tr>
++<tr><td>2247<br>¦Æ¼w¥Ã·~</td><td>22471<br>¦Æ¼w¥Ã·~¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>273.10</td><td align='center'>115/07/23</td><td align='right'>0</td></tr>
++<tr><td>2247<br>¦Æ¼w¥Ã·~</td><td>22472<br>¦Æ¼w¥Ã·~¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>264.40</td><td align='center'>115/07/23</td><td align='right'>0</td></tr>
++<tr><td>2303<br>Áp¹q</td><td>23031<br>Áp¹q¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>146.00</td><td align='center'>115/08/07</td><td align='right'>0</td></tr>
++<tr><td>2303<br>Áp¹q</td><td>23032<br>Áp¹q¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>130.70</td><td align='center'>115/09/03</td><td align='right'>0</td></tr>
++<tr><td>2329<br>µØ®õ</td><td>23291<br>µØ®õ¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>50.30</td><td align='center'>115/06/18</td><td align='right'>0</td></tr>
++<tr><td>2337<br>©ô§»</td><td>23372<br>©ô§»¤G</td><td align='right'>0</td><td align='right'>7</td><td align='right'>23.00</td><td align='center'>114/03/24</td><td align='right'>30,434</td></tr>
++<tr><td>2351<br>¶¶¼w</td><td>23511<br>¶¶¼w¤@</td><td align='right'>0</td><td align='right'>705</td><td align='right'>72.00</td><td align='center'>115/08/10</td><td align='right'>979,137</td></tr>
++<tr><td>2374<br>¨Î¯à</td><td>23742<br>¨Î¯à¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>83.60</td><td align='center'>115/08/25</td><td align='right'>0</td></tr>
++<tr><td>2402<br>¼İ¹Å</td><td>24023<br>¼İ¹Å¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>53.30</td><td align='center'>115/08/04</td><td align='right'>0</td></tr>
++<tr><td>2427<br>¤T°Ó¹q</td><td>24271<br>¤T°Ó¹q¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>25.60</td><td align='center'>115/08/11</td><td align='right'>0</td></tr>
++<tr><td>2436<br>°¶¸à¹q</td><td>24361<br>°¶¸à¹q¤@</td><td align='right'>0</td><td align='right'>462</td><td align='right'>51.70</td><td align='center'>115/07/06</td><td align='right'>893,597</td></tr>
++<tr><td>2439<br>¬ü«ß</td><td>24394<br>¬ü«ß¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>122.40</td><td align='center'>115/09/03</td><td align='right'>0</td></tr>
++<tr><td>2439<br>¬ü«ß</td><td>24395<br>¬ü«ß¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>118.90</td><td align='center'>115/09/03</td><td align='right'>0</td></tr>
++<tr><td>2442<br>·s¬ü»ô</td><td>24423<br>·s¬ü»ô¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>21.00</td><td align='center'>115/09/14</td><td align='right'>0</td></tr>
++<tr><td>2442<br>·s¬ü»ô</td><td>24424<br>·s¬ü»ô¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>21.20</td><td align='center'>115/09/14</td><td align='right'>0</td></tr>
++<tr><td>2455<br>¥ş·s</td><td>24552<br>¥ş·s¤G</td><td align='right'>0</td><td align='right'>968</td><td align='right'>161.80</td><td align='center'>115/07/04</td><td align='right'>598,250</td></tr>
++<tr><td>2455<br>¥ş·s</td><td>24553<br>¥ş·s¤T</td><td align='right'>0</td><td align='right'>396</td><td align='right'>152.50</td><td align='center'>115/07/04</td><td align='right'>259,658</td></tr>
++<tr><td>2464<br>·ù¥ß</td><td>24643<br>·ù¥ß¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>199.90</td><td align='center'>115/09/24</td><td align='right'>0</td></tr>
++<tr><td>2467<br>§Ó¸t</td><td>24672<br>§Ó¸t¤G</td><td align='right'>0</td><td align='right'>38</td><td align='right'>248.50</td><td align='center'>115/06/27</td><td align='right'>15,287</td></tr>
++<tr><td>2467<br>§Ó¸t</td><td>24673<br>§Ó¸t¤T</td><td align='right'>0</td><td align='right'>67</td><td align='right'>244.50</td><td align='center'>115/06/27</td><td align='right'>27,387</td></tr>
++<tr><td>2476<br>¹d²»</td><td>24762<br>¹d²»¤G</td><td align='right'>0</td><td align='right'>39</td><td align='right'>64.80</td><td align='center'>115/08/19</td><td align='right'>60,180</td></tr>
++<tr><td>2486<br>¤@¸à</td><td>24867<br>¤@¸à¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>256.00</td><td align='center'>115/07/23</td><td align='right'>0</td></tr>
++<tr><td>2528<br>¬Ó´¶</td><td>25283<br>¬Ó´¶¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>34.90</td><td align='center'>115/08/03</td><td align='right'>0</td></tr>
++<tr><td>2528<br>¬Ó´¶</td><td>25284<br>¬Ó´¶¥|</td><td align='right'>0</td><td align='right'>596</td><td align='right'>33.70</td><td align='center'>115/08/03</td><td align='right'>1,768,545</td></tr>
++<tr><td>2530<br>µØ«Ø</td><td>25303<br>µØ«Ø¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>31.40</td><td align='center'>115/09/20</td><td align='right'>0</td></tr>
++<tr><td>2530<br>µØ«Ø</td><td>25304<br>µØ«Ø¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>29.50</td><td align='center'>115/09/20</td><td align='right'>0</td></tr>
++<tr><td>2548<br>µØ©T</td><td>25483<br>µØ©T¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>111.50</td><td align='center'>115/07/28</td><td align='right'>0</td></tr>
++<tr><td>2548<br>µØ©T</td><td>25484<br>µØ©T¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>110.20</td><td align='center'>115/07/28</td><td align='right'>0</td></tr>
++<tr><td>2641<br>¥¿¼w</td><td>26417<br>¥¿¼w¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>21.59</td><td align='center'>115/06/29</td><td align='right'>0</td></tr>
++<tr><td>2641<br>¥¿¼w</td><td>26418<br>¥¿¼w¤K</td><td align='right'>0</td><td align='right'>0</td><td align='right'>18.82</td><td align='center'>115/06/29</td><td align='right'>0</td></tr>
++<tr><td>2646<br>¬P¦t¯èªÅ</td><td>26461<br>¬P¦t¯èªÅ¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>21.40</td><td align='center'>115/09/29</td><td align='right'>0</td></tr>
++<tr><td>2646<br>¬P¦t¯èªÅ</td><td>26462<br>¬P¦t¯èªÅ¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>21.20</td><td align='center'>115/09/30</td><td align='right'>0</td></tr>
++<tr><td>2727<br>¤ı«~</td><td>27271<br>¤ı«~¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>218.20</td><td align='center'>115/07/22</td><td align='right'>0</td></tr>
++<tr><td>2732<br>¤»¨¤</td><td>27323<br>¤»¨¤¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>117.20</td><td align='center'>115/09/10</td><td align='right'>0</td></tr>
++<tr><td>2732<br>¤»¨¤</td><td>27324<br>¤»¨¤¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>69.70</td><td align='center'>115/09/10</td><td align='right'>0</td></tr>
++<tr><td>2743<br>¤s´I</td><td>27431<br>¤s´I¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>96.30</td><td align='center'>115/09/14</td><td align='right'>0</td></tr>
++<tr><td>2745<br>¤­ºÖ</td><td>27451<br>¤­ºÖ</td><td align='right'>0</td><td align='right'>0</td><td align='right'>103.60</td><td align='center'>115/07/31</td><td align='right'>0</td></tr>
++<tr><td>2753<br>¤K¤è¶³¶°</td><td>27531<br>¤K¤è¶³¶°¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>189.80</td><td align='center'>115/09/01</td><td align='right'>0</td></tr>
++<tr><td>2753<br>¤K¤è¶³¶°</td><td>27532<br>¤K¤è¶³¶°¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>187.90</td><td align='center'>115/09/01</td><td align='right'>0</td></tr>
++<tr><td>2755<br>´­¯³</td><td>27551<br>´­¯³¤@</td><td align='right'>0</td><td align='right'>253</td><td align='right'>67.90</td><td align='center'>115/07/23</td><td align='right'>372,590</td></tr>
++<tr><td>2756<br>Ápµo°ê»Ú</td><td>27561<br>Ápµo°ê»Ú¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>85.40</td><td align='center'>115/09/11</td><td align='right'>0</td></tr>
++<tr><td>2756<br>Ápµo°ê»Ú</td><td>27562<br>Ápµo°ê»Ú¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>64.30</td><td align='center'>115/09/23</td><td align='right'>0</td></tr>
++<tr><td>2906<br>°ªªL</td><td>29061<br>°ªªL¤@</td><td align='right'>4,600</td><td align='right'>0</td><td align='right'>16.00</td><td align='center'>115/07/28</td><td align='right'>0</td></tr>
++<tr><td>3011<br>¤µµq</td><td>30112<br>¤µµq¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>12.50</td><td align='center'>115/03/26</td><td align='right'>0</td></tr>
++<tr><td>3013<br>ÑÔ»Ê¹q</td><td>30134<br>ÑÔ»Ê¹q¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>137.70</td><td align='center'>115/09/08</td><td align='right'>0</td></tr>
++<tr><td>3016<br>¹Å´¹</td><td>30165<br>¹Å´¹¤­</td><td align='right'>0</td><td align='right'>1,179</td><td align='right'>71.00</td><td align='center'>115/09/17</td><td align='right'>1,660,442</td></tr>
++<tr><td>3016<br>¹Å´¹</td><td>30166<br>¹Å´¹¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>104.80</td><td align='center'>115/09/17</td><td align='right'>0</td></tr>
++<tr><td>3028<br>¼W§A±j</td><td>30285<br>¼W§A±j¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>78.00</td><td align='center'>115/07/24</td><td align='right'>0</td></tr>
++<tr><td>3028<br>¼W§A±j</td><td>30286<br>¼W§A±j¤»</td><td align='right'>0</td><td align='right'>0</td><td>&nbsp;</td><td>&nbsp;</td><td align='right'>0</td></tr>
++<tr><td>3032<br>°¶°V</td><td>30321<br>°¶°V¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>105.90</td><td align='center'>114/11/13</td><td align='right'>0</td></tr>
++<tr><td>3032<br>°¶°V</td><td>30322<br>°¶°V¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>101.90</td><td align='center'>114/11/25</td><td align='right'>0</td></tr>
++<tr><td>3033<br>«Â°·</td><td>30336<br>«Â°·¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>23.91</td><td align='center'>115/08/12</td><td align='right'>0</td></tr>
++<tr><td>3033<br>«Â°·</td><td>30337<br>«Â°·¤C</td><td align='right'>0</td><td align='right'>105</td><td align='right'>33.15</td><td align='center'>115/08/12</td><td align='right'>316,741</td></tr>
++<tr><td>3037<br>ªY¿³</td><td>30371<br>ªY¿³¤@</td><td align='right'>0</td><td align='right'>590</td><td align='right'>163.80</td><td align='center'>115/07/12</td><td align='right'>360,184</td></tr>
++<tr><td>3040<br>»·¨£</td><td>30401<br>»·¨£¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>47.20</td><td align='center'>114/07/05</td><td align='right'>0</td></tr>
++<tr><td>3045<br>¥xÆW¤j</td><td>30454<br>¥xÆW¤j¥|</td><td align='right'>0</td><td align='right'>1,119</td><td align='right'>113.50</td><td align='center'>115/07/15</td><td align='right'>985,890</td></tr>
++<tr><td>3045<br>¥xÆW¤j</td><td>30455<br>¥xÆW¤j¤­</td><td align='right'>0</td><td align='right'>362</td><td align='right'>106.90</td><td align='center'>115/07/15</td><td align='right'>338,633</td></tr>
++<tr><td>3081<br>Áp¨È</td><td>30811<br>Áp¨È¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>1,757.90</td><td align='center'>115/08/12</td><td align='right'>0</td></tr>
++<tr><td>3081<br>Áp¨È</td><td>30812<br>Áp¨È¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>2,168.80</td><td align='center'>115/08/13</td><td align='right'>0</td></tr>
++<tr><td>3095<br>¤Î¦¨</td><td>30954<br>¤Î¦¨¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>39.50</td><td align='center'>115/02/11</td><td align='right'>0</td></tr>
++<tr><td>3122<br>²Æ¬u</td><td>31222<br>²Æ¬u¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>42.30</td><td align='center'>113/05/03</td><td align='right'>0</td></tr>
++<tr><td>3131<br>¥°¶ì</td><td>31311<br>¥°¶ì¤@</td><td align='right'>0</td><td align='right'>1,814</td><td align='right'>1,711.80</td><td align='center'>115/08/04</td><td align='right'>105,929</td></tr>
++<tr><td>3131<br>¥°¶ì</td><td>31312<br>¥°¶ì¤G</td><td align='right'>0</td><td align='right'>2,622</td><td align='right'>1,603.50</td><td align='center'>115/08/04</td><td align='right'>163,474</td></tr>
++<tr><td>3135<br>­â¯è</td><td>31352<br>­â¯è¤G</td><td align='right'>0</td><td align='right'>401</td><td align='right'>121.60</td><td align='center'>115/09/07</td><td align='right'>329,760</td></tr>
++<tr><td>3141<br>´¹§»</td><td>31413<br>´¹§»¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>93.10</td><td align='center'>115/09/19</td><td align='right'>0</td></tr>
++<tr><td>3141<br>´¹§»</td><td>31414<br>´¹§»¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>62.70</td><td align='center'>115/09/19</td><td align='right'>0</td></tr>
++<tr><td>3141<br>´¹§»</td><td>31415<br>´¹§»¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>81.83</td><td align='center'>115/09/22</td><td align='right'>0</td></tr>
++<tr><td>3149<br>¥¿¹F</td><td>31494<br>¥¿¹F¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>68.10</td><td align='center'>115/08/31</td><td align='right'>0</td></tr>
++<tr><td>3167<br>¤j¶q</td><td>31672<br>¤j¶q¤G</td><td align='right'>0</td><td align='right'>1,661</td><td align='right'>168.30</td><td align='center'>115/07/17</td><td align='right'>986,879</td></tr>
++<tr><td>3188<br>øÊÀsÄË</td><td>31882<br>øÊÀsÄË¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>28.40</td><td align='center'>115/04/02</td><td align='right'>0</td></tr>
++<tr><td>3207<br>Ä£³Ó</td><td>32071<br>Ä£³Ó¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>100.99</td><td align='center'>113/12/19</td><td align='right'>0</td></tr>
++<tr><td>3219<br>­Ê±j¬ì</td><td>32191<br>­Ê±j¬ì¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>66.40</td><td align='center'>115/08/25</td><td align='right'>0</td></tr>
++<tr><td>3257<br>­i«a¹q</td><td>32571<br>­i«a¹q¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>68.50</td><td align='center'>115/05/30</td><td align='right'>0</td></tr>
++<tr><td>3260<br>«Â­è</td><td>32609<br>«Â­è¤E</td><td align='right'>0</td><td align='right'>0</td><td align='right'>416.00</td><td align='center'>115/09/27</td><td align='right'>0</td></tr>
++<tr><td>3272<br>ªFºÓ</td><td>32723<br>ªFºÓ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>34.20</td><td align='center'>113/03/07</td><td align='right'>0</td></tr>
++<tr><td>3284<br>¤Ó´¶°ª</td><td>32843<br>¤Ó´¶°ª¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>23.41</td><td align='center'>115/07/15</td><td align='right'>0</td></tr>
++<tr><td>3294<br>­^ÀÙ</td><td>32943<br>­^ÀÙ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>41.80</td><td align='center'>115/06/18</td><td align='right'>0</td></tr>
++<tr><td>3303<br>©§¸W</td><td>33035<br>©§¸W¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>55.70</td><td align='center'>115/07/18</td><td align='right'>0</td></tr>
++<tr><td>3305<br>ª@¶T</td><td>33055<br>ª@¶T¤­</td><td align='right'>0</td><td align='right'>59</td><td align='right'>72.00</td><td align='center'>115/07/21</td><td align='right'>81,933</td></tr>
++<tr><td>3312<br>¥°¾ĞªÑ</td><td>33121<br>¥°¾ĞªÑ¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>71.40</td><td align='center'>115/09/14</td><td align='right'>0</td></tr>
++<tr><td>3313<br>´´¦¨</td><td>33133<br>´´¦¨¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>15.70</td><td align='center'>114/03/26</td><td align='right'>0</td></tr>
++<tr><td>3322<br>«ØµÏ¹q</td><td>33225<br>«ØµÏ¹q¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>22.97</td><td align='center'>115/04/01</td><td align='right'>0</td></tr>
++<tr><td>3324<br>ÂùÂE</td><td>33245<br>ÂùÂE¤­</td><td align='right'>0</td><td align='right'>4,233</td><td align='right'>726.10</td><td align='center'>115/06/26</td><td align='right'>582,948</td></tr>
++<tr><td>3324<br>ÂùÂE</td><td>33246<br>ÂùÂE¤»</td><td align='right'>0</td><td align='right'>18</td><td align='right'>1,111.30</td><td align='center'>115/06/26</td><td align='right'>1,618</td></tr>
++<tr><td>3324<br>ÂùÂE</td><td>33247<br>ÂùÂE¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>1,092.50</td><td align='center'>115/06/26</td><td align='right'>0</td></tr>
++<tr><td>3346<br>ÄR²M</td><td>33466<br>ÄR²M¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>36.30</td><td align='center'>115/09/08</td><td align='right'>0</td></tr>
++<tr><td>3357<br>»O¼y¬ì</td><td>33571<br>»O¼y¬ì¤@</td><td align='right'>0</td><td align='right'>897</td><td align='right'>105.60</td><td align='center'>115/07/05</td><td align='right'>849,418</td></tr>
++<tr><td>3362<br>¥ı¶i¥ú</td><td>33621<br>¥ı¶i¥ú¤@</td><td align='right'>0</td><td align='right'>2</td><td align='right'>249.80</td><td align='center'>115/06/01</td><td align='right'>800</td></tr>
++<tr><td>3376<br>·s¤é¿³</td><td>33763<br>·s¤é¿³¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>191.10</td><td align='center'>115/08/12</td><td align='right'>0</td></tr>
++<tr><td>3388<br>±R¶V¹q</td><td>33881<br>±R¶V¹q¤@</td><td align='right'>1</td><td align='right'>276</td><td align='right'>60.80</td><td align='center'>115/06/29</td><td align='right'>453,928</td></tr>
++<tr><td>3390<br>¦°³n</td><td>33902<br>¦°³n¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>24.00</td><td align='center'>115/08/17</td><td align='right'>0</td></tr>
++<tr><td>3416<br>¿Äµ{¹q</td><td>34163<br>¿Äµ{¹q¤T</td><td align='right'>0</td><td align='right'>4</td><td align='right'>117.50</td><td align='center'>115/09/07</td><td align='right'>3,404</td></tr>
++<tr><td>3479<br>¦w¶Ô</td><td>34793<br>¦w¶Ô¤T</td><td align='right'>0</td><td align='right'>20</td><td align='right'>105.30</td><td align='center'>115/07/11</td><td align='right'>18,993</td></tr>
++<tr><td>3483<br>¤O­P</td><td>34834<br>¤O­P¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>131.10</td><td align='center'>115/08/10</td><td align='right'>0</td></tr>
++<tr><td>3484<br>±]ÄË</td><td>34843<br>±]ÄË¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>40.10</td><td align='center'>115/09/09</td><td align='right'>0</td></tr>
++<tr><td>3491<br>ª@¹F¬ì</td><td>34913<br>ª@¹F¬ì¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>1,778.50</td><td align='center'>115/07/30</td><td align='right'>0</td></tr>
++<tr><td>3512<br>¬ÓÀs</td><td>35122<br>¬ÓÀs¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>20.50</td><td align='center'>115/08/18</td><td align='right'>0</td></tr>
++<tr><td>3516<br>¨È«Ò¼Ú</td><td>35161<br>¨È«Ò¼Ú¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>25.62</td><td align='center'>115/08/14</td><td align='right'>0</td></tr>
++<tr><td>3518<br>¬fÄË</td><td>35181<br>¬fÄË¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>34.90</td><td align='center'>115/01/02</td><td align='right'>0</td></tr>
++<tr><td>3522<br>±sá±</td><td>35221<br>±sá±¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>18.20</td><td align='center'>115/01/30</td><td align='right'>0</td></tr>
++<tr><td>3526<br>¤Z¥Ò</td><td>35265<br>¤Z¥Ò¤­</td><td align='right'>0</td><td align='right'>87</td><td align='right'>151.90</td><td align='center'>115/04/23</td><td align='right'>57,272</td></tr>
++<tr><td>3526<br>¤Z¥Ò</td><td>35266<br>¤Z¥Ò¤»</td><td align='right'>0</td><td align='right'>23</td><td align='right'>188.70</td><td align='center'>115/04/23</td><td align='right'>12,185</td></tr>
++<tr><td>3526<br>¤Z¥Ò</td><td>35267<br>¤Z¥Ò¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>254.00</td><td align='center'>115/04/23</td><td align='right'>0</td></tr>
++<tr><td>3543<br>¦{¥©</td><td>35431<br>¦{¥©¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>40.20</td><td align='center'>115/09/24</td><td align='right'>0</td></tr>
++<tr><td>3548<br>¥ü§Q</td><td>35482<br>¥ü§Q¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>183.70</td><td align='center'>115/08/03</td><td align='right'>0</td></tr>
++<tr><td>3548<br>¥ü§Q</td><td>35483<br>¥ü§Q¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>160.80</td><td align='center'>115/08/03</td><td align='right'>0</td></tr>
++<tr><td>3551<br>¥@¥İ</td><td>35513<br>¥@¥İ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>168.80</td><td align='center'>115/07/24</td><td align='right'>0</td></tr>
++<tr><td>3564<br>¨ä¶§</td><td>35642<br>¨ä¶§¤G</td><td align='right'>0</td><td align='right'>740</td><td align='right'>83.40</td><td align='center'>115/07/18</td><td align='right'>887,290</td></tr>
++<tr><td>3583<br>¨¯¯Ğ</td><td>35833<br>¨¯¯Ğ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>844.00</td><td align='center'>115/08/07</td><td align='right'>0</td></tr>
++<tr><td>3583<br>¨¯¯Ğ</td><td>35834<br>¨¯¯Ğ¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>825.00</td><td align='center'>115/09/22</td><td align='right'>0</td></tr>
++<tr><td>3587<br>¶£±d</td><td>35872<br>¶£±d¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>193.80</td><td align='center'>115/08/02</td><td align='right'>0</td></tr>
++<tr><td>3591<br>¦ã²Ã´Ë</td><td>35914<br>¦ã²Ã´Ë¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>26.10</td><td align='center'>115/09/18</td><td align='right'>0</td></tr>
++<tr><td>3605<br>§»­P</td><td>36053<br>§»­P¤T</td><td align='right'>0</td><td align='right'>281</td><td align='right'>48.90</td><td align='center'>115/08/18</td><td align='right'>574,620</td></tr>
++<tr><td>3605<br>§»­P</td><td>36054<br>§»­P¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>86.50</td><td align='center'>115/08/18</td><td align='right'>0</td></tr>
++<tr><td>3617<br>ºÓ¤Ñ</td><td>36173<br>ºÓ¤Ñ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>274.30</td><td align='center'>115/07/28</td><td align='right'>0</td></tr>
++<tr><td>3680<br>®aµn</td><td>36804<br>®aµn¥|</td><td align='right'>0</td><td align='right'>1,675</td><td align='right'>351.00</td><td align='center'>115/06/02</td><td align='right'>477,180</td></tr>
++<tr><td>3680<br>®aµn</td><td>36805<br>®aµn¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>484.70</td><td align='center'>115/06/02</td><td align='right'>0</td></tr>
++<tr><td>3680<br>®aµn</td><td>36806<br>®aµn¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>478.90</td><td align='center'>115/06/02</td><td align='right'>0</td></tr>
++<tr><td>3684<br>ºa©÷</td><td>36841<br>ºa©÷¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>48.40</td><td align='center'>115/06/29</td><td align='right'>0</td></tr>
++<tr><td>3687<br>¼Ú¶R§¼</td><td>36872<br>¼Ú¶R§¼¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>73.90</td><td align='center'>115/07/24</td><td align='right'>0</td></tr>
++<tr><td>3687<br>¼Ú¶R§¼</td><td>36873<br>¼Ú¶R§¼¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>77.90</td><td align='center'>115/07/24</td><td align='right'>0</td></tr>
++<tr><td>3689<br>´é¼w</td><td>36894<br>´é¼w¥|</td><td align='right'>0</td><td align='right'>7</td><td align='right'>59.70</td><td align='center'>115/08/09</td><td align='right'>11,725</td></tr>
++<tr><td>3691<br>ºÓ¥İ</td><td>36913<br>ºÓ¥İ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>118.00</td><td align='center'>113/08/30</td><td align='right'>0</td></tr>
++<tr><td>3707<br>º~½U</td><td>37075<br>º~½U¤­</td><td align='right'>0</td><td align='right'>140</td><td align='right'>40.10</td><td align='center'>114/08/20</td><td align='right'>349,125</td></tr>
++<tr><td>3715<br>©w¿o§ë±±</td><td>37151<br>©w¿o§ë±±¤@</td><td align='right'>0</td><td align='right'>1</td><td align='right'>139.10</td><td align='center'>115/07/08</td><td align='right'>718</td></tr>
++<tr><td>3715<br>©w¿o§ë±±</td><td>37152<br>©w¿o§ë±±¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>158.00</td><td align='center'>115/07/08</td><td align='right'>0</td></tr>
++<tr><td>3717<br>Áp¹Å§ë±±</td><td>37171<br>Áp¹Å§ë±±¤@</td><td align='right'>0</td><td align='right'>1,498</td><td align='right'>17.30</td><td align='center'>115/07/20</td><td align='right'>8,658,941</td></tr>
++<tr><td>4113<br>Áp¤W</td><td>41135<br>Áp¤W¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>26.30</td><td align='center'>114/10/27</td><td align='right'>0</td></tr>
++<tr><td>4113<br>Áp¤W</td><td>41136<br>Áp¤W¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>20.45</td><td align='center'>115/03/20</td><td align='right'>0</td></tr>
++<tr><td>4123<br>ÑÔ¼w</td><td>41236<br>ÑÔ¼w¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>35.10</td><td align='center'>115/08/23</td><td align='right'>0</td></tr>
++<tr><td>4123<br>ÑÔ¼w</td><td>41237<br>ÑÔ¼w¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>35.70</td><td align='center'>115/08/23</td><td align='right'>0</td></tr>
++<tr><td>4123<br>ÑÔ¼w</td><td>41238<br>ÑÔ¼w¤K</td><td align='right'>0</td><td align='right'>800</td><td align='right'>39.10</td><td align='center'>115/08/23</td><td align='right'>2,046,035</td></tr>
++<tr><td>4123<br>ÑÔ¼w</td><td>41239<br>ÑÔ¼w¤E</td><td align='right'>0</td><td align='right'>900</td><td align='right'>38.20</td><td align='center'>115/08/23</td><td align='right'>2,356,020</td></tr>
++<tr><td>4129<br>Áp¦X</td><td>41295<br>Áp¦X¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>100.50</td><td align='center'>115/07/29</td><td align='right'>0</td></tr>
++<tr><td>4137<br>ÄRÂ×-KY</td><td>41372<br>ÄRÂ×¤GKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>128.30</td><td align='center'>115/07/08</td><td align='right'>0</td></tr>
++<tr><td>4164<br>©Ó·~Âå</td><td>41645<br>©Ó·~Âå¤­</td><td align='right'>0</td><td align='right'>160</td><td align='right'>45.30</td><td align='center'>115/07/05</td><td align='right'>353,200</td></tr>
++<tr><td>4168<br>ÁŞÁp</td><td>41684<br>ÁŞÁp¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>23.91</td><td align='center'>114/11/11</td><td align='right'>0</td></tr>
++<tr><td>4190<br>¦õµn-KY</td><td>41903<br>¦õµn¤TKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>53.10</td><td align='center'>115/08/10</td><td align='right'>0</td></tr>
++<tr><td>4190<br>¦õµn-KY</td><td>41904<br>¦õµn¥|KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>26.10</td><td align='center'>115/08/10</td><td align='right'>0</td></tr>
++<tr><td>4416<br>¤T¶ê</td><td>44163<br>¤T¶ê¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>65.70</td><td align='center'>114/09/09</td><td align='right'>0</td></tr>
++<tr><td>4438<br>¼s¶V</td><td>44383<br>¼s¶V¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>72.20</td><td align='center'>115/09/08</td><td align='right'>0</td></tr>
++<tr><td>4439<br>«a¬P-KY</td><td>44391<br>«a¬P¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>96.30</td><td align='center'>115/07/22</td><td align='right'>0</td></tr>
++<tr><td>4442<br>µ¤¨¹-KY</td><td>44421<br>µ¤¨¹¤@KY</td><td align='right'>0</td><td align='right'>61</td><td align='right'>45.30</td><td align='center'>115/06/29</td><td align='right'>134,656</td></tr>
++<tr><td>4503<br>ª÷«B</td><td>45031<br>ª÷«B¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>46.00</td><td align='center'>115/05/13</td><td align='right'>0</td></tr>
++<tr><td>4510<br>°ª¾W</td><td>45102<br>°ª¾W¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>48.41</td><td align='center'>114/07/15</td><td align='right'>0</td></tr>
++<tr><td>4541<br>ÑÔ¥Ğ</td><td>45415<br>ÑÔ¥Ğ¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>68.80</td><td align='center'>115/09/21</td><td align='right'>0</td></tr>
++<tr><td>4541<br>ÑÔ¥Ğ</td><td>45416<br>ÑÔ¥Ğ¤»</td><td align='right'>0</td><td align='right'>0</td><td>&nbsp;</td><td>&nbsp;</td><td align='right'>0</td></tr>
++<tr><td>4542<br>¬ìåi</td><td>45421<br>¬ìåi¤@</td><td align='right'>0</td><td align='right'>1</td><td align='right'>85.50</td><td align='center'>115/04/15</td><td align='right'>1,169</td></tr>
++<tr><td>4549<br>®Ù¹F</td><td>45491<br>®Ù¹F¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>146.90</td><td align='center'>115/09/14</td><td align='right'>0</td></tr>
++<tr><td>4555<br>®ğ¥ß</td><td>45554<br>®ğ¥ß¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>42.90</td><td align='center'>115/06/08</td><td align='right'>0</td></tr>
++<tr><td>4558<br>Ä_½n</td><td>45581<br>Ä_½n¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>29.80</td><td align='center'>114/08/28</td><td align='right'>0</td></tr>
++<tr><td>4564<br>¤¸²Ş</td><td>45641<br>¤¸²Ş¤@</td><td align='right'>5,500</td><td align='right'>0</td><td align='right'>26.40</td><td align='center'>114/03/12</td><td align='right'>0</td></tr>
++<tr><td>4566<br>®ÉºÓ¤u·~</td><td>45663<br>®ÉºÓ¤u·~¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>49.00</td><td align='center'>115/04/15</td><td align='right'>0</td></tr>
++<tr><td>4569<br>¤»¤è¬ì-KY</td><td>45691<br>¤»¤è¬ì¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>199.70</td><td align='center'>115/08/18</td><td align='right'>0</td></tr>
++<tr><td>4572<br>¾nÀs</td><td>45721<br>¾nÀs¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>155.00</td><td align='center'>115/07/22</td><td align='right'>0</td></tr>
++<tr><td>4581<br>¥ú¶©ºë±K-KY</td><td>45811<br>¥ú¶©ºë±K¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>50.20</td><td align='center'>115/08/18</td><td align='right'>0</td></tr>
++<tr><td>4714<br>¥Ã±¶</td><td>47148<br>¥Ã±¶¤K</td><td align='right'>0</td><td align='right'>0</td><td align='right'>15.70</td><td align='center'>115/07/10</td><td align='right'>0</td></tr>
++<tr><td>4722<br>°êºë¤Æ</td><td>47223<br>°êºë¤Æ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>140.50</td><td align='center'>115/07/06</td><td align='right'>0</td></tr>
++<tr><td>4722<br>°êºë¤Æ</td><td>47224<br>°êºë¤Æ¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>264.20</td><td align='center'>115/07/06</td><td align='right'>0</td></tr>
++<tr><td>4739<br>±d´¶</td><td>47393<br>±d´¶¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>96.90</td><td align='center'>115/06/28</td><td align='right'>0</td></tr>
++<tr><td>4739<br>±d´¶</td><td>47394<br>±d´¶¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>69.90</td><td align='center'>115/06/28</td><td align='right'>0</td></tr>
++<tr><td>4749<br>·sÀ³§÷</td><td>47491<br>·sÀ³§÷¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>1,060.50</td><td align='center'>115/08/03</td><td align='right'>0</td></tr>
++<tr><td>4760<br>¶Ô³Í¬ì§Ş</td><td>47602<br>¶Ô³Í¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>297.60</td><td align='center'>115/09/07</td><td align='right'>0</td></tr>
++<tr><td>4764<br>ÂùÁä</td><td>47642<br>ÂùÁä¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>331.10</td><td align='center'>115/09/14</td><td align='right'>0</td></tr>
++<tr><td>4772<br>¥x¯S¤Æ</td><td>47721<br>¥x¯S¤Æ¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>320.30</td><td align='center'>115/07/13</td><td align='right'>0</td></tr>
++<tr><td>4923<br>¤O¤h</td><td>49231<br>¤O¤h¤@</td><td align='right'>0</td><td align='right'>238</td><td align='right'>34.66</td><td align='center'>115/01/29</td><td align='right'>686,657</td></tr>
++<tr><td>4931<br>·s²±¤O</td><td>49311<br>·s²±¤O¤@</td><td align='right'>0</td><td align='right'>250</td><td align='right'>173.30</td><td align='center'>115/07/09</td><td align='right'>144,258</td></tr>
++<tr><td>4967<br>¤Q»Í</td><td>49675<br>¤Q»Í¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>205.00</td><td align='center'>115/08/23</td><td align='right'>0</td></tr>
++<tr><td>4973<br>¼s¿o¹q³q</td><td>49731<br>¼s¿o¹q³q¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>169.60</td><td align='center'>115/08/21</td><td align='right'>0</td></tr>
++<tr><td>4979<br>µØ¬P¥ú</td><td>49793<br>µØ¬P¥ú¤T</td><td align='right'>0</td><td align='right'>104</td><td align='right'>175.70</td><td align='center'>115/07/20</td><td align='right'>59,190</td></tr>
++<tr><td>4979<br>µØ¬P¥ú</td><td>49794<br>µØ¬P¥ú¥|</td><td align='right'>0</td><td align='right'>16</td><td align='right'>203.40</td><td align='center'>115/07/20</td><td align='right'>7,867</td></tr>
++<tr><td>5201<br>³Í½Ã</td><td>52011<br>³Í½Ã¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>37.80</td><td align='center'>115/06/23</td><td align='right'>0</td></tr>
++<tr><td>5209<br>·s¹©</td><td>52091<br>·s¹©¤@</td><td align='right'>0</td><td align='right'>1,735</td><td align='right'>139.80</td><td align='center'>115/07/11</td><td align='right'>1,241,002</td></tr>
++<tr><td>5212<br>­âºô</td><td>52121<br>­âºô¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>57.73</td><td align='center'>115/04/14</td><td align='right'>0</td></tr>
++<tr><td>5244<br>¥°³Í</td><td>52441<br>¥°³Í¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>44.00</td><td align='center'>115/07/04</td><td align='right'>0</td></tr>
++<tr><td>5245<br>´¼´¹</td><td>52452<br>´¼´¹¤G</td><td align='right'>0</td><td align='right'>341</td><td align='right'>35.00</td><td align='center'>113/12/18</td><td align='right'>974,285</td></tr>
++<tr><td>5263<br>´¼´Q</td><td>52635<br>´¼´Q¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>109.80</td><td align='center'>115/08/18</td><td align='right'>0</td></tr>
++<tr><td>5284<br>jpp-KY</td><td>52844<br>JPP¥| KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>345.30</td><td align='center'>115/09/17</td><td align='right'>0</td></tr>
++<tr><td>5284<br>jpp-KY</td><td>52845<br>JPP¤­KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>315.50</td><td align='center'>115/09/17</td><td align='right'>0</td></tr>
++<tr><td>5289<br>©y¹©</td><td>52892<br>©y¹©¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>2,113.50</td><td align='center'>115/09/02</td><td align='right'>0</td></tr>
++<tr><td>5291<br>¨¶ª@</td><td>52912<br>¨¶ª@¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>53.00</td><td align='center'>115/07/29</td><td align='right'>0</td></tr>
++<tr><td>5306<br>®Û·ù</td><td>53064<br>®Û·ù¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>117.40</td><td align='center'>115/09/23</td><td align='right'>0</td></tr>
++<tr><td>5309<br>¨t²Î¹q</td><td>53096<br>¨t²Î¹q¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>63.00</td><td align='center'>115/06/09</td><td align='right'>0</td></tr>
++<tr><td>5309<br>¨t²Î¹q</td><td>53097<br>¨t²Î¹q¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>54.60</td><td align='center'>115/06/09</td><td align='right'>0</td></tr>
++<tr><td>5321<br>¬ü¦Ó§Ö</td><td>53211<br>¬ü¦Ó§Ö¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>85.30</td><td align='center'>113/09/16</td><td align='right'>0</td></tr>
++<tr><td>5388<br>¤¤½U</td><td>53887<br>¤¤½U¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>130.30</td><td align='center'>115/04/17</td><td align='right'>0</td></tr>
++<tr><td>5439<br>°ª§Ş</td><td>54391<br>°ª§Ş¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>293.60</td><td align='center'>115/07/28</td><td align='right'>0</td></tr>
++<tr><td>5450<br>«n¨}</td><td>54501<br>«n¨}¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>17.10</td><td align='center'>115/08/10</td><td align='right'>0</td></tr>
++<tr><td>5457<br>«Å¼w</td><td>54573<br>«Å¼w¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>62.60</td><td align='center'>115/08/05</td><td align='right'>0</td></tr>
++<tr><td>5464<br>ÀM§»</td><td>54642<br>ÀM§»¤G</td><td align='right'>0</td><td align='right'>348</td><td align='right'>33.40</td><td align='center'>115/05/25</td><td align='right'>1,041,912</td></tr>
++<tr><td>5534<br>ªø­i</td><td>55344<br>ªø­i¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>74.80</td><td align='center'>115/08/31</td><td align='right'>0</td></tr>
++<tr><td>5536<br>¸t·u*</td><td>55362<br>¸t·u¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>1,178.00</td><td align='center'>115/08/04</td><td align='right'>0</td></tr>
++<tr><td>5536<br>¸t·u*</td><td>55363<br>¸t·u¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>1,158.00</td><td align='center'>115/08/17</td><td align='right'>0</td></tr>
++<tr><td>5608<br>¥|ºû¯è</td><td>56087<br>¥|ºû¯è¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>19.30</td><td align='center'>113/12/17</td><td align='right'>0</td></tr>
++<tr><td>6015<br>§»»·ÃÒ</td><td>60152<br>§»»·ÃÒ¤G</td><td align='right'>0</td><td align='right'>116</td><td align='right'>9.81</td><td align='center'>115/04/23</td><td align='right'>1,182,465</td></tr>
++<tr><td>6101<br>¼e³½°ê»Ú</td><td>61011<br>¼e³½°ê»Ú¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>36.90</td><td align='center'>115/01/29</td><td align='right'>0</td></tr>
++<tr><td>6101<br>¼e³½°ê»Ú</td><td>61012<br>¼e³½°ê»Ú¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>38.90</td><td align='center'>115/01/30</td><td align='right'>0</td></tr>
++<tr><td>6104<br>³Ğ±©</td><td>61041<br>³Ğ±©¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>119.00</td><td align='center'>115/04/15</td><td align='right'>0</td></tr>
++<tr><td>6111<br>¥ú»E´¹¹q</td><td>61112<br>¥ú»E´¹¹q¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>67.00</td><td align='center'>113/09/10</td><td align='right'>0</td></tr>
++<tr><td>6117<br>ªï¼s</td><td>61171<br>ªï¼s¤@</td><td align='right'>0</td><td align='right'>263</td><td align='right'>79.60</td><td align='center'>115/08/19</td><td align='right'>330,402</td></tr>
++<tr><td>6117<br>ªï¼s</td><td>61172<br>ªï¼s¤G</td><td align='right'>0</td><td align='right'>375</td><td align='right'>75.10</td><td align='center'>115/08/19</td><td align='right'>499,334</td></tr>
++<tr><td>6125<br>¼s¹B</td><td>61255<br>¼s¹B¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>110.90</td><td align='center'>115/08/12</td><td align='right'>0</td></tr>
++<tr><td>6126<br>«H­µ</td><td>61263<br>«H­µ¤T</td><td align='right'>0</td><td align='right'>106</td><td align='right'>26.30</td><td align='center'>115/09/11</td><td align='right'>403,031</td></tr>
++<tr><td>6134<br>¸U¦°</td><td>61343<br>¸U¦°¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>33.80</td><td align='center'>115/08/11</td><td align='right'>0</td></tr>
++<tr><td>6150<br>¾Ù°T</td><td>61506<br>¾Ù°T¤»</td><td align='right'>15</td><td align='right'>0</td><td align='right'>89.30</td><td align='center'>115/07/22</td><td align='right'>0</td></tr>
++<tr><td>6156<br>ªQ¤W</td><td>61565<br>ªQ¤W</td><td align='right'>0</td><td align='right'>0</td><td align='right'>28.80</td><td align='center'>115/07/20</td><td align='right'>0</td></tr>
++<tr><td>6163<br>µØ¹qºô</td><td>61635<br>µØ¹qºô¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>24.67</td><td align='center'>115/09/15</td><td align='right'>0</td></tr>
++<tr><td>6177<br>¹FÄR</td><td>61777<br>¹FÄR¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>43.20</td><td align='center'>115/08/26</td><td align='right'>0</td></tr>
++<tr><td>6179<br>¨È³q</td><td>61794<br>¨È³q¥|</td><td align='right'>0</td><td align='right'>743</td><td align='right'>27.60</td><td align='center'>115/08/22</td><td align='right'>2,692,007</td></tr>
++<tr><td>6182<br>¦X´¹</td><td>61828<br>¦X´¹¤K</td><td align='right'>0</td><td align='right'>537</td><td align='right'>33.10</td><td align='center'>115/06/05</td><td align='right'>1,622,345</td></tr>
++<tr><td>6184<br>¤jÂ×¹q</td><td>61843<br>¤jÂ×¹q¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>46.20</td><td align='center'>115/06/30</td><td align='right'>0</td></tr>
++<tr><td>6187<br>¸U¼í</td><td>61876<br>¸U¼í¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>1,136.80</td><td align='center'>115/08/09</td><td align='right'>0</td></tr>
++<tr><td>6189<br>Â×ÃÀ</td><td>61894<br>Â×ÃÀ¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>40.97</td><td align='center'>115/07/02</td><td align='right'>0</td></tr>
++<tr><td>6190<br>¸U®õ¬ì</td><td>61907<br>¸U®õ¬ì¤C</td><td align='right'>0</td><td align='right'>598</td><td align='right'>40.70</td><td align='center'>115/07/23</td><td align='right'>1,469,286</td></tr>
++<tr><td>6197<br>¨Î¥²µX</td><td>61973<br>¨Î¥²µX¤T</td><td align='right'>0</td><td align='right'>190</td><td align='right'>148.80</td><td align='center'>115/07/08</td><td align='right'>127,683</td></tr>
++<tr><td>6199<br>¤Ñ«~</td><td>61993<br>¤Ñ«~¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>104.60</td><td align='center'>115/01/20</td><td align='right'>0</td></tr>
++<tr><td>6199<br>¤Ñ«~</td><td>61994<br>¤Ñ«~¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>114.80</td><td align='center'>115/01/21</td><td align='right'>0</td></tr>
++<tr><td>6207<br>¹p¬ì</td><td>62075<br>¹p¬ì¤­</td><td align='right'>0</td><td align='right'>76</td><td align='right'>50.50</td><td align='center'>115/07/25</td><td align='right'>150,486</td></tr>
++<tr><td>6207<br>¹p¬ì</td><td>62076<br>¹p¬ì¤»</td><td align='right'>0</td><td align='right'>3</td><td align='right'>49.00</td><td align='center'>115/07/25</td><td align='right'>6,121</td></tr>
++<tr><td>6209<br>¤µ°ê¥ú</td><td>62093<br>¤µ°ê¥ú¤T</td><td align='right'>0</td><td align='right'>86</td><td align='right'>38.30</td><td align='center'>115/08/10</td><td align='right'>224,527</td></tr>
++<tr><td>6219<br>´I©ô</td><td>62194<br>´I©ô¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>21.17</td><td align='center'>114/10/16</td><td align='right'>0</td></tr>
++<tr><td>6220<br>©¨Â×</td><td>622010<br>©¨Â×¤Q</td><td align='right'>0</td><td align='right'>0</td><td align='right'>32.40</td><td align='center'>115/07/17</td><td align='right'>0</td></tr>
++<tr><td>6223<br>©ôª¿</td><td>62236<br>©ôª¿¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>6,201.80</td><td align='center'>115/07/17</td><td align='right'>0</td></tr>
++<tr><td>6243<br>¨³ªN</td><td>62433<br>¨³ªN¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>63.30</td><td align='center'>114/05/19</td><td align='right'>0</td></tr>
++<tr><td>6269<br>¥x°p</td><td>62695<br>¥x°p¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>93.00</td><td align='center'>113/08/02</td><td align='right'>0</td></tr>
++<tr><td>6269<br>¥x°p</td><td>62696<br>¥x°p¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>101.00</td><td align='center'>113/08/02</td><td align='right'>0</td></tr>
++<tr><td>6282<br>±dµÎ</td><td>62822<br>±dµÎ¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>45.20</td><td align='center'>115/08/23</td><td align='right'>0</td></tr>
++<tr><td>6284<br>¨Î¨¹</td><td>62843<br>¨Î¨¹¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>85.00</td><td align='center'>115/07/16</td><td align='right'>0</td></tr>
++<tr><td>6290<br>¨}ºû</td><td>629010<br>¨}ºû¤Q</td><td align='right'>0</td><td align='right'>61</td><td align='right'>74.40</td><td align='center'>115/07/29</td><td align='right'>81,987</td></tr>
++<tr><td>6425<br>©öµo</td><td>64251<br>©öµo¤@</td><td align='right'>0</td><td align='right'>1</td><td align='right'>57.90</td><td align='center'>115/07/07</td><td align='right'>1,727</td></tr>
++<tr><td>6432<br>¤µ®i¬ì</td><td>64324<br>¤µ®i¬ì¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>30.48</td><td align='center'>115/08/24</td><td align='right'>0</td></tr>
++<tr><td>6451<br>°Tªä-KY</td><td>64512<br>°Tªä¤GKY</td><td align='right'>7</td><td align='right'>280</td><td align='right'>240.50</td><td align='center'>115/08/02</td><td align='right'>116,408</td></tr>
++<tr><td>6469<br>¤j¾ğ</td><td>64693<br>¤j¾ğ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>119.96</td><td align='center'>115/08/10</td><td align='right'>0</td></tr>
++<tr><td>6472<br>«O·ç</td><td>64724<br>«O·ç¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>488.20</td><td align='center'>115/08/08</td><td align='right'>0</td></tr>
++<tr><td>6472<br>«O·ç</td><td>64725<br>«O·ç¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>473.50</td><td align='center'>115/08/08</td><td align='right'>0</td></tr>
++<tr><td>6477<br>¦w¶°</td><td>64774<br>¦w¶°¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>49.80</td><td align='center'>115/07/18</td><td align='right'>0</td></tr>
++<tr><td>6477<br>¦w¶°</td><td>64775<br>¦w¶°¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>43.80</td><td align='center'>115/07/18</td><td align='right'>0</td></tr>
++<tr><td>6509<br>»E©M</td><td>65096<br>»E©M¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>36.60</td><td align='center'>115/08/05</td><td align='right'>0</td></tr>
++<tr><td>6510<br>ºë´ú</td><td>65101<br>ºë´ú¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>2,008.10</td><td align='center'>115/07/15</td><td align='right'>0</td></tr>
++<tr><td>6515<br>¿o´Q</td><td>65152<br>¿o´Q¤G</td><td align='right'>0</td><td align='right'>612</td><td align='right'>3,520.60</td><td align='center'>115/07/25</td><td align='right'>17,381</td></tr>
++<tr><td>6533<br>´¹¤ß¬ì</td><td>65331<br>´¹¤ß¬ì¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>308.00</td><td align='center'>114/11/21</td><td align='right'>0</td></tr>
++<tr><td>6538<br>­Ü©M</td><td>65381<br>­Ü©M¤@</td><td align='right'>0</td><td align='right'>711</td><td align='right'>103.20</td><td align='center'>115/06/30</td><td align='right'>688,888</td></tr>
++<tr><td>6546<br>¥¿°ò</td><td>65461<br>¥¿°ò¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>144.00</td><td align='center'>115/07/13</td><td align='right'>0</td></tr>
++<tr><td>6546<br>¥¿°ò</td><td>65462<br>¥¿°ò¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>85.50</td><td align='center'>115/07/13</td><td align='right'>0</td></tr>
++<tr><td>6546<br>¥¿°ò</td><td>65463<br>¥¿°ò¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>78.80</td><td align='center'>115/07/13</td><td align='right'>0</td></tr>
++<tr><td>6547<br>°ªºİ¬Ì­]</td><td>65472<br>°ªºİ¬Ì­]¤G</td><td align='right'>0</td><td align='right'>2,769</td><td align='right'>37.00</td><td align='center'>115/03/19</td><td align='right'>7,483,763</td></tr>
++<tr><td>6552<br>©öµØ¹q</td><td>65521<br>©öµØ¹q¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>58.80</td><td align='center'>114/09/13</td><td align='right'>0</td></tr>
++<tr><td>6570<br>ºû¥Ğ</td><td>65702<br>ºû¥Ğ¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>55.73</td><td align='center'>115/08/14</td><td align='right'>0</td></tr>
++<tr><td>6576<br>¶h¹F</td><td>65761<br>¶h¹F¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>84.30</td><td align='center'>115/03/25</td><td align='right'>0</td></tr>
++<tr><td>6584<br>«n«T°ê»Ú</td><td>65843<br>«n«T°ê»Ú¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>682.20</td><td align='center'>115/09/14</td><td align='right'>0</td></tr>
++<tr><td>6585<br>¹©°ò</td><td>65851<br>¹©°ò¤@</td><td align='right'>0</td><td align='right'>1</td><td align='right'>106.30</td><td align='center'>115/07/01</td><td align='right'>940</td></tr>
++<tr><td>6585<br>¹©°ò</td><td>65852<br>¹©°ò¤G</td><td align='right'>0</td><td align='right'>165</td><td align='right'>106.10</td><td align='center'>115/07/01</td><td align='right'>155,511</td></tr>
++<tr><td>6591<br>°Ê¤O-KY</td><td>65914<br>°Ê¤O¥|KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>72.88</td><td align='center'>115/07/13</td><td align='right'>0</td></tr>
++<tr><td>6603<br>´I±jøÊ</td><td>66034<br>´I±jøÊ¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>26.23</td><td align='center'>115/09/15</td><td align='right'>0</td></tr>
++<tr><td>6616<br>¯Sª@-KY</td><td>66163<br>¯Sª@¤TKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>14.50</td><td align='center'>112/11/08</td><td align='right'>0</td></tr>
++<tr><td>6624<br>¸U¦~²M</td><td>66241<br>¸U¦~²M¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>40.30</td><td align='center'>115/09/03</td><td align='right'>0</td></tr>
++<tr><td>6629<br>®õª÷-KY</td><td>66292<br>®õª÷¤GKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>115.50</td><td align='center'>115/06/30</td><td align='right'>0</td></tr>
++<tr><td>6645<br>ª÷¸UªL-³Ğ</td><td>66451<br>ª÷¸UªL¤@³Ğ</td><td align='right'>0</td><td align='right'>0</td><td align='right'>27.87</td><td align='center'>113/12/24</td><td align='right'>0</td></tr>
++<tr><td>6664<br>¸sÖö</td><td>66642<br>¸sÖö¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>284.20</td><td align='center'>115/08/03</td><td align='right'>0</td></tr>
++<tr><td>6670<br>´_²±À³¥Î</td><td>66702<br>´_²±À³¥Î¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>254.50</td><td align='center'>115/06/30</td><td align='right'>0</td></tr>
++<tr><td>6672<br>ÄË½÷¹q¤l-KY</td><td>66721<br>ÄË½÷¹q¤l¤@KY</td><td align='right'>1</td><td align='right'>8</td><td align='right'>93.40</td><td align='center'>115/04/24</td><td align='right'>8,564</td></tr>
++<tr><td>6680<br>øÊ³Ğ¹q¤l</td><td>66801<br>øÊ³Ğ¹q¤l¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>71.40</td><td align='center'>115/08/16</td><td align='right'>0</td></tr>
++<tr><td>6683<br>¹l´¼¬ì§Ş</td><td>66831<br>¹l´¼¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>1,127.10</td><td align='center'>115/08/10</td><td align='right'>0</td></tr>
++<tr><td>6693<br>¼s¶£¬ì</td><td>66931<br>¼s¶£¬ì¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>228.10</td><td align='center'>115/07/24</td><td align='right'>0</td></tr>
++<tr><td>6706<br>´f¯S</td><td>67062<br>´f¯S¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>176.00</td><td align='center'>113/11/21</td><td align='right'>0</td></tr>
++<tr><td>6753<br>Às¼w³y²î</td><td>67531<br>Às¼w³y²î¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>115.60</td><td align='center'>115/09/08</td><td align='right'>0</td></tr>
++<tr><td>6768<br>§Ó±j-KY</td><td>67681<br>§Ó±j¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>90.10</td><td align='center'>115/07/04</td><td align='right'>0</td></tr>
++<tr><td>6771<br>¥­©MÀô«O-³Ğ</td><td>67711<br>¥­©MÀô«O¤@³Ğ</td><td align='right'>0</td><td align='right'>0</td><td align='right'>47.72</td><td align='center'>115/07/03</td><td align='right'>0</td></tr>
++<tr><td>6796<br>®Ê¥°</td><td>67962<br>®Ê¥°¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>99.60</td><td align='center'>115/08/01</td><td align='right'>0</td></tr>
++<tr><td>6803<br>±X¹©</td><td>68032<br>±X¹©¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>306.20</td><td align='center'>115/07/11</td><td align='right'>0</td></tr>
++<tr><td>6821<br>ÁpÄ_</td><td>68211<br>ÁpÄ_¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>42.19</td><td align='center'>115/05/02</td><td align='right'>0</td></tr>
++<tr><td>6830<br>¦Æ»Í</td><td>68301<br>¦Æ»Í¤@</td><td align='right'>0</td><td align='right'>133</td><td align='right'>147.40</td><td align='center'>115/04/17</td><td align='right'>90,228</td></tr>
++<tr><td>6835<br>¶ê¸Î</td><td>68351<br>¶ê¸Î¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>47.40</td><td align='center'>115/07/06</td><td align='right'>0</td></tr>
++<tr><td>6840<br>ªF¬ã«H¶W</td><td>68401<br>ªF¬ã«H¶W¤@</td><td align='right'>0</td><td align='right'>335</td><td align='right'>64.70</td><td align='center'>115/07/13</td><td align='right'>517,744</td></tr>
++<tr><td>6843<br>¶i¨å</td><td>68431<br>¶i¨å¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>58.40</td><td align='center'>115/07/19</td><td align='right'>0</td></tr>
++<tr><td>6846<br>ºñ¯ô</td><td>68461<br>ºñ¯ô¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>75.80</td><td align='center'>115/07/01</td><td align='right'>0</td></tr>
++<tr><td>6846<br>ºñ¯ô</td><td>68462<br>ºñ¯ô¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>73.60</td><td align='center'>115/07/01</td><td align='right'>0</td></tr>
++<tr><td>6854<br>ëå³Ğ¬ì§Ş-KY³Ğ</td><td>68541<br>ëå³Ğ¬ì§Ş¤@KY³Ğ</td><td align='right'>0</td><td align='right'>0</td><td align='right'>248.30</td><td align='center'>114/03/28</td><td align='right'>0</td></tr>
++<tr><td>6862<br>¤T¶°·ç-KY</td><td>68621<br>¤T¶°·ç¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>191.90</td><td align='center'>115/07/13</td><td align='right'>0</td></tr>
++<tr><td>6863<br>¥Ã¹D-KY</td><td>68631<br>¥Ã¹D¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>290.10</td><td align='center'>115/08/01</td><td align='right'>0</td></tr>
++<tr><td>6869<br>¶³°\¯à·½</td><td>68692<br>¶³°\¯à·½¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>70.20</td><td align='center'>115/08/16</td><td align='right'>0</td></tr>
++<tr><td>6870<br>ÄË¶³</td><td>68701<br>ÄË¶³¤@</td><td align='right'>0</td><td align='right'>1,003</td><td align='right'>196.60</td><td align='center'>115/07/27</td><td align='right'>510,136</td></tr>
++<tr><td>6870<br>ÄË¶³</td><td>68702<br>ÄË¶³¤G</td><td align='right'>0</td><td align='right'>661</td><td align='right'>187.30</td><td align='center'>115/07/27</td><td align='right'>352,870</td></tr>
++<tr><td>6873<br>ªl¼w¯à·½</td><td>68731<br>ªl¼w¯à·½£¸</td><td align='right'>235</td><td align='right'>0</td><td align='right'>92.30</td><td align='center'>115/08/31</td><td align='right'>0</td></tr>
++<tr><td>6873<br>ªl¼w¯à·½</td><td>68732<br>ªl¼w¯à·½¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>208.40</td><td align='center'>115/08/31</td><td align='right'>0</td></tr>
++<tr><td>6874<br>­¿¤O</td><td>68741<br>­¿¤O¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>90.00</td><td align='center'>115/09/09</td><td align='right'>0</td></tr>
++<tr><td>6890<br>¨Ó»õ-KY</td><td>68901<br>¨Ó»õ¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>237.50</td><td align='center'>115/07/19</td><td align='right'>0</td></tr>
++<tr><td>6890<br>¨Ó»õ-KY</td><td>68902<br>¨Ó»õ¤GKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>236.30</td><td align='center'>115/07/19</td><td align='right'>0</td></tr>
++<tr><td>6894<br>½Ã¥q¯S</td><td>68941<br>½Ã¥q¯S¤@</td><td align='right'>0</td><td align='right'>109</td><td align='right'>254.90</td><td align='center'>115/03/31</td><td align='right'>42,752</td></tr>
++<tr><td>6903<br>¥¨º~</td><td>69031<br>¥¨º~¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>406.60</td><td align='center'>115/07/24</td><td align='right'>0</td></tr>
++<tr><td>6903<br>¥¨º~</td><td>69032<br>¥¨º~¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>369.80</td><td align='center'>115/08/07</td><td align='right'>0</td></tr>
++<tr><td>6904<br>§BøÊ</td><td>69041<br>§BøÊ¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>124.70</td><td align='center'>115/07/28</td><td align='right'>0</td></tr>
++<tr><td>6913<br>ÂE§e</td><td>69131<br>ÂE§e¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>123.70</td><td align='center'>115/06/16</td><td align='right'>0</td></tr>
++<tr><td>6957<br>¸Î¼y-KY</td><td>69571<br>¸Î¼y¤@KY</td><td align='right'>0</td><td align='right'>2,210</td><td align='right'>182.80</td><td align='center'>115/08/09</td><td align='right'>1,208,939</td></tr>
++<tr><td>6982<br>¤j¤«¬¦®ú</td><td>69821<br>¤j¤«¬¦®ú¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>61.90</td><td align='center'>115/06/30</td><td align='right'>0</td></tr>
++<tr><td>6982<br>¤j¤«¬¦®ú</td><td>69822<br>¤j¤«¬¦®ú¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>60.10</td><td align='center'>115/06/30</td><td align='right'>0</td></tr>
++<tr><td>7402<br>¨¶ÀB</td><td>74022<br>¨¶ÀB¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>97.12</td><td align='center'>115/07/20</td><td align='right'>0</td></tr>
++<tr><td>7556<br>·N¼w¤h¬ì§Ş</td><td>75561<br>·N¼w¤h¤@¥Ã</td><td align='right'>0</td><td align='right'>19</td><td align='right'>169.90</td><td align='center'>115/07/16</td><td align='right'>11,181</td></tr>
++<tr><td>7556<br>·N¼w¤h¬ì§Ş</td><td>75562<br>·N¼w¤h¤G</td><td align='right'>0</td><td align='right'>10</td><td align='right'>166.70</td><td align='center'>115/07/16</td><td align='right'>5,997</td></tr>
++<tr><td>7610<br>Áp¤Íª÷Äİ-³Ğ</td><td>76101<br>Áp¤Íª÷Äİ¤@³Ğ</td><td align='right'>0</td><td align='right'>1,661</td><td align='right'>662.30</td><td align='center'>115/08/28</td><td align='right'>250,716</td></tr>
++<tr><td>7631<br>»E½å¬ãµo-³Ğ</td><td>76311<br>»E½å¬ãµo¤@³Ğ</td><td align='right'>0</td><td align='right'>0</td><td align='right'>150.80</td><td align='center'>115/08/26</td><td align='right'>0</td></tr>
++<tr><td>7713<br>«Â¤O¼w¥ÍÂå</td><td>77131<br>«Â¤O¼w¥ÍÂå¤@</td><td align='right'>0</td><td align='right'>1</td><td align='right'>69.60</td><td align='center'>115/04/04</td><td align='right'>1,436</td></tr>
++<tr><td>7743<br>ª÷§Q­¹¦w</td><td>77431<br>ª÷§Q­¹¦w</td><td align='right'>0</td><td align='right'>0</td><td align='right'>22.50</td><td align='center'>115/09/10</td><td align='right'>0</td></tr>
++<tr><td>8021<br>¦yÂI</td><td>80212<br>¦yÂI¤G</td><td align='right'>0</td><td align='right'>121</td><td align='right'>200.40</td><td align='center'>115/07/21</td><td align='right'>60,379</td></tr>
++<tr><td>8027<br>Ügª@</td><td>80273<br>Ügª@¤T</td><td align='right'>0</td><td align='right'>23</td><td align='right'>64.74</td><td align='center'>113/04/09</td><td align='right'>35,525</td></tr>
++<tr><td>8028<br>ª@¶§¥b¾ÉÅé</td><td>80282<br>ª@¶§¥b¾ÉÅé¤G</td><td align='right'>0</td><td align='right'>132</td><td align='right'>136.80</td><td align='center'>115/06/20</td><td align='right'>96,475</td></tr>
++<tr><td>8042<br>ª÷¤s¹q</td><td>80426<br>ª÷¤s¹q¤»</td><td align='right'>0</td><td align='right'>173</td><td align='right'>59.40</td><td align='center'>115/06/15</td><td align='right'>291,245</td></tr>
++<tr><td>8050<br>¼s¿n</td><td>80506<br>¼s¿n¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>60.90</td><td align='center'>115/08/01</td><td align='right'>0</td></tr>
++<tr><td>8054<br>¦w°ê</td><td>80541<br>¦w°ê¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>122.40</td><td align='center'>115/08/25</td><td align='right'>0</td></tr>
++<tr><td>8074<br>¹d¾ó</td><td>80746<br>¹d¾ó¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>77.00</td><td align='center'>115/06/23</td><td align='right'>0</td></tr>
++<tr><td>8087<br>ÄR¤É¯à·½</td><td>80872<br>ÄR¤É¯à·½¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>39.40</td><td align='center'>114/09/08</td><td align='right'>0</td></tr>
++<tr><td>8091<br>µ¾¦W</td><td>80914<br>µ¾¦W¥|</td><td align='right'>0</td><td align='right'>627</td><td align='right'>124.90</td><td align='center'>115/06/22</td><td align='right'>501,988</td></tr>
++<tr><td>8092<br>«ØİÂ</td><td>80924<br>«ØİÂ¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>14.50</td><td align='center'>113/03/11</td><td align='right'>0</td></tr>
++<tr><td>8096<br>Àº¨È</td><td>80962<br>Àº¨È¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>157.30</td><td align='center'>115/09/15</td><td align='right'>0</td></tr>
++<tr><td>8096<br>Àº¨È</td><td>80963<br>Àº¨È¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>154.30</td><td align='center'>115/09/15</td><td align='right'>0</td></tr>
++<tr><td>8104<br>ëäÄ_</td><td>81042<br>ëäÄ_¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>69.98</td><td align='center'>114/10/09</td><td align='right'>0</td></tr>
++<tr><td>8111<br>¥ßùÖ</td><td>81114<br>¥ßùÖ¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>74.40</td><td align='center'>115/06/17</td><td align='right'>0</td></tr>
++<tr><td>8112<br>¦Ü¤W</td><td>811210<br>¦Ü¤W¤Q</td><td align='right'>0</td><td align='right'>0</td><td align='right'>69.50</td><td align='center'>115/07/29</td><td align='right'>0</td></tr>
++<tr><td>8112<br>¦Ü¤W</td><td>811211<br>¦Ü¤W11</td><td align='right'>0</td><td align='right'>0</td><td align='right'>90.10</td><td align='center'>115/07/29</td><td align='right'>0</td></tr>
++<tr><td>8147<br>¥¿Õæ</td><td>81473<br>¥¿Õæ¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>129.40</td><td align='center'>115/07/16</td><td align='right'>0</td></tr>
++<tr><td>8155<br>³Õ´¼</td><td>81551<br>³Õ´¼¤@</td><td align='right'>0</td><td align='right'>106</td><td align='right'>120.00</td><td align='center'>115/07/14</td><td align='right'>88,329</td></tr>
++<tr><td>8155<br>³Õ´¼</td><td>81552<br>³Õ´¼¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>338.00</td><td align='center'>115/08/03</td><td align='right'>0</td></tr>
++<tr><td>8155<br>³Õ´¼</td><td>81553<br>³Õ´¼¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>318.00</td><td align='center'>115/08/13</td><td align='right'>0</td></tr>
++<tr><td>8171<br>¤Ñ¦t</td><td>81714<br>¤Ñ¦t¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>30.50</td><td align='center'>114/05/23</td><td align='right'>0</td></tr>
++<tr><td>8171<br>¤Ñ¦t</td><td>81715<br>¤Ñ¦t¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>32.40</td><td align='center'>114/05/23</td><td align='right'>0</td></tr>
++<tr><td>8210<br>¶Ô¸Û</td><td>82102<br>¶Ô¸Û¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>997.30</td><td align='center'>115/07/01</td><td align='right'>0</td></tr>
++<tr><td>8210<br>¶Ô¸Û</td><td>82103<br>¶Ô¸Û¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>975.60</td><td align='center'>115/07/01</td><td align='right'>0</td></tr>
++<tr><td>8222<br>Ä_¤@</td><td>82221<br>Ä_¤@¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>42.30</td><td align='center'>115/09/10</td><td align='right'>0</td></tr>
++<tr><td>8271<br>¦tÂ¤</td><td>82711<br>¦tÂ¤¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>161.40</td><td align='center'>115/07/07</td><td align='right'>0</td></tr>
++<tr><td>8299<br>¸sÁp</td><td>82993<br>¸sÁp¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>2,468.80</td><td align='center'>115/07/06</td><td align='right'>0</td></tr>
++<tr><td>8374<br>Ã¹ª@</td><td>83742<br>Ã¹ª@¤G</td><td align='right'>0</td><td align='right'>442</td><td align='right'>132.20</td><td align='center'>115/07/15</td><td align='right'>334,341</td></tr>
++<tr><td>8404<br>¦Ê©M¿³·~-KY</td><td>84041<br>¦Ê©M¿³·~¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>26.00</td><td align='center'>115/08/10</td><td align='right'>0</td></tr>
++<tr><td>8411<br>ºÖ­s-KY</td><td>84113<br>ºÖ­s¤TKY</td><td align='right'>0</td><td align='right'>361</td><td align='right'>13.20</td><td align='center'>115/07/28</td><td align='right'>2,734,848</td></tr>
++<tr><td>8422<br>¥i¹ç½Ã*</td><td>84221<br>¥i¹ç½Ã¤@</td><td align='right'>0</td><td align='right'>10</td><td align='right'>14.00</td><td align='center'>115/07/05</td><td align='right'>71,428</td></tr>
++<tr><td>8422<br>¥i¹ç½Ã*</td><td>84222<br>¥i¹ç½Ã¤G</td><td align='right'>0</td><td align='right'>31</td><td align='right'>18.20</td><td align='center'>115/07/05</td><td align='right'>170,329</td></tr>
++<tr><td>8431<br>¶×Æp¬ì</td><td>84312<br>¶×Æp¬ì¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>68.00</td><td align='center'>115/01/05</td><td align='right'>0</td></tr>
++<tr><td>8433<br>¥°¦|</td><td>84332<br>¥°¦|¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>87.50</td><td align='center'>115/04/24</td><td align='right'>0</td></tr>
++<tr><td>8433<br>¥°¦|</td><td>84333<br>¥°¦|¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>91.10</td><td align='center'>115/04/24</td><td align='right'>0</td></tr>
++<tr><td>8438<br>Îë©ı</td><td>84381<br>Îë©ı¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>90.80</td><td align='center'>115/08/05</td><td align='right'>0</td></tr>
++<tr><td>8442<br>«Â§»-KY</td><td>84422<br>«Â§»¤GKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>68.90</td><td align='center'>115/09/01</td><td align='right'>0</td></tr>
++<tr><td>8442<br>«Â§»-KY</td><td>84423<br>«Â§»¤TKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>39.60</td><td align='center'>115/09/01</td><td align='right'>0</td></tr>
++<tr><td>8442<br>«Â§»-KY</td><td>84424<br>«Â§»¥|KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>48.00</td><td align='center'>115/09/30</td><td align='right'>0</td></tr>
++<tr><td>8462<br>¬f¤å</td><td>84624<br>¬f¤å¥|</td><td align='right'>0</td><td align='right'>0</td><td align='right'>144.30</td><td align='center'>115/06/27</td><td align='right'>0</td></tr>
++<tr><td>8467<br>ªi¤O-KY</td><td>84672<br>ªi¤O¤GKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>183.60</td><td align='center'>115/08/08</td><td align='right'>0</td></tr>
++<tr><td>8467<br>ªi¤O-KY</td><td>84673<br>ªi¤O¤TKY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>223.90</td><td align='center'>115/08/08</td><td align='right'>0</td></tr>
++<tr><td>8473<br>¤sªL¤ô</td><td>84732<br>¤sªL¤ô¤G</td><td align='right'>4</td><td align='right'>1,059</td><td align='right'>30.30</td><td align='center'>115/09/14</td><td align='right'>3,495,013</td></tr>
++<tr><td>8476<br>¥x¹Ò*</td><td>84762<br>¥x¹Ò¤G</td><td align='right'>0</td><td align='right'>1</td><td align='right'>19.50</td><td align='center'>115/07/12</td><td align='right'>5,128</td></tr>
++<tr><td>8478<br>ªF­ô¹C¸¥</td><td>84781<br>ªF­ô¹C¸¥¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>353.70</td><td align='center'>115/08/16</td><td align='right'>0</td></tr>
++<tr><td>8488<br>¦N·½-KY</td><td>84881<br>¦N·½¤@KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>18.40</td><td align='center'>113/01/15</td><td align='right'>0</td></tr>
++<tr><td>8489<br>¤T¨©¼w</td><td>84891<br>¤T¨©¼w¤@</td><td align='right'>0</td><td align='right'>0</td><td align='right'>27.90</td><td align='center'>114/12/17</td><td align='right'>0</td></tr>
++<tr><td>8927<br>¥_°ò</td><td>89277<br>¥_°ò¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>50.01</td><td align='center'>115/08/16</td><td align='right'>0</td></tr>
++<tr><td>8927<br>¥_°ò</td><td>89278<br>¥_°ò¤K</td><td align='right'>0</td><td align='right'>0</td><td align='right'>46.67</td><td align='center'>115/08/16</td><td align='right'>0</td></tr>
++<tr><td>8936<br>°ê²Î</td><td>89365<br>°ê²Î¤­</td><td align='right'>0</td><td align='right'>0</td><td align='right'>55.00</td><td align='center'>115/08/17</td><td align='right'>0</td></tr>
++<tr><td>8936<br>°ê²Î</td><td>89366<br>°ê²Î¤»</td><td align='right'>0</td><td align='right'>0</td><td align='right'>53.80</td><td align='center'>115/08/28</td><td align='right'>0</td></tr>
++<tr><td>9802<br>à±»ô-KY</td><td>98026<br>à±»ô¤»KY</td><td align='right'>0</td><td align='right'>0</td><td align='right'>99.60</td><td align='center'>115/09/17</td><td align='right'>0</td></tr>
++<tr><td>9906<br>ªY¤Ú¤Ú</td><td>99063<br>ªY¤Ú¤Ú¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>100.70</td><td align='center'>115/09/16</td><td align='right'>0</td></tr>
++<tr><td>9933<br>¤¤¹©</td><td>99332<br>¤¤¹©¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>43.60</td><td align='center'>115/09/14</td><td align='right'>0</td></tr>
++<tr><td>9935<br>¼yÂ×´I</td><td>99353<br>¼yÂ×´I¤T</td><td align='right'>0</td><td align='right'>0</td><td align='right'>30.20</td><td align='center'>115/07/12</td><td align='right'>0</td></tr>
++<tr><td>9939<br>§»¥ş</td><td>99392<br>§»¥ş¤G</td><td align='right'>0</td><td align='right'>0</td><td align='right'>153.70</td><td align='center'>115/07/08</td><td align='right'>0</td></tr>
++<tr><td>9941<br>¸Î¿Ä</td><td>99412<br>¸Î¿Ä¤G</td><td align='right'>51</td><td align='right'>0</td><td align='right'>166.80</td><td align='center'>115/09/07</td><td align='right'>0</td></tr>
++<tr><td>9958<br>¥@¬ö¿û</td><td>99587<br>¥@¬ö¿û¤C</td><td align='right'>0</td><td align='right'>0</td><td align='right'>230.50</td><td align='center'>115/09/11</td><td align='right'>0</td></tr>
++<tr><td>9958<br>¥@¬ö¿û</td><td>99588<br>¥@¬ö¿û¤K¥Ã</td><td align='right'>0</td><td align='right'>0</td><td align='right'>221.90</td><td align='center'>115/09/11</td><td align='right'>0</td></tr>
++</table>
++<p>&nbsp;<p>
++<h2 align='center'><font color='blue'>¥æ´«¤½¥q¶Å¥æ´«ÅÜ°Ê±¡§Î¤@Äıªí</font></h2>
++<b>¸ê®Æ¦~¤ë¡G</b>115¦~9¤ë<br>
++<table border='1'>
++<tr><th>¤½¥q¥N¸¹<br>¦WºÙ</th><th>ÃÒ¨é¥N¸¹<br>Â²ºÙ</th><th>¥»¤ë¶R¦^±i¼Æ</th><th>¥»¤ëÂà´«±i¼Æ</th><th>Âà(¥æ)´«©Î»{ªÑ»ù®æ(¤¸)</th><th>­«³]¤é´Á</th><th>¶Å¨éÂà(¥æ)´«©Î»{ÁÊ´¶³qªÑ</th></tr>
++<tr><td>1402<br>»·ªF·s</td><td>140201<br>»·ªF·sE1¥Ã</td><td align='right'>0</td><td align='right'>0</td><td align='right'>40.20</td><td align='center'>115/07/22</td><td align='right'>0</td></tr>
++<tr><td>1402<br>»·ªF·s</td><td>140202<br>»·ªF·sE2¥Ã</td><td align='right'>0</td><td align='right'>0</td><td align='right'>30.00</td><td align='center'>115/07/07</td><td align='right'>0</td></tr>
++</table>
++<p>&nbsp;<p>
++<h2 align='center'><font color='blue'>¶Å¨é´«ªÑÅv§QÃÒ®ÑÂà´«ÅÜ°Ê±¡§Î¤@Äıªí</font></h2>
++<b>¸ê®Æ¦~¤ë¡G</b>115¦~9¤ë<br>
++<br><h4 align='center'><font color='red'>¬dµL²Å¦X±ø¥ó¤§¸ê®Æ</font></h4>
++<p>&nbsp;<p>
++<h2 align='center'><font color='blue'>ªş»{ªÑÅv¤½¥q¶Å»{ÁÊ´«ÅÜ°Ê±¡§Î¤@Äıªí</font></h2>
++<b>¸ê®Æ¦~¤ë¡G</b>115¦~9¤ë<br>
++<br><h4 align='center'><font color='red'>¬dµL²Å¦X±ø¥ó¤§¸ê®Æ</font></h4>
++<p>&nbsp;<p>
++</center></body></html>
+diff --git a/tests/fixtures/tpex_bond_ISSBD5_2026-10-26.json b/tests/fixtures/tpex_bond_ISSBD5_2026-10-26.json
+new file mode 100644
+index 0000000..5f48f36
+--- /dev/null
++++ b/tests/fixtures/tpex_bond_ISSBD5_2026-10-26.json
+@@ -0,0 +1 @@
++[{"Date": "20261026", "IssuerCode": "8299", "IssuerName": "ç¾¤è¯", "BondCode": "82993", "BondType": "5", "SeriesNumber": "3", "TrancheNumber": "", "IssueDate": "20260206", "MaturityDate": "20310206", "IssueAmount": "6000000000", "OutstandingAmount": "6000000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "1", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç¾¤è¯ä¸‰", "ListingDate": "20260206", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "2", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20290206", "PutOptionPrice": "100.0000", "Underwriter": "å‡±åŸºè­‰åˆ¸è‚¡ä»½æœ‰é™å…¬å¸", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "1", "OfferingMethod": "7", "Conversion/ExchangePriceAtIssuance": "2488.0000", "Conversion/ExchangePeriodStartDate": "20260507", "Conversion/ExchangePeriodEndDate": "20310206", "Trustee": "æ°¸è±å•†æ¥­éŠ€è¡Œè‚¡ä»½æœ‰é™å…¬å¸"}, {"Date": "20261026", "IssuerCode": "00009815", "IssuerName": "å²å¦è³½è–¾", "BondCode": "", "BondType": "5", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260309", "MaturityDate": "20360308", "IssueAmount": "2000000", "OutstandingAmount": "1500000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "1", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "å²å¦ç§å‚µä¸€", "ListingDate": "", "TenorYear": "10", "TenorMonth": "0", "ListingStatus": "5", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "ç„¡", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "8", "Conversion/ExchangePriceAtIssuance": "0.0000", "Conversion/ExchangePeriodStartDate": "20260309", "Conversion/ExchangePeriodEndDate": "20360308", "Trustee": "ç„¡"}]
+\ No newline at end of file
+diff --git a/tests/fixtures/tpex_bond_ISSBD6_2026-10-26.json b/tests/fixtures/tpex_bond_ISSBD6_2026-10-26.json
+new file mode 100644
+index 0000000..ac0817b
+--- /dev/null
++++ b/tests/fixtures/tpex_bond_ISSBD6_2026-10-26.json
+@@ -0,0 +1 @@
++[{"Date": "20261026", "IssuerCode": "1101", "IssuerName": "å°æ³¥", "BondCode": "XS2708323857", "BondType": "6", "SeriesNumber": "112", "TrancheNumber": "1", "IssueDate": "20231024", "MaturityDate": "20281024", "IssueAmount": "420000000", "OutstandingAmount": "420000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "TWCCB28", "ListingDate": "20231025", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20261024", "PutOptionPrice": "108.2200", "Underwriter": "023TèŠ±æ——è­‰åˆ¸", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "37.2700", "Conversion/ExchangePeriodStartDate": "20240125", "Conversion/ExchangePeriodEndDate": "20281014", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "1101", "IssuerName": "å°æ³¥", "BondCode": "XS2973002707", "BondType": "6", "SeriesNumber": "113", "TrancheNumber": "1", "IssueDate": "20250328", "MaturityDate": "20300328", "IssueAmount": "350000000", "OutstandingAmount": "350000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "TWCCB30", "ListingDate": "20250401", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20280328", "PutOptionPrice": "105.7600", "Underwriter": "1470å°ç£æ‘©æ ¹å£«ä¸¹åˆ©è­‰åˆ¸", "OutstandingChangeDate": "20250328", "OutstandingChangeDescription": "æ–°ç™¼è¡Œ", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "38.8000", "Conversion/ExchangePeriodStartDate": "20250629", "Conversion/ExchangePeriodEndDate": "20300318", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2303", "IssuerName": "è¯é›»", "BondCode": "XS3515578006", "BondType": "6", "SeriesNumber": "11", "TrancheNumber": "A", "IssueDate": "20261013", "MaturityDate": "20311013", "IssueAmount": "900000000", "OutstandingAmount": "900000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20261014", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20271013", "PutOptionPrice": "99.7500", "Underwriter": "Morgan Stanley Asia Limited, Citigroup Global Markets Limited, The HSBC", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "202.0600", "Conversion/ExchangePeriodStartDate": "20270114", "Conversion/ExchangePeriodEndDate": "20311003", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2303", "IssuerName": "è¯é›»", "BondCode": "XS3515562695", "BondType": "6", "SeriesNumber": "11", "TrancheNumber": "B", "IssueDate": "20261013", "MaturityDate": "20280413", "IssueAmount": "900000000", "OutstandingAmount": "900000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20261014", "TenorYear": "1", "TenorMonth": "6", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "Morgan Stanley Asia Limited, Citigroup Global Markets Limited, The HSBC", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "179.1900", "Conversion/ExchangePeriodStartDate": "20270114", "Conversion/ExchangePeriodEndDate": "20280403", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2317", "IssuerName": "é´»æµ·", "BondCode": "XS2886113278", "BondType": "6", "SeriesNumber": "113-1", "TrancheNumber": "", "IssueDate": "20241024", "MaturityDate": "20291024", "IssueAmount": "700000000", "OutstandingAmount": "700000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20241025", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "Citigroup Global Markets LTD.ã€Goldman Sachs (Asia) L.L.C.ã€HSBC LTD.ã€UBS AG HK", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "300.0000", "Conversion/ExchangePeriodStartDate": "20250125", "Conversion/ExchangePeriodEndDate": "20290924", "Trustee": "The Hongkong and Shanghai Banking Corporation Limi"}, {"Date": "20261026", "IssuerCode": "2344", "IssuerName": "è¯é‚¦é›»", "BondCode": "XS3322329080", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260331", "MaturityDate": "20270331", "IssueAmount": "750000000", "OutstandingAmount": "0", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "NA", "ListingDate": "20260401", "TenorYear": "1", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "Citigroup Global Markets Limited, UBS AG Hong Kong Branch", "OutstandingChangeDate": "20260803", "OutstandingChangeDescription": "æœ¬å…¬å¸æµ·å¤–ç¬¬å››æ¬¡ç„¡æ“”ä¿è½‰æ›å…¬å¸å‚µå·²å…¨æ•¸è½‰æ›", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "109.4500", "Conversion/ExchangePeriodStartDate": "20260701", "Conversion/ExchangePeriodEndDate": "20270321", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2357", "IssuerName": "è¯ç¢©", "BondCode": "XS3501273059", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "2", "IssueDate": "20260917", "MaturityDate": "20310917", "IssueAmount": "1500000000", "OutstandingAmount": "1500000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260918", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20280917", "PutOptionPrice": "103.4400", "Underwriter": "Citigroup Global Markets Limited and Morgan Stanley Asia Limited", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "1384.6000", "Conversion/ExchangePeriodStartDate": "20261218", "Conversion/ExchangePeriodEndDate": "20310907", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2376", "IssuerName": "æŠ€å˜‰", "BondCode": "XS2653508528", "BondType": "6", "SeriesNumber": "112", "TrancheNumber": "1", "IssueDate": "20230727", "MaturityDate": "20280727", "IssueAmount": "300000000", "OutstandingAmount": "300000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20230727", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20260727", "PutOptionPrice": "103.0300", "Underwriter": "UBS AG Hong Kong Branch", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "375.0000", "Conversion/ExchangePeriodStartDate": "20231028", "Conversion/ExchangePeriodEndDate": "20280717", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2376", "IssuerName": "æŠ€å˜‰", "BondCode": "XS2854876179", "BondType": "6", "SeriesNumber": "113", "TrancheNumber": "1", "IssueDate": "20240723", "MaturityDate": "20290723", "IssueAmount": "300000000", "OutstandingAmount": "300000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20240723", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20270723", "PutOptionPrice": "102.6539", "Underwriter": "UBS AG Hong Kong Branch", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "358.8700", "Conversion/ExchangePeriodStartDate": "20241024", "Conversion/ExchangePeriodEndDate": "20290713", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2376", "IssuerName": "æŠ€å˜‰", "BondCode": "XS3253754934", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260526", "MaturityDate": "20310526", "IssueAmount": "500000000", "OutstandingAmount": "500000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260526", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20280526", "PutOptionPrice": "104.5800", "Underwriter": "UBS AG Hong Kong Branch", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "371.8100", "Conversion/ExchangePeriodStartDate": "20260817", "Conversion/ExchangePeriodEndDate": "20310516", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2382", "IssuerName": "å»£é”", "BondCode": "XS2894149595", "BondType": "6", "SeriesNumber": "113", "TrancheNumber": "1", "IssueDate": "20240916", "MaturityDate": "20290916", "IssueAmount": "1000000000", "OutstandingAmount": "1000000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ECB4", "ListingDate": "20240916", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "Citigroup Global Markets Limited", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "356.2500", "Conversion/ExchangePeriodStartDate": "20241217", "Conversion/ExchangePeriodEndDate": "20290906", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2382", "IssuerName": "å»£é”", "BondCode": "XS3184844226", "BondType": "6", "SeriesNumber": "114", "TrancheNumber": "1", "IssueDate": "20251002", "MaturityDate": "20301002", "IssueAmount": "1000000000", "OutstandingAmount": "1000000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ECB5", "ListingDate": "20251002", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "Citigroup Global Markets Limited", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "401.1000", "Conversion/ExchangePeriodStartDate": "20260103", "Conversion/ExchangePeriodEndDate": "20300922", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "2454", "IssuerName": "è¯ç™¼ç§‘", "BondCode": "XS3492638237", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260908", "MaturityDate": "20310908", "IssueAmount": "3900000000", "OutstandingAmount": "3900000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260909", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20310908", "PutOptionPrice": "100.0000", "Underwriter": "Morgan Stanley Asia Limited", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "4513.7500", "Conversion/ExchangePeriodStartDate": "20261209", "Conversion/ExchangePeriodEndDate": "20310829", "Trustee": "The Bank of New York Mellon, London Branch &#8206;"}, {"Date": "20261026", "IssuerCode": "3036", "IssuerName": "æ–‡æ›„", "BondCode": "XS3224207657", "BondType": "6", "SeriesNumber": "114", "TrancheNumber": "1", "IssueDate": "20251124", "MaturityDate": "20271124", "IssueAmount": "350000000", "OutstandingAmount": "350000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20251125", "TenorYear": "2", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "Citigroup Global Markets Limited", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "181.7000", "Conversion/ExchangePeriodStartDate": "20260225", "Conversion/ExchangePeriodEndDate": "20271114", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "3036", "IssuerName": "æ–‡æ›„", "BondCode": "XS3418588524", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260908", "MaturityDate": "20270608", "IssueAmount": "500000000", "OutstandingAmount": "500000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260909", "TenorYear": "0", "TenorMonth": "9", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "Citigroup Global Markets Limited", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "224.5400", "Conversion/ExchangePeriodStartDate": "20261209", "Conversion/ExchangePeriodEndDate": "20270529", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "3231", "IssuerName": "ç·¯å‰µ", "BondCode": "XS3202703834", "BondType": "6", "SeriesNumber": "114", "TrancheNumber": "1", "IssueDate": "20251023", "MaturityDate": "20301023", "IssueAmount": "1200000000", "OutstandingAmount": "1200000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20251023", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20281023", "PutOptionPrice": "99.2500", "Underwriter": "Citigroup Global Markets Limited, UBS AG Hong Kong Branch", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "179.9600", "Conversion/ExchangePeriodStartDate": "20260124", "Conversion/ExchangePeriodEndDate": "20301013", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "3665", "IssuerName": "è²¿è¯-KY", "BondCode": "XS3186680602", "BondType": "6", "SeriesNumber": "114", "TrancheNumber": "1", "IssueDate": "20250922", "MaturityDate": "20300922", "IssueAmount": "300000000", "OutstandingAmount": "300000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20250922", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20280922", "PutOptionPrice": "106.1500", "Underwriter": "Citigroup Global Markets Limited, UBS AG Hong Kong Branch, DBS Bank Ltd.", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "1423.5000", "Conversion/ExchangePeriodStartDate": "20251223", "Conversion/ExchangePeriodEndDate": "20300912", "Trustee": "The Bank of New York Mellon"}, {"Date": "20261026", "IssuerCode": "3665", "IssuerName": "è²¿è¯-KY", "BondCode": "XS3444080413", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260813", "MaturityDate": "20310813", "IssueAmount": "500000000", "OutstandingAmount": "500000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260813", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20290813", "PutOptionPrice": "100.0000", "Underwriter": "Citigroup Global Markets Limited, J.P. Morgan Securities plc, UBS AG Hong Kong B", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "3249.0700", "Conversion/ExchangePeriodStartDate": "20261114", "Conversion/ExchangePeriodEndDate": "20310803", "Trustee": "The Bank of New York Mellon"}, {"Date": "20261026", "IssuerCode": "3706", "IssuerName": "ç¥é”", "BondCode": "XS3250338608", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260601", "MaturityDate": "20310601", "IssueAmount": "330000000", "OutstandingAmount": "330000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260603", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20280601", "PutOptionPrice": "105.0900", "Underwriter": "J.P. Morgan Securities plc, UBS AG Hong Kong Branch", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "97.0100", "Conversion/ExchangePeriodStartDate": "20260902", "Conversion/ExchangePeriodEndDate": "20310522", "Trustee": "The Bank of New York Mellon, London Branch"}, {"Date": "20261026", "IssuerCode": "3711", "IssuerName": "æ—¥æœˆå…‰æŠ•æ§", "BondCode": "XS3462009369", "BondType": "6", "SeriesNumber": "115-1", "TrancheNumber": "", "IssueDate": "20260810", "MaturityDate": "20310810", "IssueAmount": "1000000000", "OutstandingAmount": "1000000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260811", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20290810", "PutOptionPrice": "100.0000", "Underwriter": "DBS Bank Ltd., Goldman Sachs International, HSBC Ltd.", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "927.2000", "Conversion/ExchangePeriodStartDate": "20261111", "Conversion/ExchangePeriodEndDate": "20310731", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "4919", "IssuerName": "æ–°å”", "BondCode": "XS2972955608", "BondType": "6", "SeriesNumber": "113", "TrancheNumber": "1", "IssueDate": "20250121", "MaturityDate": "20300121", "IssueAmount": "150000000", "OutstandingAmount": "150000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "æ–°å”æµ·å¤–ä¸€", "ListingDate": "20250121", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20280121", "PutOptionPrice": "104.7400", "Underwriter": "UBS AG Hong Kong Branch", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "118.6800", "Conversion/ExchangePeriodStartDate": "20250422", "Conversion/ExchangePeriodEndDate": "20300111", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "4958", "IssuerName": "è‡»é¼-KY", "BondCode": "XS3170882131", "BondType": "6", "SeriesNumber": "114", "TrancheNumber": "1", "IssueDate": "20250925", "MaturityDate": "20300925", "IssueAmount": "400000000", "OutstandingAmount": "13000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20250925", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20280925", "PutOptionPrice": "105.3700", "Underwriter": "Citigroup Global Markets Limited", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "186.4500", "Conversion/ExchangePeriodStartDate": "20251226", "Conversion/ExchangePeriodEndDate": "20300915", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "4958", "IssuerName": "è‡»é¼-KY", "BondCode": "XS3505161664", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260929", "MaturityDate": "20310929", "IssueAmount": "800000000", "OutstandingAmount": "800000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260929", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20290929", "PutOptionPrice": "100.0000", "Underwriter": "Citigroup Global Markets Limited", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "550.1300", "Conversion/ExchangePeriodStartDate": "20261230", "Conversion/ExchangePeriodEndDate": "20310919", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "5347", "IssuerName": "ä¸–ç•Œ", "BondCode": "XS3275877143", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260204", "MaturityDate": "20310204", "IssueAmount": "350000000", "OutstandingAmount": "350000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "NA", "ListingDate": "20260204", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20290204", "PutOptionPrice": "100.0000", "Underwriter": "Goldman Sachs International, UBS AG Hong Kong Branch", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "189.0000", "Conversion/ExchangePeriodStartDate": "20260505", "Conversion/ExchangePeriodEndDate": "20310105", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "6472", "IssuerName": "ä¿ç‘", "BondCode": "XS2862889529", "BondType": "6", "SeriesNumber": "1", "TrancheNumber": "", "IssueDate": "20240905", "MaturityDate": "20290905", "IssueAmount": "200000000", "OutstandingAmount": "200000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ä¸é©ç”¨", "ListingDate": "20240905", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "", "PutOptionPrice": "0.0000", "Underwriter": "844Tæ‘©æ ¹å¤§é€šè­‰åˆ¸", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "2", "Conversion/ExchangePriceAtIssuance": "964.6000", "Conversion/ExchangePeriodStartDate": "20241205", "Conversion/ExchangePeriodEndDate": "20290826", "Trustee": "The Bank of New York Mellon London Branch"}, {"Date": "20261026", "IssuerCode": "6669", "IssuerName": "ç·¯ç©", "BondCode": "XS2853493117", "BondType": "6", "SeriesNumber": "113", "TrancheNumber": "1", "IssueDate": "20240717", "MaturityDate": "20290717", "IssueAmount": "600000000", "OutstandingAmount": "15600000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20240717", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20270717", "PutOptionPrice": "103.0400", "Underwriter": "023TèŠ±æ——è­‰åˆ¸", "OutstandingChangeDate": "20260930", "OutstandingChangeDescription": "å‚µæ¬Šäººç”³è«‹è½‰æ›æ™®é€šè‚¡", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "3220.6200", "Conversion/ExchangePeriodStartDate": "20241018", "Conversion/ExchangePeriodEndDate": "20290707", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "6669", "IssuerName": "ç·¯ç©", "BondCode": "XS3236970433", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "1", "IssueDate": "20260401", "MaturityDate": "20310401", "IssueAmount": "2000000000", "OutstandingAmount": "1555400000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260401", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20270401", "PutOptionPrice": "0.0000", "Underwriter": "J.P. Morgan Securities plc, Morgan Stanley Services Pty Limited", "OutstandingChangeDate": "20260929", "OutstandingChangeDescription": "å‚µæ¬Šäººç”³è«‹è½‰æ›æ™®é€šè‚¡", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "4286.4000", "Conversion/ExchangePeriodStartDate": "20260702", "Conversion/ExchangePeriodEndDate": "20310322", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "8299", "IssuerName": "ç¾¤è¯", "BondCode": "XS3364922461", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "A", "IssueDate": "20260526", "MaturityDate": "20310526", "IssueAmount": "400000000", "OutstandingAmount": "400000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260528", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20280526", "PutOptionPrice": "99.5000", "Underwriter": "J.P. Morgan Securities plc", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "3418.7500", "Conversion/ExchangePeriodStartDate": "20260827", "Conversion/ExchangePeriodEndDate": "20310516", "Trustee": "Citicorp International Limited"}, {"Date": "20261026", "IssuerCode": "8299", "IssuerName": "ç¾¤è¯", "BondCode": "XS3364929045", "BondType": "6", "SeriesNumber": "115", "TrancheNumber": "B", "IssueDate": "20260526", "MaturityDate": "20310526", "IssueAmount": "400000000", "OutstandingAmount": "400000000", "CouponRate": "0.000000", "InterestBasis": "", "CouponFrequency": "0", "PaidFrequency": "0", "BondRatingAgency": "", "BondRating": "", "IssuerRatingAgency": "", "IssuerRating": "", "GuarantorRatingAgency": "", "GuarantorRating": "", "ListingCountry": "5", "PrincipalRepayment": "1", "PrincipalRepaymentDescription": "", "ShortName": "ç„¡", "ListingDate": "20260528", "TenorYear": "5", "TenorMonth": "0", "ListingStatus": "4", "Guaranteed": "2", "GuaranteeDescription": "", "PutOptionDate": "20290528", "PutOptionPrice": "99.2500", "Underwriter": "J.P. Morgan Securities plc", "OutstandingChangeDate": "", "OutstandingChangeDescription": "", "Currency": "2", "OfferingMethod": "1", "Conversion/ExchangePriceAtIssuance": "3555.5000", "Conversion/ExchangePeriodStartDate": "20260827", "Conversion/ExchangePeriodEndDate": "20310516", "Trustee": "Citicorp International Limited"}]
+\ No newline at end of file
+diff --git a/tests/fixtures/tpex_cbnote_2026-10-26.json b/tests/fixtures/tpex_cbnote_2026-10-26.json
+new file mode 100644
+index 0000000..be5e64c
+--- /dev/null
++++ b/tests/fixtures/tpex_cbnote_2026-10-26.json
+@@ -0,0 +1 @@
++{"tables":[{"title":"è½‰(äº¤)æ›å‚µè½‰æ›æš¨ç´¯è¨ˆå½™ç¸½è¡¨","fields":["è³‡æ–™æ—¥æœŸ","è½‰(äº¤)æ›å‚µè½‰æ›æš¨ç´¯è¨ˆå½™ç¸½è¡¨"],"data":[["115/09","https://mopsov.twse.com.tw/nas/t120/CBTRN202609.htm"],["115/08","https://mopsov.twse.com.tw/nas/t120/CBTRN202608.htm"],["115/07","https://mopsov.twse.com.tw/nas/t120/CBTRN202607.htm"],["115/06","https://mopsov.twse.com.tw/nas/t120/CBTRN202606.htm"],["115/05","https://mopsov.twse.com.tw/nas/t120/CBTRN202605.htm"],["115/04","https://mopsov.twse.com.tw/nas/t120/CBTRN202604.htm"]]}],"stat":"ok"}
+\ No newline at end of file
+diff --git a/tests/test_cb_snapshot.py b/tests/test_cb_snapshot.py
+new file mode 100644
+index 0000000..66c291f
+--- /dev/null
++++ b/tests/test_cb_snapshot.py
+@@ -0,0 +1,60 @@
++import sys
++import unittest
++from pathlib import Path
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
++import sync_cb  # noqa: E402
++
++# 2026-10-26 ç”± GitHub å–å¾—çš„å®˜æ–¹åŸå§‹å›æ‡‰ï¼ˆgate-probe url-probe 40329651034ã€40329998169ï¼‰ï¼š
++# æ«ƒè²· bond_ISSBD5ï¼ˆåªç•™ 2 åˆ—ï¼‰ã€bond_ISSBD6ï¼ˆå…¨éƒ¨ 29 åˆ—ï¼‰ã€cbnote ç´¢å¼•ã€è§€æ¸¬ç«™ CBTRN202609.htmï¼ˆBig5 åŸæª”ï¼‰ã€‚
++F = Path(__file__).resolve().parent / "fixtures"
++DOM = (F / "tpex_bond_ISSBD5_2026-10-26.json").read_bytes()
++OVS = (F / "tpex_bond_ISSBD6_2026-10-26.json").read_bytes()
++IDX = (F / "tpex_cbnote_2026-10-26.json").read_bytes()
++CBTRN = (F / "mops_CBTRN202609.htm").read_bytes()
++
++
++def fake(url, accept):
++    return {sync_cb.REGISTRIES["domestic"]: DOM, sync_cb.REGISTRIES["overseas"]: OVS, sync_cb.INDEX_URL: IDX,
++            "https://mopsov.twse.com.tw/nas/t120/CBTRN202609.htm": CBTRN}[url]
++
++
++class CbSnapshot(unittest.TestCase):
++    def test_real_files(self):
++        out = sync_cb.build(fetcher=fake)
++        self.assertEqual(out["errors"], [])
++        dom = out["registries"]["domestic"]
++        self.assertEqual(dom["source_url"], "https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data")
++        self.assertEqual(len(dom["sha256"]), 64)
++        phison = [r for r in dom["rows"] if r["IssuerCode"] == "8299"]
++        self.assertEqual(len(phison), 1)
++        self.assertEqual(set(phison[0]), set(sync_cb.KEEP))
++        self.assertEqual(sum(r["IssuerCode"] == "8299" for r in out["registries"]["overseas"]["rows"]), 2)
++        m = out["monthly"]
++        self.assertEqual(m["month"], "2026-09")
++        self.assertEqual(m["source_url"], "https://mopsov.twse.com.tw/nas/t120/CBTRN202609.htm")
++        # ç¾¤è¯ä¸‰ï¼šè§€æ¸¬ç«™ 9 æœˆå ±è½‰æ›åƒ¹ 2,468.80ï¼Œ115/07/06 é‡è¨­ï¼ˆèˆ‡ç¶²ç«™ v236 æ¸¬è©¦åŒä¸€ç­†ï¼‰
++        self.assertEqual(m["prices"]["82993"], {"issuer": "8299", "price": 2468.8, "resetDate": "2026-07-06"})
++        self.assertGreater(len(m["prices"]), 300)
++
++    def test_failed_part_keeps_previous_copy_with_its_old_time(self):
++        prev = sync_cb.build(fetcher=fake)
++        prev["registries"]["domestic"]["fetched_at"] = "2026-10-25T01:00:00+00:00"
++
++        def broken(url, accept):
++            if url == sync_cb.REGISTRIES["domestic"]:
++                raise TimeoutError("read timed out")
++            return fake(url, accept)
++        out = sync_cb.build(prev, fetcher=broken)
++        self.assertEqual(out["registries"]["domestic"]["fetched_at"], "2026-10-25T01:00:00+00:00")
++        self.assertEqual(out["errors"][0]["part"], "domestic")
++
++    def test_month_mismatch_and_bad_index_are_rejected(self):
++        with self.assertRaises(ValueError):
++            sync_cb.parse_monthly(CBTRN, "2026-08")
++        with self.assertRaises(ValueError):
++            sync_cb.latest_monthly(b'{"stat":"ok","tables":[{"data":[["115/09","https://evil.example/CBTRN202609.htm"]]}]}')
++
++
++if __name__ == "__main__":
++    unittest.main()
+-- 
+2.43.0
+
