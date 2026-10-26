@@ -1,6 +1,6 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-26 23:30 台北（Claude）
+更新：2026-10-26 23:40 台北（Claude）
 
 ## 現在（2026-10-26 21:25 擁有者授權）：**立刻啟用每日巡檢**
 - 擁有者 21:25「好開啟」：可轉債只顯示、不影響評級／Gate，**不再等②通過**；現在就把「台股整站每日巡檢」改為 is_enabled=true（06:30／22:30 時段不變）。
@@ -37,6 +37,13 @@
 - M1B−M2：快取重讀仍是 ok／snapshot，不變 stale。
 - 大盤持股：開任一檔，決策區顯示「大盤持股建議：65%」與 20 日平均、60 日前、變化分數，及「重建分數 N 天、網站實際記錄 M 天」；`macro-score-daily:v1` 有當天（加權指數日期）一筆。
 - 進場條件：四檔各自的「進場條件」狀態與理由（可進場／避開／觀望／資料不足），短線／趨勢狀態、投信 20 日數字、出現的提示與警示；巡檢 Gate 審計的 `entry`、`holdingTarget`。
+
+## 再下一份（**已授權**：擁有者 2026-10-26 23:18「好」）：出場訊號——**等 C 部署並讀回後才做**
+- Patch：`handoff/patches/v238-exit-signal-20261026.patch`，SHA-256 `0cd967c4e47a54470bab7cbec9cba971bfd4b27c3a19f09ec37eabe7e40c01cd`；基線＝**套完 C 之後**的來源（Claude 的 tag c-patch-head）。不含 dist/server/index.js。
+- 內容：進場卡加「出場訊號」：收盤跌破 20 日線 → 「▼ 出場訊號：若持有，出場」，否則「續抱」（第 34 輪：每筆平均 +1.25%、平均抱 13 天、最差 5% 交易 −9.7%）。20 日線用**還原除權息**的收盤（股票資料新增 `exRightsEvents`：FinMind TaiwanStockDividend 的現金／股票除權息日與金額，近兩年），避免除息當天被誤判成跌破；舊快取沒有這欄時註明「除權息資料未接入」。巡檢 Gate 審計的 `entry` 多記 `exit`。只顯示，不改評級、Gate、風險預算。
+- 測試：新增 `tests/v238-exit.test.mjs` 3 項（含除息 5 元不誤判），併入 `test:v235-hotfix`。Claude 在「乾淨 v237＋C」重放無衝突、完整 `npm test` exit 0；`dist/index.html` SHA-256 `a283ad67ddc372d135fd22beddec10e90552acd3a3fff6876c9e1239cd36e005`。
+- 步驟：C 讀回完成後 → `git apply` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（留上一版回滾）。
+- 讀回（併入 `hotfix3.md` 末尾，5 行內）：四檔的出場訊號狀態與理由（收盤、還原後 20 日線）、是否有「已還原…」或「除權息資料未接入」註記。
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。

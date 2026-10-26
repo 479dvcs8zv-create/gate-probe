@@ -1,0 +1,134 @@
+diff --git a/dist/index.html b/dist/index.html
+index ec7c56b..d822069 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -981,6 +981,7 @@ function renderEntryCondition(host,ec){
+  const row=document.createElement('p');row.textContent=ec.reason||'';box.append(row);
+  const rev=ec.revenue||{},months=(rev.months||[]).map(m=>`${m.period||'缺月'} ${Number.isFinite(m.yoyPct)?(m.yoyPct>=0?'+':'')+m.yoyPct.toFixed(1)+'%':'缺值'}`).join('、');
+  const state=document.createElement('p');state.textContent=`短線強弱（5／10 日）：${ec.shortTerm||'資料不足'}｜趨勢（20 日）：${ec.trend||'資料不足'}｜投信 20 日：${Number.isFinite(ec.chips?.trust20Pct)?ec.chips.trust20Pct.toFixed(2)+'%':'資料不足'}｜借券 20 日增減：${Number.isFinite(ec.chips?.lending20Pct)?ec.chips.lending20Pct.toFixed(2)+'%':'資料不足'}`;box.append(state);
++ if(ec.exitSignal){const ex=ec.exitSignal,row3=document.createElement('p');row3.textContent=`${ex.status==='exit'?'▼ 出場訊號':ex.status==='hold'?'持有中：續抱':'出場訊號：資料不足'}｜${ex.reason||''}${ex.note?`（${ex.note}）`:''}`;box.append(row3);}
+  for(const h of ec.hints||[]){const row2=document.createElement('p');row2.textContent=`${h.kind==='bonus'?'＋ 加分提示':'！ 警示'}：${h.text}`;box.append(row2);}
+  const detail=document.createElement('p');detail.className='tiny';detail.textContent=`技術：${{strong:'強',middle:'中',weak:'弱'}[ec.technical?.level]||'資料不足'}（均線 ${Number.isFinite(ec.technical?.maScore)?ec.technical.maScore:'缺值'}）｜營收年增：${months||'缺值'}。${ec.rule||''}。${ec.backtest||''}。提示與警示不改「可進場／避開／觀望」判斷；不改評級、Gate 或風險預算。`;box.append(detail);
+  host.append(box);
+diff --git a/package.json b/package.json
+index bc04230..59bc073 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v238-exit.test.mjs b/tests/v238-exit.test.mjs
+new file mode 100644
+index 0000000..5573c7b
+--- /dev/null
++++ b/tests/v238-exit.test.mjs
+@@ -0,0 +1,33 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {exitSignal,entryCondition} from '../worker/panel-calculations.mjs';
++
++// 擁有者 2026-10-26 23:18 核准：收盤跌破 20 日線 → 若持有就出場（第 34 輪）。
++const asOf='2026-10-22';
++const history=closes=>closes.map((close,i)=>({date:new Date(Date.parse(asOf)-(closes.length-1-i)*86400000).toISOString().slice(0,10),close,Trading_money:1e8}));
++
++test('收盤在 20 日線上續抱、跌破就出場訊號；資料不足不判斷',()=>{
++  const up=exitSignal({priceHistory:history(Array.from({length:21},(_,i)=>100+i)),exRightsEvents:[]},{asOf});
++  assert.equal(up.status,'hold');assert.equal(up.label,'續抱');
++  const down=exitSignal({priceHistory:history([...Array(20).fill(100),97]),exRightsEvents:[]},{asOf});
++  assert.equal(down.status,'exit');assert.match(down.reason,/跌破 20 日線/);
++  assert.equal(exitSignal({priceHistory:history(Array(20).fill(100)),exRightsEvents:[]},{asOf}).status,'insufficient');
++  assert.equal(exitSignal({priceHistory:history(Array(21).fill(100))},{asOf:'2026-10-23'}).status,'insufficient','基準日沒有收盤');
++});
++
++test('除息當天的價差不算跌破：20 日線用還原除權息的價格',()=>{
++  const h=history([...Array(20).fill(100),95]);
++  // 未還原：20 日平均 99.75，收盤 95 會被當成跌破
++  const naive=exitSignal({priceHistory:h,exRightsEvents:[]},{asOf});
++  assert.equal(naive.status,'exit');
++  const adj=exitSignal({priceHistory:h,exRightsEvents:[{cashDate:asOf,cash:5,stockDate:null,stockBonus:0}]},{asOf});
++  assert.equal(adj.status,'hold','除息 5 元後參考價 95，收盤 95 不算跌破');assert.ok(Math.abs(adj.ma20-95)<1e-9);
++  assert.match(adj.note,/已還原 2026-10-22 現金股利 5 元/);
++  const old=exitSignal({priceHistory:h},{asOf});
++  assert.match(old.note,/除權息資料未接入/);
++});
++
++test('進場卡帶出場訊號；不改可進場／避開／觀望',()=>{
++  const ec=entryCondition({priceHistory:history([...Array(20).fill(100),97]),exRightsEvents:[]},{status:'ok',score:4,averages:[]},{questions:{technical:{result:'pass'}}},{asOf});
++  assert.equal(ec.exitSignal.status,'exit');assert.equal(ec.status,'insufficient','營收資料不足時進場判斷仍是資料不足');
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 23de69c..d286368 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -551,6 +551,10 @@ async function buildTaiwanStockSnapshot(id, env = {}) {
+     revenue: latestRevenue ? { value: Number(latestRevenue.revenue), month: revenueMonth, observed, yoy: previous && Number(previous.revenue) > 0 ? (Number(latestRevenue.revenue) / Number(previous.revenue)-1)*100 : null, mom: (() => { const before = revenueRows.at(-2); return before && Number(before.revenue) > 0 ? (Number(latestRevenue.revenue) / Number(before.revenue)-1)*100 : null; })(), source: 'FinMind: TaiwanStockMonthRevenue' } : null,
+     valuation, epsHistory, forecastEps,
+     financialQuality, marketActivity,
++    // 出場訊號（跌破 20 日線）要還原除權息，否則除息當天的價差會被誤判成跌破；只留近兩年事件。
++    exRightsEvents:dividends.rows.map(x=>({cashDate:/^\d{4}-\d{2}-\d{2}$/.test(x.CashExDividendTradingDate)?x.CashExDividendTradingDate:null,cash:(finiteNumber(x.CashEarningsDistribution)?Number(x.CashEarningsDistribution):0)+(finiteNumber(x.CashStatutorySurplus)?Number(x.CashStatutorySurplus):0),
++      stockDate:/^\d{4}-\d{2}-\d{2}$/.test(x.StockExDividendTradingDate)?x.StockExDividendTradingDate:null,stockBonus:(finiteNumber(x.StockEarningsDistribution)?Number(x.StockEarningsDistribution):0)+(finiteNumber(x.StockStatutorySurplus)?Number(x.StockStatutorySurplus):0)}))
++      .filter(e=>(e.cashDate&&e.cash>0)||(e.stockDate&&e.stockBonus>0)).filter(e=>(e.cashDate||e.stockDate)>=new Date(Date.now()-730*86400000).toISOString().slice(0,10)),
+     priceHistory:priceRows.slice(-800).map(row=>({date:row.date,close:Number(row.close),...(finiteNumber(row.Trading_Volume)?{Trading_Volume:Number(row.Trading_Volume)}:{}),...(finiteNumber(row.Trading_money)?{Trading_money:Number(row.Trading_money)}:{})})),
+     valuationInputs:{issuedShares,shareSource,shareErrors:officialShares.errors,revenueHistory:revenueRows.slice(-24)},
+     panelInputs:{issuer:shareRecord||null,revenueHistory:revenueRows,pbrHistory:per.rows.map(row=>({date:row.date,PBR:row.PBR})),yieldHistory:per.rows.map(row=>({date:row.date,dividend_yield:row.dividend_yield})),pbrRequestedFrom:peSince,epsBasis:'single_quarter',epsBasisSource:'https://finmind.github.io/tutor/TaiwanMarket/Fundamental/'},
+@@ -1486,7 +1490,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+       const written=await writeRuntimeCache(env,key,{runId:run.runId,symbol:row.id,checkedAt:new Date().toISOString(),model},365*86400000);
+       const saved=written?await readRuntimeCache(env,key):null;
+       const recorded=Boolean(written&&saved?.payload?.runId===run.runId&&saved.payload.symbol===row.id);
+-      return {symbol:row.id,status:model.status||'unknown',auditStatus:model.auditStatus||null,recorded,key,gates:(model.gates||[]).map(gate=>({id:gate.id,status:gate.status,dataState:gate.dataState})),entry:model.report?.advisoryPanels?.entryCondition?{status:model.report.advisoryPanels.entryCondition.status,label:model.report.advisoryPanels.entryCondition.label,reason:model.report.advisoryPanels.entryCondition.reason}:null,holdingTarget:model.report?.advisoryDecision?.holding?.target??null};
++      return {symbol:row.id,status:model.status||'unknown',auditStatus:model.auditStatus||null,recorded,key,gates:(model.gates||[]).map(gate=>({id:gate.id,status:gate.status,dataState:gate.dataState})),entry:model.report?.advisoryPanels?.entryCondition?{status:model.report.advisoryPanels.entryCondition.status,label:model.report.advisoryPanels.entryCondition.label,reason:model.report.advisoryPanels.entryCondition.reason,exit:model.report.advisoryPanels.entryCondition.exitSignal?.status||null}:null,holdingTarget:model.report?.advisoryDecision?.holding?.target??null};
+     }catch(error){return {symbol:row.id,status:'error',recorded:false,error:String(error?.message||error).slice(0,240)};}
+     });}catch(error){run.gateAudits[step.index]={symbol:row.id,status:'error',recorded:false,error:String(error?.message||error).slice(0,240)};}
+     run.checkpoint=step.index+1<stockBatch.length?{version:1,stage:'gates',index:step.index+1}:{version:1,stage:'finalize',index:0};return commit();
+diff --git a/worker/panel-calculations.mjs b/worker/panel-calculations.mjs
+index 0266fb2..339435c 100644
+--- a/worker/panel-calculations.mjs
++++ b/worker/panel-calculations.mjs
+@@ -138,8 +138,28 @@ function entryHints(stock,ma,asOf){
+   if(trend==='向下')hints.push({kind:'warning',text:'趨勢向下：收盤在 20 日線下且 20 日線下彎'});
+   return {hints,chips,shortTerm,trend,financial:{cfoToNetIncome:fq.cfoToNetIncome?.value??null,freeCashFlow:fq.freeCashFlow?.value??null}};
+ }
++/** 出場訊號（擁有者 2026-10-26 23:18 核准；第 34 輪回測）：收盤跌破 20 日線 → 若持有就出場。
++ *  20 日線用還原除權息的收盤（除權息日之前的價格乘上 (前一日收盤 − 現金股利)／前一日收盤，股票股利再除以 1＋配股／10）。 */
++export function exitSignal(stock,{asOf}={}){
++  const rule='收盤跌破 20 日線 → 若持有就出場（擁有者 2026-10-26 23:18 核准）';
++  const backtest='第 34 輪：每筆平均 +1.25%（已扣成本）、平均抱 13 天、最差 5% 交易 −9.7%；固定抱 20 天最差 5% 為 −17.6%';
++  const rows=(stock?.priceHistory||[]).filter(r=>day(r.date)&&r.date<=asOf&&Number.isFinite(r.close)&&r.close>0).sort((a,b)=>a.date.localeCompare(b.date));
++  if(rows.length<21||rows.at(-1).date!==asOf)return {status:'insufficient',label:'資料不足',rule,backtest,reason:rows.length<21?`股價 ${rows.length}/21 筆`:'股價日期與基準日不一致'};
++  const w=rows.slice(-21),adj=w.map(r=>r.close),events=Array.isArray(stock?.exRightsEvents)?stock.exRightsEvents:null,applied=[];
++  for(const e of events||[]){
++    for(const [date,kind] of [[e.cashDate,'cash'],[e.stockDate,'stock']]){
++      const k=date?w.findIndex(r=>r.date===date):-1;if(k<1)continue;
++      const f=kind==='cash'?(e.cash>0&&e.cash<w[k-1].close?(w[k-1].close-e.cash)/w[k-1].close:null):(e.stockBonus>0?1/(1+e.stockBonus/10):null);
++      if(!f)continue;for(let i=0;i<k;i++)adj[i]*=f;applied.push({date,kind,amount:kind==='cash'?e.cash:e.stockBonus});
++    }
++  }
++  const ma20=mean(adj.slice(-20)),close=adj.at(-1),below=close<ma20;
++  return {status:below?'exit':'hold',label:below?'出場訊號':'續抱',rule,backtest,asOf,close,ma20,adjustedFor:applied,
++    reason:below?`收盤 ${close.toFixed(2)} 跌破 20 日線 ${ma20.toFixed(2)} → 若持有，出場`:`收盤 ${close.toFixed(2)} 在 20 日線 ${ma20.toFixed(2)} 之上 → 續抱`,
++    note:events===null?'除權息資料未接入（舊快取）；除權息後 20 天內可能誤判':applied.length?`已還原 ${applied.map(a=>`${a.date} ${a.kind==='cash'?'現金股利 '+a.amount+' 元':'配股 '+a.amount+' 元'}`).join('、')}`:null,scoreContribution:0};
++}
+ export function entryCondition(stock,ma,tq,{asOf}={}){
+-  const extra=entryHints(stock,ma,asOf);
++  const extra={...entryHints(stock,ma,asOf),exitSignal:exitSignal(stock,{asOf})};
+   const rule='技術強（三問技術過且均線強弱 ≥ +3）＋近 3 月營收年增率平均 > 10% 才進場；技術不過避開（擁有者 2026-10-26 21:51 核准）';
+   const backtest='第 33 輪：技術強＋營收成長之後 20 日超額 +1.18%（扣一買一賣約 0.585% 後約 +0.6%）；技術不過 60 日內跌 30% 以上機率約 10～11%';
+   const tech=tq?.questions?.technical,score=Number.isFinite(ma?.score)&&ma?.status==='ok'?ma.score:null;
+diff --git a/worker/panel-display.js b/worker/panel-display.js
+index e55716d..15cd994 100644
+--- a/worker/panel-display.js
++++ b/worker/panel-display.js
+@@ -53,6 +53,7 @@ function renderEntryCondition(host,ec){
+  const row=document.createElement('p');row.textContent=ec.reason||'';box.append(row);
+  const rev=ec.revenue||{},months=(rev.months||[]).map(m=>`${m.period||'缺月'} ${Number.isFinite(m.yoyPct)?(m.yoyPct>=0?'+':'')+m.yoyPct.toFixed(1)+'%':'缺值'}`).join('、');
+  const state=document.createElement('p');state.textContent=`短線強弱（5／10 日）：${ec.shortTerm||'資料不足'}｜趨勢（20 日）：${ec.trend||'資料不足'}｜投信 20 日：${Number.isFinite(ec.chips?.trust20Pct)?ec.chips.trust20Pct.toFixed(2)+'%':'資料不足'}｜借券 20 日增減：${Number.isFinite(ec.chips?.lending20Pct)?ec.chips.lending20Pct.toFixed(2)+'%':'資料不足'}`;box.append(state);
++ if(ec.exitSignal){const ex=ec.exitSignal,row3=document.createElement('p');row3.textContent=`${ex.status==='exit'?'▼ 出場訊號':ex.status==='hold'?'持有中：續抱':'出場訊號：資料不足'}｜${ex.reason||''}${ex.note?`（${ex.note}）`:''}`;box.append(row3);}
+  for(const h of ec.hints||[]){const row2=document.createElement('p');row2.textContent=`${h.kind==='bonus'?'＋ 加分提示':'！ 警示'}：${h.text}`;box.append(row2);}
+  const detail=document.createElement('p');detail.className='tiny';detail.textContent=`技術：${{strong:'強',middle:'中',weak:'弱'}[ec.technical?.level]||'資料不足'}（均線 ${Number.isFinite(ec.technical?.maScore)?ec.technical.maScore:'缺值'}）｜營收年增：${months||'缺值'}。${ec.rule||''}。${ec.backtest||''}。提示與警示不改「可進場／避開／觀望」判斷；不改評級、Gate 或風險預算。`;box.append(detail);
+  host.append(box);
