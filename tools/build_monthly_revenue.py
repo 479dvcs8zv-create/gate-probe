@@ -65,7 +65,8 @@ def main(out, y0, y1, minutes):
     finished = set()
     if files_log.exists():
         with open(files_log) as f:
-            finished = {(r["month"], r["market"]) for r in csv.DictReader(f) if r["status"] == "ok"}
+            # 以「月份＋市場＋檔案」記錄完成；國內檔（_0）失敗、國外檔（_1）成功時，下次只補國內檔。
+            finished = {(r["month"], r["market"], r["file"]) for r in csv.DictReader(f) if r["status"] in ("ok", "404")}
     lf = open(files_log, "a", newline="")
     lw = csv.DictWriter(lf, fieldnames=["month", "market", "file", "url", "status", "rows", "sha256", "bytes"])
     if lf.tell() == 0:
@@ -78,12 +79,15 @@ def main(out, y0, y1, minutes):
             if dt.date(y, m, 1) >= today.replace(day=1):
                 continue
             for market in ("sii", "otc"):
-                if (month, market) in finished or time.time() > deadline:
+                if time.time() > deadline:
                     continue
                 roc = y - 1911
                 suffixes = ["_0", "_1"] if y >= 2013 else [""]
                 got_any = False
                 for suf in suffixes:
+                    if (month, market, suf or "-") in finished:
+                        got_any = True
+                        continue
                     url = f"https://mopsov.twse.com.tw/nas/t21/{market}/t21sc03_{roc}_{m}{suf}.html"
                     try:
                         body = fetch(url)
