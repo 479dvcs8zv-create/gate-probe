@@ -1,9 +1,9 @@
 From 557224ea1a02d8fca300975ef8280b46533fd4b3 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Mon, 26 Oct 2026 09:00:37 +0800
-Subject: [PATCH] =?UTF-8?q?keyless=20relay:=20M1B=E2=88=92M2=20from=20the?=
- =?UTF-8?q?=20central=20bank=20page=20cross-checked=20with=20ms.ods;=20sto?=
- =?UTF-8?q?p=20fetching=20the=20blocked=20MOEA=20export-orders=20page?=
+Subject: [PATCH 1/2] =?UTF-8?q?keyless=20relay:=20M1B=E2=88=92M2=20from=20?=
+ =?UTF-8?q?the=20central=20bank=20page=20cross-checked=20with=20ms.ods;=20?=
+ =?UTF-8?q?stop=20fetching=20the=20blocked=20MOEA=20export-orders=20page?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -329,6 +329,84 @@ index 0000000..8bcd3f4
 +
 +if __name__ == "__main__":
 +    unittest.main()
+-- 
+2.43.0
+
+
+From e35ead3ca8bcbf6c40dcc1126e9e2f369576e293 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 26 Oct 2026 09:13:55 +0800
+Subject: [PATCH 2/2] keyless relay: accept the Fed's next-business-day IORB
+ (up to 4 days ahead) instead of marking it stale
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ scripts/sync_keyless.py |  9 ++++++---
+ tests/test_keyless.py   | 15 ++++++++++++++-
+ 2 files changed, 20 insertions(+), 4 deletions(-)
+
+diff --git a/scripts/sync_keyless.py b/scripts/sync_keyless.py
+index eba9ee7..b550370 100644
+--- a/scripts/sync_keyless.py
++++ b/scripts/sync_keyless.py
+@@ -48,10 +48,13 @@ def fred_csv(sid):
+         if sid=='RSAFS' and a['value']<=0:raise ValueError('Invalid retail denominator')
+     return {'history':history[-20:],'source':url,'provider':f'FRED 官方公開 CSV｜{sid}'}
+ 
+-def validate(entry,days):
++# 聯準會每天 16:30（美東）就公布「下一個營業日」的 IORB，FRED 會先列出未來日期（週五可到下週一）；這不是錯誤資料。
++FUTURE_DATED_DAYS={'IORB':4}
++
++def validate(entry,days,sid=None):
+     history=entry['history'];date=history[-1]['date']
+     lag=(datetime.now(timezone.utc).date()-datetime.strptime(date,'%Y-%m-%d').date()).days
+-    if lag<0 or lag>days:raise ValueError(f'Observation outside freshness window: {date}')
++    if lag<-FUTURE_DATED_DAYS.get(sid,0) or lag>days:raise ValueError(f'Observation outside freshness window: {date}')
+     if any(type(p['value']) not in (int,float) or not math.isfinite(p['value']) for p in history):raise ValueError('Invalid numeric history')
+     return entry
+ 
+@@ -645,7 +648,7 @@ def process_tasks(tasks,current,now):
+         try:
+             item=fetcher()
+             if 'history' not in item:item['history']=[{'date':item['date'],'value':item['value']}]
+-            validate(item,days)
++            validate(item,days,sid)
+             prior=current.get(sid)
+             if prior and prior.get('history') and prior['history'][-1]['date']>item['history'][-1]['date']:
+                 raise ValueError('Refuse backward observation')
+diff --git a/tests/test_keyless.py b/tests/test_keyless.py
+index 9f80eca..818eb7a 100644
+--- a/tests/test_keyless.py
++++ b/tests/test_keyless.py
+@@ -4,7 +4,7 @@ from datetime import datetime, timezone
+ from pathlib import Path
+ 
+ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+-from sync_keyless import process_tasks
++from sync_keyless import process_tasks, validate
+ 
+ 
+ class ContinueAfterIndicatorFailureTests(unittest.TestCase):
+@@ -50,5 +50,18 @@ class ContinueAfterIndicatorFailureTests(unittest.TestCase):
+         self.assertIn("upstream timeout", current["STALE_METRIC"]["error"])
+ 
+ 
++class FutureDatedPolicyRateTests(unittest.TestCase):
++    def test_iorb_next_business_day_rate_is_accepted_but_other_series_are_not(self):
++        from datetime import timedelta
++        ahead = (datetime.now(timezone.utc).date() + timedelta(days=3)).isoformat()
++        entry = {"history": [{"date": ahead, "value": 3.9}]}
++        self.assertIs(validate(entry, 7, "IORB"), entry)
++        with self.assertRaises(ValueError):
++            validate(entry, 7, "SOFR")
++        far = (datetime.now(timezone.utc).date() + timedelta(days=6)).isoformat()
++        with self.assertRaises(ValueError):
++            validate({"history": [{"date": far, "value": 3.9}]}, 7, "IORB")
++
++
+ if __name__ == "__main__":
+     unittest.main()
 -- 
 2.43.0
 
