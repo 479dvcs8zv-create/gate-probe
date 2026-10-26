@@ -1,0 +1,52 @@
+name: gate-probe-revenue
+# 個股回測用：公開資訊觀測站每月營收彙總檔（唯讀 GET、間隔 3 秒、可接續）。不使用任何金鑰。
+on:
+  workflow_dispatch:
+    inputs:
+      start_year:
+        description: 起始年
+        required: true
+        default: '2005'
+      end_year:
+        description: 結束年
+        required: true
+        default: '2026'
+      minutes:
+        description: 本次最多執行分鐘數（上限 320）
+        required: true
+        default: '320'
+permissions:
+  contents: write
+concurrency:
+  group: gate-probe-revenue
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect
+        env:
+          Y0: ${{ inputs.start_year }}
+          Y1: ${{ inputs.end_year }}
+          MINUTES: ${{ inputs.minutes }}
+        run: |
+          case "$Y0$Y1$MINUTES" in *[!0-9]*|"") echo "bad input"; exit 1;; esac
+          [ "$MINUTES" -le 320 ] || MINUTES=320
+          python3 -I tools/build_monthly_revenue.py results/backtest-data/revenue "$Y0" "$Y1" "$MINUTES"
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/backtest-data/revenue
+          git commit -m "monthly revenue ${{ inputs.start_year }}..${{ inputs.end_year }} run ${GITHUB_RUN_ID}" || exit 0
+          for n in 1 2 3 4 5 6; do
+            if git pull --rebase -q && git push -q; then exit 0; fi
+            sleep 15
+          done
+          exit 1
