@@ -91,7 +91,8 @@ def main(out, start_year, cache, extra=""):
         if m == 13:
             y, m = y + 1, 1
     usd = {}
-    fred_headers = {"User-Agent": "Mozilla/5.0 (gate-probe research)", "Accept": "text/csv"}
+    # FRED 擋「Mozilla/5.0 …」這類非瀏覽器卻自稱瀏覽器的字串（2026-10-26 實測逾時），用直白的程式名稱。
+    fred_headers = {"User-Agent": "gate-probe-research/1.0 (+https://github.com/479dvcs8zv-create/gate-probe)", "Accept": "text/csv"}
     for sid in FRED_IDS:
         # 先整段要（timeout 90 秒）；不行就每 4 年一段分開要，每段原始回應都存檔。
         spans = [(f"{start_year}-01-01", today.isoformat())]
