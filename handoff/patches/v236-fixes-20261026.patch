@@ -24,7 +24,7 @@ index 1bcece6..c86f894 100644
  
  /* VALUATION_DIVERGENCE_END */
 diff --git a/package.json b/package.json
-index 0a21bf7..6afc2d3 100644
+index 0a21bf7..b5f72a3 100644
 --- a/package.json
 +++ b/package.json
 @@ -23,7 +23,7 @@
@@ -32,7 +32,7 @@ index 0a21bf7..6afc2d3 100644
      "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
      "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
 -    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs"
-+    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs"
    },
    "devDependencies": {
      "drizzle-kit": "0.31.10",
@@ -53,6 +53,76 @@ index a3b0650..74d3e69 100644
 +  const m2=memory(),dead=await collectCbRegistry({read:m2.read,write:m2.write,fetchImpl:async()=>cut,now:Date.parse('2026-10-25T07:00:00Z')});
 +  assert.equal(dead.status,'failed');
 +});
+diff --git a/tests/fixtures/t187ap04-20261026.json b/tests/fixtures/t187ap04-20261026.json
+new file mode 100644
+index 0000000..bbf2d90
+--- /dev/null
++++ b/tests/fixtures/t187ap04-20261026.json
+@@ -0,0 +1,29 @@
++{
++ "note": "t187ap04_L (TWSE) and mopsfin_t187ap04_O (TPEx) first rows, fetched 2026-10-26 01:31Z via gate-probe url-probe run 40254580918; 說明 trimmed to 120 chars.",
++ "twse": [
++  {
++   "Date": "1151025",
++   "發言日期": "1151024",
++   "發言時間": "171717",
++   "SecuritiesCompanyCode": "6279",
++   "CompanyName": "胡連",
++   "主旨": "本公司公告通過義大利子公司Hu Lane Associate Europe S.r.l.,\r\n取得LA PUNTA S.R.L.80%股權之收購案",
++   "符合條款": "第11款",
++   "事實發生日": "1151024",
++   "說明": "1.併購種類(如合併、分割、收購或股份受讓):\r\n收購\r\n2.事實發生日:115/10/24\r\n3.參與併購公司名稱(如合併另一方公司、分割新設公司、收購或受讓股份標的公司之\r\n名稱:\r\nHu Lane Associate Europe S"
++  }
++ ],
++ "tpex": [
++  {
++   "出表日期": "1151026",
++   "發言日期": "1151025",
++   "發言時間": "70004",
++   "公司代號": "6949",
++   "公司名稱": "沛爾生醫*-創",
++   "主旨 ": "公告本公司股票面額由「新台幣10元」變更為「新台幣0.5元」，\r\n公告期間：115年08月06日至115年11月05日。",
++   "符合條款": "第51款",
++   "事實發生日": "1150713",
++   "說明": "1.事實發生日：民國115年07月13日\r\n2.公司名稱：沛爾生技醫藥股份有限公司\r\n3.與公司關係(請輸入本公司或子公司)：本公司\r\n4.相互持股比例：不適用\r\n5.發生緣由：\r\n(1)公司面額變更核准日期/事實發生日：民國115年07月"
++  }
++ ]
++}
+\ No newline at end of file
+diff --git a/tests/fixtures/trendforce-consumer-page-20261026.html b/tests/fixtures/trendforce-consumer-page-20261026.html
+new file mode 100644
+index 0000000..5a9520b
+--- /dev/null
++++ b/tests/fixtures/trendforce-consumer-page-20261026.html
+@@ -0,0 +1,28 @@
++<!-- TrendForce Consumer Electronics press list, fetched 2026-10-26 01:31Z via gate-probe url-probe run 40254580918; press-item blocks copied verbatim, page chrome removed. -->
++<div class="list">
++<h3 class="font-size-18"><a class="title-link" href="/presscenter/news/20261008-13264.html"><strong>Rising Costs Threaten Notebook Demand in 2027, Raising Risks of Shipment Declines and Price Increases, Says TrendForce</strong></a></h3>
++                    <h4 class="font-size-16 color-green margin-t-10"><strong>8 October 2026</strong></h4>
++                    <p class="font-size-16">
++                        TrendForce&#039;s latest notebook industry research reveals that the primary risk facing the market in 2027 is expected to shift from supply constraints to the impact of rising costs on demand. Global notebook shipments are currently projected to decline by a low-single-digit percentage in 2027.
++                    </p>
++<h3 class="font-size-18"><a class="title-link" href="/presscenter/news/20260910-13228.html"><strong>iPhone Duo Expected to Capture Nearly 25% of Foldable Smartphone Market in 2026 as Apple’s First Foldable Drives Supply Chain Upgrades, Says TrendForce</strong></a></h3>
++                    <h4 class="font-size-16 color-green margin-t-10"><strong>10 September 2026</strong></h4>
++                    <p class="font-size-16">
++                        Apple has officially launched its first foldable smartphone, the iPhone Duo. Featuring a book-style inward-folding design, the device comes with a 7.6-inch inner display and a 5.4-inch cover display. TrendForce estimates that iPhone Duo shipments will reach approximately 5 million units in 2026, giving Apple a 24.8% share of the foldable smartphone market and making it the second-largest brand behind Samsung.
++                    </p>
++<h3 class="font-size-18"><a class="title-link" href="/presscenter/news/20260908-13222.html"><strong>Early Purchases Lift 2026 Smartphone Production Above Expectations; Full-Year Forecast Raised to 1.07 Billion Units, Says TrendForce</strong></a></h3>
++                    <h4 class="font-size-16 color-green margin-t-10"><strong>8 September 2026</strong></h4>
++                    <p class="font-size-16">
++                        Global smartphone production reached 275 million units in 2Q26, down 8% YoY, according to TrendForce’s latest smartphone industry research. The decline was narrower than previously forecast, resulting in better-than-expected overall performance.
++                    </p>
++<h3 class="font-size-18"><a class="title-link" href="/presscenter/news/20260904-13217.html"><strong>Improved CPU Supply Narrows 2026 Global Notebook Shipment Decline to 9.4%, but Brands Still Face Heavy Cost Pressure, Says TrendForce</strong></a></h3>
++                    <h4 class="font-size-16 color-green margin-t-10"><strong>4 September 2026</strong></h4>
++                    <p class="font-size-16">
++                        TrendForce’s recent research into the notebook industry shows that CPU supply has markedly improved since 2Q26, enabling brands to gradually normalize their procurement and manufacturing processes. Meanwhile, persistent increases in DRAM and SSD costs have led brands to accelerate their procurement strategies to secure components earlier, resulting in shipment volumes exceeding expectations in the first half of the year. Nonetheless, the ongoing rise in memory prices, along with increased CPU costs, has further amplified cost pressures on notebook brands.
++                    </p>
++<h3 class="font-size-18"><a class="title-link" href="/presscenter/news/20260903-13213.html"><strong>Memory Costs Drive Up iPhone 18 Series BOM; AI and Pricing to Shape Upgrade Demand, Says TrendForce</strong></a></h3>
++                    <h4 class="font-size-16 color-green margin-t-10"><strong>3 September 2026</strong></h4>
++                    <p class="font-size-16">
++                        TrendForce’s latest smartphone industry research indicates that Apple plans to adjust its product launch schedule starting in 2026, splitting new releases between fall and spring. This fall will see the debut of the flagship iPhone 18 Pro and Pro Max, along with the highly anticipated iPhone 18 Fold (tentative name), Apple’s first foldable smartphone. The standard iPhone 18 and other variants are expected to follow in the first quarter of 2027.
++                    </p>
++</div>
 diff --git a/tests/v236-keepalive.test.mjs b/tests/v236-keepalive.test.mjs
 new file mode 100644
 index 0000000..bf469d4
@@ -100,6 +170,95 @@ index 0000000..bf469d4
 +  assert.equal(none.status,'pending','an explicit pending payload with no data stays pending');
 +  assert.equal(m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-26T00:03:10.000Z',refreshing:true,rows}).status,'pending','without a run start time the old rule applies');
 +});
+diff --git a/tests/v236-sources.test.mjs b/tests/v236-sources.test.mjs
+new file mode 100644
+index 0000000..22aec18
+--- /dev/null
++++ b/tests/v236-sources.test.mjs
+@@ -0,0 +1,83 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// 擁有者 2026-10-26 09:30 核准的三項小修：產業研究來源、缺收盤分類、重大訊息官方識別。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\n// v236-sources\nexport {parseSourceFeed,captureAddressableMarketSnapshot,scannerCoverageDetail};').toString('base64'));
++const page=readFileSync(new URL('./fixtures/trendforce-consumer-page-20261026.html',import.meta.url),'utf8');
++const announcements=JSON.parse(readFileSync(new URL('./fixtures/t187ap04-20261026.json',import.meta.url),'utf8'));
++
++test('TrendForce 分類頁：台北時區也解析出正確日期（不再整頁 0 筆），而且請求帶 User-Agent',async()=>{
++  const previousTz=process.env.TZ;
++  process.env.TZ='Asia/Taipei';
++  try{
++    assert.equal(new Date(Date.parse('8 October 2026')).toISOString().slice(0,10),'2026-10-07','前提：舊寫法在台北時區會差一天');
++    const mod=readFileSync(new URL('../worker/source-research.js',import.meta.url),'utf8');
++    const {collectSourceFeed}=new Function('officialImportDate',mod+'\nreturn {collectSourceFeed};')(s=>/^\d{4}-\d{2}-\d{2}$/.test(s));
++    const headers=[];
++    const result=await collectSourceFeed('consumer',{fetchImpl:async(url,init)=>{headers.push(init.headers);return new Response(url.includes('/feed/')?'<rss><channel/></rss>':page);}});
++    assert.equal(result.records.length,5);
++    assert.equal(result.records[0].source_date,'2026-10-08');
++    assert.match(result.records[0].source_url,/\/presscenter\/news\/20261008-13264\.html$/);
++    assert.match(result.records[0].title,/Notebook Demand in 2027/);
++    assert.ok(result.records.every(row=>row.source_url.includes('/'+row.source_date.replaceAll('-','')+'-')));
++    assert.equal(headers.length,2);
++    assert.ok(headers.every(h=>/^Mozilla\/5\.0 \(compatible; TaiwanStockMaster/.test(h['User-Agent'])),'不帶 UA 或 "node" 會被 TrendForce 擋（403）');
++  }finally{
++    if(previousTz===undefined)delete process.env.TZ;else process.env.TZ=previousTz;
++  }
++});
++
++test('重大訊息：官方沒有序號時，用 公司代號＋發言日期＋發言時間 當識別，保存事實發生日與符合條款',()=>{
++  const [twse]=api.parseSourceFeed(JSON.stringify(announcements.twse),'twse');
++  assert.equal(twse.id,'twse:6279:2026-10-24:171717');
++  assert.equal(twse.announcement_time,'171717');
++  assert.deepEqual(twse.official_key,{symbol:'6279',spoke_date:'2026-10-24',spoke_time:'171717',serial:null});
++  assert.equal(twse.fact_date,'2026-10-24');assert.equal(twse.clause,'第11款');
++  assert.match(twse.id_basis,/發言時間/);
++  const [tpex]=api.parseSourceFeed(JSON.stringify(announcements.tpex),'tpex');
++  assert.equal(tpex.id,'tpex:6949:2026-10-25:070004','官方 70004（上午 7:00:04）補成 6 碼');
++  assert.equal(tpex.fact_date,'2026-07-13');assert.equal(tpex.clause,'第51款');
++  // 同一公司同一天兩則：時間不同就是兩筆；標題改字不會變成新的一筆。
++  const second={...announcements.tpex[0],'發言時間':'153000','主旨 ':'另一則公告'};
++  const retitled={...announcements.tpex[0],'主旨 ':'公告本公司股票面額變更（標題修正）'};
++  const rows=api.parseSourceFeed(JSON.stringify([announcements.tpex[0],second,retitled]),'tpex');
++  assert.deepEqual([...new Set(rows.map(r=>r.id))].sort(),['tpex:6949:2026-10-25:070004','tpex:6949:2026-10-25:153000']);
++  // 官方沒給時間才退回標題，並註明依據。
++  const {['發言時間']:_,...noTime}=announcements.tpex[0];
++  const [fallback]=api.parseSourceFeed(JSON.stringify([noTime]),'tpex');
++  assert.equal(fallback.announcement_time,null);assert.equal(fallback.official_key,null);assert.match(fallback.id_basis,/標題/);
++});
++
++const rows=new Map();
++const db={prepare(sql){return {run:async()=>({success:true}),bind(...a){return {run:async()=>{if(sql.includes('INSERT INTO site_runtime_cache'))rows.set(a[0],{cache_key:a[0],payload:a[1],updated_at:a[2],expires_at:a[3]});return {success:true};},all:async()=>({results:sql.includes('LIKE')?[...rows.values()].filter(r=>r.cache_key?.startsWith(a[0].replace('%',''))):rows.has(a[0])?[rows.get(a[0])]:[]})};}};}};
++
++test('全市場快照：缺收盤分三類列出（零成交、只有零股成交、未列入行情表），都不補價',async()=>{
++  const now=new Date().toISOString(),today=new Date(Date.now()+8*3600000).toISOString().slice(0,10);
++  const roster={asOf:today,rows:Array.from({length:1000},(_,i)=>({id:String(1000+i),name:'股'+i,market:i<500?'twse':'tpex',industry:i<500?'A':'B'}))};
++  rows.set('market-official-universe:v1',{cache_key:'market-official-universe:v1',payload:JSON.stringify(roster),updated_at:now,expires_at:new Date(Date.now()+3600000).toISOString()});
++  const notListed=new Set(['1002','1003','1500']);
++  const previous=globalThis.fetch;
++  globalThis.fetch=async input=>{
++    const tpex=new URL(input).hostname==='www.tpex.org.tw';
++    const data=roster.rows.filter(r=>r.market===(tpex?'tpex':'twse')&&!notListed.has(r.id)).map(r=>{
++      if(r.id==='1000')return [r.id,'--','0.00','','0','0']; // 零成交
++      if(r.id==='1001')return [r.id,'--','0.00','','120','6000']; // 只有零股成交
++      if(r.id==='1501')return [r.id,'----','0','0','0'];
++      return tpex?[r.id,'20','1','100','2000']:[r.id,'20','1','+','100','2000'];
++    });
++    return Response.json({stat:'OK',date:today.replaceAll('-',''),tables:[{fields:tpex?['代號','收盤 ','漲跌','成交股數  ',' 成交金額(元)']:['證券代號','收盤價','漲跌價差','漲跌(+/-)','成交股數','成交金額'],data}]});
++  };
++  try{
++    const result=await api.captureAddressableMarketSnapshot({DB:db});
++    assert.equal(result.captured.total,994);
++    assert.deepEqual({...result.missingBreakdown,note:undefined},{noTrade:2,volumeOnly:1,notQuoted:3,total:6,note:undefined});
++    assert.deepEqual(result.notQuoted.map(r=>r.id),['1002','1003','1500']);
++    assert.ok(result.notQuoted.every(r=>r.state==='official_not_quoted'));
++    const saved=JSON.parse(rows.get('market-scanner-snapshot:v1:'+today).payload);
++    assert.equal(saved.notQuotedRows.length,3);assert.ok(saved.notQuotedRows.every(r=>r.close===null&&!('listingDate' in r)));
++    assert.equal(saved.counts.total+saved.missingBreakdown.total,saved.universe.total,'名冊每一檔都有歸屬');
++    assert.match(api.scannerCoverageDetail(result),/當日無收盤價 6 檔，皆為官方狀態、不補價：零成交 2、只有零股成交 1、未列入當日行情表 3/);
++  }finally{globalThis.fetch=previous;}
++});
 diff --git a/tests/valuation-divergence.test.mjs b/tests/valuation-divergence.test.mjs
 index 5290342..1d28eea 100644
 --- a/tests/valuation-divergence.test.mjs
@@ -122,8 +281,40 @@ index 5290342..1d28eea 100644
 +  const w=make();w.financialQuality.cycleValuation.eps.median=150;w.forecastEps.median=174.8;w.epsHistory.ttm=179.0;
 +  const r=api.evaluateValuationDivergence(w,[],today);assert.equal(r.divergent,false);assert.equal(r.divergenceKind,null);assert.doesNotMatch(r.reason,/類型/);
 +});
+diff --git a/worker/data-import.js b/worker/data-import.js
+index b70ded1..ec0faaa 100644
+--- a/worker/data-import.js
++++ b/worker/data-import.js
+@@ -199,10 +199,11 @@ async function captureAddressableMarketSnapshot(env) {
+   const a=twse.tables?.find(table=>table.fields?.includes('證券代號')&&table.fields.includes('成交股數'));
+   const b=tpex.tables?.find(table=>table.fields?.map(x=>x.trim()).includes('代號')&&table.fields.map(x=>x.trim()).includes('成交股數'));
+   if(!a||!b)throw Error('官方行情欄位不符');
+-  const byId=new Map(roster.payload.rows.map(row=>[row.id,row])),rows=[],noTradeRows=[],volumeRows=[];
++  const byId=new Map(roster.payload.rows.map(row=>[row.id,row])),rows=[],noTradeRows=[],volumeRows=[],seen=new Set();
+   for(const [market,table] of [['twse',a],['tpex',b]])for(const values of table.data || []) {
+     const item=Object.fromEntries(table.fields.map((field,i)=>[field.trim(),values[i]])),id=String(item['證券代號']||item['代號']||'').trim(),base=byId.get(id);
+     if(!base||base.market!==market)continue;
++    seen.add(id);
+     const {listingDate,listingSource,...quoteBase}=base;
+     const close=parseScannerNumber(item['收盤價']||item['收盤']),volume=parseScannerNumber(item['成交股數']),amount=parseScannerNumber(item['成交金額']??item['成交金額(元)']),rawChange=parseScannerNumber(item['漲跌價差']??item['漲跌']),change=market==='twse'&&String(item['漲跌(+/-)']).includes('-')?-Math.abs(rawChange):rawChange;
+     if(volume===0&&amount===0){noTradeRows.push({...quoteBase,volume:0,amount:0,close:null,state:'official_no_trade'});continue;}
+@@ -210,9 +211,13 @@ async function captureAddressableMarketSnapshot(env) {
+     rows.push({...quoteBase,close,change,volume,amount});
+   }
+   const counts={twse:rows.filter(row=>row.market==='twse').length,tpex:rows.filter(row=>row.market==='tpex').length,total:rows.length};
++  // 名冊有、當天官方行情表沒有的股票（通常是停止買賣／暫停交易），列出來，不補價。缺收盤＝零成交＋只有零股成交＋未列入行情表。
++  const notQuotedRows=roster.payload.rows.filter(row=>!seen.has(row.id)).map(({listingDate,listingSource,...row})=>({...row,close:null,state:'official_not_quoted'}));
++  const missingBreakdown={noTrade:noTradeRows.length,volumeOnly:volumeRows.length,notQuoted:notQuotedRows.length,total:noTradeRows.length+volumeRows.length+notQuotedRows.length,
++    note:'零成交＝當日成交股數 0；只有量＝只有零股成交、整股無收盤價；未列入＝名冊有、當日行情表沒有（多為停止買賣或暫停交易）。都不補價。'};
+   const universe={twse:roster.payload.rows.filter(row=>row.market==='twse').length,tpex:roster.payload.rows.filter(row=>row.market==='tpex').length,total:roster.payload.rows.length};
+   if(counts.twse/universe.twse<.9||counts.tpex/universe.tpex<.9)throw Error('官方行情覆蓋不足');
+-  const snapshot={date,capturedAt:new Date().toISOString(),universe,counts,rows,noTradeRows,volumeRows,quoteBasis:MARKET_QUOTE_BASIS,sourceUrls:{twse:twseUrl.href,tpex:tpexUrl.href},coveragePercent:rows.length/universe.total*100,industryCoveragePercent:rows.filter(row=>row.industry!=='產業未分類').length/rows.length*100,universeAsOf:roster.payload.asOf};
++  const snapshot={date,capturedAt:new Date().toISOString(),universe,counts,rows,noTradeRows,volumeRows,notQuotedRows,missingBreakdown,quoteBasis:MARKET_QUOTE_BASIS,sourceUrls:{twse:twseUrl.href,tpex:tpexUrl.href},coveragePercent:rows.length/universe.total*100,industryCoveragePercent:rows.filter(row=>row.industry!=='產業未分類').length/rows.length*100,universeAsOf:roster.payload.asOf};
+   if(!await writeRuntimeCache(env,`${MARKET_SCANNER_SNAPSHOT_PREFIX}${date}`,snapshot,365*86400000))throw Error('官方行情寫入失敗');
+   const history=await readMarketScannerSnapshots(env),result=summarizeMarketSnapshotHistory(history,date,roster.payload.rows);result.sourceUrls=snapshot.sourceUrls;
+   if(!await writeRuntimeCache(env,MARKET_SCANNER_LATEST_KEY,result,365*86400000))throw Error('市場摘要寫入失敗');
 diff --git a/worker/macro.js b/worker/macro.js
-index 8ce7526..e3ce8b0 100644
+index 8ce7526..53a8ef1 100644
 --- a/worker/macro.js
 +++ b/worker/macro.js
 @@ -850,7 +850,7 @@ async function masterModelResponse(request, env = {}, ctx = {}) {
@@ -135,7 +326,16 @@ index 8ce7526..e3ce8b0 100644
    const userId = String(request.headers.get('oai-authenticated-user-id') || '').trim();
    let [macro, market, evidence, scanner, automation, pool, expanded, company, sources, crossSnapshot, usSectorSnapshot, gate5bBoundaries] = await Promise.all([readRuntimeCache(env, 'macro:v1'), readRuntimeCache(env, 'macro-market:v7'), userId ? readRuntimeCache(env, `master-gate-evidence:v1:${userId}:${id}`) : null, readRuntimeCache(env, MARKET_SCANNER_LATEST_KEY), readRuntimeCache(env, SITE_AUTO_REFRESH_KEY), readMasterResearchPool(env, userId, id), readRuntimeCache(env,'macro-expanded:v1'),readRuntimeCache(env,`company-evidence:v1:${id}`),readRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`),readCrossMarketSnapshot(env,ctx),readUSSectorSnapshot(env,ctx),readMasterGate5bBoundaries(id)]);
    if (!market?.fresh) { await macroMarketResponse(env, ctx);market=await readRuntimeCache(env,'macro-market:v7')||market; }
-@@ -1245,7 +1245,7 @@ async function siteWatchlistResponse(request, env = {}) {
+@@ -1099,6 +1099,8 @@ function summarizeMarketSnapshotHistory(snapshots, currentDate, issuerRows = [])
+     universe: current?.universe || { twse: 0, tpex: 0, total: 0 },
+     captured: current?.counts || { twse: 0, tpex: 0, total: 0 },
+     coveragePercent: current?.coveragePercent ?? null, industryCoveragePercent: current?.industryCoveragePercent ?? null,
++    missingBreakdown: current?.missingBreakdown || null,
++    notQuoted: (current?.notQuotedRows || []).map(row => ({ id: row.id, name: row.name, market: row.market, state: row.state })),
+     sessions: usable.length, requiredSessionsForMa20: 20, requiredSessionsForMa60: 60,
+     breadth: { advancers: adv, decliners: dec, unchanged: flat, advanceDecline: dec ? adv / dec : null, netAdvances: adv - dec, advancePercent: movement ? adv / movement * 100 : null },
+     sectorBreadth: sectors, totalAmount, quoteBasis: current?.quoteBasis || 'exchange-openapi-v1',
+@@ -1245,7 +1247,7 @@ async function siteWatchlistResponse(request, env = {}) {
    return Response.json({ saved: true, watchlist, updatedAt: new Date().toISOString() }, { headers: jsonHeaders });
  }
  
@@ -144,7 +344,7 @@ index 8ce7526..e3ce8b0 100644
    if(id==='usSectors'){const report=evaluateUSSectorContext(payload);return {status:payload?.pending?'pending':report.status==='OK'?'ok':report.coverage.valid?'partial':'missing',usable:report.coverage.valid,total:11,checkedAt:payload?.generated_at||null,observations:Object.entries(report.sectors).map(([key,row])=>({id:key,name:US_SECTOR_NAMES[key],date:row.observedAt,status:row.status,source:report.sourceUrl})),judgment:[report.summary],error:report.errorCode||payload?.fetchError||null};}
    if(id==='crossMarket'){
      const entries=Object.entries(payload?.markets||{}),usable=entries.filter(([,entry])=>entry.status==='ok'&&entry.history?.length>=21).length;
-@@ -1256,7 +1256,11 @@ function summarizeSiteModule(id, payload) {
+@@ -1256,7 +1258,11 @@ function summarizeSiteModule(id, payload) {
    const dates = rows.map(row => row.date).filter(value => /^\d{4}-\d\d-\d\d$/.test(String(value || ''))).sort();
    const feeds = Array.isArray(payload?.feeds) ? payload.feeds : [];
    const usableFeeds = feeds.filter(feed => Array.isArray(feed.items) && feed.items.length > 0).length;
@@ -157,7 +357,7 @@ index 8ce7526..e3ce8b0 100644
    const total = rows.length || feeds.length;
    const covered = rows.length ? usable : usableFeeds;
    const moduleStatus = stillRunning ? 'pending' : total && covered === total ? 'ok' : covered ? 'partial' : 'missing';
-@@ -1290,10 +1294,11 @@ function summarizeSiteModule(id, payload) {
+@@ -1290,10 +1296,11 @@ function summarizeSiteModule(id, payload) {
      ...(feeds.length ? { feeds: feeds.map(feed => ({ topic: feed.topic, source: feed.source, items: (feed.items || []).map(item => ({ title: item.title, date: item.date, url: item.url })), error: feed.error || null })) } : {}),
      ...(judgment.length ? { judgment: judgment.slice(0, 12) } : {}),
      ...(stillRunning ? { note: '來源仍在背景更新；排程會保留等待狀態。' } : {}),
@@ -170,7 +370,7 @@ index 8ce7526..e3ce8b0 100644
    const readPayload = async () => {
      let timer;
      try {
-@@ -1307,7 +1312,7 @@ async function runSiteModule(id, start) {
+@@ -1307,7 +1314,7 @@ async function runSiteModule(id, start) {
      const { response, payload } = await readPayload();
      // A pending source refresh is recorded as pending and picked up on the
      // next scheduled run. Waiting here lets one slow feed hold the whole job.
@@ -179,7 +379,7 @@ index 8ce7526..e3ce8b0 100644
    } catch (error) {
      return { status: 'error', checkedAt: new Date().toISOString(), error: String(error?.message || error).slice(0, 240) };
    }
-@@ -1405,7 +1410,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+@@ -1405,7 +1412,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
      run.status='updating_market_modules';run.checkpoint={version:1,stage:'modules',index:0};return commit();
    }
    if(step.stage==='modules'){
@@ -188,7 +388,7 @@ index 8ce7526..e3ce8b0 100644
      if(id==='usSectors'&&run.modules[id].status==='pending'){
        run.moduleAttempts={...run.moduleAttempts,[id]:(run.moduleAttempts?.[id]||0)+1};
        if(run.moduleAttempts[id]<30)return commit();
-@@ -1437,7 +1442,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+@@ -1437,7 +1444,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
      try {
        // Preserve the caller's actual identity; service access never creates one.
        const headers=userId?{'oai-authenticated-user-id':userId}:{};
@@ -197,7 +397,7 @@ index 8ce7526..e3ce8b0 100644
        const key=`site-master-audit:v1:${run.runId}:${row.id}`;
        const written=await writeRuntimeCache(env,key,{runId:run.runId,symbol:row.id,checkedAt:new Date().toISOString(),model},365*86400000);
        const saved=written?await readRuntimeCache(env,key):null;
-@@ -1453,7 +1458,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+@@ -1453,7 +1460,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
    if(step.index<modules.length){
      const [id,start]=modules[step.index];
      const readback=id==='crossMarket'?async()=>Response.json(await readCrossMarketSnapshot(env,ctx)):id==='usSectors'?async()=>Response.json(await readUSSectorSnapshot(env,ctx)):start;
@@ -206,6 +406,15 @@ index 8ce7526..e3ce8b0 100644
      const exhausted=id==='usSectors'&&result.status==='pending'&&run.moduleAttempts?.[id]>=30;
      const prior=run.modules[id],failedAttempt=prior?.error&&['error','missing'].includes(prior.status)&&!result.error;
      run.modules[id]={...result,...(failedAttempt?{status:prior.status,error:prior.error,latestReadback:result,sourceAttemptFailed:true}:{}),...(exhausted?{status:'partial',readbackStatus:result.status,error:'板塊分批更新尚未完成；已達本輪重試上限'}:{}),summaryScope:failedAttempt?'final_readback_with_source_failure':'final_readback',readbackAt:new Date().toISOString()};
+@@ -1530,7 +1537,7 @@ function scannerCoverageDetail(scan) {
+   const diffusion = scan.diffusion || {};
+   const incomplete=(scan.sectorBreadth||[]).filter(row=>assessMasterScannerSector(row,scan).state==='missing');
+   const pending=incomplete.map(row=>`${row.industry}完整 RVOL20 覆蓋 ${row.rvolEligible}/${row.total} 檔（${Number(row.rvolCoveragePercent||0).toFixed(2)}%，未達 95%）${finiteNumber(row.matureRvol20)?`；成熟樣本 RVOL ${Number(row.matureRvol20).toFixed(2)}x（${row.rvolEligible}/${row.matureCount} 檔），僅作參考`:''}；${(scan.historyGaps||[]).filter(x=>x.industry===row.industry).map(x=>`${x.id} ${x.name} ${x.observations}/${x.requiredObservations} 筆${x.reason==='new_listing_warmup'?`（${x.listingDate} 掛牌；${x.missingObservations?'另有行情缺口':'新股暖機'}，仍需 ${x.remainingObservations} 筆）`:'（歷史行情待重查）'}`).join('、')}`).join('。');
+-  return `已保存 ${scan.date} 全市場快照 ${scan.captured?.total || 0}/${scan.universe?.total || 0} 檔（上市 ${scan.captured?.twse || 0}/${scan.universe?.twse || 0}、上櫃 ${scan.captured?.tpex || 0}/${scan.universe?.tpex || 0}）；A/D ${breadth.advancers ?? 0}/${breadth.decliners ?? 0}，類股有效 ${scan.sectorBreadth?.length || 0} 組；累積 ${scan.sessions || 0}/60 個交易日，MA20 ${diffusion.ma20Eligible || 0} 檔、RVOL20 ${diffusion.rvolEligible || 0} 檔、MA60 ${diffusion.ma60Eligible || 0} 檔、C2 初篩 ${scan.candidates?.length || 0} 檔。${errors.length ? `資料源備援／分類狀態：${errors.join('；')}。` : ''}${pending?`成熟股票仍有缺口：${pending}。`:''}${verifiedScannerWarmups(scan).length?`已核實新掛牌 ${verifiedScannerWarmups(scan).length} 檔另列暖機，不混入成熟母體；其個股 RVOL 不計算。`:''}${(scan.priceHistoryGaps||[]).some(row=>row.reason==='official_no_trade')?`另有 ${(scan.priceHistoryGaps||[]).filter(row=>row.reason==='official_no_trade').length} 檔因官方零成交日缺收盤價；成交量與均線樣本分開核對。`:''}歷史筆數不足的股票不計入對應指標；候選仍待融資、法人、價格效率與 T+1 核實，不代表通過選股 Gate。`;
++  return `已保存 ${scan.date} 全市場快照 ${scan.captured?.total || 0}/${scan.universe?.total || 0} 檔（上市 ${scan.captured?.twse || 0}/${scan.universe?.twse || 0}、上櫃 ${scan.captured?.tpex || 0}/${scan.universe?.tpex || 0}）；A/D ${breadth.advancers ?? 0}/${breadth.decliners ?? 0}，類股有效 ${scan.sectorBreadth?.length || 0} 組；累積 ${scan.sessions || 0}/60 個交易日，MA20 ${diffusion.ma20Eligible || 0} 檔、RVOL20 ${diffusion.rvolEligible || 0} 檔、MA60 ${diffusion.ma60Eligible || 0} 檔、C2 初篩 ${scan.candidates?.length || 0} 檔。${scan.missingBreakdown?.total?`當日無收盤價 ${scan.missingBreakdown.total} 檔，皆為官方狀態、不補價：零成交 ${scan.missingBreakdown.noTrade}、只有零股成交 ${scan.missingBreakdown.volumeOnly}、未列入當日行情表 ${scan.missingBreakdown.notQuoted}（多為停止買賣）。`:''}${errors.length ? `資料源備援／分類狀態：${errors.join('；')}。` : ''}${pending?`成熟股票仍有缺口：${pending}。`:''}${verifiedScannerWarmups(scan).length?`已核實新掛牌 ${verifiedScannerWarmups(scan).length} 檔另列暖機，不混入成熟母體；其個股 RVOL 不計算。`:''}${(scan.priceHistoryGaps||[]).some(row=>row.reason==='official_no_trade')?`另有 ${(scan.priceHistoryGaps||[]).filter(row=>row.reason==='official_no_trade').length} 檔因官方零成交日缺收盤價；成交量與均線樣本分開核對。`:''}歷史筆數不足的股票不計入對應指標；候選仍待融資、法人、價格效率與 T+1 核實，不代表通過選股 Gate。`;
+ }
+ 
+ async function siteAutoRefreshResponse(request, env = {}, ctx = {}) {
 diff --git a/worker/panel-site.js b/worker/panel-site.js
 index 273696c..39a9470 100644
 --- a/worker/panel-site.js
@@ -338,6 +547,47 @@ index 587ddbc..876af80 100644
        const result={...computeMarginMaintenance(prices,await mr.json()),sourceUrls:[TWSE_STOCK_DAY_ALL_URL,url],checkedAt:new Date(now).toISOString()};
        await write(latestKey,result,6*3600000);return result;
      }catch(error){
+diff --git a/worker/source-research.js b/worker/source-research.js
+index abdf54e..6d11d69 100644
+--- a/worker/source-research.js
++++ b/worker/source-research.js
+@@ -38,7 +38,12 @@ function parseSourceFeed(text,key) {
+       const date=sourceDate(row['發言日期']||row['公告日期']||row.DateOfAnnouncement||row.Date||row.AnnouncementDate);
+       const title=sourceText(row['主旨']||row.Subject||row.SubjectOfAnnouncement,200);
+       if(!/^\d{4}$/.test(symbol)||!date||!title)continue;
+-      const record={id:`${key}:${symbol}:${date}:${row['序號']||row.SerialNumber||title}`,symbol,kind:spec.kind,title,source_url:spec.url,source_date:date,provider:spec.name,validation_status:'VERIFIED_SOURCE',summary:sourceText(row['說明']||row.Description||row.Explanation,300)};
++      // 官方開放資料沒有「序號」欄；公開資訊觀測站以 公司代號＋發言日期＋發言時間 辨識同一則重大訊息，用這三欄當原始識別，不用標題自編。
++      const time=String(row['發言時間']||row.TimeOfAnnouncement||'').trim().padStart(6,'0'),officialTime=/^\d{6}$/.test(time)&&time!=='000000'?time:null;
++      const serial=String(row['序號']||row.SerialNumber||'').trim()||null;
++      const record={id:`${key}:${symbol}:${date}:${serial||officialTime||title}`,symbol,kind:spec.kind,title,source_url:spec.url,source_date:date,provider:spec.name,validation_status:'VERIFIED_SOURCE',summary:sourceText(row['說明']||row.Description||row.Explanation,300),
++        announcement_time:officialTime,official_key:officialTime?{symbol,spoke_date:date,spoke_time:officialTime,serial}:null,id_basis:serial?'官方序號':officialTime?'公司代號＋發言日期＋發言時間（官方欄位）':'標題（官方未提供發言時間）',
++        fact_date:sourceDate(row['事實發生日']||row.FactDate)||null,clause:sourceText(row['符合條款']||row.Clause,40)||null};
+       if(validSourceRecord(record,key))records.push(record);
+     }
+   } else {
+@@ -66,8 +71,10 @@ function parseSourceReportPage(text,key){
+   const records=[];
+   const pattern=/<h3\b[^>]*>[\s\S]*?<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>[\s\S]*?<\/h3>\s*<h4\b[^>]*>([\s\S]*?)<\/h4>(?:\s*<p\b[^>]*>([\s\S]*?)<\/p>)?/gi;
+   for(const match of text.matchAll(pattern)){
+-    const dateText=sourceText(match[3]),timestamp=Date.parse(dateText);
+-    if(!/^\d{1,2} [A-Za-z]+ 20\d{2}$/.test(dateText)||!Number.isFinite(timestamp)||timestamp>Date.now())continue;
++    // 「8 October 2026」按 UTC 解析；Date.parse 會用執行環境時區（台北時區會變成前一天，網址日期對不上而整頁 0 筆）。
++    const dateText=sourceText(match[3]),dm=dateText.match(/^(\d{1,2}) ([A-Za-z]+) (20\d{2})$/),month=dm?['january','february','march','april','may','june','july','august','september','october','november','december'].indexOf(dm[2].toLowerCase()):-1;
++    const timestamp=month>=0?Date.UTC(Number(dm[3]),month,Number(dm[1])):NaN;
++    if(!Number.isFinite(timestamp)||timestamp>Date.now()+8*3600000)continue; // 台北當天凌晨 UTC 仍是前一天，容許 8 小時
+     const date=new Date(timestamp).toISOString().slice(0,10),url=new URL(match[1],spec.url).href;
+     if(!url.includes('/'+date.replaceAll('-','')+'-'))continue;
+     const excerpt=sourceText(match[4],360),row={id:url,kind:'industry_report',title:sourceText(match[2],200),source_url:url,source_date:date,published_at:null,date_precision:'day',provider:spec.name,validation_status:'VERIFIED_SOURCE',source_excerpt:excerpt,read_state:excerpt?'category_excerpt':'metadata_only',summary:excerpt?`官方分類頁原文摘要：${excerpt}；僅作產業研究參考，未核對全文，不替代公司指引或EPS共識。`:'官方分類頁標題與發布日；未核對全文，不替代公司指引或EPS共識。'};
+@@ -82,7 +89,8 @@ async function collectSourceFeed(key,{fetchImpl=fetch,timeoutMs=9000}={}){
+   for(const source of [spec.url,...(spec.fallbackUrls||[])]){
+     let httpStatus=null;
+     try{
+-      const response=await fetchImpl(source,{headers:{Accept:spec.kind==='industry_report'?'application/rss+xml,application/xml,text/html':'application/json'},signal:AbortSignal.timeout(timeoutMs)});httpStatus=response.status;
++      // TrendForce 對不帶 User-Agent（或 Node 預設 "node"）的請求回 403；GitHub 實測帶瀏覽器式字串 200。
++      const response=await fetchImpl(source,{headers:{'User-Agent':'Mozilla/5.0 (compatible; TaiwanStockMaster/1.0; +official public data)',Accept:spec.kind==='industry_report'?'application/rss+xml,application/xml,text/html':'application/json'},signal:AbortSignal.timeout(timeoutMs)});httpStatus=response.status;
+       if(!response.ok)throw Error(`HTTP ${httpStatus}`);
+       const text=await response.text();if(text.length>2500000)throw Error('source_too_large');
+       const records=source===spec.url?parseSourceFeed(text,key):parseSourceReportPage(text,key);
 diff --git a/worker/valuation-divergence.js b/worker/valuation-divergence.js
 index 1f6605d..46c22c9 100644
 --- a/worker/valuation-divergence.js
