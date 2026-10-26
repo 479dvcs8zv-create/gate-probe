@@ -851,3 +851,6 @@ month,market,file,url,status,rows,sha256,bytes
 2026-09,sii,_1,https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_9_1.html,ok,93,d78d7bb1688876606d3f5e743033989f0d816efcc8a0c4d59c13549603e617a2,78516
 2026-09,otc,_0,https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_9_0.html,ok,866,3d0b9022068f65bafd16d713e5a250471e87e8da1ef003e4ab088a1c3154b72f,395744
 2026-09,otc,_1,https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_9_1.html,ok,30,b51191c64d157e2e52285db3255048b9e9f496bebb4550f70cd82f5f566f786a,45897
+2016-07,otc,_1,https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_105_7_1.html,ok,22,b916bcf03cf6020c8c0cf3cd3e5a8ed9b799a68cee1f9bcda3543bfcfde164dc,42061
+2018-10,sii,_0,https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_107_10_0.html,ok,886,3dfe3c395bddde8422abee0934132d3b39f38a47aa1ce1bf8c10e2fe35947489,406100
+2023-01,otc,_0,https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_112_1_0.html,ok,812,5d1f010f472d7653828e598ed863a630c9d8e62e83087f82ce0426db9913af77,370436
