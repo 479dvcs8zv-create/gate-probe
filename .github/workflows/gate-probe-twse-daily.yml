@@ -17,7 +17,7 @@ on:
         required: true
         default: '320'
       kind:
-        description: daily＝每日漲跌家數；daytrade＝當沖占比月表
+        description: daily＝每日漲跌家數；daytrade＝當沖占比月表；exrights＝除權除息計算結果表（寫入 stock-prices）
         required: true
         default: daily
 permissions:
@@ -44,7 +44,9 @@ jobs:
           case "$START$END" in *[!0-9-]*) echo "bad date"; exit 1;; esac
           case "$MINUTES" in *[!0-9]*|"") echo "bad minutes"; exit 1;; esac
           [ "$MINUTES" -le 320 ] || MINUTES=320
-          if [ "$KIND" = daytrade ]; then
+          if [ "$KIND" = exrights ]; then
+            python3 -I tools/build_twse_exrights.py results/backtest-data/stock-prices "${START%%-*}" "${END%%-*}"
+          elif [ "$KIND" = daytrade ]; then
             python3 -I tools/build_twse_daytrade.py results/backtest-data/twse-daily results/backtest-data/twse-cache
           else
             python3 -I tools/build_twse_daily.py results/backtest-data/twse-daily "$START" "$END" "$MINUTES" results/backtest-data/twse-cache
@@ -55,6 +57,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add results/backtest-data/twse-daily
+          if [ -f results/backtest-data/stock-prices/twse-exrights.csv ]; then git add results/backtest-data/stock-prices/twse-exrights.csv results/backtest-data/stock-prices/twse-exrights-files.csv; fi
           git commit -m "twse daily ${{ inputs.start }}..${{ inputs.end }} run ${GITHUB_RUN_ID}" || exit 0
           for n in 1 2 3 4 5; do
             if git pull --rebase -q && git push -q; then exit 0; fi

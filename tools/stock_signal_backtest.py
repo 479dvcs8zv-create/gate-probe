@@ -6,7 +6,8 @@
 一、資料與還原
 - 上市（TWSE MI_INDEX 逐日）、上櫃（TPEx dailyQuotes，2007-07 起）全部 4 碼普通股，含日後下市者（無存活者偏差）。
 - 除權息還原的當日報酬：上市＝收盤 ÷（收盤 − 漲跌價差）− 1；上櫃＝收盤 ÷ 前一交易日「次日參考價」− 1。
-  （兩者都以交易所公布的參考價為基準，除權息日的下跌不算虧損。）
+  上市在除權息日的漲跌標「X」、價差 0（2026-10-26 以 2330 實查），改用證交所 TWT49U「除權息參考價」：收盤 ÷ 參考價 − 1，
+  並核對前一日收盤＝表上「除權息前收盤價」。（都以交易所公布的參考價為基準，除權息日的下跌不算虧損，當天的漲跌照算。）
 - 無成交（收盤 0 或 --）當天不算一筆；漲跌標記 X（不比價）、或報酬超過當時漲跌幅上限（2015-06-01 前 7%、之後 10%，
   加 0.5% 容忍）視為無法還原（例如減資、新上市），當天報酬記 0。這些天數另外統計。
 - 訊號用還原後價格計算（網站用未還原收盤，回測用還原價避免除息日誤判；註明差異）。
@@ -40,10 +41,20 @@ def limit_for(d):
     return 0.075 if d < D(2015, 6, 1) else 0.105
 
 
+def load_exrights(folder):
+    path = Path(folder) / "twse-exrights.csv"
+    if not path.exists():
+        return {}
+    with open(path, newline="") as f:
+        return {(D.fromisoformat(r["date"]), r["code"]): (float(r["pre_close"]), float(r["reference"])) for r in csv.DictReader(f)}
+
+
 def load(folder):
     """回傳 {(market, code): [(date, close, ret_or_None, value)]}，依日期排序。"""
     series = defaultdict(list)
     stats = defaultdict(int)
+    exr = load_exrights(folder)
+    last_close = {}
     for market in ("twse", "tpex"):
         files = sorted(Path(folder).glob(f"{market}-[0-9][0-9][0-9][0-9].csv.gz"))
         prev_ref = {}
@@ -72,6 +83,14 @@ def load(folder):
                         signed = chg if sign == "+" else -chg if sign == "-" else 0.0
                         base = close - signed
                         ret = close / base - 1 if base > 0 else None
+                    elif close > 0 and sign == "X" and (d, code) in exr:
+                        pre, ref = exr[(d, code)]
+                        if ref > 0 and abs(last_close.get(code, -1) - pre) < 0.011:
+                            ret = close / ref - 1; stats["exrights_adjusted"] += 1
+                        else:
+                            stats["exrights_mismatch"] += 1
+                    if close > 0:
+                        last_close[code] = close
                 else:
                     ref = prev_ref.get(code)
                     if close > 0 and ref and ref > 0:
