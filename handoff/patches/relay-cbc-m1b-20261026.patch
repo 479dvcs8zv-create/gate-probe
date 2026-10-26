@@ -1,0 +1,334 @@
+From 557224ea1a02d8fca300975ef8280b46533fd4b3 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 26 Oct 2026 09:00:37 +0800
+Subject: [PATCH] =?UTF-8?q?keyless=20relay:=20M1B=E2=88=92M2=20from=20the?=
+ =?UTF-8?q?=20central=20bank=20page=20cross-checked=20with=20ms.ods;=20sto?=
+ =?UTF-8?q?p=20fetching=20the=20blocked=20MOEA=20export-orders=20page?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ scripts/sync_keyless.py                  |  80 ++++++++++++++-
+ tests/fixtures/cbc_AppT1_2026-10-26.html | 123 +++++++++++++++++++++++
+ tests/test_cbc_money.py                  |  78 ++++++++++++++
+ 3 files changed, 278 insertions(+), 3 deletions(-)
+ create mode 100644 tests/fixtures/cbc_AppT1_2026-10-26.html
+ create mode 100644 tests/test_cbc_money.py
+
+diff --git a/scripts/sync_keyless.py b/scripts/sync_keyless.py
+index e51e75f..eba9ee7 100644
+--- a/scripts/sync_keyless.py
++++ b/scripts/sync_keyless.py
+@@ -113,6 +113,77 @@ def ndc_open_data_metric():
+         'provider':'國家發展委員會｜政府資料開放平台「景氣指標及燈號」',
+         'source':'https://data.gov.tw/dataset/6099','method':f'國發會原始月資料 ZIP，欄位「景氣對策信號綜合分數」及燈號；檔案 {name}'}
+ 
++CBC_MONEY_URL='https://www.cbc.gov.tw/app.asp?xdUrl=AppT1.asp'
++
++def cbc_money_page(page):
++    """中央銀行「貨幣總計數」頁：最新月份、M1B 與 M2 日平均年增率、ms.ods 附檔連結。"""
++    import html as html_lib, re
++    text=re.sub(r'<script.*?</script>|<style.*?</style>','',page,flags=re.S|re.I)
++    text=re.sub(r'\s+',' ',html_lib.unescape(re.sub(r'<[^>]+>',' ',text)))
++    month=re.search(r'貨幣總計數\s*(\d{2,3})\s*年\s*(\d{1,2})\s*月',text)
++    if not month:raise ValueError('CBC money-supply page has no month')
++    def yoy(series):
++        found=re.search(series+r'\s*\(\s*日平均\s*\)\s*金\s*額\s*[\d,]+\s*年增率\s*([-+]?\d+(?:\.\d+)?)',text)
++        if not found:raise ValueError(f'CBC {series} daily-average YoY missing')
++        return float(found.group(1))
++    ods=re.search(r'href="(https://www\.cbc\.gov\.tw/tw/dl-\d+-[0-9a-f]+\.html)"[^>]*>\s*ms\.ods\s*<',page)
++    date=f"{int(month.group(1))+1911}-{int(month.group(2)):02d}-01"
++    return {'date':date,'m1b_yoy':yoy('M1B'),'m2_yoy':yoy('M2'),'ods_url':ods.group(1) if ods else None}
++
++def cbc_money_history(raw):
++    """ms.ods（OpenDocument）：每月 M1B、M2 日平均年增率。只用標準函式庫解析，不補值。"""
++    import re
++    import xml.etree.ElementTree as ET
++    if not raw.startswith(b'PK'):raise ValueError('CBC ms.ods is not a ZIP')
++    ns={'table':'urn:oasis:names:tc:opendocument:xmlns:table:1.0','office':'urn:oasis:names:tc:opendocument:xmlns:office:1.0','text':'urn:oasis:names:tc:opendocument:xmlns:text:1.0'}
++    root=ET.fromstring(zipfile.ZipFile(io.BytesIO(raw)).read('content.xml'))
++    rows,header=[],None
++    for tr in root.iter(f"{{{ns['table']}}}table-row"):
++        cells=[]
++        for tc in tr.findall('table:table-cell',ns):
++            repeat=min(int(tc.get(f"{{{ns['table']}}}number-columns-repeated",'1')),64)
++            value=tc.get(f"{{{ns['office']}}}value")
++            if value is None:value=''.join(tc.itertext()).strip()
++            cells.extend([value]*repeat)
++        if cells and str(cells[0]).strip()=='民國':header=cells
++        rows.append(cells)
++    if not header or 'M1B(日平均)' not in [str(x).replace(' ','') for x in header]:raise ValueError('CBC ms.ods header changed')
++    names=[str(x).replace(' ','') for x in header]
++    m1b_col=names.index('M1B(日平均)')+1
++    m2_col=next(i for i,x in enumerate(names) if x.startswith('M2(日平均)'))+1
++    out={}
++    for cells in rows:
++        found=re.fullmatch(r'(\d{2,3})年(\d{1,2})月',str(cells[0]).strip()) if cells else None
++        if not found or len(cells)<=m2_col:continue
++        try:m1b,m2=float(cells[m1b_col]),float(cells[m2_col])
++        except (TypeError,ValueError):continue
++        date=f"{int(found.group(1))+1911}-{int(found.group(2)):02d}-01"
++        out[date]={'date':date,'value':round(m1b-m2,4),'m1b_yoy':m1b,'m2_yoy':m2}
++    if not out:raise ValueError('CBC ms.ods has no monthly M1B/M2 YoY')
++    return [out[k] for k in sorted(out)]
++
++def cbc_money_supply_metric():
++    """M1B−M2 年增率差（日平均），中央銀行官方頁＋同頁 ms.ods 歷史互相核對；網站 Worker 直連央行常被擋，改由排程代抓。"""
++    page_request=Request(CBC_MONEY_URL,headers={'User-Agent':legacy.USER_AGENT,'Accept':'text/html'})
++    with urlopen(page_request,timeout=25) as response:page=response.read(2_000_001).decode('utf-8','replace')
++    latest=cbc_money_page(page)
++    point={'date':latest['date'],'value':round(latest['m1b_yoy']-latest['m2_yoy'],4)}
++    history,check=[point],'只有官方頁最新月份（ms.ods 無法讀取）'
++    if latest['ods_url']:
++        try:
++            with urlopen(Request(latest['ods_url'],headers={'User-Agent':legacy.USER_AGENT}),timeout=30) as response:raw=response.read(10_000_001)
++            rows=cbc_money_history(raw)
++            last=rows[-1]
++            if last['date']!=latest['date'] or abs(last['m1b_yoy']-latest['m1b_yoy'])>1e-9 or abs(last['m2_yoy']-latest['m2_yoy'])>1e-9:
++                raise ValueError(f"ms.ods latest {last['date']} does not match page {latest['date']}")
++            history=[{'date':r['date'],'value':r['value']} for r in rows[-24:]]
++            check='官方頁與 ms.ods 最新月份一致'
++        except Exception as exc:
++            check=f'ms.ods 核對未完成：{exc}'
++    return {'history':history,'source':CBC_MONEY_URL,'provider':'中央銀行｜貨幣總計數（日平均）',
++            'method':f"M1B 日平均年增率 {latest['m1b_yoy']:.2f}% − M2 日平均年增率 {latest['m2_yoy']:.2f}%；{check}",
++            'm1b_yoy':latest['m1b_yoy'],'m2_yoy':latest['m2_yoy']}
++
+ def ecb_reference_rate(currency):
+     url=f'https://data-api.ecb.europa.eu/service/data/EXR/D.{currency}.EUR.SP00.A?lastNObservations=25&format=csvdata'
+     with urlopen(Request(url,headers={'User-Agent':legacy.USER_AGENT,'Accept':'text/csv'}),timeout=25) as response:
+@@ -605,9 +676,12 @@ def main():
+             try:return ndc_open_data_metric()
+             except Exception as dataset_error:
+                 raise ValueError(f'NDC JSON/chart unavailable ({live_error}); official open-data ZIP unavailable ({dataset_error})') from dataset_error
+-    tasks += [('TW_EXPORT_ORDERS',85,lambda:legacy.taiwan_export_metric(legacy.http_text(legacy.MOEA_URL))),
+-              ('TPEX_BREADTH',5,lambda:legacy.tpex_metric(legacy.http_json(legacy.TPEX_URL))),
+-              ('TW_NDC_SIGNAL',120,get_ndc)]
++    # 外銷訂單：網站 2026-10-25 起改用國發會擴散指數、不讀本快照；經濟部頁面每輪 403，不再抓，也不保留舊值。
++    current.pop('TW_EXPORT_ORDERS',None)
++    tasks += [('TPEX_BREADTH',5,lambda:legacy.tpex_metric(legacy.http_json(legacy.TPEX_URL))),
++              ('TW_NDC_SIGNAL',120,get_ndc),
++              # 央行約每月 25 日公布前一月；觀測月起最長約 85 天才有下一筆，給 95 天。
++              ('TW_M1B_M2',95,cbc_money_supply_metric)]
+     def additional_source(sid):
+         if sid=='DEXJPUS':return ecb_usd_jpy_cross()
+         if sid=='WCESTUS1':return eia_commercial_crude_stocks()
+diff --git a/tests/fixtures/cbc_AppT1_2026-10-26.html b/tests/fixtures/cbc_AppT1_2026-10-26.html
+new file mode 100644
+index 0000000..d02ab7b
+--- /dev/null
++++ b/tests/fixtures/cbc_AppT1_2026-10-26.html
+@@ -0,0 +1,123 @@
++<!DOCTYPE html>
++
++<html>
++<head>
++    <title>貨幣總計數</title>
++    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
++    <style type="text/css">
++        .appTable {
++            width: 100%;
++            border: 1px solid #BBCCD9;
++            border-collapse: collapse;
++            font: 0.9em Arial, Helvetica, sans-serif;
++        }
++
++            .appTable th {
++                border: 1px solid #BBCCD9;
++                color: #333;
++                background: #E1E9EE;
++                padding: 3px 5px;
++            }
++
++            .appTable td {
++                border: 1px solid #BBCCD9;
++                color: #333;
++                background: #FFF;
++                padding: 3px 5px;
++            }
++    </style>
++</head>
++<body>
++    <table border="0" width="100%">
++        <tr>
++            <th style="font-size: 120%">貨幣總計數</th>
++        </tr>
++        <tr>
++            <td align="center" style="font-size: 110%">
++                115年08月</td>
++        </tr>
++        <tr>
++            <td align="right">單位：新台幣億元；％</td>
++        </tr>
++        <tr>
++            <td>
++                <table border="1" width="100%" class="appTable">
++                    <tr>
++                        <td style="font-size: 110%" rowspan="2">M1A (日平均)</td>
++                        <td align="center">金　額</td>
++                        <td align="right">
++                            128,271</td>
++                    </tr>
++                    <tr>
++                        <td align="center">年增率</td>
++                        <td align="right">
++                            8.86</td>
++                    </tr>
++                    <tr>
++                        <td style="font-size: 110%" rowspan="2">M1A (期　底)</td>
++                        <td align="center">金　額</td>
++                        <td align="right">
++                            128,155</td>
++                    </tr>
++                    <tr>
++                        <td align="center">年增率</td>
++                        <td align="right">
++                            8.34</td>
++                    </tr>
++                    <tr>
++                        <td style="font-size: 110%" rowspan="2">M1B (日平均)</td>
++                        <td align="center">金　額</td>
++                        <td align="right">
++                            307,508</td>
++                    </tr>
++                    <tr>
++                        <td align="center">年增率</td>
++                        <td align="right">
++                            6.65</td>
++                    </tr>
++                    <tr>
++                        <td style="font-size: 110%" rowspan="2">M1B (期　底)</td>
++                        <td align="center">金　額</td>
++                        <td align="right">
++                            309,594</td>
++                    </tr>
++                    <tr>
++                        <td align="center">年增率</td>
++                        <td align="right">
++                            7.18</td>
++                    </tr>
++                    <tr>
++                        <td style="font-size: 110%" rowspan="2">M2　(日平均)</td>
++                        <td align="center">金　額</td>
++                        <td align="right">
++                            706,780</td>
++                    </tr>
++                    <tr>
++                        <td align="center">年增率</td>
++                        <td align="right">
++                            <p>6.79</p></td>
++                    </tr>
++                    <tr>
++                        <td style="font-size: 110%" rowspan="2">M2　(期　底)</td>
++                        <td align="center">金　額</td>
++                        <td align="right">
++                            709,110</td>
++                    </tr>
++                    <tr>
++                        <td align="center">年增率</td>
++                        <td align="right">
++                            6.92</td>
++                    </tr>
++                </table>
++            </td>
++        </tr>
++    </table>
++
++    <p>附檔下載：</p>
++    <ul>
++        <li><a href="https://www.cbc.gov.tw/tw/dl-227484-8eea119eb2a54663ae8855ce9bc5fc59.html">ms.ods</a></li><li><a href="https://www.cbc.gov.tw/tw/dl-227485-934f25a41b244f718a443b77dc1d7622.html">ms.pdf</a></li><li><a href="https://www.cbc.gov.tw/tw/dl-227486-dfc63ef50f094caea844190fed99348c.html">ms.xls</a></li>
++    </ul>
++
++</body>
++</html>
+diff --git a/tests/test_cbc_money.py b/tests/test_cbc_money.py
+new file mode 100644
+index 0000000..8bcd3f4
+--- /dev/null
++++ b/tests/test_cbc_money.py
+@@ -0,0 +1,78 @@
++import io
++import sys
++import unittest
++import zipfile
++from pathlib import Path
++from unittest.mock import patch
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
++import sync_keyless as keyless
++
++# 中央銀行「貨幣總計數」頁，2026-10-26 由 GitHub 取得的原始 HTML（115 年 08 月）。
++PAGE = (Path(__file__).resolve().parent / "fixtures" / "cbc_AppT1_2026-10-26.html").read_text(encoding="utf-8")
++
++
++def ods(rows):
++    """依官方 ms.ods 的結構（table-row／table-cell、office:value、number-columns-repeated）做一個小檔。"""
++    cell = lambda v: (f'<table:table-cell office:value-type="float" office:value="{v}"><text:p>{v}</text:p></table:table-cell>'
++                      if isinstance(v, (int, float)) else f'<table:table-cell office:value-type="string"><text:p>{v}</text:p></table:table-cell>')
++    head = ('<table:table-row>' + cell('民國') + cell('M1A(日平均)') + '<table:table-cell table:number-columns-repeated="1"/>' + cell('M1A(期底)')
++            + '<table:table-cell/>' + cell('M1B(日平均)') + '<table:table-cell/>' + cell('M1B(期底)') + '<table:table-cell/>'
++            + cell('M2(日平均)3,4,6') + '<table:table-cell/>' + cell('M2(期底)3,4,6') + '<table:table-cell/></table:table-row>')
++    body = ''.join('<table:table-row>' + ''.join(cell(v) for v in r) + '<table:table-cell table:number-columns-repeated="16367"/></table:table-row>' for r in rows)
++    xml = ('<?xml version="1.0" encoding="UTF-8"?><office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" '
++           'xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">'
++           f'<office:body><office:spreadsheet><table:table>{head}{body}</table:table></office:spreadsheet></office:body></office:document-content>')
++    buf = io.BytesIO()
++    with zipfile.ZipFile(buf, "w") as z:
++        z.writestr("mimetype", "application/vnd.oasis.opendocument.spreadsheet")
++        z.writestr("content.xml", xml)
++    return buf.getvalue()
++
++
++# 數字照官方 ms.ods 115 年 07、08 月列。
++ROWS = [["115年07月", 127163, 8.28, 129356, 9.69, 305309, 7.34, 304517, 6.11, 702248, 7.42, 701532, 6.58],
++        ["115年08月", 128271, 8.86, 128155, 8.34, 307508, 6.65, 309594, 7.18, 706780, 6.79, 709110, 6.92]]
++
++
++class CbcMoneySupplyTests(unittest.TestCase):
++    def test_page_gives_month_daily_average_yoy_and_ods_link(self):
++        got = keyless.cbc_money_page(PAGE)
++        self.assertEqual(got["date"], "2026-08-01")
++        self.assertEqual((got["m1b_yoy"], got["m2_yoy"]), (6.65, 6.79))
++        self.assertRegex(got["ods_url"], r"^https://www\.cbc\.gov\.tw/tw/dl-\d+-[0-9a-f]+\.html$")
++
++    def test_ods_history_uses_daily_average_columns(self):
++        rows = keyless.cbc_money_history(ods(ROWS))
++        self.assertEqual([r["date"] for r in rows], ["2026-07-01", "2026-08-01"])
++        self.assertEqual(rows[-1], {"date": "2026-08-01", "value": -0.14, "m1b_yoy": 6.65, "m2_yoy": 6.79})
++        self.assertEqual(rows[0]["value"], round(7.34 - 7.42, 4))
++
++    def test_metric_cross_checks_page_and_ods(self):
++        class Resp:
++            def __init__(self, body): self.body = body
++            def read(self, n=-1): return self.body
++            def __enter__(self): return self
++            def __exit__(self, *a): return False
++        def fake(req, timeout=0):
++            return Resp(PAGE.encode("utf-8") if "AppT1" in req.full_url else ods(ROWS))
++        with patch.object(keyless, "urlopen", fake):
++            item = keyless.cbc_money_supply_metric()
++        self.assertEqual(item["history"][-1], {"date": "2026-08-01", "value": -0.14})
++        self.assertEqual(len(item["history"]), 2)
++        self.assertIn("一致", item["method"])
++        mismatch = [r[:] for r in ROWS]; mismatch[-1][6] = 9.99
++        def fake2(req, timeout=0):
++            return Resp(PAGE.encode("utf-8") if "AppT1" in req.full_url else ods(mismatch))
++        with patch.object(keyless, "urlopen", fake2):
++            item = keyless.cbc_money_supply_metric()
++        self.assertEqual(item["history"], [{"date": "2026-08-01", "value": -0.14}], "a mismatching file is not used; the page value stands alone")
++        self.assertIn("核對未完成", item["method"])
++
++    def test_changed_page_is_refused(self):
++        with self.assertRaises(ValueError):
++            keyless.cbc_money_page("<html>維護中</html>")
++
++
++if __name__ == "__main__":
++    unittest.main()
+-- 
+2.43.0
+

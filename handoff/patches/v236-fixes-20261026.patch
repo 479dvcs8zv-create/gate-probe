@@ -1,3 +1,28 @@
+diff --git a/dist/index.html b/dist/index.html
+index 1bcece6..c86f894 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -247,7 +247,19 @@ function evaluateValuationDivergence(stock,consensus,today,records=[]){
+  {id:'consensus',label:'當年度有效分析師共識',value:c?.ready?c.eps:null,source:c?.ready?c.rows?.map(r=>r.source).join('、'):null,sourceUrl:c?.ready?c.rows?.map(r=>r.source_url).join('、'):null,period:year+'E',date:c?.asOf||null,dateBasis:'共識原更新日',analysts:c?.ready?c.analysts:null,reason:c?.ready?null:c?.missingReason||'Gate8未判定有效；不採候選值'}
+  ].map(r=>({...r,included:typeof r.value==='number'&&Number.isFinite(r.value)&&r.value>0,reason:typeof r.value==='number'&&Number.isFinite(r.value)&&r.value>0?null:r.reason||(typeof r.value==='number'&&Number.isFinite(r.value)&&r.value<=0?'EPS非正，不參與':'EPS缺值，不參與')}));
+  const usable=rows.filter(r=>r.included),ratio=usable.length>=2?Math.max(...usable.map(r=>r.value))/Math.min(...usable.map(r=>r.value)):null,divergent=ratio!==null&&ratio>2;
+- return {status:divergent?'divergent':usable.length<2?'insufficient':'within_range',divergent,ratio,threshold:2,rows,nextDisclosure:nextFinancialDisclosure(stock,today,records),reason:divergent?'估值分歧過大，暫不判斷貴或便宜；EPS最大／最小為 '+ratio.toFixed(2)+' 倍。':usable.length<2?'可用EPS少於2個；不解除風險限制':'可用EPS未超過2倍；沿用原估值核驗',riskBudgetRelaxed:false};
++ // 兩種分歧分開說（擁有者 2026-10-26 核准；只改文字，仍是未評、風險限制不變）：
++ // 當期來源（今年模型／近四季／共識）彼此在 2 倍內、差距只來自歷史常態 → 獲利遠高（低）於過去，屬景氣循環位置風險；否則 → 各來源互相分歧。
++ const current=usable.filter(r=>r.id!=='historical'),history=usable.find(r=>r.id==='historical');
++ const currentRatio=current.length>=2?Math.max(...current.map(r=>r.value))/Math.min(...current.map(r=>r.value)):null;
++ const median=a=>{const v=[...a].sort((x,y)=>x-y),m=Math.floor(v.length/2);return v.length%2?v[m]:(v[m-1]+v[m])/2;};
++ const fromHistory=divergent&&history&&current.length>=1&&(currentRatio===null||currentRatio<=2);
++ const higher=fromHistory&&median(current.map(r=>r.value))>history.value;
++ const divergenceKind=!divergent?null:fromHistory?(higher?'above_history':'below_history'):'sources_disagree';
++ const label=r=>r.label.replace(/（.*?）/g,'');
++ const kindText=divergenceKind==='above_history'||divergenceKind==='below_history'
++  ?`類型：獲利遠${higher?'高':'低'}於過去常態——${current.map(label).join('、')}${current.length>=2?`彼此接近（${currentRatio.toFixed(2)} 倍內）`:'（只有一個當期來源）'}，差距來自歷史常態EPS ${history.value}，屬景氣${higher?'高峰':'谷底'}位置的風險，不是各方估計互相矛盾。`
++  :divergent?`類型：各來源EPS互相分歧——當期來源之間最大／最小 ${currentRatio.toFixed(2)} 倍，需用公司財報與法說會核對哪個實在。`:'';
++ return {status:divergent?'divergent':usable.length<2?'insufficient':'within_range',divergent,ratio,threshold:2,divergenceKind,currentRatio,rows,nextDisclosure:nextFinancialDisclosure(stock,today,records),reason:divergent?'估值分歧過大，暫不判斷貴或便宜；EPS最大／最小為 '+ratio.toFixed(2)+' 倍。'+kindText:usable.length<2?'可用EPS少於2個；不解除風險限制':'可用EPS未超過2倍；沿用原估值核驗',riskBudgetRelaxed:false};
+ }
+ 
+ /* VALUATION_DIVERGENCE_END */
 diff --git a/package.json b/package.json
 index 0a21bf7..6afc2d3 100644
 --- a/package.json
@@ -60,6 +85,28 @@ index 0000000..6d49f26
 +    const again=await api.attachPanelSources(stock,{DB:db},{waitUntil:p=>kept.push(p)});
 +    assert.equal(again.panelInputs.cbRegistry.status,'partial');assert.equal(again.panelInputs.cbRegistry.bonds[0].id,'82993');
 +  }finally{globalThis.fetch=previous;}
++});
+diff --git a/tests/valuation-divergence.test.mjs b/tests/valuation-divergence.test.mjs
+index 5290342..1d28eea 100644
+--- a/tests/valuation-divergence.test.mjs
++++ b/tests/valuation-divergence.test.mjs
+@@ -10,3 +10,17 @@ test('unrated divergence preserves risk restrictions; actual VETO remains superi
+ test('verified company schedule supersedes statutory fallback; new financial quarter automatically advances deadline and recalculates',()=>{const s=make(),record={kind:'earnings_schedule',symbol:'8299',validation_status:'VERIFIED_SOURCE',source_url:'https://www.phison.com/ir.pdf',source_date:'2026-10-20',period:'2026Q3',earnings_date:'2026-11-03'};assert.equal(api.evaluateValuationDivergence(s,c,today,[record]).nextDisclosure.date,'2026-11-03');record.validation_status='UNKNOWN';assert.equal(api.evaluateValuationDivergence(s,c,today,[record]).nextDisclosure.basis,'法定期限');s.epsHistory.quarterly.push({date:'2026-09-30',year:2026,quarter:3});s.epsHistory.ttm=40;s.forecastEps.median=40;s.financialQuality.cycleValuation.eps.median=40;const d=api.evaluateValuationDivergence(s,[],today);assert.equal(d.divergent,false);assert.equal(d.nextDisclosure.date,'2027-03-31');});
+ 
+ test('primary Master renderer routes valuation_divergence to the unrated panel instead of hiding it',()=>{const html=fs.readFileSync(new URL('../dist/index.html',import.meta.url),'utf8'),start=html.indexOf('function renderBackendMasterModel('),end=html.indexOf('\nfunction ',start+1);let calls=0;const model={status:'valuation_divergence',outputStatus:'not_rated',gates:[],adaptiveRating:{available:true,grade:null,label:'未評（估值分歧）'}};const ctx=vm.createContext({model,document:{getElementById:()=>null},renderAdvisoryPanels:()=>{},renderAdaptiveRating:r=>{assert.equal(r.grade,null);calls++;},renderReportContext:()=>{}});vm.runInContext(html.slice(start,end),ctx);vm.runInContext('renderBackendMasterModel(model)',ctx);assert.equal(calls,1);});
++
++test('two kinds of divergence are worded apart; both stay unrated (owner 2026-10-26)',()=>{
++  // 群聯：歷史 39、模型 206.88、近四季、共識 416.97 → 當期來源之間也超過 2 倍 → 各來源互相分歧
++  const p=api.evaluateValuationDivergence(make(),c,today);
++  assert.equal(p.divergenceKind,'sources_disagree');assert.match(p.reason,/各來源EPS互相分歧/);assert.equal(p.status,'divergent');
++  // 宜鼎型：當期來源接近（174.8／179.0），只有歷史中位數很低 → 獲利遠高於過去常態
++  const s=make();s.financialQuality.cycleValuation.eps.median=40;s.forecastEps.median=174.8;s.epsHistory.ttm=179.0;
++  const q=api.evaluateValuationDivergence(s,[],today);
++  assert.equal(q.divergent,true);assert.equal(q.divergenceKind,'above_history');assert.match(q.reason,/獲利遠高於過去常態/);assert.match(q.reason,/景氣高峰/);
++  assert.ok(q.currentRatio<=2);
++  // 沒有分歧時不加類型
++  const w=make();w.financialQuality.cycleValuation.eps.median=150;w.forecastEps.median=174.8;w.epsHistory.ttm=179.0;
++  const r=api.evaluateValuationDivergence(w,[],today);assert.equal(r.divergent,false);assert.equal(r.divergenceKind,null);assert.doesNotMatch(r.reason,/類型/);
 +});
 diff --git a/worker/macro.js b/worker/macro.js
 index 8ce7526..ea116e8 100644
@@ -215,3 +262,26 @@ index 587ddbc..876af80 100644
        const result={...computeMarginMaintenance(prices,await mr.json()),sourceUrls:[TWSE_STOCK_DAY_ALL_URL,url],checkedAt:new Date(now).toISOString()};
        await write(latestKey,result,6*3600000);return result;
      }catch(error){
+diff --git a/worker/valuation-divergence.js b/worker/valuation-divergence.js
+index 1f6605d..46c22c9 100644
+--- a/worker/valuation-divergence.js
++++ b/worker/valuation-divergence.js
+@@ -15,5 +15,17 @@ function evaluateValuationDivergence(stock,consensus,today,records=[]){
+  {id:'consensus',label:'當年度有效分析師共識',value:c?.ready?c.eps:null,source:c?.ready?c.rows?.map(r=>r.source).join('、'):null,sourceUrl:c?.ready?c.rows?.map(r=>r.source_url).join('、'):null,period:year+'E',date:c?.asOf||null,dateBasis:'共識原更新日',analysts:c?.ready?c.analysts:null,reason:c?.ready?null:c?.missingReason||'Gate8未判定有效；不採候選值'}
+  ].map(r=>({...r,included:typeof r.value==='number'&&Number.isFinite(r.value)&&r.value>0,reason:typeof r.value==='number'&&Number.isFinite(r.value)&&r.value>0?null:r.reason||(typeof r.value==='number'&&Number.isFinite(r.value)&&r.value<=0?'EPS非正，不參與':'EPS缺值，不參與')}));
+  const usable=rows.filter(r=>r.included),ratio=usable.length>=2?Math.max(...usable.map(r=>r.value))/Math.min(...usable.map(r=>r.value)):null,divergent=ratio!==null&&ratio>2;
+- return {status:divergent?'divergent':usable.length<2?'insufficient':'within_range',divergent,ratio,threshold:2,rows,nextDisclosure:nextFinancialDisclosure(stock,today,records),reason:divergent?'估值分歧過大，暫不判斷貴或便宜；EPS最大／最小為 '+ratio.toFixed(2)+' 倍。':usable.length<2?'可用EPS少於2個；不解除風險限制':'可用EPS未超過2倍；沿用原估值核驗',riskBudgetRelaxed:false};
++ // 兩種分歧分開說（擁有者 2026-10-26 核准；只改文字，仍是未評、風險限制不變）：
++ // 當期來源（今年模型／近四季／共識）彼此在 2 倍內、差距只來自歷史常態 → 獲利遠高（低）於過去，屬景氣循環位置風險；否則 → 各來源互相分歧。
++ const current=usable.filter(r=>r.id!=='historical'),history=usable.find(r=>r.id==='historical');
++ const currentRatio=current.length>=2?Math.max(...current.map(r=>r.value))/Math.min(...current.map(r=>r.value)):null;
++ const median=a=>{const v=[...a].sort((x,y)=>x-y),m=Math.floor(v.length/2);return v.length%2?v[m]:(v[m-1]+v[m])/2;};
++ const fromHistory=divergent&&history&&current.length>=1&&(currentRatio===null||currentRatio<=2);
++ const higher=fromHistory&&median(current.map(r=>r.value))>history.value;
++ const divergenceKind=!divergent?null:fromHistory?(higher?'above_history':'below_history'):'sources_disagree';
++ const label=r=>r.label.replace(/（.*?）/g,'');
++ const kindText=divergenceKind==='above_history'||divergenceKind==='below_history'
++  ?`類型：獲利遠${higher?'高':'低'}於過去常態——${current.map(label).join('、')}${current.length>=2?`彼此接近（${currentRatio.toFixed(2)} 倍內）`:'（只有一個當期來源）'}，差距來自歷史常態EPS ${history.value}，屬景氣${higher?'高峰':'谷底'}位置的風險，不是各方估計互相矛盾。`
++  :divergent?`類型：各來源EPS互相分歧——當期來源之間最大／最小 ${currentRatio.toFixed(2)} 倍，需用公司財報與法說會核對哪個實在。`:'';
++ return {status:divergent?'divergent':usable.length<2?'insufficient':'within_range',divergent,ratio,threshold:2,divergenceKind,currentRatio,rows,nextDisclosure:nextFinancialDisclosure(stock,today,records),reason:divergent?'估值分歧過大，暫不判斷貴或便宜；EPS最大／最小為 '+ratio.toFixed(2)+' 倍。'+kindText:usable.length<2?'可用EPS少於2個；不解除風險限制':'可用EPS未超過2倍；沿用原估值核驗',riskBudgetRelaxed:false};
+ }
