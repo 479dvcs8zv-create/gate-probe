@@ -55,7 +55,7 @@ def main(price_folder, revenue_path, out):
         dates, close, adj, score, tech, rsi, val20 = signals(rows)
         n = len(rows)
         cs = np.concatenate([[0.0], np.cumsum(adj)])
-        ma = lambda k, i: (cs[i + 1] - cs[i + 1 - k]) / k if i + 1 - k >= 0 else math.nan  # noqa: E731
+        ma = lambda k, i, cs=cs: (cs[i + 1] - cs[i + 1 - k]) / k if i + 1 - k >= 0 else math.nan  # noqa: E731  每檔綁自己的累積和
         rv = rev.get((market, code), []); rvd = [x[0] for x in rv]
         entries = []
         for i in range(65, n - 1):
