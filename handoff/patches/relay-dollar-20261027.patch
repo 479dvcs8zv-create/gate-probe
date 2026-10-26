@@ -1,0 +1,80 @@
+From 26e4cd3473d94b1a75d8308f368d12e214393bbb Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 27 Oct 2026 04:50:20 +0800
+Subject: [PATCH] keyless relay: publish FRED DTWEXAFEGS (advanced-economies
+ dollar index) with 40 observations for the site's dollar zero axis
+
+The site's dollar chart only had the externally imported copy (valid 36 hours),
+so it disappeared whenever the manual import did not run.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ scripts/sync_keyless.py |  7 +++++--
+ tests/test_keyless.py   | 20 ++++++++++++++++++++
+ 2 files changed, 25 insertions(+), 2 deletions(-)
+
+diff --git a/scripts/sync_keyless.py b/scripts/sync_keyless.py
+index edc6cfc..c7283cd 100644
+--- a/scripts/sync_keyless.py
++++ b/scripts/sync_keyless.py
+@@ -17,8 +17,11 @@ MORE_SPECS = [
+  ('CPILFESL',95),('PCEPILFE',95),('BAMLH0A0HYM2',7),('BAMLC0A0CM',7),('IORB',7),
+  ('STLFSI4',14),('ICSA',14),('CCSA',21),('IC4WSA',14),('INDPRO',95),('RRSFS',95),
+  ('DTB3',7),('DGS10',7),('DGS30',7),('T10Y3M',7),('VIXCLS',7),('DEXJPUS',7),
+- ('WALCL',14),('WCESTUS1',14),('NOCDFSA066MSFRBPHI',45),('DRTSCILM',120),('DTWEXBGS',10)
++ ('WALCL',14),('WCESTUS1',14),('NOCDFSA066MSFRBPHI',45),('DRTSCILM',120),('DTWEXBGS',10),
++ # 網站「美元指數零軸」用的先進經濟體美元指數（聯準會 H.10 每週一更新，最新觀測最多約 10 天前）；零軸要 26 筆以上，多留歷史
++ ('DTWEXAFEGS',12)
+ ]
++HISTORY_KEEP={'DTWEXAFEGS':40}
+ OUT=Path('data/keyless_snapshot.json')
+ NDC_OPEN_DATA_ZIP=('https://ws.ndc.gov.tw/Download.ashx?icon=.zip&n=5pmv5rCj5oyH5qiZ5Y%2BK54eI6JmfLnppcA%3D%3D'
+  '&u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvNTc4MS82MzkyL2VhMjM1YmQ5LWQwNTItNGE2OS1hYmZjLWQ1Yzc4NWQzZDBlMi56aXA%3D')
+@@ -46,7 +49,7 @@ def fred_csv(sid):
+         a,b=history[-2:]
+         if legacy.month_number(b['date'])-legacy.month_number(a['date'])!=1:raise ValueError('Nonadjacent monthly observations')
+         if sid=='RSAFS' and a['value']<=0:raise ValueError('Invalid retail denominator')
+-    return {'history':history[-20:],'source':url,'provider':f'FRED 官方公開 CSV｜{sid}'}
++    return {'history':history[-HISTORY_KEEP.get(sid,20):],'source':url,'provider':f'FRED 官方公開 CSV｜{sid}'}
+ 
+ # 聯準會每天 16:30（美東）就公布「下一個營業日」的 IORB，FRED 會先列出未來日期（週五可到下週一）；這不是錯誤資料。
+ FUTURE_DATED_DAYS={'IORB':4}
+diff --git a/tests/test_keyless.py b/tests/test_keyless.py
+index 818eb7a..7cd8c11 100644
+--- a/tests/test_keyless.py
++++ b/tests/test_keyless.py
+@@ -5,6 +5,7 @@ from pathlib import Path
+ 
+ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+ from sync_keyless import process_tasks, validate
++import sync_keyless as keyless
+ 
+ 
+ class ContinueAfterIndicatorFailureTests(unittest.TestCase):
+@@ -65,3 +66,22 @@ class FutureDatedPolicyRateTests(unittest.TestCase):
+ 
+ if __name__ == "__main__":
+     unittest.main()
++
++
++class DollarIndexRelay(unittest.TestCase):
++    def test_advanced_economies_dollar_index_is_collected_with_enough_history(self):
++        import io as _io
++        from unittest.mock import patch as _patch
++        self.assertIn(('DTWEXAFEGS', 12), keyless.MORE_SPECS)
++        rows = "\n".join(f"2026-{m:02d}-{d:02d},{100 + d / 10:.4f}" for m in (8, 9, 10) for d in range(1, 29) if (m, d) <= (10, 23))
++        body = ("observation_date,DTWEXAFEGS\n" + rows + "\n").encode()
++
++        class R(_io.BytesIO):
++            def __enter__(self): return self
++            def __exit__(self, *a): return False
++        with _patch.object(keyless, "urlopen", lambda *a, **k: R(body)):
++            entry = keyless.fred_csv("DTWEXAFEGS")
++        self.assertEqual(len(entry["history"]), 40)
++        self.assertEqual(entry["history"][-1]["date"], "2026-10-23")
++        with _patch.object(keyless, "urlopen", lambda *a, **k: R(body.replace(b"DTWEXAFEGS", b"DTWEXBGS"))):
++            self.assertEqual(len(keyless.fred_csv("DTWEXBGS")["history"]), 20)
+-- 
+2.43.0
+

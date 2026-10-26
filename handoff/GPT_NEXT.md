@@ -1,6 +1,6 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-27 00:50 台北（Claude）
+更新：2026-10-27 05:10 台北（Claude）
 
 **今天的順序（全部已授權，依序做，一次報告）**：① 啟用每日巡檢 → ② D 中繼可轉債代抓（推上後手動跑一次） → ③ C 網站補修（部署一次） → ④ C 讀回 → ⑤ E 出場訊號＋均線排列（部署一次） → ⑥ 全部讀回寫進 `diagnostics/deploy-20261026/hotfix3.md`（巡檢那行另寫 `patrol-enabled.md`）。
 
@@ -47,6 +47,13 @@
 - 測試：新增 `tests/v238-exit.test.mjs` 3 項（含除息 5 元不誤判），`tests/v237-rules.test.mjs` 改成要求排列強並新增排列弱→觀望、半年線不足→資料不足；Claude 在「乾淨 v237＋C」重放無衝突、完整 `npm test` exit 0；`dist/index.html` SHA-256 `a59e8f6ec8508ec2a71d4fbf1785cb53d2d0be0b38ef3018cbe9815a6321ba53`。
 - 步驟：C 讀回完成後 → `git apply` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（留上一版回滾）。
 - 讀回（併入 `hotfix3.md` 末尾，6 行內）：四檔畫面是否分成兩個區塊；各檔進場條件、均線排列（強／中／弱）、出場訊號狀態與理由（收盤、還原後 20 日線）、是否有「已還原…」或「除權息資料未接入」註記。
+
+## 第三份（**待擁有者授權**）：美元零軸自動化——等 E 部署並讀回後才做
+- 原因：擁有者 10-27 04:49「美元圖片也沒有出來」。美元零軸只讀外部匯入的 `official-series:v1:DTWEXAFEGS`，且只用 36 小時內的；外部收集程式沒跑就整張圖消失。
+- **臨時處理（現有例行作業，不改程式）**：照 OPERATIONS.md 跑一次官方資料收集程式並匯入（C 部署後用 patch 裡的新版 `scripts/collect-official-data.py`），DTWEXAFEGS 就會回來。
+- G（中繼）：`handoff/patches/relay-dollar-20261027.patch`，SHA-256 `564ccd5e02d74901007d8c8c41f146f8eecbeb79e22dee46ec044d89a3bf0fd6`（1 個 commit）：keyless 每 6 小時多抓 FRED DTWEXAFEGS，保留 40 筆（max_age 12 天）。Claude 在最新 main 上 `git am` 後 35/35 通過。
+- F（網站）：`handoff/patches/v238-dollar-relay-20261027.patch`，SHA-256 `009479c5c2c4f438040fa9e6a6659baf5e526a9bd2457881b744e8d66db2ae9c`；基線＝**套完 C、E 之後**（Claude tag e-patch-head）。外部匯入沒有或超過 36 小時 → 讀中繼的 DTWEXAFEGS（中繼也過期就不用，維持「待補」）；卡片註明「GitHub 排程代抓的 FRED 官方檔」。新增 `tests/v238-dollar.test.mjs` 2 項；乾淨「v237＋C＋E」重放 `npm test` exit 0；`dist/index.html` SHA-256 `c07faa71ff2015999621a7b72b98a932cff1c0004974afedbd7b1108b14605b4`。
+- 順序：G 推上 main（keyless 工作流程會自動跑）→ 確認 `keyless_snapshot.json` 有 DTWEXAFEGS 40 筆 → F 部署 → 讀回：8299 美元零軸卡有數值與圖、來源註記。
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
