@@ -1,13 +1,13 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-26 21:55 台北（Claude）
+更新：2026-10-26 22:20 台北（Claude）
 
 ## 現在（2026-10-26 21:25 擁有者授權）：**立刻啟用每日巡檢**
 - 擁有者 21:25「好開啟」：可轉債只顯示、不影響評級／Gate，**不再等②通過**；現在就把「台股整站每日巡檢」改為 is_enabled=true（06:30／22:30 時段不變）。
 - 啟用後下一次排程跑完，回報一行到 `diagnostics/deploy-20261026/patrol-enabled.md`：runId、完成時間、狀態、Gate 審計 N/N、`watchlistSource` 與檔數（擁有者打開網站後應為 `latest_synced`）。
 - 可轉債改由 GitHub 代抓：Claude 正在寫（網站修補＋中繼工作流程），寫好會放下一份 patch，屆時再請擁有者授權部署。
 
-## 下一份（**待擁有者授權後才做**）：v237 讀回後的補修（Claude 寫好、測完）
+## 下一份（**已授權**：擁有者 2026-10-26 21:51「我授權 一起處理吧」）：v237 讀回後的補修＋兩條核准規則（Claude 寫好、測完）
 順序：先 D（中繼）並手動跑一次，確認 `data/cb_snapshot.json` 有資料，再做 C（網站）。
 
 ### D. 中繼：可轉債官方檔由 GitHub 代抓
@@ -17,12 +17,14 @@
 - 推上後到 Actions 手動執行「CB registry relay」一次。
 
 ### C. 網站 v237 補修（一次部署，v237 留回滾）
-- Patch：`handoff/patches/v237-fixes-20261026.patch`，SHA-256 `5845b908ff711e632bf4310af1c150e6d382cacbf8aeeb437efcc183d68c307a`；基線＝v237 來源（＝Claude 的 cb1472d）。不含 dist/server/index.js。
+- Patch：`handoff/patches/v237-fixes-20261026.patch`，SHA-256 `ccc0cd4fae8679b8910e09fbc0781ec8d6a740b560399b34c3ad297e3f9514f7`（取代 5845b908…）；基線＝v237 來源（＝Claude 的 cb1472d）。不含 dist/server/index.js。
 - 內容：
   1. 可轉債：櫃買／觀測站直連失敗（或 20 分鐘內失敗過）就讀 `raw.githubusercontent.com/wcr0936531039-png/macro-relay-service/main/data/cb_snapshot.json`；來源網址必須是官方原網址、抓取時間 36 小時內、有 SHA-256，否則不用。卡片註明「網站直連失敗，改用 GitHub 排程代抓的同一份官方檔」。仍只顯示、不計分。
   2. 缺收盤分類：外部收集程式 `scripts/collect-official-data.py` 送出 `notQuotedRows`；匯入時驗證（不得帶價格、不得與有行情者重複），`missingBreakdown` 由網站重算、不信任送來的計數。
   3. M1B−M2：網站有效天數 75 → 95 天，與中繼一致（你回報的快取重讀誤判過期）。
-- 測試：新增 `tests/v237-cb-relay.test.mjs` 3 項（fixture＝中繼程式用真實官方檔產生的輸出）＋`tests/v237-fixes.test.mjs` 2 項，併入 `test:v235-hotfix`；`official-collector`、`convertible-bonds` 測試已同步。Claude 在乾淨 v237 重放無衝突、完整 `npm test` exit 0；`dist/index.html` SHA-256 `39bc726f8e3b0d0b5172fd5d32e9d776d63010f7747f4f2b11b8c50ba2dd3974`。
+  4. **大盤持股（擁有者 21:51 核准「看方向」，第 33 輪 D10）**：65% 為基準；台股總經分數 20 日平均比 60 個交易日前高 5 分以上 → 75%，低 5 分以上 → 55%，其餘 65%。網站每天（加權指數交易日、總經資料齊時）記錄分數到 `macro-score-daily:v1`；累積不足 80 天的部分用第 31 輪重建的 100 天分數（程式內常數，已標明），同一天以網站實際記錄為準。顯示在個股決策區「大盤持股建議」，取代原本「待門檻核准」。以 10-22 的重建分數算：20 日平均 64.5、60 日前 60.1，差 +4.4 分 → 65%。
+  5. **個股進場條件（擁有者 21:51 核准，第 33 輪）**：技術強（三問技術過且均線強弱 ≥ +3）＋近 3 個已公布月份營收年增率平均 > 10% → 可進場；技術不過 → 避開；其餘 → 觀望；資料不足（含最新營收超過 75 天未更新）→ 不判斷。新卡片「進場條件（擁有者核准）」；巡檢 Gate 審計每檔多記 `entry` 與 `holdingTarget`。**不改評級、Gate、風險預算**。
+- 測試：新增 `tests/v237-cb-relay.test.mjs` 3 項（fixture＝中繼程式用真實官方檔產生的輸出）＋`tests/v237-fixes.test.mjs` 2 項＋`tests/v237-rules.test.mjs` 4 項，併入 `test:v235-hotfix`；`financial-analysis` 加檢查決策區用 D10、個股有進場條件；`official-collector`、`convertible-bonds` 測試已同步。Claude 在乾淨 v237 重放無衝突、完整 `npm test` exit 0；`dist/index.html` SHA-256 `375aaea481edd99be066efbae7785acb2a21f376e5ea8b1694f4cadf84479fe6`。
 - **外部收集程式要用新版**：部署後照 OPERATIONS.md 跑收集程式時，用這份 patch 裡的 `scripts/collect-official-data.py`。
 
 ### 讀回（報告 20 行內，`diagnostics/deploy-20261026/hotfix3.md`）
@@ -30,6 +32,8 @@
 - C：開 8299 最多 3 次（間隔 30 秒）：可轉債 3 檔、群聯三「目前轉換價 2,468.8（觀測站 2026-09 月報，2026-07-06 重設）」、海外兩檔「未含後續調整」；卡片是否寫 GitHub 代抓。
 - 下一次匯入官方行情後：市場摘要 `missingBreakdown` 不是 null（寫出三類數字）、巡檢文字有「當日無收盤價 N 檔」。
 - M1B−M2：快取重讀仍是 ok／snapshot，不變 stale。
+- 大盤持股：開任一檔，決策區顯示「大盤持股建議：65%」與 20 日平均、60 日前、變化分數，及「重建分數 N 天、網站實際記錄 M 天」；`macro-score-daily:v1` 有當天（加權指數日期）一筆。
+- 進場條件：四檔各自的「進場條件」狀態與理由（可進場／避開／觀望／資料不足），巡檢 Gate 審計的 `entry`、`holdingTarget`。
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
