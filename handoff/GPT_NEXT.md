@@ -11,7 +11,7 @@
 ## 已完成：v235 修補 → **v236**（10-26 08:0x；報告 `diagnostics/deploy-20261026/hotfix.md`）
 - ① Gate 審計 4/4 recorded、無逾時 PASS；③ 國發會 49.68 PASS；② 可轉債仍 `CB_REGISTRY_STILL_LOADING` FAIL；每日巡檢保持停用（正確）。
 
-## 現在：v236 可轉債修補（Claude 寫好、測完；**等擁有者授權**）
+## 現在：v236 可轉債修補（Claude 寫好、測完；**已授權：擁有者 2026-10-26 08:49「授權」，擁有者稍後再請你執行**）
 - Patch：`handoff/patches/v236-cb-keepalive-20261026.patch`，SHA-256 `4798d5bd2522cb6e80f4ff7c07c0fafdda693d83e0cffccd58d874e73e2d199b`。基線＝v236 來源（你的 88f5f89＝Claude 重放 3c2a5e0）。不含 dist/server/index.js。
 - 原因（你的推論正確）：
   1. 7 秒沒趕上的來源，回應送出後背景任務被平台取消，所以永遠「讀取中」。→ 交給 `ctx.waitUntil` 跑完並寫快取；巡檢 Gate 步驟以 `{panelWaitUntil}` 傳入（只給面板來源用，不改其他模組的 ctx 行為）。
