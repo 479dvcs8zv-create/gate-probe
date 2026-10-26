@@ -1,6 +1,6 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-26 08:20 台北（Claude）
+更新：2026-10-26 08:15 台北（Claude）
 
 ## 已完成：10-25 三項修補 → **v234**（2026-10-25 19:58 台北部署，三項讀回 PASS；v233 回滾點；報告 `diagnostics/deploy-20261025/report.md`）
 - 待跨日驗收：10/27 22:30 新信用被接受、10/28 上午 verifiedAt 保留、10/22 升 final（Claude 10/28 08:30 核對）。
@@ -8,7 +8,7 @@
 ## 已完成：兩包 → **v235**（10-26 05:34 部署；SHA 全對、npm test exit 0；報告 `diagnostics/deploy-20261026/report.md`）
 - 讀回 ①③⑤ PASS；②④ FAIL、⑥ PARTIAL；手動巡檢 partial、Gate 審計 4/4 step_timeout；每日巡檢保持停用（正確）。
 
-## 現在：上線「v235 修補」（Claude 寫好、測完；**等擁有者授權**）
+## 現在：上線「v235 修補」（Claude 寫好、測完；**已授權：擁有者 2026-10-26 08:10「修補授權」**）
 - Patch：`handoff/patches/v235-hotfix-20261026.patch`，SHA-256 `c46c98406536419d722bbdb20a73a1ba844545edce56624b11b5a816317911ac`。基線＝v235 來源（你的 commit 4ac4af9＝Claude 重放結果）。不含 dist/server/index.js，build 重建。
 - 修什麼（原因都是 Claude 第二包的錯，不是你的操作）：
   1. **Gate 審計 step_timeout**：第二包讓 `attachPanelSources` 逐項依序等（櫃買 2 次、觀測站、集保、證交所 2 次），冷快取或來源慢時一檔就超過 16 秒步驟上限。改成**同時抓、整體最多等 7 秒**；沒趕上的項目顯示「讀取中」，背景完成後寫快取，下一檔／下次直接用。

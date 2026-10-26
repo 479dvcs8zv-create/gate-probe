@@ -1,3 +1,10 @@
+# 待擁有者決定（最新在最上面）
+
+## 2026-10-26 08:10｜持股比例：暫定、等個股回測
+- 第 31 輪（`results/backtests/round31/README.md`）：網站總經分數落後股價、20 年未到紅燈；依分數調持股都不比固定 65% 好。
+- 擁有者：**65% 先暫定，看完個股回測（第 32 輪）再判斷**。網站不改任何持股相關程式。
+- v235 修補已授權（同時間）。
+
 # 待決定事項（GPT 與擁有者回來後一次決定）
 
 固定網址：`https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/handoff/DECISIONS_PENDING.md`
