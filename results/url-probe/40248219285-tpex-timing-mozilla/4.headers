@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: TWSE Server
+Date: Mon, 26 Oct 2026 12:12:51 GMT
+Content-type: text/html
+Last-Modified: Tue, 06 Oct 2026 06:31:40 GMT
+X-Content-Type-Options:nosniff 
+X-Content-Security-Policy: frame-ancestors 'self' *.twse.com.tw 
+Content-Security-Policy: frame-ancestors 'self' *.twse.com.tw; script-src 'self' https://*.twse.com.tw http://www.google-analytics.com/ https://www.google-analytics.com/ https://code.jquery.com/ https://unpkg.com https://www.gstatic.com https://www.googletagmanager.com 'unsafe-inline' 'unsafe-eval';
+Referrer-Policy: no-referrer
+Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+X-XSS-Protection: 1;mode=block
+Strict-Transport-Security:max-age=31536000; includeSubDomains; preload
+Content-Length: 77198
+

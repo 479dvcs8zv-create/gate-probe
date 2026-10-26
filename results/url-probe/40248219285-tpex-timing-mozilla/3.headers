@@ -1,0 +1,20 @@
+HTTP/2 200 
+date: Mon, 26 Oct 2026 00:12:47 GMT
+content-type: application/json;charset=UTF-8
+server: cloudflare
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+set-cookie: JSESSIONID=67A7AE6D0D25835F100BDD181A93EB97; Path=/; SameSite=None; Secure; HttpOnlywww; HttpOnly
+content-security-policy: frame-ancestors 'self' *.twse.com.tw *.tdcc.com.tw digitalprocesssys-epassbook.cdn.hinet.net http://digitalprocesssyst-epassbook.cdn.hinet.net;
+strict-transport-security: max-age=31535000; includeSubDomains; preload
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+cache-control: max-age=600, private, must-revalidate
+cache-control: private
+cf-cache-status: DYNAMIC
+cf-ray: a50540523d67acdb-MSP
+
