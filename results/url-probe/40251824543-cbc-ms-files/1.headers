@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Server: HiNetCDN
+Date: Mon, 26 Oct 2026 00:57:32 GMT
+Content-Type: application/vnd.oasis.opendocument.spreadsheet
+Content-Length: 114836
+Connection: keep-alive
+Cache-Control: private,no-cache
+content-disposition: attachment; filename=ms.ods
+X-UA-Compatible: IE=edge
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Permissions-Policy: fullscreen=()
+Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' data: code.jquery.com *.googletagmanager.com www.google-analytics.com *.googleapis.com *.gstatic.com *.google.com *.facebook.com *.facebook.net *.doubleclick.net *.youtube.com *.ntpc.gov.tw; frame-ancestors 'self';
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+X-POWERED-BY: 
+X-ASPNET-VERSION: 
+X-Cache: MISS, EXPIRED, EXPIRED
+x-request-id: bfa9fb11aaf3bf4f540a58f2d3d6d83a
+Accept-Ranges: bytes
+
