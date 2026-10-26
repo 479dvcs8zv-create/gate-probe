@@ -1,0 +1,113 @@
+{
+  "archive_version": "4.32-archive",
+  "co_id": "8299",
+  "adr": null,
+  "typek": "otc",
+  "base_url": "https://web.archive.org",
+  "started_at": "2026-10-26T02:21:19.035630+00:00",
+  "targets": [
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "新台幣／股",
+      "url": "https://finance.yahoo.com/quote/8299.TWO/analysis/",
+      "save": {
+        "attempt": 1,
+        "sent_at": "2026-10-26T02:21:19.035651+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261026022122/https://finance.yahoo.com/quote/8299.TWO/analysis/"
+        },
+        "cdx_file": "cdx/yahoo_tw_analysis_1.json",
+        "cdx_sha256": "b6760427dc788a8dd668af56522ca3f5824036c76ac2ecbb7906bd76396ee820",
+        "found_in_index": "20261026022122"
+      },
+      "capture": {
+        "timestamp": "20261026022122",
+        "captured_at_tpe": "2026-10-26T10:21:22+08:00",
+        "archive_url": "https://web.archive.org/web/20261026022122/https://finance.yahoo.com/quote/8299.TWO/analysis/",
+        "cdx_digest": "G2DNOWDETRF7VKMGN7JTTHQM54QOB6S3",
+        "digest_matched": true,
+        "file": "captures/yahoo_tw_analysis_20261026022122.bin",
+        "sha256": "3ce37603bce9d6614b1ddddb86f737e13d07facb52832eb1457e7c15ceb1cd3e",
+        "length": 191333,
+        "content_type": "text/html; charset=utf-8",
+        "content_encoding": "gzip",
+        "sent_ts": "20261026022119",
+        "decoded_length": 961944,
+        "decoded_sha256": "ec0af56f1eb425b4e54c382743bb2202a41bb5293e9647beb56cf1ce96597887",
+        "payload_compression": "gzip"
+      },
+      "status": "ARCHIVED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-26T02:21:19.035651+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261026022122/https://finance.yahoo.com/quote/8299.TWO/analysis/"
+          },
+          "cdx_file": "cdx/yahoo_tw_analysis_1.json",
+          "cdx_sha256": "b6760427dc788a8dd668af56522ca3f5824036c76ac2ecbb7906bd76396ee820",
+          "found_in_index": "20261026022122"
+        }
+      ]
+    },
+    {
+      "id": "tradingview_tw_forecast",
+      "vendor": "TradingView",
+      "unit": "新台幣（頁面標示 TWD；GAAP／調整後未寫）",
+      "url": "https://tw.tradingview.com/symbols/TPEX-8299/forecast-actuals-and-estimates/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-10-26T02:26:43.461922+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261026022646/https://tw.tradingview.com/symbols/TPEX-8299/financials-estimates/"
+        },
+        "cdx_file": "cdx/tradingview_tw_forecast_2.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "NOT_IN_INDEX_YET",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-26T02:22:38.258331+00:00",
+          "http_status": null,
+          "error": "URLError: timed out",
+          "headers": {},
+          "cdx_error": "URLError: _ssl.c:993: The handshake operation timed out"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-10-26T02:26:43.461922+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261026022646/https://tw.tradingview.com/symbols/TPEX-8299/financials-estimates/"
+          },
+          "cdx_file": "cdx/tradingview_tw_forecast_2.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ],
+      "capture_timestamp_from_headers": "20261026022646"
+    }
+  ],
+  "notes": [],
+  "skipped": [],
+  "order_basis": [
+    {
+      "id": "yahoo_tw_analysis",
+      "last_archived": "20261019092747"
+    },
+    {
+      "id": "tradingview_tw_forecast",
+      "last_archived": "20261019093347"
+    }
+  ],
+  "finished_at": "2026-10-26T02:27:07.134841+00:00"
+}

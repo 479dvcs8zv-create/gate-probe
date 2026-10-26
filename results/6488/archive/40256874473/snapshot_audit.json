@@ -1,0 +1,26 @@
+{
+  "audit_version": "4.31-snapshot-audit",
+  "data_mode": "MARKET_CONSENSUS_RESEARCH",
+  "gate_impact": "none",
+  "co_id": "6488",
+  "generated_at": "2026-10-26T02:37:52.003340+00:00",
+  "boundary_rule": {
+    "announced": "重大訊息原文記載的公告時間",
+    "conservative_midnight": "月營收公告當日 00:00（月營收申報系統上傳時間未查證時的保守界線）",
+    "status": "adopted",
+    "decided_at": "2026-10-19T11:10:00+08:00",
+    "decided_by": "Gate Pipeline 擁有者（使用者本人），Claude 對話中選擇「採用（推薦）」",
+    "effect": "公告當日 00:00 之後的存檔不算截止點前快照；公告時間照舊保留；季度狀態不因此改變",
+    "quarter_end": "（2026-10-19 採用，研究用）重大訊息沒有季末月營收公告的季度：季度結束隔天 00:00，狀態 CUTOFF_QUARTER_END_RULE（reviews/revenue_quarter_end_policy.json）"
+  },
+  "policy": "reviews/consensus_research_policy.json",
+  "counts": {
+    "ADOPTABLE": 0,
+    "PENDING": 0,
+    "NOT_ADOPTABLE": 0
+  },
+  "items": [],
+  "pending_categories": {},
+  "open_decisions": {},
+  "meaning": "ADOPTABLE＝研究上可採用的截止點前快照，不等於 Gate PASS；PENDING 依類別說明原因"
+}

@@ -1,0 +1,109 @@
+{
+  "archive_version": "4.32-archive",
+  "co_id": "2454",
+  "adr": null,
+  "typek": "sii",
+  "base_url": "https://web.archive.org",
+  "started_at": "2026-10-26T02:11:41.243008+00:00",
+  "targets": [
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "新台幣／股",
+      "url": "https://finance.yahoo.com/quote/2454.TW/analysis/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-10-26T02:14:46.597549+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261026021556/https://finance.yahoo.com/quote/2454.TW/analysis/"
+        },
+        "cdx_file": "cdx/yahoo_tw_analysis_2.json",
+        "cdx_sha256": "debffcd05495d53ba9b024f845a2061fb99210921b88f5513686ce2449d6b094",
+        "found_in_index": "20261026021556"
+      },
+      "capture": {
+        "timestamp": "20261026021556",
+        "captured_at_tpe": "2026-10-26T10:15:56+08:00",
+        "archive_url": "https://web.archive.org/web/20261026021556/https://finance.yahoo.com/quote/2454.TW/analysis/",
+        "cdx_digest": "3GJDZLZT26QP7DZPORNFXP2CFL3PLNB3",
+        "digest_matched": true,
+        "file": "captures/yahoo_tw_analysis_20261026021556.bin",
+        "sha256": "9a7ccc8c2abf233dc1ea109be6f55e0359bc3d33323d2d60bc7a7ea34fd03388",
+        "length": 193893,
+        "content_type": "text/html; charset=utf-8",
+        "content_encoding": "gzip",
+        "sent_ts": "20261026021446",
+        "decoded_length": 979973,
+        "decoded_sha256": "77ff5de5b65bfcfcb81d39dbdd51ab16b940098dbdb3e67c5084f228f4fb5d33",
+        "payload_compression": "gzip"
+      },
+      "status": "ARCHIVED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-26T02:11:41.243019+00:00",
+          "http_status": null,
+          "error": "URLError: _ssl.c:993: The handshake operation timed out",
+          "headers": {},
+          "cdx_file": "cdx/yahoo_tw_analysis_1.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-10-26T02:14:46.597549+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261026021556/https://finance.yahoo.com/quote/2454.TW/analysis/"
+          },
+          "cdx_file": "cdx/yahoo_tw_analysis_2.json",
+          "cdx_sha256": "debffcd05495d53ba9b024f845a2061fb99210921b88f5513686ce2449d6b094",
+          "found_in_index": "20261026021556"
+        }
+      ]
+    },
+    {
+      "id": "tradingview_tw_forecast",
+      "vendor": "TradingView",
+      "unit": "新台幣（頁面標示 TWD；GAAP／調整後未寫）",
+      "url": "https://tw.tradingview.com/symbols/TWSE-2454/forecast-actuals-and-estimates/",
+      "save": {
+        "attempt": 1,
+        "sent_at": "2026-10-26T02:17:00.678859+00:00",
+        "http_status": null,
+        "error": "URLError: timed out",
+        "headers": {},
+        "cdx_file": "cdx/tradingview_tw_forecast_1.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "SAVE_FAILED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-10-26T02:17:00.678859+00:00",
+          "http_status": null,
+          "error": "URLError: timed out",
+          "headers": {},
+          "cdx_file": "cdx/tradingview_tw_forecast_1.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "skipped": [],
+  "order_basis": [
+    {
+      "id": "yahoo_tw_analysis",
+      "last_archived": "20261019091803"
+    },
+    {
+      "id": "tradingview_tw_forecast",
+      "last_archived": "20261019092426"
+    }
+  ],
+  "finished_at": "2026-10-26T02:19:06.851966+00:00"
+}
