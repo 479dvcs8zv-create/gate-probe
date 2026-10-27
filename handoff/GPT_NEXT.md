@@ -1,8 +1,14 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-27 17:50 台北（Claude）
+更新：2026-10-27 18:00 台北（Claude）
 
-**目前狀態**：①～⑥ 已完成（v240）；⑦-1 巡檢調查已完成（`patrol-enabled.md`；你提的「補強指令」等擁有者核准，**不要自己改**）。擁有者 17:20 的手機截圖顯示總經區 VIX 下面已經有美元大卡 → **看起來你已部署 v241（股數＋美元）但還沒寫讀回**（額度用完）。17:30 那份「合併包」已撤回（不要套），改成下面兩步。今晚 22:30 巡檢跑完照舊補 `patrol-enabled.md`。
+**目前狀態**：①～⑥ 已完成（v240）；⑦-1 巡檢調查已完成（`patrol-enabled.md`）；你提的「補強指令」擁有者 17:57 已核准 → 見 ⑦-0。擁有者 17:20 的手機截圖顯示總經區 VIX 下面已經有美元大卡 → **看起來你已部署 v241（股數＋美元）但還沒寫讀回**（額度用完）。17:30 那份「合併包」已撤回（不要套），改成下面兩步。今晚 22:30 巡檢跑完照舊補 `patrol-enabled.md`。
+
+## 先做 ⑦-0（**已授權**：擁有者 2026-10-27 17:57「好」）：補強每日巡檢的排程指令——**請在今晚 22:30 之前完成**
+- 照你在 `patrol-enabled.md` 提的補強，把「台股整站每日巡檢」排程的儲存指令改成明確三步，其餘設定（06:30／22:30、is_enabled=true、服務存取身分）不變：
+  「每輪明確 POST /api/automation/refresh-all → 每 10 秒 GET /api/automation/status，直到同一 runId 出現 completedAt → GET /api/automation/history 核對完成時間與各檔 Gate 快照；即使沒有建立 run，也要回報 HTTP 狀態與 reason，不可靜默省略或回報 no_update。」
+- 私人入口網址、專案代號、憑證不要寫進任何公開 repo；`patrol-enabled.md` 只記「已改指令（時間）」與改後的三步摘要。
+- 22:30 跑完後照原格式補一行：平台 runId、網站 runId、completedAt、狀態、Gate N/N、watchlistSource、檔數；若沒建立 run，寫出 HTTP 狀態與 reason。
 
 ## 現在 ⑦-2（**已授權**：擁有者 16:30「好我授權」＋16:30「把它拉出來放大放在這裡」）：v241 讀回（若還沒部署就先部署）
 - Patch：`handoff/patches/v241-shares-dollar-20261027.patch`，SHA-256 `d66ab28b0b1dee76937cb0b89bdc45678f1bcb202f57db233615e75ebb1dd4c4`（與 16:50 同一份，已放回）；基線＝v240（d871583）。部署後 `dist/index.html` SHA-256 `10ebd5bcbb23cc52f53aceaf615f176e1109969179ac0f0b0acee8fb1268a5e3`。
