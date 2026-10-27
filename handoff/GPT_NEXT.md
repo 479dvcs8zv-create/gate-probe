@@ -22,7 +22,7 @@
 - Patch：`handoff/patches/relay-twse-sector-credit-20261028.patch`（`git format-patch`，1 個 commit），SHA-256 `c0acfc540376edb4250f7e66a02c93ec7e07e2f94473ab9b97944e65da7142e7`。在 macro-relay-service `git am` 後推上 main。
 - 內容：① `twse_sector_metric` 先讀證交所日報（指定日期、stat OK、日期必須等於加權指數日），失敗才用 OpenAPI（仍要同日）；兩者都不同日就不收、沿用舊值標過期（不補值）。② `keyless.yml` 加 `cron: '50 14 * * 1-5'`（台北週一至週五 22:50），信用統計當晚就收到，不靠網站巡檢。不改其他序列與既有排程。
 - 測試：新增 `tests/test_twse_sector.py` 3 項（10/28 實抓的日報與 OpenAPI 原始回應）；Claude 在最新 main 07f5002 上 `git am` 後 `python -m unittest discover -s tests` 38/38 通過。
-- 讀回（寫 `diagnostics/deploy-20261026/relay-h.md`，5 行內）：工作流程 success；`keyless_snapshot.json` 的 TWSE_ELECTRONIC／SEMICONDUCTOR／FINANCIAL／SHIPPING／STEEL 日期與值（應為最新交易日）；TWSE_MARGIN_BALANCE_NTD 等 5 項的日期（當晚 22:50 那次後應為當天）；網站其他市場卡片的融資餘額與類股指數日期。
+- 讀回（併入上方「本輪工作」的 `hotfix6.md`）：工作流程 success；`keyless_snapshot.json` 的 TWSE_ELECTRONIC／SEMICONDUCTOR／FINANCIAL／SHIPPING／STEEL 日期與值（應為最新交易日）；TWSE_MARGIN_BALANCE_NTD 等 5 項的日期（當晚 22:50 那次後應為當天）；網站其他市場卡片的融資餘額與類股指數日期。
 
 ## ⑩（**已授權**：擁有者 2026-10-28 03:39「我是說個股那邊 要做整合 同一只做一次計算 還有不要重複顯示」）：v243 個股區整合（一次部署，v242 留回滾）——⑨ 之後做
 - Patch：`handoff/patches/v243-stock-integration-20261028.patch`，SHA-256 `ef550038f6600346ff869d239c3b7520dcc25843481a21060e24d92c42a93c40`；基線＝v242（你的 c9e2577＝Claude tag v242-patch-head）。不含 dist/server/index.js。只改網頁（dist/index.html）與測試，後台程式不變。
@@ -33,7 +33,7 @@
 - 不改任何計算規則、評級、Gate、門檻、風險預算；所有表單與控制項都保留。
 - 測試：新增 `tests/v243-stock-dedup.test.mjs` 2 項＋`dashboard-interactions` 1 段（後台還沒到時不另算 Gate／四象限／報告）；`cross-market-live` 的版面指紋：個股區新順序記在 `layout-v212.json` 的 `stockSectionV243`（原 v212 指紋保留）。Claude 在乾淨 v242 重放無衝突、完整 `TZ=UTC npm test` exit 0、10 組獨立腳本全過；`dist/index.html` SHA-256 `7a5fabb193d7c85b95079a98bc3f0b99f1fde252233937bd0bdb9d65a60cbd60`。`SITE_BUILD_ID` 會與 Claude 的 4454ee67… 不同（你的 OPERATIONS.md 有私人內容），屬預期。
 - 步驟：`git apply` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（v242 留回滾）。
-- 讀回（寫 `diagnostics/deploy-20261026/hotfix6.md`，8 行內）：① 版本、SHA；② 開 8299（手機也看一次）：個股區順序、畫面沒有「畫面呈現未完成」；③ 同一數字只出現一次（收盤價只在追蹤清單卡、20 日線只在「持有與強弱」、估值情境只在估值區、ROIC／CFO／FCF 只在財報品質卡）；④ 五檔評級、進場、出場、Gate 狀態與部署前相同；⑤ 後台還沒算完時（切到新股票的頭幾秒）顯示「後台正在計算」而不是另一份評級。
+- 讀回（併入上方「本輪工作」的 `hotfix6.md`）：① 版本、SHA；② 開 8299（手機也看一次）：個股區順序、畫面沒有「畫面呈現未完成」；③ 同一數字只出現一次（收盤價只在追蹤清單卡、20 日線只在「持有與強弱」、估值情境只在估值區、ROIC／CFO／FCF 只在財報品質卡）；④ 五檔評級、進場、出場、Gate 狀態與部署前相同；⑤ 後台還沒算完時（切到新股票的頭幾秒）顯示「後台正在計算」而不是另一份評級。
 
 ## 之後 ⑧（巡檢已授權啟用；本項只查原因與做一次測試，不改時段與開關）：為什麼排程 3 秒就結束、網站沒有 run
 - 事實：06:30（34405943…）與 22:30（079f2599…，22:32:28～22:32:31）兩次都在 **3 秒內**結束、`no_update`、網站沒有新 run。真正的巡檢要 POST＋每 10 秒輪詢到 completedAt，至少要幾分鐘；3 秒代表排程那一輪**根本沒有呼叫網站**（或一開始就放棄）。指令補強後仍一樣，所以問題不在指令文字。
