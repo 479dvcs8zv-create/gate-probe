@@ -1,0 +1,386 @@
+diff --git a/dist/index.html b/dist/index.html
+index d5a7824..859e088 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -50,6 +50,10 @@
+ .dollar-table{margin-top:8px;font-size:.8rem;color:var(--muted)}.dollar-table summary{cursor:pointer;color:#d5e4ef}.dollar-table table{border-collapse:collapse;width:100%;margin-top:6px;font-variant-numeric:tabular-nums}.dollar-table th,.dollar-table td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}
+ @media(max-width:560px){.dollar-card{padding:13px}.dollar-value{font-size:1.9rem}}
+ /* DOLLAR_INDEX_CSS_END */</style>
++<style>/* STOCK_DEDUP_CSS_START */
++/* 個股區整合（擁有者 2026-10-28）：個股資料區的收盤價／月營收／估值摘要三格、Master Model 四象限都是別處已顯示內容的重述，不再顯示。 */
++.source-panel .source-grid{display:none!important}#fourQuadrants{display:none!important}
++/* STOCK_DEDUP_CSS_END */</style>
+ <!-- ADVISORY_PANEL_STYLE_END -->
+ </head>
+ <body>
+@@ -153,18 +157,43 @@
+     <div id="cloudSyncNotice" class="cloud-sync-notice" role="status" hidden><span id="cloudSyncMessage"></span> <a id="cloudSyncSignIn" href="/signin-with-chatgpt?return_to=%2F" target="_top" hidden>重新登入 ChatGPT</a></div>
+   </section>
+ 
+-  <section class="panel source-panel" aria-labelledby="sourceTitle">
+-    <div class="panel-title"><h3 id="sourceTitle">個股財經資料｜群聯 8299</h3><button class="refresh" id="stockRefresh" type="button">核對個股資料</button></div>
+-    <div class="source-grid">
+-      <div class="source-box"><span>個股收盤價</span><b id="livePrice">查詢中</b><small id="livePriceMeta">依來源觀測日顯示</small></div>
+-      <div class="source-box"><span>FinMind 月營收</span><b id="liveRevenue">查詢中</b><small id="liveRevenueMeta">以營收月份為準</small></div>
+-      <div class="source-box"><span>歷史獲利情境估值</span><b id="valuationSummary">載入後更新</b><small id="valuationSummaryMeta">舊手動假設不再當成即時估值。</small></div>
++  <!-- 個股區整合（擁有者 2026-10-28「同一只做一次計算、不要重複顯示」）：搜尋→追蹤清單→Master Model 結論與 Gate→估值→財報品質→財報解讀→資料來源。同一筆資料只在一處顯示。 -->
++
++  <section class="stock-grid" id="stockGrid"></section>
++
++  <section class="panel pipeline" aria-labelledby="pipelineTitle">
++    <div class="pipeline-head"><h3 id="pipelineTitle">Master Model｜評級與核驗狀態</h3><p>灰色＝缺少可驗證資料；黃燈＝已有訊號、仍待確認</p></div>
++    <p class="tiny" id="masterModelStatus" role="status" aria-live="polite">等待個股資料完成後更新決策鏈。</p>
++    <div class="guardrail" id="overallGate">關鍵上游資料尚未接入：完整評級暫停，不得以技術 PASS 取代 Macro／Quality Gate。</div>
++    <section class="overall-report" id="qualifiedReport" hidden aria-live="polite">
++      <div class="overall-report-head"><h4 id="qualifiedTitle">退避風險評級</h4><span id="qualifiedStatus" class="badge watch">使用已核驗資料與替代規則</span></div>
++      <p id="qualifiedGrade" style="font-size:1.4rem;font-weight:700"></p>
++      <p id="qualifiedPolicyNotice" class="tiny"></p>
++      <p id="qualifiedBasis"></p>
++      <p id="qualifiedConclusion"></p><p id="qualifiedConsensus"></p>
++      <details id="qualifiedLimitDetails" data-view-key="qualified-limits"><summary>評級規則、降級與風險原因</summary><div id="qualifiedLimits" class="tiny"></div></details>
++    </section>
++    <!-- 個股區整合（擁有者 2026-10-28）：結論（評級、大盤持股與個股決策、進場條件、持有與強弱）放最前面；Gate 逐項其次；人工補登工具放最後。 -->
++    <section class="advisory-panels" id="advisoryPanels" aria-live="polite" hidden></section>
++    <div class="gate-list" id="gateList"></div>
++    <div class="sector-chain" id="sectorChain"></div>
++    <div class="four" id="fourQuadrants"></div>
++    <p class="tiny">評分規則：10D／Veto 與三層漏斗 40／30／30 僅在獨立來源與可核對證據齊備後計分；缺值不當 0 分、不視為通過。一票否決需有可核實紅線證據。</p>
++    <div class="overall-report" id="overallReport" aria-live="polite">
++      <div class="overall-report-head"><h4 id="overallReportTitle">整體檢驗報告</h4><span class="badge muted-status" id="overallReportStatus">等待個股資料</span></div>
++      <p id="overallReportSummary">資料載入後，這裡會彙整已核實證據、機會、風險與模型結論。</p>
++      <section style="margin:10px 0;padding:12px;border:1px solid #29425c;border-radius:12px"><b>財報資料輸入來源</b><p id="financialMacroIntegration" class="tiny">等待個股財報快照。</p></section>
++      <div class="overall-report-grid">
++        <section><b>已核實證據</b><p id="overallReportEvidence">等待資料</p></section>
++        <section><b>機會訊號</b><p id="overallReportOpportunity">等待資料</p></section>
++        <section><b>風險與缺項</b><p id="overallReportRisks">等待資料</p></section>
++        <section><b>法說助理判讀</b><p id="overallReportGuidance">尚無已記錄的法說判讀；需引用公司原始公告或簡報。</p></section>
++      </div>
++      <p class="overall-report-next" id="overallReportNext">模型結論：等待資料</p>
+     </div>
+-    <p class="macro-meta" id="stockSourceMeta">正在向台股財經資料服務查詢；若無法連線，顯示缺值，不沿用快照冒充新資料。</p>
+-    <p class="tiny" id="automaticSourceStatus" aria-live="polite">選取股票後依代號抓取並保存。</p>
+-    <details id="automaticSourcePanel"><summary id="automaticSourceTitle">自動資料池｜公司公告與產業報告</summary><div id="automaticSourceRecords"></div></details>
+-    <div class="source-links"><a href="https://finmind.github.io/tutor/TaiwanMarket/Fundamental/" target="_blank" rel="noopener noreferrer">FinMind 資料定義</a><a href="https://openapi.twse.com.tw/" target="_blank" rel="noopener noreferrer">證交所原始資料</a><a href="https://www.tpex.org.tw/openapi/" target="_blank" rel="noopener noreferrer">櫃買中心原始資料</a><a href="https://goodinfo.tw/tw/index.asp" target="_blank" rel="noopener noreferrer">Goodinfo 核對</a><a href="https://statementdog.com/" target="_blank" rel="noopener noreferrer">財報狗核對</a><a id="consensusReference" href="https://www.marketscreener.com/search/" target="_blank" rel="noopener noreferrer">分析師預估參考（MarketScreener）</a><a href="https://www.alphamemo.ai/free-transcripts" target="_blank" rel="noopener noreferrer">法說逐字稿人工查閱（AlphaMemo）</a></div>
+-    <p class="tiny">切換股票會自動更新財報、公司重大訊息與已接入的產業研究來源。報告依原始發布日期保存；共識、指引回測與直接同業仍逐項驗證，不用模型 EPS 補值。</p>
++    <details class="panel" style="margin:12px 0;padding:14px"><summary><strong>2026／2027 EPS｜自動連結個股資料池與總經</strong></summary><div id="autoEstimateLink" class="tiny" aria-live="polite">選取個股後自動載入個股 EPS、資料池候選與總經快照。</div><details style="margin-top:12px"><summary><strong>人工補登 CSV（只補資料池沒有的來源）</strong></summary><p class="tiny">CSV 欄位：ticker,year,eps_low,eps_mid,eps_high,analysts_count,update_date,source,source_url,estimate_type。補登紀錄不會自動變成市場共識；仍須符合來源與授權門檻。</p><form id="estimateImportForm" style="display:grid;gap:8px;margin:10px 0"><label>貼上 CSV 資料<textarea name="csv" rows="4" placeholder="ticker,year,eps_low,eps_mid,eps_high,analysts_count,update_date,source,source_url,estimate_type"></textarea></label><label><input name="verified" type="checkbox" required> 我已核對來源、使用權限、幣別／單位及股票代碼</label><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit">匯入並檢查</button><button id="exportEstimates" type="button">下載備份 CSV</button></div></form><p id="estimateSummary" class="tiny">尚無匯入紀錄。</p><div id="estimateRows"></div></details><div style="margin-top:12px;padding-top:10px;border-top:1px solid #314156"><strong>資料池同步狀態</strong><p class="tiny">雲端候選資料自動載入並保留來源；未核實候選不寫入正式共識或 Gate。</p><label>選取 JSON 資料包<input id="shadowPackageFile" type="file" accept="application/json"></label><button id="retryShadowCloud" type="button">重新同步雲端資料</button><p id="shadowPackageSummary" class="tiny">資料池載入中。</p><div id="shadowPackageRows"></div></div><div style="margin-top:12px"><strong>直接同業池</strong><p class="tiny" id="peerUniverseSummary">同業 Forward P/E 只用相同年度有效共識及行情計算；個股模型 EPS 不當成市場共識。</p><button id="loadCuratedPeers" type="button">載入直接同業資料</button><div id="peerUniverseRows" class="tiny"></div></div></details>
++    <details class="panel" style="margin:12px 0;padding:14px"><summary><strong>Gate 5B｜自動連結 EPS 實際值與市場共識候選</strong></summary><div id="autoSurpriseLink" class="tiny" aria-live="polite">選取個股後自動比對資料池與已讀取季度 EPS。</div><details style="margin-top:12px"><summary><strong>人工補登財報前共識（只補資料池缺項）</strong></summary><p class="tiny">共識原發布日與原始保存時間戳均須早於財報公布；CSV 須附 currency、unit、accounting_basis、consensus_captured_at（含時區），同日公告另附 earnings_at。事後下載不回填為財報前快照；年度 EPS 或公司內部模型不能替代市場季度共識。8 個不同季度才達樣本門檻，候選紀錄不會自動通過 Gate。</p><form id="surpriseImportForm" style="display:grid;gap:8px;margin:10px 0"><label>貼上 CSV 資料<textarea name="csv" rows="4" placeholder="ticker,period,consensus_eps,consensus_asof,actual_eps,earnings_date,consensus_source,consensus_url,actual_source,actual_url,currency,unit,accounting_basis,consensus_captured_at,earnings_at"></textarea></label><label><input name="verified" type="checkbox" required> 我已核對共識在財報前發布、實際 EPS 期別與來源授權</label><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit">匯入並檢查</button><button id="exportSurprises" type="button">下載備份 CSV</button></div></form><p id="surpriseSummary" class="tiny">尚無 EPS surprise 匯入資料。</p><div id="surpriseRows"></div></details></details>
++    <details class="panel" style="margin:12px 0;padding:14px"><summary><strong>Gate 5A｜自動連結資料池的公司指引紀錄</strong></summary><div id="autoGuidanceLink" class="tiny" aria-live="polite">選取個股後自動載入指引候選、財報實際值與總經快照。</div><details style="margin-top:12px"><summary><strong>人工補登官方指引（只補資料池缺項）</strong></summary><p class="tiny">資料池中的指引候選會先自動顯示；仍須回到公司公告／法說簡報核對，未核對候選不列入回測。少於 4 季僅觀察；同一指標 8 個不同期別且實績來源核對後才達樣本門檻。</p><form id="guidanceForm" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:10px 0"><label>公告日<input name="date" type="date" required></label><label>預測期別<input name="period" placeholder="2026 Q4" required></label><label>指標<input name="metric" placeholder="營收／毛利率／EPS" required></label><label>指引下限<input name="low" type="number" step="any" required></label><label>指引上限<input name="high" type="number" step="any" required></label><label>實際結果<input name="actual" type="number" step="any" placeholder="未公布可留空"></label><label>單位<input name="unit" placeholder="billion TWD／percent" required></label><label>幣別<input name="currency" placeholder="TWD；實物數量留空"></label><label>會計／統計口徑<input name="accounting_basis" placeholder="TIFRS／實物出貨量" required></label><label>實績公告日<input name="actual_date" type="date"></label><label>實績官方來源<input name="actual_source" type="url" placeholder="已公布實績的原文網址"></label><label style="grid-column:1/-1">公司官方來源網址<input name="source" type="url" placeholder="MOPS／公司 IR／官方簡報網址" required></label><label style="grid-column:1/-1">助理判讀摘要（不取代原文）<textarea name="assistantJudgment" rows="3" placeholder="資料池候選摘要與待核重點"></textarea></label><label style="grid-column:1/-1"><input name="sourceVerified" type="checkbox" required> 我已對照公司官方原始資料，確認標的、期別、數值與來源一致</label><button type="submit">儲存指引與判讀</button></form><p id="guidanceSummary" class="tiny">尚無已記錄指引；新增後顯示分指標樣本數、區間命中率及來源。</p><div id="guidanceLog"></div></details></details>
+   </section>
+ 
+   <section class="panel valuation-top" id="valuationCalculator">
+@@ -175,11 +204,9 @@
+     <p class="note" id="valuationBasis">今年預估 EPS 以已公告季度 EPS 加上過去完整年度同季 EPS 樣本推估；依同期營收年增倍率調整，再用市場歷史 P/E 分位計算年末股價。8%／10%／12% 是股權折現率敏感度假設，不是公司專屬 WACC 或分析師共識。</p>
+   </section>
+ 
+-  <section class="stock-grid" id="stockGrid"></section>
+-
+   <section class="workspace">
+     <div class="panel">
+-      <h3 id="detailTitle">群聯 8299｜Master Model</h3>
++      <h3 id="detailTitle">群聯 8299｜財報品質與估值輸入</h3>
+       <div class="matrix" id="metrics"></div>
+       <div class="quality" id="quality"></div>
+     </div>
+@@ -190,6 +217,7 @@
+       <p class="note">個股切換時重新讀取該公司的季度財報。ROIC 顯示近四季估算並附分母及期別；CFO／淨利使用近三年同期間資料，先將現金流量表年度累計值還原為單季。缺必要欄位時列出原因，不沿用其他股票或舊快照。</p>
+     </aside>
+   </section>
++
+   <section class="panel" id="financialAnalysisPanel" style="margin-top:14px">
+     <div class="panel-title"><h3>個股財報資料來源｜讀取與輸出</h3><button id="refreshFinancialSource" type="button">重新讀取個股資料</button></div>
+     <p class="tiny">此區只依目前選取的個股讀取行情、月營收與季度財報，顯示來源、觀測期及資料欄位；不在此做總經或投資判讀。輸出的同一份後端快照供下方網站 Master Model 使用。</p>
+@@ -204,40 +232,21 @@
+       <div id="financialReportSources" class="tiny" style="margin-top:8px"></div>
+     </section>
+   </section>
+-  <section class="panel pipeline" aria-labelledby="pipelineTitle">
+-    <div class="pipeline-head"><h3 id="pipelineTitle">Master Model｜評級與核驗狀態</h3><p>灰色＝缺少可驗證資料；黃燈＝已有訊號、仍待確認</p></div>
+-    <p class="tiny" id="masterModelStatus" role="status" aria-live="polite">等待個股資料完成後更新決策鏈。</p>
+-    <div class="guardrail" id="overallGate">關鍵上游資料尚未接入：完整評級暫停，不得以技術 PASS 取代 Macro／Quality Gate。</div>
+-    <section class="overall-report" id="qualifiedReport" hidden aria-live="polite">
+-      <div class="overall-report-head"><h4 id="qualifiedTitle">退避風險評級</h4><span id="qualifiedStatus" class="badge watch">使用已核驗資料與替代規則</span></div>
+-      <p id="qualifiedGrade" style="font-size:1.4rem;font-weight:700"></p>
+-      <p id="qualifiedPolicyNotice" class="tiny"></p>
+-      <p id="qualifiedBasis"></p>
+-      <p id="qualifiedConclusion"></p><p id="qualifiedConsensus"></p>
+-      <details id="qualifiedLimitDetails" data-view-key="qualified-limits"><summary>評級規則、降級與風險原因</summary><div id="qualifiedLimits" class="tiny"></div></details>
+-    </section>
+ 
+-    <details class="panel" style="margin:12px 0;padding:14px"><summary><strong>2026／2027 EPS｜自動連結個股資料池與總經</strong></summary><div id="autoEstimateLink" class="tiny" aria-live="polite">選取個股後自動載入個股 EPS、資料池候選與總經快照。</div><details style="margin-top:12px"><summary><strong>人工補登 CSV（只補資料池沒有的來源）</strong></summary><p class="tiny">CSV 欄位：ticker,year,eps_low,eps_mid,eps_high,analysts_count,update_date,source,source_url,estimate_type。補登紀錄不會自動變成市場共識；仍須符合來源與授權門檻。</p><form id="estimateImportForm" style="display:grid;gap:8px;margin:10px 0"><label>貼上 CSV 資料<textarea name="csv" rows="4" placeholder="ticker,year,eps_low,eps_mid,eps_high,analysts_count,update_date,source,source_url,estimate_type"></textarea></label><label><input name="verified" type="checkbox" required> 我已核對來源、使用權限、幣別／單位及股票代碼</label><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit">匯入並檢查</button><button id="exportEstimates" type="button">下載備份 CSV</button></div></form><p id="estimateSummary" class="tiny">尚無匯入紀錄。</p><div id="estimateRows"></div></details><div style="margin-top:12px;padding-top:10px;border-top:1px solid #314156"><strong>資料池同步狀態</strong><p class="tiny">雲端候選資料自動載入並保留來源；未核實候選不寫入正式共識或 Gate。</p><label>選取 JSON 資料包<input id="shadowPackageFile" type="file" accept="application/json"></label><button id="retryShadowCloud" type="button">重新同步雲端資料</button><p id="shadowPackageSummary" class="tiny">資料池載入中。</p><div id="shadowPackageRows"></div></div><div style="margin-top:12px"><strong>直接同業池</strong><p class="tiny" id="peerUniverseSummary">同業 Forward P/E 只用相同年度有效共識及行情計算；個股模型 EPS 不當成市場共識。</p><button id="loadCuratedPeers" type="button">載入直接同業資料</button><div id="peerUniverseRows" class="tiny"></div></div></details>
+-    <details class="panel" style="margin:12px 0;padding:14px"><summary><strong>Gate 5B｜自動連結 EPS 實際值與市場共識候選</strong></summary><div id="autoSurpriseLink" class="tiny" aria-live="polite">選取個股後自動比對資料池與已讀取季度 EPS。</div><details style="margin-top:12px"><summary><strong>人工補登財報前共識（只補資料池缺項）</strong></summary><p class="tiny">共識原發布日與原始保存時間戳均須早於財報公布；CSV 須附 currency、unit、accounting_basis、consensus_captured_at（含時區），同日公告另附 earnings_at。事後下載不回填為財報前快照；年度 EPS 或公司內部模型不能替代市場季度共識。8 個不同季度才達樣本門檻，候選紀錄不會自動通過 Gate。</p><form id="surpriseImportForm" style="display:grid;gap:8px;margin:10px 0"><label>貼上 CSV 資料<textarea name="csv" rows="4" placeholder="ticker,period,consensus_eps,consensus_asof,actual_eps,earnings_date,consensus_source,consensus_url,actual_source,actual_url,currency,unit,accounting_basis,consensus_captured_at,earnings_at"></textarea></label><label><input name="verified" type="checkbox" required> 我已核對共識在財報前發布、實際 EPS 期別與來源授權</label><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit">匯入並檢查</button><button id="exportSurprises" type="button">下載備份 CSV</button></div></form><p id="surpriseSummary" class="tiny">尚無 EPS surprise 匯入資料。</p><div id="surpriseRows"></div></details></details>
+-    <details class="panel" style="margin:12px 0;padding:14px"><summary><strong>Gate 5A｜自動連結資料池的公司指引紀錄</strong></summary><div id="autoGuidanceLink" class="tiny" aria-live="polite">選取個股後自動載入指引候選、財報實際值與總經快照。</div><details style="margin-top:12px"><summary><strong>人工補登官方指引（只補資料池缺項）</strong></summary><p class="tiny">資料池中的指引候選會先自動顯示；仍須回到公司公告／法說簡報核對，未核對候選不列入回測。少於 4 季僅觀察；同一指標 8 個不同期別且實績來源核對後才達樣本門檻。</p><form id="guidanceForm" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:10px 0"><label>公告日<input name="date" type="date" required></label><label>預測期別<input name="period" placeholder="2026 Q4" required></label><label>指標<input name="metric" placeholder="營收／毛利率／EPS" required></label><label>指引下限<input name="low" type="number" step="any" required></label><label>指引上限<input name="high" type="number" step="any" required></label><label>實際結果<input name="actual" type="number" step="any" placeholder="未公布可留空"></label><label>單位<input name="unit" placeholder="billion TWD／percent" required></label><label>幣別<input name="currency" placeholder="TWD；實物數量留空"></label><label>會計／統計口徑<input name="accounting_basis" placeholder="TIFRS／實物出貨量" required></label><label>實績公告日<input name="actual_date" type="date"></label><label>實績官方來源<input name="actual_source" type="url" placeholder="已公布實績的原文網址"></label><label style="grid-column:1/-1">公司官方來源網址<input name="source" type="url" placeholder="MOPS／公司 IR／官方簡報網址" required></label><label style="grid-column:1/-1">助理判讀摘要（不取代原文）<textarea name="assistantJudgment" rows="3" placeholder="資料池候選摘要與待核重點"></textarea></label><label style="grid-column:1/-1"><input name="sourceVerified" type="checkbox" required> 我已對照公司官方原始資料，確認標的、期別、數值與來源一致</label><button type="submit">儲存指引與判讀</button></form><p id="guidanceSummary" class="tiny">尚無已記錄指引；新增後顯示分指標樣本數、區間命中率及來源。</p><div id="guidanceLog"></div></details></details>
+-    <div class="gate-list" id="gateList"></div>
+-    <section class="advisory-panels" id="advisoryPanels" aria-live="polite" hidden></section>
+-    <div class="sector-chain" id="sectorChain"></div>
+-    <div class="four" id="fourQuadrants"></div>
+-    <p class="tiny">評分規則：10D／Veto 與三層漏斗 40／30／30 僅在獨立來源與可核對證據齊備後計分；缺值不當 0 分、不視為通過。一票否決需有可核實紅線證據。</p>
+-    <div class="overall-report" id="overallReport" aria-live="polite">
+-      <div class="overall-report-head"><h4 id="overallReportTitle">整體檢驗報告</h4><span class="badge muted-status" id="overallReportStatus">等待個股資料</span></div>
+-      <p id="overallReportSummary">資料載入後，這裡會彙整已核實證據、機會、風險與模型結論。</p>
+-      <section style="margin:10px 0;padding:12px;border:1px solid #29425c;border-radius:12px"><b>財報資料輸入來源</b><p id="financialMacroIntegration" class="tiny">等待個股財報快照。</p></section>
+-      <div class="overall-report-grid">
+-        <section><b>已核實證據</b><p id="overallReportEvidence">等待資料</p></section>
+-        <section><b>機會訊號</b><p id="overallReportOpportunity">等待資料</p></section>
+-        <section><b>風險與缺項</b><p id="overallReportRisks">等待資料</p></section>
+-        <section><b>法說助理判讀</b><p id="overallReportGuidance">尚無已記錄的法說判讀；需引用公司原始公告或簡報。</p></section>
+-      </div>
+-      <p class="overall-report-next" id="overallReportNext">模型結論：等待資料</p>
++  <section class="panel source-panel" aria-labelledby="sourceTitle">
++    <div class="panel-title"><h3 id="sourceTitle">個股財經資料｜群聯 8299</h3><button class="refresh" id="stockRefresh" type="button">核對個股資料</button></div>
++    <div class="source-grid">
++      <div class="source-box"><span>個股收盤價</span><b id="livePrice">查詢中</b><small id="livePriceMeta">依來源觀測日顯示</small></div>
++      <div class="source-box"><span>FinMind 月營收</span><b id="liveRevenue">查詢中</b><small id="liveRevenueMeta">以營收月份為準</small></div>
++      <div class="source-box"><span>歷史獲利情境估值</span><b id="valuationSummary">載入後更新</b><small id="valuationSummaryMeta">舊手動假設不再當成即時估值。</small></div>
+     </div>
++    <p class="macro-meta" id="stockSourceMeta">正在向台股財經資料服務查詢；若無法連線，顯示缺值，不沿用快照冒充新資料。</p>
++    <p class="tiny" id="automaticSourceStatus" aria-live="polite">選取股票後依代號抓取並保存。</p>
++    <details id="automaticSourcePanel"><summary id="automaticSourceTitle">自動資料池｜公司公告與產業報告</summary><div id="automaticSourceRecords"></div></details>
++    <div class="source-links"><a href="https://finmind.github.io/tutor/TaiwanMarket/Fundamental/" target="_blank" rel="noopener noreferrer">FinMind 資料定義</a><a href="https://openapi.twse.com.tw/" target="_blank" rel="noopener noreferrer">證交所原始資料</a><a href="https://www.tpex.org.tw/openapi/" target="_blank" rel="noopener noreferrer">櫃買中心原始資料</a><a href="https://goodinfo.tw/tw/index.asp" target="_blank" rel="noopener noreferrer">Goodinfo 核對</a><a href="https://statementdog.com/" target="_blank" rel="noopener noreferrer">財報狗核對</a><a id="consensusReference" href="https://www.marketscreener.com/search/" target="_blank" rel="noopener noreferrer">分析師預估參考（MarketScreener）</a><a href="https://www.alphamemo.ai/free-transcripts" target="_blank" rel="noopener noreferrer">法說逐字稿人工查閱（AlphaMemo）</a></div>
++    <p class="tiny">切換股票會自動更新財報、公司重大訊息與已接入的產業研究來源。報告依原始發布日期保存；共識、指引回測與直接同業仍逐項驗證，不用模型 EPS 補值。</p>
+   </section>
++
+   <details class="macro-info" id="clientDiagnostics" data-client-version="212">
+     <summary>頁面狀態與載入診斷｜212</summary>
+     <p id="clientDiagnosticsSummary" role="status" aria-live="polite">正在記錄此頁面的載入狀態。</p>
+@@ -414,7 +423,7 @@ function renderValuation(stock,price,priceDate){
+  const historical=data.historicalScenarios||[],historicalRange=historical.length?`${fmt(historical[0].value,2)}／${fmt(historical[1].value,2)}／${fmt(historical[2].value,2)} 元`:'市場 P/E 樣本不足，未計算';
+  document.getElementById('historicalScenarioReference').textContent=`純歷史分位對照（年度 EPS P20／P50／P80 × 市場 P/E P20／P50／P80）：${historicalRange}${data.peBand?`；樣本 ${data.peBand.observations} 筆（${data.peBand.from}–${data.peBand.through}）`:''}。歷史獲利 EPS 乘歷史 P/E 僅作另一組參考；Base 使用今年模型預估 EPS。P80 可能受週期高峰影響，需與 P20／中位數及折現率敏感度一併看。`;
+  const peCrosscheck=data.peBand?`市場歷史 P/E P20／中位／P80 ${fmt(data.peBand.p20,2)}／${fmt(data.peBand.median,2)}／${fmt(data.peBand.p80,2)}x。`:`市場 P/E 對照未完成：${stockData?.errors?.historicalPER||'有效樣本不足'}。`;
+- verdict.textContent=`${data.earningsYear}E Base EPS ${fmt(base.eps,2)} 元 × 歷史 P/E ${fmt(base.pe,2)}x = 年末未折現 ${fmt(base.futureValue,2)} 元；以 10% 股權折現率折回估值日為 ${fmt(base.value,2)} 元，較 ${observedDate} 收盤 ${gap==null?'無法比較':signed(gap,'%')}。${peCrosscheck}${data.forecastEps.basis}。`;
++ verdict.textContent=`${data.earningsYear}E Base EPS ${fmt(base.eps,2)} 元 × 歷史 P/E ${fmt(base.pe,2)}x = 年末未折現 ${fmt(base.futureValue,2)} 元；以 10% 股權折現率折回估值日為 ${fmt(base.value,2)} 元，較 ${observedDate} 收盤 ${gap==null?'無法比較':signed(gap,'%')}。${peCrosscheck}${data.forecastEps?.basis||''}。`;
+  verdict.className='calc-verdict';basis.textContent=`${data.method}｜折現年期 ${fmt(data.discountYears,2)} 年；${data.discountRateBasis}。EPS 估算來源 ${data.forecastEps.source}；${data.forecastEps.revenueBasis||''}。`;
+  summary.textContent=`${data.earningsYear}E Base 現值 ${fmt(base.value,2)} 元`;summaryMeta.textContent=`模型 EPS ${fmt(base.eps,2)}｜歷史 P/E ${fmt(base.pe,2)}x｜估值日 ${data.asOf||'日期缺值'}`;
+  return {status:`${data.earningsYear}E EPS × 歷史 P/E 折現估值（模型推估，非目標價）`,valuation:data};
+@@ -446,7 +455,7 @@ function renderStockDashboard(){
+   const badges=document.createElement('div');badges.className='badges';const rev=document.createElement('span');rev.className='badge';rev.textContent=live?.revenue?`營收 YoY ${signed(live.revenue.yoy,'%')}`:(stock.yoy!=null?`舊快照 YoY ${signed(stock.yoy,'%')}`:'營收待查');const model=document.createElement('span');model.className='badge muted-status';model.textContent=live?.valuation?.status==='ok'?'歷史 P/E 區間已載入':'歷史估值待查';badges.append(rev,model);select.append(price,meta,badges);card.append(head,select);grid.append(card);
+  });
+  stockGridSignature=signature;grid.scrollLeft=scrollLeft;if(focused)grid.querySelector(`[data-stock-select="${focused}"]`)?.focus({preventScroll:true});}
+- const s=stocks[active]; document.getElementById('detailTitle').textContent=`${s.name} ${s.id}｜Master Model`;
++ const s=stocks[active]; document.getElementById('detailTitle').textContent=`${s.name} ${s.id}｜財報品質與估值輸入`;
+  if(s.dynamic){if(selectedStockId!==s.id){selectedStockId=s.id;updateStock()}renderDynamicStock(s);return}
+  const quote=livePrices[s.id], price=quote?.value??s.price, priceDate=quote?.date??s.date;
+  document.getElementById('valuationToday').textContent=taiwanToday();
+@@ -689,7 +698,7 @@ function renderDynamicStock(s){
+  const loading=stockLoading.has(s.id)||data?.pending,sourceError=stockUpdateErrors.get(s.id);
+  const guidanceSummary=guidanceSampleCounts(s.id);
+  const text=(id,value)=>{document.getElementById(id).textContent=value};
+- text('sourceTitle',`個股資料｜${s.name} ${s.id}`);
++ text('sourceTitle',`資料來源與自動資料池｜${s.name} ${s.id}`);
+  const consensusLink=document.getElementById('consensusReference');if(consensusLink)consensusLink.href=`https://www.marketscreener.com/search/?q=${encodeURIComponent(s.id)}`;
+  text('livePrice',p?fmt(p.value):loading?'背景查詢中':'資料缺失');text('livePriceMeta',p?`收盤日 ${p.date}｜來源 ${p.source}｜非即時報價`:(data?.errors?.price||'尚未取得有效收盤價'));
+  text('liveRevenue',r?`${(r.value/1e8).toLocaleString('zh-TW',{maximumFractionDigits:2})} 億元`:loading?'背景查詢中':'資料缺失');text('liveRevenueMeta',r?`${r.month} 月營收｜年增 ${r.yoy==null?'缺去年同期':signed(r.yoy,'%')}｜月增 ${r.mom==null?'缺前月資料':signed(r.mom,'%')}`:(data?.errors?.revenue||'尚未取得有效月營收'));
+@@ -698,9 +707,13 @@ function renderDynamicStock(s){
+  const price= p?.value, ma20=t?.ma20,ma60=t?.ma60;
+  text('metrics','');const metricBox=document.getElementById('metrics');metricBox.replaceChildren();
+  const fq=data?.financialQuality, roic=fq?.roic, cfo=fq?.cfoToNetIncome;
+- const forecast=data?.forecastEps;const metricItems=[['最新收盤價',price==null?'資料缺失':fmt(price),p?.date||'無有效觀測日'],['今年模型預估 EPS｜Base',forecast?.status==='estimate'?fmt(forecast.median,2):forecast?.status==='actual'?fmt(forecast.median,2):'資料不足',forecast?.basis||forecast?.reason||'尚無估值期'],['目前本益比',data?.valuation?.currentPER==null?'資料缺失':`${fmt(data.valuation.currentPER,2)}x`,data?.valuation?.asOf||data?.errors?.currentPER||'缺同日資料'],['歷史 EPS 中位數',data?.valuation?.normalizedEPS==null?'資料缺失':fmt(data.valuation.normalizedEPS,2),data?.valuation?.asOf||'最多近七個完整年度'],['TTM EPS｜公司行動調整',data?.valuation?.ttmEPS==null?'資料不足':fmt(data.valuation.ttmEPS,2),data?.valuation?.asOf||'近四季基本 EPS'],['歷史 P/E 區間',data?.valuation?.peBand?`${fmt(data.valuation.peBand.p20,1)}–${fmt(data.valuation.peBand.p80,1)}x`:'資料不足',data?.valuation?.peBand?`${data.valuation.peBand.from}–${data.valuation.peBand.through}`:(data?.errors?.historicalPER||'至少需 250 筆有效資料')],['今年 EPS 折現股價情境｜Bear／Base／Bull',data?.valuation?.scenarios?.map(x=>fmt(x.value,2)).join('／')||'資料不足','10% 股權折現率現值；同列 8%／12% 敏感度'],['20 日均線',ma20==null?'資料不足':fmt(ma20),t?.sampleDate||'需要至少 20 個交易日'],['月營收 YoY',r?.yoy==null?'資料不足':signed(r.yoy,'%'),r?.month||'無有效觀測月'],['ROIC｜近四季',roic?`${fmt(roic.value,2)}%`:fq?.roicApplicability?.status==='not_applicable'?'此口徑不適用':'資料缺失',roic?.period||data?.errors?.roic||'財報尚未載入'],['ROIC｜五年常態中位數',fq?.normalizedRoic?`${fmt(fq.normalizedRoic.median,2)}%`:'資料不足',fq?.normalizedRoic?`${fq.normalizedRoic.from} 至 ${fq.normalizedRoic.through}`:(fq?.errors?.normalizedRoic||'需 12 個有效滾動四季值')],['CFO／淨利｜近三年',cfo?`${fmt(cfo.value,2)}x`:'資料缺失',cfo?.period||data?.errors?.cfoToNetIncome||'財報尚未載入'],['自由現金流｜近三年',fq?.freeCashFlow?fmt(fq.freeCashFlow.value/1e8,2)+' 億元':'資料不足',fq?.freeCashFlow?.period||fq?.errors?.freeCashFlow||'資本支出欄位不足']];
++ const forecast=data?.forecastEps;
++ // 個股區整合（擁有者 2026-10-28「不要重複顯示」）：收盤價看追蹤清單卡、20 日線看「持有與強弱」、今年 EPS／P/E 區間／情境價看估值區、
++ // ROIC／CFO／FCF 看下方財報品質卡；這裡只留別處沒有的估值輸入與最新月營收。
++ const metricItems=[['月營收｜年增',r?`${(r.value/1e8).toLocaleString('zh-TW',{maximumFractionDigits:2})} 億元｜年增 ${r.yoy==null?'缺去年同期':signed(r.yoy,'%')}`:loading?'背景查詢中':'資料缺失',r?`${r.month} 月｜月增 ${r.mom==null?'缺上月':signed(r.mom,'%')}`:(data?.errors?.revenue||'無有效觀測月')],['歷史 EPS 中位數',data?.valuation?.normalizedEPS==null?'資料缺失':fmt(data.valuation.normalizedEPS,2),data?.valuation?.asOf||'最多近七個完整年度'],['TTM EPS｜公司行動調整',data?.valuation?.ttmEPS==null?'資料不足':fmt(data.valuation.ttmEPS,2),data?.valuation?.asOf||'近四季基本 EPS']];
+  for(const [label,value,date] of metricItems){const box=document.createElement('div');box.className='metric';const a=document.createElement('span');a.textContent=label;const b=document.createElement('b');b.textContent=value;const c=document.createElement('small');c.textContent=date;box.append(a,b,c);metricBox.append(box)}
+- const quality=document.getElementById('quality');quality.replaceChildren();for(const [label,value,date] of [['趨勢判斷',price!=null&&ma20!=null?(price>=ma20?'收盤高於 20 日均線':'收盤低於 20 日均線'):'資料不足',p?.date||'缺收盤價'],['60 日趨勢',price!=null&&ma60!=null?(price>=ma60?'收盤高於 60 日均線':'收盤低於 60 日均線'):'資料不足',t?.sampleDate||'缺 60 日資料'],['今年 EPS 折現估值',valuationState.status,data?.valuation?.peBand?`${data.valuation.peBand.observations} 筆；${data.valuation.peBand.from}–${data.valuation.peBand.through}`:(data?.errors?.valuation||'等待資料')],['ROIC 公式',roic?.method||data?.errors?.roic||'財報尚未載入',roic?.period||fq?.observedThrough||'缺財報日期'],['CFO／淨利口徑',cfo?.method||data?.errors?.cfoToNetIncome||'財報尚未載入',cfo?.period||fq?.observedThrough||'缺財報日期'],['估值限制','今年模型推估 EPS × 歷史 P/E 折現現值；非目標價','常態 EPS／分析師預估不會用行情倒推']]){const row=document.createElement('div');row.className='row';for(const v of [label,value,date]){const span=document.createElement('span');span.textContent=v;row.append(span)}quality.append(row)}
++ // 原本這裡另算「收盤高於／低於 20／60 日均線」（未還原除權息），與後台的出場訊號（還原後 20 日線）重複且可能不同；已拿掉，只看「持有與強弱」。
++ const quality=document.getElementById('quality');quality.replaceChildren();
+  const qualityCard=(title,value,period,meaning,formula,severity)=>{
+   const card=document.createElement('article');card.className='quality-card '+severity;
+   const head=document.createElement('div');head.className='quality-head';const label=document.createElement('strong');label.textContent=title;const badge=document.createElement('span');badge.className='badge '+(severity==='quality-negative'?'weak':severity==='quality-warning'?'watch':'neutral');badge.textContent=value;head.append(label,badge);
+@@ -724,23 +737,12 @@ function renderDynamicStock(s){
+  const cycle=fq?.cycleValuation,cycleText=cycle?.status==='available'?`週期調整 EPS ${fmt(cycle.eps.p20,2)}／${fmt(cycle.eps.median,2)}／${fmt(cycle.eps.p80,2)} 元（${cycle.eps.from}–${cycle.eps.through}，${cycle.eps.observations} 個完整年度）× 歷史 P/E ${fmt(cycle.pe.p20,1)}／${fmt(cycle.pe.median,1)}／${fmt(cycle.pe.p80,1)}x，情境 ${fmt(cycle.scenarios.bear,2)}／${fmt(cycle.scenarios.base,2)}／${fmt(cycle.scenarios.bull,2)} 元；現價隱含週期 P/E ${cycle.currentImpliedPe==null?'不可算':fmt(cycle.currentImpliedPe,2)+'x'}。僅作週期乘數參考，不是目標價。`:(cycle?.reason||'週期 EPS／P/E 樣本不足');
+  qualityCard('DCF｜常態 FCFF 折現',dcf?.status==='ok'?`${fmt(dcf.perShare,2)} 元／股`:dcf?.status==='not_applicable'?'主模型不適用':'資料不足',dcf?.asOf||fq?.observedThrough||'觀測期不足',dcf?.status==='ok'?`FCFF DCF 估值已建立；終值佔 EV ${dcf.terminalValueShare==null?'未算':fmt(dcf.terminalValueShare*100,1)+'%'}。${dcf.warnings?.join('；')||''}`:(dcf?.reason||'FCFF 原始組成資料不足'),(dcf?.status==='ok'?`常態 FCFF ${fmt(dcf.normalizedFcff/1e8,2)} 億元；WACC ${fmt(dcf.assumptions.wacc*100,2)}%；g ${fmt(dcf.assumptions.terminalGrowth*100,2)}%。`:'DCF 狀態：'+(dcf?.status==='not_applicable'?'資料已回傳，但模型不適用。':'必要財報樣本或資本資料不足。'))+bridgeText+cycleText+multipleText+(dcf?.status==='ok'?`敏感度：${dcf.sensitivity.map(x=>`${fmt(x.wacc*100,1)}%／g${fmt(x.terminalGrowth*100,1)}%=${fmt(x.perShare,2)}元`).join('；')}。來源：${dcf.source}`:''),'quality-warning');
+ 
+- const pipeline=document.getElementById('gateList'),backendAvailable=Boolean(currentBackendModel(data)?.gates?.length);if(!backendAvailable){pipeline.renderedModel=null;pipeline.replaceChildren();}const valuation=data?.valuation,modelScenarios=valuation?.scenarios,historicalScenarios=valuation?.historicalScenarios;const cards=[['1 行情',p?`收盤 ${p.date}｜${fmt(p.value,2)} 元｜${p.source}`:(data?.errors?.price||'查詢中'),p?'已取得':'缺值'],['2 營收／趨勢',r?`${r.month} 營收 YoY ${r.yoy==null?'缺值':signed(r.yoy,'%')}；MA20 ${t?.ma20==null?'缺值':fmt(t.ma20)}；MA60 ${t?.ma60==null?'缺值':fmt(t.ma60)}`:(data?.errors?.revenue||'尚未取得'),r?'已取得':'缺值'],['3 今年預估 EPS × 歷史 P/E',valuation?.status==='ok'?`${valuation.earningsYear}E EPS ${modelScenarios.map(x=>fmt(x.eps,2)).join('／')} × P/E ${modelScenarios.map(x=>fmt(x.pe,2)+'x').join('／')}；折現 10% 現值 ${modelScenarios.map(x=>fmt(x.value,2)+' 元').join('／')}｜現價 ${fmt(price,2)} 元`:(data?.errors?.valuation||'估值來源待查'),valuation?.status==='ok'?'已換算折現股價':'資料不足'],['4 P/E／折現率判讀',valuation?.status==='ok'?`${valuation.modelPe.basis}；折現期 ${fmt(valuation.discountYears,2)} 年；敏感度 8%／10%／12%`:(data?.errors?.valuation||'尚無有效樣本'),valuation?.status==='ok'?'市場估值已折回估值日':'資料不足'],['5 ROIC／現金流',`近四季 ROIC ${roic?fmt(roic.value,2)+'%':(data?.errors?.roic||'缺值')}；五年中位 ${fq?.normalizedRoic?fmt(fq.normalizedRoic.median,2)+'%':(fq?.errors?.normalizedRoic||'樣本不足')}；CFO／淨利 ${cfo?fmt(cfo.value,2)+'x':(data?.errors?.cfoToNetIncome||'缺值')}；FCF ${fq?.freeCashFlow?fmt(fq.freeCashFlow.value/1e8,2)+' 億元':(fq?.errors?.freeCashFlow||'缺值')}`,roic&&cfo?'按財報期別計算':'部分財報欄位待補'],['6 2026／27 EPS 共識、同業','來源未核實','網站的 2026E 為明確標記的模型推估，不是市場共識；2027E 分析師共識與同業一致口徑仍未接入。'],['7 DCF／錯誤成本','資料不足',`FCF ${fq?.freeCashFlow?fmt(fq.freeCashFlow.value/1e8,2)+' 億元':'未齊'}；DCF 仍需完整現金流、WACC／資本結構與長期成長假設，不以 P/E 折現冒充 DCF。`]];
+- if(!backendAvailable)for(const [title,detail,state] of cards){const article=document.createElement('article');article.className='gate';const h=document.createElement('h4');h.textContent=title;const pNode=document.createElement('p');pNode.textContent=`${state}｜${detail}`;article.append(h,pNode);pipeline.append(article)}
+- document.getElementById('sectorChain').textContent=`${s.name} ${s.id}｜個股財報、行情與估值依代號即時重算；ROIC 與 CFO／淨利若資料欄位不足，會顯示來源與缺少項目。`;
+- const baseScenario=data?.valuation?.scenarios?.[1],baseReturn=baseScenario&&price>0?(baseScenario.value/price-1)*100:null;
+- document.getElementById('fourQuadrants').replaceChildren();for(const [a,b] of [['公司品質',roic&&cfo?'近四季與三年指標可算':'財報品質待補'],['產業景氣','族群／法說資料待接入'],['估值',baseScenario?`Base ${fmt(baseScenario.value,2)} 元；較收盤 ${baseReturn==null?'無法比較':signed(baseReturn,'%')}`:'資料不足，不估值'],['時機',price!=null&&ma20!=null?(price>=ma20?'站上 20 日均線':'低於 20 日均線'):'資料不足']]){const box=document.createElement('div');const title=document.createElement('span');title.textContent=a;const detail=document.createElement('b');detail.textContent=b;box.append(title,detail);document.getElementById('fourQuadrants').append(box)}
+- const scenarioSummary=data?.valuation?.scenarios?.map(x=>`${x.name} ${fmt(x.value,2)} 元`).join('／');
+- const baseUpside=data?.valuation?.scenarios?.[1]&&price>0?(data.valuation.scenarios[1].value/price-1)*100:null;
+- const verified=[p?`收盤 ${p.date}：${fmt(price,2)} 元`:null,r?`${r.month} 營收 YoY ${r.yoy==null?'未算':signed(r.yoy,'%')}`:null,t?.ma20!=null&&t?.ma60!=null?`MA20 ${fmt(t.ma20)}／MA60 ${fmt(t.ma60)}`:null,scenarioSummary?`今年 EPS 折現股價情境（10%）：${scenarioSummary}`:data?.errors?.valuation?`估值缺項：${data.errors.valuation}`:null].filter(Boolean);
+- const opportunities=[r?.yoy>0?`${r.month} 月營收年增 ${signed(r.yoy,'%')}`:null,price!=null&&ma20!=null&&ma60!=null&&price>ma20&&ma20>ma60?'收盤與均線呈多頭排列':null,baseUpside!=null?`今年 EPS Base 折現現值較收盤 ${signed(baseUpside,'%')}（模型估值，非保證目標價）`:null].filter(Boolean);
+- const latestGuidance=latestGuidanceJudgment(s.id),guidanceNote=latestGuidance?`${latestGuidance.period}｜${latestGuidance.metric}｜${latestGuidance.assistantJudgment}｜判讀記錄 ${latestGuidance.date||'日期缺值'}｜原始來源 ${latestGuidance.source||'缺來源'}。助理摘要須對照原文，不等同市場共識。`:'尚無已記錄的法說判讀；可由我依公司原始公告／簡報協助整理，摘要需保留來源與期別。';
+- const reportRisks=[cfo?.value<0?`CFO／淨利 ${fmt(cfo.value,2)}x 為負，現金轉換需查核`:null,roic?.value>=20?`近四季 ROIC ${fmt(roic.value,2)}% 偏高，需以五年常態及 WACC 核驗`:null,`今年 EPS 為歷史同季獲利與同期營收倍率推估，不是分析師共識；2027E、同業估值與 Reverse DCF 尚未完成`,fq?.workingCapitalWarnings?.length?`應收／存貨警訊：${fq.workingCapitalWarnings.join('、')}`:fq?.workingCapitalQuality?'DSO／DIO 已計算，仍需結合產業季節性與法說資料判讀':'DSO／DIO 因來源欄位或比較期不足，依品質卡列示原因',guidanceSummary.readyMetric?null:`法說指引樣本未達同一指標 8 個不同期別；已記錄 ${guidanceSummary.records} 筆`, '市場 EPS surprise、公司治理及 10D／Veto 逐項證據未齊'].filter(Boolean);
+- updateOverallReport({title:`整體檢驗報告｜${s.name} ${s.id}`,status:cfo?.value<0?'警訊待查｜完整評級暫停':'完整評級暫停｜未判定通過',summary:`行情、月營收、技術、歷史 EPS×P/E 股價情境與財報品質指標已逐項運算；${fq?.dcf?.status==='ok'?'另已計算 FCFF DCF，含 WACC／終值假設與敏感度，和 P/E 折現分開呈現。':'FCFF DCF 依缺少的營運資金、資本結構或常態現金流條件暫停，詳列於 DCF 卡。'}分析師共識、同業可比與 10D／Veto 仍需可追溯獨立來源，未完成的 Gate 不計入通過，也不把缺值當作通過。`,evidence:verified.join('；')||'尚未取得可核實的個股數據',opportunity:opportunities.join('；')||'目前沒有足夠的有效機會訊號可確認',risks:reportRisks.join('；'),guidance:guidanceNote,next:'估值分為兩套：今年 EPS × 歷史本益比折現現值，以及 FCFF DCF 內在價值；兩者假設、敏感度和資料限制分開列示。整體結論維持「待驗證」，不以缺值解除風險門檻。'});
++ // 本地 Gate 卡、四象限與整體檢驗報告不在這裡另算（擁有者 2026-10-28）：交給 renderPipeline 顯示後台結果或「後台計算中」。
+  renderPipeline({...s,ma20,ma60,inst5:data?.marketActivity?.institutional5dNet,yoy:r?.yoy},valuationState.status,price,p?.date||'無有效觀測日');
+ }
+ const masterModelPending=new Map(),masterModelQueued=new Set(),masterModelCompleted=new Map(),masterModelErrors=new Map();
+ const masterEvidenceLoads=new Map(),masterEvidenceSyncState=new Map(),masterEvidenceRevision=new Map();
+-function renderFinancialSourceOutput(stock,data){const status=document.getElementById('financialSourceStatus'),host=document.getElementById('financialSourceOutput');if(!status||!host)return;host.replaceChildren();if(!stock){status.textContent='請先選取個股。';renderFinancialReportOutput(stock,data);return}if(!data||data.pending){status.textContent=data?.note||`正在讀取 ${stock.name} ${stock.id} 的個股資料來源…`;renderFinancialReportOutput(stock,data);return}const q=data.financialQuality||{},datasets=data.datasetStatus||{},period=q.observedThrough||q.roic?.period||'財報期別缺值',fetched=data.checkedAt?new Date(data.checkedAt).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'}):'取數時間缺值';status.textContent=`${stock.name} ${stock.id}｜資料來源 ${data.source||'待核'}｜擷取 ${fetched}｜財報期別 ${period}。此快照已提供給下方網站模型讀取。`;const rows=[['收盤行情',data.price?`${fmt(data.price.value,2)} 元`:(data.errors?.price||'缺值'),data.price?.date||'無觀測日'],['月營收',data.revenue?`${data.revenue.month}｜${(data.revenue.value/1e8).toFixed(2)} 億元｜YoY ${data.revenue.yoy==null?'缺值':signed(data.revenue.yoy,'%')}`:(data.errors?.revenue||'缺值'),data.revenue?.observed||data.revenue?.month||'無觀測日'],['季度損益表',`${datasets.income?.records??0} 筆｜${datasets.income?.error||datasets.income?.status||'狀態缺值'}`,period],['季度資產負債表',`${datasets.balance?.records??0} 筆｜${datasets.balance?.error||datasets.balance?.status||'狀態缺值'}`,period],['季度現金流量表',`${datasets.cashFlow?.records??0} 筆｜${datasets.cashFlow?.error||datasets.cashFlow?.status||'狀態缺值'}`,period],['ROIC｜近四季／常態',`${q.roic?fmt(q.roic.value,2)+'%':q.roicApplicability?.status==='not_applicable'?'此口徑不適用':'缺值'}｜${q.normalizedRoic?`五年中位數 ${fmt(q.normalizedRoic.median,2)}%`:'常態樣本不足'}`,q.roic?.period||period],['CFO／淨利、FCF',`${q.cfoToNetIncome?fmt(q.cfoToNetIncome.value,2)+'x':'CFO／淨利缺值'}｜${q.freeCashFlow?fmt(q.freeCashFlow.value/1e8,2)+' 億元':'FCF 缺值'}`,q.cfoToNetIncome?.period||q.freeCashFlow?.period||period],['DSO／DIO',`${q.workingCapitalQuality?.dsoDays==null?'DSO 缺值':fmt(q.workingCapitalQuality.dsoDays,1)+' 天'}｜${q.workingCapitalQuality?.dioDays==null?'DIO 缺值':fmt(q.workingCapitalQuality.dioDays,1)+' 天'}`,q.workingCapitalQuality?.period||period]];for(const [label,value,date] of rows){const item=document.createElement('div');item.className='financial-source-item';const title=document.createElement('b');title.textContent=label;const val=document.createElement('span');val.textContent=value;const stamp=document.createElement('small');stamp.textContent=`觀測期／日期：${date}`;item.append(title,val,stamp);host.append(item)}const integration=document.getElementById('financialMacroIntegration');if(integration)integration.textContent=`個股財報輸入：${stock.name} ${stock.id}｜FinMind 快照 ${fetched}｜期別 ${period}｜來源資料由下方 Master Model 依各 Gate 使用；此區不判讀總經或投資結論。`;renderFinancialReportOutput(stock,data)}
++function renderFinancialSourceOutput(stock,data){const status=document.getElementById('financialSourceStatus'),host=document.getElementById('financialSourceOutput');if(!status||!host)return;host.replaceChildren();if(!stock){status.textContent='請先選取個股。';renderFinancialReportOutput(stock,data);return}if(!data||data.pending){status.textContent=data?.note||`正在讀取 ${stock.name} ${stock.id} 的個股資料來源…`;renderFinancialReportOutput(stock,data);return}const q=data.financialQuality||{},datasets=data.datasetStatus||{},period=q.observedThrough||q.roic?.period||'財報期別缺值',fetched=data.checkedAt?new Date(data.checkedAt).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'}):'取數時間缺值';status.textContent=`${stock.name} ${stock.id}｜資料來源 ${data.source||'待核'}｜擷取 ${fetched}｜財報期別 ${period}。此快照已提供給下方網站模型讀取。`;const rows=[['季度損益表',`${datasets.income?.records??0} 筆｜${datasets.income?.error||datasets.income?.status||'狀態缺值'}`,period],['季度資產負債表',`${datasets.balance?.records??0} 筆｜${datasets.balance?.error||datasets.balance?.status||'狀態缺值'}`,period],['季度現金流量表',`${datasets.cashFlow?.records??0} 筆｜${datasets.cashFlow?.error||datasets.cashFlow?.status||'狀態缺值'}`,period]];/* 收盤、月營收、ROIC、CFO／FCF、DSO／DIO 的數值在追蹤清單卡與財報品質卡（擁有者 2026-10-28：不重複顯示）；這裡只列三張財報的筆數、狀態與期別。 */for(const [label,value,date] of rows){const item=document.createElement('div');item.className='financial-source-item';const title=document.createElement('b');title.textContent=label;const val=document.createElement('span');val.textContent=value;const stamp=document.createElement('small');stamp.textContent=`觀測期／日期：${date}`;item.append(title,val,stamp);host.append(item)}const integration=document.getElementById('financialMacroIntegration');if(integration)integration.textContent=`個股財報輸入：${stock.name} ${stock.id}｜FinMind 快照 ${fetched}｜期別 ${period}｜來源資料由下方 Master Model 依各 Gate 使用；此區不判讀總經或投資結論。`;renderFinancialReportOutput(stock,data)}
+ 
+ function renderFinancialReportOutput(stock,data){
+  const status=document.getElementById('financialReportStatus'),headline=document.getElementById('financialReportHeadline'),meta=document.getElementById('financialReportMeta'),body=document.getElementById('financialReportBody'),sources=document.getElementById('financialReportSources'),button=document.getElementById('refreshFinancialReport');if(!status||!headline)return;
+@@ -813,45 +815,19 @@ function removeTrackedStock(id){const index=stocks.findIndex(x=>x.id===id);if(in
+ function renderPipeline(s,valuationStatus,price,priceDate){
+  syncStockFormDrafts(s.id);
+  const guidanceForm=document.getElementById('guidanceForm');if(guidanceForm)guidanceForm.dataset.stockId=s.id;renderGuidanceRecords(s.id);renderEstimateImports(s.id);renderShadowPackage(s.id);renderSurpriseRecords(s.id);renderPeerUniverse(s.id);renderAutoEstimateLink(s.id);renderAutoSurpriseLink(s.id);renderAutoGuidanceLink(s.id);
+- const timing=price!=null&&s.ma20!=null&&s.ma60!=null&&price>=s.ma20&&s.ma20>=s.ma60?'技術站上均線':price!=null&&s.ma20!=null&&s.ma60!=null&&price<s.ma20&&price<s.ma60?'技術均線下方':price!=null&&s.ma20!=null&&s.ma60!=null?'介於均線／排列未確認':'技術資料待補';
+- const stockData=liveStockData[s.id],data=stockData,p=data?.price,r=data?.revenue,t=data?.technical,snapshotStale=Boolean(data?.snapshotStale),valuation=snapshotStale?null:activeStockValuation(data),base=valuation?.scenarios?.[1],fq=data?.financialQuality,cfo=fq?.cfoToNetIncome,cycle=fq?.cycleValuation,guidanceSummary=guidanceSampleCounts(s.id);
+- const twse=macroState?.taiwanMarket;
+- const sectorPeers=stocks.filter(x=>x.id!==s.id&&x.industry===s.industry).map(x=>({stock:x,data:liveStockData[x.id]})).filter(x=>x.data?.price?.value>0&&x.data?.forecastEps?.median>0);
+- const peerForwardValues=sectorPeers.map(x=>({name:x.stock.name,id:x.stock.id,forwardPe:x.data.price.value/x.data.forecastEps.median,eps:x.data.forecastEps.median,year:x.data.forecastEps.year}));
+- const curatedPeers=curatedPeerGroups[s.id]||[];const peerText=peerForwardValues.length?`自選同產業模型 EPS 樣本 ${peerForwardValues.length} 檔（只作非共識參考）：${peerForwardValues.map(x=>`${x.name} ${x.id} ${x.year}E 模型 Forward P/E ${fmt(x.forwardPe,1)}x`).join('；')}。`:curatedPeers.length?`固定直接同業池：${curatedPeers.map(x=>`${x.name} ${x.id}`).join('、')}。`:'尚無經核實的固定同業組；不以跨產業股票湊樣本。';
+- const consensusSummary=manualEstimateSummary(s.id),consensusReady=consensusSummary.every(x=>x.status==='validated'),missingYears=consensusSummary.filter(x=>x.status!=='validated').map(x=>`${x.year}E ${x.status==='missing'?'未匯入':'來源數或資料新鮮度未達門檻'}`),surpriseSummary=epsSurpriseSummary(s.id),peerConsensusRows=curatedPeers.map(peer=>({peer,estimates:manualEstimateSummary(peer.id),data:liveStockData[peer.id]})).filter(x=>x.estimates.every(y=>y.status==='validated')&&x.data?.price?.value>0),peerConsensusCount=!snapshotStale&&data?.masterModel?.stockCheckedAt===data?.checkedAt?data.masterModel.evidenceSummary?.peers?.length||0:0;
+- const marketLagDays=twse?.date&&priceDate?Math.max(0,Math.floor((Date.parse(`${priceDate}T00:00:00Z`)-Date.parse(`${twse.date}T00:00:00Z`))/86400000)):null;
+- const marketLagNote=marketLagDays>3?`日期警示：台股市場結構截至 ${twse.date}，個股行情截至 ${priceDate}，相差 ${marketLagDays} 個日曆日；本次完整評級不得把舊市場資料當成同日狀態。`:'';
+- const twseGate=twse?.usable?`已接入 ${twse.usable}/${twse.total} 個官方盤後欄位${twse.date?`（觀測日 ${twse.date}）`:''}：${(twse.available||[]).map(x=>`${x.name} ${fmt(x.value,2)} ${x.unit}`).join('；')}。${twse.aligned?'盤後欄位日期一致':'各欄位發布日不同，逐項按觀測日顯示'}。${twse.missing?.length?`未取到：${twse.missing.map(x=>x.name).join('、')}。`:''}${marketLagNote}目前不是全市場 A/D 歷史線、20/60 日均線擴散或三大法人全市場累計；不可將單日廣度冒充完整市場結構。`:'本次台股市場資料尚未完成載入；保留逐欄位來源錯誤，未把缺值視為安全。';
+- const jpy20=liveMarketRows.find(x=>x.id==='JPY_HV20'),jpy60=liveMarketRows.find(x=>x.id==='JPY_HV60');
+- const yenDetail=row=>!row?'尚未取回':row.validationState==='fetch_failed'?'取數失敗':row.validationState==='sample_insufficient'?`已取回 ${row.historyObservations||0} 筆，未達 ${row.requiredObservations||'所需'} 筆`:row.validationState==='validated'?'計算通過':row.reason||row.status;
+- const checks=[
+-  ['1 總經門檻／風險預算',macroState?.light || '查詢中',macroState ? `本次查核 ${macroState.checkedAt.slice(0,10)}；日圓 20 日波動率：${yenDetail(jpy20)}；60 日波動率：${yenDetail(jpy60)}。MOVE／JPY 隱含波動率與油期期限結構仍受資料授權／來源限制。${macroState.fiveLines[1]}` : '即時資料查詢中；缺值時不能解除既有風險。'],
+-  ['2 台股市場微結構',twse?.usable?'部分資料接入／趨勢待確認':'資料不足',twseGate],
+-  ['3 Market Flow／產業矩陣',liveMarketRows.some(x=>['TWSE_SECTOR_BREADTH','TPEX_SECTOR_BREADTH'].includes(x.id)&&x.validationState==='validated')?'產業廣度驗證通過':'阻擋｜全市場產業廣度未接入',`${s.industry}：${stockData?.marketActivity?.institutional5dNet==null?`個股三大法人 5 日資料未取得（${stockData?.datasetStatus?.institutionalFlows?.error||'不足 5 個交易日'}）`:`個股三大法人近 5 日淨買超 ${signed(stockData.marketActivity.institutional5dNet,' 股')}，截至 ${stockData.marketActivity.date||'日期缺值'}`}；融資餘額 ${stockData?.marketActivity?.marginBalance==null?`未取得（${stockData?.datasetStatus?.marginCredit?.error||'來源未回傳'}）`:`${fmt(stockData.marketActivity.marginBalance,0)} 張，單日變化 ${signed(stockData.marketActivity.marginChange,' 張')}`}。自選清單同產業樣本僅作模型 Forward P/E 比較；不等於券商共識。全市場產業廣度、成交值占比與 RVOL 仍未完成。`],
+-  ['4 10D＋一票否決／三層漏斗',fq?.workingCapitalWarnings?.length?'出現品質警訊':fq?.roic&&cfo?'部分財務證據已檢查':'財務證據部分未齊',`${[cfo?.value<0?'CFO／淨利為負':null,fq?.freeCashFlow?.value<0?'三年 FCF 為負':null,...(fq?.workingCapitalWarnings||[])].filter(Boolean).join('；')||'目前可用財報未觸發上述硬性警訊'}。舞弊、治理、法說、訴訟及 10D 逐項證據仍須官方公告／人工查核，未將其標成 PASS。`],
+-  ['5A Guidance Accuracy／公司法說',guidanceSummary.readyMetric?'量化樣本達標｜分指標回測':guidanceSummary.observationMetric?'資料已回測｜僅觀察性':'待樣本｜已提供來源紀錄流程',guidanceSummary.metrics.length?guidanceSummary.metrics.map(x=>`${x.metric} ${x.hits}/${x.samples} 期命中${x.ready?'（達 8 期門檻）':'（未達 8 期）'}`).join('；'):`已記錄 ${guidanceSummary.records} 筆；已公布實績 ${guidanceSummary.realized} 筆；其中 ${guidanceSummary.reviewed} 筆有助理判讀摘要。只接受同一指標、不同期別、HTTPS 官方來源並經核對的已實現值。`],
+-  ['5B 市場 EPS surprise',surpriseSummary.ready?'8 季樣本已核對｜僅呈現市場 surprise':'市場 EPS surprise 樣本不足',`${surpriseSummary.valid}/8 個不同季度有效；財報日前共識與公布後實際 EPS 分別保留來源及日期。高於共識 ${surpriseSummary.hits}/${surpriseSummary.valid}。${surpriseSummary.ready?'樣本門檻已達，仍不代表公司指引準確或評級通過。':'已提供可匯入／匯出流程；資料仍須有可追溯來源，未達門檻維持阻擋。'}`],
+-  ['6 Earnings Quality／ROIC',snapshotStale?'快照過期｜重新核驗中':fq?.roic&&cfo&&(cfo.value<0||fq?.freeCashFlow?.value<0||fq?.workingCapitalWarnings?.length)?'指標已計算｜品質警訊':fq?.roic&&cfo?'指標已計算｜待綜合判讀':'資料不足',`近四季 ROIC ${fq?.roic?fmt(fq.roic.value,2)+'%':(liveStockData[s.id]?.errors?.roic||'待查')}；五年常態 ${fq?.normalizedRoic?fmt(fq.normalizedRoic.median,2)+'%':(fq?.errors?.normalizedRoic||'樣本不足')}；CFO／淨利 ${cfo?fmt(cfo.value,2)+'x':(liveStockData[s.id]?.errors?.cfoToNetIncome||'待查')}；FCF ${fq?.freeCashFlow?fmt(fq.freeCashFlow.value/1e8,2)+' 億元':(fq?.errors?.freeCashFlow||'待查')}；DSO ${fq?.workingCapitalQuality?.dsoDays==null?'待同季比較':fmt(fq.workingCapitalQuality.dsoDays,1)+' 天'}；DIO ${fq?.workingCapitalQuality?.dioDays==null?'待同季比較':fmt(fq.workingCapitalQuality.dioDays,1)+' 天'}。`],
+-  ['7 今年預估 EPS × 歷史 P/E／折現',snapshotStale?'快照過期｜估值暫停':valuation?.status==='ok'?'股價情境已計算':'資料不足',valuation?.status==='ok'?`${valuation.earningsYear}E EPS ${valuation.scenarios.map(x=>fmt(x.eps,2)).join('／')} × 歷史 P/E ${valuation.scenarios.map(x=>fmt(x.pe,2)+'x').join('／')}；年末估值以 8%／10%／12% 股權折現率回推，10% 現值 ${valuation.scenarios.map(x=>fmt(x.value,2)+' 元').join('／')}；現價 ${fmt(price,2)} 元。`:`${liveStockData[s.id]?.errors?.valuation||'尚未取得同步收盤價與歷史 P/E'}；不以其他股票或舊快照填值。`],
+-  ['8 2026／27 EPS 共識、Forward P/E、同業比較',consensusReady&&peerConsensusCount>=3?'共識資料通過／同業樣本充足':'共識或同業資料未達門檻',`${consensusReady?'2026／27 EPS 共識資料已匯入並通過來源數與 90 日新鮮度檢查。':`缺少或未驗證：${missingYears.join('、')}。`}直接同業中，同時具備兩年可追溯共識及有效行情 ${peerConsensusCount}/3 檔；自選股內部模型 EPS 不計入。${peerText}`],
+-  ['9 FCFF DCF／Reverse DCF／Cost of Being Wrong',snapshotStale?'快照過期｜模型暫不採信':fq?.dcf?.status==='ok'?(dcfParametersMeasured(fq.dcf)?'FCFF DCF 已計算｜參數核實':'FCFF DCF 已計算｜參數待實測'):fq?.dcf?.status==='not_applicable'?(cycle?.status==='available'?'DCF 不適用｜跨週期替代模型可用':'DCF 不適用｜替代模型樣本不足'):fq?.dcf?.status==='missing_data'?'DCF 阻擋｜必要資料缺失':'DCF 阻擋｜驗證未通過',fq?.dcf?.status==='ok'?`常態 FCFF ${fmt(fq.dcf.normalizedFcff/1e8,2)} 億；每股模型值 ${fmt(fq.dcf.perShare,2)} 元；WACC ${fmt(fq.dcf.assumptions.wacc*100,2)}%，g ${fmt(fq.dcf.assumptions.terminalGrowth*100,2)}%；終值佔 EV ${fmt((fq.dcf.terminalValueShare||0)*100,1)}%。`:`${fq?.dcf?.reason||fq?.qualityErrors?.normalizedFcff||'未達計算條件'}。${fq?.dcf?.assumptions?`參數實測狀態：Rf ${fq.dcf.assumptions.riskFreeBasis}；Beta ${fq.dcf.assumptions.betaBasis}；Kd ${fq.dcf.assumptions.costOfDebtBasis}。`:''}${fq?.dcf?.status==='not_applicable'&&cycle?.status==='available'?'已切換跨週期 EPS × 歷史 P/E 參考情境；這不是 DCF，也不使用其 Rf／Beta／Kd 假設。':'下方顯示年度 FCFF 橋接與可計算的補充倍數。'}`],
+-  ['10 買點／部位管理','保留風險預算',`${timing}（技術行情資料）；總經／獲利品質／法說 Gate 未全數核實，不能因均線或法人買超而升級部位。`]
+- ];
+- const gatePhases={linked:['已連結','state-linked'],sourceMissing:['未接入｜資料源缺失','state-blocked'],qualityWarning:['資料已計算｜品質警訊','state-warning'],fetched:['已取回','state-fetched'],validated:['驗證通過','state-validated'],fallback:['替代估值已計算','state-fetched'],modelLimited:['模型不適用','state-fetched'],missingBlocked:['阻擋｜必要資料缺失','state-blocked'],fetchBlocked:['阻擋｜取數失敗','state-blocked'],validationBlocked:['阻擋｜驗證未通過','state-blocked']};
+- const phaseFor=(index)=>{if(snapshotStale&&[3,6,7,9].includes(index))return 'fetchBlocked';if(index===0){if(!macroState)return 'linked';const yenReady=['JPY_HV20','JPY_HV60'].every(id=>liveMarketRows.find(x=>x.id===id)?.validationState==='validated');return yenReady&&!String(macroState.light||'').includes('灰燈')?'validated':'fetched'}if(index===1)return !twse?.usable?'fetchBlocked':twse.missing?.length||!twse.aligned?'fetched':'validated';if(index===2){const rows=liveMarketRows.filter(x=>['TWSE_SECTOR_BREADTH','TPEX_SECTOR_BREADTH'].includes(x.id));return rows.some(x=>x.validationState==='validated')?'validated':rows.length?(rows.some(x=>x.status==='missing'||x.validationState==='fetch_failed')?'fetchBlocked':'fetched'):'sourceMissing'}if(index===3)return 'fetched';if(index===4)return guidanceSummary.readyMetric?'validated':guidanceSummary.observationMetric?'fetched':guidanceSummary.records?'fetched':'linked';if(index===5)return surpriseSummary.ready?'validated':surpriseSummary.valid?'fetched':surpriseSummary.records?'fetched':'linked';if(index===6){if(!fq?.roic||!cfo)return 'fetched';return cfo.value<0||fq?.freeCashFlow?.value<0||Boolean(fq?.workingCapitalWarnings?.length)?'qualityWarning':'fetched';}if(index===7)return valuation?.status==='ok'?'validated':'validationBlocked';if(index===8)return consensusReady&&peerConsensusCount>=3?'validated':consensusSummary.some(x=>x.rows.length)?'fetched':'linked';if(index===9){if(fq?.dcf?.status==='ok')return dcfParametersMeasured(fq.dcf)?'validated':'fetched';if(fq?.dcf?.status==='missing_data')return 'missingBlocked';if(fq?.dcf?.status==='not_applicable')return cycle?.status==='available'?'fallback':'modelLimited';return 'validationBlocked'}return price!=null&&s.ma20!=null&&s.ma60!=null?'fetched':'fetchBlocked'};
+- if(!currentBackendModel(stockData)?.gates?.length){document.getElementById('gateList').renderedModel=null;document.getElementById('gateList').innerHTML=checks.map(([title,state,reason],index)=>{const [phaseLabel,phaseClass]=gatePhases[phaseFor(index)];return `<article class="gate"><div class="gate-top"><h4>${title}</h4><span class="badge ${phaseClass}">${phaseLabel}</span></div><p>目前判斷：${state}。${reason}${snapshotStale&&[3,6,7,9].includes(index)?'｜個股快照過期，已阻擋該項通過判斷':''}</p></article>`}).join('');}
++ // 個股區整合（擁有者 2026-10-28「同一只做一次計算、不要重複顯示」）：10 個 Gate、四象限、整體檢驗報告只由後台 Master Model 算一次；
++ // 瀏覽器不再另算一份本地版本（原本這裡用未還原的均線、本機共識紀錄等自行判定各 Gate，後台結果到了才覆蓋）。
++ const stockData=liveStockData[s.id];
+  const bridges={'8299':'顆粒供給／NAND 價格 → 模組 ASP → 庫存利益與毛利 → 核心控制器獲利 → CFO／常態 EPS','5289':'顆粒可得性 → ASP−COGS 轉嫁時差 → 毛利均值回歸 → 應收／存貨 → CFO／常態 EPS','2404':'Backlog → 專案進度與營收轉換 → 合約負債／毛利 → EPS／現金回收','5009':'航太／國防訂單 Mix → 營收 → 毛利 → ROIC／FCF → 常態 EPS'};
+- document.getElementById('sectorChain').textContent=`${s.name} 產業驗證鏈：${bridges[s.id]||`${s.industry} → 營收與毛利 → 現金轉換 → 常態 EPS；公司產品與直接同業仍待核對`}｜已自動核對個股營收、ROIC、現金轉換與 DSO／DIO；${sectorPeers.length?`同產業自選比較 ${sectorPeers.length} 檔`:'同業自選樣本尚未建立'}。法說數值指引須累積可追溯的公司承諾與實績，逐字稿來源僅供人工確認。`;
+- const four=[['公司品質'+(cfo?.value<0||fq?.freeCashFlow?.value<0||fq?.workingCapitalWarnings?.length?'｜警訊':'｜待核'),fq?.workingCapitalQuality?`ROIC ${fq.roic?fmt(fq.roic.value,1)+'%':'未算'}；CFO／NI ${cfo?fmt(cfo.value,2)+'x':'未算'}；DSO／DIO 已核對`:'財報品質欄位待補'],['產業與同業｜待核',`${s.industry}｜同業樣本 ${sectorPeers.length} 檔；法說需人工留存來源`],['估值｜'+(valuation?.basisType==='cross_cycle'?'跨週期':'模型情境'),fq?.dcf?.status==='ok'?`DCF ${fmt(fq.dcf.perShare,2)} 元／股；P/E 現值另列`:(base?`主要 Base ${fmt(base.value,2)} 元；${fq?.dcf?.reason||'DCF 待補'}`:'估值資料不足')],['時機與部位｜待確認',`${timing}；總經依獨立燈號確認`]];
+- const readiness=checkGlobalReadiness({stockId:s.id,consensusSummary,peerConsensusCount,guidanceSummary,surpriseSummary,dcf:fq?.dcf,cycle,snapshotStale});const readyCount=readiness.filter(x=>x.ok).length;const gateNode=document.getElementById('overallGate');if(gateNode){gateNode.textContent=`${s.name} ${s.id}｜全域就緒 ${readyCount}/${readiness.length} 項核實。${snapshotStale?'個股快照逾期，暫停模型通過判斷。':''}${readiness.map(x=>`${x.status==='warning_pass'?'🟠':x.ok?'🟢':'🟡'} ${x.title}：${x.detail}`).join('　｜　')} 未核實資料仍維持警示；替代模型會明確標示為條件式放行，不冒充原模型通過。`;gateNode.classList.toggle('quality-warning',readyCount<readiness.length||Boolean(fq?.workingCapitalWarnings?.length||cfo?.value<0));gateNode.dataset.readiness=readiness.some(x=>!x.ok)?'blocked':readiness.some(x=>x.status==='warning_pass')?'warning_pass':'validated';}
+- document.getElementById('fourQuadrants').innerHTML=four.map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join('');
+- const d=stockData,roic=fq?.roic,priceRow=d?.price,rev=d?.revenue;
++ document.getElementById('sectorChain').textContent=`${s.name} 產業驗證鏈：${bridges[s.id]||`${s.industry} → 營收與毛利 → 現金轉換 → 常態 EPS；公司產品與直接同業仍待核對`}。各環節的核對結果見下方 Gate（後台算一次）。`;
+  const latestGuidance=latestGuidanceJudgment(s.id),guidanceNote=latestGuidance?`${latestGuidance.period}｜${latestGuidance.metric}｜${latestGuidance.assistantJudgment}｜判讀記錄 ${latestGuidance.date||'日期缺值'}｜原始來源 ${latestGuidance.source||'缺來源'}。助理摘要須對照原文，不等同市場共識。`:'尚無已記錄的法說判讀；可由我依公司原始公告／簡報協助整理，摘要需保留來源與期別。';
+- updateOverallReport({title:`整體檢驗報告｜${s.name} ${s.id}`,status:cfo?.value<0?'警訊待查｜完整評級暫停':'完整評級暫停｜未判定通過',summary:'完整決策鏈仍有未核實 Gate，不以技術均線或歷史 P/E 單獨給予通過或總分。',evidence:[priceRow?`收盤 ${priceRow.date}`:null,rev?`${rev.month} 營收 YoY ${rev.yoy==null?'未算':signed(rev.yoy,'%')}`:null,valuation?.status==='ok'?`${valuation.label||`${valuation.earningsYear}E EPS × 歷史 P/E 折現`}情境已計算`:null].filter(Boolean).join('；')||'尚未取得可核實資料',opportunity:rev?.yoy>0?`${rev.month} 營收年增 ${signed(rev.yoy,'%')}`:'機會訊號尚待資料確認',risks:[cfo?.value<0?`CFO／淨利 ${fmt(cfo.value,2)}x 為負，須查現金轉換`:null,roic?.value>=20?`ROIC ${fmt(roic.value,2)}% 需檢查循環高峰效應`:null,fq?.workingCapitalWarnings?.length?`DSO／DIO 警訊：${fq.workingCapitalWarnings.join('、')}`:fq?.workingCapitalQuality?'DSO／DIO 已計算，須結合產業季節性解讀':'DSO／DIO 樣本不足，查看品質卡列出的缺項',guidanceSummary.readyMetric?null:`法說指引樣本未達同一指標 8 個不同期別；已記錄 ${guidanceSummary.records} 筆`,'市場 EPS surprise、公司治理及 10D／Veto 逐項證據尚待核實'].filter(Boolean).join('；'),guidance:guidanceNote,next:'結論：待驗證；缺值不當作零分或通過，補齊獨立證據後再評定整體位階。'});
++ const backend=currentBackendModel(stockData);
++ if(!backend?.gates?.length){const list=document.getElementById('gateList');list.renderedModel=null;const wait=document.createElement('p');wait.className='tiny';wait.textContent='後台正在計算這一檔的 Gate（只在後台算一次）；完成後自動顯示。';list.replaceChildren(wait);document.getElementById('fourQuadrants').replaceChildren();
++  updateOverallReport({title:`整體檢驗報告｜${s.name} ${s.id}`,status:'後台計算中',summary:'整體檢驗報告由後台 Master Model 產生；完成後自動顯示，瀏覽器不另算。',evidence:'等待後台計算',opportunity:'等待後台計算',risks:'等待後台計算',guidance:guidanceNote,next:'等待後台計算'});}
++ else{const title=document.getElementById('overallReportTitle');if(title)title.textContent=`整體檢驗報告｜${s.name} ${s.id}`;const node=document.getElementById('overallReportGuidance');if(node)node.textContent=guidanceNote;}
+  renderFinancialSourceOutput(s,stockData);
+-  const backend=currentBackendModel(stockData);renderBackendMasterModel(backend);
+-  if(!backend?.adaptiveRating)renderLocalFallback(s.id);
++ renderBackendMasterModel(backend);
++ if(!backend?.adaptiveRating)renderLocalFallback(s.id);
+ }
+ const sourceResearchData=new Map(),sourceResearchLoads=new Map(),sourceResearchTimers=new Map(),sourceResearchStopped=new Set();
+ function renderSourceResearch(id){
+@@ -1000,8 +976,8 @@ function renderBackendMasterModel(model){
+  const reportStatus=document.getElementById('overallReportStatus');if(reportStatus){reportStatus.textContent=model.status==='valuation_divergence'?'未評（估值分歧）':model.status==='evaluated'?'完整決策鏈已完成核驗':model.status==='conditional'?'必要核對完成｜替代估值條件式適用':model.outputStatus==='qualified'?'暫定觀察可用｜完整評級待核':model.status==='vetoed'?'否決已觸發｜剔除':'完整評級暫停｜資料與風險分列';reportStatus.className='badge '+(model.status==='evaluated'?'pass':'watch')}
+  const qualified=document.getElementById('qualifiedReport'),output=model.qualifiedOutput;if(qualified){qualified.hidden=model.outputStatus!=='qualified'||!output?.available;if(!qualified.hidden){document.getElementById('qualifiedConclusion').textContent=output.conclusion;const current=output.research.consensus.primary;document.getElementById('qualifiedConsensus').textContent=current.status==='verified'?`主要共識參考：${current.year}E EPS ${fmt(current.eps,2)} 元；${current.analysts} 位分析師，截至 ${current.asOf}。以 ${current.priceDate} 收盤計算 Forward P/E ${fmt(current.forwardPe,2)}x；此數字是共識比較，主要估值仍採已核驗的模型情境。`:`${current.year} 年市場共識待核；目前僅顯示已核驗的模型情境。`;const limits=document.getElementById('qualifiedLimits');limits.replaceChildren();for(const limit of output.limits){const row=document.createElement('p');row.textContent=limit;limits.append(row)}}}
+  const put=(id,value)=>{const node=document.getElementById(id);if(node)node.textContent=value};
+- put('overallReportSummary',model.summary);put('overallReportEvidence',model.gates.filter(x=>x.dataState==='verified'||x.status==='evaluated').map(x=>`Gate ${x.id} ${x.title}：${x.detail}`).join('　｜　')||'後台尚未取得完整核驗資料');
+- put('overallReportRisks',model.report?.risks?.join('　｜　')||model.gates.filter(x=>x.status!=='evaluated').map(x=>`Gate ${x.id} ${x.title}：${x.detail}`).join('　｜　')||'未發現未核實 Gate');
++ put('overallReportSummary',model.summary);put('overallReportEvidence',model.gates.filter(x=>x.dataState==='verified'||x.status==='evaluated').map(x=>`Gate ${x.id} ${x.title}`).join('、')||'後台尚未取得完整核驗資料');/* 各 Gate 的完整說明在上方 Gate 卡，這裡只列名稱，不重複全文（擁有者 2026-10-28）。 */
++ put('overallReportOpportunity',model.report?.positives?.join('　｜　')||'後台沒有列出機會訊號');put('overallReportRisks',model.report?.risks?.length?model.report.risks.map(x=>/^Gate \S+ [^：]+：/.test(x)?x.split('：')[0]:x).join('、'):(model.gates.filter(x=>x.status!=='evaluated').map(x=>`Gate ${x.id} ${x.title}`).join('、')||'未發現未核實 Gate'));
+  put('overallReportNext',model.report?.action||(model.status==='evaluated'?'所有必要 Gate 均完成核驗。':'依各 Gate 的逐項核對補齊資料，已核實警訊仍保留。'))
+  if(model.adaptiveRating?.available&&['degraded','vetoed','valuation_divergence'].includes(model.status))renderAdaptiveRating(model.adaptiveRating,model);
+  if(model.crossMarket){const cross=model.crossMarket,node=document.getElementById('overallReportSummary');if(node)node.textContent+=` 跨市場背離：${cross.status}／${cross.label}（台股${cross.asOf||'UNKNOWN'}、美股${cross.usAsOf||'UNKNOWN'}）；5D／10D／20D與缺項見Gate 1完整判讀，新增評分0。`;if(['evaluated','conditional'].includes(model.status)&&cross.status==='UNKNOWN'){const status=document.getElementById('overallReportStatus');if(status)status.textContent='既有核驗完成｜跨市場 UNKNOWN';}if(cross.status==='RED'&&model.status!=='vetoed'){const next=document.getElementById('overallReportNext');if(next)next.textContent+=' 假性脫鉤風險：維持原風險預算，不僅因相對強弱提高部位。';}}
+diff --git a/package.json b/package.json
+index 4b1e16a..b0bc362 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/cross-market-live.test.mjs b/tests/cross-market-live.test.mjs
+index 2141de0..b16f7a1 100644
+--- a/tests/cross-market-live.test.mjs
++++ b/tests/cross-market-live.test.mjs
+@@ -24,6 +24,9 @@ let originalLayout=html.slice(0,html.indexOf('<script>')).replace(/  \/\* US_SEC
+ assert.equal((originalLayout.match(/id="advisoryPanels"/g)||[]).length,1);
+ originalLayout=originalLayout.replace(/<!-- ADVISORY_PANEL_STYLE_START -->\n[\s\S]*?<!-- ADVISORY_PANEL_STYLE_END -->\n/,'').replace(/    <section class="advisory-panels" id="advisoryPanels" aria-live="polite" hidden><\/section>\n/,'');
+ // 擁有者 2026-10-27 16:30 要求的總經區美元大卡（樣式與卡片各自有標記）同樣排除；其餘原始版面仍鎖定。
++// 擁有者 2026-10-28 03:39「個股那邊要做整合…不要重複顯示」：個股區排序（搜尋→追蹤清單→Master Model→估值→財報品質→財報解讀→資料來源）是刻意改版，
++// 隱藏重複的樣式另有標記排除；個股區新順序的版面指紋記在 layout-v212.json 的 stockSectionV243（原始 v212 指紋保留作對照）。
++originalLayout=originalLayout.replace(/<style>\/\* STOCK_DEDUP_CSS_START \*\/[\s\S]*?\/\* STOCK_DEDUP_CSS_END \*\/<\/style>\n/,'');
+ originalLayout=originalLayout.replace(/<style>\/\* DOLLAR_INDEX_CSS_START \*\/[\s\S]*?\/\* DOLLAR_INDEX_CSS_END \*\/<\/style>\n/,'').replace(/    <!-- DOLLAR_INDEX_HTML_START -->\n[\s\S]*?    <!-- DOLLAR_INDEX_HTML_END -->\n/,'');
+ const originalForms=JSON.parse(readFileSync(new URL('./fixtures/gate-forms-v224.json',import.meta.url),'utf8'));
+ for(const [id,original] of Object.entries(originalForms)){
+@@ -33,5 +36,5 @@ for(const [id,original] of Object.entries(originalForms)){
+  for(const control of original.match(/<(?:input|textarea)[^>]*>/g))assert.ok(current.includes(control.replace(/ placeholder="[^"]*"/,''))||[...current.matchAll(/<(?:input|textarea)[^>]*>/g)].some(([tag])=>tag.replace(/ placeholder="[^"]*"/,'')===control.replace(/ placeholder="[^"]*"/,'')),'existing controls remain; provenance fields only supplement them');
+  originalLayout=originalLayout.replace(current,original);
+ }
+-assert.equal(createHash('sha256').update(originalLayout).digest('hex'),baseline.sha256,'existing controls, styles and breakpoints stay unchanged outside the sector display and Gate provenance fields');
++assert.equal(createHash('sha256').update(originalLayout).digest('hex'),baseline.stockSectionV243?.sha256||baseline.sha256,'existing controls, styles and breakpoints stay unchanged outside the sector display, Gate provenance fields and the owner-requested stock-section order');
+ console.log('cross-market live QA: TW 49/US 100 closes, dated sources, 9 independent RS results, real institutional/amount data, EPS UNKNOWN and unchanged v212 mobile layout passed');
+diff --git a/tests/dashboard-interactions.test.mjs b/tests/dashboard-interactions.test.mjs
+index 2aa162a..9a19e2d 100644
+--- a/tests/dashboard-interactions.test.mjs
++++ b/tests/dashboard-interactions.test.mjs
+@@ -368,3 +368,15 @@ console.log('dashboard interactions: sync fallback, ticker isolation, delayed re
+  h.run(`liveStockData['5289']={id:'5289',masterModel:liveStockData['8299'].masterModel};renderAutoGuidanceLink('5289')`);
+  assert.doesNotMatch(h.nodes.get('autoGuidanceLink').textContent,/官方年度指引/,'another ticker cannot inherit official evidence');
+ }
++
++// 個股區整合（擁有者 2026-10-28「同一只做一次計算、不要重複顯示」）：後台結果還沒到時，瀏覽器不另算 10 個 Gate、四象限或整體檢驗報告。
++{
++ const h=harness();
++ h.run(`liveStockData['8299']={id:'8299',checkedAt:new Date().toISOString(),price:{value:2060,date:'2026-10-27',source:'test'},technical:{ma20:1900,ma60:1800},financialQuality:{roic:{value:54.7},cfoToNetIncome:{value:-0.17}}};renderPipeline(stocks.find(s=>s.id==='8299'),'x',2060,'2026-10-27')`);
++ assert.match(h.nodes.get('gateList').textContent,/後台正在計算這一檔的 Gate/);
++ assert.doesNotMatch(h.nodes.get('gateList').textContent,/總經門檻|台股市場微結構|技術站上均線/,'no browser-computed Gate cards');
++ assert.equal(h.nodes.get('fourQuadrants').children.length,0,'no browser-computed quadrants');
++ assert.match(h.nodes.get('overallReportStatus').textContent,/後台計算中/);
++ assert.doesNotMatch(h.nodes.get('overallReportOpportunity').textContent,/多頭排列/,'no browser trend judgement in the report');
++}
++console.log('stock section: no browser-side Gate chain, quadrants or report while the backend computes passed');
+diff --git a/tests/fixtures/layout-v212.json b/tests/fixtures/layout-v212.json
+index 14bb788..5fbe957 100644
+--- a/tests/fixtures/layout-v212.json
++++ b/tests/fixtures/layout-v212.json
+@@ -1,5 +1,9 @@
+ {
+-  "version": 212,
+-  "commit": "0fdc6390ed208cedb53ef415baceb00fe279bc67",
+-  "sha256": "666f6543fc0bedf14069a87664852be84a8fba737bbdfc74e0020b863470d864"
+-}
++ "version": 212,
++ "commit": "0fdc6390ed208cedb53ef415baceb00fe279bc67",
++ "sha256": "666f6543fc0bedf14069a87664852be84a8fba737bbdfc74e0020b863470d864",
++ "stockSectionV243": {
++  "sha256": "fc3a9d55836bf7b3b1f3342e3342f8d179e092d7c21be4e960edc581449555f8",
++  "reason": "擁有者 2026-10-28 03:39「個股那邊要做整合 同一只做一次計算 還有不要重複顯示」：個股區改為 搜尋→追蹤清單→Master Model（結論、Gate）→估值→財報品質→財報解讀→資料來源；人工補登工具移到 Master Model 最後。只改順序與標題，控制項與表單不變。"
++ }
++}
+\ No newline at end of file
+diff --git a/tests/v243-stock-dedup.test.mjs b/tests/v243-stock-dedup.test.mjs
+new file mode 100644
+index 0000000..b717b53
+--- /dev/null
++++ b/tests/v243-stock-dedup.test.mjs
+@@ -0,0 +1,27 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// 擁有者 2026-10-28 03:39「我是說個股那邊 要做整合 同一只做一次計算 還有不要重複顯示」。
++const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++const at=marker=>{const i=html.indexOf(marker);assert.ok(i>0,marker);return i;};
++
++test('個股區順序：搜尋 → 追蹤清單 → Master Model（結論、Gate）→ 估值 → 財報品質 → 財報解讀 → 資料來源',()=>{
++  const order=['class="panel stock-search"','id="stockGrid"','class="panel pipeline"','id="valuationCalculator"','class="workspace"','id="financialAnalysisPanel"','class="panel source-panel"'].map(at);
++  assert.deepEqual([...order].sort((a,b)=>a-b),order);
++  const inside=['id="qualifiedReport"','id="advisoryPanels"','id="gateList"','id="overallReport"','2026／2027 EPS｜自動連結個股資料池與總經'].map(at);
++  assert.deepEqual([...inside].sort((a,b)=>a-b),inside,'結論在前、Gate 其次、人工補登工具最後');
++});
++
++test('同一筆資料只顯示一處：重複的格子拿掉或隱藏，瀏覽器不另算 Gate／趨勢',()=>{
++  assert.match(html,/\.source-panel \.source-grid\{display:none!important\}/,'個股資料區的收盤／月營收／估值摘要三格不再顯示');
++  assert.match(html,/#fourQuadrants\{display:none!important\}/,'四象限（重述）不再顯示');
++  const metrics=html.slice(html.indexOf('const metricItems=['),html.indexOf('for(const [label,value,date] of metricItems)'));
++  for(const gone of ['最新收盤價','20 日均線','ROIC｜近四季','CFO／淨利｜近三年','自由現金流｜近三年','今年 EPS 折現股價情境','歷史 P/E 區間','今年模型預估 EPS'])assert.ok(!metrics.includes(gone),gone);
++  for(const kept of ['月營收｜年增','歷史 EPS 中位數','TTM EPS'])assert.ok(metrics.includes(kept),kept);
++  assert.ok(!html.includes("['趨勢判斷',price!=null&&ma20!=null"),'不再用未還原的 20 日線另判趨勢（以後台的出場訊號為準）');
++  assert.ok(!html.includes("['1 總經門檻／風險預算'"),'瀏覽器不另算 10 個 Gate');
++  const sources=html.slice(html.indexOf('function renderFinancialSourceOutput'),html.indexOf('function renderFinancialReportOutput'));
++  assert.ok(!sources.includes("['收盤行情'")&&!sources.includes("['ROIC｜近四季／常態'"),'財報資料來源區只列三張財報的筆數與期別');
++  assert.match(html,/財報品質與估值輸入/);assert.match(html,/資料來源與自動資料池/);
++});
