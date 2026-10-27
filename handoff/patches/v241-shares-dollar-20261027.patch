@@ -1,0 +1,517 @@
+diff --git a/build.mjs b/build.mjs
+index 53cf3df..03937b2 100644
+--- a/build.mjs
++++ b/build.mjs
+@@ -29,7 +29,7 @@ const usSectorSession = `const US_SECTOR_SESSION=(()=>{${usSectorSessionSource}\
+ const tiingoMarket=`const TIINGO_MARKET=(()=>{${readFileSync(new URL('./worker/tiingo-market.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {SECTORS,GLOBAL,SYMBOLS,PRICE_FIELD,PROVIDER,selectSession,breadth,refreshPrivateMarket};})();`;
+ const tiingoStore=`const TIINGO_STORE=(()=>{${readFileSync(new URL('./worker/tiingo-store.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {createPrivateStore};})();`;
+ const tiingoSite=readFileSync(new URL('./worker/tiingo-site.js',import.meta.url),'utf8');
+-const panelCalculations=`const PANEL_CALCULATIONS=(()=>{${readFileSync(new URL('./worker/panel-calculations.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildStockPanels};})();`;
++const panelCalculations=`const PANEL_CALCULATIONS=(()=>{${readFileSync(new URL('./worker/panel-calculations.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildStockPanels,dollarAxis};})();`;
+ const panelSources=`const PANEL_SOURCES=(()=>{${readFileSync(new URL('./worker/panel-sources.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {officialDay,collectLending,selectAndSaveLending,collectCbRegistry,collectCbMonthly,collectTdccHolders,selectAndSaveHolders,collectMarginMaintenance};})();\n${readFileSync(new URL('./worker/panel-site.js',import.meta.url),'utf8')}`;
+ const advisoryDecision=`const ADVISORY_DECISION=(()=>{${readFileSync(new URL('./worker/advisory-decision.mjs',import.meta.url),'utf8').replace(/^export /gm,'')}\nreturn {buildAdvisoryDecision,macroDirectionHolding};})();`;
+ const marketTimeline = readFileSync(new URL('./worker/market-timeline.js', import.meta.url), 'utf8');
+diff --git a/dist/index.html b/dist/index.html
+index 5d4e4f3..9ac6d6e 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -36,6 +36,19 @@
+ <style>
+ .advisory-panels{margin:16px 0;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--panel2)}.advisory-panels[hidden]{display:none}.advisory-panels h4{margin:0 0 10px}.advisory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}.advisory-card{min-width:0;background:var(--panel);border:1px solid var(--line);padding:12px;border-radius:10px}.advisory-card p{font-size:.85rem;line-height:1.7;overflow-wrap:anywhere}.advisory-card small{display:block;color:var(--muted);font-size:.72rem;line-height:1.7;overflow-wrap:anywhere}.advisory-axis{position:relative;height:45px;margin:18px 12px 22px;border-bottom:1px solid var(--line)}.advisory-axis-tick{position:absolute;top:0;height:45px;border-left:1px solid var(--line);font-size:9px;color:var(--muted)}.advisory-axis-tick.reference{border-color:#8fa5b8;padding-top:45px}.advisory-axis-bar{position:absolute;top:12px;height:17px;opacity:.75}.advisory-decision{margin-top:14px;padding:12px;border:1px solid #806637;border-radius:10px}.advisory-decision ul{padding-left:20px}.advisory-decision p{overflow-wrap:anywhere}@media(max-width:560px){.advisory-grid{grid-template-columns:1fr}.advisory-panels{padding:12px}}
+ </style>
++<style>/* DOLLAR_INDEX_CSS_START */
++.dollar-card{background:#0a1724;border:1px solid var(--line);border-radius:12px;padding:16px;margin:8px 0 16px}.dollar-card>small{display:block;color:var(--muted)}
++.dollar-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}.dollar-value{font-size:2.2rem;line-height:1.1;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
++.dollar-state{font-size:.86rem;padding:4px 10px;border-radius:999px}.dollar-up{color:var(--red);background:rgba(255,115,135,.12)}.dollar-down{color:var(--green);background:rgba(53,229,161,.1)}.dollar-mid{color:#b4c3d0;background:#25374a}
++.dollar-facts{color:#d5e4ef;font-size:.9rem;line-height:1.55;margin:10px 0 8px;font-variant-numeric:tabular-nums}
++.dollar-chart{position:relative;margin:6px 0 4px}.dollar-chart svg{display:block;width:100%;height:auto;overflow:visible}.dollar-chart rect[tabindex]:focus{outline:none}.dollar-chart rect[tabindex]:focus-visible{outline:2px solid var(--blue)}
++.dc-grid{stroke:#1a2c40;stroke-width:1}.dc-tick{fill:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}.dc-ref{stroke:#557089;stroke-width:1}.dc-ref-label{fill:#b4c3d0;font-size:11px}.dc-window{fill:rgba(99,168,255,.08)}
++.dc-line{fill:none;stroke:var(--blue);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.dc-pending{fill:none;stroke:#8fa5b8;stroke-width:2;stroke-dasharray:4 4;stroke-linecap:round}.dc-dot{fill:var(--blue);stroke:#0a1724;stroke-width:2}.dc-cross{stroke:#8fa5b8;stroke-width:1}
++.dollar-tip{position:absolute;pointer-events:none;background:#122235;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.78rem;color:var(--muted);white-space:nowrap;z-index:2}.dollar-tip b{display:block;color:var(--text);font-size:1rem;font-variant-numeric:tabular-nums}
++.dollar-source{display:block;color:var(--muted);font-size:.76rem;line-height:1.6;margin-top:10px}
++.dollar-table{margin-top:8px;font-size:.8rem;color:var(--muted)}.dollar-table summary{cursor:pointer;color:#d5e4ef}.dollar-table table{border-collapse:collapse;width:100%;margin-top:6px;font-variant-numeric:tabular-nums}.dollar-table th,.dollar-table td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}
++@media(max-width:560px){.dollar-card{padding:13px}.dollar-value{font-size:1.9rem}}
++/* DOLLAR_INDEX_CSS_END */</style>
+ <!-- ADVISORY_PANEL_STYLE_END -->
+ </head>
+ <body>
+@@ -95,6 +108,10 @@
+       <div class="macro-item"><span>10 年實質殖利率</span><b>正在更新</b><small>FRED 日資料</small></div>
+       <div class="macro-item"><span>高收益債利差</span><b>正在更新</b><small>FRED 日資料</small></div>
+     </div>
++    <!-- DOLLAR_INDEX_HTML_START -->
++    <h4 class="macro-label">美元指數零軸（先進經濟體美元指數）</h4>
++    <div class="dollar-card" id="dollarIndexCard" aria-live="polite"><b>正在更新</b><small>FRED DTWEXAFEGS（非 ICE DXY）</small></div>
++    <!-- DOLLAR_INDEX_HTML_END -->
+     <h4 class="macro-label">由原始資料計算</h4><div class="macro-grid" id="macroDerived">
+       <div class="macro-item"><span>SOFR−IORB（同日）</span><b>等待資料</b><small>以兩項同日利率計算</small></div>
+       <div class="macro-item"><span>核心 CPI 3 個月年化</span><b>等待資料</b><small>以季調指數計算</small></div>
+@@ -969,7 +986,7 @@ function renderAdvisoryPanels(model){
+  const lh=p.largeHolders||{};card('集保千張以上大戶（週）',lh.status==='ok'?`${show(lh.pct15)}%（${lh.holders15??'缺值'} 人）｜${lh.weeksObserved}週：${(lh.weeks||[]).map(w=>`${w.date.slice(5)} ${show(w.pct15)}%`).join('、')}${Number.isFinite(lh.changeVsFirst)?`｜期間變化 ${lh.changeVsFirst>=0?'+':''}${lh.changeVsFirst.toFixed(2)} 個百分點`:''}`:`待補：${lh.reason||'缺值'}`,`${lh.date||'日期缺值'}；${lh.source||'集保結算所'}；網站從上線起每週累積，滿4週才看得到4週變化；只顯示。`);
+  const mm=p.marginMaintenance||{};card('大盤融資維持率（上市，估算）',['ok','snapshot'].includes(mm.status)?`${show(mm.ratioPct)}%｜${mm.date}${mm.status==='snapshot'?'（'+mm.reason+'）':''}`:`待補：${mm.reason||'缺值'}`,`${mm.method||'Σ融資餘額×收盤價÷融資金額'}；${mm.stocks||0}檔計入、缺價 ${mm.missingPrice??0} 檔；證交所 STOCK_DAY_ALL＋MI_MARGN；非官方公布值，只顯示。`);
+  const pb=p.priceBook||{};card('股價淨值比歷史區間',pb.status==='ok'?`P/B ${show(pb.current)} 倍｜P20 ${show(pb.p20)}／中位 ${show(pb.median)}／P80 ${show(pb.p80)}`:`待補：${pb.reason||'缺值'}`,`${pb.from||'起日缺值'}～${pb.through||p.asOf||'迄日缺值'}；${pb.observations||0}筆；自身可得樣本，不代替既有P/E。`);
+- const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸（先進經濟體美元指數）',dxy.status==='ok'?`目前 ${show(dxy.value)}｜5個觀測前 ${show(dxy.previous5?.value)}｜${dxy.value>0?'站上前20日高點':dxy.value<-100?'跌破前20日低點（走弱）':'區間內'}｜草案 ${dxy.draftPoints===-1?'−1':'0'}；0＝前20日最高，−100＝前20日最低`:`待補：${dxy.reason||'缺值'}`,`觀測 ${dxy.date||dxy.sourceDate||'日期缺值'}（${dxy.knownFrom||'觀測日＋8日起可用'}）；FRED DTWEXAFEGS，非 ICE DXY${dxy.capturePath==='github_relay'?'（GitHub 排程代抓的 FRED 官方檔）':''}；${dxy.draftRule||'草案 >0 −1、走弱不加分'}；前20日不含當期。`); advisoryAxis(dxCard,dxy,'美元指數零軸',{min:-100,max:60,step:10});
++ // 美元指數零軸已移到總經區「其他市場與風險指標」下方的大卡（擁有者 2026-10-27 16:30）；個股這裡不再重複。
+  const mapping=p.industryMapping||{},sector=p.linkedUSSector||{};card('自動對應美股板塊',mapping.sector?`${mapping.industry||mapping.industryCode} → ${mapping.sector}｜${sector.classification||'強弱缺值'}`:`對應不明：${mapping.reason||'缺官方產業別'}`,`${mapping.date||'產業日期缺值'}；${mapping.sourceUrl||''}；新增±1僅試算，未納入正式評級。`);
+  const breadth=model.report?.usSectorContext?.breadth;
+  if(breadth){const s=breadth.sectorBreadth,g=breadth.globalBreadth;card('美股與全球寬度',`美股類股 ${s.above}/${s.coverage} 在200日線上（涵蓋${s.coverage}/11）；全球 ${g.spyAvailable?`${g.above}/${g.coverage}`:'SPY缺值，不算比例'}（涵蓋${g.coverage}/10）；RSP/SPY20日 ${show(breadth.equalWeightRatio20d)}%`,`Tiingo adjClose；每市場一票；全球缺${g.missing.join('、')||'無'}；非S&P500成分股廣度。`);}
+@@ -1471,18 +1488,82 @@ async function updateMacroExpanded(){
+  }catch(error){expandedMacroLoaded=true;renderMacroDimensions(macroState||{rows:[],derived:[]});renderMacroScores();meta.textContent=`勞動與需求資料服務暫不可用（${error.message}）；原有總經資料照常顯示，這些欄位保留缺值。`}
+  finally{expandedMacroPending=false}
+ }
++/* DOLLAR_INDEX_START */
++// 總經區美元指數大卡（擁有者 2026-10-27 16:30「把它拉出來放大放在這裡」）。資料：/api/dollar-index（FRED DTWEXAFEGS，非 ICE DXY）。
++let dollarFetchPending=false,dollarLast=null,dollarResizeTimer=null;
++async function updateDollarIndex(){
++ if(dollarFetchPending)return;dollarFetchPending=true;
++ const host=document.getElementById('dollarIndexCard');
++ try{const data=await fetchJsonTimeout('/api/dollar-index',20000);dollarLast=data;renderDollarIndex(data);}
++ catch(e){if(!dollarLast&&host){host.replaceChildren();const b=document.createElement('b');b.className='macro-missing';b.textContent='暫時讀不到美元指數';const s=document.createElement('small');s.textContent=String(e?.message||e);host.append(b,s);}}
++ finally{dollarFetchPending=false;}
++}
++function dollarSigned(v){return Number.isFinite(v)?(v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(2):'缺值';}
++function renderDollarIndex(data){
++ const host=document.getElementById('dollarIndexCard');if(!host||!data)return;host.replaceChildren();
++ const ax=data.axis||{},ok=ax.status==='ok',rows=Array.isArray(data.history)?data.history:[],fmt=v=>Number.isFinite(v)?v.toFixed(2):'缺值';
++ const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
++ const state=!ok?[`待補：${ax.reason||'缺值'}`,'mid']:ax.value>0?['站上前20日高點：美元轉強（草案 −1）','up']:ax.value<-100?['跌破前20日低點：美元走弱（不加分）','down']:['在前20日高低點之間','mid'];
++ const head=el('div','dollar-head');head.append(el('b','dollar-value',ok?dollarSigned(ax.value):'待補'),el('span',`dollar-state dollar-${state[1]}`,state[0]));host.append(head);
++ const latest=rows.filter(r=>r.usable).at(-1);
++ host.append(el('p','dollar-facts',ok?`指數 ${fmt(latest?.value)}（觀測 ${ax.date}）｜前20日最高 ${fmt(ax.priorHigh)}＝0、最低 ${fmt(ax.priorLow)}＝−100｜5個觀測前 ${ax.previous5?.status==='ok'?dollarSigned(ax.previous5.value):'缺值'}`:`已取得觀測 ${rows.length} 筆；零軸需要 21 筆以上已採用的觀測。`));
++ if(rows.length>=2)host.append(dollarChart(rows,ax,host.clientWidth));
++ if(ok&&typeof advisoryAxis==='function')advisoryAxis(host,{status:'ok',value:ax.value},'美元指數零軸',{min:-100,max:60,step:10});
++ const path=data.capturePath==='github_relay'?'GitHub 排程代抓的 FRED 官方檔':data.capturePath==='official_import'?'官方資料匯入':'來源缺值';
++ host.append(el('small','dollar-source',`FRED DTWEXAFEGS（先進經濟體美元指數，非 ICE DXY）｜${path}｜抓取 ${data.fetchedAt?String(data.fetchedAt).slice(0,16).replace('T',' ')+' UTC':'缺值'}｜觀測日＋8日起才採用（同回測），灰色虛線是還沒採用的觀測｜只顯示、不計分；草案：零軸>0 −1、走弱不加分。`));
++ if(rows.length){
++  const det=el('details','dollar-table');det.append(el('summary',null,`看數字（${rows.length} 筆）`));
++  const table=el('table'),head=el('tr');for(const t of ['觀測日','指數','狀態'])head.append(el('th',null,t));table.append(head);
++  for(const r of [...rows].reverse()){const tr=el('tr');tr.append(el('td',null,r.date),el('td',null,fmt(r.value)),el('td',null,r.usable?'已採用':'尚未採用'));table.append(tr);}
++  det.append(table);host.append(det);
++ }
++}
++function dollarChart(rows,ax,hostWidth){
++ const NS='http://www.w3.org/2000/svg',W=Math.max(300,Math.round((hostWidth||600)-34)),H=W<480?200:240,pad={l:48,r:12,t:16,b:28};
++ const values=rows.map(r=>r.value).concat([ax.priorHigh,ax.priorLow].filter(Number.isFinite));
++ let lo=Math.min(...values),hi=Math.max(...values);const span=hi-lo||1;lo-=span*.1;hi+=span*.1;
++ const x=i=>pad.l+(W-pad.l-pad.r)*(rows.length<2?0:i/(rows.length-1)),y=v=>pad.t+(H-pad.t-pad.b)*(1-(v-lo)/(hi-lo));
++ const wrap=document.createElement('div');wrap.className='dollar-chart';
++ const svg=document.createElementNS(NS,'svg');
++ for(const [k,v] of Object.entries({viewBox:`0 0 ${W} ${H}`,width:W,height:H,role:'img','aria-label':`美元指數走勢 ${rows[0].date} 至 ${rows.at(-1).date}`}))svg.setAttribute(k,v);
++ const add=(tag,attrs,text)=>{const n=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!=null)n.textContent=text;svg.append(n);return n;};
++ for(let k=0;k<=3;k++){const v=lo+(hi-lo)*k/3,yy=y(v);add('line',{x1:pad.l,x2:W-pad.r,y1:yy,y2:yy,class:'dc-grid'});add('text',{x:pad.l-6,y:yy+4,'text-anchor':'end',class:'dc-tick'},v.toFixed(1));}
++ const last=rows.findLastIndex(r=>r.usable);
++ if(ax.status==='ok'&&last>=1){const a=Math.max(0,last-20);add('rect',{x:x(a),y:pad.t,width:Math.max(0,x(last-1)-x(a)),height:H-pad.t-pad.b,class:'dc-window'});add('text',{x:x(a)+4,y:H-pad.b-6,class:'dc-ref-label'},'前20個觀測（定高低）');}
++ for(const [v,label] of [[ax.priorHigh,'最高＝0'],[ax.priorLow,'最低＝−100']])if(Number.isFinite(v)){add('line',{x1:pad.l,x2:W-pad.r,y1:y(v),y2:y(v),class:'dc-ref'});add('text',{x:W-pad.r-2,y:y(v)-5,'text-anchor':'end',class:'dc-ref-label'},`${label}（${v.toFixed(2)}）`);}
++ const line=idx=>idx.map((i,k)=>`${k?'L':'M'}${x(i).toFixed(1)},${y(rows[i].value).toFixed(1)}`).join('');
++ const used=[],pending=[];rows.forEach((r,i)=>(r.usable?used:pending).push(i));
++ if(used.length>1)add('path',{d:line(used),class:'dc-line'});
++ if(pending.length)add('path',{d:line(last>=0?[last,...pending]:pending),class:'dc-pending'});
++ if(last>=0)add('circle',{cx:x(last),cy:y(rows[last].value),r:5,class:'dc-dot'});
++ const labels=[0,last,rows.length-1].filter((v,i,a)=>v>=0&&a.indexOf(v)===i).filter((v,_,a)=>v===0||v===rows.length-1||a.every(o=>o===v||Math.abs(x(o)-x(v))>52));
++ for(const i of labels)add('text',{x:x(i),y:H-8,'text-anchor':i===0?'start':i===rows.length-1?'end':'middle',class:'dc-tick'},rows[i].date.slice(5));
++ const cross=add('line',{x1:0,x2:0,y1:pad.t,y2:H-pad.b,class:'dc-cross',visibility:'hidden'});
++ const hit=add('rect',{x:pad.l,y:0,width:W-pad.l-pad.r,height:H,fill:'transparent',tabindex:'0','aria-label':'左右鍵逐筆查看'});
++ const tip=document.createElement('div');tip.className='dollar-tip';tip.hidden=true;
++ let focus=last>=0?last:rows.length-1;
++ const show=i=>{const r=rows[i];focus=i;cross.setAttribute('x1',x(i));cross.setAttribute('x2',x(i));cross.setAttribute('visibility','visible');tip.replaceChildren();const b=document.createElement('b');b.textContent=r.value.toFixed(2);const s=document.createElement('span');s.textContent=`${r.date}｜${r.usable?'已採用':'尚未採用（觀測日＋8日）'}`;tip.append(b,s);tip.hidden=false;const scale=(svg.getBoundingClientRect?.().width||W)/W;tip.style.left=`${Math.min(Math.max(x(i)*scale-70,0),W*scale-150)}px`;tip.style.top=`${Math.max(0,y(r.value)*scale-58)}px`;};
++ const hide=()=>{cross.setAttribute('visibility','hidden');tip.hidden=true;};
++ const nearest=clientX=>{const box=svg.getBoundingClientRect(),px=(clientX-box.left)*W/(box.width||W);let best=0;for(let i=1;i<rows.length;i++)if(Math.abs(x(i)-px)<Math.abs(x(best)-px))best=i;return best;};
++ hit.addEventListener('pointermove',e=>show(nearest(e.clientX)));hit.addEventListener('pointerleave',hide);
++ hit.addEventListener('focus',()=>show(focus));hit.addEventListener('blur',hide);
++ hit.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){show(Math.max(0,Math.min(rows.length-1,focus+(e.key==='ArrowRight'?1:-1))));e.preventDefault();}});
++ wrap.append(svg,tip);return wrap;
++}
++if(typeof window!=='undefined'&&typeof window.addEventListener==='function')window.addEventListener('resize',()=>{clearTimeout(dollarResizeTimer);dollarResizeTimer=setTimeout(()=>{if(dollarLast)renderDollarIndex(dollarLast);},250);});
++/* DOLLAR_INDEX_END */
+ async function updateMacroMarket(){if(marketFetchPending||marketRetryAttempts>MAX_AUTO_RETRIES)return;marketFetchPending=true;marketDataState='loading';marketFetchError='';lastMarketCheckAt=Date.now();document.getElementById('marketMeta').textContent='其他市場與風險指標獨立載入中…';renderOtherMarketRows(liveMarketRows);try{const data=await fetchJsonTimeout('/api/macro-market',35000);if(marketRetryTimer){clearTimeout(marketRetryTimer);marketRetryTimer=null}if(data.pending||data.refreshing){marketDataState=data.refreshing?'loaded':'loading';marketFetchError='官方來源仍在背景查詢';lastMarketCheckAt=Date.now()-MARKET_REFRESH_MS+15000;if(data.refreshing){const previous=mergeMarketRows(data.rows||[]);renderOtherMarketRows(previous);renderMacroScores();if(macroState)renderMacroDimensions(macroState)}else renderOtherMarketRows(liveMarketRows);document.getElementById('marketMeta').textContent=data.refreshing?'顯示上次成功市場快照；官方來源正在背景更新，15 秒後重查。':'部分官方來源仍在背景查詢；資料尚未完成驗證，15 秒後自動重試。';scheduleMarketRetry();return}marketRetryAttempts=0;const merged=mergeMarketRows(data.rows||[]);marketDataState='loaded';renderOtherMarketRows(merged);renderMacroScores();if(macroState)renderMacroDimensions(macroState);lastMarketCheckAt=Date.now();document.getElementById('marketMeta').textContent=`已完成 ${merged.filter(x=>x.status==='ok').length} 項市場資料更新｜${new Date(data.checkedAt).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'})}（台灣）；其餘缺值保留灰色。`}catch(e){marketDataState='error';marketFetchError=e.message;lastMarketCheckAt=Date.now()-MARKET_REFRESH_MS+15000;renderOtherMarketRows(liveMarketRows);document.getElementById('marketMeta').textContent=`市場資料請求未完成（${e.message}）；保留已顯示的觀測日期，15 秒後自動重試。`;if(marketRetryTimer)clearTimeout(marketRetryTimer);scheduleMarketRetry()}finally{marketFetchPending=false}}
+ async function updateUSIndices(){if(usIndexFetchPending)return;usIndexFetchPending=true;document.getElementById('usIndexMeta').textContent='三大指數獨立取數中…';try{const data=await fetchJsonTimeout('/api/us-indices',12000);if(data.pending&&!liveUSIndexRows.length){document.getElementById('usIndexMeta').textContent='三大指數來源正在背景查詢；數值未完成時不納入判讀。';scheduleUSIndexRetry();return}liveUSIndexRows=data.rows||[];renderUSIndices(liveUSIndexRows);renderMacroScores();const dates=[...new Set(liveUSIndexRows.filter(x=>x.status==='ok').map(x=>x.date))];document.getElementById('usIndexMeta').textContent=`已取得 ${liveUSIndexRows.filter(x=>x.status==='ok').length}/3 項｜${dates.join('、')||'觀測日期缺失'}｜來源：${[...new Set(liveUSIndexRows.map(x=>x.provider).filter(Boolean))].join("、")||"未取得"}${data.refreshing?'｜上次成功快照顯示中，背景更新中':''}`;if(data.pending||data.refreshing)scheduleUSIndexRetry();else{usIndexRetryAttempts=0;if(usIndexRetryTimer){clearTimeout(usIndexRetryTimer);usIndexRetryTimer=null}}}catch(e){if(!liveUSIndexRows.length)renderUSIndices([]);document.getElementById('usIndexMeta').textContent=`三大指數來源暫不可用（${e.message}）；保留灰色資料卡。`;scheduleUSIndexRetry()}finally{usIndexFetchPending=false}}
+-document.getElementById('macroRefresh').addEventListener('click',()=>{resetAutomaticRetries();updateMacro(true);updateUSIndices();void updateUSSectorReport(true);updateMacroMarket();updateNews()});
++document.getElementById('macroRefresh').addEventListener('click',()=>{resetAutomaticRetries();updateMacro(true);updateUSIndices();void updateUSSectorReport(true);updateMacroMarket();void updateDollarIndex();updateNews()});
+ document.getElementById('siteRefreshAll').addEventListener('click',async()=>{const button=document.getElementById('siteRefreshAll'),target=document.getElementById('siteAutomationMeta');button.disabled=true;button.textContent='全站巡檢執行中…';try{const response=await siteFetch('/api/automation/refresh-all',{method:'POST',headers:{Accept:'application/json'},cache:'no-store',timeoutMs:15000}),payload=await response.json();if(!response.ok)throw Error(payload.reason||payload.message||payload.error||`HTTP ${response.status}`);target.textContent=payload.alreadyRunning?'接續已保存的巡檢進度。':'巡檢起點已保存，正在逐步更新。';let completed=false;for(let i=0;i<60;i++){await new Promise(resolve=>setTimeout(resolve,1500));const statusResponse=await siteFetch('/api/automation/status',{cache:'no-store',timeoutMs:22000}),status=await statusResponse.json();if(statusResponse.status===409)continue;if(!statusResponse.ok)throw Error(status.reason||`HTTP ${statusResponse.status}`);target.textContent=`巡檢進度：${status.checkpoint?.stage||status.status} ${Number(status.checkpoint?.index||0)+1}；已完成步驟會保存。`;if(status.completedAt||!['running','updating_market_modules','updating_stocks','updating_research'].includes(status.status)){completed=true;await updateSiteAutomationStatus();break}}if(!completed)target.textContent='本次等待已結束，已保存進度；再次點選可接續同一次巡檢。'}catch(error){target.textContent=`巡檢未完成（${error.message}）；請確認保存狀態後再接續。`}finally{button.disabled=false;button.textContent='立即巡檢全站'}});
+ document.getElementById('stockRefresh').addEventListener('click',()=>{resetAutomaticRetries();void updateStock(true)});
+ document.getElementById('refreshFinancialReport').addEventListener('click',()=>void runFinancialAnalysis());
+ document.getElementById('stockSearchForm').addEventListener('submit',searchStocks);
+ function refreshMacroIfDue(){if(document.visibilityState!=='visible')return;const now=Date.now();if(now-lastMacroCheckAt>=MACRO_REFRESH_MS){if(macroRetryAttempts<MAX_AUTO_RETRIES)updateMacro();if(usIndexRetryAttempts<MAX_AUTO_RETRIES)updateUSIndices();if(marketRetryAttempts<MAX_AUTO_RETRIES)updateMacroMarket();if(newsRetryAttempts<MAX_AUTO_RETRIES)updateNews()}if((now-lastUSSectorCheckAt>=MACRO_REFRESH_MS||usSectorReportState?.pending||usSectorReportState?.refreshing)&&!usSectorRetryTimer&&usSectorRetryAttempts<MAX_AUTO_RETRIES)void updateUSSectorReport();if(now-lastExpandedMacroCheckAt>=MACRO_REFRESH_MS&&expandedRetryAttempts<MAX_AUTO_RETRIES)updateMacroExpanded()}
+-function refreshMarketIfDue(){if(document.visibilityState==='visible'&&Date.now()-lastMarketCheckAt>=MARKET_REFRESH_MS&&marketRetryAttempts<MAX_AUTO_RETRIES)updateMacroMarket()}
++function refreshMarketIfDue(){if(document.visibilityState==='visible'&&Date.now()-lastMarketCheckAt>=MARKET_REFRESH_MS&&marketRetryAttempts<MAX_AUTO_RETRIES){updateMacroMarket();void updateDollarIndex()}}
+ document.addEventListener('visibilitychange',()=>{refreshMacroIfDue();refreshMarketIfDue()});
+ window.setInterval(()=>{refreshMacroIfDue();refreshMarketIfDue();if(document.visibilityState==='visible'&&Date.now()-lastAutomationStatusAt>=5*60*1000)void updateSiteAutomationStatus()},60*1000);
+-saveWatchlist();render();renderUSSectorReport();void syncWatchlistWithCloud();void updateSiteAutomationStatus();updateMacro();updateUSIndices();void updateUSSectorReport();updateMacroMarket();if(isCompactDevice()){setTimeout(()=>{void updateMacroExpanded();void updateNews()},500)}else{updateMacroExpanded();updateNews()}
++saveWatchlist();render();renderUSSectorReport();void syncWatchlistWithCloud();void updateSiteAutomationStatus();updateMacro();updateUSIndices();void updateUSSectorReport();updateMacroMarket();void updateDollarIndex();if(isCompactDevice()){setTimeout(()=>{void updateMacroExpanded();void updateNews()},500)}else{updateMacroExpanded();updateNews()}
+ </script>
+ </body>
+ </html>
+diff --git a/package.json b/package.json
+index 17f534a..cce1a04 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/cross-market-live.test.mjs b/tests/cross-market-live.test.mjs
+index bd7dcc5..2141de0 100644
+--- a/tests/cross-market-live.test.mjs
++++ b/tests/cross-market-live.test.mjs
+@@ -23,6 +23,8 @@ let originalLayout=html.slice(0,html.indexOf('<script>')).replace(/  \/\* US_SEC
+ // Exclude only the explicitly requested new advisory panel/style; the original layout fingerprint stays locked.
+ assert.equal((originalLayout.match(/id="advisoryPanels"/g)||[]).length,1);
+ originalLayout=originalLayout.replace(/<!-- ADVISORY_PANEL_STYLE_START -->\n[\s\S]*?<!-- ADVISORY_PANEL_STYLE_END -->\n/,'').replace(/    <section class="advisory-panels" id="advisoryPanels" aria-live="polite" hidden><\/section>\n/,'');
++// 擁有者 2026-10-27 16:30 要求的總經區美元大卡（樣式與卡片各自有標記）同樣排除；其餘原始版面仍鎖定。
++originalLayout=originalLayout.replace(/<style>\/\* DOLLAR_INDEX_CSS_START \*\/[\s\S]*?\/\* DOLLAR_INDEX_CSS_END \*\/<\/style>\n/,'').replace(/    <!-- DOLLAR_INDEX_HTML_START -->\n[\s\S]*?    <!-- DOLLAR_INDEX_HTML_END -->\n/,'');
+ const originalForms=JSON.parse(readFileSync(new URL('./fixtures/gate-forms-v224.json',import.meta.url),'utf8'));
+ for(const [id,original] of Object.entries(originalForms)){
+  const current=originalLayout.split(/(?<=\n)/).find(line=>line.includes(`id="${id}"`));
+diff --git a/tests/panel-display.test.mjs b/tests/panel-display.test.mjs
+index 9d6879a..2a1c703 100644
+--- a/tests/panel-display.test.mjs
++++ b/tests/panel-display.test.mjs
+@@ -15,7 +15,9 @@ function setup(){const host=new Element(),context=vm.createContext({document:{ge
+ test('new metrics display missing facts honestly and clear immediately on ticker change',()=>{
+  const {host,context}=setup(),stock={id:'7788',price:{date:'2026-10-19'},priceHistory:[],panelInputs:{}};
+  context.model={symbol:'7788',report:{advisoryPanels:buildStockPanels(stock)}};vm.runInContext('renderAdvisoryPanels(model)',context);
+- assert.equal(host.hidden,false);for(const label of ['均線強弱','月營收創高','季 EPS 創高','借券賣出餘額','股價淨值比','美元指數零軸','自動對應美股板塊','對應不明','草案','不改既有總分'])assert.ok(host.textContent.includes(label),label);
++ assert.equal(host.hidden,false);for(const label of ['均線強弱','月營收創高','季 EPS 創高','借券賣出餘額','股價淨值比','自動對應美股板塊','對應不明','草案','不改既有總分'])assert.ok(host.textContent.includes(label),label);
++ // 美元指數零軸 2026-10-27 移到總經區大卡，個股補充觀測不再重複。
++ assert.ok(!host.textContent.includes('美元指數零軸'),'美元卡不在個股區');
+  vm.runInContext('renderAdvisoryPanels(null)',context);assert.equal(host.hidden,true);assert.equal(host.children.length,0);
+ });
+ test('an extreme zero-axis observation cannot freeze the dashboard by creating unbounded ticks',()=>{
+diff --git a/tests/v240-dollar-macro.test.mjs b/tests/v240-dollar-macro.test.mjs
+new file mode 100644
+index 0000000..7b43afd
+--- /dev/null
++++ b/tests/v240-dollar-macro.test.mjs
+@@ -0,0 +1,67 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import vm from 'node:vm';
++
++// 擁有者 2026-10-27 16:30（截圖總經區 VIX 下方）：「把它拉出來放大放在這裡」。
++// 美元指數零軸從個股「補充觀測」摺疊區移到總經區「其他市場與風險指標」下面，改成大卡＋走勢圖；資料由 /api/dollar-index 提供。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const page=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++const load=tag=>import('data:text/javascript;base64,'+Buffer.from(source+`\n// ${tag}`).toString('base64'));
++const day=n=>new Date(Date.now()+8*3600000-n*86400000).toISOString().slice(0,10);
++function fakeDb(seed={}){const rows=new Map(Object.entries(seed));return {prepare(sql){let args=[];const stmt={bind(...a){args=a;return stmt;},async run(){if(/^INSERT INTO site_runtime_cache/.test(sql))rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true,meta:{changes:1}};},async all(){const r=/FROM site_runtime_cache/.test(sql)?rows.get(args[0]):null;return {results:r?[r]:[]};}};return stmt;},rows};}
++const history=Array.from({length:40},(_,i)=>({date:day(43-i),value:112+Math.sin(i/4)*1.5+i*0.06}));   // 最新觀測 4 天前：最後幾筆還沒到「觀測日＋8日」
++const imported=()=>({'official-series:v1:DTWEXAFEGS':{payload:JSON.stringify({id:'DTWEXAFEGS',history,source:'https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXAFEGS&cosd=2026-06-01',fetchedAt:new Date(Date.now()-3600000).toISOString()}),updated_at:new Date().toISOString(),expires_at:new Date(Date.now()+86400000).toISOString()}});
++async function call(db){
++  const {default:worker}=await load(`v240-dollar-${Math.random()}`);
++  const previous=globalThis.fetch;globalThis.fetch=async()=>new Response('offline',{status:503});
++  try{const r=await worker.fetch(new Request('https://site.test/api/dollar-index'),{DB:db},{waitUntil(){}});return {status:r.status,body:await r.json()};}
++  finally{globalThis.fetch=previous;}
++}
++
++test('/api/dollar-index：同一條 FRED DTWEXAFEGS、同一個零軸算法；觀測日＋8日後才標成已採用',async()=>{
++  const {status,body}=await call(fakeDb(imported()));
++  assert.equal(status,200);assert.equal(body.capturePath,'official_import');assert.equal(body.scoreContribution,0);
++  assert.equal(body.axis.status,'ok');assert.ok(Number.isFinite(body.axis.value));assert.ok(body.axis.priorHigh>body.axis.priorLow);
++  assert.equal(body.cutoff,new Date(Date.parse(body.asOf)-8*86400000).toISOString().slice(0,10));
++  assert.equal(body.history.length,40);
++  assert.ok(body.history.every(r=>r.usable===(r.date<=body.cutoff)));
++  assert.ok(body.history.some(r=>!r.usable),'最近幾筆尚未採用');
++  assert.equal(body.axis.date,body.history.filter(r=>r.usable).at(-1).date,'零軸用的是最後一筆已採用的觀測');
++});
++
++test('沒有匯入也沒有中繼 → 不補值，零軸待補、走勢空白',async()=>{
++  const {body}=await call(fakeDb());
++  assert.notEqual(body.axis.status,'ok');assert.deepEqual(body.history,[]);assert.equal(body.capturePath,null);
++});
++
++test('總經區畫面：卡片在「其他市場與風險指標」與「由原始資料計算」之間；大數字、狀態、走勢圖、來源、數字表都出來',async()=>{
++  const at=id=>page.indexOf(id);
++  assert.ok(at('id="marketIndicators"')>0&&at('id="marketIndicators"')<at('id="dollarIndexCard"')&&at('id="dollarIndexCard"')<at('由原始資料計算</h4>'));
++  const script=page.match(/\/\* DOLLAR_INDEX_START \*\/[\s\S]*?\/\* DOLLAR_INDEX_END \*\//)[0];
++  class Node{constructor(tag){this.tag=tag;this.children=[];this.attributes={};this.style={};this.dataset={};this.hidden=false;this.listeners={};this.className='';this.clientWidth=640;}
++    append(...x){this.children.push(...x);}replaceChildren(...x){this.children=x;this.text='';}
++    set textContent(v){this.text=String(v);this.children=[];}get textContent(){return (this.text||'')+this.children.map(c=>c.textContent).join(' ');}
++    setAttribute(k,v){this.attributes[k]=String(v);}addEventListener(k,f){this.listeners[k]=f;}getBoundingClientRect(){return {left:0,top:0,width:640,height:240};}
++    findAll(pred){return [...(pred(this)?[this]:[]),...this.children.flatMap(c=>c.findAll?c.findAll(pred):[])];}}
++  const host=new Node('div');
++  const {body}=await call(fakeDb(imported()));
++  const context=vm.createContext({document:{getElementById:id=>id==='dollarIndexCard'?host:null,createElement:t=>new Node(t),createElementNS:(_,t)=>new Node(t)},window:{addEventListener(){}},console,
++    fetchJsonTimeout:async url=>{assert.equal(url,'/api/dollar-index');return body;},advisoryAxis:(h,row)=>{const n=new Node('div');n.className='advisory-axis';n.textContent=`axis ${row.value}`;h.append(n);},setTimeout,clearTimeout});
++  vm.runInContext(script,context);await vm.runInContext('updateDollarIndex()',context);
++  const text=host.textContent,v=body.axis.value;
++  assert.ok(text.includes((v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(2)),'大數字＝零軸值');
++  assert.match(text,/前20日高低點之間|站上前20日高點|跌破前20日低點/);
++  assert.match(text,/FRED DTWEXAFEGS（先進經濟體美元指數，非 ICE DXY）｜官方資料匯入/);
++  assert.match(text,/只顯示、不計分/);
++  const cls=c=>host.findAll(n=>n.attributes?.class===c);
++  assert.equal(cls('dc-line').length,1,'已採用的走勢線');assert.equal(cls('dc-pending').length,1,'尚未採用的虛線');
++  assert.equal(cls('dc-ref').length,2,'前20日最高＝0、最低＝−100 兩條參考線');
++  assert.equal(host.findAll(n=>n.className==='advisory-axis').length,1,'零軸長條');
++  assert.equal(host.findAll(n=>n.tag==='tr').length,41,'數字表：表頭＋40 筆');
++  // 游標移到圖上：十字線與提示框顯示日期、數值、是否採用
++  const hit=host.findAll(n=>n.attributes?.tabindex==='0')[0];
++  hit.listeners.pointermove({clientX:600});
++  const tip=host.findAll(n=>n.className==='dollar-tip')[0];
++  assert.equal(tip.hidden,false);assert.match(tip.textContent,/\d+\.\d{2}.*\d{4}-\d{2}-\d{2}｜(已採用|尚未採用)/);
++});
+diff --git a/tests/v240-shares.test.mjs b/tests/v240-shares.test.mjs
+new file mode 100644
+index 0000000..84b1a74
+--- /dev/null
++++ b/tests/v240-shares.test.mjs
+@@ -0,0 +1,75 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// GPT 2026-10-27 v240 讀回：上櫃官方股數名冊（mopsfin t187ap03_O.csv）這輪逾時，8299／5289／5009 缺發行股數，
++// Gate 9 由 conditional 變 not_applicable／blocked。原本上市名冊成功就把整份快取 24 小時，上櫃缺值跟著留 24 小時。
++// 改為：每份名冊成功就另存 D1；某份失敗時沿用 7 天內最後一次成功的同一份官方名冊（註明沿用），並 15 分鐘後重試。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++let instance=0;
++const load=()=>import('data:text/javascript;base64,'+Buffer.from(source+`\n// v240-shares-${instance++}\nexport {getOfficialIssuedShares};`).toString('base64'));
++const TWSE_URL='https://openapi.twse.com.tw/v1/opendata/t187ap03_L',TPEX_URL='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv';
++// 欄名與數值取自 2026-10-26 官方名冊（gate-probe url-probe 40472463935；CSV 551,698 bytes、GitHub 下載 1.7–2.5 秒）。
++const TWSE=[{出表日期:'1151026',公司代號:'2330',公司名稱:'台灣積體電路製造股份有限公司',公司簡稱:'台積電',產業別:'24','已發行普通股數或TDR原股發行股數':'25932370067'}];
++const TPEX='﻿出表日期,公司代號,公司名稱,公司簡稱,產業別,已發行普通股數或TDR原股發行股數\n1151026,8299,群聯電子股份有限公司,群聯,24,221165247\n1151026,5009,榮剛材料科技股份有限公司,榮剛,10,602471197\n';
++function fakeDb(){const rows=new Map();return {prepare(sql){let args=[];const stmt={bind(...a){args=a;return stmt;},async run(){if(/^INSERT INTO site_runtime_cache/.test(sql))rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true,meta:{changes:1}};},async all(){const r=/FROM site_runtime_cache/.test(sql)?rows.get(args[0]):null;return {results:r?[r]:[]};}};return stmt;},rows};}
++function mockFetch({twse='ok',tpex='ok'}={}){
++  const calls={twse:0,tpex:0};
++  const fail=kind=>kind==='timeout'?Promise.reject(Object.assign(Error('aborted'),{name:'AbortError'})):Promise.resolve(new Response('busy',{status:503}));
++  globalThis.fetch=async url=>{
++    if(String(url)===TWSE_URL){calls.twse++;return twse==='ok'?new Response(JSON.stringify(TWSE),{status:200}):fail(twse);}
++    if(String(url)===TPEX_URL){calls.tpex++;return tpex==='ok'?new Response(TPEX,{status:200}):fail(tpex);}
++    return new Response('not found',{status:404});
++  };
++  return calls;
++}
++const realFetch=globalThis.fetch,realNow=Date.now;
++test.afterEach(()=>{globalThis.fetch=realFetch;Date.now=realNow;});
++
++test('兩份名冊都成功：上市、上櫃股數都有，各自另存 D1',async()=>{
++  const api=await load(),db=fakeDb();mockFetch();
++  const out=await api.getOfficialIssuedShares({DB:db});
++  assert.deepEqual(out.errors,[]);assert.deepEqual(out.fallbacks,[]);
++  assert.equal(out.data.get('2330').shares,25932370067);assert.equal(out.data.get('8299').shares,221165247);
++  assert.equal(out.data.get('8299').date,'2026-10-26');assert.equal(out.data.get('8299').market,'TPEx');
++  const saved=JSON.parse(db.rows.get('official-issued-shares:v1:TPEx').payload);
++  assert.equal(saved.sourceUrl,TPEX_URL);assert.equal(saved.rows.length,2);
++  assert.ok(db.rows.has('official-issued-shares:v1:TWSE'));
++});
++
++test('上櫃名冊逾時 → 沿用 7 天內最後一次成功的同一份官方名冊，註明沿用；上市照常',async()=>{
++  const db=fakeDb();mockFetch();await (await load()).getOfficialIssuedShares({DB:db});   // 先成功一次
++  const api=await load();mockFetch({tpex:'timeout'});
++  const out=await api.getOfficialIssuedShares({DB:db});
++  assert.deepEqual(out.errors,[],'有可沿用的官方名冊就不算缺值');
++  assert.equal(out.fallbacks.length,1);assert.match(out.fallbacks[0],/^TPEx：本次來源逾時，沿用 \d{4}-\d{2}-\d{2} 抓取的同一份官方名冊$/);
++  const row=out.data.get('8299');
++  assert.equal(row.shares,221165247);assert.equal(row.fallback,'last_success');assert.equal(row.date,'2026-10-26','保留官方出表日期');
++  assert.match(row.source,/沿用/);assert.equal(out.data.get('2330').fallback,undefined);
++});
++
++test('沿用的名冊超過 7 天、或來源網址不對，就不用（維持缺值，不補）',async()=>{
++  const db=fakeDb();mockFetch();await (await load()).getOfficialIssuedShares({DB:db});
++  const key='official-issued-shares:v1:TPEx',saved=JSON.parse(db.rows.get(key).payload);
++  db.rows.get(key).payload=JSON.stringify({...saved,capturedAt:new Date(Date.now()-8*86400000).toISOString()});
++  mockFetch({tpex:'timeout'});
++  const old=await (await load()).getOfficialIssuedShares({DB:db});
++  assert.deepEqual(old.errors,['TPEx：來源逾時']);assert.equal(old.data.has('8299'),false);assert.equal(old.data.has('2330'),true);
++  db.rows.get(key).payload=JSON.stringify({...saved,sourceUrl:'https://example.com/t187ap03_O.csv'});
++  mockFetch({tpex:'http'});
++  const wrong=await (await load()).getOfficialIssuedShares({DB:db});
++  assert.deepEqual(wrong.errors,['TPEx：HTTP 503']);assert.equal(wrong.data.has('8299'),false);
++});
++
++test('有一份失敗：15 分鐘後重抓（不是 24 小時）；兩份都成功才留 24 小時；同時多檔請求只抓一次',async()=>{
++  const api=await load(),db=fakeDb();let now=realNow();Date.now=()=>now;
++  let calls=mockFetch({tpex:'timeout'});
++  const [a,b]=await Promise.all([api.getOfficialIssuedShares({DB:db}),api.getOfficialIssuedShares({DB:db})]);
++  assert.equal(a,b);assert.deepEqual(calls,{twse:1,tpex:1},'同時請求共用一次抓取');
++  now+=10*60*1000;calls=mockFetch();await api.getOfficialIssuedShares({DB:db});
++  assert.deepEqual(calls,{twse:0,tpex:0},'15 分鐘內不重抓');
++  now+=6*60*1000;calls=mockFetch();const ok=await api.getOfficialIssuedShares({DB:db});
++  assert.deepEqual(calls,{twse:1,tpex:1},'失敗後 15 分鐘重抓');assert.ok(ok.data.has('8299'));
++  now+=12*60*60*1000;calls=mockFetch();await api.getOfficialIssuedShares({DB:db});
++  assert.deepEqual(calls,{twse:0,tpex:0},'都成功時 24 小時內不重抓');
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 7d2dffa..377a44e 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -17,7 +17,7 @@ let macroNewsSnapshot = null;
+ let macroNewsAt = 0;
+ let macroNewsTtlMs = 0;
+ let macroNewsPending = null;
+-let issuedSharesCache = { at: 0, data: new Map(), errors: [] };
++let issuedSharesCache = { at: 0, data: new Map(), errors: [], fallbacks: [] }, issuedSharesTask = null;
+ function readStockCache(key) {
+   const entry = stockIsolateCache.get(key);
+   if (!entry) return null;
+@@ -70,39 +70,71 @@ function parseIssuerCsvLine(line) {
+   }
+   cells.push(cell);return cells;
+ }
++// 官方已發行股數名冊（上市 TWSE、上櫃 TPEx／MOPS 各一份）。每份成功抓到就另存 D1；某一份這次逾時或失敗，
++// 沿用 7 天內最後一次成功抓到的同一份官方名冊（保留原出表日期與抓取時間、註明沿用），不自行推算。
++// 任一份失敗或沿用時 15 分鐘後重試；兩份都成功才快取 24 小時（原本上市成功就把上櫃缺值留 24 小時）。
++const ISSUED_SHARES_FALLBACK_MS = 7 * 24 * 60 * 60 * 1000;
++const issuedSharesKey = market => `official-issued-shares:v1:${market}`;
++function parseIssuedShareRoster(records, endpoint) {
++  const rows = [];
++  for (const row of records) {
++    const id=String(row['公司代號']??row['有價證券代號']??row['stock_id']??row['公司代碼']??row['SecuritiesCompanyCode']??'').trim();
++    const raw=row['已發行普通股數或TDR原股發行股數']??row['已發行普通股股數']??row['已發行股數']??row['普通股已發行股數']??row['issued_shares'];
++    const shares=Number(String(raw??'').replace(/[，,\s]/g,''));
++    const rawDate=String(row['出表日期']||''),date=/^\d{7}$/.test(rawDate)?`${Number(rawDate.slice(0,3))+1911}-${rawDate.slice(3,5)}-${rawDate.slice(5)}`:null;
++    if(/^\d{4,6}$/.test(id)&&Number.isFinite(shares)&&shares>0)rows.push({symbol:id,shares,source:endpoint.source,sourceUrl:endpoint.url,market:endpoint.market,date,industryCode:String(row['產業別']||''),name:String(row['公司簡稱']||row['公司名稱']||''),status:'official'});
++  }
++  return rows;
++}
+ async function getOfficialIssuedShares(env={}) {
+-  if(issuedSharesCache.at&&Date.now()-issuedSharesCache.at<(issuedSharesCache.data.size?24*60*60*1000:15*60*1000))return issuedSharesCache;
++  const retrySoon=issuedSharesCache.errors.length||issuedSharesCache.fallbacks.length||!issuedSharesCache.data.size;
++  if(issuedSharesCache.at&&Date.now()-issuedSharesCache.at<(retrySoon?15*60*1000:24*60*60*1000))return issuedSharesCache;
++  if(issuedSharesTask)return issuedSharesTask;
++  issuedSharesTask=loadOfficialIssuedShares(env).finally(()=>{issuedSharesTask=null;});
++  return issuedSharesTask;
++}
++async function loadOfficialIssuedShares(env) {
+   const endpoints=[
+-    {url:'https://openapi.twse.com.tw/v1/opendata/t187ap03_L',format:'json'},
+-    {url:'https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv',format:'csv'}
++    {url:'https://openapi.twse.com.tw/v1/opendata/t187ap03_L',format:'json',market:'TWSE',source:'TWSE OpenAPI issuer roster'},
++    {url:'https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv',format:'csv',market:'TPEx',source:'TPEx/MOPS official issuer CSV'}
+   ];
+   const results=await Promise.all(endpoints.map(async endpoint=>{
+-    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),6000);
++    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
+     try{
+       const response=await fetch(endpoint.url,{headers:{Accept:endpoint.format==='json'?'application/json':'text/csv,text/plain','User-Agent':'TaiwanStockMaster/1.0 (+official public-data use)'},signal:controller.signal});
+       if(!response.ok)throw new Error(`HTTP ${response.status}`);
+       const text=await response.text();
+       if(/^\s*</.test(text))throw new Error('來源回傳 HTML，非公司資料');
++      let records;
+       if(endpoint.format==='json'){
+-        const json=JSON.parse(text);if(!Array.isArray(json))throw new Error('JSON 格式不符');return json;
++        records=JSON.parse(text);if(!Array.isArray(records))throw new Error('JSON 格式不符');
++      }else{
++        const lines=text.replace(/^\uFEFF/,'').split(/\r?\n/).filter(Boolean),headers=parseIssuerCsvLine(lines.shift()||'');
++        records=lines.map(line=>Object.fromEntries(parseIssuerCsvLine(line).map((value,index)=>[headers[index],value])));
+       }
+-      const lines=text.replace(/^\uFEFF/,'').split(/\r?\n/).filter(Boolean),headers=parseIssuerCsvLine(lines.shift()||'');
+-      return lines.map(line=>Object.fromEntries(parseIssuerCsvLine(line).map((value,index)=>[headers[index],value])));
++      const rows=parseIssuedShareRoster(records,endpoint);
++      if(!rows.length)throw new Error('名冊沒有有效股數欄位');
++      return {rows};
+     }catch(error){return {__error:error.name==='AbortError'?'來源逾時':error.message};}
+     finally{clearTimeout(timer);}
+   }));
+-  const data=new Map(),errors=[];
++  const data=new Map(),errors=[],fallbacks=[],now=Date.now();
+   for(let index=0;index<results.length;index++){
+-    const records=results[index];if(!Array.isArray(records)){errors.push(`${endpoints[index].format==='json'?'TWSE':'TPEx'}：${records.__error}`);continue;}
+-    for(const row of records){
+-      const id=String(row['公司代號']??row['有價證券代號']??row['stock_id']??row['公司代碼']??'').trim();
+-      const raw=row['已發行普通股數或TDR原股發行股數']??row['已發行普通股股數']??row['已發行股數']??row['普通股已發行股數']??row['issued_shares'];
+-      const shares=Number(String(raw??'').replace(/[，,\s]/g,''));
+-      const rawDate=String(row['出表日期']||''),date=/^\d{7}$/.test(rawDate)?`${Number(rawDate.slice(0,3))+1911}-${rawDate.slice(3,5)}-${rawDate.slice(5)}`:null;
+-      if(/^\d{4,6}$/.test(id)&&Number.isFinite(shares)&&shares>0)data.set(id,{symbol:id,shares,source:endpoints[index].format==='json'?'TWSE OpenAPI issuer roster':'TPEx/MOPS official issuer CSV',sourceUrl:endpoints[index].url,market:index===0?'TWSE':'TPEx',date,industryCode:String(row['產業別']||''),name:String(row['公司簡稱']||row['公司名稱']||''),status:'official'});
++    const endpoint=endpoints[index],result=results[index];
++    let rows=result.rows||null;
++    if(rows){
++      await writeRuntimeCache(env,issuedSharesKey(endpoint.market),{capturedAt:new Date(now).toISOString(),sourceUrl:endpoint.url,rows},ISSUED_SHARES_FALLBACK_MS);
++    }else{
++      const saved=await readRuntimeCache(env,issuedSharesKey(endpoint.market)),capturedAt=saved?.payload?.capturedAt,age=now-Date.parse(capturedAt||'');
++      if(saved?.payload?.sourceUrl===endpoint.url&&Array.isArray(saved.payload.rows)&&saved.payload.rows.length&&age>=0&&age<=ISSUED_SHARES_FALLBACK_MS){
++        const note=`本次${result.__error}，沿用 ${capturedAt.slice(0,10)} 抓取的同一份官方名冊`;
++        rows=saved.payload.rows.map(row=>({...row,source:`${endpoint.source}（${note}）`,capturedAt,fallback:'last_success'}));
++        fallbacks.push(`${endpoint.market}：${note}`);
++      }else errors.push(`${endpoint.market}：${result.__error}`);
+     }
++    for(const row of rows||[])data.set(row.symbol,row);
+   }
+-  issuedSharesCache={at:Date.now(),data,errors};return issuedSharesCache;
++  issuedSharesCache={at:Date.now(),data,errors,fallbacks};return issuedSharesCache;
+ }
+ const quarterOfDate = date => {
+   const match = /^(\d{4})-(\d{2})-\d{2}$/.exec(String(date || ''));
+@@ -592,7 +624,9 @@ function enforceLatestRoicSnapshot(stock) {
+ async function startStockRefresh(id, env, ctx) {
+   if (stockRefreshes.has(id)) return stockRefreshes.get(id);
+   const task = buildTaiwanStockSnapshot(id, env).then(async result => {
+-    const ttl = result.price || result.revenue || result.valuation || result.financialQuality?.roic || result.financialQuality?.cfoToNetIncome ? 6 * 60 * 60 * 1000 : 15 * 60 * 1000;
++    // 官方股數名冊這次失敗（沒有可沿用的）時只留 1 小時，下一次巡檢或開啟就重抓，不讓缺值卡 6 小時。
++    const hasData = result.price || result.revenue || result.valuation || result.financialQuality?.roic || result.financialQuality?.cfoToNetIncome;
++    const ttl = !hasData ? 15 * 60 * 1000 : result.valuationInputs?.shareErrors?.length && !result.valuationInputs?.issuedShares ? 60 * 60 * 1000 : 6 * 60 * 60 * 1000;
+     writeStockCache(`stock:v5:${id}`, result, ttl);
+     await writeRuntimeCache(env, `stock:v5:${id}`, result, ttl);
+     return result;
+@@ -1624,6 +1658,7 @@ export default {
+     if (path === '/api/automation/refresh-all') return siteAutoRefreshResponse(request, env, ctx);
+     if (path === '/api/taiwan-stock-search') return searchTaiwanStocks(request, env);
+     if (path === '/api/taiwan-stock') return taiwanStock(request, env, ctx);
++    if (path === '/api/dollar-index') return dollarIndexResponse(env);
+     if (path === '/api/master-model' && request.method === 'GET') return masterModelResponse(request, env, ctx);
+     if (path === '/api/master-gate-evidence') return masterGateEvidence(request, env);
+     if (path === '/api/client-diagnostics') return clientDiagnosticsResponse(request,env);
+diff --git a/worker/panel-display.js b/worker/panel-display.js
+index 8f56727..d2edde6 100644
+--- a/worker/panel-display.js
++++ b/worker/panel-display.js
+@@ -41,7 +41,7 @@ function renderAdvisoryPanels(model){
+  const lh=p.largeHolders||{};card('集保千張以上大戶（週）',lh.status==='ok'?`${show(lh.pct15)}%（${lh.holders15??'缺值'} 人）｜${lh.weeksObserved}週：${(lh.weeks||[]).map(w=>`${w.date.slice(5)} ${show(w.pct15)}%`).join('、')}${Number.isFinite(lh.changeVsFirst)?`｜期間變化 ${lh.changeVsFirst>=0?'+':''}${lh.changeVsFirst.toFixed(2)} 個百分點`:''}`:`待補：${lh.reason||'缺值'}`,`${lh.date||'日期缺值'}；${lh.source||'集保結算所'}；網站從上線起每週累積，滿4週才看得到4週變化；只顯示。`);
+  const mm=p.marginMaintenance||{};card('大盤融資維持率（上市，估算）',['ok','snapshot'].includes(mm.status)?`${show(mm.ratioPct)}%｜${mm.date}${mm.status==='snapshot'?'（'+mm.reason+'）':''}`:`待補：${mm.reason||'缺值'}`,`${mm.method||'Σ融資餘額×收盤價÷融資金額'}；${mm.stocks||0}檔計入、缺價 ${mm.missingPrice??0} 檔；證交所 STOCK_DAY_ALL＋MI_MARGN；非官方公布值，只顯示。`);
+  const pb=p.priceBook||{};card('股價淨值比歷史區間',pb.status==='ok'?`P/B ${show(pb.current)} 倍｜P20 ${show(pb.p20)}／中位 ${show(pb.median)}／P80 ${show(pb.p80)}`:`待補：${pb.reason||'缺值'}`,`${pb.from||'起日缺值'}～${pb.through||p.asOf||'迄日缺值'}；${pb.observations||0}筆；自身可得樣本，不代替既有P/E。`);
+- const dxy=p.dollarZeroAxis||{};const dxCard=card('美元指數零軸（先進經濟體美元指數）',dxy.status==='ok'?`目前 ${show(dxy.value)}｜5個觀測前 ${show(dxy.previous5?.value)}｜${dxy.value>0?'站上前20日高點':dxy.value<-100?'跌破前20日低點（走弱）':'區間內'}｜草案 ${dxy.draftPoints===-1?'−1':'0'}；0＝前20日最高，−100＝前20日最低`:`待補：${dxy.reason||'缺值'}`,`觀測 ${dxy.date||dxy.sourceDate||'日期缺值'}（${dxy.knownFrom||'觀測日＋8日起可用'}）；FRED DTWEXAFEGS，非 ICE DXY${dxy.capturePath==='github_relay'?'（GitHub 排程代抓的 FRED 官方檔）':''}；${dxy.draftRule||'草案 >0 −1、走弱不加分'}；前20日不含當期。`); advisoryAxis(dxCard,dxy,'美元指數零軸',{min:-100,max:60,step:10});
++ // 美元指數零軸已移到總經區「其他市場與風險指標」下方的大卡（擁有者 2026-10-27 16:30）；個股這裡不再重複。
+  const mapping=p.industryMapping||{},sector=p.linkedUSSector||{};card('自動對應美股板塊',mapping.sector?`${mapping.industry||mapping.industryCode} → ${mapping.sector}｜${sector.classification||'強弱缺值'}`:`對應不明：${mapping.reason||'缺官方產業別'}`,`${mapping.date||'產業日期缺值'}；${mapping.sourceUrl||''}；新增±1僅試算，未納入正式評級。`);
+  const breadth=model.report?.usSectorContext?.breadth;
+  if(breadth){const s=breadth.sectorBreadth,g=breadth.globalBreadth;card('美股與全球寬度',`美股類股 ${s.above}/${s.coverage} 在200日線上（涵蓋${s.coverage}/11）；全球 ${g.spyAvailable?`${g.above}/${g.coverage}`:'SPY缺值，不算比例'}（涵蓋${g.coverage}/10）；RSP/SPY20日 ${show(breadth.equalWeightRatio20d)}%`,`Tiingo adjClose；每市場一票；全球缺${g.missing.join('、')||'無'}；非S&P500成分股廣度。`);}
+diff --git a/worker/panel-site.js b/worker/panel-site.js
+index dbc6156..20c60d4 100644
+--- a/worker/panel-site.js
++++ b/worker/panel-site.js
+@@ -10,6 +10,25 @@ function panelWithin(task,fallback,keepAlive,ms=PANEL_SOURCE_BUDGET_MS){
+     resolve(fallback('loading'));
+   },ms);})]).finally(()=>clearTimeout(timer));
+ }
++// 美元指數（FRED DTWEXAFEGS，回測用的同一條；不是 ICE DXY）：先用 36 小時內的官方匯入，沒有就讀中繼（GitHub 排程每 6 小時抓 FRED 官方 CSV）。
++// 中繼本身過期就不用，回 null（畫面「待補」）。個股面板與總經區的美元卡共用這一個讀法。
++async function loadDollarIndexInput(env={}){
++  const saved=await readRuntimeCache(env,'official-series:v1:DTWEXAFEGS'),input=saved?.payload;
++  if(input&&saved.fresh&&Date.now()-Date.parse(input.fetchedAt)<=36*3600000)return {id:'DTWEXAFEGS',history:input.history||[],source:input.source,fetchedAt:input.fetchedAt,releaseVerification:input.releaseVerification||null,capturePath:'official_import'};
++  try{const r=await relaySeries('DTWEXAFEGS');if(r&&r.status==='ok'&&!r.is_stale&&(r.history||[]).length>=26)return {id:'DTWEXAFEGS',history:r.history,source:r.source,fetchedAt:r.fetchedAt,releaseVerification:null,capturePath:'github_relay'};}catch{}
++  return null;
++}
++// 總經區「美元指數零軸」大卡（擁有者 2026-10-27 16:30：從個股補充觀測拉出來、放大，放在其他市場與風險指標下面）。
++// 基準日＝台北今天；觀測日＋8 日起才採用（同回測）。只顯示，不計分。
++async function dollarIndexResponse(env={}){
++  const now=Date.now(),asOf=new Date(now+8*3600000).toISOString().slice(0,10),cutoff=new Date(Date.parse(asOf)-8*86400000).toISOString().slice(0,10);
++  let input=null;try{input=await loadDollarIndexInput(env);}catch{}
++  const axis=PANEL_CALCULATIONS.dollarAxis(input,{asOf});
++  const seen=new Map();
++  for(const row of input?.history||[]){const value=Number(row?.value);if(/^\d{4}-\d{2}-\d{2}$/.test(row?.date||'')&&Number.isFinite(value)&&value>0)seen.set(row.date,value);}
++  const history=[...seen].sort((a,b)=>a[0].localeCompare(b[0])).slice(-60).map(([date,value])=>({date,value,usable:date<=cutoff}));
++  return Response.json({checkedAt:new Date(now).toISOString(),asOf,cutoff,axis,history,source:input?.source||null,fetchedAt:input?.fetchedAt||null,capturePath:input?.capturePath||null,scoreContribution:0},{headers:{'Cache-Control':'no-store'}});
++}
+ async function attachPanelSources(stock,env={},ctx={}){
+   if(!stock?.price?.date||!env.DB)return stock;
+   const inputs={...stock.panelInputs},registry=await getOfficialIssuedShares(env),current=registry.data.get(stock.id);
+@@ -24,14 +43,7 @@ async function attachPanelSources(stock,env={},ctx={}){
+       const pool=await PANEL_SOURCES.collectLending({asOf:stock.price.date,read,write});
+       return PANEL_SOURCES.selectAndSaveLending({pool,symbol:stock.id,market:officialMarket,asOf:stock.price.date,issuer:inputs.issuer,priceDates:(stock.priceHistory||[]).map(r=>r.date),read,write});
+     },kind=>({status:'insufficient',reason:code(kind,'OFFICIAL_LENDING'),history:[]}),keepAlive),
+-    panelWithin(async()=>{
+-      // 回測用的同一條美元指數（FRED DTWEXAFEGS，經官方匯入保存）；不是 ICE DXY。
+-      const saved=await readRuntimeCache(env,'official-series:v1:DTWEXAFEGS'),input=saved?.payload;
+-      if(input&&saved.fresh&&Date.now()-Date.parse(input.fetchedAt)<=36*3600000)return {id:'DTWEXAFEGS',history:input.history||[],source:input.source,fetchedAt:input.fetchedAt,releaseVerification:input.releaseVerification||null,capturePath:'official_import'};
+-      // 外部匯入超過 36 小時（或沒跑）時，改讀中繼：GitHub 排程每 6 小時抓 FRED 官方 CSV（同一條序列、40 筆）。中繼本身過期就不用。
+-      try{const r=await relaySeries('DTWEXAFEGS');if(r&&r.status==='ok'&&!r.is_stale&&(r.history||[]).length>=26)return {id:'DTWEXAFEGS',history:r.history,source:r.source,fetchedAt:r.fetchedAt,releaseVerification:null,capturePath:'github_relay'};}catch{}
+-      return null;
+-    },()=>null,keepAlive),
++    panelWithin(()=>loadDollarIndexInput(env),()=>null,keepAlive),
+     panelWithin(async()=>{
+       const pool=await PANEL_SOURCES.collectCbRegistry({read,write});
+       return {checkedAt:pool.checkedAt,status:pool.status,sources:pool.sources,errors:pool.errors,capturePath:pool.capturePath||'direct',bonds:(pool.bonds||[]).filter(b=>b.issuer===stock.id)};
