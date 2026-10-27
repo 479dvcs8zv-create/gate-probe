@@ -1,10 +1,22 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-27 06:40 台北（Claude）
+更新：2026-10-27 16:40 台北（Claude）
 
-**目前狀態**：①～⑤ 已完成（v239；`hotfix3.md`，Claude 已核對：D／C／E 的 SHA、數字都對）。**只剩 ⑥**：G 中繼美元指數 → F2 網站（美元零軸自動化＋你 v239 讀回的 3 個缺口，部署一次）→ 讀回寫 `diagnostics/deploy-20261026/hotfix4.md`。巡檢那行照舊等排程跑完寫 `patrol-enabled.md`。
+**目前狀態**：①～⑥ 已完成（v240；`hotfix4.md`，Claude 已核對：G 上線程式與 patch 相同、F2 HTML SHA 相同；美元圖、可轉債代抓註記、IORB 匯入、舊快取重抓都通過）。5009「觀望」是 10/27 新資料的正確結果（排列強，但均線強弱 0 分、未達 +3），不是錯誤。剩下兩件：
 
-## 現在：⑥ G＋F2（**已授權**：擁有者 10-27 04:56「好」＝美元；另 3 項是 v239 讀回缺口的修正，不改任何規則、門檻、評級、Gate、風險預算）
+## 現在 ⑦-1：查每日巡檢為什麼沒有跑（**只讀、不改設定**；巡檢已授權啟用）
+- 你記錄 06:33 平台排程 runId `34405943-e5b0-8324-b7ed-92cfb1eee9e1` 為 `recorded_status=no_update`，但網站 `/api/automation/history` 沒有新的 run（最近仍是 01:07 手動那次）。網站的巡檢要先 `POST /api/automation/refresh-all` 建立 run，再反覆 `GET /api/automation/status` 直到 `completedAt`（poll-driven checkpoint）；網站端沒有自己的排程。所以這次看起來是**排程根本沒有呼叫網站**，或呼叫被擋（405／409／503）。
+- 請查並寫進 `patrol-enabled.md`（5 行內）：① 排程的儲存指令（去掉任何密鑰後原文貼上）是否包含「POST refresh-all → 輪詢 status 到 completedAt → 讀 history」；② 06:30 那次執行紀錄：有沒有呼叫網站、HTTP 狀態與回應的 status／reason；③ 如果指令是舊的（例如停用期間改成只檢查、不更新），把建議的新指令寫出來給擁有者核准，**不要自己改**；④ 今晚 22:30 那次跑完後，照原本格式補 runId、完成時間、狀態、Gate N/N、watchlistSource、檔數。
+
+## 下一份 ⑦-2（**待擁有者授權**）：H 上櫃股數名冊補強（一次部署，v240 留回滾）
+- 原因（你回報的 Gate 9 變動）：網站抓上櫃官方名冊 `mopsfin.twse.com.tw/opendata/t187ap03_O.csv` 只等 6 秒，這輪逾時；而上市名冊成功時整份快取 24 小時，上櫃缺值跟著留 24 小時 → 8299／5289／5009 缺發行股數 → DCF 缺值 → Gate 9 由 conditional 變 not_applicable／blocked。Claude 16:17 用 GitHub 實測：同一份 CSV 551,698 bytes、1.7–2.5 秒、HTTP 200；8299＝221,165,247 股、5289＝98,289,931、5009＝602,471,197（出表日期 2026-10-26）。
+- Patch：`handoff/patches/v240-shares-20261027.patch`，SHA-256 `b40dbd11cd3b5bf5cbece1defb05d91727594b862cfc2c5e34bd9d87c2cec205`；基線＝v240 來源（你的 d871583＝Claude tag f2-patch-head）。只改 `worker/macro.js`、`package.json`，新增 `tests/v240-shares.test.mjs`；不含 dist/server/index.js；`dist/index.html` 不變（SHA 仍 `05c731ec5cece149e4c68daa25f7906b029bec17f0fc4455da25d0c13e874334`）。
+- 內容：① 上市、上櫃名冊各自成功就另存 D1（`official-issued-shares:v1:TWSE`／`:TPEx`）；② 某一份這次逾時或失敗 → 沿用 7 天內最後一次成功抓到的同一份官方名冊（來源網址必須相同；保留官方出表日期與抓取時間；股數來源註明「本次來源逾時，沿用 YYYY-MM-DD 抓取的同一份官方名冊」）；超過 7 天或網址不對就不用、維持缺值；③ 任一份失敗或沿用時 15 分鐘後重試，兩份都成功才快取 24 小時；同時多檔請求只抓一次；④ 等待 6 秒 → 10 秒；⑤ 個股快照若因名冊失敗而缺股數，只留 1 小時（原 6 小時）。不改評級、Gate 規則、門檻、風險預算。
+- 測試：新增 4 項（舊程式 4 項都失敗），併入 `test:v235-hotfix`；也用 16:17 抓到的真實兩份名冊驗證解析（共 1,991 家，上櫃 894）。Claude 在乾淨 v240 重放無衝突、完整 `TZ=UTC npm test` exit 0。
+- 步驟：擁有者授權後 → `git apply` → `node build.mjs` → `TZ=UTC npm test` → 部署一次。
+- 讀回（併入 `hotfix4.md` 末尾，5 行內）：8299／5289／5009 的發行股數與來源（直連或「沿用」）；三檔 Gate 9 狀態（預期回到部署 v240 前的狀態：8299／5009 conditional、5289 partial，除非其他資料另有變化，請寫出原因）；評級與風險預算不變。
+
+## 已完成（v240，10-27 15:42；hotfix4.md）：⑥ G＋F2（**已授權**：擁有者 10-27 04:56「好」＝美元；另 3 項是 v239 讀回缺口的修正，不改任何規則、門檻、評級、Gate、風險預算）
 ### G. 中繼：keyless 多抓 FRED DTWEXAFEGS（未變）
 - `handoff/patches/relay-dollar-20261027.patch`，SHA-256 `564ccd5e02d74901007d8c8c41f146f8eecbeb79e22dee46ec044d89a3bf0fd6`（1 個 commit）。Claude 06:30 在最新 main `cc3ac0a` 重放 `git am` 無衝突、35/35 通過。
 - 推上 main（keyless 工作流程自動跑）→ 確認 `data/keyless_snapshot.json` 有 DTWEXAFEGS（status ok、40 筆）。
