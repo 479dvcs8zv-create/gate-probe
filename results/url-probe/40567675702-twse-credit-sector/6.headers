@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: HiNetCDN
+Date: Tue, 27 Oct 2026 19:17:56 GMT
+Content-Type: application/json
+Content-Length: 46506
+Connection: keep-alive
+Vary: Accept-Encoding
+Last-Modified: Mon, 26 Oct 2026 21:21:30 GMT
+ETag: "6adfc45a-b5aa"
+Content-Disposition: attachment;filename=MI_INDEX.json
+X-Cache: HIT
+x-request-id: 263e8ef47cd1e9bed94d62332685af20
+Accept-Ranges: bytes
+

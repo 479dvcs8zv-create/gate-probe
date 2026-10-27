@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> 報表 - TWSE 臺灣證券交易所</title>
+    <style>
+    table { border-collapse: collapse; margin: 1em 0; }
+    table, th, td { border: 1px solid lightgray; }
+    table thead th, table thead td { text-align: center; background-color: #eee; }
+    table thead div { font-size: 1.5em; padding: 10px; }
+    table tbody tr:nth-child(even){ background-color:#f8f8f8; }
+    td { padding: 4px; }
+    td>p { margin: 0; text-align: center; }
+    div.notes { margin: 2em 0 4em 0; line-height: 1.5em; }
+    table tbody td { text-align: right; }
+    table tbody td:first-child { text-align: center; }
+    /*table tbody td:first-child + td { text-align: right; }*/
+    /*table tbody td:last-child { text-align: left; }*/
+    </style>
+</head>
+<body>
+<div>
+    
+        
+            
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th colspan='6'>
+                            <div>115年10月27日 信用交易統計</div>
+                        </th>
+                    </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <tr align="center" style="font-size:14px;">
+                            
+                        </tr>
+                        <tr>
+                            
+                                <th>項目</th>
+                            
+                                <th>買進</th>
+                            
+                                <th>賣出</th>
+                            
+                                <th>現金(券)償還</th>
+                            
+                                <th>前日餘額</th>
+                            
+                                <th>今日餘額</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                        <tr align="center" style="font-size:14px;">
+                            
+                                <td>融資(交易單位)</td>
+                            
+                                <td>271,054</td>
+                            
+                                <td>318,381</td>
+                            
+                                <td>6,461</td>
+                            
+                                <td>9,604,399</td>
+                            
+                                <td>9,550,611</td>
+                            
+                        </tr>
+                    
+                        <tr align="center" style="font-size:14px;">
+                            
+                                <td>融券(交易單位)</td>
+                            
+                                <td>25,268</td>
+                            
+                                <td>33,665</td>
+                            
+                                <td>7,228</td>
+                            
+                                <td>216,539</td>
+                            
+                                <td>217,708</td>
+                            
+                        </tr>
+                    
+                        <tr align="center" style="font-size:14px;">
+                            
+                                <td>融資金額(仟元)</td>
+                            
+                                <td>20,175,061</td>
+                            
+                                <td>29,876,264</td>
+                            
+                                <td>792,111</td>
+                            
+                                <td>633,880,174</td>
+                            
+                                <td>623,386,860</td>
+                            
+                        </tr>
+                    
+                    </tbody>
+                </table>
+                
+                    <div class="notes">
+                        <b>說明：</b>
+                        <ol style="list-style-type: decimal">
+                            
+                                <li>本公司市場融資融券餘額的資料來源係為各授信機構(含證金公司及自辦信用交易證券商)，待各授信機構整體作業結束且傳輸完成，復經本公司彙整後於當日晚間即時公布於本公司網站。前述作業程序或因當日市場成交量值多寡，或因各授信機構傳輸過程順遂與否、更帳次數及作業時間長短等因素，均將影響本公司完成本表時間。</li>
+                            
+                                <li>由於各授信機構於該信用交易成交的次日，仍繼續處理相關調帳作業，本公司待各授信機構整體作業結束且傳輸最終正確餘額數字完成後，始完整揭露於『前日餘額』欄位中，故請以『前日餘額』為準，而以『今日餘額』為輔助參考資料。</li>
+                            
+                                <li>遇上櫃證券轉上市，且得為融資融券交易時，本報表於該證券上市交易日即列入信用交易資訊，並將該證券之融資融券餘額列計後，調整當日報表『前日餘額』之統計數字；該證券融資融券餘額，請參閱本公司MIS即時公告。</li>
+                            
+                                <li>當日如有臨時新增之變更交易有價證券標的，網頁右上角會呈現點選框，屆時請點選明細查詢，另外，歷史資料也可點選此 <a href='/zh/trading/bfihbu.html' target='_blank'>連結</a> 查詢。當日臨時新增之變更交易有價證券，若該證券原得為融資融券交易，將被暫停融資融券。</li>
+                            
+                        </ol>
+                    </div>
+                
+            
+        
+            
+        
+    
+    
+    
+    
+    
+</div>
+</body>
+</html>
