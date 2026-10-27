@@ -1,20 +1,28 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-27 16:50 台北（Claude）
+更新：2026-10-27 17:30 台北（Claude）
 
-**目前狀態**：①～⑥ 已完成（v240；`hotfix4.md`，Claude 已核對：G 上線程式與 patch 相同、F2 HTML SHA 相同；美元圖、可轉債代抓註記、IORB 匯入、舊快取重抓都通過）。5009「觀望」是 10/27 新資料的正確結果（排列強，但均線強弱 0 分、未達 +3），不是錯誤。剩下兩件：
+**目前狀態**：①～⑥ 已完成（v240）。⑦-1 巡檢調查你已寫進 `patrol-enabled.md`（Claude 已讀：儲存指令仍是實際更新；06:30 平台 no_update、網站無新 run；你提的「補強指令」等擁有者核准，**不要自己改**）。**現在只剩 ⑦-2：部署 v241 合併包一次。** 今晚 22:30 巡檢跑完照舊補 `patrol-enabled.md`。
 
-## 現在 ⑦-1：查每日巡檢為什麼沒有跑（**只讀、不改設定**；巡檢已授權啟用）
-- 你記錄 06:33 平台排程 runId `34405943-e5b0-8324-b7ed-92cfb1eee9e1` 為 `recorded_status=no_update`，但網站 `/api/automation/history` 沒有新的 run（最近仍是 01:07 手動那次）。網站的巡檢要先 `POST /api/automation/refresh-all` 建立 run，再反覆 `GET /api/automation/status` 直到 `completedAt`（poll-driven checkpoint）；網站端沒有自己的排程。所以這次看起來是**排程根本沒有呼叫網站**，或呼叫被擋（405／409／503）。
-- 請查並寫進 `patrol-enabled.md`（5 行內）：① 排程的儲存指令（去掉任何密鑰後原文貼上）是否包含「POST refresh-all → 輪詢 status 到 completedAt → 讀 history」；② 06:30 那次執行紀錄：有沒有呼叫網站、HTTP 狀態與回應的 status／reason；③ 如果指令是舊的（例如停用期間改成只檢查、不更新），把建議的新指令寫出來給擁有者核准，**不要自己改**；④ 今晚 22:30 那次跑完後，照原本格式補 runId、完成時間、狀態、Gate N/N、watchlistSource、檔數。
-
-## 下一份 ⑦-2（**已授權**：擁有者 2026-10-27 16:30「好我授權」＋16:30 截圖要求「把它拉出來放大放在這裡」）：v241＝上櫃股數名冊補強＋美元大卡（一次部署，v240 留回滾）
-- Patch：`handoff/patches/v241-shares-dollar-20261027.patch`，SHA-256 `d66ab28b0b1dee76937cb0b89bdc45678f1bcb202f57db233615e75ebb1dd4c4`；**取代** 16:40 的 `v240-shares-20261027.patch`（b40dbd11…，已刪，不要套）。基線＝v240 來源（你的 d871583＝Claude tag f2-patch-head）。不含 dist/server/index.js。
-- **1. 上櫃股數名冊（你回報的 Gate 9 變動）**：網站抓上櫃官方名冊 `mopsfin.twse.com.tw/opendata/t187ap03_O.csv` 只等 6 秒，這輪逾時；上市名冊成功時整份快取 24 小時，上櫃缺值跟著留 24 小時 → 8299／5289／5009 缺發行股數 → DCF 缺值 → Gate 9 變 not_applicable／blocked。Claude 16:17 用 GitHub 實測同一份 CSV：551,698 bytes、1.7–2.5 秒、HTTP 200；8299＝221,165,247 股、5289＝98,289,931、5009＝602,471,197（出表日期 2026-10-26）。修正：① 上市、上櫃名冊各自成功就另存 D1（`official-issued-shares:v1:TWSE`／`:TPEx`）；② 某份這次失敗 → 沿用 7 天內最後一次成功抓到的同一份官方名冊（來源網址必須相同；保留官方出表日期與抓取時間；股數來源註明「本次來源逾時，沿用 YYYY-MM-DD 抓取的同一份官方名冊」），超過 7 天或網址不對就不用、維持缺值；③ 任一份失敗或沿用時 15 分鐘後重試，兩份都成功才快取 24 小時；同時多檔只抓一次；④ 等待 6 → 10 秒；⑤ 個股快照因名冊失敗而缺股數時只留 1 小時（原 6 小時）。
-- **2. 美元指數大卡（擁有者截圖：總經區 VIX 卡下面）**：從個股「展開補充觀測與計算」摺疊區拿掉，改在總經區「其他市場與風險指標」與「由原始資料計算」之間放一張大卡：大字零軸值（例 −40.62）＋狀態（站上前20日高點／之間／跌破）＋指數、前20日最高＝0／最低＝−100、5 個觀測前；走勢圖（最多 60 筆；藍線＝已採用，灰虛線＝還沒到「觀測日＋8日」的觀測；淡色區＝定高低的前 20 個觀測；兩條參考線；游標／鍵盤可逐筆看）；零軸長條；來源（官方匯入或 GitHub 代抓、抓取時間）；「看數字」表。資料由新端點 `GET /api/dollar-index` 提供：與個股面板**同一個讀法**（36 小時內官方匯入 → 否則中繼）與**同一個零軸算法**（`dollarAxis`，基準日＝台北今天），只顯示、不計分；決策區用的 `dollarZeroAxis` 計算不變。
-- 測試：新增 `tests/v240-shares.test.mjs` 4 項（舊程式 4 項都失敗）＋`tests/v240-dollar-macro.test.mjs` 3 項（端點、無資料不補值、卡片位置與內容含走勢線／虛線／參考線／數字表／提示框），併入 `test:v235-hotfix`；`panel-display` 測試改成確認個股區不再有美元卡；`cross-market-live` 版面指紋測試只排除有標記的美元卡區塊（其餘原版面仍鎖定）。也用 16:17 真實名冊驗證解析（1,991 家、上櫃 894），並用中繼的真實 40 筆 DTWEXAFEGS 算出 −40.62（與你 v240 讀回相同）、以手機 430px／桌面 1280px 截圖檢查版面。Claude 在乾淨 v240 重放無衝突、完整 `TZ=UTC npm test` exit 0；`dist/index.html` SHA-256 `10ebd5bcbb23cc52f53aceaf615f176e1109969179ac0f0b0acee8fb1268a5e3`。
-- 步驟：`git apply` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（v240 留回滾）。
-- 讀回（併入 `hotfix4.md` 末尾，6 行內）：① 總經區 VIX 下面出現美元大卡：零軸值、狀態、走勢圖、來源（手機也看一次）；個股補充觀測裡不再有美元卡；② `/api/dollar-index` 的 asOf、cutoff、axis.value、history 筆數、capturePath；③ 8299／5289／5009 發行股數與來源（直連或「沿用」）；④ 三檔 Gate 9 狀態（預期回到 v240 前：8299／5009 conditional、5289 partial；若不同寫原因）；⑤ 評級、風險預算不變。
+## 現在 ⑦-2（**已授權**：擁有者 2026-10-27 16:30「好我授權」、16:30「把它拉出來放大放在這裡」、17:02「好一次處理」）：v241 合併包（一次部署，v240 留回滾）
+- Patch：`handoff/patches/v241-combined-20261027.patch`，SHA-256 `8c5c5b12760d7541a67a19092035487073593c7fcd3151d4f98966b278aea82e`；**取代**今天下午的 `v240-shares…`（b40dbd11…）與 `v241-shares-dollar…`（d66ab28b…），兩份都已刪，不要套。基線＝v240 來源（你的 d871583＝Claude tag f2-patch-head）。不含 dist/server/index.js。
+- **1. 上櫃股數名冊（你回報的 Gate 9 變動）**：上櫃名冊 `mopsfin…/t187ap03_O.csv` 只等 6 秒、這輪逾時；上市成功時整份快取 24 小時，上櫃缺值跟著留 24 小時 → 8299／5289／5009 缺股數 → Gate 9 變動。修正：上市、上櫃名冊各自成功就另存 D1（`official-issued-shares:v1:TWSE`／`:TPEx`）；某份失敗就沿用 7 天內最後一次成功的同一份官方名冊（網址相同、保留出表日期與抓取時間、註明「本次來源逾時，沿用 YYYY-MM-DD 抓取的同一份官方名冊」），超過 7 天或網址不對就維持缺值；任一份失敗或沿用時 15 分鐘重試；同時多檔只抓一次；等待 6→10 秒；缺股數的個股快照只留 1 小時。Claude 16:17 用 GitHub 實測：CSV 551,698 bytes、1.7–2.5 秒；8299＝221,165,247、5289＝98,289,931、5009＝602,471,197 股（出表 2026-10-26）。
+- **2. 美元指數大卡（擁有者截圖：總經區 VIX 下面）**：從個股摺疊區移到總經區「其他市場與風險指標」與「由原始資料計算」之間；大字零軸值＋狀態、指數與前 20 日高低、走勢圖（藍線已採用、灰虛線未到「觀測日＋8日」、淡色區＝定高低的 20 個觀測、游標／鍵盤逐筆）、零軸長條、來源、數字表。新端點 `GET /api/dollar-index`（同一個讀法與 `dollarAxis` 算法；只顯示不計分）。
+- **3. 後台只算一次（擁有者 17:02）**：
+  - 總經分數只在後台算一次並存 `macro-scores:v1`（輸入沒變就不重算）；新端點 `GET /api/macro-scores`。網頁上方分數卡改顯示這份（**拿掉網頁自己那份計分程式**），個股的大盤持股建議與每日分數紀錄（`macro-score-daily:v1`）也用同一份。分數卡下方多寫「後台計算 時間」。計分規則一字未改（Claude 已逐行比對網頁與後台兩份程式：只差後台多回傳 raw）。
+  - 個股結果（評級、Gate、進場出場、估值、持股建議）存 `master-model-result:v1:<代號>:<身分雜湊或 public>`；輸入（個股快照含面板來源、總經分數、新鮮度、證據、台北日期＋小時）與程式版本（建置時產生的 `SITE_BUILD_ID`）都沒變就直接回存好的那份（回應多 `computedAt`、`reusedSavedResult`），網頁重開、巡檢讀到同一份；有變才重算。
+  - 排程巡檢沒有登入身分：改用擁有者上次同步追蹤清單時的身分讀他的證據（`site-owner:v1`，只存在後台、任何 API 都不回傳；只限內部巡檢呼叫使用，外部未登入請求不能借用）。巡檢與擁有者看到的會是同一份結果。
+  - 網頁不再自己算「暫時評級」或另選估值（拿掉網頁內嵌的評級引擎與估值分歧規則）；後台還沒算完時顯示「後台正在計算」。
+  - 不改任何評分規則、門檻、Gate、風險預算與畫面排版（美元卡除外）。
+- 測試：新增 `tests/v240-shares.test.mjs` 4 項、`tests/v240-dollar-macro.test.mjs` 3 項、`tests/v241-compute-once.test.mjs` 5 項（同輸入第二次重用、輸入變才重算；巡檢用擁有者身分且與擁有者同一份、未登入外部請求不借用、存檔鍵不含身分原文；總經分數重用且個股標明同一次；版本指紋；同步清單記身分且回應不帶），併入 `test:v235-hotfix`；`dashboard-interactions`（分數改由後台算後交給網頁、5 秒後顯示「後台正在計算」不再出暫時評級）、`fallback-rating`（網頁不再內嵌評級引擎）、`master-remediation`（網頁只顯示後台估值）、`panel-display`、`cross-market-live`（版面指紋只排除有標記的美元卡區塊）已同步。Claude 在乾淨 v240 重放無衝突：完整 `TZ=UTC npm test` exit 0，另外 10 組獨立測試腳本（master-validation、remediation、qualified-output、client-diagnostics、fallback-rating、cross-market、report-context、stock-relay、us-sector-site、market-timeline）全過；`dist/index.html` SHA-256 `786757024c32c7e5ff0d3773c42c4609d88ac37827c2d3fe69ed205271ef2bed`；建置後 `dist/server/index.js` 第一行應為 `const SITE_BUILD_ID = "45753e7b8804e98a";`（程式相同就會得到同一個值）。
+- 步驟：`git apply` → `node build.mjs` → `TZ=UTC npm test` → 部署一次（v240 留回滾）→ 擁有者打開網站一次（記下巡檢用身分）。
+- 讀回（寫 `diagnostics/deploy-20261026/hotfix5.md`，12 行內）：
+  ① 版本與 SHA、`SITE_BUILD_ID`；② 總經區 VIX 下面的美元大卡（零軸值、狀態、走勢圖、來源；手機也看）；個股摺疊區不再有美元卡；③ `/api/dollar-index` 的 asOf、cutoff、axis.value、history 筆數、capturePath；
+  ④ `/api/macro-scores` 的 computedAt、TW／US 分數，與網頁分數卡顯示的數字、「後台計算」時間是否一致；隔 1 分鐘再讀一次 `reused` 應為 true；
+  ⑤ 開 8299 兩次（間隔 1 分鐘）：第二次 `/api/master-model` 的 `reusedSavedResult=true`、`computedAt` 相同；`macroScoresComputedAt` 等於 ④ 的 computedAt；大盤持股建議數字與部署前相同；
+  ⑥ 8299／5289／5009 發行股數與來源（直連或「沿用」）；三檔 Gate 9 狀態（預期回到 v240 前：8299／5009 conditional、5289 partial，不同請寫原因）；
+  ⑦ 五檔評級、進場、出場、風險預算與部署前相同（若因新資料不同，寫出是哪個輸入變了）；
+  ⑧ 今晚 22:30 巡檢後：Gate 審計各檔 `entry`／評級與擁有者畫面同一份（`master-model-result` 的 computedAt 相同或註明重算原因）。
 
 ## 已完成（v240，10-27 15:42；hotfix4.md）：⑥ G＋F2（**已授權**：擁有者 10-27 04:56「好」＝美元；另 3 項是 v239 讀回缺口的修正，不改任何規則、門檻、評級、Gate、風險預算）
 ### G. 中繼：keyless 多抓 FRED DTWEXAFEGS（未變）
