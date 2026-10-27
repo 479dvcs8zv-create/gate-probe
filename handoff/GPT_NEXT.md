@@ -4,6 +4,16 @@
 
 **目前狀態**：⑦-0、⑦-2、⑦-3 都已完成（v242，10/27 21:20；`hotfix5.md`，Claude 已核對：HTML SHA 4211da6b… 相同；總經分數與個股結果重用、身分隔離、零軸圖都通過）。`SITE_BUILD_ID` 不同（dbd0507e… vs a08dcbb6…）是因為你那份 OPERATIONS.md 有私人內容、Claude 這份是去識別版，**屬預期，不用改**。**剩一件：⑧ 巡檢排程沒有實際執行。**
 
+## ⑨（**待擁有者授權**）：中繼修正——證交所類股指數改讀日報、晚上 22:50 多跑一次收信用統計（只改中繼，不動網站）
+- 原因（擁有者 10/28 03:15 截圖：融資餘額等信用卡片、類股指數停在 10/22）：
+  - 10/23、10/26 證交所沒有交易（FMTQIK 交易日 10/22 → 10/27；10/26 為光復節補假），所以 10/22 之後第一筆是 10/27。
+  - 信用統計：證交所當天晚間才公布；網站只在台北 22:30～24:00 自己抓，靠 22:30 巡檢觸發（沒跑）；中繼每 6 小時一次（20:23 太早、02:23 那次還沒跑完）→ 一直沒拿到 10/27。Claude 10/28 03:20 用 GitHub 實抓：10/27 信用已公布（融資金額 633,880,174 → 623,386,860 仟元）。
+  - 類股指數：中繼讀的 OpenAPI `openapi.twse.com.tw/v1/exchangeReport/MI_INDEX` 10/28 03:20 仍停在 10/22，被「與加權指數同日」檢查擋下；證交所日報 `www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261027&type=IND&response=json` 已有 10/27（電子 2,867.31、半導體 1,529.82、金融 3,770.57、航運 217.51、鋼鐵 126.74）。
+- Patch：`handoff/patches/relay-twse-sector-credit-20261028.patch`（`git format-patch`，1 個 commit），SHA-256 `c0acfc540376edb4250f7e66a02c93ec7e07e2f94473ab9b97944e65da7142e7`。在 macro-relay-service `git am` 後推上 main。
+- 內容：① `twse_sector_metric` 先讀證交所日報（指定日期、stat OK、日期必須等於加權指數日），失敗才用 OpenAPI（仍要同日）；兩者都不同日就不收、沿用舊值標過期（不補值）。② `keyless.yml` 加 `cron: '50 14 * * 1-5'`（台北週一至週五 22:50），信用統計當晚就收到，不靠網站巡檢。不改其他序列與既有排程。
+- 測試：新增 `tests/test_twse_sector.py` 3 項（10/28 實抓的日報與 OpenAPI 原始回應）；Claude 在最新 main 07f5002 上 `git am` 後 `python -m unittest discover -s tests` 38/38 通過。
+- 讀回（寫 `diagnostics/deploy-20261026/relay-h.md`，5 行內）：工作流程 success；`keyless_snapshot.json` 的 TWSE_ELECTRONIC／SEMICONDUCTOR／FINANCIAL／SHIPPING／STEEL 日期與值（應為最新交易日）；TWSE_MARGIN_BALANCE_NTD 等 5 項的日期（當晚 22:50 那次後應為當天）；網站其他市場卡片的融資餘額與類股指數日期。
+
 ## 現在 ⑧（巡檢已授權啟用；本項只查原因與做一次測試，不改時段與開關）：為什麼排程 3 秒就結束、網站沒有 run
 - 事實：06:30（34405943…）與 22:30（079f2599…，22:32:28～22:32:31）兩次都在 **3 秒內**結束、`no_update`、網站沒有新 run。真正的巡檢要 POST＋每 10 秒輪詢到 completedAt，至少要幾分鐘；3 秒代表排程那一輪**根本沒有呼叫網站**（或一開始就放棄）。指令補強後仍一樣，所以問題不在指令文字。
 - 請查（寫進 `patrol-enabled.md`，6 行內，不寫私人入口／識別／憑證）：
