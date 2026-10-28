@@ -1,0 +1,22 @@
+HTTP/2 403 
+date: Wed, 28 Oct 2026 15:31:50 GMT
+content-type: text/html; charset=UTF-8
+content-length: 5771
+accept-ch: Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA
+cf-mitigated: challenge
+content-security-policy: default-src 'none'; script-src 'nonce-J7W37v2GVWu3WF4JqdEhmV' 'unsafe-eval' https://challenges.cloudflare.com; script-src-attr 'none'; style-src 'unsafe-inline'; img-src 'self' https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com blob:; child-src 'self' https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri 'self'
+server: cloudflare
+critical-ch: Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA
+cross-origin-embedder-policy: require-corp
+cross-origin-opener-policy: same-origin
+cross-origin-resource-policy: same-origin
+origin-agent-cluster: ?1
+permissions-policy: accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=(),xr-spatial-tracking=*
+referrer-policy: same-origin
+server-timing: chlray;desc="a51afd5eef48c402"
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+set-cookie: __cf_bm=sSfKBWK9OUcCoiapXE645fqB8nOEj5MTRMmkWtMBokY-1793201510.2320316-1.0.1.1-karCTR2_M0GcEZaVLDL7ocfY5A8ZaMo0BBK8E4lLvWPZDQsCCt3nbMkLxUgcqq6bBDr_1J8BHW0BV2Es2W_cMAZj2bcvFMN28m9RBYY7GJdHYXHW5jJbpYt42fLfOLpd; HttpOnly; SameSite=None; Secure; Path=/; Domain=ndc.gov.tw; Expires=Wed, 28 Oct 2026 16:01:50 GMT
+cf-ray: a51afd5eef48c402-EWR
+alt-svc: h3=":443"; ma=86400
+
