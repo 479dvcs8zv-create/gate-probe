@@ -1,0 +1,320 @@
+diff --git a/package.json b/package.json
+index b0bc362..2501885 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v236-keepalive.test.mjs b/tests/v236-keepalive.test.mjs
+index bf469d4..1ec9022 100644
+--- a/tests/v236-keepalive.test.mjs
++++ b/tests/v236-keepalive.test.mjs
+@@ -33,9 +33,14 @@ test('v236 讀回：巡檢期間已更新的快照，即使背景又在跑下一
+   const since='2026-10-26T00:00:00.000Z';
+   const fresh=m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-26T00:03:10.000Z',refreshing:true,rows},{since});
+   assert.equal(fresh.status,'ok');assert.equal(fresh.usable,36);assert.equal(fresh.refreshedThisRun,true);
++  // v244（擁有者 2026-10-29 00:08 同意）：早於本輪的快照若各項依觀測日仍有效，狀態照可用數給，另標「背景更新未落地」；
++  // 只有沒有快照（佔位）或快照本身超過 36 小時才維持 pending。
+   const old=m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-25T21:00:00.000Z',refreshing:true,rows},{since});
+-  assert.equal(old.status,'pending');
++  assert.equal(old.status,'ok');assert.equal(old.usable,36);assert.equal(old.refreshState,'background_refreshing');assert.equal(old.refreshedThisRun,undefined);
++  const tooOld=m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-24T00:00:00.000Z',refreshing:true,snapshotStale:true,rows},{since});
++  assert.equal(tooOld.status,'pending','a snapshot older than 36 hours stays pending while it refreshes');
+   const none=m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-26T00:03:10.000Z',pending:true,rows:[]},{since});
+   assert.equal(none.status,'pending','an explicit pending payload with no data stays pending');
+-  assert.equal(m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-26T00:03:10.000Z',refreshing:true,rows}).status,'pending','without a run start time the old rule applies');
++  const noStart=m.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:'2026-10-26T00:03:10.000Z',refreshing:true,rows});
++  assert.equal(noStart.status,'ok');assert.equal(noStart.refreshState,'background_refreshing','without a run start time it cannot claim this run refreshed it');
+ });
+diff --git a/tests/v244-patrol-summary.test.mjs b/tests/v244-patrol-summary.test.mjs
+new file mode 100644
+index 0000000..3ca91dc
+--- /dev/null
++++ b/tests/v244-patrol-summary.test.mjs
+@@ -0,0 +1,118 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import {refreshLeaseStatement} from './helpers/refresh-lease.mjs';
++
++// GPT 2026-10-28 22:30 夜間巡檢讀回（擁有者 2026-10-29 00:08「好」同意修正）：
++// 1. 巡檢摘要 4 檔個股寫 pending，直接讀回其實都在巡檢途中更新完成 → 結束時讀回個股快照。
++// 2. 擴展總經 11/12、市場／貴金屬 36/36、美股指數 3/3 資料能用，摘要卻寫 pending → 依可用數給狀態，另標背景更新未落地；
++//    並修正「記憶體舊快照蓋住 D1 新快照」與「背景更新卡住後永遠不再更新」。
++// 3. 貴金屬判讀同時寫「通過」和「0/2 可用」→ 來源數只寫核對紀錄裡真的有的數字。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++let serial=0;
++const load=(extra='')=>import('data:text/javascript;base64,'+Buffer.from(source+`\n${extra}\n// v244-${serial++}`).toString('base64'));
++
++test('貴金屬判讀：來源數只寫核對紀錄裡有的數字，「通過」不會和「0/2 可用」同時出現',async()=>{
++  const {summarizeSiteModule}=await load('export {summarizeSiteModule};');
++  const gold={passed:true,channelsAttempted:3,channelsAvailable:3,differencePercent:0.0213,timeGapMinutes:1.5};
++  const silver={passed:true,channelsAttempted:3,channelsAvailable:2,differencePercent:0.11,timeGapMinutes:4};
++  const rows=[
++    {id:'XAU',name:'黃金現貨參考價（XAU/USD）',status:'ok',value:4012.5,unit:'美元/金衡盎司',date:'2026-10-28',sourceVerification:gold},
++    {id:'XAG',name:'白銀現貨參考價（XAG/USD）',status:'ok',value:48.2,unit:'美元/金衡盎司',date:'2026-10-28',sourceVerification:silver},
++    {id:'XAU_XAG',name:'黃金／白銀比（XAU/XAG）',status:'ok',value:83.25,unit:'倍',date:'2026-10-28',historyObservations:5,sourceVerification:{passed:true,rule:'金、銀各自須取得三個通道中的兩個一致來源'},goldVerification:gold,silverVerification:silver},
++  ];
++  const lines=summarizeSiteModule('marketAndPreciousMetals',{checkedAt:new Date().toISOString(),rows}).judgment;
++  assert.equal(lines.length,3);
++  for(const line of lines){assert.doesNotMatch(line,/0\/2|未通過/,line);assert.match(line,/核對通過/);}
++  assert.match(lines[0],/3\/3 來源可用，核對通過（價差 0\.0213%、時間差 1\.5 分鐘）/);
++  assert.match(lines[1],/2\/3 來源可用，核對通過/);
++  assert.match(lines[2],/金價 3\/3 來源可用、銀價 2\/3 來源可用，核對通過/,'金銀比寫金、銀各自的來源數');
++  // 沒有任何來源數欄位、而且未通過：只寫「核對未通過」，不補 0/2 之類的預設數字
++  const failed=summarizeSiteModule('marketAndPreciousMetals',{checkedAt:new Date().toISOString(),rows:[{id:'XAU_XAG',name:'黃金／白銀比（XAU/XAG）',status:'missing',value:null,date:null,sourceVerification:{passed:false,rule:'須同時有 XAU/USD、XAG/USD 有效值'}}]}).judgment[0];
++  assert.match(failed,/；核對未通過/);assert.doesNotMatch(failed,/\d\/\d|核對通過/);
++  // 來源數為 null 也不當成 0
++  const nulls=summarizeSiteModule('marketAndPreciousMetals',{checkedAt:new Date().toISOString(),rows:[{id:'XAU',name:'黃金',status:'missing',value:null,sourceVerification:{passed:false,channelsAttempted:null,channelsAvailable:null}}]}).judgment[0];
++  assert.doesNotMatch(nulls,/\d\/\d/);
++});
++
++test('模組摘要：手上快照早於本輪、背景更新未落地 → 依觀測日判斷後的可用數給狀態；過期項目照樣不算可用',async()=>{
++  const {summarizeSiteModule}=await load('export {summarizeSiteModule};');
++  const since='2026-10-28T14:42:48.000Z',checkedAt='2026-10-28T14:20:00.000Z';
++  const rows=Array.from({length:36},(_,i)=>({id:'R'+i,status:'ok',value:1,date:'2026-10-28'}));
++  const ok=summarizeSiteModule('marketAndPreciousMetals',{checkedAt,refreshing:true,rows},{since});
++  assert.equal(ok.status,'ok');assert.equal(ok.usable,36);assert.equal(ok.refreshState,'background_refreshing');assert.equal(ok.snapshotCheckedAt,checkedAt);
++  assert.match(ok.note,/本次巡檢開始前.*可用 36\/36.*背景更新未在巡檢結束前落地/);
++  const twoStale=rows.map((row,i)=>i<2?{...row,status:'stale',is_stale:true}:row);
++  const partial=summarizeSiteModule('marketAndPreciousMetals',{checkedAt,refreshing:true,rows:twoStale},{since});
++  assert.equal(partial.status,'partial');assert.equal(partial.usable,34,'過期的項目不算可用');
++  // 擴展總經 11/12（國發會景氣燈號還停在 8 月）→ partial，不是 pending
++  const expanded=summarizeSiteModule('expandedMacro',{checkedAt,refreshing:true,rows:rows.slice(0,12).map((row,i)=>i===11?{...row,id:'TW_NDC_SIGNAL',status:'stale',is_stale:true,date:'2026-08-01'}:row)},{since});
++  assert.equal(expanded.status,'partial');assert.equal(expanded.usable,11);assert.equal(expanded.total,12);
++  // 美股指數 3/3
++  const us=summarizeSiteModule('usIndices',{checkedAt,refreshing:true,rows:rows.slice(0,3)},{since});
++  assert.equal(us.status,'ok');assert.equal(us.usable,3);
++  // 巡檢期間更新的快照仍標 refreshedThisRun
++  const fresh=summarizeSiteModule('usIndices',{checkedAt:'2026-10-28T14:45:00.000Z',refreshing:true,rows:rows.slice(0,3)},{since});
++  assert.equal(fresh.refreshedThisRun,true);assert.equal(fresh.refreshState,'refreshed_this_run');
++});
++
++function memoryDb(){
++  const rows=new Map();
++  return {rows,prepare(sql){return {run:async()=>({success:true}),bind:(...args)=>({run:async()=>{if(sql.startsWith('INSERT INTO site_runtime_cache'))rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true};},all:async()=>({results:rows.has(args[0])?[rows.get(args[0])]:[]}),first:async()=>null})};}};
++}
++
++test('美股指數：本機記憶體的舊快照不會蓋住 D1 裡別的執行個體存好的新快照；背景更新卡住超過 3 分鐘會重新開始',async()=>{
++  const api=await load('export {usIndicesResponse};export {usIndicesPendingAt};');
++  const db=memoryDb(),realNow=Date.now,start=realNow(),previous=globalThis.fetch,waiting=[];
++  globalThis.fetch=()=>new Promise(resolve=>waiting.push(resolve));   // 來源一直不回（模擬背景更新被平台取消）
++  const put=(payload,updatedMs,ttlMs)=>db.rows.set('us-indices:v1',{payload:JSON.stringify(payload),updated_at:new Date(updatedMs).toISOString(),expires_at:new Date(updatedMs+ttlMs).toISOString()});
++  const row=(value,date)=>({id:'SP500',name:'標普 500',status:'ok',value,percent:0.5,date});
++  try{
++    put({checkedAt:new Date(start-40*60000).toISOString(),rows:[row(6900,'2026-10-27')]},start-40*60000,15*60000);   // 過期快照
++    const first=await (await api.usIndicesResponse({DB:db},{waitUntil(){}})).json();
++    assert.equal(first.refreshing,true);assert.equal(first.rows[0].value,6900);
++    const startedAt=api.usIndicesPendingAt;assert.ok(startedAt>=start);
++    // 別的執行個體完成更新、存進 D1
++    put({checkedAt:new Date(start+1000).toISOString(),rows:[row(7000,'2026-10-28')]},start+1000,15*60000);
++    const second=await (await api.usIndicesResponse({DB:db},{waitUntil(){}})).json();
++    assert.equal(second.rows[0].value,7000,'讀到 D1 的新快照');assert.notEqual(second.refreshing,true,'新快照有效期內不再標更新中');
++    // 16 分鐘後：快照又過期，而第一次的背景更新還卡著 → 重新開始一次
++    Date.now=()=>start+16*60000;
++    await api.usIndicesResponse({DB:db},{waitUntil(){}});
++    assert.ok(api.usIndicesPendingAt>startedAt+3*60000,'卡住超過 3 分鐘的背景更新會被取代');
++  }finally{Date.now=realNow;globalThis.fetch=previous;for(const resolve of waiting)resolve(new Response('closed',{status:503}));}
++});
++
++// 巡檢整體流程（與 refresh-resume 相同的替身）：個股步驟時快照還在背景更新，結束前完成 → 摘要記為本輪已更新。
++class DB{
++  rows=new Map();leases=new Map();
++  prepare(sql){const lease=refreshLeaseStatement(this,sql);if(lease)return lease;return {run:async()=>({success:true}),bind:(...args)=>({all:async()=>({results:this.rows.has(args[0])?[this.rows.get(args[0])]:[]}),run:async()=>{this.rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true};}})};}
++}
++const hooks=`
++ captureFullMarketSnapshot=async()=>({status:'collecting_history',date:'2026-10-28',sessions:71,captured:{total:600},universe:{total:600}});
++ runSiteModule=async id=>({id,status:'ok',observations:[]});
++ refreshSiteStock=async(row,env)=>{
++   // 背景更新在個股步驟之後才完成：5009 沒完成（快照仍是巡檢前的），2404 完成但有一組資料失敗
++   const at=row.id==='5009'?'2026-10-27T10:00:00.000Z':new Date().toISOString();
++   env.DB.rows.set('stock:v5:'+row.id,{payload:JSON.stringify({id:row.id,checkedAt:at,price:{date:'2026-10-28',value:100},revenue:{month:'2026-09'},datasetStatus:row.id==='2404'?{margin:{status:'error'}}:{price:{status:'ok'}},errors:{}}),updated_at:at,expires_at:new Date(Date.now()+3600000).toISOString()});
++   return {id:row.id,name:row.name,status:'pending',checkedAt:'2026-10-27T10:00:00.000Z'};
++ };
++ stockSourceResearchResponse=async request=>Response.json({status:'ok',records:[{symbol:new URL(request.url).searchParams.get('id')}]});
++ masterModelResponse=async request=>Response.json({status:'partial',symbol:new URL(request.url).searchParams.get('id'),gates:[]});
++`;
++test('巡檢結束時讀回個股快照：本輪期間更新完成的記為已更新；沒完成的維持 pending 並註明；歷史摘要一致',async()=>{
++  const env={DB:new DB()},request=(path='status')=>new Request('https://site.test/api/automation/'+path,{method:path==='refresh-all'?'POST':'GET'});
++  const started=await (await (await load(hooks)).default.fetch(request('refresh-all'),env,{})).json();
++  let result;
++  for(let i=0;i<80&&!result?.completedAt;i++)result=await (await (await load(hooks)).default.fetch(request(),env,{})).json();
++  assert.ok(result.completedAt,'巡檢完成');assert.equal(result.runId,started.runId);
++  const by=Object.fromEntries(result.stocks.map(row=>[row.id,row]));
++  for(const id of ['8299','5289']){
++    assert.equal(by[id].status,'ok',id);assert.equal(by[id].refreshedThisRun,true);assert.equal(by[id].stepStatus,'pending');
++    assert.equal(by[id].summaryScope,'final_readback');assert.equal(by[id].dataAsOf,'2026-10-28');
++  }
++  assert.equal(by['2404'].status,'partial');assert.equal(by['2404'].datasetErrors,1);
++  assert.equal(by['5009'].status,'pending','快照早於本輪 → 不冒充已更新');assert.match(by['5009'].note,/背景更新仍未完成/);
++  const history=JSON.parse(env.DB.rows.get('site-auto-refresh-history:v1').payload).runs.at(-1);
++  assert.equal(history.completedAt,result.completedAt);assert.equal(history.stockCount,4);
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 49446d6..41b21e5 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -1409,7 +1409,11 @@ function summarizeSiteModule(id, payload, { since = null } = {}) {
+   // 原因是快取只有 5 分鐘、巡檢跑完前又開始下一次背景更新）。快照早於本輪開始才維持 pending。
+   const checkedMs = Date.parse(payload?.checkedAt || ''), sinceMs = Date.parse(since || '');
+   const refreshedThisRun = Boolean(payload?.refreshing && !payload?.pending && Number.isFinite(checkedMs) && Number.isFinite(sinceMs) && checkedMs >= sinceMs);
+-  const stillRunning = Boolean(payload?.pending || (payload?.refreshing && !refreshedThisRun));
++  // v244（GPT 10/28 夜間巡檢讀回：擴展總經 11/12、市場／貴金屬 36/36、美股指數 3/3 資料都能用，摘要卻寫 pending）：
++  // 手上有真實快照、只是背景下一次更新還沒落地 → 依各項官方觀測日重新判斷後的可用數給狀態，另標 refreshState。
++  // 只有「完全沒有快照（佔位）」或「快照本身超過 36 小時」才維持 pending。缺值、過期的項目仍不算可用。
++  const backgroundRefreshing = Boolean(payload?.refreshing && !payload?.pending && !refreshedThisRun);
++  const stillRunning = Boolean(payload?.pending || (backgroundRefreshing && payload?.snapshotStale === true));
+   const total = rows.length || feeds.length;
+   const covered = rows.length ? usable : usableFeeds;
+   const moduleStatus = stillRunning ? 'pending' : total && covered === total ? 'ok' : covered ? 'partial' : 'missing';
+@@ -1428,8 +1432,12 @@ function summarizeSiteModule(id, payload, { since = null } = {}) {
+   }
+   if (id === 'marketAndPreciousMetals') {
+     for (const row of rows.filter(row => ['XAU', 'XAG', 'XAU_XAG'].includes(row.id))) {
++      // v244：來源數只寫核對紀錄裡真的有的數字，不補預設值（原本金銀比沒有來源數欄，被寫成「2來源核對通過（0/2 可用）」自相矛盾）。
++      // 金銀比本身沒有來源通道，改寫金價、銀價各自的來源可用數；三者都沒有就只寫通過／未通過。
+       const verify=row.sourceVerification;
+-      const verifyText=verify?`；${verify.channelsAttempted||2}來源${verify.passed?'核對通過':'未通過'}（${verify.channelsAvailable??0}/${verify.channelsAttempted||2} 可用）${finiteNumber(verify.differencePercent)?`、價差 ${verify.differencePercent}%、時間差 ${verify.timeGapMinutes} 分鐘`:''}`:'';
++      const channelCount=v=>finiteNumber(v?.channelsAttempted)&&finiteNumber(v?.channelsAvailable)?`${Number(v.channelsAvailable)}/${Number(v.channelsAttempted)} 來源可用`:null;
++      const counts=channelCount(verify)||[['金價',row.goldVerification],['銀價',row.silverVerification]].map(([label,v])=>channelCount(v)?`${label} ${channelCount(v)}`:null).filter(Boolean).join('、')||null;
++      const verifyText=verify?`；${counts?`${counts}，`:''}${verify.passed===true?'核對通過':'核對未通過'}${finiteNumber(verify.differencePercent)&&finiteNumber(verify.timeGapMinutes)?`（價差 ${verify.differencePercent}%、時間差 ${verify.timeGapMinutes} 分鐘）`:''}`:'';
+       judgment.push(`${row.name || row.id}：${finiteNumber(row.value) ? `${Number(row.value)} ${row.unit || ''}` : '缺值'}；${row.date || '觀測日缺失'}；${row.status || 'missing'}${verifyText}${row.historyObservations != null ? `；歷史 ${row.historyObservations} 點` : ''}`);
+     }
+   }
+@@ -1443,7 +1451,8 @@ function summarizeSiteModule(id, payload, { since = null } = {}) {
+     ...(feeds.length ? { feeds: feeds.map(feed => ({ topic: feed.topic, source: feed.source, items: (feed.items || []).map(item => ({ title: item.title, date: item.date, url: item.url })), error: feed.error || null })) } : {}),
+     ...(judgment.length ? { judgment: judgment.slice(0, 12) } : {}),
+     ...(stillRunning ? { note: '來源仍在背景更新；排程會保留等待狀態。' } : {}),
+-    ...(refreshedThisRun ? { refreshedThisRun: true, note: '快照於本次巡檢期間更新；背景另有下一次更新進行中。' } : {}),
++    ...(refreshedThisRun ? { refreshedThisRun: true, refreshState: 'refreshed_this_run', note: '快照於本次巡檢期間更新；背景另有下一次更新進行中。' } : {}),
++    ...(backgroundRefreshing && !stillRunning ? { refreshState: 'background_refreshing', snapshotCheckedAt: payload?.checkedAt || null, note: `快照取得於本次巡檢開始前（${payload?.checkedAt || '時間缺失'}）；各項依官方觀測日重新判斷後可用 ${covered}/${total}；背景更新未在巡檢結束前落地，下次巡檢再更新。` } : {}),
+   };
+ }
+ 
+@@ -1483,6 +1492,28 @@ async function refreshSiteStock(row, env, ctx) {
+   }
+ }
+ 
++// 巡檢結束時讀回個股快照：本次巡檢開始後才存好、且有行情或營收的快照 → 記為本次已更新（ok／partial）。
++// 沒有更新的照舊（pending 註明背景更新未完成）；fresh（巡檢時快取仍新）不動。只讀後台存檔，不另抓來源。
++async function readbackSiteStock(row, env, since) {
++  if (!row?.id || row.status === 'fresh' || row.status === 'deferred') return row;
++  const readbackAt = new Date().toISOString();
++  try {
++    const saved = await readRuntimeCache(env, `stock:v5:${row.id}`), payload = saved?.payload;
++    const savedMs = Date.parse(saved?.updatedAt || payload?.checkedAt || ''), sinceMs = Date.parse(since || '');
++    const refreshed = Boolean(payload && !payload.pending && (payload.price || payload.revenue) && Number.isFinite(savedMs) && Number.isFinite(sinceMs) && savedMs >= sinceMs);
++    if (!refreshed) return row.status === 'pending' ? { ...row, readbackAt, summaryScope: 'final_readback', note: '巡檢結束時背景更新仍未完成；保留等待狀態，下次巡檢再更新。' } : row;
++    const datasetErrors = Object.values(payload.datasetStatus || {}).filter(item => item.status === 'error').length, status = datasetErrors ? 'partial' : 'ok';
++    return {
++      id: row.id, name: row.name, status, checkedAt: payload.checkedAt || saved.updatedAt, dataAsOf: payload.price?.date || payload.revenue?.month || null,
++      datasetErrors, errors: payload.errors || {}, refreshedThisRun: true, readbackAt, summaryScope: 'final_readback',
++      ...(row.status !== status ? { stepStatus: row.status, ...(row.error ? { stepError: row.error } : {}) } : {}),
++      note: '個股快照於本次巡檢期間更新完成（巡檢結束時讀回確認）。',
++    };
++  } catch (error) {
++    return { ...row, readbackAt, readbackError: String(error?.message || error).slice(0, 240) };
++  }
++}
++
+ async function persistSiteRefreshStatus(env, payload) {
+   const ttl = 365 * 86400000;
+   const latest = payload?.runId ? await readRuntimeCache(env, SITE_AUTO_REFRESH_KEY) : null;
+@@ -1613,6 +1644,11 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     run.modules[id]={...result,...(failedAttempt?{status:prior.status,error:prior.error,latestReadback:result,sourceAttemptFailed:true}:{}),...(exhausted?{status:'partial',readbackStatus:result.status,error:'板塊分批更新尚未完成；已達本輪重試上限'}:{}),summaryScope:failedAttempt?'final_readback_with_source_failure':'final_readback',readbackAt:new Date().toISOString()};
+     run.checkpoint={version:1,stage:'finalize',index:step.index+1};return commit();
+   }
++  if(step.index===modules.length){
++    // v244：個股也在結束時讀回一次（GPT 10/28 讀回：4 檔在巡檢途中都已更新完成，摘要仍停在 pending）。
++    run.stocks=await Promise.all((run.stocks||[]).map(row=>readbackSiteStock(row,env,run.startedAt)));
++    run.checkpoint={version:1,stage:'finalize',index:step.index+1};return commit();
++  }
+   run.coverage = [
+     { id: 'macro', label: '總經五大維度與既有風險判讀', status: 'automatic', detail: '取數、計算與既有判斷摘要保存；保留灰燈與風險預算規則。' },
+     { id: 'market', label: '美股指數、美元、利率、能源、信用、台股市場與貴金屬', status: 'automatic', detail: '保存觀測值、觀測日、來源、有效狀態；金銀比每日累積。' },
+diff --git a/worker/observations.js b/worker/observations.js
+index b5d8018..93e5e83 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -599,7 +599,17 @@ function evaluateExpanded(rows){
+  out.push({name:'美國零售銷售 MoM（名目）',value:mom,unit:'%',date:retailDate,status:mom==null?'missing':by.RSAFS.status,method:mom==null?`RSAFS：${by.RSAFS?.reason||'缺少連續兩月資料'}`:census?`${by.RSAFS.detail||'Census 官方 advance estimate 公布季調月增率'}名目值，未扣除物價。`:`(本月 ${r0.value.toLocaleString('en-US')} ÷ 上月 ${r1.value.toLocaleString('en-US')} − 1) × 100；名目值，未扣除物價。`,audit:mom==null?null:census?{formula:'採 Census 官方 advance estimate 公布之季調 MoM（非本 Worker 推算）',operands:[{name:'觀測月份',date:retailDate,value:by.RSAFS.history?.at(-1)?.value??null},{name:'Census 發布日',date:by.RSAFS.releaseDate??null,value:null}],calculated:mom,verified:true}:{formula:'(本月 RSAFS ÷ 上月 RSAFS − 1) × 100%',operands:[{name:'本月零售銷售',date:r0.date,value:r0.value},{name:'上月零售銷售',date:r1.date,value:r1.value}],calculated:mom,verified:true}});
+  return out;
+ }
+-let expandedCache=null,expandedPending=null;
++let expandedCache=null,expandedPending=null,expandedPendingAt=0;
++// v244：背景更新若被平台中途取消，記憶體裡的「更新中」承諾可能永遠不結束，這個執行個體就再也不更新。
++// 超過 3 分鐘還沒結束（各來源都有 8–12 秒逾時）就視為卡住，下一次請求重新開始；正常更新不受影響。
++const SNAPSHOT_REFRESH_STUCK_MS=3*60*1000;
++const snapshotRefreshStuck=at=>!Number.isFinite(at)||Date.now()-at>SNAPSHOT_REFRESH_STUCK_MS;
++// 記憶體快照過期時先看 D1：巡檢每一步可能落在不同執行個體，別的執行個體可能已存好較新的快照。
++async function newerPersistedSnapshot(env,key,memory){
++ const persisted=await readRuntimeCache(env,key);if(!persisted?.payload)return null;
++ const at=Date.parse(persisted.updatedAt||'');
++ return !memory||!Number.isFinite(memory.at)||(Number.isFinite(at)&&at>memory.at)?{at:Number.isFinite(at)?at:Date.now(),payload:persisted.payload,fresh:persisted.fresh}:null;
++}
+ async function buildExpandedMacroSnapshot(env={}){
+   const payload=await (async()=>{
+   const ids=['PAYEMS','UNRATE','SAHMREALTIME','RSAFS','NOCDFSA066MSFRBPHI','NYFED_EMPIRE_ORDERS','DALLAS_TMOS_ORDERS','GDPNOW','BAMLH0A0HYM2','TW_EXPORT_ORDERS','TW_NDC_SIGNAL','TW_M1B_M2'];
+@@ -613,9 +623,9 @@ async function buildExpandedMacroSnapshot(env={}){
+ async function expandedMacroResponse(env={},ctx={}){
+  const key='macro-expanded:v1',ttl=15*60*1000;
+  let cached=expandedCache?{payload:expandedCache.payload,fresh:Date.now()-expandedCache.at<ttl}:null;
+- if(!cached){const persisted=await readRuntimeCache(env,key);if(persisted?.payload){expandedCache={at:Date.parse(persisted.updatedAt||'')||Date.now(),payload:persisted.payload};cached={payload:persisted.payload,fresh:persisted.fresh}}}
++ if(!cached?.fresh){const newer=await newerPersistedSnapshot(env,key,expandedCache);if(newer){expandedCache={at:newer.at,payload:newer.payload};cached={payload:newer.payload,fresh:newer.fresh}}}
+  if(cached?.fresh)return Response.json(cached.payload,{headers:{'Cache-Control':'private, no-store'}});
+- if(!expandedPending)expandedPending=buildExpandedMacroSnapshot(env).then(async payload=>{expandedCache={at:Date.now(),payload};await writeRuntimeCache(env,key,payload,ttl);return payload}).finally(()=>{expandedPending=null});
++ if(!expandedPending||snapshotRefreshStuck(expandedPendingAt)){expandedPendingAt=Date.now();const task=buildExpandedMacroSnapshot(env).then(async payload=>{expandedCache={at:Date.now(),payload};await writeRuntimeCache(env,key,payload,ttl);return payload}).finally(()=>{if(expandedPending===task)expandedPending=null});expandedPending=task;}
+  try{ctx.waitUntil?.(expandedPending.catch(()=>{}))}catch{}
+  return Response.json(cached?.payload?refreshingMacroSnapshot(cached.payload,true):{checkedAt:new Date().toISOString(),pending:true,rows:[],derived:[]},{headers:{'Cache-Control':'private, no-store'}});
+ }
+@@ -2073,8 +2083,8 @@ function evaluate(rows, internalRows=[]) {
+   };
+ }
+ let macroCache=null, macroPending=null;
+-let macroMarketCache=null, macroMarketPending=null;
+-let usIndicesCache=null,usIndicesPending=null;
++let macroMarketCache=null, macroMarketPending=null, macroMarketPendingAt=0;
++let usIndicesCache=null,usIndicesPending=null,usIndicesPendingAt=0;
+ async function limitedMap(ids, limit, fn) {
+   const output=new Array(ids.length);let cursor=0;
+   await Promise.all(Array.from({length:Math.min(limit,ids.length)},async()=>{
+@@ -2186,7 +2196,7 @@ async function macroMarketResponse(env={},ctx={}) {
+     const response=await sharedCache.match(sharedKey);
+     if(response){const cached=await response.json(),ageMs=Date.now()-Date.parse(cached.checkedAt||'');if(Number.isFinite(ageMs)&&ageMs>=0&&ageMs<ttl&&Array.isArray(cached.rows)&&!cached.pending){macroMarketCache={at:Date.now(),payload:cached};return Response.json(catalogPayload(refreshingMacroSnapshot(cached,false),'market'),{headers:{'Cache-Control':'private, no-store'}})}}
+   }catch{}
+-  if(!macroMarketPending)macroMarketPending=(async()=>{
++  if(!macroMarketPending||snapshotRefreshStuck(macroMarketPendingAt)){macroMarketPendingAt=Date.now();const task=(async()=>{
+     const extrasPending=Promise.allSettled([
+       loadGold(),loadSilver(),loadNyfedRepo(),loadTaiwanMarket(env),loadTaiwanDayTrade(env),loadNyfedSrp()
+     ]);
+@@ -2218,7 +2228,7 @@ async function macroMarketResponse(env={},ctx={}) {
+     await writeRuntimeCache(env,'macro-market:v7',payload,ttl);
+     if(sharedCache)try{await sharedCache.put(sharedKey,new Response(JSON.stringify(payload),{headers:{'Content-Type':'application/json','Cache-Control':'public, max-age=300'}}))}catch{}
+     return payload;
+-  }).finally(()=>{macroMarketPending=null});
++  }).finally(()=>{if(macroMarketPending===task)macroMarketPending=null});macroMarketPending=task;}
+   // Slow official feeds should not hold the dashboard response open until the
+   // hosting edge cancels it. Return the last snapshot or an explicit pending
+   // state while the refresh continues in the background.
+@@ -2228,12 +2238,12 @@ async function macroMarketResponse(env={},ctx={}) {
+ async function usIndicesResponse(env={},ctx={}) {
+   const key='us-indices:v1',ttl=15*60*1000;
+   let cached=usIndicesCache?{payload:usIndicesCache.payload,fresh:Date.now()-usIndicesCache.at<ttl}:null;
+-  if(!cached){const persisted=await readRuntimeCache(env,key);if(persisted?.payload){usIndicesCache={at:Date.parse(persisted.updatedAt||'')||Date.now(),payload:persisted.payload};cached={payload:persisted.payload,fresh:persisted.fresh}}}
++  if(!cached?.fresh){const newer=await newerPersistedSnapshot(env,key,usIndicesCache);if(newer){usIndicesCache={at:newer.at,payload:newer.payload};cached={payload:newer.payload,fresh:newer.fresh}}}
+   if(cached?.fresh)return Response.json(cached.payload,{headers:{'Cache-Control':'private, no-store'}});
+-  if(!usIndicesPending)usIndicesPending=limitedMap(US_INDEXES,2,loadUsIndex).then(async rows=>{
++  if(!usIndicesPending||snapshotRefreshStuck(usIndicesPendingAt)){usIndicesPendingAt=Date.now();const task=limitedMap(US_INDEXES,2,loadUsIndex).then(async rows=>{
+     const payload={checkedAt:new Date().toISOString(),rows:rows.map(({history,...row})=>row)};
+     usIndicesCache={at:Date.now(),payload};await writeRuntimeCache(env,key,payload,ttl);return payload;
+-  }).finally(()=>{usIndicesPending=null});
++  }).finally(()=>{if(usIndicesPending===task)usIndicesPending=null});usIndicesPending=task;}
+   try{ctx.waitUntil?.(usIndicesPending.catch(()=>{}))}catch{}
+   return Response.json(cached?.payload?refreshingMacroSnapshot(cached.payload,true):{checkedAt:new Date().toISOString(),pending:true,rows:US_INDEXES.map(([id,symbol])=>({id,value:null,date:null,status:'pending',reason:'指數資料正在背景查詢；完成前不納入判讀。',provider:'Yahoo Finance｜延遲日資料',source:`https://finance.yahoo.com/quote/${encodeURIComponent(symbol)}/`}))},{headers:{'Cache-Control':'private, no-store'}});
+ }
