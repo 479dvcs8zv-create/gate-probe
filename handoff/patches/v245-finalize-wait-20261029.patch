@@ -1,0 +1,181 @@
+diff --git a/package.json b/package.json
+index 2501885..0ca2643 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v245-finalize-wait.test.mjs b/tests/v245-finalize-wait.test.mjs
+new file mode 100644
+index 0000000..cb14c3d
+--- /dev/null
++++ b/tests/v245-finalize-wait.test.mjs
+@@ -0,0 +1,66 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import {refreshLeaseStatement} from './helpers/refresh-lease.mjs';
++
++// GPT 2026-10-29 04:43 巡檢讀回：擴展總經摘要 11/12（巡檢前快照、background_refreshing），巡檢後直接讀回 12/12
++// （國發會 9 月景氣燈號在最後讀回之後才落地）。擁有者 2026-10-29 05:43「好」：結束讀回時資料還在更新，就多等一下再寫摘要。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++let serial=0;
++const load=(extra='')=>import('data:text/javascript;base64,'+Buffer.from(source+`\n${extra}\n// v245-${serial++}`).toString('base64'));
++
++class DB{
++  rows=new Map();leases=new Map();
++  prepare(sql){const lease=refreshLeaseStatement(this,sql);if(lease)return lease;return {run:async()=>({success:true}),bind:(...args)=>({all:async()=>({results:this.rows.has(args[0])?[this.rows.get(args[0])]:[]}),run:async()=>{this.rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true};}})};}
++}
++const hooks=`
++ captureFullMarketSnapshot=async()=>({status:'collecting_history',date:'2026-10-28',sessions:71,captured:{total:600},universe:{total:600}});
++ runSiteModule=async(id,start,options)=>{
++   const n=(globalThis.__v245calls[id]=(globalThis.__v245calls[id]||0)+1);
++   // 擴展總經：第 1 次（模組步驟）與結束讀回的前 2 次都還是巡檢前快照，第 3 次讀回時更新已落地
++   if(id==='expandedMacro')return n<=3?{status:'partial',usable:11,total:12,refreshState:'background_refreshing',snapshotCheckedAt:'2026-10-28T20:00:00.000Z'}:{status:'ok',usable:12,total:12,refreshedThisRun:true,refreshState:'refreshed_this_run'};
++   // 美股指數：一直沒落地 → 等滿 6 次就照實記錄
++   if(id==='usIndices')return {status:'ok',usable:3,total:3,refreshState:'background_refreshing'};
++   return {status:'ok',usable:1,total:1};
++ };
++ refreshSiteStock=async row=>({id:row.id,name:row.name,status:'fresh'});
++ stockSourceResearchResponse=async request=>Response.json({status:'ok',records:[{symbol:new URL(request.url).searchParams.get('id')}]});
++ masterModelResponse=async request=>Response.json({status:'partial',symbol:new URL(request.url).searchParams.get('id'),gates:[]});
++`;
++
++test('結束讀回：資料還在背景更新就先不寫摘要，下一次輪詢再讀；落地了就記新的，最多等 6 次（約 1 分鐘）',async()=>{
++  globalThis.__v245calls={};
++  const env={DB:new DB()},request=(path='status')=>new Request('https://site.test/api/automation/'+path,{method:path==='refresh-all'?'POST':'GET'});
++  await (await load(hooks)).default.fetch(request('refresh-all'),env,{});
++  let result,polls=0;
++  while(!result?.completedAt&&polls<120){result=await (await (await load(hooks)).default.fetch(request(),env,{})).json();polls++;}
++  assert.ok(result.completedAt,'巡檢完成');
++  const expanded=result.modules.expandedMacro;
++  assert.equal(expanded.usable,12,'摘要記的是落地後的 12/12，和巡檢後直接讀回一致');assert.equal(expanded.status,'ok');
++  assert.equal(expanded.finalizeWaits,2);assert.equal(expanded.summaryScope,'final_readback');
++  assert.equal(globalThis.__v245calls.expandedMacro,4,'模組步驟 1 次＋結束讀回 3 次');
++  const us=result.modules.usIndices;
++  assert.equal(us.finalizeWaits,6,'最多等 6 次');assert.equal(us.refreshState,'background_refreshing','等不到就照實記錄背景更新未落地');assert.equal(us.usable,3);
++  assert.equal(globalThis.__v245calls.usIndices,1+1+6,'模組步驟 1 次＋結束讀回 7 次（6 次等待＋最後一次）');
++  assert.equal(result.modules.macro.finalizeWaits,undefined,'已是最新的模組不等待');
++});
++
++function memoryDb(){
++  const rows=new Map();
++  return {rows,prepare(sql){return {run:async()=>({success:true}),bind:(...args)=>({run:async()=>{if(sql.startsWith('INSERT INTO site_runtime_cache'))rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true};},all:async()=>({results:rows.has(args[0])?[rows.get(args[0])]:[]}),first:async()=>null})};}};
++}
++test('結束讀回時在請求內等背景更新（最多 4.5 秒）：更新落地就直接回新快照；一般網頁請求不等',async()=>{
++  const previous=globalThis.fetch;globalThis.fetch=async()=>new Response('unavailable in test',{status:503});
++  const seed=db=>{const old=Date.now()-40*60000;for(const [key,payload] of [['macro-expanded:v1',{checkedAt:new Date(old).toISOString(),rows:[{id:'TW_NDC_SIGNAL',status:'ok',value:31,date:'2026-08-01'}],derived:[]}],['us-indices:v1',{checkedAt:new Date(old).toISOString(),rows:[{id:'SP500',status:'ok',value:6900,date:'2026-10-27'}]}]])db.rows.set(key,{payload:JSON.stringify(payload),updated_at:new Date(old).toISOString(),expires_at:new Date(old+15*60000).toISOString()});};
++  try{
++    for(const name of ['expandedMacroResponse','usIndicesResponse']){
++      const plain=await load(`export {${name}};`),dbA=memoryDb();seed(dbA);
++      const a=await (await plain[name]({DB:dbA},{waitUntil(){}})).json();
++      assert.equal(a.refreshing,true,`${name}：一般請求先回上次快照並在背景更新`);
++      const waiting=await load(`export {${name}};`),dbB=memoryDb();seed(dbB);
++      const startedAt=Date.now(),b=await (await waiting[name]({DB:dbB},{waitUntil(){}},{awaitRefreshMs:4500})).json();
++      assert.notEqual(b.refreshing,true,`${name}：等到更新落地，回新快照`);assert.ok(Date.parse(b.checkedAt)>=startedAt,'新快照的取得時間在這次請求之後');
++      assert.ok(Date.now()-startedAt<4500);
++    }
++  }finally{globalThis.fetch=previous;}
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 41b21e5..f8ea295 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -1111,6 +1111,10 @@ const SITE_AUTO_REFRESH_LOCK_TIMEOUT_MS = 60 * 1000;
+ const SITE_AUTO_REFRESH_MODULE_TIMEOUT_MS = 6000;
+ const SITE_AUTO_REFRESH_STEP_TIMEOUT_MS = 16000;
+ const SITE_AUTO_REFRESH_LEASE_MS = 25000;
++// v245（擁有者 2026-10-29 05:43「好」）：結束讀回時資料若還在背景更新，多等一下再寫摘要。
++// 每次輪詢（約 10 秒）重讀一次、最多 6 次（約 1 分鐘）；三個快照模組讀回時另在請求內等更新最多 4.5 秒（模組逾時 6 秒內）。
++const SITE_FINALIZE_REFRESH_RETRIES = 6;
++const SITE_FINALIZE_AWAIT_REFRESH_MS = 4500;
+ const MARKET_SCANNER_SNAPSHOT_PREFIX = 'market-scanner-snapshot:v1:';
+ const MARKET_SCANNER_LATEST_KEY = 'market-scanner-latest:v1';
+ const MARKET_SCANNER_KEEP_DAYS = 90;
+@@ -1637,11 +1641,18 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+   // One durable read per poll keeps the lease bounded even for cross-night runs.
+   if(step.index<modules.length){
+     const [id,start]=modules[step.index];
+-    const readback=id==='crossMarket'?async()=>Response.json(await readCrossMarketSnapshot(env,ctx)):id==='usSectors'?async()=>Response.json(await readUSSectorSnapshot(env,ctx)):start;
++    const waitOptions={awaitRefreshMs:SITE_FINALIZE_AWAIT_REFRESH_MS};
++    const readback=id==='crossMarket'?async()=>Response.json(await readCrossMarketSnapshot(env,ctx)):id==='usSectors'?async()=>Response.json(await readUSSectorSnapshot(env,ctx))
++      :id==='expandedMacro'?()=>expandedMacroResponse(env,ctx,waitOptions):id==='marketAndPreciousMetals'?()=>macroMarketResponse(env,ctx,waitOptions):id==='usIndices'?()=>usIndicesResponse(env,ctx,waitOptions):start;
+     const result=await runSiteModule(id,readback,{since:run.startedAt});
++    // 還在背景更新（快照早於本輪）或還在等待 → 這一步先不前進，下一次輪詢再讀；最多 6 次，之後照實記錄。
++    const waits=run.finalizeAttempts?.[id]||0;
++    if((result.refreshState==='background_refreshing'||result.status==='pending')&&waits<SITE_FINALIZE_REFRESH_RETRIES){
++      run.finalizeAttempts={...run.finalizeAttempts,[id]:waits+1};return commit();
++    }
+     const exhausted=id==='usSectors'&&result.status==='pending'&&run.moduleAttempts?.[id]>=30;
+     const prior=run.modules[id],failedAttempt=prior?.error&&['error','missing'].includes(prior.status)&&!result.error;
+-    run.modules[id]={...result,...(failedAttempt?{status:prior.status,error:prior.error,latestReadback:result,sourceAttemptFailed:true}:{}),...(exhausted?{status:'partial',readbackStatus:result.status,error:'板塊分批更新尚未完成；已達本輪重試上限'}:{}),summaryScope:failedAttempt?'final_readback_with_source_failure':'final_readback',readbackAt:new Date().toISOString()};
++    run.modules[id]={...result,...(failedAttempt?{status:prior.status,error:prior.error,latestReadback:result,sourceAttemptFailed:true}:{}),...(exhausted?{status:'partial',readbackStatus:result.status,error:'板塊分批更新尚未完成；已達本輪重試上限'}:{}),summaryScope:failedAttempt?'final_readback_with_source_failure':'final_readback',readbackAt:new Date().toISOString(),...(waits?{finalizeWaits:waits}:{})};
+     run.checkpoint={version:1,stage:'finalize',index:step.index+1};return commit();
+   }
+   if(step.index===modules.length){
+diff --git a/worker/observations.js b/worker/observations.js
+index 93e5e83..ac579a7 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -605,6 +605,11 @@ let expandedCache=null,expandedPending=null,expandedPendingAt=0;
+ const SNAPSHOT_REFRESH_STUCK_MS=3*60*1000;
+ const snapshotRefreshStuck=at=>!Number.isFinite(at)||Date.now()-at>SNAPSHOT_REFRESH_STUCK_MS;
+ // 記憶體快照過期時先看 D1：巡檢每一步可能落在不同執行個體，別的執行個體可能已存好較新的快照。
++// 巡檢結束讀回用：在這個請求內等背景更新最多 ms 毫秒（請求還開著，更新不會被平台中途取消）；等不到就回 null。
++async function settleWithin(promise,ms){
++ if(!promise||!(ms>0))return null;let timer;
++ try{return await Promise.race([promise.then(value=>value,()=>null),new Promise(resolve=>{timer=setTimeout(()=>resolve(null),ms)})]);}finally{clearTimeout(timer)}
++}
+ async function newerPersistedSnapshot(env,key,memory){
+  const persisted=await readRuntimeCache(env,key);if(!persisted?.payload)return null;
+  const at=Date.parse(persisted.updatedAt||'');
+@@ -620,13 +625,14 @@ async function buildExpandedMacroSnapshot(env={}){
+  })();
+  return payload;
+ }
+-async function expandedMacroResponse(env={},ctx={}){
++async function expandedMacroResponse(env={},ctx={},{awaitRefreshMs=0}={}){
+  const key='macro-expanded:v1',ttl=15*60*1000;
+  let cached=expandedCache?{payload:expandedCache.payload,fresh:Date.now()-expandedCache.at<ttl}:null;
+  if(!cached?.fresh){const newer=await newerPersistedSnapshot(env,key,expandedCache);if(newer){expandedCache={at:newer.at,payload:newer.payload};cached={payload:newer.payload,fresh:newer.fresh}}}
+  if(cached?.fresh)return Response.json(cached.payload,{headers:{'Cache-Control':'private, no-store'}});
+  if(!expandedPending||snapshotRefreshStuck(expandedPendingAt)){expandedPendingAt=Date.now();const task=buildExpandedMacroSnapshot(env).then(async payload=>{expandedCache={at:Date.now(),payload};await writeRuntimeCache(env,key,payload,ttl);return payload}).finally(()=>{if(expandedPending===task)expandedPending=null});expandedPending=task;}
+  try{ctx.waitUntil?.(expandedPending.catch(()=>{}))}catch{}
++ const landed=await settleWithin(expandedPending,awaitRefreshMs);if(landed)return Response.json(landed,{headers:{'Cache-Control':'private, no-store'}});
+  return Response.json(cached?.payload?refreshingMacroSnapshot(cached.payload,true):{checkedAt:new Date().toISOString(),pending:true,rows:[],derived:[]},{headers:{'Cache-Control':'private, no-store'}});
+ }
+ // Core CPI source captures are stored in the same durable D1 runtime cache as
+@@ -2185,7 +2191,7 @@ function pendingMacroMarketPayload() {
+   const names={WCESTUS1:'美國商業原油庫存（EIA，不含 SPR）',DEXJPUS:'美元兌日圓日參考匯率',JPY_HV20:'日圓匯率歷史波動率（20 日）',JPY_HV60:'日圓匯率歷史波動率（60 日）',XAU:'黃金現貨參考價（XAU/USD）',XAG:'白銀現貨參考價（XAG/USD）',XAU_XAG:'黃金／白銀比（XAU/XAG）'};
+   return {checkedAt:new Date().toISOString(),pending:true,rows:ids.map(id=>({id,name:names[id]||id,value:null,date:null,status:'pending',validationState:'fetch_pending',reason:'本次資料更新仍在背景查詢；系統會自動重試，未完成前不納入評分。',provider:'官方來源查詢中'}))};
+ }
+-async function macroMarketResponse(env={},ctx={}) {
++async function macroMarketResponse(env={},ctx={},{awaitRefreshMs=0}={}) {
+   const ttl=5*60*1000;
+   if(macroMarketCache&&Date.now()-macroMarketCache.at<ttl)return Response.json(catalogPayload(refreshingMacroSnapshot(macroMarketCache.payload,false),'market'),{headers:{'Cache-Control':'private, no-store'}});
+   let lastGood=macroMarketCache?.payload||null;
+@@ -2233,9 +2239,10 @@ async function macroMarketResponse(env={},ctx={}) {
+   // hosting edge cancels it. Return the last snapshot or an explicit pending
+   // state while the refresh continues in the background.
+   try{ctx.waitUntil?.(macroMarketPending.catch(()=>{}))}catch{}
++  const landed=await settleWithin(macroMarketPending,awaitRefreshMs);if(landed)return Response.json(catalogPayload(refreshingMacroSnapshot(landed,false),'market'),{headers:{'Cache-Control':'private, no-store'}});
+   return Response.json(lastGood?catalogPayload(refreshingMacroSnapshot(lastGood),'market'):catalogPayload(pendingMacroMarketPayload(),'market'),{headers:{'Cache-Control':'private, no-store'}});
+ }
+-async function usIndicesResponse(env={},ctx={}) {
++async function usIndicesResponse(env={},ctx={},{awaitRefreshMs=0}={}) {
+   const key='us-indices:v1',ttl=15*60*1000;
+   let cached=usIndicesCache?{payload:usIndicesCache.payload,fresh:Date.now()-usIndicesCache.at<ttl}:null;
+   if(!cached?.fresh){const newer=await newerPersistedSnapshot(env,key,usIndicesCache);if(newer){usIndicesCache={at:newer.at,payload:newer.payload};cached={payload:newer.payload,fresh:newer.fresh}}}
+@@ -2245,5 +2252,6 @@ async function usIndicesResponse(env={},ctx={}) {
+     usIndicesCache={at:Date.now(),payload};await writeRuntimeCache(env,key,payload,ttl);return payload;
+   }).finally(()=>{if(usIndicesPending===task)usIndicesPending=null});usIndicesPending=task;}
+   try{ctx.waitUntil?.(usIndicesPending.catch(()=>{}))}catch{}
++  const landed=await settleWithin(usIndicesPending,awaitRefreshMs);if(landed)return Response.json(landed,{headers:{'Cache-Control':'private, no-store'}});
+   return Response.json(cached?.payload?refreshingMacroSnapshot(cached.payload,true):{checkedAt:new Date().toISOString(),pending:true,rows:US_INDEXES.map(([id,symbol])=>({id,value:null,date:null,status:'pending',reason:'指數資料正在背景查詢；完成前不納入判讀。',provider:'Yahoo Finance｜延遲日資料',source:`https://finance.yahoo.com/quote/${encodeURIComponent(symbol)}/`}))},{headers:{'Cache-Control':'private, no-store'}});
+ }
