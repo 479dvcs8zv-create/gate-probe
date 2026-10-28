@@ -1,0 +1,275 @@
+diff --git a/dist/index.html b/dist/index.html
+index 859e088..40bf456 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -43,12 +43,15 @@
+ .dollar-facts{color:#d5e4ef;font-size:.9rem;line-height:1.55;margin:10px 0 8px;font-variant-numeric:tabular-nums}
+ .dollar-chart{position:relative;margin:6px 0 4px}.dollar-chart svg{display:block;width:100%;height:auto;overflow:visible}.dollar-chart rect[tabindex]:focus{outline:none}.dollar-chart rect[tabindex]:focus-visible{outline:2px solid var(--blue)}
+ .dc-grid{stroke:#1a2c40;stroke-width:1}.dc-tick{fill:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}.dc-ref{stroke:#557089;stroke-width:1}.dc-ref-label{fill:#b4c3d0;font-size:11px}.dc-window{fill:rgba(99,168,255,.08)}
+-.dc-line{fill:none;stroke:var(--blue);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.dc-pending{fill:none;stroke:#8fa5b8;stroke-width:2;stroke-dasharray:4 4;stroke-linecap:round}.dc-dot{fill:var(--blue);stroke:#0a1724;stroke-width:2}.dc-cross{stroke:#8fa5b8;stroke-width:1}
++.dc-line,.db-line{fill:none;stroke:var(--blue);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.dc-pending,.db-pending{fill:none;stroke:#8fa5b8;stroke-width:2;stroke-dasharray:4 4;stroke-linecap:round}.dc-dot{fill:var(--blue);stroke:#0a1724;stroke-width:2}.dc-cross{stroke:#8fa5b8;stroke-width:1}
+ .dz-up{fill:rgba(255,115,135,.10)}.dz-down{fill:rgba(53,229,161,.08)}.dz-zero{stroke:#ecf4fb;stroke-width:1.5}.dz-zero-tick{fill:#ecf4fb;font-size:12px;font-weight:700}.dz-zero-label{fill:#ffd3da;font-size:11.5px;font-weight:700;paint-order:stroke;stroke:#0a1724;stroke-width:3px}.dz-low-label{fill:#b8f5dc;font-size:11.5px;font-weight:700;paint-order:stroke;stroke:#0a1724;stroke-width:3px}.dz-low-tick{fill:#b4c3d0;font-size:11px;font-variant-numeric:tabular-nums}.dz-low{stroke:#6f8aa3;stroke-width:1}.dz-now{fill:#ecf4fb;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;paint-order:stroke;stroke:#0a1724;stroke-width:3px}
+ .dollar-tip{position:absolute;pointer-events:none;background:#122235;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.78rem;color:var(--muted);white-space:nowrap;z-index:2}.dollar-tip b{display:block;color:var(--text);font-size:1rem;font-variant-numeric:tabular-nums}
+ .dollar-source{display:block;color:var(--muted);font-size:.76rem;line-height:1.6;margin-top:10px}
+ .dollar-table{margin-top:8px;font-size:.8rem;color:var(--muted)}.dollar-table summary{cursor:pointer;color:#d5e4ef}.dollar-table table{border-collapse:collapse;width:100%;margin-top:6px;font-variant-numeric:tabular-nums}.dollar-table th,.dollar-table td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}
+ @media(max-width:560px){.dollar-card{padding:13px}.dollar-value{font-size:1.9rem}}
++.dollar-plain{margin:2px 0;color:#b4c3d0;font-size:.84rem;line-height:1.55;font-variant-numeric:tabular-nums}.dollar-cap{margin:14px 0 2px;color:#d5e4ef;font-size:.86rem;font-weight:600}
++.dollar-legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.76rem;color:var(--muted);margin:2px 0 4px}.dollar-legend i{display:inline-block;width:18px;height:0;border-top:2px solid var(--blue);vertical-align:middle;margin-right:5px}.dollar-legend .dl-high{border-top-color:var(--red)}.dollar-legend .dl-low{border-top-color:var(--green)}.dollar-legend .dl-mid{border-top:2px dotted #6f8aa3}.dollar-legend .dl-pend{border-top:2px dashed #8fa5b8}.dollar-legend .dl-up{color:var(--red)}.dollar-legend .dl-down{color:var(--green)}
++.db-fill{fill:rgba(99,168,255,.07)}.db-high{fill:none;stroke:var(--red);stroke-width:1.8}.db-low{fill:none;stroke:var(--green);stroke-width:1.8}.db-mid{fill:none;stroke:#6f8aa3;stroke-width:1;stroke-dasharray:1 4}.dm-up{fill:var(--red);stroke:#0a1724;stroke-width:1}.dm-down{fill:var(--green);stroke:#0a1724;stroke-width:1}.dollar-table-wrap{overflow-x:auto}
+ /* DOLLAR_INDEX_CSS_END */</style>
+ <style>/* STOCK_DEDUP_CSS_START */
+ /* 個股區整合（擁有者 2026-10-28）：個股資料區的收盤價／月營收／估值摘要三格、Master Model 四象限都是別處已顯示內容的重述，不再顯示。 */
+@@ -1333,34 +1336,100 @@ async function updateDollarIndex(){
+  finally{dollarFetchPending=false;}
+ }
+ function dollarSigned(v){return Number.isFinite(v)?(v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(2):'缺值';}
++function dollarPct(v){return Number.isFinite(v)?(v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(2)+'%':'缺值';}
++// v246（擁有者 2026-10-29 06:23「好」）：零軸值會因「前20日高低差很窄」被放大、也會因「舊高低點滑出 20 筆」而變動（美元沒動也會變）。
++// 另列距前20日最高的百分比、高低差，並和上一筆比較，寫出這次主要是美元在動還是高低線在動；只顯示、不計分。
++function dollarMoveSource(cur,prev){
++ if(!cur||!prev||![cur.value,cur.axis,prev.axis,prev.priorHigh,prev.priorLow].every(Number.isFinite)||prev.priorHigh<=prev.priorLow||Math.abs(cur.axis-prev.axis)<1)return '';
++ const sameLines=(cur.value-prev.priorHigh)/(prev.priorHigh-prev.priorLow)*100,dollarPart=sameLines-prev.axis,linePart=cur.axis-sameLines;
++ return Math.abs(linePart)>Math.abs(dollarPart)?'：這次主要是高低線在動，不是美元在動':'：這次主要是美元在動';
++}
+ function renderDollarIndex(data){
+  const host=document.getElementById('dollarIndexCard');if(!host||!data)return;host.replaceChildren();
+  const ax=data.axis||{},ok=ax.status==='ok',rows=Array.isArray(data.history)?data.history:[],fmt=v=>Number.isFinite(v)?v.toFixed(2):'缺值';
+  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;};
+  const state=!ok?[`待補：${ax.reason||'缺值'}`,'mid']:ax.value>0?['在 0 軸之上：站上前20日高點（美元轉強，草案 −1）','up']:ax.value<-100?['在 −100 之下：跌破前20日低點（美元走弱，不加分）','down']:['在 0 軸與 −100 之間：前20日高低點之間','mid'];
+  const head=el('div','dollar-head');head.append(el('b','dollar-value',ok?dollarSigned(ax.value):'待補'),el('span',`dollar-state dollar-${state[1]}`,state[0]));host.append(head);
+- const latest=rows.filter(r=>r.usable).at(-1);
+- host.append(el('p','dollar-facts',ok?`指數 ${fmt(latest?.value)}（觀測 ${ax.date}）｜前20日最高 ${fmt(ax.priorHigh)}＝0 軸、最低 ${fmt(ax.priorLow)}＝−100｜5個觀測前零軸 ${ax.previous5?.status==='ok'?dollarSigned(ax.previous5.value):'缺值'}`:`已取得觀測 ${rows.length} 筆；零軸需要 21 筆以上已採用的觀測。`));
+- const points=rows.filter(r=>Number.isFinite(r.axis));
+- if(points.length>=2)host.append(dollarChart(points,ax,host.clientWidth));
++ const latest=rows.filter(r=>r.usable).at(-1),cur=rows.find(r=>r.date===ax.date)||latest;
++ host.append(el('p','dollar-facts',ok?`指數 ${fmt(cur?.value)}（觀測 ${ax.date}）｜前20日最高 ${fmt(ax.priorHigh)}＝0 軸、最低 ${fmt(ax.priorLow)}＝−100｜5個觀測前零軸 ${ax.previous5?.status==='ok'?dollarSigned(ax.previous5.value):'缺值'}`:`已取得觀測 ${rows.length} 筆；零軸需要 21 筆以上已採用的觀測。`));
++ if(ok&&Number.isFinite(cur?.value)&&ax.priorHigh>ax.priorLow){
++  const width=ax.priorHigh-ax.priorLow;
++  host.append(el('p','dollar-plain',`距前20日最高 ${dollarPct((cur.value/ax.priorHigh-1)*100)}｜高低差 ${fmt(width)}（${(width/ax.priorHigh*100).toFixed(2)}%）：高低差越窄，美元動一點點零軸值就跳越大`));
++  const prev=rows[rows.indexOf(cur)-1];
++  if(prev&&Number.isFinite(prev.axis))host.append(el('p','dollar-plain',`跟上一筆（${prev.date}）比：指數 ${dollarPct((cur.value/prev.value-1)*100)}｜0 軸 ${fmt(prev.priorHigh)} → ${fmt(cur.priorHigh)}｜−100 線 ${fmt(prev.priorLow)} → ${fmt(cur.priorLow)}｜零軸 ${dollarSigned(prev.axis)} → ${dollarSigned(cur.axis)}${dollarMoveSource(cur,prev)}`));
++ }
++ const points=rows.filter(r=>[r.axis,r.value,r.priorHigh,r.priorLow].every(Number.isFinite));
++ if(points.length>=2){
++  host.append(el('p','dollar-cap','美元指數與前20日最高／最低（每天都換成那天之前 20 筆，不含當天）'));
++  const legend=el('div','dollar-legend');
++  for(const [cls,text] of [['dl-idx','美元指數'],['dl-high','前20日最高（＝下圖 0 軸）'],['dl-low','前20日最低（＝下圖 −100）'],['dl-mid','中線（＝−50）'],['dl-pend','還沒採用']]){const s=el('span');s.append(el('i',cls),el('span',null,text));legend.append(s);}
++  legend.append(el('span','dl-up','▲ 突破前高（美元轉強）'),el('span','dl-down','▼ 跌破前低（走弱）'));
++  host.append(legend,dollarBandChart(points,host.clientWidth));
++  host.append(el('p','dollar-cap','零軸值（上圖藍線在紅線與綠線之間的位置；日期與上圖對齊）'),dollarChart(points,ax,host.clientWidth));
++ }
+  const path=data.capturePath==='github_relay'?'GitHub 排程代抓的 FRED 官方檔':data.capturePath==='official_import'?'官方資料匯入':'來源缺值';
+- host.append(el('small','dollar-source',`零軸＝(指數 − 前20日最高) ÷ (前20日最高 − 最低) × 100，不含當天｜FRED DTWEXAFEGS（先進經濟體美元指數，非 ICE DXY）｜${path}｜抓取 ${data.fetchedAt?String(data.fetchedAt).slice(0,16).replace('T',' ')+' UTC':'缺值'}｜觀測日＋8日起才採用（同回測），灰色虛線是還沒採用的觀測｜只顯示、不計分；草案：零軸>0 −1、走弱不加分。`));
++ host.append(el('small','dollar-source',`零軸＝(指數 − 前20日最高) ÷ (前20日最高 − 最低) × 100，不含當天（同 StockCharts Price Channels 預設）｜FRED DTWEXAFEGS（先進經濟體美元指數，非 ICE DXY）｜${path}｜抓取 ${data.fetchedAt?String(data.fetchedAt).slice(0,16).replace('T',' ')+' UTC':'缺值'}｜觀測日＋8日起才採用（同回測），灰色虛線是還沒採用的觀測｜只顯示、不計分；草案：零軸>0 −1、走弱不加分。`));
+  if(rows.length){
+   const det=el('details','dollar-table');det.append(el('summary',null,`看數字（${rows.length} 筆）`));
+-  const table=el('table'),headRow=el('tr');for(const t of ['觀測日','指數','零軸','狀態'])headRow.append(el('th',null,t));table.append(headRow);
+-  for(const r of [...rows].reverse()){const tr=el('tr');tr.append(el('td',null,r.date),el('td',null,fmt(r.value)),el('td',null,Number.isFinite(r.axis)?dollarSigned(r.axis):'—'),el('td',null,r.usable?'已採用':'尚未採用'));table.append(tr);}
+-  det.append(table);host.append(det);
++  const box=el('div','dollar-table-wrap'),table=el('table'),headRow=el('tr');for(const t of ['觀測日','指數','前20日最高','前20日最低','高低差','距最高','零軸','狀態'])headRow.append(el('th',null,t));table.append(headRow);
++  for(const r of [...rows].reverse()){const tr=el('tr'),has=Number.isFinite(r.priorHigh)&&Number.isFinite(r.priorLow);tr.append(el('td',null,r.date),el('td',null,fmt(r.value)),el('td',null,has?fmt(r.priorHigh):'—'),el('td',null,has?fmt(r.priorLow):'—'),el('td',null,has?fmt(r.priorHigh-r.priorLow):'—'),el('td',null,has?dollarPct((r.value/r.priorHigh-1)*100):'—'),el('td',null,Number.isFinite(r.axis)?dollarSigned(r.axis):'—'),el('td',null,r.usable?'已採用':'尚未採用'));table.append(tr);}
++  box.append(table);det.append(box);host.append(det);
+  }
+ }
+-function dollarChart(rows,ax,hostWidth){
+- const NS='http://www.w3.org/2000/svg',W=Math.max(300,Math.round((hostWidth||600)-34)),H=W<480?230:260,pad={l:54,r:12,t:14,b:28};
+- const values=rows.map(r=>r.axis);
+- const lo=Math.min(-125,Math.floor((Math.min(...values)-10)/25)*25),hi=Math.max(25,Math.ceil((Math.max(...values)+10)/25)*25);
+- const x=i=>pad.l+(W-pad.l-pad.r)*(rows.length<2?0:i/(rows.length-1)),y=v=>pad.t+(H-pad.t-pad.b)*(1-(v-lo)/(hi-lo));
++// 兩張圖共用：十字線、提示框、左右鍵逐筆查看（兩張圖用同一組觀測與同樣左右邊界，日期上下對齊）。
++function dollarInteract(svg,wrap,{rows,x,W,H,pad,yOf,tipFor,start,label}){
++ const NS='http://www.w3.org/2000/svg',mk=(tag,attrs)=>{const n=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);svg.append(n);return n;};
++ const cross=mk('line',{x1:0,x2:0,y1:pad.t,y2:H-pad.b,class:'dc-cross',visibility:'hidden'});
++ const hit=mk('rect',{x:pad.l,y:0,width:W-pad.l-pad.r,height:H,fill:'transparent',tabindex:'0','aria-label':label});
++ const tip=document.createElement('div');tip.className='dollar-tip';tip.hidden=true;
++ let focus=start;
++ const show=i=>{const r=rows[i],[big,small]=tipFor(r);focus=i;cross.setAttribute('x1',x(i));cross.setAttribute('x2',x(i));cross.setAttribute('visibility','visible');tip.replaceChildren();const b=document.createElement('b');b.textContent=big;const s=document.createElement('span');s.textContent=small;tip.append(b,s);tip.hidden=false;const scale=(svg.getBoundingClientRect?.().width||W)/W;tip.style.left=`${Math.min(Math.max(x(i)*scale-80,0),W*scale-200)}px`;tip.style.top=`${Math.max(0,yOf(r)*scale-58)}px`;};
++ const hide=()=>{cross.setAttribute('visibility','hidden');tip.hidden=true;};
++ const nearest=clientX=>{const box=svg.getBoundingClientRect(),px=(clientX-box.left)*W/(box.width||W);let best=0;for(let i=1;i<rows.length;i++)if(Math.abs(x(i)-px)<Math.abs(x(best)-px))best=i;return best;};
++ hit.addEventListener('pointermove',e=>show(nearest(e.clientX)));hit.addEventListener('pointerleave',hide);
++ hit.addEventListener('focus',()=>show(focus));hit.addEventListener('blur',hide);
++ hit.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){show(Math.max(0,Math.min(rows.length-1,focus+(e.key==='ArrowRight'?1:-1))));e.preventDefault();}});
++ wrap.append(svg,tip);
++}
++function dollarMarker(add,cx,cy,up,W){const s=W<480?3.5:5;add('path',{d:up?`M${cx.toFixed(1)},${(cy-s-1).toFixed(1)}l${s},${s*1.6}h${-2*s}z`:`M${cx.toFixed(1)},${(cy+s+1).toFixed(1)}l${s},${-s*1.6}h${-2*s}z`,class:up?'dm-up':'dm-down'});}
++function dollarFrame(rows,hostWidth,height,label){
++ const NS='http://www.w3.org/2000/svg',W=Math.max(300,Math.round((hostWidth||600)-34)),H=height(W),pad={l:54,r:12,t:14,b:28};
++ const x=i=>pad.l+(W-pad.l-pad.r)*(rows.length<2?0:i/(rows.length-1));
+  const wrap=document.createElement('div');wrap.className='dollar-chart';
+  const svg=document.createElementNS(NS,'svg');
+- for(const [k,v] of Object.entries({viewBox:`0 0 ${W} ${H}`,width:W,height:H,role:'img','aria-label':`美元指數零軸走勢 ${rows[0].date} 至 ${rows.at(-1).date}；0 軸＝前20日最高，−100＝前20日最低`}))svg.setAttribute(k,v);
++ for(const [k,v] of Object.entries({viewBox:`0 0 ${W} ${H}`,width:W,height:H,role:'img','aria-label':label}))svg.setAttribute(k,v);
+  const add=(tag,attrs,text)=>{const n=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!=null)n.textContent=text;svg.append(n);return n;};
++ const used=[],pending=[];rows.forEach((r,i)=>(r.usable?used:pending).push(i));
++ for(const i of [0,rows.length-1].filter((v,k,a)=>a.indexOf(v)===k))add('text',{x:x(i),y:H-8,'text-anchor':i===0?'start':'end',class:'dc-tick'},rows[i].date.slice(5));
++ return {W,H,pad,x,wrap,svg,add,used,pending,last:used.at(-1)??-1};
++}
++function dollarBandChart(rows,hostWidth){
++ const f=dollarFrame(rows,hostWidth,W=>W<480?210:240,`美元指數與前20日最高、最低 ${rows[0].date} 至 ${rows.at(-1).date}；紅線＝0 軸，綠線＝−100，每天都換成那天之前 20 筆`),{W,H,pad,x,add,used,pending,last}=f;
++ const vals=rows.flatMap(r=>[r.value,r.priorHigh,r.priorLow]),span=(Math.max(...vals)-Math.min(...vals))||1,lo=Math.min(...vals)-span*0.06,hi=Math.max(...vals)+span*0.06;
++ const y=v=>pad.t+(H-pad.t-pad.b)*(1-(v-lo)/(hi-lo)),step=[0.1,0.2,0.25,0.5,1,2,2.5,5,10].find(s=>span/s<=5)||10,dec=step>=1?0:step===0.25?2:1;
++ for(let k=Math.ceil(lo/step);k*step<=hi;k++){const v=k*step;add('line',{x1:pad.l,x2:W-pad.r,y1:y(v),y2:y(v),class:'dc-grid'});add('text',{x:pad.l-6,y:y(v)+4,'text-anchor':'end',class:'dc-tick'},v.toFixed(dec));}
++ // 階梯線：每一筆的高低線畫在它自己那一天（前後各半格），突破那天藍線會直接穿出紅線。
++ const mid=i=>i<rows.length-1?(x(i)+x(i+1))/2:x(i);
++ const stepPts=get=>{const p=[[x(0),y(get(rows[0]))]];rows.forEach((r,i)=>{p.push([mid(i),y(get(r))]);if(i<rows.length-1)p.push([mid(i),y(get(rows[i+1]))]);});return p;};
++ const d=p=>p.map((q,k)=>`${k?'L':'M'}${q[0].toFixed(1)},${q[1].toFixed(1)}`).join('');
++ const top=stepPts(r=>r.priorHigh),bottom=stepPts(r=>r.priorLow);
++ add('path',{d:d([...top,...bottom.reverse()])+'Z',class:'db-fill'});
++ add('path',{d:d(stepPts(r=>(r.priorHigh+r.priorLow)/2)),class:'db-mid'});
++ add('path',{d:d(top),class:'db-high'});add('path',{d:d(stepPts(r=>r.priorLow)),class:'db-low'});
++ const line=idx=>idx.map((i,k)=>`${k?'L':'M'}${x(i).toFixed(1)},${y(rows[i].value).toFixed(1)}`).join('');
++ if(used.length>1)add('path',{d:line(used),class:'db-line'});
++ if(pending.length)add('path',{d:line(last>=0?[last,...pending]:pending),class:'db-pending'});
++ for(const i of used){if(rows[i].axis>0)dollarMarker(add,x(i),y(rows[i].value),true,W);else if(rows[i].axis<-100)dollarMarker(add,x(i),y(rows[i].value),false,W);}
++ if(last>=0){add('circle',{cx:x(last),cy:y(rows[last].value),r:5,class:'dc-dot'});if(W>=480)add('text',{x:Math.min(x(last),W-pad.r-60)-8,y:y(rows[last].value)+18,'text-anchor':'end',class:'dz-now'},`指數 ${rows[last].value.toFixed(2)}`);}
++ dollarInteract(f.svg,f.wrap,{rows,x,W,H,pad,yOf:r=>y(r.value),start:last>=0?last:rows.length-1,label:'左右鍵逐筆查看指數與前20日高低',
++  tipFor:r=>[`指數 ${r.value.toFixed(2)}`,`${r.date}｜0 軸 ${r.priorHigh.toFixed(2)}｜−100 ${r.priorLow.toFixed(2)}｜距最高 ${dollarPct((r.value/r.priorHigh-1)*100)}｜${r.usable?'已採用':'尚未採用（觀測日＋8日）'}`]});
++ return f.wrap;
++}
++function dollarChart(rows,ax,hostWidth){
++ const f=dollarFrame(rows,hostWidth,W=>W<480?230:260,`美元指數零軸走勢 ${rows[0].date} 至 ${rows.at(-1).date}；0 軸＝前20日最高，−100＝前20日最低`),{W,H,pad,x,add,used,pending,last}=f;
++ const values=rows.map(r=>r.axis);
++ const lo=Math.min(-125,Math.floor((Math.min(...values)-10)/25)*25),hi=Math.max(25,Math.ceil((Math.max(...values)+10)/25)*25);
++ const y=v=>pad.t+(H-pad.t-pad.b)*(1-(v-lo)/(hi-lo));
+  // 區域：0 軸以上＝美元轉強（草案 −1）；−100 以下＝跌破前20日低點（走弱）
+  add('rect',{x:pad.l,y:y(hi),width:W-pad.l-pad.r,height:y(0)-y(hi),class:'dz-up'});
+  add('rect',{x:pad.l,y:y(-100),width:W-pad.l-pad.r,height:y(lo)-y(-100),class:'dz-down'});
+@@ -1370,24 +1439,13 @@ function dollarChart(rows,ax,hostWidth){
+  add('line',{x1:pad.l,x2:W-pad.r,y1:y(-100),y2:y(-100),class:'dz-low'});add('text',{x:pad.l-6,y:y(-100)+4,'text-anchor':'end',class:'dz-low-tick'},'−100');
+  add('text',{x:W-pad.r-4,y:y(lo)-8,'text-anchor':'end',class:'dz-low-label'},'−100 以下：跌破前20日最低（走弱）');
+  const line=idx=>idx.map((i,k)=>`${k?'L':'M'}${x(i).toFixed(1)},${y(rows[i].axis).toFixed(1)}`).join('');
+- const used=[],pending=[];rows.forEach((r,i)=>(r.usable?used:pending).push(i));
+- const last=used.at(-1)??-1;
+  if(used.length>1)add('path',{d:line(used),class:'dc-line'});
+  if(pending.length)add('path',{d:line(last>=0?[last,...pending]:pending),class:'dc-pending'});
++ for(const i of used){if(rows[i].axis>0)dollarMarker(add,x(i),y(rows[i].axis),true,W);else if(rows[i].axis<-100)dollarMarker(add,x(i),y(rows[i].axis),false,W);}
+  if(last>=0){add('circle',{cx:x(last),cy:y(rows[last].axis),r:5,class:'dc-dot'});add('text',{x:Math.min(x(last),W-pad.r-60)-8,y:y(rows[last].axis)+(rows[last].axis>-50?18:-10),'text-anchor':'end',class:'dz-now'},`目前 ${dollarSigned(rows[last].axis)}`);}
+- const labels=[0,rows.length-1].filter((v,i,a)=>a.indexOf(v)===i);
+- for(const i of labels)add('text',{x:x(i),y:H-8,'text-anchor':i===0?'start':'end',class:'dc-tick'},rows[i].date.slice(5));
+- const cross=add('line',{x1:0,x2:0,y1:pad.t,y2:H-pad.b,class:'dc-cross',visibility:'hidden'});
+- const hit=add('rect',{x:pad.l,y:0,width:W-pad.l-pad.r,height:H,fill:'transparent',tabindex:'0','aria-label':'左右鍵逐筆查看'});
+- const tip=document.createElement('div');tip.className='dollar-tip';tip.hidden=true;
+- let focus=last>=0?last:rows.length-1;
+- const show=i=>{const r=rows[i];focus=i;cross.setAttribute('x1',x(i));cross.setAttribute('x2',x(i));cross.setAttribute('visibility','visible');tip.replaceChildren();const b=document.createElement('b');b.textContent=`零軸 ${dollarSigned(r.axis)}`;const s=document.createElement('span');s.textContent=`${r.date}｜指數 ${r.value.toFixed(2)}｜${r.usable?'已採用':'尚未採用（觀測日＋8日）'}`;tip.append(b,s);tip.hidden=false;const scale=(svg.getBoundingClientRect?.().width||W)/W;tip.style.left=`${Math.min(Math.max(x(i)*scale-80,0),W*scale-200)}px`;tip.style.top=`${Math.max(0,y(r.axis)*scale-58)}px`;};
+- const hide=()=>{cross.setAttribute('visibility','hidden');tip.hidden=true;};
+- const nearest=clientX=>{const box=svg.getBoundingClientRect(),px=(clientX-box.left)*W/(box.width||W);let best=0;for(let i=1;i<rows.length;i++)if(Math.abs(x(i)-px)<Math.abs(x(best)-px))best=i;return best;};
+- hit.addEventListener('pointermove',e=>show(nearest(e.clientX)));hit.addEventListener('pointerleave',hide);
+- hit.addEventListener('focus',()=>show(focus));hit.addEventListener('blur',hide);
+- hit.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){show(Math.max(0,Math.min(rows.length-1,focus+(e.key==='ArrowRight'?1:-1))));e.preventDefault();}});
+- wrap.append(svg,tip);return wrap;
++ dollarInteract(f.svg,f.wrap,{rows,x,W,H,pad,yOf:r=>y(r.axis),start:last>=0?last:rows.length-1,label:'左右鍵逐筆查看零軸值',
++  tipFor:r=>[`零軸 ${dollarSigned(r.axis)}`,`${r.date}｜指數 ${r.value.toFixed(2)}｜${r.usable?'已採用':'尚未採用（觀測日＋8日）'}`]});
++ return f.wrap;
+ }
+ if(typeof window!=='undefined'&&typeof window.addEventListener==='function')window.addEventListener('resize',()=>{clearTimeout(dollarResizeTimer);dollarResizeTimer=setTimeout(()=>{if(dollarLast)renderDollarIndex(dollarLast);},250);});
+ /* DOLLAR_INDEX_END */
+diff --git a/package.json b/package.json
+index 0ca2643..213f0c6 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v240-dollar-macro.test.mjs b/tests/v240-dollar-macro.test.mjs
+index 3b7a06a..6070e4e 100644
+--- a/tests/v240-dollar-macro.test.mjs
++++ b/tests/v240-dollar-macro.test.mjs
+@@ -65,10 +65,11 @@ test('總經區畫面：卡片在「其他市場與風險指標」與「由原
+   assert.ok(host.findAll(n=>n.attributes?.class==='dz-zero-tick'&&n.textContent==='0 軸').length===1,'0 軸有標字');
+   assert.equal(host.findAll(n=>n.className==='advisory-axis').length,0,'圖已畫出零軸，不再另放長條');
+   assert.equal(host.findAll(n=>n.tag==='tr').length,41,'數字表：表頭＋40 筆（含零軸欄）');
+-  assert.equal(host.findAll(n=>n.tag==='th').map(n=>n.textContent).join('|'),'觀測日|指數|零軸|狀態');
++  // v246：數字表多了前20日最高／最低、高低差、距最高（擁有者 2026-10-29 06:23「好」）
++  assert.equal(host.findAll(n=>n.tag==='th').map(n=>n.textContent).join('|'),'觀測日|指數|前20日最高|前20日最低|高低差|距最高|零軸|狀態');
+   // 游標移到圖上：十字線與提示框顯示日期、數值、是否採用
+-  const hit=host.findAll(n=>n.attributes?.tabindex==='0')[0];
++  const hit=host.findAll(n=>n.attributes?.tabindex==='0'&&n.attributes['aria-label']==='左右鍵逐筆查看零軸值')[0];
+   hit.listeners.pointermove({clientX:600});
+-  const tip=host.findAll(n=>n.className==='dollar-tip')[0];
++  const tip=host.findAll(n=>n.className==='dollar-tip')[1];   // v246：第 1 個是上方通道圖的提示框
+   assert.equal(tip.hidden,false);assert.match(tip.textContent,/零軸 [+−]?\d+\.\d{2}.*\d{4}-\d{2}-\d{2}｜指數 \d+\.\d{2}｜(已採用|尚未採用)/);
+ });
+diff --git a/tests/v246-dollar-channel.test.mjs b/tests/v246-dollar-channel.test.mjs
+new file mode 100644
+index 0000000..38c8b8b
+--- /dev/null
++++ b/tests/v246-dollar-channel.test.mjs
+@@ -0,0 +1,72 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import vm from 'node:vm';
++
++// 擁有者 2026-10-29 06:23「好」：美元零軸卡加上「美元指數＋前20日最高／最低」通道圖（與零軸圖日期上下對齊、突破日標記），
++// 另列距前20日最高的百分比、高低差，並和上一筆比較，寫出這次是美元在動還是高低線在動。只改畫面，不計分。
++// 數值：FRED DTWEXAFEGS 2026-07-01～10-23 共 80 筆實際觀測（日期改成相對今天，讓「觀測日＋8日才採用」每天跑都一樣）。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const page=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++const VALUES=[114.3452,113.7579,114.0429,113.9974,114.2218,113.8469,113.6939,114.0382,113.7154,113.5007,113.4655,113.4919,113.7722,113.9513,113.913,114.2626,114.134,114.2972,114.123,114.2786,112.8453,112.8987,112.8653,112.8425,112.6323,112.8896,112.3595,112.4626,112.5499,112.5656,112.6745,112.2388,112.1597,112.3218,111.5655,111.4286,111.3552,111.6509,111.5868,111.8521,111.7503,112.2259,112.0636,112.3196,112.1549,111.5293,111.7431,111.426,111.4282,111.5196,111.7657,112.2065,112.3361,112.4116,112.9892,113.148,113.171,113.4924,113.898,114.1999,113.9055,114.1681,114.4364,114.3837,115.0598,114.8831,115.1068,114.7623,115.2698,115.251,115.241,115.0979,115.7508,115.0204,114.6677,114.6936,114.3887,114.445,114.2993,114.2969];
++const day=n=>new Date(Date.now()+8*3600000-n*86400000).toISOString().slice(0,10);
++// 最後兩筆（10/22、10/23 那兩個值）在 8 天內 → 尚未採用；10/21 那個值（114.445）是最新已採用。
++const ages=VALUES.map((_,i)=>i===79?3:i===78?5:9+(77-i));
++const history=VALUES.map((value,i)=>({date:day(ages[i]),value}));
++function fakeDb(){const rows=new Map([['official-series:v1:DTWEXAFEGS',{payload:JSON.stringify({id:'DTWEXAFEGS',history,source:'https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXAFEGS&cosd=2026-06-01',fetchedAt:new Date(Date.now()-3600000).toISOString()}),updated_at:new Date().toISOString(),expires_at:new Date(Date.now()+86400000).toISOString()}]]);
++  return {prepare(sql){let args=[];const stmt={bind(...a){args=a;return stmt;},async run(){return {success:true,meta:{changes:1}};},async all(){const r=/FROM site_runtime_cache/.test(sql)?rows.get(args[0]):null;return {results:r?[r]:[]};}};return stmt;}};}
++async function dollarBody(){
++  const {default:worker}=await import('data:text/javascript;base64,'+Buffer.from(source+`\n// v246-${Math.random()}`).toString('base64'));
++  const previous=globalThis.fetch;globalThis.fetch=async()=>new Response('offline',{status:503});
++  try{return await (await worker.fetch(new Request('https://site.test/api/dollar-index'),{DB:fakeDb()},{waitUntil(){}})).json();}finally{globalThis.fetch=previous;}
++}
++class Node{constructor(tag){this.tag=tag;this.children=[];this.attributes={};this.style={};this.hidden=false;this.listeners={};this.className='';this.clientWidth=640;}
++  append(...x){this.children.push(...x);}replaceChildren(...x){this.children=x;this.text='';}
++  set textContent(v){this.text=String(v);this.children=[];}get textContent(){return (this.text||'')+this.children.map(c=>c.textContent).join(' ');}
++  setAttribute(k,v){this.attributes[k]=String(v);}addEventListener(k,f){this.listeners[k]=f;}getBoundingClientRect(){return {left:0,top:0,width:640,height:240};}
++  findAll(pred){return [...(pred(this)?[this]:[]),...this.children.flatMap(c=>c.findAll?c.findAll(pred):[])];}}
++async function render(body){
++  const host=new Node('div'),script=page.match(/\/\* DOLLAR_INDEX_START \*\/[\s\S]*?\/\* DOLLAR_INDEX_END \*\//)[0];
++  const context=vm.createContext({document:{getElementById:id=>id==='dollarIndexCard'?host:null,createElement:t=>new Node(t),createElementNS:(_,t)=>new Node(t)},window:{addEventListener(){}},console,fetchJsonTimeout:async()=>body,setTimeout,clearTimeout});
++  vm.runInContext(script,context);await vm.runInContext('updateDollarIndex()',context);return host;
++}
++
++test('卡片：距前20日最高、高低差，並和上一筆比較寫出是美元在動還是高低線在動（10/21 實例：美元小漲、低點線上移 → 高低線在動）',async()=>{
++  const body=await dollarBody();
++  assert.equal(body.axis.status,'ok');assert.equal(body.axis.value.toFixed(2),'-57.82','與網站 10/21 相同');
++  assert.equal(body.axis.priorHigh,115.7508);assert.equal(body.axis.priorLow,113.4924);
++  const text=(await render(body)).textContent;
++  assert.match(text,/距前20日最高 −1\.13%｜高低差 2\.26（1\.95%）/);
++  assert.match(text,/跟上一筆（\d{4}-\d{2}-\d{2}）比：指數 \+0\.05%｜0 軸 115\.75 → 115\.75｜−100 線 113\.17 → 113\.49｜零軸 −52\.80 → −57\.82：這次主要是高低線在動，不是美元在動/);
++  assert.match(text,/不含當天（同 StockCharts Price Channels 預設）/);assert.match(text,/只顯示、不計分/);
++});
++
++test('通道圖：紅線＝前20日最高、綠線＝前20日最低、中線、淡色底；突破日標記與零軸 > 0／< −100 完全一致；兩張圖日期對齊',async()=>{
++  const body=await dollarBody(),host=await render(body),cls=c=>host.findAll(n=>n.attributes?.class===c);
++  for(const c of ['db-fill','db-high','db-low','db-mid','db-line','db-pending'])assert.equal(cls(c).length,1,c);
++  const shown=body.history.filter(r=>[r.axis,r.priorHigh,r.priorLow].every(Number.isFinite));
++  const up=shown.filter(r=>r.usable&&r.axis>0),down=shown.filter(r=>r.usable&&r.axis<-100);
++  assert.ok(up.length>0&&down.length>0,'這段期間兩種都有');
++  for(const r of up)assert.ok(r.value>r.priorHigh,'突破前高＝藍線高於紅線');for(const r of down)assert.ok(r.value<r.priorLow,'跌破前低＝藍線低於綠線');
++  assert.equal(cls('dm-up').length,up.length*2,'上下兩張圖各標一次');assert.equal(cls('dm-down').length,down.length*2);
++  const dots=cls('dc-dot').map(n=>n.attributes.cx);assert.equal(dots.length,2);assert.equal(dots[0],dots[1],'最新已採用那一點在兩張圖同一個水平位置');
++  const ticks=host.findAll(n=>n.attributes?.class==='dc-tick'&&/^\d{2}-\d{2}$/.test(n.textContent)).map(n=>`${n.textContent}@${n.attributes.x}`);
++  assert.equal(ticks.length,4);assert.equal(ticks[0],ticks[2]);assert.equal(ticks[1],ticks[3],'起訖日期在兩張圖同一位置');
++  const legend=host.findAll(n=>n.className==='dollar-legend')[0].textContent;
++  assert.match(legend,/前20日最高（＝下圖 0 軸）/);assert.match(legend,/前20日最低（＝下圖 −100）/);assert.match(legend,/▲ 突破前高/);assert.match(legend,/▼ 跌破前低/);
++  // 通道圖游標：指數、0 軸、−100、距最高
++  const hit=host.findAll(n=>n.attributes?.['aria-label']==='左右鍵逐筆查看指數與前20日高低')[0];
++  hit.listeners.focus();
++  const tip=host.findAll(n=>n.className==='dollar-tip')[0];
++  assert.equal(tip.hidden,false);assert.match(tip.textContent,/指數 114\.44 .*｜0 軸 115\.75｜−100 113\.49｜距最高 −1\.13%｜已採用/);
++});
++
++test('數字表：每一筆的前20日最高、最低、高低差、距最高都列出來；表格可橫向捲動（手機不撐破版面）',async()=>{
++  const body=await dollarBody(),host=await render(body);
++  const rows=host.findAll(n=>n.tag==='tr').slice(1).map(tr=>tr.children.map(td=>td.textContent));
++  assert.equal(rows.length,body.history.length);
++  const latestUsed=rows.find(r=>r[7]==='已採用');
++  assert.deepEqual(latestUsed.slice(1),['114.44','115.75','113.49','2.26','−1.13%','−57.82','已採用']);
++  assert.equal(host.findAll(n=>n.className==='dollar-table-wrap').length,1);
++  assert.match(page,/\.dollar-table-wrap\{overflow-x:auto\}/);
++});
