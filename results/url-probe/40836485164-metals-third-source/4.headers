@@ -1,0 +1,14 @@
+HTTP/2 403 
+content-type: text/plain; charset=utf-8
+content-length: 10
+server: Webscale
+set-cookie: lagrange_session=269f8936-69d8-4904-9c20-684d57719c3e; Path=/; Max-Age=1800; HttpOnly; Secure; SameSite=Lax
+set-cookie: wcid=aqYRiupSrw9QAAAB; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax
+strict-transport-security: max-age=31557600
+x-content-type-options: nosniff
+date: Thu, 29 Oct 2026 07:36:46 GMT
+x-cache: Error from cloudfront
+via: 1.1 de27db1efe10b9871dae1b244587c0ea.cloudfront.net (CloudFront)
+x-amz-cf-pop: SFO53-P12
+x-amz-cf-id: WsIij1OyNs6Zvwfd1Bp6lSUsQgfM0NKGL5mnfEyE_g7VWO5HIZssfw==
+
