@@ -8,6 +8,7 @@
 - 數字是「該年度截至該季的累計」（頁面註2）；單季、近四季由回測程式自己算。
 - 彙總表是「現在的版本」，公司事後更正會反映在裡面；回測須註明。
 - 每次請求間隔 4 秒、失敗重試 3 次；輸出 eps.csv.gz（可重跑接續）、files.csv（每頁 SHA-256）與原始頁 raw/*.html.gz。
+- 已存的原始頁直接解析、不再重抓；每抓完一頁就寫出 eps.csv.gz 與 files.csv（工作逾時被中止也保留已完成的部分）。
 """
 import csv
 import gzip
@@ -90,27 +91,40 @@ def main(out, y0, y1):
                 if (m, str(y), str(s)) in done:
                     continue
                 url = BASE.format(m=m, y=y, s=s)
+                name = f"{m}-{y}-{s}.html.gz"
+                cached = out / "raw" / name
+                fetched = False
                 try:
-                    body = fetch(url)
+                    if cached.exists():
+                        with gzip.open(cached, "rb") as f:
+                            body = f.read()
+                    else:
+                        body = fetch(url); fetched = True
                     got = parse(body)
                 except Exception as e:  # noqa: BLE001
                     print(m, y, s, "error", e, flush=True)
                     logs.append({"market": m, "roc_year": y, "season": s, "url": url, "status": f"error: {e}"[:200], "rows": 0, "sha256": ""})
                     time.sleep(4)
                     continue
-                name = f"{m}-{y}-{s}.html.gz"
-                with gzip.open(out / "raw" / name, "wb") as f:
-                    f.write(body)
+                if not cached.exists():
+                    with gzip.open(cached, "wb") as f:
+                        f.write(body)
                 logs.append({"market": m, "roc_year": y, "season": s, "url": url, "status": "ok" if got else "no_data", "rows": len(got), "sha256": hashlib.sha256(body).hexdigest()})
                 for code, nm, eps in got:
                     rows.append({"market": m, "roc_year": str(y), "season": str(s), "code": code, "name": nm, "eps_ytd": eps})
                 print(m, y, s, len(got), flush=True)
-                time.sleep(4)
+                write(path, files_log, rows, logs)
+                if fetched:
+                    time.sleep(4)
+    write(path, files_log, rows, logs)
+    print("rows", len(rows), "pages", len(logs), flush=True)
+
+
+def write(path, files_log, rows, logs):
     with gzip.open(path, "wt", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["market", "roc_year", "season", "code", "name", "eps_ytd"]); w.writeheader(); w.writerows(rows)
     with open(files_log, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["market", "roc_year", "season", "url", "status", "rows", "sha256"]); w.writeheader(); w.writerows(logs)
-    print("rows", len(rows), "pages", len(logs), flush=True)
 
 
 if __name__ == "__main__":
