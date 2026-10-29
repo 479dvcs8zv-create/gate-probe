@@ -1,0 +1,13 @@
+HTTP/2 200 
+date: Thu, 29 Oct 2026 07:41:23 GMT
+content-type: application/json
+content-length: 1078149
+server: cloudflare
+last-modified: Thu, 29 Oct 2026 06:02:37 GMT
+etag: "6ae2e17d-107385"
+content-disposition: attachment;filename=mopsfin_t187ap03_O.json
+accept-ranges: bytes
+cache-control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
+cf-cache-status: DYNAMIC
+cf-ray: a520899a2c07dcfe-SJC
+

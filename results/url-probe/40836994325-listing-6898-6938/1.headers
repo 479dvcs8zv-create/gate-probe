@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: HiNetCDN
+Date: Thu, 29 Oct 2026 07:41:18 GMT
+Content-Type: application/json
+Content-Length: 1331182
+Connection: keep-alive
+Vary: Accept-Encoding
+Last-Modified: Wed, 28 Oct 2026 21:24:35 GMT
+ETag: "6ae26813-144fee"
+Content-Disposition: attachment;filename=t187ap03_L.json
+X-Cache: HIT
+x-request-id: d129cea7f5250d084d358344f6c50e02
+Accept-Ranges: bytes
+

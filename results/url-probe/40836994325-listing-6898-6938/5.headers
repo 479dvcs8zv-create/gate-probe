@@ -1,0 +1,13 @@
+HTTP/2 200 
+date: Thu, 29 Oct 2026 07:41:35 GMT
+content-type: application/json
+content-length: 5126025
+server: cloudflare
+last-modified: Thu, 29 Oct 2026 06:00:06 GMT
+etag: "6ae2e0e6-4e3789"
+content-disposition: attachment;filename=tpex_mainboard_daily_close_quotes.json
+accept-ranges: bytes
+cache-control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
+cf-cache-status: DYNAMIC
+cf-ray: a52089e4bf03dcfe-SJC
+
