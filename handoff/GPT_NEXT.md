@@ -1,19 +1,23 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-29 14:50 台北（Claude）
+更新：2026-10-29 15:30 台北（Claude）
 
-## ★ 本輪工作（10/29 14:50 更新；只讀這一段就夠，下方各節是細節備查）
-**已授權**：擁有者 10/29 06:23「好」＝網站 v246（美元卡畫面）。
+## ★ 本輪工作（10/29 15:30 更新；只讀這一段就夠，下方各節是細節備查）
+**已授權**：擁有者 10/29 06:23「好」＝網站 v246（美元卡畫面）；14:41「收起來好了」＝網站 v247（Gate 卡只顯示一句結論）。**v246、v247 依序套用、只部署一次**（v245 留回滾）。
 **已完成，不用再做**：v245 已上線（你的 hotfix7.md，HTML `7a5fabb1…`）；v234 信用 ①③ 通過；② 的 27 仟元差是證交所自己修正了 10/27 的融資餘額（10/28 報表前日餘額 623,386,833），網站 10/28 數字和官方一致，不用再查；手機畫面你那邊不能設定視窗大小，**不用再試**（由擁有者用手機看）。
 
-1. **網站 v246（只套這一份，部署一次，v245 留回滾）**：你上次讀到的是 06:00 版交接，還沒套 v246。`handoff/patches/v246-dollar-channel-20261029.patch`，SHA-256 `84372778256934bced08321e63cb730ff9c9bc9095a35b93b22967a88741bb5a`，基線＝v245（就是現在正式站）→ `git apply` → `node build.mjs` → `TZ=UTC npm test`（exit 0）→ 部署。部署後 `dist/index.html` SHA-256 應為 `7c12dd6dd462d38ec8a245855e1e31b6b3128350afbb0d5a3a8c3caacda0de35`。
+1. **網站 v246**：你上次讀到的是 06:00 版交接，還沒套 v246。`handoff/patches/v246-dollar-channel-20261029.patch`，SHA-256 `84372778256934bced08321e63cb730ff9c9bc9095a35b93b22967a88741bb5a`，基線＝v245（就是現在正式站）→ `git apply` → `node build.mjs` → `TZ=UTC npm test`（exit 0）→ 部署。部署後 `dist/index.html` SHA-256 應為 `7c12dd6dd462d38ec8a245855e1e31b6b3128350afbb0d5a3a8c3caacda0de35`。
    - 只改總經區美元卡畫面（後台、規則、分數都不變）：零軸圖上方多一張「美元指數＋前 20 日最高（紅）／最低（綠）」通道圖，兩張圖日期對齊、突破日 ▲▼；卡片多兩行（距前 20 日最高 %、高低差；和上一筆比，這次是美元在動還是高低線在動）；數字表 8 欄。
    - 讀回（桌面即可）：版本、HTML SHA；美元卡兩張圖、▲▼、兩行新文字、數字表 8 欄；10/21 那筆零軸仍是 −57.82。
+1b. **網站 v247（接在 v246 後，和 v246 同一次部署）**：`handoff/patches/v247-gate-fold-20261029.patch`，SHA-256 `e37febe4cd6bdfeea9c6b97e399b9aa40354d374171ecf09127f032d81ab8a69`，基線＝v246（Claude tag v246-patch-head）。兩份都 `git apply` → `node build.mjs` → `TZ=UTC npm test`（exit 0）→ 部署一次。部署後 `dist/index.html` SHA-256 應為 `03942e32f23bfc341eb037b3229489b937760f6b2c09c0f48833c351e83b3fd6`（取代上面 v246 的 `7c12dd6d…`）。
+   - 內容（就是你上次報的「去重」）：每個 Gate 卡只顯示一句結論（例如 Gate 6「財報品質有警訊：營業現金流為負…（數字見財報品質卡）」）；含數字的判讀說明與替代規則收進「完整判讀說明（含數字）」，點開才看。進場條件的財報警示、退避評級的主情境說明不再重抄 CFO／淨利倍數與 Base 情境價；三問技術題不再重抄收盤價（改寫收盤在 60 日線上／下，60 日線數值保留）。評級、Gate、門檻、風險預算都不變；舊的存檔結果沒有結論句時照舊顯示。
+   - 測試：新增 `tests/v247-gate-fold.test.mjs` 與 `dashboard-interactions` 一段（10 個 Gate 都有結論句、結論句不含數字、說明收在 details 裡）；更新 `v237-rules`、`phison-panel`（比較時略過新欄位 headline）、`dashboard-interactions` 原本的情境數字斷言。Claude 在乾淨 v246 重放無衝突、完整 `TZ=UTC npm test` exit 0、HTML 與後台檔都相同；桌面 1200px、手機 390px 截圖無錯誤。
+   - 讀回：開 8299，10 個 Gate 卡都只看到一句結論＋「完整判讀說明（含數字）」等摺疊；點開 Gate 6 看得到 ROIC／CFO／FCF 數字；評級、進場、出場、Gate 狀態與部署前相同。
 2. **今晚 22:30 巡檢讀回（照你已加的一次性指示）**：5 檔個股摘要與直接讀回是否一致（`refreshedThisRun`／`stepStatus`）；擴展總經、市場／貴金屬、美股指數的 status、usable/total、`refreshState`、`finalizeWaits`；貴金屬三行判讀原文。
-3. **「去重」那一項先不要再判 FAIL**：你看到 Gate 卡與摘要裡的收盤、均線、估值情境、ROIC／CFO／FCF，是各 Gate 的判讀依據文字（例如 Gate 6 寫 ROIC 54.74%、CFO／淨利 −0.17x）。v243 拿掉的是重複的「格子與區塊」；Gate 卡裡的依據文字要不要收起來，擁有者還在決定，決定後 Claude 會另出 patch。這次不用改、不用再查。
+3. **「去重」**：擁有者已決定收起來，就是上面的 v247；部署後照 1b 的讀回核對即可。
 4. **5289**：Gate audit 摘要的 `status`（valuation_divergence）和 `auditStatus`（blocked）是同一次計算的兩個欄位，同欄位比才算。
 
-**報告**：寫 `diagnostics/deploy-20261026/hotfix8.md`（10 行內）：v246 版本與 HTML SHA、美元卡讀回；第 2 項（22:30 跑完後補）。
+**報告**：寫 `diagnostics/deploy-20261026/hotfix8.md`（12 行內）：v246＋v247 版本與 HTML SHA、美元卡讀回、Gate 卡讀回；第 2 項（22:30 跑完後補）。
 
 <details><summary>上一輪（10/28 04:00～10/29 00:40）的工作區塊，已完成，備查</summary>
 
