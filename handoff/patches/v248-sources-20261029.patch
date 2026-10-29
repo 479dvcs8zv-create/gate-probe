@@ -1,0 +1,248 @@
+diff --git a/dist/index.html b/dist/index.html
+index 9b23a3c..a1d4859 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -1172,7 +1172,7 @@ function renderMacroScoreCards(){
+  const metalHead=document.createElement('div');metalHead.className='score-card-head';const metalTitle=document.createElement('div');const metalKicker=document.createElement('span');metalKicker.className='score-kicker';metalKicker.textContent='通膨／美元／風險偏好交叉確認｜貴金屬（不計分）';const metalLight=document.createElement('h4');metalLight.textContent=metals.ready?'金價漲跌｜交叉確認':metals.ratio?.value!=null?'金價已取得｜來源未全數核實':'金價／金銀比資料未齊';metalTitle.append(metalKicker,metalLight);const metalValue=document.createElement('strong');metalValue.textContent=metals.gold?.value!=null&&Number.isFinite(Number(metals.gold.value))?fmt(metals.gold.value,2):'—';const metalUnit=document.createElement('small');metalUnit.textContent=metals.gold?.sourceVerification?.passed?' USD/oz':' USD/oz 未核實';metalValue.append(metalUnit);metalHead.append(metalTitle,metalValue);metalCard.append(metalHead);
+  const metalPrices=document.createElement('p');metalPrices.className='score-coverage';const goldPct=x=>Number.isFinite(Number(x))&&x!==null?`${Number(x)>=0?'+':''}${fmt(Number(x),2)}%`:'樣本不足';metalPrices.textContent=`金價漲跌 1日 ${goldPct(metals.ratio?.goldChange1d)}｜5日 ${goldPct(metals.ratio?.goldChange5d)}｜20日 ${goldPct(metals.ratio?.trendValidationState==='validated'?metals.ratio?.goldChange20d:null)}｜金銀比 ${metals.ratio?.value!=null?fmt(metals.ratio.value,2):'缺值'}（${metals.ratio?.status==='ok'?'已核實':'未核實'}，只作輔助）｜金價 ${metals.gold?.value!=null&&Number.isFinite(Number(metals.gold.value))?`${fmt(metals.gold.value,2)} USD/oz`:'缺值'}（${metals.gold?.sourceVerification?.passed?'三來源 2/3 通過':'未核實'}）｜銀價 ${metals.silver?.value!=null&&Number.isFinite(Number(metals.silver.value))?`${fmt(metals.silver.value,3)} USD/oz`:'缺值'}（${metals.silver?.sourceVerification?.passed?'三來源 2/3 通過':'未核實'}）｜觀測 ${metals.ratio?.date||'缺值'}｜日樣本 ${Number(metals.ratio?.historyObservations)||0}/21`;metalCard.append(metalPrices);
+  const metalNote=document.createElement('p');metalNote.className='score-note';metalNote.textContent=metals.interpretation;metalCard.append(metalNote);
+- const metalMethod=document.createElement('p');metalMethod.className='score-method';metalMethod.textContent=`Gold API、Standard Bullion、GoldPriceZone/MetalFlow 同時取 XAU/USD、XAG/USD；三個不同來源通道至少兩個需各自在 60 分鐘內、同為 USD/金衡盎司，且兩來源時間差 ≤30 分鐘、價差 ≤1% 才通過。單源或來源不一致時仍顯示參考值，但不計算有效金銀比、不納入判讀。後台保存三來源快照、來源家族、報價時間、差異與錯誤。Standard Bullion 使用 bid/ask 中間價；GoldPriceZone 公開 JSON 每 60 秒快取。金銀比 = 核實後 XAU/USD ÷ XAG/USD；每日累積，需 21 點且日期缺口不超過 5 日才判 20 日趨勢。與 10Y TIPS、DXY、VIX、HY 及融資訊號交叉核對，重疊訊號不重複計分。${metals.cross}。`;metalCard.append(metalMethod);const attributionLink=document.createElement('a');attributionLink.href='https://standardbullion.com/';attributionLink.target='_blank';attributionLink.rel='noopener';attributionLink.textContent='Data by Standard Bullion';metalCard.append(attributionLink);const thirdAttribution=document.createElement('a');thirdAttribution.href='https://goldpricezone.com/';thirdAttribution.target='_blank';thirdAttribution.rel='noopener';thirdAttribution.textContent='Data by GoldPriceZone';metalCard.append(thirdAttribution);const auditLink=document.createElement('a');auditLink.href='/api/market-source-audit';auditLink.target='_blank';auditLink.rel='noopener';auditLink.textContent='開啟後台三來源核對紀錄';metalCard.append(auditLink);root.append(metalCard);
++ const metalMethod=document.createElement('p');metalMethod.className='score-method';metalMethod.textContent=`Gold API、Standard Bullion、Swissquote 同時取 XAU/USD、XAG/USD；三個不同來源通道至少兩個需各自在 60 分鐘內、同為 USD/金衡盎司，且兩來源時間差 ≤30 分鐘、價差 ≤1% 才通過。單源或來源不一致時仍顯示參考值，但不計算有效金銀比、不納入判讀。後台保存三來源快照、來源家族、報價時間、差異與錯誤。Standard Bullion 使用 bid/ask 中間價；Swissquote 公開報價使用 bid/ask 中間價（取點差最小的一檔）。金銀比 = 核實後 XAU/USD ÷ XAG/USD；每日累積，需 21 點且日期缺口不超過 5 日才判 20 日趨勢。與 10Y TIPS、DXY、VIX、HY 及融資訊號交叉核對，重疊訊號不重複計分。${metals.cross}。`;metalCard.append(metalMethod);const attributionLink=document.createElement('a');attributionLink.href='https://standardbullion.com/';attributionLink.target='_blank';attributionLink.rel='noopener';attributionLink.textContent='Data by Standard Bullion';metalCard.append(attributionLink);const thirdAttribution=document.createElement('a');thirdAttribution.href='https://www.swissquote.com/';thirdAttribution.target='_blank';thirdAttribution.rel='noopener';thirdAttribution.textContent='Data by Swissquote';metalCard.append(thirdAttribution);const auditLink=document.createElement('a');auditLink.href='/api/market-source-audit';auditLink.target='_blank';auditLink.rel='noopener';auditLink.textContent='開啟後台三來源核對紀錄';metalCard.append(auditLink);root.append(metalCard);
+  renderMacroFiveLines();
+  const dates=models.map(x=>x.latest).filter(Boolean).sort(),computed=serverMacroScores?.computedAt?`｜後台計算 ${new Date(serverMacroScores.computedAt).toLocaleString('zh-TW',{timeZone:'Asia/Taipei',hour12:false})}`:'';document.getElementById('macroScoreAsOf').textContent=(dates.length?`依各項觀測日計算｜最新 ${dates.at(-1)}`:'尚無有效觀測日')+computed;
+ }
+diff --git a/package.json b/package.json
+index c6db126..2c79a05 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/fixtures/swissquote-xag-20261029.json b/tests/fixtures/swissquote-xag-20261029.json
+new file mode 100644
+index 0000000..0ea8ddc
+--- /dev/null
++++ b/tests/fixtures/swissquote-xag-20261029.json
+@@ -0,0 +1 @@
++[{"topo":{"platform":"SwissquoteCapitalMarkets","server":"Live7"},"spreadProfilePrices":[{"spreadProfile":"premium","bidSpread":17.5,"askSpread":17.5,"bid":52.8149,"ask":52.854},{"spreadProfile":"prime","bidSpread":17.3,"askSpread":17.3,"bid":52.8151,"ask":52.8538},{"spreadProfile":"elite","bidSpread":13.95,"askSpread":13.95,"bid":52.8185,"ask":52.8505}],"ts":1793259402843},{"topo":{"platform":"AT","server":"AT"},"spreadProfilePrices":[{"spreadProfile":"standard","bidSpread":17.5,"askSpread":17.5,"bid":52.8149,"ask":52.854},{"spreadProfile":"premium","bidSpread":17.25,"askSpread":17.25,"bid":52.8152,"ask":52.8538},{"spreadProfile":"prime","bidSpread":17.05,"askSpread":17.05,"bid":52.8154,"ask":52.8536}],"ts":1793259402843},{"topo":{"platform":"SwissquoteLtd","server":"Live5"},"spreadProfilePrices":[{"spreadProfile":"premium","bidSpread":17.5,"askSpread":17.5,"bid":52.8149,"ask":52.854},{"spreadProfile":"prime","bidSpread":17.3,"askSpread":17.3,"bid":52.8151,"ask":52.8538},{"spreadProfile":"elite","bidSpread":13.95,"askSpread":13.95,"bid":52.8185,"ask":52.8505}],"ts":1793259402843}]
+\ No newline at end of file
+diff --git a/tests/fixtures/swissquote-xau-20261029.json b/tests/fixtures/swissquote-xau-20261029.json
+new file mode 100644
+index 0000000..2dc9bd8
+--- /dev/null
++++ b/tests/fixtures/swissquote-xau-20261029.json
+@@ -0,0 +1 @@
++[{"topo":{"platform":"SwissquoteCapitalMarkets","server":"Live7"},"spreadProfilePrices":[{"spreadProfile":"premium","bidSpread":25.4,"askSpread":25.4,"bid":4029.881,"ask":4030.539},{"spreadProfile":"prime","bidSpread":24.4,"askSpread":24.4,"bid":4029.891,"ask":4030.529},{"spreadProfile":"elite","bidSpread":17.7,"askSpread":17.7,"bid":4029.958,"ask":4030.462}],"ts":1793259399375},{"topo":{"platform":"SwissquoteLtd","server":"Live5"},"spreadProfilePrices":[{"spreadProfile":"premium","bidSpread":25.6,"askSpread":25.6,"bid":4029.879,"ask":4030.541},{"spreadProfile":"prime","bidSpread":24.2,"askSpread":24.2,"bid":4029.893,"ask":4030.527},{"spreadProfile":"elite","bidSpread":17.7,"askSpread":17.7,"bid":4029.958,"ask":4030.462}],"ts":1793259399375},{"topo":{"platform":"AT","server":"AT"},"spreadProfilePrices":[{"spreadProfile":"standard","bidSpread":27.0,"askSpread":27.0,"bid":4029.865,"ask":4030.555},{"spreadProfile":"premium","bidSpread":25.65,"askSpread":25.65,"bid":4029.879,"ask":4030.542},{"spreadProfile":"prime","bidSpread":24.25,"askSpread":24.25,"bid":4029.893,"ask":4030.528}],"ts":1793259399375}]
+\ No newline at end of file
+diff --git a/tests/macro-market-state.test.mjs b/tests/macro-market-state.test.mjs
+index 30349d5..089ba25 100644
+--- a/tests/macro-market-state.test.mjs
++++ b/tests/macro-market-state.test.mjs
+@@ -51,10 +51,11 @@ async function marketRows({rates={}, failReference=false, ecbHistory=null, eiaHt
+       const factor=1+yahooOffset/100,stamp=new Date(Date.now()-secondaryAgeMinutes*60000).toISOString();
+       return Response.json({unit:'USD per troy ounce',updated:stamp,attribution:'Data by Standard Bullion — https://standardbullion.com',metals:[{symbol:'XAU',bid:4199*factor,ask:4201*factor},{symbol:'XAG',bid:49.9*factor,ask:50.1*factor}]});
+     }
+-    if(url.hostname==='goldpricezone.com'&&url.pathname==='/api/public/widget-data'){
+-      if(failTertiary)return new Response('GoldPriceZone unavailable',{status:503});
+-      const factor=1+tertiaryOffset/100;
+-      return Response.json({base:'USD',updated:new Date().toISOString(),attribution:'https://goldpricezone.com',metals:{gold:4200*factor,silver:50*factor}});
++    if(url.hostname==='forex-data-feed.swissquote.com'&&url.pathname.startsWith('/public-quotes/bboquotes/instrument/')){
++      // v248：第三來源改 Swissquote（GoldPriceZone 10/29 起 404）；回應格式取自 2026-10-29 GitHub 實抓（gate-probe url-probe 40836485164）。
++      if(failTertiary)return new Response('Swissquote unavailable',{status:503});
++      const factor=1+tertiaryOffset/100,mid=(url.pathname.includes('/XAU/')?4200:50)*factor;
++      return Response.json([{topo:{platform:'SwissquoteCapitalMarkets',server:'Live7'},spreadProfilePrices:[{spreadProfile:'premium',bid:mid-0.4,ask:mid+0.4},{spreadProfile:'elite',bid:mid-0.2,ask:mid+0.2}],ts:Date.now()}]);
+     }
+     if(url.hostname==='api.stlouisfed.org'){
+       const id=url.searchParams.get('series_id');
+@@ -223,7 +224,7 @@ try {
+   assert.equal(disagreement.rows.XAU_XAG.status,'unverified','an unverified ratio may be displayed but cannot enter model judgments');
+   assert.equal(disagreement.rows.XAU_XAG.value,84,'the raw same-time ratio should remain visible while marked unverified');
+   const twoOfThree=await marketRows({failYahoo:true});
+-  assert.equal(twoOfThree.rows.XAU.status,'ok','Gold API and GoldPriceZone can pass when Standard Bullion is unavailable');
++  assert.equal(twoOfThree.rows.XAU.status,'ok','Gold API and Swissquote can pass when Standard Bullion is unavailable');
+   assert.equal(twoOfThree.rows.XAU.sourceVerification.channelsAvailable,2);
+   const singleSource=await marketRows({failYahoo:true,failTertiary:true});
+   assert.equal(singleSource.rows.XAU.status,'unverified','a single available website remains visible but cannot pass source verification');
+diff --git a/tests/v248-sources.test.mjs b/tests/v248-sources.test.mjs
+new file mode 100644
+index 0000000..7074cbb
+--- /dev/null
++++ b/tests/v248-sources.test.mjs
+@@ -0,0 +1,82 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// 擁有者 2026-10-29 15:35「好」：修 GPT 10/29 讀回的三個問題。
++// 1. 貴金屬第三來源 GoldPriceZone 10/29 起 HTTP 404 → 改 Swissquote 公開報價（回應取自 GitHub 實抓，gate-probe url-probe 40836485164）。
++// 2. 信用七欄只看得到 verifiedAt → 直接讀回與巡檢摘要都列出原始抓取時間與是否延後抓取。
++// 3. 6898、6938 於 10/23 上櫃，官方名冊 10/28 才收錄，前兩天行情沒收進來 → 列出缺的交易日；補抓後即算新股暖機。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++let n=0;
++const load=names=>import('data:text/javascript;base64,'+Buffer.from(source+`\n// v248-${n++}\nexport {${names}};`).toString('base64'));
++const XAU=JSON.parse(readFileSync(new URL('./fixtures/swissquote-xau-20261029.json',import.meta.url),'utf8'));
++const XAG=JSON.parse(readFileSync(new URL('./fixtures/swissquote-xag-20261029.json',import.meta.url),'utf8'));
++
++function metalsFetch({swissquote='ok',standard='ok'}={}){
++  const calls=[];const at=XAU[0].ts;
++  globalThis.fetch=async url=>{const u=new URL(String(url));calls.push(u.hostname);
++    if(u.hostname==='api.gold-api.com'){const symbol=u.pathname.split('/').at(-1);return Response.json({currency:'USD',symbol,price:symbol==='XAU'?4030.1:52.83,updatedAt:new Date(at-60000).toISOString()});}
++    if(u.hostname==='standardbullion.com'){if(standard!=='ok')return new Response('down',{status:503});return Response.json({unit:'USD per troy ounce',updated:new Date(at-120000).toISOString(),metals:[{symbol:'XAU',bid:4029.5,ask:4031.5},{symbol:'XAG',bid:52.80,ask:52.86}]});}
++    if(u.hostname==='forex-data-feed.swissquote.com'){if(swissquote==='404')return new Response('not found',{status:404});return Response.json(u.pathname.includes('/XAU/')?XAU:XAG);}
++    if(u.hostname==='goldpricezone.com')throw Error('the retired GoldPriceZone source must not be called');
++    return new Response('unexpected',{status:500});
++  };
++  return calls;
++}
++const realFetch=globalThis.fetch,realNow=Date.now;
++test.afterEach(()=>{globalThis.fetch=realFetch;Date.now=realNow;});
++
++test('貴金屬第三來源改 Swissquote：用實抓格式取買賣價中間價（點差最小的一檔）；三來源核對照舊',async()=>{
++  const api=await load('loadPreciousMetal');Date.now=()=>XAU[0].ts+30000;
++  const calls=metalsFetch();
++  const gold=await api.loadPreciousMetal('XAU','黃金現貨參考價（XAU/USD）');
++  assert.ok(calls.includes('forex-data-feed.swissquote.com'));assert.ok(!calls.includes('goldpricezone.com'));
++  const sq=gold.sourceVerification.readings.find(r=>r.sourceId==='swissquote');
++  const tightest=XAU[0].spreadProfilePrices.map(q=>({bid:q.bid,ask:q.ask})).sort((a,b)=>(a.ask-a.bid)-(b.ask-b.bid))[0];
++  assert.equal(sq.value,(tightest.bid+tightest.ask)/2);assert.equal(sq.observedAt,new Date(XAU[0].ts).toISOString());
++  assert.equal(gold.status,'ok');assert.equal(gold.sourceVerification.channelsAvailable,3);assert.match(gold.provider,/Swissquote/);
++  // 兩來源（Gold API＋Swissquote）在 Standard Bullion 掛掉時仍可核對通過
++  metalsFetch({standard:'down'});
++  const silver=await api.loadPreciousMetal('XAG','白銀現貨參考價（XAG/USD）');
++  assert.equal(silver.status,'ok');assert.deepEqual(silver.sourceVerification.winningPair.sourceIds.sort(),['gold-api','swissquote']);
++  // 來源壞掉時，錯誤訊息寫 Swissquote，不再寫 GoldPriceZone
++  metalsFetch({swissquote:'404'});
++  const fallback=await api.loadPreciousMetal('XAU','黃金現貨參考價（XAU/USD）');
++  assert.ok(fallback.sourceVerification.errors.some(e=>/^Swissquote：Swissquote HTTP 404$/.test(e)),JSON.stringify(fallback.sourceVerification.errors));
++});
++
++function fakeDb(rows){return {prepare(sql){let args=[];const stmt={bind(...a){args=a;return stmt;},async run(){return {success:true,meta:{changes:1}};},async all(){const r=rows.get(args[0]);return {results:r?[r]:[]};}};return stmt;}};}
++test('信用欄位：延後抓取時也列出原始抓取時間（capturedAt）與依據；巡檢摘要逐列保存同樣的時間',async()=>{
++  const api=await load('retainedTaiwanCreditRows,summarizeSiteModule');
++  const captured='2026-10-28T14:43:41.618Z',now=Date.parse('2026-10-28T23:30:00Z');
++  const row={id:'TWSE_MARGIN_BALANCE_NTD',name:'融資餘額',unit:'億元',group:'台股市場',value:6322.99,date:'2026-10-28',status:'ok',source:'https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?date=20261028&selectType=MS&response=json',fetchedAt:captured,verifiedAt:captured};
++  const rows=new Map([['macro-market:v7',{payload:JSON.stringify({checkedAt:captured,rows:[row]}),updated_at:captured,expires_at:new Date(now+3600000).toISOString()}]]);
++  const out=await api.retainedTaiwanCreditRows({DB:fakeDb(rows)},now);
++  const margin=out.find(r=>r.id==='TWSE_MARGIN_BALANCE_NTD');
++  assert.equal(margin.capturedAt,captured);assert.equal(margin.capturedAtBasis,'fetchedAt');assert.equal(margin.verifiedAt,captured);assert.equal(margin.captureDeferred,true);
++  const summary=api.summarizeSiteModule('marketAndPreciousMetals',{checkedAt:new Date(now).toISOString(),rows:out});
++  const obs=summary.observations.find(r=>r.id==='TWSE_MARGIN_BALANCE_NTD');
++  assert.equal(obs.capturedAt,captured);assert.equal(obs.verifiedAt,captured);assert.equal(obs.captureDeferred,true,'摘要可與直接讀回逐欄比對');
++});
++
++test('新股（官方名冊晚收錄）：列出掛牌後缺的交易日；補抓後即算新股暖機，不影響產業覆蓋',async()=>{
++  const api=await load('summarizeMarketSnapshotHistory,verifiedScannerWarmups');
++  const dates=Array.from({length:25},(_,i)=>new Date(Date.UTC(2026,8,20)+i*86400000).toISOString().slice(0,10));
++  const base=Array.from({length:30},(_,i)=>({id:String(6100+i),name:'既有'+i,industry:'資訊服務業',market:'tpex'}));
++  const listing=dates[22],newbie={id:'6898',name:'程曦資訊',industry:'資訊服務業',market:'tpex'};
++  const snap=(date,{withNewbie})=>({date,quoteBasis:'exchange-openapi-v1',universeAsOf:date,rows:[...base,...(withNewbie?[newbie]:[])].map((r,k)=>({...r,close:50+k,change:0.1,volume:100000+k*10,amount:5e6}))});
++  const roster=[...base.map(r=>({...r})),{...newbie,listingDate:listing,listingSource:'https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O'}];
++  // 名冊 10/28（最後一天）才收錄：掛牌後前兩個交易日沒有這檔
++  const lagged=dates.map((d,i)=>snap(d,{withNewbie:i===24}));
++  const before=api.summarizeMarketSnapshotHistory(lagged,dates[24],roster);
++  const gap=before.historyGaps.find(g=>g.id==='6898');
++  assert.equal(gap.reason,'new_listing_warmup');assert.equal(gap.sessionsSinceListing,3);assert.equal(gap.observations,1);assert.equal(gap.missingObservations,2);
++  assert.deepEqual(gap.missingDates,[dates[22],dates[23]]);
++  assert.equal(api.verifiedScannerWarmups(before).length,0,'缺日沒補，不能當暖機');
++  // 收集器以目前名冊重抓最近幾個交易日（--sessions 5）後
++  const backfilled=dates.map((d,i)=>snap(d,{withNewbie:i>=22}));
++  const after=api.summarizeMarketSnapshotHistory(backfilled,dates[24],roster);
++  const gap2=after.historyGaps.find(g=>g.id==='6898');
++  assert.equal(gap2.missingObservations,0);assert.deepEqual(gap2.missingDates,[]);
++  assert.deepEqual(api.verifiedScannerWarmups(after).map(r=>r.id),['6898'],'補抓後算新股暖機');
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 2b5b125..f1b7d92 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -747,7 +747,7 @@ function evaluateMasterModel(stock, macro, market, freshness = {}, gateEvidence
+     check('產業分類與兩市場來源',scanner?.industryCoveragePercent>=95&&scanner?.captured?.twse>0&&scanner?.captured?.tpex>0?1:0,1,`產業分類 ${Number(scanner?.industryCoveragePercent||0).toFixed(2)}%；上市與上櫃均須有觀測`),
+     check('全市場 RVOL20 覆蓋',scanner?.diffusion?.rvolEligible||0,Math.ceil(scannerPopulation*.95), `最近連續 21 個官方交易日；成熟母體 ${scannerPopulation} 檔維持 95%，已核實新股另列暖機`,scannerPopulation>0&&scanner?.diffusion?.rvolEligible>=scannerPopulation*.95?'verified':'missing'),
+     check('產業成交占比／成熟母體 RVOL20',scannerSectors.filter(row=>['verified','not_applicable'].includes(row.state)).length,scannerSectors.length,'各產業成熟母體維持 95% 覆蓋；只排除官方掛牌日期已核對且無實際缺日的新股',scannerSectors.length>0&&scannerSectors.every(row=>['verified','not_applicable'].includes(row.state))?'verified':'missing'),
+-    ...scannerSectors.filter(row=>row.state==='missing').map(row=>check(`${row.industry} RVOL20`,row.eligible||0,Math.ceil(row.population*.95),`${(scanner.historyGaps||[]).filter(gap=>gap.industry===row.industry).map(gap=>`${gap.id} ${gap.name} ${gap.observations}/21；${gap.reason==='new_listing_warmup'&&gap.missingObservations===0?`新股尚需 ${gap.remainingObservations} 個交易日`:'歷史行情待重查'}`).join('；')}。不補造掛牌前成交量`,'missing')),
++    ...scannerSectors.filter(row=>row.state==='missing').map(row=>check(`${row.industry} RVOL20`,row.eligible||0,Math.ceil(row.population*.95),`${(scanner.historyGaps||[]).filter(gap=>gap.industry===row.industry).map(gap=>`${gap.id} ${gap.name} ${gap.observations}/21；${gap.reason==='new_listing_warmup'&&gap.missingObservations===0?`新股尚需 ${gap.remainingObservations} 個交易日`:gap.reason==='new_listing_warmup'&&gap.missingDates?.length?`新股掛牌後缺 ${gap.missingDates.join('、')} 行情（多為官方名冊晚收錄）；重跑官方收集器 --market-only --sessions ${Math.min(21,(gap.sessionsSinceListing||0)+2)} 補抓後算新股暖機`:'歷史行情待重查'}`).join('；')}。不補造掛牌前成交量`,'missing')),
+     check('新股暖機',verifiedScannerWarmups(scanner).length,0,'逐檔保留暖機狀態，不生成 RVOL、候選或放行；不阻擋其他成熟股票的市場資料核驗','warmup')
+   ];
+   const dimensionInputs=masterDimensionInputs(stock,companyRecords,today,consensus),dimensionInput=id=>dimensionInputs.find(row=>row.label.startsWith(`S${id} `));
+@@ -1213,7 +1213,9 @@ function summarizeMarketSnapshotHistory(snapshots, currentDate, issuerRows = [])
+     if(!rvolReady){
+       const listed=validListing(row),sessionsSinceListing=listed?usable.filter(snapshot=>snapshot.date>=row.listingDate&&snapshot.rows.some(point=>point.market===row.market)).length:null;
+       const warmup=listed&&row.listingDate>=usable[0]?.date&&sessionsSinceListing<21;
+-      historyGaps.push({id:row.id,name:row.name,industry:row.industry,observations:volumeObservations,requiredObservations:21,reason:warmup?'new_listing_warmup':'insufficient_history',listingDate:listed?row.listingDate:null,listingSource:listed?row.listingSource:null,sessionsSinceListing,missingObservations:sessionsSinceListing==null?null:Math.max(0,Math.min(21,sessionsSinceListing)-volumeObservations),remainingObservations:21-volumeObservations});
++      historyGaps.push({id:row.id,name:row.name,industry:row.industry,observations:volumeObservations,requiredObservations:21,reason:warmup?'new_listing_warmup':'insufficient_history',listingDate:listed?row.listingDate:null,listingSource:listed?row.listingSource:null,sessionsSinceListing,missingObservations:sessionsSinceListing==null?null:Math.max(0,Math.min(21,sessionsSinceListing)-volumeObservations),remainingObservations:21-volumeObservations,
++        // v248（6898、6938 於 10/23 上櫃，官方名冊 10/28 才收錄，10/23、10/27 行情因此沒收進來）：列出掛牌後缺的交易日，補抓後即可算新股暖機。
++        ...(listed?{missingDates:rvolDates.filter(date=>date>=row.listingDate&&!volumeDays.has(date))}:{})});
+     }
+     if(history.length<20)priceHistoryGaps.push({id:row.id,name:row.name,observations:history.length,requiredObservations:20,officialNoTradeSessions:[...volumeDays.values()].filter(point=>point.noTrade).length,reason:[...volumeDays.values()].some(point=>point.noTrade)?'official_no_trade':'insufficient_price_history'});
+     if (history.length >= 20) { const base = history.at(-20), ma = history.slice(-20).reduce((sum, point) => sum + point.close, 0) / 20; diffusion.ma20Eligible++; if (row.close > ma) diffusion.aboveMa20++; if (base.close > 0) { index20 += row.close / base.close - 1; index20Count++; } }
+@@ -1442,6 +1444,8 @@ function summarizeSiteModule(id, payload, { since = null } = {}) {
+     unit: row.unit || null, date: row.date || null, observedAt: row.observedAt || null,
+     status: row.status || 'missing', provider: row.provider || null, source: row.source || null,
+     reason: row.reason || null, sourceVerification: row.sourceVerification || null, sourceAudit: row.sourceAudit || null,
++    // v248：摘要也逐列保存核對／抓取時間與是否延後抓取，巡檢摘要可以和直接讀回逐欄比對。
++    ...(row.verifiedAt ? { verifiedAt: row.verifiedAt } : {}), ...(row.capturedAt ? { capturedAt: row.capturedAt, capturedAtBasis: row.capturedAtBasis || null } : {}), ...(row.captureDeferred === true ? { captureDeferred: true } : {}),
+   }));
+   const judgment = [];
+   if (id === 'macro' || id === 'expandedMacro') {
+diff --git a/worker/observation-freshness.js b/worker/observation-freshness.js
+index b6ef7a5..478cab9 100644
+--- a/worker/observation-freshness.js
++++ b/worker/observation-freshness.js
+@@ -67,7 +67,8 @@ async function retainedTaiwanCreditRows(env,now=Date.now()) {
+     const {row,checkedAt}=selected,stamp=row.verifiedAt||row.fetchedAt;
+     const candidate={...row,verifiedAt:stamp,status:row.snapshot?'snapshot':'ok',is_stale:false};
+     const current=row.status!=='stale'&&!row.is_stale&&macroObservationCurrent(candidate,{checkedAt,rows:[candidate]},now);
+-    return {...row,verifiedAt:stamp,checkedAt:new Date(now).toISOString(),status:current?'snapshot':'stale',snapshot:true,is_stale:!current,
++    // v248：把原始抓取時間一起列出（GPT 10/29 讀回：只看得到 verifiedAt，不能核對跨日連續性）。沒有獨立抓取時間的列，以核對時間為準並標明。
++    return {...row,verifiedAt:stamp,capturedAt:row.capturedAt||row.fetchedAt||stamp,capturedAtBasis:row.capturedAt?'capturedAt':row.fetchedAt?'fetchedAt':'verifiedAt',checkedAt:new Date(now).toISOString(),status:current?'snapshot':'stale',snapshot:true,is_stale:!current,
+       reason:current?row.reason||null:'既有信用觀測已過有效期；22:30後再抓取核對。',...deferred};
+   });
+ }
+diff --git a/worker/observations.js b/worker/observations.js
+index ac579a7..87743f4 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -1576,15 +1576,15 @@ function live10Y3MSpread(rows) {
+   return {...row,date:latest.date,observedAt:latest.observedAt,value,delta,status:fresh?'ok':'stale',reason:fresh?null:'3M 或 10Y 報價過舊；暫不納入即時曲線判讀',detail};
+ }
+ async function loadPreciousMetal(symbol,name) {
+-  const primaryUrl=`https://api.gold-api.com/price/${symbol}`,secondaryUrl='https://standardbullion.com/spot-prices.json',tertiaryUrl='https://goldpricezone.com/api/public/widget-data';
+-  const row={id:symbol,name,group:'貴金屬',unit:'美元/金衡盎司',provider:'Gold API + Standard Bullion + GoldPriceZone/MetalFlow｜三來源快照核對',source:primaryUrl,value:null,date:null,delta:null,status:'missing',history:[]};
++  const primaryUrl=`https://api.gold-api.com/price/${symbol}`,secondaryUrl='https://standardbullion.com/spot-prices.json',tertiaryUrl=`https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/${symbol}/USD`;   // v248：GoldPriceZone 10/29 起 HTTP 404，第三來源改 Swissquote 公開報價（GitHub 實測 10/29 15:36 HTTP 200）
++  const row={id:symbol,name,group:'貴金屬',unit:'美元/金衡盎司',provider:'Gold API + Standard Bullion + Swissquote｜三來源快照核對',source:primaryUrl,value:null,date:null,delta:null,status:'missing',history:[]};
+   const request=async(url,label,parse)=>{const c=new AbortController(),t=setTimeout(()=>c.abort(),8000);try{const r=await fetch(url,{signal:c.signal,headers:{Accept:'application/json'}});if(!r.ok)throw Error(`${label} HTTP ${r.status}`);return parse(await r.json(),url);}finally{clearTimeout(t)}};
+   const tasks=[
+     request(primaryUrl,'Gold API',d=>{const stamp=Date.parse(d.updatedAt);if(d.symbol!==symbol||(d.currency&&d.currency!=='USD')||typeof d.price!=='number'||d.price<=0||!Number.isFinite(stamp)||stamp>Date.now()+300000)throw Error('Gold API 報價或時間格式不符');return {value:d.price,observedAt:new Date(stamp).toISOString(),source:primaryUrl,provider:'Gold API',sourceId:'gold-api',sourceFamily:'gold-api'};}),
+     request(secondaryUrl,'Standard Bullion',body=>{const metal=body?.metals?.find(item=>item.symbol===symbol),stamp=Date.parse(body?.updated),bid=Number(metal?.bid),ask=Number(metal?.ask),value=(bid+ask)/2;if(body?.unit!=='USD per troy ounce'||!metal||!Number.isFinite(stamp)||stamp>Date.now()+300000||!Number.isFinite(bid)||!Number.isFinite(ask)||bid<=0||ask<bid)throw Error('Standard Bullion 報價、單位或時間格式不符');return {value,bid,ask,observedAt:new Date(stamp).toISOString(),source:secondaryUrl,provider:'Standard Bullion',sourceId:'standard-bullion',sourceFamily:'standard-bullion',attribution:body.attribution||'Data by Standard Bullion'};}),
+-    request(tertiaryUrl,'GoldPriceZone',body=>{const field=symbol==='XAU'?'gold':'silver',value=Number(body?.metals?.[field]),stamp=Date.parse(body?.updated);if(body?.base!=='USD'||!Number.isFinite(value)||value<=0||!Number.isFinite(stamp)||stamp>Date.now()+300000)throw Error('GoldPriceZone 報價、幣別或時間格式不符');return {value,observedAt:new Date(stamp).toISOString(),source:tertiaryUrl,provider:'GoldPriceZone｜MetalFlow API',sourceId:'goldpricezone-metalflow',sourceFamily:'metalflow',attribution:body.attribution||'GoldPriceZone'};})
++    request(tertiaryUrl,'Swissquote',body=>{const entry=Array.isArray(body)?body.find(e=>Array.isArray(e?.spreadProfilePrices)&&e.spreadProfilePrices.length&&Number.isFinite(Number(e?.ts))):null,quotes=(entry?.spreadProfilePrices||[]).map(q=>({bid:Number(q?.bid),ask:Number(q?.ask)})).filter(q=>Number.isFinite(q.bid)&&Number.isFinite(q.ask)&&q.bid>0&&q.ask>=q.bid).sort((x,y)=>(x.ask-x.bid)-(y.ask-y.bid)),best=quotes[0],stamp=Number(entry?.ts);if(!best||!Number.isFinite(stamp)||stamp>Date.now()+300000)throw Error('Swissquote 報價或時間格式不符');return {value:(best.bid+best.ask)/2,bid:best.bid,ask:best.ask,observedAt:new Date(stamp).toISOString(),source:tertiaryUrl,provider:'Swissquote｜公開報價（買賣價中間價）',sourceId:'swissquote',sourceFamily:'swissquote',platform:entry.topo?.platform||null};})
+   ];
+-  const settled=await Promise.allSettled(tasks),sources=settled.map(x=>x.status==='fulfilled'?x.value:null),errors=settled.flatMap((x,i)=>x.status==='rejected'?[`${['Gold API','Standard Bullion','GoldPriceZone'][i]}：${x.reason?.name==='AbortError'?'逾時':x.reason?.message||'失敗'}`]:[]),now=Date.now(),readings=sources.filter(Boolean).map(x=>({...x,ageMinutes:Number(Math.max(0,(now-Date.parse(x.observedAt))/60000).toFixed(2))})),fresh=readings.filter(x=>x.ageMinutes<=60),pairs=[];
++  const settled=await Promise.allSettled(tasks),sources=settled.map(x=>x.status==='fulfilled'?x.value:null),errors=settled.flatMap((x,i)=>x.status==='rejected'?[`${['Gold API','Standard Bullion','Swissquote'][i]}：${x.reason?.name==='AbortError'?'逾時':x.reason?.message||'失敗'}`]:[]),now=Date.now(),readings=sources.filter(Boolean).map(x=>({...x,ageMinutes:Number(Math.max(0,(now-Date.parse(x.observedAt))/60000).toFixed(2))})),fresh=readings.filter(x=>x.ageMinutes<=60),pairs=[];
+   for(let i=0;i<fresh.length;i++)for(let j=i+1;j<fresh.length;j++){const a=fresh[i],b=fresh[j];if(a.sourceFamily===b.sourceFamily)continue;const timeGapMinutes=Math.abs(Date.parse(a.observedAt)-Date.parse(b.observedAt))/60000,differencePercent=Math.abs(a.value-b.value)/((a.value+b.value)/2)*100;if(timeGapMinutes<=30&&differencePercent<=1)pairs.push({a,b,timeGapMinutes,differencePercent});}
+   pairs.sort((a,b)=>a.differencePercent-b.differencePercent||a.timeGapMinutes-b.timeGapMinutes);
+   const winning=pairs[0]||null,chosen=winning?.a||readings[0],passed=Boolean(winning),verification={state:passed?'passed':readings.length>=2?'no_majority':readings.length?'insufficient_sources':'failed',passed,requiredVotes:2,channelsAttempted:3,channelsAvailable:fresh.length,rule:'三個不同來源通道；同為 USD/金衡盎司；報價各自 ≤60 分鐘；兩來源時間差 ≤30 分鐘、價差 ≤1%；至少兩個不同來源家族一致',readings,errors,tolerancePercent:1,winningPair:winning?{sourceIds:[winning.a.sourceId,winning.b.sourceId],timeGapMinutes:Number(winning.timeGapMinutes.toFixed(2)),differencePercent:Number(winning.differencePercent.toFixed(4))}:null,differencePercent:winning?Number(winning.differencePercent.toFixed(4)):null,timeGapMinutes:winning?Number(winning.timeGapMinutes.toFixed(2)):null};
+@@ -1595,7 +1595,7 @@ async function loadPreciousMetal(symbol,name) {
+ const loadGold=()=>loadPreciousMetal('XAU','黃金現貨參考價（XAU/USD）');
+ const loadSilver=()=>loadPreciousMetal('XAG','白銀現貨參考價（XAG/USD）');
+ function buildGoldSilverRatio(gold,silver) {
+-  const row={id:'XAU_XAG',name:'黃金／白銀比（XAU/XAG）',group:'曲線／放大器',unit:'倍',value:null,date:null,observedAt:null,status:'missing',provider:'Gold API + Standard Bullion + GoldPriceZone/MetalFlow｜三來源 2/3 核實後 XAU/USD ÷ XAG/USD',source:'https://gold-api.com/assets/',historyObservations:0,trendValidationState:'sample_insufficient'};
++  const row={id:'XAU_XAG',name:'黃金／白銀比（XAU/XAG）',group:'曲線／放大器',unit:'倍',value:null,date:null,observedAt:null,status:'missing',provider:'Gold API + Standard Bullion + Swissquote｜三來源 2/3 核實後 XAU/USD ÷ XAG/USD',source:'https://gold-api.com/assets/',historyObservations:0,trendValidationState:'sample_insufficient'};
+   const goldAt=Date.parse(gold?.observedAt||''),silverAt=Date.parse(silver?.observedAt||''),hasValues=Number.isFinite(goldAt)&&Number.isFinite(silverAt)&&Math.abs(goldAt-silverAt)<=30*60000&&Number(gold.value)>0&&Number(silver.value)>0;
+   if(!hasValues)return {...row,date:gold?.date||silver?.date||null,goldVerification:gold?.sourceVerification||null,silverVerification:silver?.sourceVerification||null,sourceVerification:{passed:false,rule:'須同時有 XAU/USD、XAG/USD 有效值，報價時間差 ≤30 分鐘，且金銀各自至少兩個來源一致'},reason:`金價或銀價缺值，或報價時間相差超過 30 分鐘；${gold?.reason||silver?.reason||'等待同時點報價'}`,detail:'XAU/XAG 無法計算；不以不同日期或單一缺失值替代。'};
+   const observedAt=new Date(Math.max(goldAt,silverAt)).toISOString(),date=observedAt.slice(0,10),value=Number(gold.value)/Number(silver.value);
+@@ -1875,7 +1875,7 @@ async function loadTaiwanDashboard(env={}) {
+     } else creditTradeReason='證交所信用交易摘要日期或成交值欄位校驗不符';
+   } else creditTradeReason=summaryResult.reason?.name==='AbortError'?'證交所信用交易摘要逾時':String(summaryResult.reason?.message||creditTradeReason);
+   const stale=age(creditDate)>5;
+-  const make=(id,name,unit,value,delta,detail,source=creditSource,provider='臺灣證券交易所｜MI_MARGN 市場信用彙總')=>({id,name,group:'台股市場',unit,value,date:creditDate,delta,percent:delta!=null&&value-delta!==0?delta/(value-delta)*100:null,previousDate:creditDate,changeLabel:'較前日餘額',status:stale?'stale':'ok',reason:stale?'資料較舊，暫不納入判讀':null,provider,source,detail});
++  const make=(id,name,unit,value,delta,detail,source=creditSource,provider='臺灣證券交易所｜MI_MARGN 市場信用彙總')=>({id,name,group:'台股市場',unit,value,date:creditDate,capturedAt:new Date().toISOString(),capturedAtBasis:'capturedAt',delta,percent:delta!=null&&value-delta!==0?delta/(value-delta)*100:null,previousDate:creditDate,changeLabel:'較前日餘額',status:stale?'stale':'ok',reason:stale?'資料較舊，暫不納入判讀':null,provider,source,detail});
+   const [muPrev,muNow]=credit.marginUnits?[credit.marginUnits[3],credit.marginUnits[4]]:[NaN,NaN], [suPrev,suNow]=credit.shortUnits?[credit.shortUnits[3],credit.shortUnits[4]]:[NaN,NaN], [maPrev,maNow]=credit.marginAmount?[credit.marginAmount[3],credit.marginAmount[4]]:[NaN,NaN];
+   const marginValue=credit.marginBalance??(Number.isFinite(maNow)?maNow/1e5:null),marginDelta=credit.marginChange??(Number.isFinite(maNow)&&Number.isFinite(maPrev)?(maNow-maPrev)/1e5:null),shortValue=credit.shortBalance??(Number.isFinite(suNow)?suNow:null);
+   const unavailable=(id,name,unit,source,reason,provider='臺灣證券交易所｜MI_MARGN 市場信用彙總')=>({id,name,group:'台股市場',unit,value:null,date:creditDate,delta:null,status:'missing',provider,source,reason});

@@ -1,9 +1,9 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-10-29 15:30 台北（Claude）
+更新：2026-10-29 16:10 台北（Claude）
 
-## ★ 本輪工作（10/29 15:30 更新；只讀這一段就夠，下方各節是細節備查）
-**已授權**：擁有者 10/29 06:23「好」＝網站 v246（美元卡畫面）；14:41「收起來好了」＝網站 v247（Gate 卡只顯示一句結論）。**v246、v247 依序套用、只部署一次**（v245 留回滾）。
+## ★ 本輪工作（10/29 16:10 更新；只讀這一段就夠，下方各節是細節備查）
+**已授權**：擁有者 10/29 06:23「好」＝網站 v246（美元卡畫面）；14:41「收起來好了」＝網站 v247（Gate 卡只顯示一句結論）；15:35「好」＝網站 v248（來源修正）。**v246、v247、v248 依序套用、只部署一次**（v245 留回滾）。部署後 `dist/index.html` SHA-256 應為 `878292cd516b7c424757bc8af8db69f122a0a3f70a66e2bdd301ecb5063bc5ce`（取代 1、1b 寫的中間值）。
 **已完成，不用再做**：v245 已上線（你的 hotfix7.md，HTML `7a5fabb1…`）；v234 信用 ①③ 通過；② 的 27 仟元差是證交所自己修正了 10/27 的融資餘額（10/28 報表前日餘額 623,386,833），網站 10/28 數字和官方一致，不用再查；手機畫面你那邊不能設定視窗大小，**不用再試**（由擁有者用手機看）。
 
 1. **網站 v246**：你上次讀到的是 06:00 版交接，還沒套 v246。`handoff/patches/v246-dollar-channel-20261029.patch`，SHA-256 `84372778256934bced08321e63cb730ff9c9bc9095a35b93b22967a88741bb5a`，基線＝v245（就是現在正式站）→ `git apply` → `node build.mjs` → `TZ=UTC npm test`（exit 0）→ 部署。部署後 `dist/index.html` SHA-256 應為 `7c12dd6dd462d38ec8a245855e1e31b6b3128350afbb0d5a3a8c3caacda0de35`。
@@ -13,11 +13,18 @@
    - 內容（就是你上次報的「去重」）：每個 Gate 卡只顯示一句結論（例如 Gate 6「財報品質有警訊：營業現金流為負…（數字見財報品質卡）」）；含數字的判讀說明與替代規則收進「完整判讀說明（含數字）」，點開才看。進場條件的財報警示、退避評級的主情境說明不再重抄 CFO／淨利倍數與 Base 情境價；三問技術題不再重抄收盤價（改寫收盤在 60 日線上／下，60 日線數值保留）。評級、Gate、門檻、風險預算都不變；舊的存檔結果沒有結論句時照舊顯示。
    - 測試：新增 `tests/v247-gate-fold.test.mjs` 與 `dashboard-interactions` 一段（10 個 Gate 都有結論句、結論句不含數字、說明收在 details 裡）；更新 `v237-rules`、`phison-panel`（比較時略過新欄位 headline）、`dashboard-interactions` 原本的情境數字斷言。Claude 在乾淨 v246 重放無衝突、完整 `TZ=UTC npm test` exit 0、HTML 與後台檔都相同；桌面 1200px、手機 390px 截圖無錯誤。
    - 讀回：開 8299，10 個 Gate 卡都只看到一句結論＋「完整判讀說明（含數字）」等摺疊；點開 Gate 6 看得到 ROIC／CFO／FCF 數字；評級、進場、出場、Gate 狀態與部署前相同。
+1c. **網站 v248（接在 v247 後，和 v246、v247 同一次部署）**：`handoff/patches/v248-sources-20261029.patch`，SHA-256 `9c5d2947a760c88ab680230b20077435f046692a7e422757f809f77fcedaa469`，基線＝v247（Claude tag v247-patch-head）。內容（你 10/29 讀回的三項）：
+   - ① 貴金屬第三來源 GoldPriceZone 10/29 起 HTTP 404 → 改 **Swissquote 公開報價**（`forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAU|XAG/USD`，取點差最小一檔的買賣價中間價、伺服器時間戳；GitHub 10/29 實抓 HTTP 200）。三來源 2/3 規則不變。
+   - ② 信用七欄：延後抓取時也列出 `capturedAt`（與依據 `capturedAtBasis`）；晚上直接抓取也標 `capturedAt`；巡檢摘要逐列保存 `verifiedAt`／`capturedAt`／`captureDeferred`，可以和直接讀回逐欄比。
+   - ③ 新股 6898 程曦資訊、6938 藍新資訊：TPEx 名冊上櫃日期 2026-10-23，但名冊 10/28 才收錄，所以 10/23、10/27 行情沒收進來（只有 1/21）。程式現在會列出缺的日期（`missingDates`）與補抓方法；規則不放寬。
+   - 測試：新增 `tests/v248-sources.test.mjs` 3 項（含 Swissquote 實抓格式 fixture；在 v247 上全部失敗、套用後全過）；`macro-market-state` 的第三來源替身改 Swissquote。Claude 在乾淨 v247 重放無衝突、完整 `TZ=UTC npm test` exit 0、HTML 與後台檔都相同。
+   - **部署後一次性補抓（③ 需要）**：官方收集器跑一次 `--market-only --sessions 5` 並照常匯入（會用目前名冊重抓 10/22～10/28，6898、6938 補上 10/23、10/27）。之後**每天跑收集器都改用 `--sessions 5`**（多抓的幾天會覆蓋成同一份官方資料，新股名冊晚收錄時自動補齊）。不改排程時段與開關。
+   - 讀回：金價、銀價三來源可用數與 Swissquote 那筆；信用七欄的 `capturedAt`；6898、6938 觀測數與是否列為新股暖機、Gate 3 產業 RVOL 覆蓋（應不再卡在 37/39）。
 2. **今晚 22:30 巡檢讀回（照你已加的一次性指示）**：5 檔個股摘要與直接讀回是否一致（`refreshedThisRun`／`stepStatus`）；擴展總經、市場／貴金屬、美股指數的 status、usable/total、`refreshState`、`finalizeWaits`；貴金屬三行判讀原文。
 3. **「去重」**：擁有者已決定收起來，就是上面的 v247；部署後照 1b 的讀回核對即可。
 4. **5289**：Gate audit 摘要的 `status`（valuation_divergence）和 `auditStatus`（blocked）是同一次計算的兩個欄位，同欄位比才算。
 
-**報告**：寫 `diagnostics/deploy-20261026/hotfix8.md`（12 行內）：v246＋v247 版本與 HTML SHA、美元卡讀回、Gate 卡讀回；第 2 項（22:30 跑完後補）。
+**報告**：寫 `diagnostics/deploy-20261026/hotfix8.md`（15 行內）：v246＋v247＋v248 版本與 HTML SHA、美元卡讀回、Gate 卡讀回、1c 讀回；第 2 項（22:30 跑完後補）。
 
 <details><summary>上一輪（10/28 04:00～10/29 00:40）的工作區塊，已完成，備查</summary>
 
