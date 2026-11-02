@@ -42,7 +42,7 @@ index 33b920f..d0da42b 100644
    "devDependencies": {
      "drizzle-kit": "0.31.10",
 diff --git a/scripts/collect-official-data.py b/scripts/collect-official-data.py
-index 31ccd38..1841ead 100644
+index 31ccd38..9f9490b 100644
 --- a/scripts/collect-official-data.py
 +++ b/scripts/collect-official-data.py
 @@ -10,6 +10,8 @@ p.add_argument('--market-only', action='store_true')
@@ -54,7 +54,25 @@ index 31ccd38..1841ead 100644
  args = p.parse_args()
  root = pathlib.Path(args.output); root.mkdir(parents=True, exist_ok=True)
  rawdir = root / 'raw'; rawdir.mkdir(exist_ok=True)
-@@ -161,10 +163,11 @@ def collect_macro():
+@@ -17,10 +19,15 @@ now = lambda: dt.datetime.now(dt.timezone.utc).isoformat()
+ # 網站匯入用 UTC 日期檢查「不得晚於今天」；收集程式也用 UTC，否則台北凌晨抓到 FRED 提前公布的下一日觀測（如 IORB）會整筆被拒。
+ utc_today = lambda: dt.datetime.now(dt.timezone.utc).date()
+ def fetch(url):
++    # FRED 在 GitHub 雲端主機上擋自訂 User-Agent（2026-11-03 GitHub 實測：只有 Python 預設字串回 200，其他逾時或連線中斷）；
++    # 對 FRED 第一次用 Python 預設字串、第二次用原本字串；其他網站不變。
+     error = None
+-    for _ in range(2):
++    fred = urllib.parse.urlparse(url).hostname == 'fred.stlouisfed.org'
++    for attempt in range(2):
++        headers = {'Accept':'application/json,text/csv'}
++        if not (fred and attempt == 0): headers['User-Agent'] = 'TaiwanStockMaster/1.0'
+         try:
+-            return urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent':'TaiwanStockMaster/1.0','Accept':'application/json,text/csv'}), timeout=25).read().decode('utf-8-sig')
++            return urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=25).read().decode('utf-8-sig')
+         except Exception as exc: error = exc
+     raise error
+ def save(name, value): (root / name).write_text(json.dumps(value, ensure_ascii=False))
+@@ -161,10 +168,11 @@ def collect_macro():
          except Exception as exc: errors.append({'source':key,'error':str(exc)})
      if series: save('series.json', {'schema_version':1,'series':series})
      stats=None
@@ -70,7 +88,7 @@ index 31ccd38..1841ead 100644
      cpi=collect_core_cpi();errors.extend(cpi['errors'])
      status={'checkedAt':now(),'series':[{'id':row['id'],'date':row['history'][-1]['date'],'nextReleaseDate':row.get('releaseVerification',{}).get('nextReleaseDate')} for row in series],'coreCpi':cpi,'marketStatisticsDate':stats and stats['date'],'errors':errors}
      save('macro-collection-status.json',status);print(json.dumps(status,ensure_ascii=False),flush=True)
-@@ -185,7 +188,7 @@ if args.cpi_only:
+@@ -185,7 +193,7 @@ if args.cpi_only:
  if not args.issuer_only and not args.market_only:
      macro_status=collect_macro()
      if args.macro_only:

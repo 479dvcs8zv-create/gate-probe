@@ -1,4 +1,4 @@
-From 23829ec70ab04261699bea8b03a3a2fc7dc4601f Mon Sep 17 00:00:00 2001
+From 64ecde556c20f5f37c3d24260cda10ec6d55d526 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Tue, 3 Nov 2026 03:34:14 +0800
 Subject: [PATCH] Official collector bundle on GitHub for the site's own patrol
@@ -20,12 +20,12 @@ Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
  README.md                                     |   8 +
  scripts/publish_official_import.py            | 146 +++++++++
  scripts/run_official_collector.sh             |  18 ++
- tests/test_official_import.py                 | 120 ++++++++
- .../scripts/collect-official-data.py          | 291 ++++++++++++++++++
+ tests/test_official_import.py                 | 120 +++++++
+ .../scripts/collect-official-data.py          | 296 ++++++++++++++++++
  .../scripts/collect-source-research.mjs       |  27 ++
  vendor/site-collector/worker/official-news.js |  76 +++++
  .../site-collector/worker/source-research.js  | 175 +++++++++++
- 9 files changed, 931 insertions(+)
+ 9 files changed, 936 insertions(+)
  create mode 100644 .github/workflows/official_collector.yml
  create mode 100644 scripts/publish_official_import.py
  create mode 100755 scripts/run_official_collector.sh
@@ -431,10 +431,10 @@ index 0000000..1dd6d24
 +    unittest.main()
 diff --git a/vendor/site-collector/scripts/collect-official-data.py b/vendor/site-collector/scripts/collect-official-data.py
 new file mode 100644
-index 0000000..1841ead
+index 0000000..9f9490b
 --- /dev/null
 +++ b/vendor/site-collector/scripts/collect-official-data.py
-@@ -0,0 +1,291 @@
+@@ -0,0 +1,296 @@
 +"""Fetch dated official observations and quotes. Credentials are never needed here."""
 +import argparse, concurrent.futures, csv, datetime as dt, io, json, pathlib, re, urllib.parse, urllib.request, html, time
 +
@@ -456,10 +456,15 @@ index 0000000..1841ead
 +# 網站匯入用 UTC 日期檢查「不得晚於今天」；收集程式也用 UTC，否則台北凌晨抓到 FRED 提前公布的下一日觀測（如 IORB）會整筆被拒。
 +utc_today = lambda: dt.datetime.now(dt.timezone.utc).date()
 +def fetch(url):
++    # FRED 在 GitHub 雲端主機上擋自訂 User-Agent（2026-11-03 GitHub 實測：只有 Python 預設字串回 200，其他逾時或連線中斷）；
++    # 對 FRED 第一次用 Python 預設字串、第二次用原本字串；其他網站不變。
 +    error = None
-+    for _ in range(2):
++    fred = urllib.parse.urlparse(url).hostname == 'fred.stlouisfed.org'
++    for attempt in range(2):
++        headers = {'Accept':'application/json,text/csv'}
++        if not (fred and attempt == 0): headers['User-Agent'] = 'TaiwanStockMaster/1.0'
 +        try:
-+            return urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent':'TaiwanStockMaster/1.0','Accept':'application/json,text/csv'}), timeout=25).read().decode('utf-8-sig')
++            return urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=25).read().decode('utf-8-sig')
 +        except Exception as exc: error = exc
 +    raise error
 +def save(name, value): (root / name).write_text(json.dumps(value, ensure_ascii=False))
