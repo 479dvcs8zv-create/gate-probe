@@ -8,8 +8,11 @@ on:
         default: '5'
       statistics:
         default: 'auto'
+      keep:
+        description: 'true = 把套件（官方公開資料）存進 gate-probe results/official-import-dryrun/ 供 Claude 用網站驗證程式離線核對'
+        default: 'false'
 permissions:
-  contents: read
+  contents: write
 jobs:
   dryrun:
     runs-on: ubuntu-latest
@@ -45,3 +48,14 @@ jobs:
           m="$RUNNER_TEMP/official/bundle/manifest.json"
           python -c "import json,sys;m=json.load(open(sys.argv[1]));print('BUNDLE',m['generatedAt'],m['window']);[print('PART',p['kind'],p['name'],p['bytes']) for p in m['parts']];print('ERRORS',len(m['errors']));[print('ERR',e['source'],'|',e['error'][:300]) for e in m['errors']]" "$m"
           du -sh "$RUNNER_TEMP/official/bundle"
+      - name: Keep bundle for offline validation
+        if: ${{ inputs.keep == 'true' }}
+        working-directory: probe
+        run: |
+          rm -rf results/official-import-dryrun && mkdir -p results/official-import-dryrun
+          cp "$RUNNER_TEMP/official/bundle/"* results/official-import-dryrun/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/official-import-dryrun
+          git commit -qm "official-import dry-run bundle ${GITHUB_RUN_ID}"
+          for n in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
