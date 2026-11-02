@@ -1,0 +1,1726 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>
+	Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2024
+</title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+<!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <![endif]-->
+
+<meta name="google-site-verification" content="21tyd2NTsebvto7W56gttKaElQtkak0Ld32xGvr_COs" /><meta name="msvalidate.01" content="43C334F81BEB9DE14F872D6C91B4FC29" /><meta name="y_key" content="63e01d3704030089" /><meta property="fb:pages" content="1450892295227696" /><meta name="theme-color" content="#24778c" /><meta name="apple-itunes-app" content="app-id=917482225" /><meta name="robots" content="max-image-preview:large" /><link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.marketbeat.com/Sitemap.ashx" /><link rel="alternate" type="application/rss+xml" title="MarketBeat Headlines RSS" href="https://www.marketbeat.com/rss.ashx?type=headlines" />
+
+<link rel="shortcut icon" href="/images/2favicon.png" /><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon-180x180.png" /><link rel="sitemap" href="https://www.marketbeat.com/Sitemap.ashx" />
+
+<link rel="preload" href="/Style/fonts/Prata.woff2?2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/Style/fonts/Yantramanav-400.woff2?2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/Style/fonts/Yantramanav-900.woff2?2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/Style/fonts/Yantramanav-700.woff2?2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/Style/fonts/Oswald.woff2?2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/Style/icon-font/mb-icons.ttf?20230405" as="font" type="font/ttf" crossorigin /><link rel="stylesheet" href="/Scripts/libraries/bootstrap.min.css"><link href="/Style/allstyles9.css?v=202301129" rel="stylesheet" />
+
+<!--[if lt IE 9]>
+        <link rel="stylesheet" href="/Style/olderbrowsers/css/bootstrap.min.css" media="all" />
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!--[if IE]>
+    <style>
+        #left-side-menu.left-showing, #right-side-menu.right-showing {
+             z-index: 30;
+         color: white;
+        }
+    </style>
+    <![endif]-->
+<!--[if lt IE 9]>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <![endif]-->
+<!--[if (gte IE 9) | (!IE)]><!-->
+<script defer src="/Scripts/libraries/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<link rel="manifest" href="/manifest.json" /><link rel="preconnect" href="https://cdn.onesignal.com" />
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
+<script src="/scripts/modal/mb-modernpopup.js?v=REBECCAISECLIPSING" type="text/javascript"></script>
+<link rel="preconnect" href="https://www.google-analytics.com/" /><link rel="preconnect" href="https://www.googletagmanager.com/" />
+<script>
+
+       var OneSignalAuthCode = '88nnd4crj7';
+
+       function registerUserChange(action) {
+           OneSignal.getUserId(function (userId) {
+               OneSignalIdString = userId;
+               var Domain = 'marketbeat.com';
+               var url = "https://www.marketbeat.com/scripts/OneSignalTracking.ashx?OneSignalID=" + OneSignalIdString + "&domain=" + Domain + "&action=" + action;
+               var xhr = new XMLHttpRequest();
+               xhr.open('GET', url);
+               xhr.onload = function () {
+                   if (xhr.status !== 200) {
+                       console.log('GET failed.  Returned status of ' + xhr.status);
+                   }
+                   else {
+                       console.log('GET succeeded (' + url + ').  Returned status of ' + xhr.status);
+                   }
+               };
+               xhr.send();
+           });
+       }
+
+       var OneSignal = OneSignal || [];
+       OneSignal.push(
+           function () {
+               OneSignal.init({
+                   appId: "92d0557c-79b3-4742-9ab4-9155a42d6a49",
+                   safari_web_id: 'web.onesignal.auto.24c5a223-602c-4339-a230-554aefc554b5',
+                   autoRegister: false,
+                   autoResubscribe: true,
+                   notifyButton: {
+                       enable: false
+                   },
+                   welcomeNotification: {
+                       "title": "Join Wall Street's Brightest Minds.",
+                       "message": "Receive research in your inbox from top analysts, before the market opens. Click here to learn how.",
+                       "url": "https://www.marketbeat.com/subscribe/all-access/?ReferralType=OneSignalThankYou"
+                   },
+               });
+               OneSignal.once('subscriptionChange', function (isSubscribed) {
+                   if (isSubscribed) {
+                       registerUserChange("subscribe");
+                   }
+                   else {
+                       registerUserChange("unsubscribe");
+                   }
+               });
+               if ((navigator.userAgent.toLowerCase().indexOf('firefox') > -1) || ((navigator.userAgent.toLowerCase().indexOf('safari') > -1) && (!(navigator.userAgent.toLowerCase().indexOf('chrome') > -1)))) {
+                   OneSignal.showSlidedownPrompt();
+               }
+               else if (navigator.userAgent.toLowerCase().indexOf(' edg') > -1)
+               {
+                   OneSignal.showSlidedownPrompt();
+               }
+               else {
+                   OneSignal.showNativePrompt();
+               }
+           });
+
+
+
+   </script>
+<script type="text/javascript">OneSignal.push(function () {OneSignal.getUserId(function (userId) {$.get("/scripts/OneSignalTracking.ashx?OneSignalNLI=" + userId);});});</script>
+<link rel="canonical" href="https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" />
+<meta name="description" content="When is Taiwan Semiconductor Manufacturing's next earnings announcement? View the latest TSM earnings date, analysts forecasts, earnings history, and conference call transcripts." /><meta name="keywords" content="NYSE:TSM,NYSE TSM,TSM,Taiwan Semiconductor Manufacturing earnings estimates,Taiwan Semiconductor Manufacturing earnings date, earnings estimates, earnings history, analyst estimates, consensus estimates, earnings call transcript, earnings date" /><meta name="revised" content="2023-12-09" /><meta name="last-modified" content="2023-12-09" /><meta name="twitter:site" content="@MarketBeatCom"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@MarketBeatCom"><meta name="twitter:title" content="Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2024 $TSM"><meta name="twitter:description" content="When is Taiwan Semiconductor Manufacturing's next earnings announcement? View the latest TSM earnings date, analysts forecasts, earnings history, and conference call transcripts."><meta name="twitter:image" content="https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2024" />
+<meta property="og:url" content="https://www.marketbeat.com/stocks/NYSE/TSM/earnings/">
+<meta property="og:description" content="When is Taiwan Semiconductor Manufacturing's next earnings announcement? View the latest TSM earnings date, analysts forecasts, earnings history, and conference call transcripts.">
+<meta property="og:image" content="https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229">
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="231" />
+
+<script type="application/ld+json"> { "@context":"https://schema.org", "@type":"WebPage", "name":"Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2024", "description":"When is Taiwan Semiconductor Manufacturing's next earnings announcement? View the latest TSM earnings date, analysts forecasts, earnings history, and conference call transcripts.", "keywords":"Taiwan Semiconductor Manufacturing, NYSE:TSM, NYSE, TSM, TSM Quote, TSM Earnings, TSM Ratings, TSM Dividend, TSM Insider Trades, TSM Headlines", "inLanguage":"en-US", "dateModified":"12/9/2023", "author":"MarketBeat Staff", "url":"https://www.marketbeat.com/stocks/NYSE/TSM/earnings/", "publisher": {"@context": "https://www.schema.org", "@type": "Organization", "name": "MarketBeat", "url": "https://www.marketbeat.com/", "logo": "https://marketbeat.com/images/marketbeat-logo-gray-blue.png?v=2019", "email": "contact@marketbeat.com", "description": "MarketBeat empowers retail investors to make better trading decisions by providing real-time financial data and objective market research.", "address": { "@type": "PostalAddress", "streetAddress": "345 N Reid Place, Suite 620", "addressLocality": "Sioux Falls", "addressRegion": "SD", "postalCode": "57103", "addressCountry": "United States" }, "contactPoint": { "@type": "ContactPoint", "telephone": "+1-844-978-6257", "email": "contact@marketbeat.com", "contactType": "Customer Support" }, "sameAs":["https://twitter.com/MarketBeatCom","https://www.facebook.com/marketbeatcom/","https://www.stocktwits.com/MarketBeat"], "potentialAction": { "type": "SearchAction", "target": "https://www.marketbeat.com/pages/search.aspx?query={search_term_string}", "query-input": "required name=search_term_string" } }, "image": { "@type":"ImageObject", "url":"https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229", "height": 231, "width": 300 } } </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Corporation","name":"Taiwan Semiconductor Manufacturing","legalName":"Taiwan Semiconductor Manufacturing Company Limited","logo":"https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229","image":"https://www.marketbeat.com/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229","tickerSymbol":"TSM","url":"https://www.marketbeat.com/stocks/NYSE/TSM/"}</script>
+<meta name="robots" content="index,follow" />
+
+<style type="text/css">
+       @media (min-width: 576px){
+            .stat-summary-wrapper.earnings-wrapper{
+                flex: 0 0 calc(33% - 30px);
+                max-width: calc(33% - 30px);
+            }
+        }
+        @media (min-width: 768px){
+            .stat-summary-wrapper.earnings-wrapper{
+                flex: 0 0 calc(33% - 30px);
+                max-width: calc(33% - 30px);
+            }
+        }
+        @media (min-width: 992px) {
+            .stat-summary-wrapper.earnings-wrapper{
+                flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
+            } 
+        }
+        .dv-chart .info-slider-note-text-light {
+            fill: #75a0bb;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+         .dv-chart .info-slider-text-light {
+            fill: #75a0bb;
+            font-weight:700;
+        }
+        .news-tabs.nav-tabs .nav-link{
+            font-size:14px;
+            padding-left:12px;
+            padding-right: 12px;
+        }
+        .tab-pane .tab-content {
+            margin: 0 auto 12px!important;
+        }
+        #earnings-estimates th{
+            background: #75411c;
+            background: linear-gradient(to bottom,rgba(117,65,28,1) 0%,rgba(168,101,39,1) 100%);
+            border-bottom: solid 1px #75411c;
+        }
+        @media (max-width: 768px) {
+            .subscribe-row{margin: 0 -15px;}
+        }
+    </style>
+<style>
+        /* these things just go on this page */
+        .nav-tabs .nav-link {
+            cursor: pointer;
+            pointer-events: auto;
+            padding-right: 8px;
+            padding-left: 8px;
+        }
+
+        .PageTitleHOne {
+            margin-top: 0.8em;
+        }
+
+        .page-wrap {
+            overflow: visible; /* allows position:sticky to work. */
+        }
+
+        .below-h1-text-link-ad {
+            line-height: 1.4;
+        }
+
+
+        .performance-data {
+            padding: 0 5%;
+        }
+
+        .performance-time {
+            font-size: 0.6em;
+            font-weight: 400;
+            line-height: 1em;
+        }
+
+        .performance-percent {
+            font-size: 180%;
+        }
+
+        .performance-chart {
+            height: 0.5em;
+        }
+
+        .performance-bar {
+            top: 0;
+            right: 50%;
+        }
+
+            .performance-bar.positive-bar {
+                right: auto;
+                left: 50%;
+            }
+
+            .performance-bar.fill-bar {
+                animation-name: performance-bar;
+                animation-timing-function: ease-in;
+                animation-fill-mode: backwards;
+            }
+
+        performance-bar.positive-bar.fill-bar {
+            animation-fill-mode: forwards;
+        }
+
+        .performance-center {
+            width: 2px;
+            height: 0.65em;
+            left: 50%;
+            top: -0.15em;
+            background: #000;
+        }
+
+        .scroll-table-wrapper-wrapper {
+            animation: fadein 1.5s;
+            -moz-animation: fadein 1.5s; /* Firefox */
+            -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+            -o-animation: fadein 1.5s;
+        }
+
+        .answer a .icon {
+            margin-left: -0.2em !important;
+        }
+
+        .clear-button {
+            font-size: 1em;
+            text-transform: unset;
+            padding: 0;
+            letter-spacing: 0;
+            background: none;
+            border: 0;
+            text-align: unset;
+        }
+
+     
+
+        [class*='gradient-'].nav-tabs .nav-link:hover, [class*='gradient-'].nav-tabs .nav-link:focus {
+            background-image: linear-gradient(to right,rgba(255,255,255,0) 10px,#C7D5D9 10px,#C7D5D9 53%,rgba(255,255,255,0) 0%);
+            color: #C7D5D9;
+            background-size: 100% 4px;
+        }
+
+        [class*='gradient-'].nav-tabs .nav-item.show .nav-link, [class*='gradient-'].nav-tabs .nav-link.active {
+            background-image: linear-gradient(to right,rgba(255,255,255,0) 10px,#ffffff 10px,#ffffff 53%,rgba(255,255,255,0) 0%);
+            color: #FFFFFF;
+            background-size: 100% 4px;
+        }
+
+        [class*='gradient-'].nav-tabs .nav-link {
+            color: #C7D5D9;
+        }
+
+        .tab-content {
+            padding: 22px 15px;
+            overflow:hidden;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes fadein { /* Firefox */
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes fadein { /* Opera */
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes performance-bar {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes performance-bar {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes performance-bar {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes performance-bar {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes performance-bar {
+            from {
+                width: 0;
+            }
+        }
+
+        .col-price-info-sm, .col-price-info-lg {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        @media (min-width:1390px) {
+            .col-price-info-sm {
+                -ms-flex: 0 0 36%;
+                flex: 0 0 36%;
+                max-width: 36%;
+                padding-right: 0;
+            }
+
+            .col-price-info-lg {
+                -ms-flex: 0 0 64%;
+                flex: 0 0 64%;
+                max-width: 64%;
+                padding-left: 0;
+            }
+        }
+        @media (max-width:575px){            
+               
+            .price-info .price-data{
+                padding: 6px 2px 8px;
+                min-height:auto;
+            }
+            .stock-badge-wrapper{
+                padding-top: 0!important;
+            }        
+        }
+            
+    </style>
+<script>var chartPrefix = 'NYSE'; var chartSymbol = 'TSM'; var chartPrefixSymbol = 'NYSE:TSM'; var chartTitle = 'Taiwan Semiconductor Manufacturing'; var chartImage = '/logos/taiwan-semiconductor-manufacturing-company-limited-logo.png?v=20221020142229'</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DXW4L2BDZK"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-DXW4L2BDZK');
+</script>
+</head>
+<body>
+<a class="skip-link gradient-purple c-white" href="#main">Skip to main content</a>
+<div id="g_id_onload" data-client_id="178542853386-sfq8ta0q9in407qnaud00o1o7a6thlsi.apps.googleusercontent.com" data-login_uri="https://www.marketbeat.com/users/OneTapVerifyRedirect.aspx" data-prompt_parent_id="g_id_onload" data-auto_select="true" data-cancel_on_tap_outside="true" data-state_cookie_domain="marketbeat.com" style="position:fixed; z-index: 1501; right:7%; top:33px"></div>
+<div class="page-wrap">
+<div id="scrollingIndexes" class="d-print-none" aria-label="current prices and price changes for indexes and stocks" style="max-height: 42px;width:100%;overflow:hidden;">
+<div style="white-space: nowrap;" class="position-relative index-mover bg-dark-blue c-white"><div class="index-inner-1"><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/types-of-stock/sp-500-stocks/">S&amp;P 500</span> &nbsp;</span> <span class="index-price">4,604.37</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/types-of-stock/dow-30-stocks/">DOW</span> &nbsp;</span> <span class="index-price">36,247.87</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/stocks/NASDAQ/QQQ/">QQQ</span> &nbsp;</span> <span class="index-price">392.17</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-purple"><span class="go-to-data-href pointer bold" data-href="/articles/dozens-of-animals-taken-from-virginia-roadside-zoo-as-part-of-investigation-2023-12-09/">Dozens of animals taken from Virginia roadside zoo as part of investigation<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-blue"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-gold"><span class="go-to-data-href pointer bold" data-href="/articles/military-themed-brewery-wants-to-open-in-a-big-navy-town-an-ex-seal-is-getting-in-the-way-2023-12-09/">Military-themed brewery wants to open in a big Navy town. An ex-SEAL is getting in the way<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-green"><span class="go-to-data-href pointer bold" data-href="/articles/elon-musk-restores-x-account-of-conspiracy-theorist-alex-jones-2023-12-10/">Elon Musk restores X account of conspiracy theorist Alex Jones<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-purple"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-red"><span class="go-to-data-href pointer bold" data-href="/articles/cows-in-rotterdam-harbor-seedlings-on-rafts-in-india-are-floating-farms-the-future-2023-12-09/">Cows in Rotterdam harbor, seedlings on rafts in India; are floating farms the future?<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-blue"><span class="go-to-data-href pointer bold" data-href="/articles/agriculture-gets-its-day-at-cop28-but-experts-see-big-barriers-to-cutting-emissions-2023-12-09/">Agriculture gets its day at COP28, but experts see big barriers to cutting emissions<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-purple"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-blue"><span class="go-to-data-href pointer bold" data-href="/articles/consumer-product-agency-issues-warning-on-small-magnetic-balls-linked-to-deaths-2023-12-09/">Consumer product agency issues warning on small magnetic balls linked to deaths<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-gold"><span class="go-to-data-href pointer bold" data-href="/articles/at-un-climate-talks-cameras-are-everywhere-many-belong-to-emirati-company-with-a-murky-history-2023-12-10/">At UN climate talks, cameras are everywhere. Many belong to Emirati company with a murky history<span class="mb-icon icon-arrow"></span></span></div></div><div class="index-inner-2"><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/types-of-stock/sp-500-stocks/">S&amp;P 500</span> &nbsp;</span> <span class="index-price">4,604.37</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/types-of-stock/dow-30-stocks/">DOW</span> &nbsp;</span> <span class="index-price">36,247.87</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/stocks/NASDAQ/QQQ/">QQQ</span> &nbsp;</span> <span class="index-price">392.17</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-purple"><span class="go-to-data-href pointer bold" data-href="/articles/dozens-of-animals-taken-from-virginia-roadside-zoo-as-part-of-investigation-2023-12-09/">Dozens of animals taken from Virginia roadside zoo as part of investigation<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-blue"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-gold"><span class="go-to-data-href pointer bold" data-href="/articles/military-themed-brewery-wants-to-open-in-a-big-navy-town-an-ex-seal-is-getting-in-the-way-2023-12-09/">Military-themed brewery wants to open in a big Navy town. An ex-SEAL is getting in the way<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-green"><span class="go-to-data-href pointer bold" data-href="/articles/elon-musk-restores-x-account-of-conspiracy-theorist-alex-jones-2023-12-10/">Elon Musk restores X account of conspiracy theorist Alex Jones<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-purple"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-red"><span class="go-to-data-href pointer bold" data-href="/articles/cows-in-rotterdam-harbor-seedlings-on-rafts-in-india-are-floating-farms-the-future-2023-12-09/">Cows in Rotterdam harbor, seedlings on rafts in India; are floating farms the future?<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-blue"><span class="go-to-data-href pointer bold" data-href="/articles/agriculture-gets-its-day-at-cop28-but-experts-see-big-barriers-to-cutting-emissions-2023-12-09/">Agriculture gets its day at COP28, but experts see big barriers to cutting emissions<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-purple"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-blue"><span class="go-to-data-href pointer bold" data-href="/articles/consumer-product-agency-issues-warning-on-small-magnetic-balls-linked-to-deaths-2023-12-09/">Consumer product agency issues warning on small magnetic balls linked to deaths<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-gold"><span class="go-to-data-href pointer bold" data-href="/articles/at-un-climate-talks-cameras-are-everywhere-many-belong-to-emirati-company-with-a-murky-history-2023-12-10/">At UN climate talks, cameras are everywhere. Many belong to Emirati company with a murky history<span class="mb-icon icon-arrow"></span></span></div></div><div class="index-inner-3"><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/types-of-stock/sp-500-stocks/">S&amp;P 500</span> &nbsp;</span> <span class="index-price">4,604.37</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/types-of-stock/dow-30-stocks/">DOW</span> &nbsp;</span> <span class="index-price">36,247.87</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/stocks/NASDAQ/QQQ/">QQQ</span> &nbsp;</span> <span class="index-price">392.17</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-purple"><span class="go-to-data-href pointer bold" data-href="/articles/dozens-of-animals-taken-from-virginia-roadside-zoo-as-part-of-investigation-2023-12-09/">Dozens of animals taken from Virginia roadside zoo as part of investigation<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-blue"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-gold"><span class="go-to-data-href pointer bold" data-href="/articles/military-themed-brewery-wants-to-open-in-a-big-navy-town-an-ex-seal-is-getting-in-the-way-2023-12-09/">Military-themed brewery wants to open in a big Navy town. An ex-SEAL is getting in the way<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-green"><span class="go-to-data-href pointer bold" data-href="/articles/elon-musk-restores-x-account-of-conspiracy-theorist-alex-jones-2023-12-10/">Elon Musk restores X account of conspiracy theorist Alex Jones<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-purple"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-red"><span class="go-to-data-href pointer bold" data-href="/articles/cows-in-rotterdam-harbor-seedlings-on-rafts-in-india-are-floating-farms-the-future-2023-12-09/">Cows in Rotterdam harbor, seedlings on rafts in India; are floating farms the future?<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-blue"><span class="go-to-data-href pointer bold" data-href="/articles/agriculture-gets-its-day-at-cop28-but-experts-see-big-barriers-to-cutting-emissions-2023-12-09/">Agriculture gets its day at COP28, but experts see big barriers to cutting emissions<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-purple"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-blue"><span class="go-to-data-href pointer bold" data-href="/articles/consumer-product-agency-issues-warning-on-small-magnetic-balls-linked-to-deaths-2023-12-09/">Consumer product agency issues warning on small magnetic balls linked to deaths<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-gold"><span class="go-to-data-href pointer bold" data-href="/articles/at-un-climate-talks-cameras-are-everywhere-many-belong-to-emirati-company-with-a-murky-history-2023-12-10/">At UN climate talks, cameras are everywhere. Many belong to Emirati company with a murky history<span class="mb-icon icon-arrow"></span></span></div></div><div class="index-inner-4"><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/types-of-stock/sp-500-stocks/">S&amp;P 500</span> &nbsp;</span> <span class="index-price">4,604.37</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/types-of-stock/dow-30-stocks/">DOW</span> &nbsp;</span> <span class="index-price">36,247.87</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-green"><span class="index-name"><span class="go-to-data-href pointer bold" data-href="/stocks/NASDAQ/QQQ/">QQQ</span> &nbsp;</span> <span class="index-price">392.17</span><span class="mb-icon icon-arrow point-up"></span></div><div class="header-index gradient-purple"><span class="go-to-data-href pointer bold" data-href="/articles/dozens-of-animals-taken-from-virginia-roadside-zoo-as-part-of-investigation-2023-12-09/">Dozens of animals taken from Virginia roadside zoo as part of investigation<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-blue"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-gold"><span class="go-to-data-href pointer bold" data-href="/articles/military-themed-brewery-wants-to-open-in-a-big-navy-town-an-ex-seal-is-getting-in-the-way-2023-12-09/">Military-themed brewery wants to open in a big Navy town. An ex-SEAL is getting in the way<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-green"><span class="go-to-data-href pointer bold" data-href="/articles/elon-musk-restores-x-account-of-conspiracy-theorist-alex-jones-2023-12-10/">Elon Musk restores X account of conspiracy theorist Alex Jones<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-purple"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-red"><span class="go-to-data-href pointer bold" data-href="/articles/cows-in-rotterdam-harbor-seedlings-on-rafts-in-india-are-floating-farms-the-future-2023-12-09/">Cows in Rotterdam harbor, seedlings on rafts in India; are floating farms the future?<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-blue"><span class="go-to-data-href pointer bold" data-href="/articles/agriculture-gets-its-day-at-cop28-but-experts-see-big-barriers-to-cutting-emissions-2023-12-09/">Agriculture gets its day at COP28, but experts see big barriers to cutting emissions<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-purple"><a target="_blank" rel="nofollow noopener" style="text-decoration:none;font-weight:bold;" href="https://www.marketbeat.com/scripts/redirect.aspx?NativeDisplayAdID=16076&ImpressionID=0&UserID=0&Placement=PlaceOnTopBar&interstitial=1">New CBOE “special perk” helps traders target income every weekend (Ad)<span class="mb-icon icon-arrow"></span></a><script type="text/javascript">document.write('<img style="width:1px;" height="1" width="1" src="https://www.market' + 'beat.com/scripts/NativeDisplayPixel.ashx?NativeDisplayAdID=16076&OfferBankID=0&Placement=PlaceOnTopBar" alt="" />');</script></div><div class="header-index gradient-blue"><span class="go-to-data-href pointer bold" data-href="/articles/consumer-product-agency-issues-warning-on-small-magnetic-balls-linked-to-deaths-2023-12-09/">Consumer product agency issues warning on small magnetic balls linked to deaths<span class="mb-icon icon-arrow"></span></span></div><div class="header-index gradient-gold"><span class="go-to-data-href pointer bold" data-href="/articles/at-un-climate-talks-cameras-are-everywhere-many-belong-to-emirati-company-with-a-murky-history-2023-12-10/">At UN climate talks, cameras are everywhere. Many belong to Emirati company with a murky history<span class="mb-icon icon-arrow"></span></span></div></div></div>
+</div>
+<div id="header-holder" class="mega-not-showing ">
+<div id="mb-header" class="gradient-blue w-100">
+<header id="logobar" role="banner" aria-label="site heading" class="logo-bar container d-flex flex-wrap align-items-sm-center">
+<div class="py-1 header-left align-items-center order-sm-1 pr-2 flex-grow-1 flex-sm-grow-0">
+<div class="d-flex align-items-center">
+<span class="trigger-left menu-button-wrapper"><span class="c-white mb-icon icon-menu-open"></span></span>
+<a title="MarketBeat" href="https://www.marketbeat.com" id="header-logo-link">
+<img class="header-logo" src="/images/master/MarketBeat-logo-r-white.svg?v=2019" alt="MarketBeat home page" width="300" height="76">
+</a>
+</div>
+</div>
+<div id="headeright" class="pl-2 py-1 order-sm-3 text-right header-right">
+
+<a href="https://marketbeat.com/subscribe/all-access/?ReferralType=HeaderButton" class="sbbutton purple-button mr-2" aria-label="Sign Up"><span class="mb-icon icon-pricetoearnings"></span><span class="px-1 d-none d-lg-inline"> Free Trial </span></a><button class="sbbutton green-button login-modal-button" data-target="#pnlLoginCreateModal" data-toggle="modal" aria-label="Login to MarketBeat" onclick="trapFocusInModal('#pnlLoginCreateModal', 'txtLoginOnModalEmail', 'LoginOnModalTab', 'LastLinkOnLoginTab');"><span class="mb-icon icon-menu-login"></span><span class="px-1 d-none d-lg-inline-block"> Log in </span></button>
+</div>
+<div class="pb-1 pt-0 pt-sm-1 px-0 order-sm-2 flex-grow-1 col-12 col-sm-auto">
+<form class="input-group dark-bkg" method="get" action="/pages/search.aspx" role="search" aria-label="Site search">
+<label for="headerSearch" class="sr-only">Search</label>
+<input id="headerSearch" type="text" name="query" class="autocomplete form-control" placeholder="Search for companies, news, or tools" />
+<span id="mainAutocompleteList"></span>
+<span class="input-group-append position-relative">
+<span id="headerSearchLoading" style="width: 20px; height: 20px; position: absolute; left: -1.7em; top: 0.4em; display: none;"><img style="filter: brightness(1.5);" src="/images/loading-gif.gif?v=2" alt loading="lazy" width="20" height="20"></span>
+<button class="gold-button" type="submit" aria-label="Search"><span class="mb-icon icon-menu-search"></span><span class="px-1 d-none d-lg-inline-block"> Find now </span></button>
+</span>
+</form>
+</div>
+</header>
+<div class="main-menu-bar">
+<div class="container">
+<nav id="mega-menu" class="d-none d-lg-block navbar navbar-expand-lg p-0 justify-content-between align-items-center nounderline" role="navigation" aria-label="main menu">
+<ul class="d-flex navbar-nav justify-content-between w-100">
+<li class="has-submenu">
+<a href="/all-access/" id="navResearchTools" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="pr-1 mb-icon icon-nav-researchtools"></span>Research Tools</a>
+<ul class="purple-menu medium-short-list dropdown-menu" aria-labelledby="navResearchTools">
+<li class="mega-only"><a href="/all-access/">All Access Tools</a></li>
+<li class="has-submenu separate-on-side"><a href="/manage/watchlists/"><span class="pr-1 side-only mb-icon icon-nav-my-marketbeat"></span>My MarketBeat</a>
+<ul>
+<li><a class="wl-tab-change" href="/manage/watchlists/#portfolio">My Portfolio</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#performance">My Performance</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#insights">My Insights</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#headlines">My Headlines</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#calendar">My Calendar</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#ratings">My Ratings</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#insidertrades">My Insider Trades</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#earnings">My Earnings</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#secfilings">My SEC Filings</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#social">My Social</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#newsletter">My Newsletter</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#ideas">My Portfolio Ideas</a></li>
+<li><a href="/manage/">My Account</a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/calculators/">Calculators</a>
+<ul>
+<li><a href="/dividends/calculator/">Dividend Calculator</a></li>
+<li><a href="/dividends/yield-calculator/">Dividend Yield Calculator</a></li>
+<li><a href="/calculators/market-cap-calculator/">Market Cap Calculator</a></li>
+<li><a href="/calculators/options-profit-calculator/">Options Profit Calculator</a></li>
+<li><a href="/calculators/stock-average-calculator/">Stock Average Calculator</a></li>
+<li><a href="/stock-splits/calculator/">Stock Split Calculator</a></li>
+<li><a href="/calculators/stock-profit-calculator/">Stock Profit Calculator</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/all-access/">Research Tools</a>
+<ul>
+<li><a href="/compare-stocks/">Compare Stocks</a></li>
+<li><a href="/all-access/live-news/">Live News Feed <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/manage/momentum-alerts/">Momentum Alerts <span class="mb-icon icon-dynamic-ma-lock"></span></a></li>
+<li><a href="/all-access/idea-engine/">Idea Engine <span class="mb-icon icon-dynamic-dp-lock"></span></a></li>
+<li><a href="/stocks/">Stock Lists</a></li>
+<li><a href="/all-access/export-data/">Export Data (CSV) <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/stock-screener/">Stock Screeners</a>
+<ul>
+<li><a href="/stock-screener/">Stock Screener</a></li>
+<li><a href="/all-access/etf-screener/">ETF Screener <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/ratings-screener/">Analyst Ratings Screener <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/saved-ratings-searches/">Saved Ratings Searches <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/dividends/screener/">Dividend Screener</a></li>
+<li><a href="/all-access/earnings-screener/">Earnings Screener <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/insider-trades-screener/">Insider Trades Screener <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/all-access/analyst-rankings/">Top-Rated Analysts</a>
+<ul>
+<li><a href="/all-access/analyst-rankings/">Top-Rated Analysts <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/brokerage-rankings/">Top-Rated Brokerages <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/stocks/trending/">Trending Stocks</a>
+<ul>
+<li><a href="/stocks/trending/">Trending MarketBeat Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/trending/media/">Trending Media Mentions <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/trending/media-sentiment/">High Media Sentiment Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/trending/wallstreetbets/">Trending WallStreetBets Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/all-access/reports/">Premium Reports</a>
+<ul>
+<li><a href="/all-access/reports/">All Reports <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/reports/?report=5g">5G Stocks Report <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/reports/?report=newyear">Best Stocks for 2023 Report <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/reports/?report=ev">EV Stocks Report <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/reports/?report=pot">Pot Stocks Report <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/reports/?report=retirement">Retirement Stocks Report <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/ratings/stock-picks-from-top-rated-analysts/">Stock Picks from Top Analysts <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/tradersguide/">The Trader's Guide to Equities Research <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/market-data/" id="navFinancialCalendars" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="pr-1 mb-icon icon-nav-calendars"></span>Financial Calendars</a>
+<ul class="blue-menu medium-short-list dropdown-menu" aria-labelledby="navFinancialCalendars">
+<li class="mega-only"><a href="/market-data/">Calendars and Market Data</a></li>
+<li class="has-submenu">
+<a href="/ratings/">Analyst Ratings</a>
+<ul>
+<li><a href="/ratings/us/">U.S. Ratings</a></li>
+<li><a href="/ratings/uk/">U.K. Ratings</a></li>
+<li><a href="/ratings/canada/">Canadian Ratings</a></li>
+<li><a href="/ratings/by-issuer/">Stock Ratings by Issuer</a></li>
+<li><a href="/all-access/ratings-screener/">Stock Ratings Screener <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/top-rated/">Top-Rated Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/lowest-rated/">Lowest-Rated Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/analyst-rankings/">Top-Rated Analysts <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/brokerage-rankings/">Top-Rated Brokerages <span class="mb-icon icon-dynamic-dp-lock"></span></a></li>
+<li><a href="/stocks/most-upgraded/">Most-Upgraded Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/most-downgraded/">Most-Downgraded Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/ratings/newsletter/">Free Ratings Newsletter</a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/congress-stock-trades/">Congressional Data</a>
+<ul>
+<li><a href="/congress-stock-trades/">Recent Trades</a></li>
+<li><a href="/congress-stock-trades/most-purchased-stocks/">Most Bought Stocks</a></li>
+<li><a href="/congress-stock-trades/most-sold-stocks/">Most Sold Stocks</a></li>
+<li><a href="/congress-stock-trades/profiles/">Members of Congress</a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/market-data/">Corporate Events</a>
+<ul>
+<li><a href="/stock-buybacks/">Corporate Buybacks</a></li>
+<li><a href="/economic-reports/upcoming/">Economic Reports</a></li>
+<li><a href="/ipos/">Initial Public Offerings (IPOs)</a></li>
+<li><a href="/spos/">Secondary Public Offerings</a></li>
+<li><a href="/ipos/lockup-expirations/">IPO Lockup Expirations</a></li>
+<li><a href="/ipos/quiet-period-expirations/">IPO Quiet Period Expirations</a></li>
+<li><a href="/market-data/sec-filings/">SEC Filings</a></li>
+<li><a href="/stock-splits/">Stock Splits</a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/dividends/">Dividends</a>
+<ul>
+<li><a href="/dividends/announcements/">Today's Announcements</a></li>
+<li><a href="/dividends/ex-dividend-calendar/">Ex-Dividend Calendar</a></li>
+<li><a href="/dividends/increases/">Dividend Increases</a></li>
+<li><a href="/dividends/cuts/">Dividend Cuts</a></li>
+<li><a href="/dividends/kings/">Dividend Kings</a></li>
+<li><a href="/dividends/achievers/">Dividend Achievers</a></li>
+<li><a href="/dividends/aristocrats/">Dividend Aristocrats</a></li>
+<li><a href="/dividends/best-dividend-stocks/">Best Dividend Stocks</a></li>
+<li><a href="/dividends/cheap-dividend-stocks/">Cheap Dividend Stocks</a></li>
+<li><a href="/dividends/high-yield/">High-Yield Dividend Stocks</a></li>
+<li><a href="/dividends/monthly-dividend-stocks/">Monthly Dividend Stocks</a></li>
+<li><a href="/dividends/dividend-capture-stocks/">Dividend Capture Stocks</a></li>
+<li><a href="/dividends/top-rated-dividend-stocks/">Top-Rated Dividend Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/dividends/screener/">Dividend Screener</a></li>
+<li><a href="/dividends/dividend-investing-guide/">Dividend Investing Guide</a></li>
+<li><a href="/dividends/subscribe/">Free Dividend Newsletter</a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/earnings/latest/">Earnings</a>
+<ul>
+<li><a href="/earnings/latest/">Today's Announcements</a></li>
+<li><a href="/earnings/tomorrow/">Tomorrow's Announcements</a></li>
+<li><a href="/earnings/next-week/">Next Week's Announcements</a></li>
+<li><a href="/earnings/conference-calls/">Upcoming Earnings Calls</a></li>
+<li><a href="/earnings/transcripts/">Earnings Call Transcripts</a></li>
+<li><a href="/earnings/beats-and-misses/">Earnings Beats &amp; Misses</a></li>
+<li><a href="/earnings/guidance/">Earnings Guidance</a></li>
+<li><a href="/headlines/earnings/">Earnings News</a></li>
+<li><a href="/all-access/earnings-screener/">Earnings Screener <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/insider-trades/">Insider Trades</a>
+<ul>
+<li><a href="/insider-trades/">Today's Insider Trades</a></li>
+<li><a href="/insider-trades/ceo-share-buys-and-sales/">CEO Purchases/Sales</a></li>
+<li><a href="/insider-trades/cfo-share-buys-and-sales/">CFO Purchases/Sales</a></li>
+<li><a href="/insider-trades/insider-buying-stocks/">Top Insider Buying Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/insider-trades/insider-selling-stocks/">Top Insider Selling Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/insider-trades-screener/">Insider Trades Screener <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/insider-trades/subscribe/">Insider Trades Newsletter</a></li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/stock-market-holidays/">Market Holidays</a>
+<ul>
+<li><a href="/stock-market-holidays/">U.S. Market Holidays</a></li>
+<li><a href="/stock-market-holidays/canada/">Canadian Market Holidays</a></li>
+<li><a href="/stock-market-holidays/uk/">U.K. Market Holidays</a></li>
+<li><a href="/stock-market-holidays/australia/">Australian Market Holidays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/market-data/" id="navMarketData" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="pr-1 mb-icon icon-nav-data"></span>Market Data</a>
+<ul class="green-menu mediumtall-list dropdown-menu" aria-labelledby="navMarketData">
+<li class="mega-only"><a href="/market-data/">Market Data and Calendars</a></li>
+<li><a href="/commodities/">Commodities</a></li>
+<li class="has-submenu"><a href="/cryptocurrencies/">Cryptocurrencies</a>
+<ul>
+<li><a href="/cryptocurrencies/">All Cryptocurrencies</a></li>
+<li><a href="/cryptocurrencies/news/">Cryptocurrency Headlines</a></li>
+<li><a href="/cryptocurrencies/newsletter/">Cryptocurrency Newsletter</a></li>
+<li><a href="/market-data/sector-performance/cryptocurrencies/">Crypto Heatmap</a></li>
+</ul>
+</li>
+<li><a href="/currencies/">Currencies</a></li>
+<li class="has-submenu"><a href="/market-data/biggest-percentage-gainers/">Gainers &amp; Decliners</a>
+<ul>
+<li><a href="/market-data/biggest-percentage-gainers/">Percentage Gainers</a></li>
+<li><a href="/market-data/biggest-percentage-decliners/">Percentage Decliners</a></li>
+<li><a href="/market-data/breakout-stocks/">Breakout Stocks</a></li>
+<li><a href="/market-data/gap-up-stocks/">Gap Up Stocks</a></li>
+<li><a href="/market-data/gap-down-stocks/">Gap Down Stocks</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/market-data/low-pe-stocks/">High &amp; Low PE</a>
+<ul>
+<li><a href="https://www.marketbeat.com/market-data/high-pe-stocks/">High PE Stocks</a></li>
+<li><a href="https://www.marketbeat.com/market-data/low-pe-stocks/">Low PE Stocks</a></li>
+<li><a href="https://www.marketbeat.com/market-data/high-pe-growth-stocks/">High PE Growth Stocks</a></li>
+<li><a href="https://www.marketbeat.com/market-data/low-pe-growth-stocks/">Low PE Growth Stocks</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/market-data/52-week-highs/">Highs &amp; Lows</a>
+<ul>
+<li><a href="/market-data/52-week-highs/">52-Week Highs</a></li>
+<li><a href="/market-data/52-week-lows/">52-Week Lows</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/market-data/high-beta-stocks/">High &amp; Low Beta Stocks</a>
+<ul>
+<li><a href="/market-data/high-beta-stocks/">High Beta Stocks</a></li>
+<li><a href="/market-data/low-beta-stocks/">Low Beta Stocks</a></li>
+<li><a href="/market-data/negative-beta-stocks/">Negative Beta Stocks</a></li>
+</ul>
+</li>
+<li><a href="/market-indexes/">Indices</a>
+<ul>
+<li><a href="/types-of-stock/dow-30-stocks/">DOW 30</a></li>
+<li><a href="/stocks/LON/">FTSE 100</a></li>
+<li><a href="/stocks/NASDAQ/">NASDAQ Composite</a></li>
+<li><a href="/types-of-stock/sp-500-stocks/">S&P 500</a></li>
+<li><a href="/stocks/TSE/">S&P TSX</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/market-data/low-priced-stocks/">Low Priced Stocks</a>
+<ul>
+<li><a href="/market-data/low-priced-stocks/stocks-under-50-cents/">Stocks Under $0.50</a></li>
+<li><a href="/market-data/low-priced-stocks/stocks-under-1/">Stocks Under $1</a></li>
+<li><a href="/market-data/low-priced-stocks/stocks-under-2/">Stocks Under $2</a></li>
+<li><a href="/market-data/low-priced-stocks/stocks-under-5/">Stocks Under $5</a></li>
+<li><a href="/market-data/low-priced-stocks/stocks-under-10/">Stocks Under $10</a></li>
+<li><a href="/market-data/low-priced-stocks/stocks-under-20/">Stocks Under $20</a></li>
+<li><a href="/market-data/low-priced-stocks/stocks-under-30/">Stocks Under $30</a></li>
+<li><a href="/market-data/low-priced-stocks/stocks-under-50/">Stocks Under $50</a></li>
+<li><a href="/market-data/low-priced-stocks/stocks-on-sale/">Stocks On Sale</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/market-data/most-active-stocks/">Most Active</a>
+<ul>
+<li><a href="/market-data/most-active-stocks/">Most Active Stocks</a></li>
+<li><a href="/market-data/most-volatile-stocks/">Most Volatile Stocks</a></li>
+<li><a href="/market-data/unusual-volume-stocks/">Unusual Trading Volume</a></li>
+<li><a href="/market-data/trading-halts/">Trading Halts</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/market-data/unusual-call-options-volume/">Options</a>
+<ul>
+<li><a href="/market-data/unusual-call-options-volume/">Unusual Call Volume</a></li>
+<li><a href="/market-data/unusual-put-options-volume/">Unusual Put Volume</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/types-of-stock/penny-stocks/">Penny Stocks</a>
+<ul>
+<li><a href="/market-data/most-active-penny-stocks/">Most Active Penny Stocks</a></li>
+<li><a href="/types-of-stock/penny-stocks/most-popular/">Most Popular Penny Stocks</a></li>
+<li><a href="/types-of-stock/penny-stocks/top-penny-stocks-today/">Top Penny Stocks Today</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/market-data/sector-performance/">Sector Performance</a>
+<ul>
+<li><a href="/market-data/sector-performance/">U.S. Sector Performance</a></li>
+<li><a href="/market-data/sector-performance/canada/">Canadian Sector Performance</a></li>
+<li><a href="/market-data/sector-performance/uk/">U.K. Sector Performance</a></li>
+<li><a href="/market-data/sector-performance/cryptocurrencies/">Cryptocurrency Performance</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/short-interest/">Short Interest</a>
+<ul>
+<li><a href="/short-interest/">Largest Short Positions</a></li>
+<li><a href="/short-interest/short-interest-increases/">Short Interest Increases</a></li>
+<li><a href="/short-interest/short-interest-decreases/">Short Interest Decreases</a></li>
+<li><a href="/short-interest/stocks-to-short/">Stocks to Short <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/stocks/" id="navStockLists" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="pr-1 mb-icon icon-my-subscriptions"></span>Stock Lists</a>
+<ul class="gold-menu mediumtall-list dropdown-menu" aria-labelledby="navStockLists">
+<li class="mega-only"><a href="/stocks/">All Stock Lists</a></li>
+<li class="has-submenu"><a href="/types-of-stock/">Stocks by Interest</a>
+<ul>
+<li><a href="/types-of-stock/5g-stocks/">5G Stocks</a></li>
+<li><a href="/types-of-stock/blue-chip-stocks/">Blue Chip Stocks</a></li>
+<li><a href="/types-of-stock/biotech-stocks/">Biotech Stocks</a></li>
+<li><a href="/market-data/election-stocks/">Election Stocks</a></li>
+<li><a href="/types-of-stock/faang-stocks/">FAANG Stocks</a></li>
+<li><a href="/types-of-stock/gold-stocks/">Gold Stocks</a></li>
+<li><a href="/types-of-stock/large-cap-stocks/">Large Cap Stocks</a></li>
+<li><a href="/types-of-stock/lumber-stocks/">Lumber Stocks</a></li>
+<li><a href="/types-of-stock/marijuana-stocks/">Marijuana Stocks</a></li>
+<li><a href="/types-of-stock/oil-stocks/">Oil Stocks</a></li>
+<li><a href="/types-of-stock/real-estate-investment-trusts-reits/">REITs</a></li>
+<li><a href="/types-of-stock/russell-2000-stocks/">Russell 2000 Stocks</a></li>
+<li><a href="/types-of-stock/small-cap-stocks/">Small Cap Stocks</a></li>
+<li><a href="/types-of-stock/special-purpose-acquisition-companies-spacs/">SPACs</a></li>
+<li><a href="/types-of-stock/travel-stocks/">Travel Stocks</a></li>
+<li><a href="/types-of-stock/water-stocks/">Water Stocks</a></li>
+<li><a href="/types-of-stock/warren-buffett-stocks/">Warren Buffett Stocks</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/stocks/">Stocks by Exchange</a>
+<ul>
+<li><a href="/stocks/NYSE/">NYSE Stocks</a></li>
+<li><a href="/stocks/NASDAQ/">NASDAQ Stocks</a></li>
+<li><a href="/stocks/OTCMKTS/">OTCMKTS Stocks</a></li>
+<li><a href="/stocks/TSE/">TSX Stocks</a></li>
+<li><a href="/stocks/CVE/">TSXV Stocks</a></li>
+<li><a href="/stocks/LON/">LSE Stocks</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/stocks/">Technical Indicators</a>
+<ul>
+<li><a href="/stocks/death-cross-stocks/">Death Cross Stocks</a></li>
+<li><a href="/stocks/golden-cross-stocks/">Golden Cross Stocks</a></li>
+<li><a href="/market-data/overbought-stocks-rsi/">RSI Overbought Stocks</a></li>
+<li><a href="/market-data/oversold-stocks-rsi/">RSI Oversold Stocks</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/stocks/sectors/">Stocks by Sector</a>
+<ul>
+<li><a href="/stocks/sectors/auto-tires-trucks/">Automotive Stocks</a></li>
+<li><a href="/stocks/sectors/aerospace/">Aerospace Stocks</a></li>
+<li><a href="/stocks/sectors/basic-materials/">Basic Materials Stocks</a></li>
+<li><a href="/stocks/sectors/business-services/">Business Services Stocks</a></li>
+<li><a href="/stocks/sectors/consumer-discretionary/">Consumer Discretionary Stocks</a></li>
+<li><a href="/stocks/sectors/consumer-staples/">Consumer Staples Stocks</a></li>
+<li><a href="/stocks/sectors/construction/">Construction Stocks</a></li>
+<li><a href="/stocks/sectors/oils-energy/">Energy Stocks</a></li>
+<li><a href="/stocks/sectors/finance/">Finance Stocks</a></li>
+<li><a href="/stocks/sectors/industrial-products/">Industrial Stocks</a></li>
+<li><a href="/stocks/sectors/manufacturing/">Manufacturing Stocks</a></li>
+<li><a href="/stocks/sectors/medical/">Medical Stocks</a></li>
+<li><a href="/stocks/sectors/real-estate/">Real Estate Stocks</a></li>
+<li><a href="/stocks/sectors/retail-wholesale/">Retail Stocks</a></li>
+<li><a href="/stocks/sectors/computer-and-technology/">Technology Stocks</a></li>
+<li><a href="/stocks/sectors/transportation/">Transportation Stocks</a></li>
+<li><a href="/stocks/sectors/utilities/">Utilities Stocks</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/compare-stocks/">Stock Comparisons</a>
+<ul>
+<li><a href="/compare-stocks/airline-stocks/">Airline Stocks</a></li>
+<li><a href="/compare-stocks/artificial-intelligence-stocks/">Artificial Intelligence Stocks</a></li>
+<li><a href="/compare-stocks/automotive-stocks/">Automotive Stocks</a></li>
+<li><a href="/compare-stocks/bank-stocks/">Bank Stocks</a></li>
+<li><a href="/compare-stocks/bitcoin-stocks/">Bitcoin Stocks</a></li>
+<li><a href="/compare-stocks/chatgpt-stocks/">ChatGPT Stocks</a></li>
+<li><a href="/compare-stocks/defense-stocks/">Defense Stocks</a></li>
+<li><a href="/compare-stocks/ev-charging-stocks/">EV Charging Stocks</a></li>
+<li><a href="/compare-stocks/fertilizer-stocks/">Fertilizer Stocks</a></li>
+<li><a href="/compare-stocks/growth-stocks/">Growth Stocks</a></li>
+<li><a href="/compare-stocks/lithium-stocks/">Lithium Stocks</a></li>
+<li><a href="/compare-stocks/cannabis-and-marijuana-stocks/">Marijuana Stocks</a></li>
+<li><a href="/compare-stocks/meme-stocks/">Meme Stocks</a></li>
+<li><a href="/compare-stocks/pharmaceutical-stocks/">Pharmaceutical Stocks</a></li>
+<li><a href="/compare-stocks/toy-stocks/">Toy Stocks</a></li>
+<li><a href="/compare-stocks/wallstreetbets-stocks/">WallStreetBets Stocks</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/stocks/top-rated/">Premium Stock Lists</a>
+<ul>
+<li><a href="/stocks/top-marketrank/">Top MarketRank&trade; Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/top-esg-stocks/">Top ESG Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/top-rated/">Top-Rated Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/dividends/top-rated-dividend-stocks/">Top-Rated Dividend Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/top-rated-small-cap-stocks/">Top-Rated Small-Cap Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/top-rated-tech-stocks/">Top-Rated Tech Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/lowest-rated/">Lowest-Rated Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/most-upgraded/">Most-Upgraded Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/stocks/most-downgraded/">Most-Downgraded Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/insider-trades/insider-buying-stocks/">Top Insider Buying Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/insider-trades/insider-selling-stocks/">Top Insider Selling Stocks <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/short-interest/stocks-to-short/">Stocks to Short <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/headlines/" id="navHeadlines" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="pr-1 mb-icon icon-nav-headlines"></span>Headlines</a>
+<ul class="red-menu shorter-list dropdown-menu" aria-labelledby="navHeadlines">
+<li class="has-submenu"><a href="/videos/">MarketBeat TV</a><ul class="row limited-video-submenu"><li class="d-none d-lg-block mb-2 col-6 pl-0"><a href="/videos/the-lure-of-gamestop-stock-still-powerful/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><span class="position-absolute mb-icon mb-icon icon-btn-play-video c-white" aria-hidden="true" style="opacity:0.8;font-size:3em;"></span><img class="w-100" src="/logos/videos/small_20231207131628_videogamestop1.png" alt="The Lure of GameStop Stock Still Powerful" height="78" width="140" loading="lazy" decoding="async" /></span><span class="d-block mt-1" style="line-height:1.1em;">The Lure of GameStop Stock Still Powerful</span></a></li><li class="d-block d-lg-none"><a href="/videos/the-lure-of-gamestop-stock-still-powerful/">The Lure of GameStop Stock Still Powerful</a></li><li class="d-none d-lg-block mb-2 col-6 pl-0"><a href="/videos/is-microsoft-the-nvidia-killer/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><span class="position-absolute mb-icon mb-icon icon-btn-play-video c-white" aria-hidden="true" style="opacity:0.8;font-size:3em;"></span><img class="w-100" src="/logos/videos/small_20231204120707_videomicrosoft.png" alt="Is Microsoft the NVIDIA Killer?" height="78" width="140" loading="lazy" decoding="async" /></span><span class="d-block mt-1" style="line-height:1.1em;">Is Microsoft the NVIDIA Killer?</span></a></li><li class="d-block d-lg-none"><a href="/videos/is-microsoft-the-nvidia-killer/">Is Microsoft the NVIDIA Killer?</a></li><li class="d-none d-lg-block mb-2 col-6 pl-0"><a href="/videos/dollar-tree-stock-plunge-what-it-says-about-the-economy/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><span class="position-absolute mb-icon mb-icon icon-btn-play-video c-white" aria-hidden="true" style="opacity:0.8;font-size:3em;"></span><img class="w-100" src="/logos/videos/small_20231205084602_videodollartree.png" alt="Dollar Tree Stock Plunge, What It Says About the Economy" height="78" width="140" loading="lazy" decoding="async" /></span><span class="d-block mt-1" style="line-height:1.1em;">Dollar Tree Stock Plunge, What It Says About the Economy</span></a></li><li class="d-block d-lg-none"><a href="/videos/dollar-tree-stock-plunge-what-it-says-about-the-economy/">Dollar Tree Stock Plunge, What It Says About the Economy</a></li><li class="d-none d-lg-block mb-2 col-6 pl-0"><a href="/videos/salesforce-stock-shares-surge-on-solid-results/" class="position-relative"><span class="d-flex position-relative align-items-center justify-content-center"><span class="position-absolute mb-icon mb-icon icon-btn-play-video c-white" aria-hidden="true" style="opacity:0.8;font-size:3em;"></span><img class="w-100" src="/logos/videos/small_20231203223526_videosalesforce1.png" alt="Salesforce Stock Shares Surge on Solid Results" height="78" width="140" loading="lazy" decoding="async" /></span><span class="d-block mt-1" style="line-height:1.1em;">Salesforce Stock Shares Surge on Solid Results</span></a></li><li class="d-block d-lg-none"><a href="/videos/salesforce-stock-shares-surge-on-solid-results/">Salesforce Stock Shares Surge on Solid Results</a></li></ul></li><li class="has-submenu"><a href="/originals/">Featured Articles</a><ul class="limited-width-submenu"><li><a href="/originals/marketbeat-week-in-review-12-4-12-8/">MarketBeat Week in Review – 12/4 - 12/8</a></li><li><a href="/originals/how-does-the-consumer-price-index-affect-the-stock-market/">How does the Consumer Price Index affect the stock market?</a></li><li><a href="/originals/3-ecommerce-stocks-to-consider-for-long-term-buys/">10 e-commerce stocks to consider for long-term buys</a></li><li><a href="/originals/3-biotech-powerhouses-poised-to-thrive-amid-sector-rebound/">3 biotech powerhouses poised to thrive amid sector rebound</a></li><li><a href="/originals/broadcom-falls-into-a-buy-the-dip-opportunity/">Broadcom falls into a buy-the-dip opportunity </a></li><li><a href="/originals/3-reasons-to-buy-amd-before-2024/">3 reasons to buy AMD before 2024</a></li><li><a href="/originals/generative-ai-boosts-uipath-analysts-see-triple-digit-eps-growth/">Generative AI boosts UiPath; analysts see triple-digit EPS growth</a></li><li><a href="/originals/3-must-own-china-stocks-for-the-year-of-the-dragon/">3 must-own China stocks for the Year of the Dragon</a></li><li><a href="/originals/biotech-reversal-confirmed-whats-ahead-for-the-ibb/">Biotech reversal confirmed: what's ahead for the IBB?</a></li><li><a href="/originals/consumer-staples-vs-consumer-discretionary/">Consumer staples vs. consumer discretionary </a></li><li><a href="/originals/how-to-invest-in-gte-technology/">How to invest in GTE technology: A guide </a></li><li class="pt-1"><a href="/originals/">More Featured Articles <span class="mb-icon icon-arrow" aria-hidden="true"></span></a></li></ul></li>
+<li class="has-submenu"><a href="/headlines/">News</a>
+<ul>
+<li><a href="/all-access/articles/">Premium Articles <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/all-access/live-news/">Real-Time News Feed <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+<li><a href="/headlines/economics/">Economic News</a></li>
+<li><a href="/headlines/market-news/">Market News</a></li>
+<li><a href="/headlines/stocks/">Stock News</a></li>
+<li><a href="/headlines/inflation/">Inflation News</a></li>
+<li><a href="/headlines/politics/">Political News</a></li>
+<li><a href="/headlines/dividends/">Dividends News</a></li>
+<li><a href="/headlines/earnings/">Earnings News</a></li>
+<li><a href="/instant-alerts/">Instant News Alerts</a></li>
+<li><a href="/headlines/">All Headlines</a></li>
+<li><a href="/slideshows/">Investing Slideshows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="has-submenu">
+<a href="/about/" id="navAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="pr-1 mb-icon icon-nav-about"></span>About</a>
+<ul class="gray-menu short-list dropdown-menu" aria-labelledby="navAbout">
+<li class="menu-ad">
+<div class="position-relative gradient-blue c-white mb-3">
+<div class="row">
+<img style="right: 0;width: 33%;height:auto;" class="d-md-none position-absolute" src="/images/Newsletter-phones-gfx-2-min.png" loading="lazy" alt width="285" height="173">
+<div class="col-md-9 col-lg-10 px-5 py-4">
+<div class="d-md-none w-25 float-right" style="height: 86px;"></div>
+<div class="mt-0 h2">Your Ultimate Investing Toolkit</div>
+<p>Sign up for MarketBeat All Access to gain access to MarketBeat's full suite of research tools:</p>
+<div class="d-inline-block w-50 px-3">
+<ul class="gold-bullet-list">
+<li>Portfolio Monitoring</li>
+<li>Top Stock Lists</li>
+<li>Premium Reports</li>
+</ul>
+</div><div class="d-inline-block w-50 px-3">
+<ul class="gold-bullet-list">
+<li>Stock Screeners</li>
+<li>Live News Feed</li>
+<li>Premium Support</li>
+</ul>
+</div>
+<div class="h3">Free for your first month.</div>
+<a href="https://www.marketbeat.com/subscribe/all-access/?referraltype=inmenuad" class="sbbutton gold-button">Click here to learn more <span class="ml-1 mb-icon icon-arrow"></span></a>
+</div>
+<div class="col-md-3 col-lg-2 lazy-bg" style="background-image: url(/images/Newsletter-phones-gfx.png);background-size: cover;background-position: left;position: relative;right: 15px;">
+</div>
+</div>
+</div>
+</li>
+<li class="has-submenu"><a href="/about/">About</a>
+<ul>
+<li><a href="/about/">About</a>
+<li><a href="/authors/">Authors</a>
+<li><a href="/press-room/">Press Room</a></li>
+<li><a href="/faq/">FAQ</a></li>
+<li><a href="/help/">Help and How-To</a></li>
+<li><a href="/reviews/">Customer Reviews</a></li>
+<li><a href="/advertising/">Advertising</a></li>
+<li><a href="/terms/">Terms of Service</a></li>
+<li><a href="/careers/">Careers</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/compare-products/">Newsletters and Podcasts</a>
+<ul>
+<li><a href="/cryptocurrencies/newsletter/">MarketBeat CryptoBeat</a></li>
+<li><a href="/ratings/newsletter/">MarketBeat Daily Ratings</a></li>
+<li><a href="/ratings/newsletter-canada/">MarketBeat Daily Canada</a></li>
+<li><a href="/dividends/subscribe/">DividendStocks.com's Newsletter</a></li>
+<li><a href="/insider-trades/subscribe/">InsiderTrades.com's Newsletter</a></li>
+<li><a target="_blank" href="https://www.earlybirdpublishing.com/">The Early Bird</a></li>
+<li><a href="/marketbeat-minute/">MarketBeat Minute Podcast</a></li>
+</ul>
+</li>
+<li class="has-submenu"><a href="/compare-products/">Products</a>
+<ul>
+<li><a href="/compare-products/">Compare Products</a></li>
+<li><a href="https://www.marketbeat.com/subscribe/all-access/?ProductCode=aap1997t&ReferralType=WebNavigation">MarketBeat All Access</a></li>
+<li><a href="/mobileapp/">MarketBeat Mobile App</a></li>
+</ul>
+</li>
+<li><a href="/financial-terms/" class="has-submenu">Financial Terms</a>
+<ul>
+<li><a href="https://www.marketbeat.com/financial-terms/how-to-invest-stocks-with-increasing-divdends/">Dividend Growth</a></li>
+<li><a href="https://www.marketbeat.com/financial-terms/ex-dividend-investing/">Ex-Dividend Investing</a></li>
+<li><a href="https://www.marketbeat.com/financial-terms/understanding-and-profiting-from-52-week-low-stocks/">52-Week Low</a></li>
+<li><a href="https://www.marketbeat.com/financial-terms/insider-trading-what-you-need-to-know/">Insider Trading</a></li>
+<li><a href="https://www.marketbeat.com/financial-terms/what-is-lock-up-period/">Lock-Up Period</a></li>
+<li><a href="https://www.marketbeat.com/financial-terms/price-to-earnings-ratio-pe/">PE Ratio</a></li>
+<li><a href="https://www.marketbeat.com/financial-terms/short-selling-stocks-explanation/">Short Selling</a></li>
+<li><a href="https://www.marketbeat.com/financial-terms/stock-ratings-recommendations-analysts-upgrades-downgrades/">Upgrades and Downgrades</a></li>
+<li><a href="https://www.marketbeat.com/financial-terms/how-to-trade-the-most-active-stocks/">Volume</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
+</div>
+<main>
+<div class="d-print-none py-2 bg-light-gray text-center d-minimal-none d-none d-sm-block">
+<div style="max-width: 1140px;margin:0 auto;">
+<div id="pnlAdNetworkHeader">
+<ins class="adsbygoogle" style="display:inline-block;min-width:320px;max-width:1170px;width:100%;min-height:120px;max-height:300px;" data-ad-client="ca-pub-9373162611283935" data-full-width-responsive="true" data-ad-slot="8851128333"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</div>
+</div>
+<div id="main" class="container main-container">
+<article id="article">
+<form method="post" action="./" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTMxNjE5Njg0OGRkomiI7Ubq8eHWIWscBAVz9t9XOPA=" />
+<script src="/ScriptResource.axd?d=5uHgycXeCI_2B1KxfCX0UN6zg6FdD9djh2Jah60XTTaX767t8n5jvCXuYRybH_HPVlQDavAt0ikkPNOcfyNasH5OYnS1TD65R4AbJ5dhbf_Znzg5OzEkvowWtUFJLchVbmKGCLSfl8ZdID-sIL3sTP1aJuM1&amp;t=ffffffffadad19fc" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6EDDE201" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdABPbhXqxtG+ohAcYyVGn9izqPLdWhBcybGFGZ+BotTgQzlGYaxbxRk0t4Jmy1/zZjIMSnEghVy49OZy2Z09RwnsRcWHTu6mtkPRG9w1yQSXCAKvMVf/T5hOu2tKsT8+HBgnkWuHhvVRgZy5L6Q//g0SmQQGmq6bGRUCu+lPugilS0ewLrXpTrfvzv6/4kl3lBg3kIJOUVk17XtHpnKEFr61ImVU5nkhLg2L8RHNU3QFUQjWYtpU1sTA94lrFaqPJMd25Erad1RkstkX5e1ZRkus5lG9PS5YFGPEzqbp4lqKhb2fuzL8xTsM1jvCcC1gMXTsMplzpj8BVvF6GLffM896vGnnpf8BMATM/YYgU0uhgnUQL9dvsDCn0WZCWJ99nI0ZqcguZ5LmGPv3Eh8GkCgEFSD3tx8kFwwxxaDJIwbtDwZGHDq8=" />
+<div class="stock-badge-wrapper pt-3"><div class="d-none d-sm-inline-block float-sm-right stock-badges font-8" style="margin: 0 -.25em -.8em;"></div><div class="clearfix"></div></div>
+<h1 class="PageTitleHOne">
+Taiwan Semiconductor Manufacturing (TSM) Earnings Date, Estimates &amp; Call Transcripts
+</h1>
+<div id="cphPrimaryContent_pnlCompany">
+<div class="row price-info">
+<div class="col col-price-info-sm mb-1">
+<div class="d-flex justify-content-between flex-wrap">
+<div style="-webkit-flex: 1 0 250px; -ms-flex: 1 0 250px; flex: 1 0 250px; max-width:100%;">
+<div>
+<div class="price"><strong>$100.35</strong><div style="vertical-align: top;margin-top: 5px;" class="d-inline-block"><span style="color:#3c824e"> +1.06&nbsp;(+1.07%)</span> <div class="price-updated">(As of 12/8/2023 ET)</div></div></div>
+</div>
+</div>
+<div class="text-md-right text-xl-left">
+<button type="button" class="sbbutton small-button" title="Add to watchlist" data-toggle="modal" data-target="#PanelLoginOrCreate"><span class="mb-icon icon-nav-my-marketbeat"></span><span class="d-none d-md-inline-block ml-2"> Add</span></button><a title="Compare with other companies" class="sbbutton gold-button small-button" rel="nofollow" href="/compare-stocks/"><span class="mb-icon icon-btn-compare"></span><span class="d-none d-md-inline-block ml-2"> Compare</span></a><div class="share-button-wrapper d-inline-flex d-md-none align-items-stretch" id="webShareButtonWrapper"><button id="webShareButton" class="web-share-button blue-button d-block text-left" type="button" disabled title="Share Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2024"><span class="share-title"><span class="mb-icon icon-btn-share"></span><span class="d-none d-sm-inline"> Share <span class="mb-icon icon-arrow float-right"></span></span></span></button><script>const shareOpts = {title:'Taiwan Semiconductor Manufacturing (TSM) Earnings Date and Reports 2024',text:'',url:'https://www.marketbeat.com/stocks/NYSE/TSM/earnings/'};</script></div><div class="share-button-wrapper d-none d-md-inline-flex align-items-stretch" id="shareButtonWrapper"><div id="shareButton" class="sbbutton blue-button share-button text-left position-relative"><span class="share-title"><span class="mb-icon icon-btn-share"></span> Share <span class="mb-icon icon-arrow float-right"></span></span><span class="share-options c-white d-flex justify-content-around align-items-center w-100 h-100 p-1"><a title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" target="_blank" rel="nofollow noopener"><span class="mb-icon icon-share-facebook"></span></a><a title="Share on Twitter" href="https://twitter.com/intent/tweet?text=Taiwan+Semiconductor+Manufacturing+(TSM)+Earnings+Date+and+Reports+2024%20%24TSM%20%23TSM%20https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" target="_blank" rel="nofollow noopener"><span class="mb-icon icon-share-twitter"></span></a><a title="Share on LinkedIn" onclick="window.open('https://www.linkedin.com/cws/share?mini=true&amp;url=https://www.marketbeat.com/stocks/NYSE/TSM/earnings/', 'name','width=600,height=600')" href="https://www.linkedin.com/cws/share?mini=true&amp;url=https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" target="popup" rel="nofollow noopener"><span class="mb-icon icon-share-linkedin"></span></a><a title="Share on StockTwits" href="https://api.stocktwits.com/widgets/share?via=MarketBeat&amp;body=Taiwan+Semiconductor+Manufacturing+(TSM)+Earnings+Date+and+Reports+2024%20https://www.marketbeat.com/stocks/NYSE/TSM/earnings/" target="_blank" rel="nofollow noopener"><span class="mb-icon icon-share-stocktwits"></span></a><a title="Print this page" href="javascript:window.print()"><span class="mb-icon icon-share-print"></span></a><a title="Email this page" href="mailto:?subject=Taiwan%20Semiconductor%20Manufacturing%20(TSM)%20Earnings%20Date%20and%20Reports%202024&amp;body=Check%20out%20this%20stock%3A%20https://www.marketbeat.com/stocks/NYSE/TSM/earnings/%0D%0A%0D%0AFor%20real-time%20financial%20news%20and%20analysis%2C%20visit%20https%3A%2F%2Fwww.marketbeat.com%2F%20."><span class="mb-icon icon-share-email"></span></a></span></div></div>
+</div>
+</div>
+</div>
+<div class="col col-price-info-lg price-data-section d-none d-sm-block" id="price-data-lower">
+<dl class="price-data-col col-37"><div class="price-data w-range"><dt class="range-label">Today's Range</dt><dd class="range-meter">$98.95<div class="range"><span class="range-marker" style="left:99%"><span class="range-arrow">▼</span></span></div>$100.37</dd></div><div class="price-data w-range"><dt class="range-label">50-Day Range</dt><dd class="range-meter">$85.41<div class="range"><span class="range-marker" style="left:100%"><span class="range-arrow">▼</span></span></div>$100.35</dd></div><div class="price-data w-range"><dt class="range-label">52-Week Range</dt><dd class="range-meter"><dd class="range-meter">$72.84<div class="range"><span class="range-marker" style="left:73%"><span class="range-arrow">▼</span></span></div>$110.69</dd></div></dl><dl class="price-data-col col-31"><div class="price-data"><dt>Volume</dt><dd><strong>10.57 million shs</strong></dd></div><div class="price-data"><dt>Average Volume</dt><dd><strong>8.79 million shs</strong></dd></div><div class="price-data"><dt>Market Capitalization</dt><dd><strong>$520.46 billion</strong></dd></div></dl><dl class="price-data-col col-31"><div class="price-data"><dt>P/E Ratio</dt><dd><strong>18.05</strong></dd></div><div class="price-data"><dt>Dividend Yield</dt><dd><strong>1.46%</strong><dd></div><div class="price-data"><dt>Price Target</dt><dd><strong>$116.67</strong></dd></div></dl>
+</div>
+</div>
+<div id="shareableArticle">
+
+
+<div class="sticky-tabs"><div class="d-block d-sm-none bg-light-gray" id="mobile-dropdown-CompanyDetails" style="margin:0 -15px;"><div class="dropdown nav-toggle"><button class="btn clear-button dropdown-toggle w-100 d-flex justify-content-between align-items-center pl-2 pr-3" type="button" id="dropdownCompanyDetails" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="nav-link active active-link-title">Earnings</span><span class="nav-toggle-arrow d-inline-block mb-icon icon-menu-open"></span></button><ul class="dropdown-menu c-black w-100 allow-focus bg-light-gray" aria-labelledby="dropdownCompanyDetails"><li><a href="/stocks/NYSE/TSM/" class="py-2 px-3 d-block w-100 nav-drop nav-link-StockAnalysis"><span>Stock Analysis</span></a></li><li><a href="/stocks/NYSE/TSM/price-target/" class="py-2 px-3 d-block w-100 nav-drop nav-link-AnalystForecasts"><span>Analyst Forecasts</span></a></li><li><a href="/stocks/NYSE/TSM/chart/" class="py-2 px-3 d-block w-100 nav-drop nav-link-Chart"><span>Chart</span></a></li><li><a href="/stocks/NYSE/TSM/competitors-and-alternatives/" class="py-2 px-3 d-block w-100 nav-drop nav-link-Competitors"><span>Competitors</span></a></li><li><a href="/stocks/NYSE/TSM/dividend/" class="py-2 px-3 d-block w-100 nav-drop nav-link-Dividend"><span>Dividend</span></a></li><li><a href="/stocks/NYSE/TSM/earnings/" class="py-2 px-3 d-block w-100 nav-drop nav-link-Earnings active"><span>Earnings</span></a></li><li><a href="/stocks/NYSE/TSM/financials/" class="py-2 px-3 d-block w-100 nav-drop nav-link-Financials"><span>Financials</span></a></li><li><a href="/stocks/NYSE/TSM/news/" class="py-2 px-3 d-block w-100 nav-drop nav-link-Headlines"><span>Headlines</span></a></li><li><a href="/stocks/NYSE/TSM/insider-trades/" class="py-2 px-3 d-block w-100 nav-drop nav-link-InsiderTrades"><span>Insider Trades</span></a></li><li><a href="/stocks/NYSE/TSM/options/" class="py-2 px-3 d-block w-100 nav-drop nav-link-OptionsChain"><span>Options Chain</span></a></li><li><a href="/stocks/NYSE/TSM/institutional-ownership/" class="py-2 px-3 d-block w-100 nav-drop nav-link-Ownership"><span>Ownership</span></a></li><li><a href="/stocks/NYSE/TSM/sec-filings/" class="py-2 px-3 d-block w-100 nav-drop nav-link-SECFilings"><span>SEC Filings</span></a></li><li><a href="/stocks/NYSE/TSM/short-interest/" class="py-2 px-3 d-block w-100 nav-drop nav-link-ShortInterest"><span>Short Interest</span></a></li><li><a href="/stocks/NYSE/TSM/social-media/" class="py-2 px-3 d-block w-100 nav-drop nav-link-SocialMedia"><span>Social Media</span></a></li></ul></div></div><div class="d-none d-sm-block"><div class="scroll-nav-tabs"><div class="nav nav-tabs" role="tablist" aria-label="Company Details"><a class="nav-link nav-link-StockAnalysis" aria-selected="false" tabindex="-1" aria-controls="tabContentStockAnalysis" role="tab" href="/stocks/NYSE/TSM/" id="tabStockAnalysis">Stock Analysis</a><a class="nav-link nav-link-AnalystForecasts" aria-selected="false" tabindex="-1" aria-controls="tabContentAnalystForecasts" role="tab" href="/stocks/NYSE/TSM/price-target/" id="tabAnalystForecasts">Analyst Forecasts</a><a class="nav-link nav-link-Chart" aria-selected="false" tabindex="-1" aria-controls="tabContentChart" role="tab" href="/stocks/NYSE/TSM/chart/" id="tabChart">Chart</a><a class="nav-link nav-link-Competitors" aria-selected="false" tabindex="-1" aria-controls="tabContentCompetitors" role="tab" href="/stocks/NYSE/TSM/competitors-and-alternatives/" id="tabCompetitors">Competitors</a><a class="nav-link nav-link-Dividend" aria-selected="false" tabindex="-1" aria-controls="tabContentDividend" role="tab" href="/stocks/NYSE/TSM/dividend/" id="tabDividend">Dividend</a><a class="nav-link nav-link-Earnings active" aria-selected="true" tabindex="0" aria-controls="tabContentEarnings" role="tab" href="/stocks/NYSE/TSM/earnings/" id="tabEarnings">Earnings</a><a class="nav-link nav-link-Financials" aria-selected="false" tabindex="-1" aria-controls="tabContentFinancials" role="tab" href="/stocks/NYSE/TSM/financials/" id="tabFinancials">Financials</a><a class="nav-link nav-link-Headlines" aria-selected="false" tabindex="-1" aria-controls="tabContentHeadlines" role="tab" href="/stocks/NYSE/TSM/news/" id="tabHeadlines">Headlines</a><a class="nav-link nav-link-InsiderTrades" aria-selected="false" tabindex="-1" aria-controls="tabContentInsiderTrades" role="tab" href="/stocks/NYSE/TSM/insider-trades/" id="tabInsiderTrades">Insider Trades</a><a class="nav-link nav-link-OptionsChain" aria-selected="false" tabindex="-1" aria-controls="tabContentOptionsChain" role="tab" href="/stocks/NYSE/TSM/options/" id="tabOptionsChain">Options Chain</a><a class="nav-link nav-link-Ownership" aria-selected="false" tabindex="-1" aria-controls="tabContentOwnership" role="tab" href="/stocks/NYSE/TSM/institutional-ownership/" id="tabOwnership">Ownership</a><a class="nav-link nav-link-SECFilings" aria-selected="false" tabindex="-1" aria-controls="tabContentSECFilings" role="tab" href="/stocks/NYSE/TSM/sec-filings/" id="tabSECFilings">SEC Filings</a><a class="nav-link nav-link-ShortInterest" aria-selected="false" tabindex="-1" aria-controls="tabContentShortInterest" role="tab" href="/stocks/NYSE/TSM/short-interest/" id="tabShortInterest">Short Interest</a><a class="nav-link nav-link-SocialMedia" aria-selected="false" tabindex="-1" aria-controls="tabContentSocialMedia" role="tab" href="/stocks/NYSE/TSM/social-media/" id="tabSocialMedia">Social Media</a></div></div></div></div><script type="application/ld+json">{"@context": "https://schema.org/","@graph": [{"@type": "SiteNavigationElement", "position": 1, "name": "Stock Analysis", "url": "/stocks/NYSE/TSM/"},{"@type": "SiteNavigationElement", "position": 2, "name": "Analyst Forecasts", "url": "/stocks/NYSE/TSM/price-target/"},{"@type": "SiteNavigationElement", "position": 3, "name": "Chart", "url": "/stocks/NYSE/TSM/chart/"},{"@type": "SiteNavigationElement", "position": 4, "name": "Competitors", "url": "/stocks/NYSE/TSM/competitors-and-alternatives/"},{"@type": "SiteNavigationElement", "position": 5, "name": "Dividend", "url": "/stocks/NYSE/TSM/dividend/"},{"@type": "SiteNavigationElement", "position": 6, "name": "Earnings", "url": "/stocks/NYSE/TSM/earnings/"},{"@type": "SiteNavigationElement", "position": 7, "name": "Financials", "url": "/stocks/NYSE/TSM/financials/"},{"@type": "SiteNavigationElement", "position": 8, "name": "Headlines", "url": "/stocks/NYSE/TSM/news/"},{"@type": "SiteNavigationElement", "position": 9, "name": "Insider Trades", "url": "/stocks/NYSE/TSM/insider-trades/"},{"@type": "SiteNavigationElement", "position": 10, "name": "Options Chain", "url": "/stocks/NYSE/TSM/options/"},{"@type": "SiteNavigationElement", "position": 11, "name": "Ownership", "url": "/stocks/NYSE/TSM/institutional-ownership/"},{"@type": "SiteNavigationElement", "position": 12, "name": "SEC Filings", "url": "/stocks/NYSE/TSM/sec-filings/"},{"@type": "SiteNavigationElement", "position": 13, "name": "Short Interest", "url": "/stocks/NYSE/TSM/short-interest/"},{"@type": "SiteNavigationElement", "position": 14, "name": "Social Media", "url": "/stocks/NYSE/TSM/social-media/"}]}</script>
+<div class="tab-content clearfix" id="company-detail-tabs-content">
+<div class="tab-pane active" role="tabpanel" tabindex="0" id="tabContentEarnings" aria-labelledby="tabEarnings" style="display:block!important;">
+<div id="cphPrimaryContent_cphTabContent_pnlSummary" class="row justify-content-between align-items-center">
+<div class="col-12 col-lg-7"><h2 class="sr-only">Earnings Summary</h2><div class="row mb-2"><div class="col-12 order-2 order-lg-1 mb-2 mb-lg-0"><dl class="row justify-content-center align-items-stretch mb-0"><div class="d-flex justify-content-center align-items-center align-content-center w-100 py-1 shadow mb-3 text-center stat-summary-wrapper py-1 earnings-wrapper"><dt class="stat-summary-title mb-1">Upcoming<br/> Earnings Date</dt><dd class="stat-summary-heading my-1">Jan. 11<span class="stat-summary-subheading mt-1 mx-auto">Estimated</span></dd></div><div class="d-flex justify-content-center align-items-center align-content-center w-100 py-1 shadow mb-3 text-center stat-summary-wrapper py-1 earnings-wrapper"><dt class="stat-summary-title mb-1">Actual EPS <br/> (Oct. 19) </dt><dd class="stat-summary-heading my-1 c-green ">$1.29 <span class="stat-summary-subheading mt-1 mx-auto c-green">Beat By $0.13 </span></dd></div><div class="d-flex justify-content-center align-items-center align-content-center w-100 py-1 shadow mb-3 text-center stat-summary-wrapper py-1 earnings-wrapper"><dt class="stat-summary-title mb-1">Consensus EPS <br/> (Oct. 19) </dt><dd class="stat-summary-heading my-1">$1.16 <span class="stat-summary-subheading mt-1 mx-auto"></span></dd></div></dl></div><div class="col-12 order-1 order-lg-2"><div class="row"><div class="col-12 col-sm mb-2"><a class="green-button sbbutton c-white text-left w-100" href="https://www.fool.com/earnings/call-transcripts/2023/10/19/taiwan-semiconductor-manufacturing-tsm-q3-2023-ear/?source=wsh-transcript&utm_source=wsh-transcript&utm_medium=feed&utm_campaign=article" rel="nofollow noopener" target="_blank"><span class="mb-icon icon-folder mr-1" aria-hidden="true"></span>Read Call Transcript<span class="mb-icon icon-new-window ml-1 float-right" style="font-size:1em;padding-top:0.25em;"></span></a></div><div class="col-12 col-sm mb-2"><a class="blue-button sbbutton c-white text-left w-100" href="http://mmm.wallstreethorizon.com/u.asp?u=511028" rel="nofollow noopener" target="_blank"><span class="mb-icon icon-phone mr-1" aria-hidden="true"></span>Listen to Call<span class="mb-icon icon-new-window ml-1 float-right" style="font-size:1em;padding-top:0.25em;"></span></a></div></div></div></div></div>
+<div id="cphPrimaryContent_cphTabContent_pnlGreenOptin" class="col-lg-5">
+<div class="gradient-green p-3 c-white d-block mb-3 subscribe-row h-100"><div id="pnlSignup">
+<div id="divSubscribe" class="subscribe d-inline-block"><div class="h2 m-0 mb-2">Get Taiwan Semiconductor Manufacturing Earnings Alerts</div><p>Enter your email address below to receive the latest news and earnings results for TSM and its competitors with MarketBeat&#39;s FREE daily newsletter.</p><div style="max-width:528px;" class="form-row"><input name="InTabRegistrationEmail" type="text" id="InTabRegistrationEmail" class="b-white col-sm-7" placeholder="Your Email Address" aria-label="Email Address" style="display:inline-block;flex:1 0 296px;-ms-flex:1 0 296px;" /><input type="button" name="btnHASubmit" value="Sign-Up Now (Free)" onclick="if (CheckEmail(&#39;InTabRegistrationEmail&#39;, &#39;ShowSuggestionInTab&#39;, &#39;c-white&#39;)) { window.location = &#39;/newsletter/?RegistrationCode=CompanyDetails-EarningsTab&amp;RegistrationDomain=marketbeat.com&amp;RegistrationTicker=NYSE:TSM&amp;RegisterEmail=&#39;+encodeURIComponent(document.getElementById(&#39;InTabRegistrationEmail&#39;).value); return true;} else { return false; };" id="btnHASubmit" class="col-sm-5 green-button blue-button" style="display:inline-block;flex:1 0 232px;-ms-flex:1 0 232px;" /><div id="ShowSuggestionInTab"></div></div></div>
+</div></div>
+</div>
+</div>
+<a href="#earnings-history" class="sr-only sr-only-focusable">Skip Charts & View Estimated and Actual Earnings Data<span class="mb-icon icon-arrow" aria-hidden="true"></span></a><div class="news-tabs nav nav-tabs block-header-blue col-12 p-0" role="tablist"><a id="tab-chart-eps" class="nav-item nav-link active" role="tab" data-toggle="tab" href="#chart-eps" aria-selected="true" aria-controls="chart-eps" onclick="clearAndDrawEarningsEstimate()">Earnings Per Share</a><a role="tab" class="nav-item nav-link" href="#chart-revenue" data-toggle="tab" id="tab-chart-revenue" aria-controls="chart-revenue" onclick="clearAndDrawEarningsRevenue()">Revenue</a></div><div class="d-block tab-content w-100"><div id="chart-eps" class="tab-pane active" aria-labelledby="tab-chart-eps" role="tabpanel"><h2 class="h3 mt-0" style="padding-right: 23px;display:inline;">TSM Earnings Estimates and Actuals by Quarter</h2><button id="earnings-question-mark" class="clear-button c-blue float-right question-toggle" type="button"><span class="mb-icon icon-question" aria-hidden="true"></span><span class="sr-only">Earnings Estimates and Acutals by Quarter Chart Description</span></button><div id="earnings-explanation" class="explanation">The chart below shows up to four years of a company's earnings history. The dark blue line represents the company's actual earnings per share. The light blue area represents the range of Wall Street analysts' earnings estimates for each quarter.</div><div id="wrapper" class="dv-chart-wrapper"><div id="earningsEstimateChart" class="dv-chart" style="height:350px"></div></div></div><div id="chart-revenue" class="tab-pane" aria-labelledby="tab-chart-revenue" role="tabpanel"><h2 class="h3 mt-0" style="padding-right: 23px;display:inline;">TSM Estimated and Actual Revenue by Quarter</h2> <button id="earningsRevenue-question-mark" class="clear-button c-blue float-right question-toggle" type="button"><span class="mb-icon icon-question" aria-hidden="true"></span><span class="sr-only">Estimated Revenue and Actual Revenue by Quarter Chart Description</span></button><div id="earningsRevenue-explanation" class="explanation">The chart below shows up to four years of a company's revenue history. The dark blue line represents the company's actual revenue. The light blue line represents the company's estimated revenue based on the consensus of Wall Street analysts for each quarter.</div><div id="wrapper-secondary" class="dv-chart-wrapper"><div id="earningsRevenueChart" class="dv-chart" style="height:350px"></div></div></div></div>
+<div style="max-width:1000px;margin-left:auto;margin-right:auto;margin-top:1.5em;margin-bottom:1em;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-9373162611283935" data-ad-slot="6187434333" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><br/></div>
+<div class="row"><div class="col-lg-7"><h2 class="h3">Taiwan Semiconductor Manufacturing Analyst EPS Estimates</h2><table class="scroll-table sort-table" id="earnings-estimates"><thead><tr><th data-sort="int">Quarter</th><th data-sort="float">Number of Estimates</th><th data-sort="float">Low Estimate</th><th data-sort="float">High Estimate</th><th data-sort="float">Average Estimate</th><th data-sort="float">Company Guidance</th></tr></thead><tbody><tr><td data-sort-value="20231">Q1 2023</td><td>1</td><td>$1.23</td><td>$1.23</td><td>$1.23</td><td>&nbsp;</td></tr><tr><td data-sort-value="20232">Q2 2023</td><td>1</td><td>$1.08</td><td>$1.08</td><td>$1.08</td><td>&nbsp;</td></tr><tr><td data-sort-value="20233">Q3 2023</td><td>1</td><td>$1.13</td><td>$1.13</td><td>$1.13</td><td>&nbsp;</td></tr><tr><td data-sort-value="20234">Q4 2023</td><td>1</td><td>$1.33</td><td>$1.33</td><td>$1.33</td><td>&nbsp;</td></tr><tr style="background:#f4ece9;"><td><strong>FY 2023</strong></td><td>4</td><td>$4.77</td><td>$4.77</td><td>$4.77</td><td>&nbsp;</td></tr><tr><td data-sort-value="20241">Q1 2024</td><td>1</td><td>$1.17</td><td>$1.17</td><td>$1.17</td><td>&nbsp;</td></tr><tr><td data-sort-value="20242">Q2 2024</td><td>1</td><td>$1.24</td><td>$1.24</td><td>$1.24</td><td>&nbsp;</td></tr><tr><td data-sort-value="20243">Q3 2024</td><td>1</td><td>$1.64</td><td>$1.64</td><td>$1.64</td><td>&nbsp;</td></tr><tr><td data-sort-value="20244">Q4 2024</td><td>1</td><td>$1.77</td><td>$1.77</td><td>$1.77</td><td>&nbsp;</td></tr><tr style="background:#f4ece9;"><td><strong>FY 2024</strong></td><td>4</td><td>$5.82</td><td>$5.82</td><td>$5.82</td><td>&nbsp;</td></tr><tr><td data-sort-value="20251">Q1 2025</td><td>1</td><td>$1.49</td><td>$1.49</td><td>$1.49</td><td>&nbsp;</td></tr><tr><td data-sort-value="20252">Q2 2025</td><td>1</td><td>$1.56</td><td>$1.56</td><td>$1.56</td><td>&nbsp;</td></tr><tr><td data-sort-value="20253">Q3 2025</td><td>1</td><td>$2.06</td><td>$2.06</td><td>$2.06</td><td>&nbsp;</td></tr></tbody></table></div><div class="col-lg-5 mt-3 mt-lg-5"><div class="shadow bg-white"><h2 class="block-header-blue white-shadow m-0 h3">TSM Earnings Date and Information</h2><div class="d-flex w-100 flex-wrap p-3 lh-medium position-relative"><div class="read-more-section"><p class="mb-0">Taiwan Semiconductor Manufacturing last released its quarterly earnings data on October 19th, 2023. The semiconductor company reported $1.29 earnings per share for the quarter, topping the consensus estimate of $1.16 by $0.13. The company had revenue of $17.28 billion for the quarter, compared to analyst estimates of $16.90 billion. Its revenue was down 10.1% on a year-over-year basis. Taiwan Semiconductor Manufacturing has generated $5.56 earnings per share over the last year ($5.56 diluted earnings per share) and currently has a price-to-earnings ratio of 18.0. Earnings for Taiwan Semiconductor Manufacturing are expected to grow by 16.70% in the coming year, from $4.97 to $5.80 per share. Taiwan Semiconductor Manufacturing has not formally confirmed its next earnings publication date, but the company's estimated earnings date is Thursday, January 11th, 2024 based off prior year's report dates.</p></div><div class="c-blue read-more-button invisible">Read More <span class="mb-icon icon-arrow" style="transform:rotate(90deg) scale(.9)"></span></div></div></div></div></div>
+<div class="mt-3 mb-2"><div style="height:90px;width:100%;"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:100%;height:90px" data-ad-client="ca-pub-9373162611283935" data-ad-slot="6242217402"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+<div id="cphPrimaryContent_cphTabContent_pnlFilterTable">
+<h2 class="mt-4">Taiwan Semiconductor Manufacturing Earnings History by Quarter</h2>
+<div class="row narrow-gutter-row">
+<div class="col-12 col-md-4 col-xl-auto mb-3 mb-xl-0 mt-1">
+<div class="top-label-wrapper input-group">
+<div class="input-group-prepend">
+<span class="input-group-text">
+<span class="mb-icon icon-nav-calendars" aria-hidden="true"></span>
+</span>
+</div>
+<select name="ctl00$ctl00$cphPrimaryContent$cphTabContent$ddlDateRange" id="cphPrimaryContent_cphTabContent_ddlDateRange" class="top-labeled-input">
+<option selected="selected" value="C">Custom Range</option>
+<option value="3M">3 Months</option>
+<option value="6M">6 Months</option>
+<option value="YTD">Year-to-Date</option>
+<option value="1Y">1 Year</option>
+<option value="2Y">2 Years</option>
+<option value="3Y">3 Years</option>
+<option value="5Y">5 Years</option>
+</select>
+<label for="cphPrimaryContent_cphTabContent_ddlDateRange" class="top-label">Time Frame</label>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-4 col-xl-auto mb-3 mb-xl-auto mt-1 ">
+<div class="top-label-wrapper ">
+<input name="ctl00$ctl00$cphPrimaryContent$cphTabContent$txtStartDate" type="text" value="12/10/2020" id="cphPrimaryContent_cphTabContent_txtStartDate" class="top-labeled-input mb-0" style="margin-right:5px;width: calc(100% - 28px);" />
+<label for="cphPrimaryContent_cphTabContent_txtStartDate" class="top-label">Start Date</label>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-4 col-xl-auto mb-3 mb-xl-auto mt-1">
+<div class="top-label-wrapper ">
+<input name="ctl00$ctl00$cphPrimaryContent$cphTabContent$txtEndDate" type="text" value="12/10/2023" id="cphPrimaryContent_cphTabContent_txtEndDate" class="top-labeled-input mb-0" style="margin-right:5px;width: calc(100% - 28px);" />
+<label for="cphPrimaryContent_cphTabContent_txtEndDate" class="top-label">End Date</label>
+</div>
+</div>
+<div class="col-12 col-md-4 col-xl-auto mb-3 mb-sm-0 ml-sm-auto text-md-right mt-1">
+<a class="sbbutton light-gray-button w-100 w-lg-auto" href="/subscribe/all-access/?ReferralType=CSVExportButton" title="Excel Export Available with a MarketBeat All Access Subscription"><span class="mb-icon icon-excel" aria-hidden="true"></span> Export<span class="d-none d-lg-inline"> to Excel</span></a>
+</div>
+</div>
+<div class="text-center">
+<div id="cphPrimaryContent_cphTabContent_Progress1" style="display:none;">
+<img src="/images/loading-gif-small.gif" loading="lazy" alt="The Page is Updating" class="pt-0 pt-xl-1" width="24" height="24" />
+</div>
+</div>
+<table class="scroll-table sort-table" id="earnings-history"><thead><tr><th data-sort="int">Date</th><th>Quarter</th><th data-sort="float">Consensus Estimate</th><th data-sort="float">Reported EPS</th><th data-sort="float">Beat/Miss</th><th data-sort="float">GAAP EPS</th><th data-sort="float">Revenue Estimate</th><th data-sort="float">Actual Revenue</th><th data-clean="SEC Filing URL|Conference Call Transcript|Conference Call URL">Call Transcript</th></tr></thead><tbody><tr><td data-sort-value="20240111000000"> 1/11/2024<br/>Estimated)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>&nbsp;</td></tr><tr><td data-sort-value="20231019000000">10/19/2023</td><td>Q3 2023</td><td>$1.16</td><td>$1.29</td><td class="c-green">+$0.13</td><td>$1.29</td><td>$16.90 billion</td><td>$17.28 billion</td><td data-clean="|https://www.fool.com/earnings/call-transcripts/2023/10/19/taiwan-semiconductor-manufacturing-tsm-q3-2023-ear/?source=wsh-transcript&utm_source=wsh-transcript&utm_medium=feed&utm_campaign=article|http://mmm.wallstreethorizon.com/u.asp?u=511028" style="text-align:right"><a href="https://www.fool.com/earnings/call-transcripts/2023/10/19/taiwan-semiconductor-manufacturing-tsm-q3-2023-ear/?source=wsh-transcript&utm_source=wsh-transcript&utm_medium=feed&utm_campaign=article" target="_blank" rel="noopener" title="Read Conference Call Transcript for Taiwan Semiconductor Manufacturing"><span class="p-1 gradient-green c-white mb-icon icon-folder"></span></a>&nbsp;&nbsp;<a href="http://mmm.wallstreethorizon.com/u.asp?u=511028" target="_blank" rel="noopener" title="Listen to Conference Call for Taiwan Semiconductor Manufacturing"><span class="p-1 gradient-blue grey-scale c-white mb-icon icon-phone"></span></a>&nbsp;&nbsp;</td></tr><tr><td data-sort-value="20230720000000">7/20/2023</td><td>Q2 2023</td><td>$1.07</td><td>$1.14</td><td class="c-green">+$0.07</td><td>$1.14</td><td>$15.52 billion</td><td>$15.68 billion</td><td data-clean="||" style="text-align:right"></td></tr><tr><td data-sort-value="20230420000000">4/20/2023</td><td>Q1 2023</td><td>$1.21</td><td>$1.31</td><td class="c-green">+$0.10</td><td>$1.31</td><td>$17.30 billion</td><td>$16.72 billion</td><td data-clean="||" style="text-align:right"></td></tr><tr><td data-sort-value="20230112000000">1/12/2023</td><td>Q4 2022</td><td>$1.80</td><td>$1.82</td><td class="c-green">+$0.02</td><td>$1.82</td><td>$20.29 billion</td><td>$19.93 billion</td><td data-clean="||" style="text-align:right"></td></tr><tr><td data-sort-value="20221013000000">10/13/2022</td><td>Q3 2022</td><td>$1.69</td><td>$1.79</td><td class="c-green">+$0.10</td><td>$1.79</td><td>$20.83 billion</td><td>$20.23 billion</td><td data-clean="||" style="text-align:right"></td></tr><tr><td data-sort-value="20220714000000">7/14/2022</td><td>Q2 2022</td><td>$1.50</td><td>$1.55</td><td class="c-green">+$0.05</td><td>$1.55</td><td>$18.68 billion</td><td>$18.16 billion</td><td data-clean="||" style="text-align:right"></td></tr><tr class="bottom-sort"><td colspan="9" class="gradient-green c-white p-3" id="formholder"><div id="pnlSignup">
+<div id="divSubscribe" class="subscribe row align-items-center justify-content-start"><div class="col-2 d-none d-md-flex"><img src="/images/cta-newsletter-blue.svg" alt="newsletter" style="width:100%;" width="309" height="174" /></div><div class="col-10 col-lg-9 col-xl-8"><div class="h2 mt-2">Get the Latest News and Ratings for TSM and Related Stocks</div><p>Enter your email address below to receive the latest news and analysts&#39; ratings for Taiwan Semiconductor Manufacturing and its competitors with MarketBeat&#39;s FREE daily newsletter.</p><div style="width:520px;max-width:100%;" class="form-row"><input name="InTableRegistrationEmail" type="text" id="InTableRegistrationEmail" class="b-white col-sm-7" placeholder="Your Email Address" aria-label="Email Address" style="display:inline-block;flex:1 0 296px;-ms-flex:1 0 296px;" /><input type="button" name="btnHASubmit" value="Sign-Up Now (Free)" onclick="if (CheckEmail(&#39;InTableRegistrationEmail&#39;, &#39;ShowSuggestionInTable&#39;, &#39;c-white&#39;)) { window.location = &#39;/newsletter/?RegistrationCode=MarketDataTable&amp;RegistrationDomain=marketbeat.com&amp;RegisterEmail=&#39;+encodeURIComponent(document.getElementById(&#39;InTableRegistrationEmail&#39;).value); return true;} else { return false; };" id="btnHASubmit" class="col-sm-5 green-button blue-button" style="display:inline-block;flex:1 0 232px;-ms-flex:1 0 232px;" /></div><div id="ShowSuggestionInTable" style="display:inline-block;width:508px;max-width:100%;"></div></div></div>
+</div></td></tr><tr><td data-sort-value="20220414000000">4/14/2022</td><td>Q1 2022</td><td>$1.31</td><td>$1.40</td><td class="c-green">+$0.09</td><td>$1.40</td><td>$471.53 billion</td><td>$491.08 billion</td><td data-clean="|https://seekingalpha.com/article/4501527-taiwan-semiconductor-manufacturing-company-limited-tsm-ceo-c-c-wei-on-q1-2022-results|http://mmm.wallstreethorizon.com/u.asp?u=443295" style="text-align:right"><a href="https://seekingalpha.com/article/4501527-taiwan-semiconductor-manufacturing-company-limited-tsm-ceo-c-c-wei-on-q1-2022-results" target="_blank" rel="noopener" title="Read Conference Call Transcript for Taiwan Semiconductor Manufacturing"><span class="p-1 gradient-green c-white mb-icon icon-folder"></span></a>&nbsp;&nbsp;<a href="http://mmm.wallstreethorizon.com/u.asp?u=443295" target="_blank" rel="noopener" title="Listen to Conference Call for Taiwan Semiconductor Manufacturing"><span class="p-1 gradient-blue grey-scale c-white mb-icon icon-phone"></span></a>&nbsp;&nbsp;</td></tr><tr><td data-sort-value="20220113000000">1/13/2022</td><td>Q4 2021</td><td>$1.12</td><td>$1.15</td><td class="c-green">+$0.03</td><td>$1.15</td><td>$16.10 billion</td><td>$15.74 billion</td><td data-clean="||" style="text-align:right"></td></tr><tr><td data-sort-value="20211014000000">10/14/2021</td><td>Q3 2021</td><td>$1.05</td><td>$1.08</td><td class="c-green">+$0.03</td><td>$1.08</td><td>$14.89 billion</td><td>$14.88 billion</td><td data-clean="||" style="text-align:right"></td></tr><tr><td data-sort-value="20210714000000">7/14/2021</td><td>Q2 2021</td><td>$0.93</td><td>$0.93</td><td>-</td><td>$0.93</td><td>$372.58 billion</td><td>$372.15 billion</td><td data-clean="|https://seekingalpha.com/article/4439360-taiwan-semiconductor-manufacturing-co-ltd-tsm-ceo-c-c-wei-on-q2-2021-results-earnings-call|http://mmm.wallstreethorizon.com/u.asp?u=395263" style="text-align:right"><a href="https://seekingalpha.com/article/4439360-taiwan-semiconductor-manufacturing-co-ltd-tsm-ceo-c-c-wei-on-q2-2021-results-earnings-call" target="_blank" rel="noopener" title="Read Conference Call Transcript for Taiwan Semiconductor Manufacturing"><span class="p-1 gradient-green c-white mb-icon icon-folder"></span></a>&nbsp;&nbsp;<a href="http://mmm.wallstreethorizon.com/u.asp?u=395263" target="_blank" rel="noopener" title="Listen to Conference Call for Taiwan Semiconductor Manufacturing"><span class="p-1 gradient-blue grey-scale c-white mb-icon icon-phone"></span></a>&nbsp;&nbsp;</td></tr><tr><td data-sort-value="20210415000000">4/15/2021</td><td>Q1 2021</td><td>$0.91</td><td>$0.96</td><td class="c-green">+$0.05</td><td>$0.96</td><td>$12.83 billion</td><td>$12.92 billion</td><td data-clean="||" style="text-align:right"></td></tr><tr><td data-sort-value="20210114000000">1/14/2021</td><td>Q4 2020</td><td>$0.92</td><td>$0.97</td><td class="c-green">+$0.05</td><td>$0.97</td><td>$12.90 billion</td><td>$12.68 billion</td><td data-clean="||" style="text-align:right"></td></tr></tbody></table>
+<script type="text/javascript">
+                function pageLoad() {
+                    $(function () {
+                        $("#cphPrimaryContent_cphTabContent_txtStartDate").datepicker({
+                            showOn: "button",
+                            buttonImage: "/images/smallcal.png?v3",
+                            buttonImageOnly: true,
+                            buttonText: "Select Start Date"
+
+                        });
+                        $("#cphPrimaryContent_cphTabContent_txtEndDate").datepicker({
+                            showOn: "button",
+                            buttonImage: "/images/smallcal.png?v3",
+                            buttonImageOnly: true,
+                            buttonText: "Select End Date"
+                        });
+                        $(".ui-datepicker-trigger").attr("width", "20");
+                        $(".ui-datepicker-trigger").attr("height", "19");
+                        $(".ui-datepicker-trigger").attr("alt", "Calendar Date");
+                    });
+                }
+            </script>
+</div>
+<div class="row mt-5"><div class="d-md-none w-100 text-center"><img loading="lazy" decoding="async" style="width:90px;max-width:70%;" width="90" height="88" src="/images/faq.svg" alt class="m-auto pb-3"></div><div class="d-none d-md-block col-md-2  text-center"><div style="position:absolute;height:100%;width:100%;overflow:hidden;"><img loading="lazy" decoding="async" style="width:150px;max-width:70%;" width="150" height="147" src="/images/faq.svg" alt class="m-auto pb-3"><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span><br><span class="mb-icon icon-line-element-repeating c-light-gray"></span></div></div><div class="lh-medium col-md-10" itemscope itemtype="https://schema.org/FAQPage"><h2 class="mt-0 mb-4">Taiwan Semiconductor Manufacturing Earnings - Frequently Asked Questions</h2><div class="row"><div class="col-lg-6"><dl><div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question1" itemprop="name text" class="question h3 mt-0 c-dark-blue m-0 border-left b-dark-blue pl-5">When is Taiwan Semiconductor Manufacturing's earnings date?</div></dt>
+<dd><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="answer c-gold pl-5 pt-3 border-left b-gold">
+<p itemprop="text" id="answer1">Taiwan Semiconductor Manufacturing has not confirmed its next earnings publication date, but the company's estimated earnings date is Thursday, January 11th, 2024 based off last year's report dates. <a href="/stocks/NYSE/TSM/earnings/" class="sr-only sr-only-focusable">Learn more on TSM's earnings history.</a></p>
+</div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question2" itemprop="name text" class="question h3 mt-0 c-dark-blue m-0 border-left b-dark-blue pl-5">Did Taiwan Semiconductor Manufacturing beat their earnings estimates last quarter?</div></dt>
+<dd><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="answer c-gold pl-5 pt-3 border-left b-gold">
+<p itemprop="text" id="answer2">In the previous quarter, Taiwan Semiconductor Manufacturing (NYSE:TSM) reported $1.29 earnings per share (EPS) to beat the analysts' consensus estimate of $1.16 by $0.13. <a href="/stocks/NYSE/TSM/earnings/" class="sr-only sr-only-focusable">Learn more on analysts' earnings estimate vs. TSM's actual earnings.</a></p>
+</div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question3" itemprop="name text" class="question h3 mt-0 c-dark-blue m-0 border-left b-dark-blue pl-5">How can I listen to Taiwan Semiconductor Manufacturing's earnings conference call?</div></dt>
+<dd><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="answer c-gold pl-5 pt-3 border-left b-gold">
+<p itemprop="text" id="answer3">The conference call for Taiwan Semiconductor Manufacturing's latest earnings report can be listened to online. <a href="http://mmm.wallstreethorizon.com/u.asp?u=511028" target="_blank" rel="noopener" title="Listen to Conference Call for Taiwan Semiconductor Manufacturing" class="d-block">Listen to Conference Call<span class="mb-icon icon-arrow" aria-hidden="true"></span></a></p>
+</div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question4" itemprop="name text" class="question h3 mt-0 c-dark-blue m-0 border-left b-dark-blue pl-5">How can I read Taiwan Semiconductor Manufacturing's conference call transcript?</div></dt>
+<dd><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="answer c-gold pl-5 pt-3 border-left b-gold">
+<p itemprop="text" id="answer4">The conference call transcript for Taiwan Semiconductor Manufacturing's latest earnings report can be read online. <a href="https://www.fool.com/earnings/call-transcripts/2023/10/19/taiwan-semiconductor-manufacturing-tsm-q3-2023-ear/?source=wsh-transcript&utm_source=wsh-transcript&utm_medium=feed&utm_campaign=article" target="_blank" rel="noopener" title="Read Conference Call Transcript for Taiwan Semiconductor Manufacturing" class="d-block">Read Transcript<span class="mb-icon icon-arrow" aria-hidden="true"></span></a></p>
+</div></dd>
+</div>
+</dl></div><div class="col-lg-6"><dl><div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question5" itemprop="name text" class="question h3 mt-0 c-dark-blue m-0 border-left b-dark-blue pl-5">How much revenue does Taiwan Semiconductor Manufacturing generate each year?</div></dt>
+<dd><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="answer c-gold pl-5 pt-3 border-left b-gold">
+<p itemprop="text" id="answer5">Taiwan Semiconductor Manufacturing (NYSE:TSM) has a recorded annual revenue of $75.88 billion.</p>
+</div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question6" itemprop="name text" class="question h3 mt-0 c-dark-blue m-0 border-left b-dark-blue pl-5">How much profit does Taiwan Semiconductor Manufacturing generate each year?</div></dt>
+<dd><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="answer c-gold pl-5 pt-3 border-left b-gold">
+<p itemprop="text" id="answer6">Taiwan Semiconductor Manufacturing (NYSE:TSM) has a recorded net income of $32.31 billion. TSM has generated $5.56 earnings per share over the last four quarters. </p>
+</div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question7" itemprop="name text" class="question h3 mt-0 c-dark-blue m-0 border-left b-dark-blue pl-5">What is Taiwan Semiconductor Manufacturing's price-to-earnings ratio?</div></dt>
+<dd><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="answer c-gold pl-5 pt-3 border-left b-gold">
+<p itemprop="text" id="answer7">Taiwan Semiconductor Manufacturing (NYSE:TSM) has a trailing price-to-earnings ratio of 18.05 and a forward price-to-earnings ratio of 20.19. The price/earnings-to-growth ratio is 2.82.</p>
+</div></dd>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item-wrapper">
+<dt><div id="question8" itemprop="name text" class="question h3 mt-0 c-dark-blue m-0 border-left b-dark-blue pl-5">What is Taiwan Semiconductor Manufacturing's EPS forecast for next year?</div></dt>
+<dd><div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer" class="answer c-gold pl-5 pt-3 border-left b-gold">
+<p itemprop="text" id="answer8">Taiwan Semiconductor Manufacturing's earnings are expected to grow from $4.97 per share to $5.80 per share in the next year, which is a 16.70% increase.</p>
+</div></dd>
+</div>
+</dl></div></div></div>
+</div>
+<br/>
+<h2>More Earnings Resources from MarketBeat</h2>
+<div class="see-also">
+<strong>Related Companies:</strong>
+<ul>
+<li><a href="/stocks/NASDAQ/AVGO/earnings/">AVGO Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/AMD/earnings/">AMD Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/TXN/earnings/">TXN Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/NVDA/earnings/">NVDA Earnings Results</a></li>
+<li><a href="/stocks/NYSE/ORCL/earnings/">ORCL Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/ADBE/earnings/">ADBE Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/ASML/earnings/">ASML Earnings Results</a></li>
+<li><a href="/stocks/NYSE/CRM/earnings/">CRM Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/CSCO/earnings/">CSCO Earnings Results</a></li>
+<li><a href="/stocks/NASDAQ/INTC/earnings/">INTC Earnings Results</a></li>
+</ul>
+</div>
+<div class="see-also">
+<strong>Earnings Tools:</strong>
+<ul>
+<li><a href="/earnings/latest/">Today's Earnings</a></li>
+<li><a href="/earnings/tomorrow/">Tomorrow's Earnings</a></li>
+<li><a href="/earnings/next-week/">Next Week's Earnings</a></li>
+<li><a href="/earnings/conference-calls/">Upcoming Earnings Calls</a></li>
+<li><a href="/earnings/transcripts/">Earnings Call Transcripts</a></li>
+<li><a href="/earnings/beats-and-misses/">Earnings Beats &amp; Misses</a></li>
+<li><a href="/earnings/guidance/">Corporate Guidance</a></li>
+<li><a href="/all-access/earnings-screener/">Earnings Screener <span class="mb-icon icon-dynamic-aa-lock"></span></a></li>
+</ul>
+</div>
+<div class="see-also">
+<strong>Earnings By Country:</strong>
+<ul>
+<li>
+<a href="/earnings/latest/">U.S. Earnings Reports</a>
+</li>
+<li>
+<a href="/earnings/canada/">Canadian Earnings Reports</a>
+</li>
+<li>
+<a href="/earnings/uk/">U.K. Earnings Reports</a>
+</li>
+<li>
+<a href="/earnings/australia/">Australia Earnings Reports</a>
+</li>
+</ul>
+</div>
+<div class="see-also">
+<strong>Latest Articles:</strong>
+<ul>
+<li><a href="https://www.marketbeat.com/originals/diamondback-energy-7x-earnings-is-an-energy-diamond-in-the-rough/">Diamondback Energy: 7x earnings is an energy diamond in the rough</a></li><li><a href="https://www.marketbeat.com/originals/samsaras-big-rally-27-surge-following-stellar-q3-earnings/">Samsara's big rally: 27% surge following stellar Q3 earnings</a></li><li><a href="https://www.marketbeat.com/originals/the-truth-about-lululemon-earnings-suddenly-in-bearish-crosshair/">The truth about Lululemon earnings: Suddenly in bearish crosshair</a></li><li><a href="https://www.marketbeat.com/originals/own-dollar-general-hurry-and-take-this-advice-before-earnings/">Own Dollar General? Hurry and take this advice before earnings</a></li><li><a href="https://www.marketbeat.com/originals/earnings-propel-crowdstrike-cybersecurity-sector-to-new-highs/">Earnings propel Crowdstrike, cybersecurity sector, to new highs</a></li><li><a href="https://www.marketbeat.com/originals/alibaba-is-down-more-than-10-since-earnings-now-what/">Alibaba is down more than 10% since earnings, now what?</a></li><li><a href="https://www.marketbeat.com/originals/2-stocks-that-faded-their-price-gaps-after-crushing-earnings/">2 stocks that faded their price gaps after crushing earnings </a></li>
+</ul>
+</div>
+</div>
+</div>
+<em>This page (NYSE:TSM) was last updated on <span id="articleDate">12/10/2023</span> by <span id="authorName">MarketBeat.com Staff</span></em>
+<br/> <br/>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display: block" data-ad-client="ca-pub-9373162611283935" data-ad-slot="6187434333" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div style="display: none">
+<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{"@type": "ListItem","position": 1, "item": "https://www.marketbeat.com/", "name": "MarketBeat"},{"@type": "ListItem","position": 2, "item": "https://www.marketbeat.com/stocks/", "name": "Stocks"}, {"@type": "ListItem","position": 3, "item": "https://www.marketbeat.com/stocks/NYSE/", "name": "NYSE"},{"@type": "ListItem","position": 4, "name": "TSM", "item": "https://www.marketbeat.com/stocks/NYSE/TSM/"},{"@type": "ListItem","position": 5, "name": "Earnings", "url": "https://www.marketbeat.com/stocks/NYSE/TSM/earnings/"}]}</script>
+</div>
+</div>
+<div id="PanelAddOptions" class="modal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-title gradient-blue p-3 h3 c-white m-0 text-center">
+Adding
+</div>
+<div class="modal-body">
+<div class="top-label">Choose a watchlist:</div>
+<label for="cphPrimaryContent_ddlWatchlist" class="sr-only">Watchlist</label>
+<select name="ctl00$ctl00$cphPrimaryContent$ddlWatchlist" id="cphPrimaryContent_ddlWatchlist" class="top-labeled-input">
+</select>
+</div>
+<div class="modal-footer justify-content-center">
+<button type="button" class="black-button mb-0" data-dismiss="modal">
+Cancel
+</button>
+<input type="submit" name="ctl00$ctl00$cphPrimaryContent$btnAdd" value="Add to Watchlist" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$cphPrimaryContent$btnAdd&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="cphPrimaryContent_btnAdd" class="sbbutton blue-button m-0" />
+</div>
+</div>
+</div>
+</div>
+<div id="PanelUpgradeToPremium" class="modal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-title gradient-blue p-3 h3 c-white m-0 text-center">
+Adding
+</div>
+<div class="modal-body">
+<p style="line-height: 1.5;">You have already added five stocks to your watchlist. Upgrade to MarketBeat All Access to add more stocks to your watchlist.</p>
+</div>
+<div class="modal-footer justify-content-center">
+<button type="button" class="black-button mb-0" data-dismiss="modal">
+Cancel
+</button>
+</div>
+</div>
+</div>
+</div>
+<div id="PanelLoginOrCreate" class="modal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-title gradient-blue p-3 h3 c-white m-0 text-center">
+Adding
+Taiwan Semiconductor Manufacturing Company Limited
+</div>
+<div class="modal-body">
+<p style="line-height: 1.5">
+Please log in to your account or sign up in order to add this asset to your watchlist.
+</p>
+</div>
+<div class="modal-footer justify-content-center">
+<button type="button" class="black-button mb-0" data-dismiss="modal">
+Cancel
+</button>
+<a href="/login/?cmd=create&prefix=NYSE&symbol=TSM" class="sbbutton blue-button">Log In and Add</a></div><div class="clearfix">
+</div>
+</div>
+</div>
+</div>
+<script defer src="https://www.marketbeat.com/Scripts/libraries/d3.min.js" charset="utf-8"></script>
+<script> var ScrpRestrict = "9BC048E1BE45B4E1BFC8295326414F1BDFF08986DAC08474CCC1A8298F1B538A686FBA4F3598FB9478F44C9F28E153DABD37CEF9E289284897E071323E9D8A82"</script>
+<script defer src="/Scripts/charts/dv-charts.js?v=static20230724" charset="utf-8" type="text/javascript"></script>
+
+<script type="text/javascript">
+        var sc_project = 11737865;
+        var sc_invisible = 1;
+        var sc_security = "936735bf";
+        var sc_https = 1;
+    </script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
+<noscript>
+        <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+            <img class="statcounter" src="//c.statcounter.com/11737865/0/936735bf/1/" alt="Web Analytics"></a></div>
+    </noscript>
+
+<script type="text/javascript">
+
+        function show(shID) {
+            if (document.getElementById(shID)) {
+                if (document.getElementById(shID).style.display != 'none') {
+                    document.getElementById(shID).style.display = 'none';
+                }
+                else {
+                    document.getElementById(shID).style.display = 'block';
+                }
+            }
+        }
+      
+
+        document.addEventListener("DOMContentLoaded", function () {            
+            $(".question-toggle")
+                .on('click', function () {
+                    $("#" + $(this).attr("id").replace("-question-mark", "") + "-explanation").toggleClass("clicked");
+                });
+        });
+
+        function loadMoreDescription(Prefix, Symbol) {
+
+            var url = "/Scripts/ReadMore.ashx?Prefix=" + Prefix + "&Symbol=" + Symbol;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                success: function (data) {
+                    $("#readmoredescription").css("font-weight", "normal");
+                    $("#readmoredescription").html(data);
+                }
+            });
+
+        }
+
+
+    </script>
+<div id="pnlAllAccessTrial">
+<a href="https://www.marketbeat.com/subscribe/all-access/?referraltype=footerfullwidth" style="font-weight:normal" class="no-a">
+<div class="position-relative gradient-green c-white my-3 d-print-none">
+<div class="row">
+<img style="right: 0;width: 33%;height:auto;" class="d-md-none position-absolute" src="/images/Newsletter-phones-gfx-2-min.png" loading="lazy" alt width="285" height="173">
+<div class="col-md-7 col-lg-8 px-5 py-4">
+<div class="d-md-none w-25 float-right" style="height: 86px;"></div>
+<div class="mt-0 h2">Get 30 Days of MarketBeat All Access Free</div>
+<p>Sign up for MarketBeat All Access to gain access to MarketBeat's full suite of research tools:</p>
+<ul class="gold-bullet-list">
+<li><b>Best-in-Class Portfolio Monitoring</b>
+<p>View the latest news, buy/sell ratings, SEC filings and insider transactions for your stocks. Compare your portfolio performance to leading indices and get personalized stock ideas based on your portfolio.</p>
+</li>
+<li><b>Stock Ideas and Recommendations</b>
+<p>Get daily stock ideas from top-performing Wall Street analysts. Get short term trading ideas from the MarketBeat Idea Engine. View which stocks are hot on social media with MarketBeat's trending stocks report.</p>
+</li>
+<li><b>Advanced Stock Screeners and Research Tools</b>
+<p>Identify stocks that meet your criteria using seven unique stock screeners. See what's happening in the market right now with MarketBeat's real-time news feed. Export data to Excel for your own analysis. </p>
+</li>
+</ul>
+<span class="sbbutton gold-button">Start Your 30-Day Free Trial <span class="mr-3 mb-icon icon-arrow"></span></span>
+</div>
+<div class="col-md-5 col-lg-4 lazy-bg" style="background-image: url(/images/Newsletter-phones-gfx-3-min.png);background-size: cover;background-position: left;position: relative;right: 15px;">
+</div>
+</div>
+</div>
+</a>
+</div>
+<div id="HelpersArea" style="opacity:0;transition:opacity .5s;position:relative;z-index:1001;">
+<div id="pnlHelpers" class="multi-collapse-outer shadow collapse" style="position: fixed;right: 10px;bottom: 10px; width: 310px; background-color: #fff;z-index: 400;">
+</div>
+</div>
+<div id="pnlLoginCreateModal" class="modal fade show">
+<div class="modal-dialog modal-dialog-centered" style="max-width:650px;">
+<div class="modal-content">
+<div class="modal-body p-0" style="max-height: 95vh;">
+<div class="row m-0">
+<div class="col-sm-5 p-0 gradient-blue c-white p-3 p-sm-4" style="font-size:1.05em;">
+<div class="d-none d-sm-block">
+<div class="prata font-12 mb-3">Sign in to your <span class="free">free</span> account to enjoy these benefits</div>
+<ul class="checkmark-list">
+<li>In-depth profiles and analysis for 20,000 public companies.</li>
+<li>Real-time analyst ratings, insider transactions, earnings data, and more.</li>
+<li>Our daily ratings and market update email newsletter.</li>
+</ul>
+</div>
+<div class="d-sm-none">
+<div class="prata font-12 lh-medium">Sign in to your <span class="free">free</span> account to enjoy all that MarketBeat has to offer.</div>
+</div>
+</div>
+<div class="col-sm-7 p-0 bg-white">
+<div class="m-0">
+<ul class="nav nav-tabs justify-content-between pl-2" role="tablist" aria-label="Log in or create account">
+<li class="nav-item">
+<a id="LoginOnModalTab" class="nav-link active" href="#pnlLoginOnModal" role="tab" aria-selected="true" tabindex="0" aria-controls="pnlLoginOnModal" data-toggle="tab" onclick="trapFocusInModal('#pnlLoginCreateModal', 'txtLoginOnModalEmail', 'LoginOnModalTab', 'LastLinkOnLoginTab');">Sign In</a>
+</li>
+<li class="nav-item">
+<a id="CreateOnModalTab" class="nav-link" href="#pnlCreate" role="tab" aria-selected="false" tabindex="-1" aria-controls="pnlCreate" data-toggle="tab" onclick="trapFocusInModal('#pnlLoginCreateModal', 'txtCreateOnModalEmail', 'CreateOnModalTab', 'LastLinkOnCreateTab');">Create Account</a>
+</li>
+<li class="nav-item ml-auto">
+<a id="CloseModal" class="nav-link special-purpose-nav-link mb-icon icon-menu-close font-15" href="#pnlCreate" role="tab" aria-selected="false" tabindex="-1" data-dismiss="modal" style="padding: 0.7rem;font-size: 1rem;" title="Close Login Modal"></a>
+</li>
+</ul>
+<div class="tab-content m-0 p-0" style="box-shadow: none !important;">
+<div ID="pnlLoginOnModal" class="tab-pane active" role="tabpanel" tabindex="0" aria-labelledby="LoginOnModalTab">
+<div class="p-3">
+<div id="pnlLoginOnModalInner">
+<label class="bold m-0" for="txtLoginOnModalEmail">Your Email Address:</label>
+<input name="ctl00$ctl00$txtLoginOnModalEmail" type="text" maxlength="300" id="txtLoginOnModalEmail" class="top-labeled-input" autofocus />
+<div class="rfv-div-validation-triangle">
+</div>
+<label class="bold m-0" for="txtLoginOnModalPassword">Your Password:</label>
+<input name="ctl00$ctl00$txtLoginOnModalPassword" type="password" maxlength="300" id="txtLoginOnModalPassword" class="top-labeled-input mb-3" />
+<div class="rfv-div-validation-triangle">
+</div>
+<input type="button" name="ctl00$ctl00$btnLoginOnModal" value="Log In" onclick="LoginOnModalSubmit();return false;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$btnLoginOnModal&quot;, &quot;&quot;, true, &quot;Login&quot;, &quot;&quot;, false, true))" id="btnLoginOnModal" class="sbbutton green-button" />
+<div ID="loginOnModalWarning"></div>
+</div>
+<div style="font-size: 18px; padding-bottom: 13px; text-align: center">
+<hr style="margin: 0; position: relative; top: .65em; color: #555;" />
+<span style="background: #fff; padding: 0 10px; position: relative; color: #6a6a6a;">or</span>
+</div>
+<div class="d-flex flex-wrap" style="margin: 0 -2px;">
+<a href="#" onclick="helloinit();hello('facebook').login({scope : 'email',force : true}); return false;" class="facebook-login-button zocial facebook">
+<img src="/images/facebook-logo-2.png" width="22" height="22" loading="lazy" alt="Facebook icon" style="vertical-align: middle; vertical-align: middle; width: 22px; float: left; margin: 4px;" />Sign in with Facebook</a>
+<a href="#" onclick="helloinit();hello('google').login({scope : 'email',force : true}); return false;" class="zocial google">
+<img src="/images/google-g-logo.png" width="20" height="20" loading="lazy" alt="Google icon" style="vertical-align: middle; width: 20px; float: left; margin: 5px;" />Sign in with Google</a>
+</div>
+<div style="padding-top: 18px; font-size: 14px;"><a id="LastLinkOnLoginTab" href="/forgot-password/">Forgot your password?</a></div>
+</div>
+</div>
+<div ID="pnlCreate" class="tab-pane bg-light-gray" role="tabpanel" aria-labelledby="CreateOnModalTab">
+<div class="p-3">
+<div id="pnlCreateInner">
+<label class="bold m-0" for="txtCreateOnModalEmail">Your Email Address:</label>
+<input name="ctl00$ctl00$txtCreateOnModalEmail" type="text" maxlength="300" id="txtCreateOnModalEmail" class="top-labeled-input" />
+<div class="rfv-div-validation-triangle">
+</div>
+<div class="rfv-div-validation-triangle">
+</div>
+<label class="bold m-0" for="txtCreateOnModalPassword" title="Your password must be at least 8 characters long and contain at least 1 number, 1 letter, and 1 special character.">Choose a Password:</label>
+<input name="ctl00$ctl00$txtCreateOnModalPassword" type="password" maxlength="300" id="txtCreateOnModalPassword" class="top-labeled-input mb-3" />
+<div class="rfv-div-validation-triangle">
+</div>
+<div class="rfv-div-validation-triangle" style="line-height: 1; padding-top: 5px;">
+</div>
+<button id="createOnModalVisibleButton" class="sbbutton green-button w-100 g-recaptcha" data-sitekey="6Lddn5keAAAAAPlD91bDkOh-lnZZxsz5b4ddp3Mw" data-callback="CreateOnModalSubmit" data-action="submit">Create My Account (Free)</button>
+<div id="createOnModalWarning" class="mb-2" style="display:none;"></div>
+<div class="d-none">
+<input type="submit" name="ctl00$ctl00$btnOnEnterCreateOnModal" value="Submit the Form" onclick="$(&#39;#createOnModalVisibleButton&#39;).click();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$btnOnEnterCreateOnModal&quot;, &quot;&quot;, true, &quot;Signup&quot;, &quot;&quot;, false, false))" id="btnOnEnterCreateOnModal" />
+<input type="submit" name="ctl00$ctl00$btnCreateOnModal" value="Create My Account (Free)" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctl00$btnCreateOnModal&quot;, &quot;&quot;, true, &quot;Signup&quot;, &quot;&quot;, false, false))" id="btnCreateOnModal" />
+</div>
+</div>
+<div style="padding-top: 15px; font-size: 18px; padding-bottom: 13px; text-align: center">
+<hr style="margin: 0; position: relative; top: .65em; color: #555;" />
+<span style="padding: 0 10px; position: relative; color: #6a6a6a;" class="bg-light-gray">or</span>
+</div>
+<div class="d-flex flex-wrap" style="margin: 0 -2px;">
+<a href="#" onclick="helloinit();hello('facebook').login({scope : 'email',force : true}); return false;" class="facebook-login-button zocial facebook">
+<img src="/images/facebook-logo-2.png" width="22" height="22" loading="lazy" alt="Facebook icon" style="vertical-align: middle; vertical-align: middle; width: 22px; float: left; margin: 4px;" />Sign in with Facebook</a>
+<a href="#" onclick="helloinit();hello('google').login({scope : 'email',force : true}); return false;" class="zocial google">
+<img src="/images/google-g-logo.png" width="20" height="20" loading="lazy" alt="Google icon" style="vertical-align: middle; vertical-align: middle; width: 20px; float: left; margin: 5px;" />Sign in with Google</a>
+</div>
+<div style="padding-top: 18px; font-size: 13px;">By creating a free account, you agree to our <a href="/terms/" target="_blank">terms of service.</a> This site is protected by reCAPTCHA and the Google <a rel="nofollow" href="https://policies.google.com/privacy">Privacy Policy</a> and <a rel="nofollow" id="LastLinkOnCreateTab" href="https://policies.google.com/terms">Terms of Service</a> apply.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</article>
+</div>
+</main>
+<footer role="contentinfo">
+<div class="bg-light-gray position-relative" style="opacity: 0.8;">
+<div class="featured-in container">
+<div class="d-lg-flex justify-content-center align-items-center py-2">
+<p class="h2 pt-2 m-0 mb-2 text-center" style="font-size: 1rem;">As Featured By:</p>
+<div class="text-center px-3">
+<span class="mb-icon icon-featured-barrons" role="img" aria-label="Barron's"></span>
+<span class="mb-icon icon-featured-entrepreneur" role="img" aria-label="Entrepreneur Magazine"></span>
+<span class="mb-icon icon-featured-forbes" role="img" aria-label="Forbes"></span>
+<span class="mb-icon icon-featured-inc" role="img" aria-label="Inc. Magazine"></span>
+<span class="mb-icon icon-featured-investing" role="img" aria-label="Investing.com"></span>
+<span class="mb-icon icon-featured-nasdaq" role="img" aria-label="NASDAQ"></span>
+<span class="mb-icon icon-featured-prairie-business" role="img" aria-label="Prairie Business"></span>
+<span class="mb-icon icon-featured-seeking-alpha" role="img" aria-label="Seeking Alpha"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="gradient-blue c-white position-relative" style="font-size: .9em;">
+<div class="container">
+<div class="row pt-4 pb-2 justify-content-between">
+<div class="col-12 col-lg-4 col-xl-3">
+<div class="row justify-content-between align-items-start align-items-lg-center">
+<div class="col-12 col-sm-3 col-md-4 col-lg-12 text-center text-md-left">
+<img class="h-auto mb-lg-1 mt-lg-2" id="footer-logo" src="/images/master/MarketBeat-logo-r-white.svg?v=2019" alt="MarketBeat - Stock Market News and Research Tools" loading="lazy" width="256" height="65">
+</div>
+<div class="col-12 col-sm-5 col-md-4 col-lg-12 text-center text-sm-left">
+<div class="yantramav font-weight-bold mt-2 mt-sm-0 mt-lg-3">Empowering Individual Investors</div>
+<p class="small my-2">
+345 N Reid Place, Suite 620, Sioux Falls, SD 57103
+<br/>
+contact@marketbeat.com
+<br/>
+(844) 978-6257
+</p>
+</div>
+<div class="col-12 col-sm-4 col-lg-12 text-center text-sm-left  mt-1 mt-lg-4">
+<ul class="footer-follow nounderline my-0 p-0">
+<li class="d-inline-block mr-md-1">
+<a href="https://twitter.com/MarketBeatCom" target="_blank" rel="noopener">
+<span class="mb-icon icon-share-twitter c-white mr-sm-1"></span>
+<span class="sr-only">Twitter</span>
+</a>
+</li>
+<li class="d-inline-block mr-md-1">
+<a href="https://www.facebook.com/marketbeatcom/" target="_blank" rel="noopener">
+<span class="mb-icon icon-share-facebook c-white mr-sm-1"></span>
+<span class="sr-only">Facebook</span>
+</a>
+</li>
+<li class="d-inline-block mr-md-1">
+<a href="https://www.youtube.com/marketbeatcom?sub_confirmation=1" target="_blank" rel="noopener">
+<span class="mb-icon icon-youtube c-white mr-sm-1"></span>
+<span class="sr-only">Youtube</span>
+</a>
+</li>
+<li class="d-inline-block mr-md-1">
+<a href="https://stocktwits.com/MarketBeat" title="Follow MarketBeat on Stocktwits" target="_blank" rel="noopener">
+<span class="mb-icon icon-share-stocktwits c-white mr-sm-1"></span>
+<span class="sr-only">StockTwits</span>
+</a>
+</li>
+<li class="d-inline-block mr-md-1">
+<a href="https://www.financialjuice.com/marketbeat" title="Follow MarketBeat on Financial Juice" target="_blank" rel="noopener">
+<span class="mb-icon icon-share-financialjuice c-white mr-sm-1"></span>
+<span class="sr-only">Financial Juice</span>
+</a>
+</li>
+<li class="d-inline-block mr-md-1">
+<a href="https://www.linkedin.com/company/american-consumer-news-llc/" title="Follow MarketBeat on LinkedIn" target="_blank" rel="noopener">
+<span class="mb-icon icon-share-linkedin c-white mr-sm-1"></span>
+<span class="sr-only">LinkedIn</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-8 col-xl-9 border-top mt-3 pt-3" style="border-color: #eff2f424 !important">
+<div class="row">
+<div class="col-6 col-sm-3">
+<h2 class="mt-1 mb-2 oswald" style="font-size: 1em;">About MarketBeat</h2>
+<ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+<li class="my-2"><a class="font-weight-normal" href="/about/">About</a>
+</li>
+<li class="my-2"><a class="font-weight-normal " href="/editorial-guidelines/">Editorial Guidelines</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/press-room/">Press Room</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/help/">Help and How-To</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/careers/">Careers</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/contact/">Contact</a></li>
+</ul>
+</div>
+<div class="col-6 col-sm-3">
+<h2 class="mt-1 mb-2 oswald" style="font-size: 1em;">Popular Tools</h2>
+<ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+<li class="my-2"><a class="font-weight-normal " href="/stocks/">Stock Lists</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/compare-stocks/">Compare Stocks</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/dividends/calculator/">Dividend Calculator</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/manage/watchlists/">My MarketBeat</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/stock-screener/">Stock Screener</a></li>
+</ul>
+</div>
+<div class="col-6 col-sm-3">
+<h2 class="mt-1 mb-2 oswald" style="font-size: 1em;">Financial Calendars</h2>
+<ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+<li class="my-2"><a class="font-weight-normal " href="/ratings/">Analyst Ratings</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/dividends/">Dividends</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/earnings/latest/">Earnings</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/insider-trades/">Insider Trades</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/stock-market-holidays/">Stock Market Holidays</a></li>
+</ul>
+</div>
+<div class="col-6 col-sm-3">
+<h2 class="mt-1 mb-2 oswald" style="font-size: 1em;">Terms & Info</h2>
+<ul class="mx-0 my-1 p-0 list-unstyled" style="font-size: 0.9em;">
+<li class="my-2"><a class="font-weight-normal " href="/advertising/">Advertising</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/accessibility/">Accessibility Statement</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/do-not-sell-my-information/">Do Not Sell My Information</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/terms/#privacy-policy">Privacy Policy</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/rss-feeds/">RSS Feeds</a></li>
+<li class="my-2"><a class="font-weight-normal " href="/terms/">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 mt-3">
+<p class="small my-0 py-3">© American Consumer News, LLC dba MarketBeat&reg; 2010-2023. All rights reserved.</p>
+<p class="small my-0 py-3">
+© 2023 Market data provided is at least 10-minutes delayed and hosted by Barchart Solutions. Information is provided 'as-is' and solely for informational purposes, not for trading purposes or advice, and is delayed. To see all exchange delays and terms of use please see <a href="https://www.barchartmarketdata.com/terms" rel="nofollow">Barchart's disclaimer</a>. <span id="keep-for-checking-size" class="d-none d-sm-inline-block"></span>
+</p>
+</div>
+</div>
+</div>
+<img style="position: absolute; right: 0; bottom: 0; max-width: 100px;" class="w-100" src="/images/corner-gfx-dark-bkg.svg" aria-hidden="true" alt loading="lazy" width="100" height="103" />
+<img style="transform: scaleX(-1); position: absolute; left: 0; bottom: 0; max-width: 100px;" class="w-100" src="/images/corner-gfx-dark-bkg.svg" aria-hidden="true" alt loading="lazy" width="100" height="103" />
+</div>
+</footer>
+<div class="menu-closer"></div>
+</div>
+<nav id="left-side-menu" class="gradient-blue c-white" role="navigation" aria-label="Main mobile menu">
+</nav>
+<div id="right-side-menu" class="gradient-blue d-none" aria-label="User registration and notifications">
+<div style="margin: 0 5px; height: 374px;">
+<p class="side-menu-title mt-2 ml-1"><a href="/manage/" style="font-weight:normal;">My Account - <span class="d-inline-block lh-loose" style="white-space:nowrap;"></span></a></p>
+<ul class="side-menu-list">
+<li><a class="wl-tab-change" href="/manage/watchlists/#portfolio"><span class="mb-icon icon-marketbeat-m mr-2"></span> My MarketBeat</a></li>
+<li><a class="wl-tab-change" href="/manage/watchlists/#newsletter"><span class="mb-icon icon-my-newsletter mr-2"></span> My Newsletter</a></li>
+<li><a href="/manage/alerts/"><span class="mb-icon icon-notifications mr-2"></span> My Alerts</a></li>
+<li><a href="/manage/subscriptions/"><span class="mb-icon icon-multiple mr-2"></span> My Subscriptions</a></li>
+<li><a href="/manage/"><span class="mb-icon icon-my-accountsettings mr-2"></span> My Account Settings</a></li>
+<li><a href="/manage/payments/"><span class="mb-icon icon-my-paymentsettings mr-2"></span> My Payment Settings</a></li>
+<li><a class="g_id_signout" href="/login/?cmd=logout"><span class="mb-icon icon-my-logout mr-2"></span> Log Out</a></li>
+</ul>
+</div>
+<div id="notifications-area" class="pt-3 position-relative" style="opacity:0;transition:opacity .7s;">
+</div>
+</div>
+<div id="video-modal-global" class="d-none">
+<div id="video-modal" class="modal" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<button type="button" class="close clear-button" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="modal-body row m-0 p-0" style="max-height: none;">
+<div class="video-column bg-black col-12 px-0">
+<div class="videowrapper">
+<iframe id="video-iframe" frameborder="0" allow="accelerometer; autoplay;" allowfullscreen autofocus></iframe>
+</div>
+</div>
+<div id="video-description" class="bg-light-gray box-shadow d-none"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+        function CreateOnModalSubmit(token) {
+            console.log(token);
+            if (CheckCreateOnModal("txtCreateOnModalEmail", "createOnModalWarning", "createOnModalVisibleButton")) {
+                console.log("passed CheckCreateOnModal");
+                $("#btnCreateOnModal").click(); 
+            }
+        }
+
+        function LoginOnModalSubmit() {
+            CheckLoginOnModal("txtLoginOnModalEmail", "txtLoginOnModalPassword", "loginOnModalWarning", "btnLoginOnModal");
+            return false; 
+        }
+
+        function setPremiumPageWording() {
+            $('.free').addClass("d-none");
+        }
+    </script>
+<script defer src="/Scripts/libraries/hello.all.js"></script>
+<script defer src="/Scripts/libraries/popper.min.js"></script>
+<script defer src="/Scripts/libraries/bootstrap.min.js"></script>
+<script defer src="/Scripts/libraries/jquery-ui.min.js"></script>
+<script defer type="text/javascript" src="/scripts/masterscripts9.js?v=20231117b"></script>
+
+<script type="text/javascript">var ShowExitPopup = true;</script>
+<script>var getNewsletterButton = "<button id='mmsubbutton' onclick=\"openIframeModal('MB-Popup', 'marketbeat.com', '', '', '', 'Ratings', 1);\" class='sbbutton m-3 d-block p-2' style='width:calc(100% - 3rem);'>Get Our Newsletter</button>";</script>
+
+
+<script type="text/javascript">
+    var sc_project=7602069; 
+    var sc_invisible=1; 
+    var sc_security="74cbf3e8"; 
+    var sc_https=1; 
+    </script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><img class="statcounter" src="//c.statcounter.com/7602069/0/74cbf3e8/1/" alt="Web Analytics"></div></noscript>
+
+<script type="text/javascript">
+
+        (function () {
+            const second = 1000,
+                minute = second * 60,
+                hour = minute * 60,
+                day = hour * 24;
+
+            let today = new Date(),
+                eventDate = new Date(Date.UTC(2023, 06, 29, 05, 59, 00, 00)); // must be 5 hours 59 minutes after you want it to end because of time zones and the month is zero indexed
+
+            //end
+
+            const countDown = new Date(eventDate).getTime(),
+                x = setInterval(function () {
+
+                    if (document.getElementById("countdown") != null) {
+                        const now = new Date().getTime(),
+                            distance = countDown - now;
+
+                        document.getElementById("days").innerText = Math.floor(distance / (day)),
+                            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                        //do something later when date is reached
+                        if (distance <= 0) {
+                            document.getElementById("days").innerText = 0,
+                                document.getElementById("hours").innerText = 0,
+                                document.getElementById("minutes").innerText = 0,
+                                document.getElementById("seconds").innerText = 0;
+                            clearInterval(x);
+                        }
+                    //seconds
+
+                    }
+                }, 200)
+        }());
+
+
+
+        (function () {
+            if (document.getElementById("countdownIndividual") != null) {
+
+                const second = 1000,
+                    minute = second * 60,
+                    hour = minute * 60,
+                    day = hour * 24;
+
+
+                var daysToOffer = 2;
+                let expirationDate = new Date(new Date().getTime() + (daysToOffer * 24 * 60 * 60 * 1000));
+
+                if (getCookie("HIExpiration")) {
+                    expirationDate = new Date(getCookie("HIExpiration"));
+                }
+                else {
+                    setCookie("HIExpiration", expirationDate.toJSON(), 16)
+                }
+
+                //end
+                const countDown = new Date(expirationDate).getTime(),
+                    x = setInterval(function () {
+
+
+                    const now = new Date().getTime(),
+                        distance = countDown - now;
+
+                    document.getElementById("days").innerText = Math.floor(distance / (day)),
+                    document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                    document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                    //do something later when date is reached
+                        if (distance <= 0) {
+                            document.getElementById("days").innerText = 0,
+                            document.getElementById("hours").innerText = 0,
+                            document.getElementById("minutes").innerText = 0,
+                            document.getElementById("seconds").innerText = 0;
+                        clearInterval(x);
+                    }
+                    //seconds
+
+                    
+                }, 200)
+        }
+        }());
+    </script>
+
+<script type="text/javascript"> _linkedin_partner_id = "6289145"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id); </script><script type="text/javascript"> (function (l) { if (!l) { window.lintrk = function (a, b) { window.lintrk.q.push([a, b]) }; window.lintrk.q = [] } var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript"; b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s); })(window.lintrk); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=6289145&fmt=gif" /> </noscript>
+</body>
+</html>

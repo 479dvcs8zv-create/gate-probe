@@ -1,0 +1,114 @@
+{
+  "archive_version": "4.32-archive",
+  "co_id": "2454",
+  "adr": null,
+  "typek": "sii",
+  "base_url": "https://web.archive.org",
+  "started_at": "2026-11-02T02:24:09.776535+00:00",
+  "targets": [
+    {
+      "id": "tradingview_tw_forecast",
+      "vendor": "TradingView",
+      "unit": "新台幣（頁面標示 TWD；GAAP／調整後未寫）",
+      "url": "https://tw.tradingview.com/symbols/TWSE-2454/forecast-actuals-and-estimates/",
+      "save": {
+        "attempt": 1,
+        "sent_at": "2026-11-02T02:24:09.776547+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261102022415/https://tw.tradingview.com/symbols/TWSE-2454/financials-estimates/"
+        },
+        "cdx_file": "cdx/tradingview_tw_forecast_1.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "NOT_IN_INDEX_YET",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-11-02T02:24:09.776547+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261102022415/https://tw.tradingview.com/symbols/TWSE-2454/financials-estimates/"
+          },
+          "cdx_file": "cdx/tradingview_tw_forecast_1.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ],
+      "capture_timestamp_from_headers": "20261102022415"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "新台幣／股",
+      "url": "https://finance.yahoo.com/quote/2454.TW/analysis/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-11-02T02:28:03.447011+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261102022913/https://finance.yahoo.com/quote/2454.TW/analysis/"
+        },
+        "cdx_file": "cdx/yahoo_tw_analysis_2.json",
+        "cdx_sha256": "62a836700225dc6c2a9552e13e7b30ec38425233022dbbc2bb15f37d1412fec0",
+        "found_in_index": "20261102022913"
+      },
+      "capture": {
+        "timestamp": "20261102022913",
+        "captured_at_tpe": "2026-11-02T10:29:13+08:00",
+        "archive_url": "https://web.archive.org/web/20261102022913/https://finance.yahoo.com/quote/2454.TW/analysis/",
+        "cdx_digest": "LLHHR5O6JQSFSZ3JCXR533MXRCNE6ISJ",
+        "digest_matched": true,
+        "file": "captures/yahoo_tw_analysis_20261102022913.bin",
+        "sha256": "d526e8bbc06a20fca4e1e9c7791a4ff6e6f8d21b11f2b745eed4a61952ce5d75",
+        "length": 190915,
+        "content_type": "text/html; charset=utf-8",
+        "content_encoding": "gzip",
+        "sent_ts": "20261102022803",
+        "decoded_length": 942473,
+        "decoded_sha256": "033d8b973d89786e4ccd4c5b69e485e4a2904f403b65b91ef9df591bfb51cd0b",
+        "payload_compression": "gzip"
+      },
+      "status": "ARCHIVED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-11-02T02:24:56.478329+00:00",
+          "http_status": null,
+          "error": "URLError: timed out",
+          "headers": {},
+          "cdx_file": "cdx/yahoo_tw_analysis_1.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-11-02T02:28:03.447011+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261102022913/https://finance.yahoo.com/quote/2454.TW/analysis/"
+          },
+          "cdx_file": "cdx/yahoo_tw_analysis_2.json",
+          "cdx_sha256": "62a836700225dc6c2a9552e13e7b30ec38425233022dbbc2bb15f37d1412fec0",
+          "found_in_index": "20261102022913"
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "skipped": [],
+  "order_basis": [
+    {
+      "id": "tradingview_tw_forecast",
+      "last_archived": "20261019092426"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "last_archived": "20261026021556"
+    }
+  ],
+  "finished_at": "2026-11-02T02:30:09.294347+00:00"
+}
