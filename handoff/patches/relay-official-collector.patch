@@ -1,0 +1,1027 @@
+From 23829ec70ab04261699bea8b03a3a2fc7dc4601f Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 3 Nov 2026 03:34:14 +0800
+Subject: [PATCH] Official collector bundle on GitHub for the site's own patrol
+ import
+
+Owner 2026-11-03 03:11 authorised moving the site's official-data collection
+to GitHub. A scheduled workflow runs the site's v250 collectors (vendored,
+public official sources only, no credentials) and force-pushes the payload
+parts plus manifest.json (kind, bytes, SHA-256, collector errors) to the
+orphan branch official-import. Malformed, oversized and failure-only CPI or
+news parts are not published. The site imports this branch at the start of
+its patrol when RELAY_OFFICIAL_IMPORT_ENABLED=true. Nothing here deploys or
+calls the site.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ .github/workflows/official_collector.yml      |  70 +++++
+ README.md                                     |   8 +
+ scripts/publish_official_import.py            | 146 +++++++++
+ scripts/run_official_collector.sh             |  18 ++
+ tests/test_official_import.py                 | 120 ++++++++
+ .../scripts/collect-official-data.py          | 291 ++++++++++++++++++
+ .../scripts/collect-source-research.mjs       |  27 ++
+ vendor/site-collector/worker/official-news.js |  76 +++++
+ .../site-collector/worker/source-research.js  | 175 +++++++++++
+ 9 files changed, 931 insertions(+)
+ create mode 100644 .github/workflows/official_collector.yml
+ create mode 100644 scripts/publish_official_import.py
+ create mode 100755 scripts/run_official_collector.sh
+ create mode 100644 tests/test_official_import.py
+ create mode 100644 vendor/site-collector/scripts/collect-official-data.py
+ create mode 100644 vendor/site-collector/scripts/collect-source-research.mjs
+ create mode 100644 vendor/site-collector/worker/official-news.js
+ create mode 100644 vendor/site-collector/worker/source-research.js
+
+diff --git a/.github/workflows/official_collector.yml b/.github/workflows/official_collector.yml
+new file mode 100644
+index 0000000..eb33d3f
+--- /dev/null
++++ b/.github/workflows/official_collector.yml
+@@ -0,0 +1,70 @@
++name: Official data collector (site import bundle)
++# 擁有者 2026-11-03「第二項照做」：網站的官方資料收集改在 GitHub 排程跑；網站巡檢開頭自己讀 official-import 分支匯入。
++# 只發布官方公開資料與清單（manifest.json：每個檔的類別、大小、SHA-256、收集失敗項目）；不含金鑰、不連網站、不部署。
++on:
++  workflow_dispatch:
++    inputs:
++      sessions:
++        description: 'Trading sessions to (re)collect'
++        default: '5'
++      statistics:
++        description: 'Credit statistics: auto (skip 12:00-20:59 Taipei), on, off'
++        default: 'auto'
++      publish:
++        description: 'Push the bundle to the official-import branch (false = dry run)'
++        default: 'true'
++  schedule:
++    # 台北 05:55（每天，前一交易日收盤＋信用統計；週末也跑，讓清單不超過 36 小時）
++    - cron: '55 21 * * *'
++    # 台北 16:20（週一至週五，當天收盤；信用統計略過）
++    - cron: '20 8 * * 1-5'
++    # 台北 22:40、23:10（週一至週五，當晚信用統計；兩次是因為 GitHub 排程常延後或略過）
++    - cron: '40 14 * * 1-5'
++    - cron: '10 15 * * 1-5'
++permissions:
++  contents: write
++concurrency:
++  group: official-collector
++  cancel-in-progress: false
++jobs:
++  collect-publish:
++    runs-on: ubuntu-latest
++    timeout-minutes: 40
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-python@v5
++        with:
++          python-version: '3.12'
++      - uses: actions/setup-node@v4
++        with:
++          node-version: '22'
++      - name: Validate bundle builder
++        run: python -m unittest tests.test_official_import -v
++      - name: Collect official data and build bundle
++        run: scripts/run_official_collector.sh "$RUNNER_TEMP/official" "${{ inputs.sessions || '5' }}" "${{ inputs.statistics || 'auto' }}"
++      - name: Publish bundle (force-push, latest only)
++        if: ${{ inputs.publish != 'false' }}
++        env:
++          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++        run: |
++          set -euo pipefail
++          cd "$RUNNER_TEMP/official/bundle"
++          generated=$(python -c "import json;print(json.load(open('manifest.json'))['generatedAt'])")
++          git init -q -b official-import
++          git add -A
++          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -qm "Official import bundle ${generated}"
++          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:official-import
++      - name: Summary
++        if: always()
++        run: |
++          m="$RUNNER_TEMP/official/bundle/manifest.json"
++          {
++            echo '### Official import bundle'
++            if [ -f "$m" ]; then
++              python -c "import json,sys;m=json.load(open(sys.argv[1]));print('generatedAt',m['generatedAt'],'window',m['window']);print();[print('-',p['kind'],p['name'],p['bytes'],'bytes') for p in m['parts']];print();print('Collector errors:',len(m['errors']));[print('-',e['source'],':',e['error'][:200]) for e in m['errors']]" "$m"
++            else
++              echo 'No manifest was built.'
++            fi
++            echo
++            echo 'The Site imports this branch during its own patrol when RELAY_OFFICIAL_IMPORT_ENABLED=true; this workflow does not deploy or call the Site.'
++          } >> "$GITHUB_STEP_SUMMARY"
+diff --git a/README.md b/README.md
+index 97c987b..171fe3a 100644
+--- a/README.md
++++ b/README.md
+@@ -70,3 +70,11 @@ python -m py_compile scripts/sync_macro.py
+ 資料失敗時回傳 `UNKNOWN / DATA_UNAVAILABLE`，超過 5 個 UTC 日曆天回傳 `UNKNOWN / STALE_DATA`；報告的 `scoreContribution=0`、`macroGateOverride=null`、`vetoOverride=null`。請由原網站伺服器接入後作為 `usSectorContext`，不要用它取代原有 Macro Gate、10D 或 VETO。
+ 
+ 程式與 CI 通過不代表 Worker 已發布。部署前須確認原網站正式後台與其授權的 Worker 專案；此儲存庫的 `api-worker/wrangler.toml.example` 不是正式部署設定。驗證指令：`node tests/test_api_worker.mjs`，以及 GitHub Actions `API Worker Regression Tests`。
++
++## 官方資料收集套件（official-import 分支，2026-11-03）
++
++- `.github/workflows/official_collector.yml` 在台北約 05:55（每天）、16:20、22:40、23:10（週一至週五）跑 `vendor/site-collector/` 裡與網站 v250 相同的官方收集程式（TWSE／TPEx 行情與名冊、FRED 總經序列、證交所信用統計、BLS／FRED 核心 CPI、產業來源、官方新聞）。台北 12:00～20:59 略過信用統計（當晚才公布）。
++- `scripts/publish_official_import.py` 只把網站認得的部分檔與 `manifest.json`（每個檔的類別、大小、SHA-256、收集失敗項目）強制推到 `official-import` 分支，只保留最新一份；raw 原始檔、狀態檔不發布。格式不符、超過 3.9MB、只有失敗紀錄的 CPI／新聞都不發布，原因寫進清單。
++- 網站在環境變數 `RELAY_OFFICIAL_IMPORT_ENABLED=true` 時，巡檢開頭讀這個分支、核對雜湊後匯入；這裡不需要任何金鑰、不連網站、不部署。
++- `vendor/site-collector/` 要與網站原始碼同步：網站改了收集程式，同一份檔案要一起更新（`tests/test_official_import.py` 檢查檔案存在且不含任何憑證字樣）。
++- 手動試跑：Actions → Official data collector → Run workflow，`publish=false` 只收集、不推送。
+diff --git a/scripts/publish_official_import.py b/scripts/publish_official_import.py
+new file mode 100644
+index 0000000..4466003
+--- /dev/null
++++ b/scripts/publish_official_import.py
+@@ -0,0 +1,146 @@
++#!/usr/bin/env python3
++"""把官方資料收集程式的輸出整理成網站匯入用的套件（清單 manifest.json＋各部分檔）。
++
++用法：python scripts/publish_official_import.py <收集輸出資料夾> <套件輸出資料夾> [--window 標籤] [--keep-sessions 5]
++
++- 只複製網站認得的部分檔：universe.json、YYYY-MM-DD.json（行情）、series.json、statistics.json、cpi.json、
++  sources.json、news.json。raw/、狀態檔、company.json 都不發布。
++- 每個部分檔先檢查格式（schema_version 1 與該類別的主欄位）；不符就不發布、記進 errors，不修改內容、不補值。
++- 清單記錄每個檔的類別、位元組數與 SHA-256（網站讀到的內容雜湊不符就不匯入）。
++- 收集端失敗（狀態檔的 errors、收集程式結束碼）照實寫進 errors；一個部分檔都沒有就失敗結束，不發布空套件。
++- 這裡不連網站、不需要任何金鑰；GitHub 工作流程把套件強制推到 official-import 分支（只保留最新一份）。
++"""
++import argparse
++import datetime as dt
++import hashlib
++import json
++import os
++import re
++import shutil
++import sys
++from pathlib import Path
++
++FIXED = {
++    "universe.json": ("universe", "issuerUniverse"),
++    "series.json": ("series", "series"),
++    "statistics.json": ("statistics", "marketStatistics"),
++    "cpi.json": ("cpi", "coreCpiSources"),
++    "sources.json": ("sources", "researchFeeds"),
++    "news.json": ("news", "officialNewsCapture"),
++}
++MARKET = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
++MAX_PART_BYTES = 3_900_000
++STATUS_FILES = [
++    "collection-status.json",
++    "macro-collection-status.json",
++    "cpi-collection-status.json",
++    "statistics-collection-status.json",
++    "source-collection-status.json",
++    "news-collection-status.json",
++]
++
++
++def check_part(name, data):
++    if not isinstance(data, dict) or data.get("schema_version") != 1:
++        return "schema_version 不是 1"
++    if MARKET.match(name):
++        snaps = data.get("marketSnapshots")
++        if not isinstance(snaps, list) or len(snaps) != 1 or not isinstance(snaps[0], dict) or str(snaps[0].get("date")) + ".json" != name:
++            return "行情檔應只含檔名那一天"
++        return None
++    key = FIXED[name][1]
++    if key not in data:
++        return f"缺少 {key}"
++    if key in ("series", "researchFeeds") and not (isinstance(data[key], list) and data[key]):
++        return f"{key} 是空的"
++    # 只有失敗紀錄的 CPI／新聞不發布：網站會保留自己已有的資料並自己重抓，不讓空結果蓋掉。
++    if key == "coreCpiSources" and not (isinstance(data[key], list) and data[key]):
++        return "核心 CPI 沒有任何可用來源（只有失敗紀錄）"
++    if key == "officialNewsCapture" and not any(isinstance(f, dict) and f.get("items") for f in (data[key] or {}).get("feeds") or []):
++        return "官方新聞全部抓取失敗"
++    return None
++
++
++def collector_errors(src, exits):
++    errors = []
++    for status in STATUS_FILES:
++        path = src / status
++        if not path.exists():
++            continue
++        try:
++            body = json.loads(path.read_text(encoding="utf-8"))
++        except ValueError:
++            errors.append({"source": status, "error": "狀態檔不是 JSON"})
++            continue
++        for row in body.get("errors") or []:
++            if isinstance(row, dict):
++                errors.append({"source": str(row.get("source") or row.get("date") or row.get("key") or status)[:120], "error": str(row.get("error"))[:300]})
++        if status == "statistics-collection-status.json" and body.get("error"):
++            errors.append({"source": "TWSE-statistics", "error": str(body["error"])[:300]})
++        for feed in body.get("feeds") or []:
++            if isinstance(feed, dict) and feed.get("error"):
++                errors.append({"source": str(feed.get("topic") or feed.get("source"))[:120], "error": str(feed["error"])[:300]})
++    for name, code in exits.items():
++        if code not in ("", "0", None):
++            errors.append({"source": name, "error": f"結束碼 {code}"})
++    unique = []
++    for row in errors:
++        if row not in unique:
++            unique.append(row)
++    return unique
++
++
++def build(src, out, window=None, keep_sessions=5, now=None, collector=None, exits=None):
++    src, out = Path(src), Path(out)
++    if out.exists():
++        shutil.rmtree(out)
++    out.mkdir(parents=True)
++    now = now or dt.datetime.now(dt.timezone.utc)
++    parts, errors = [], []
++    markets = sorted(p.name for p in src.glob("*.json") if MARKET.match(p.name))[-keep_sessions:] if keep_sessions else []
++    for name in [n for n in FIXED if (src / n).exists()] + markets:
++        raw = (src / name).read_bytes()
++        try:
++            problem = check_part(name, json.loads(raw.decode("utf-8")))
++        except (ValueError, AttributeError, TypeError):
++            problem = "不是 JSON"
++        if not problem and len(raw) > MAX_PART_BYTES:
++            problem = f"{len(raw)} 位元組，超過網站單次上限"
++        if problem:
++            errors.append({"source": name, "error": "未發布：" + str(problem)})
++            continue
++        (out / name).write_bytes(raw)
++        parts.append({"name": name, "kind": "market" if MARKET.match(name) else FIXED[name][0], "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw)})
++    errors = collector_errors(src, exits or {}) + errors
++    manifest = {
++        "schema_version": 1,
++        "generatedAt": now.isoformat(timespec="seconds").replace("+00:00", "Z"),
++        "window": window,
++        "collector": collector or {},
++        "parts": parts,
++        "errors": errors[:50],
++    }
++    (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
++    return manifest
++
++
++def main(argv=None):
++    ap = argparse.ArgumentParser()
++    ap.add_argument("src")
++    ap.add_argument("out")
++    ap.add_argument("--window")
++    ap.add_argument("--keep-sessions", type=int, default=5)
++    ap.add_argument("--exit", action="append", default=[], help="名稱=結束碼，例如 official=0")
++    args = ap.parse_args(argv)
++    collector = {k: v for k, v in {"repo": os.environ.get("GITHUB_REPOSITORY"), "commit": os.environ.get("GITHUB_SHA"), "run": os.environ.get("GITHUB_RUN_ID"), "siteCollector": "v250"}.items() if v}
++    exits = dict(item.split("=", 1) for item in args.exit if "=" in item)
++    manifest = build(args.src, args.out, args.window, args.keep_sessions, collector=collector, exits=exits)
++    print(json.dumps({"parts": [(p["name"], p["bytes"]) for p in manifest["parts"]], "errors": manifest["errors"]}, ensure_ascii=False))
++    if not manifest["parts"]:
++        print("NO_PARTS: 沒有可發布的部分檔，保留上一份套件", file=sys.stderr)
++        return 1
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/scripts/run_official_collector.sh b/scripts/run_official_collector.sh
+new file mode 100755
+index 0000000..ac1270b
+--- /dev/null
++++ b/scripts/run_official_collector.sh
+@@ -0,0 +1,18 @@
++#!/usr/bin/env bash
++# 在 GitHub 上跑網站的官方資料收集程式（vendor/site-collector，與網站 v250 相同），整理成匯入套件。
++# 用法：scripts/run_official_collector.sh <工作資料夾> [交易日數，預設 5] [信用統計 auto|on|off，預設 auto]
++# auto：台北 12:00～20:59 略過信用統計（當晚才公布），其他時間照收。
++# 不需要任何金鑰、不連網站；推送由工作流程另外做。結束碼＝套件是否有內容（publish_official_import.py）。
++set -uo pipefail
++work="$1"; sessions="${2:-5}"; stats="${3:-auto}"
++src="$work/collected"; out="$work/bundle"; mkdir -p "$src"
++hour=$((10#$(TZ=Asia/Taipei date +%H)))
++skip=""
++if [ "$stats" = off ] || { [ "$stats" = auto ] && [ "$hour" -ge 12 ] && [ "$hour" -lt 21 ]; }; then skip="--skip-statistics"; fi
++if [ "$hour" -lt 12 ]; then window=morning; elif [ "$hour" -lt 21 ]; then window=afternoon; else window=night; fi
++echo "台北 ${hour} 時｜${window}｜交易日 ${sessions}｜${skip:-含信用統計}"
++python vendor/site-collector/scripts/collect-official-data.py --output "$src" --sessions "$sessions" $skip > "$work/official.log" 2>&1; official=$?
++echo "官方收集結束碼 ${official}"; tail -n 15 "$work/official.log"
++node vendor/site-collector/scripts/collect-source-research.mjs "$src" > "$work/sources.log" 2>&1; sources=$?
++echo "產業來源／新聞結束碼 ${sources}"; tail -c 1500 "$work/sources.log"; echo
++python scripts/publish_official_import.py "$src" "$out" --window "${window}${skip:+-no-statistics}" --keep-sessions "$sessions" --exit "official=${official}" --exit "sources=${sources}"
+diff --git a/tests/test_official_import.py b/tests/test_official_import.py
+new file mode 100644
+index 0000000..1dd6d24
+--- /dev/null
++++ b/tests/test_official_import.py
+@@ -0,0 +1,120 @@
++import datetime as dt
++import hashlib
++import json
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
++import publish_official_import as pub
++
++NOW = dt.datetime(2026, 11, 3, 8, 30, tzinfo=dt.timezone.utc)
++
++
++def write(folder, name, body):
++    (folder / name).write_text(json.dumps(body, ensure_ascii=False), encoding="utf-8")
++
++
++def snapshot(date):
++    return {"schema_version": 1, "marketSnapshots": [{"date": date, "rows": [{"id": "2330"}]}]}
++
++
++class BuildBundleTests(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        self.src = Path(self.tmp.name) / "src"
++        self.out = Path(self.tmp.name) / "out"
++        self.src.mkdir()
++        (self.src / "raw").mkdir()
++        write(self.src / "raw", "TWSE.json", {"secret": "raw files are never published"})
++
++    def tearDown(self):
++        self.tmp.cleanup()
++
++    def test_publishes_known_parts_with_hashes_and_latest_sessions_only(self):
++        write(self.src, "universe.json", {"schema_version": 1, "issuerUniverse": {"rows": []}})
++        write(self.src, "series.json", {"schema_version": 1, "series": [{"id": "IORB"}]})
++        write(self.src, "cpi.json", {"schema_version": 1, "coreCpiSources": [{"sourceFamily": "FRED"}], "coreCpiFailures": [{"source": "BLS-core-CPI", "error": "403"}]})
++        write(self.src, "company.json", {"schema_version": 1, "companies": []})
++        write(self.src, "collection-status.json", {"errors": [{"date": "2026-10-31", "error": "holiday"}]})
++        for day in ["2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-11-02"]:
++            write(self.src, day + ".json", snapshot(day))
++        manifest = pub.build(self.src, self.out, "afternoon", 5, now=NOW, exits={"official": "1", "sources": "0"})
++        names = [p["name"] for p in manifest["parts"]]
++        self.assertEqual(names, ["universe.json", "series.json", "cpi.json", "2026-10-27.json", "2026-10-28.json", "2026-10-29.json", "2026-10-30.json", "2026-11-02.json"])
++        self.assertEqual(sorted(p.name for p in self.out.iterdir()), sorted(names + ["manifest.json"]))
++        for part in manifest["parts"]:
++            raw = (self.out / part["name"]).read_bytes()
++            self.assertEqual(part["sha256"], hashlib.sha256(raw).hexdigest())
++            self.assertEqual(part["bytes"], len(raw))
++            self.assertEqual(raw, (self.src / part["name"]).read_bytes(), "content is copied unchanged")
++        self.assertEqual({p["kind"] for p in manifest["parts"]}, {"universe", "series", "cpi", "market"})
++        self.assertEqual(manifest["generatedAt"], "2026-11-03T08:30:00Z")
++        self.assertIn({"source": "2026-10-31", "error": "holiday"}, manifest["errors"])
++        self.assertIn({"source": "official", "error": "結束碼 1"}, manifest["errors"])
++        self.assertFalse(any(e["source"] == "sources" for e in manifest["errors"]))
++        saved = json.loads((self.out / "manifest.json").read_text(encoding="utf-8"))
++        self.assertEqual(saved["schema_version"], 1)
++        self.assertEqual(saved["parts"], manifest["parts"])
++
++    def test_malformed_or_oversized_parts_are_not_published_and_are_reported(self):
++        write(self.src, "series.json", {"schema_version": 1, "series": []})
++        write(self.src, "statistics.json", {"schema_version": 2, "marketStatistics": {}})
++        write(self.src, "2026-11-02.json", snapshot("2026-11-01"))
++        (self.src / "news.json").write_text("{not json", encoding="utf-8")
++        write(self.src, "sources.json", {"schema_version": 1, "researchFeeds": [{"records": ["x" * 4_000_000]}]})
++        write(self.src, "universe.json", {"schema_version": 1, "issuerUniverse": {"rows": []}})
++        manifest = pub.build(self.src, self.out, None, 5, now=NOW)
++        self.assertEqual([p["name"] for p in manifest["parts"]], ["universe.json"])
++        reasons = {e["source"]: e["error"] for e in manifest["errors"]}
++        self.assertIn("series 是空的", reasons["series.json"])
++        self.assertIn("schema_version", reasons["statistics.json"])
++        self.assertIn("只含檔名那一天", reasons["2026-11-02.json"])
++        self.assertIn("不是 JSON", reasons["news.json"])
++        self.assertIn("超過網站單次上限", reasons["sources.json"])
++        self.assertFalse((self.out / "series.json").exists())
++
++    def test_failure_only_cpi_and_news_are_not_published(self):
++        write(self.src, "series.json", {"schema_version": 1, "series": [{"id": "IORB"}]})
++        write(self.src, "cpi.json", {"schema_version": 1, "coreCpiSources": [], "coreCpiFailures": [{"source": "BLS-core-CPI", "error": "403"}]})
++        write(self.src, "news.json", {"schema_version": 1, "officialNewsCapture": {"capturedAt": "x", "feeds": [{"topic": "a", "items": [], "error": "timeout"}]}})
++        write(self.src, "macro-collection-status.json", {"errors": [{"source": "BLS-core-CPI", "error": "403"}]})
++        write(self.src, "cpi-collection-status.json", {"errors": [{"source": "BLS-core-CPI", "error": "403"}]})
++        manifest = pub.build(self.src, self.out, None, 5, now=NOW)
++        self.assertEqual([p["name"] for p in manifest["parts"]], ["series.json"])
++        reasons = {e["source"]: e["error"] for e in manifest["errors"]}
++        self.assertIn("只有失敗紀錄", reasons["cpi.json"])
++        self.assertIn("全部抓取失敗", reasons["news.json"])
++        self.assertEqual(sum(e == {"source": "BLS-core-CPI", "error": "403"} for e in manifest["errors"]), 1, "same failure listed once")
++
++    def test_no_parts_fails_without_publishing(self):
++        write(self.src, "macro-collection-status.json", {"errors": [{"source": "IORB", "error": "HTTP 503"}]})
++        code = pub.main([str(self.src), str(self.out)])
++        self.assertEqual(code, 1)
++        manifest = json.loads((self.out / "manifest.json").read_text(encoding="utf-8"))
++        self.assertEqual(manifest["parts"], [])
++        self.assertEqual(manifest["errors"], [{"source": "IORB", "error": "HTTP 503"}])
++
++    def test_skipped_statistics_and_news_feed_errors_are_kept(self):
++        write(self.src, "series.json", {"schema_version": 1, "series": [{"id": "IORB"}]})
++        write(self.src, "macro-collection-status.json", {"errors": [{"source": "TWSE-statistics", "error": "skipped: --skip-statistics"}]})
++        write(self.src, "news-collection-status.json", {"feeds": [{"topic": "金管會", "error": "timeout"}, {"topic": "央行", "error": None}]})
++        manifest = pub.build(self.src, self.out, "afternoon", 5, now=NOW)
++        self.assertIn({"source": "TWSE-statistics", "error": "skipped: --skip-statistics"}, manifest["errors"])
++        self.assertIn({"source": "金管會", "error": "timeout"}, manifest["errors"])
++        self.assertEqual(len(manifest["errors"]), 2)
++
++
++class VendoredCollectorTests(unittest.TestCase):
++    def test_vendored_site_collector_files_exist_and_carry_no_credentials(self):
++        root = Path(__file__).resolve().parents[1] / "vendor" / "site-collector"
++        files = ["scripts/collect-official-data.py", "scripts/collect-source-research.mjs", "worker/source-research.js", "worker/official-news.js"]
++        for name in files:
++            text = (root / name).read_text(encoding="utf-8")
++            for word in ["Bearer ", "OAI-Sites-Authorization", "TIINGO", "api_key="]:
++                self.assertNotIn(word, text, f"{name} must not reference {word}")
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/vendor/site-collector/scripts/collect-official-data.py b/vendor/site-collector/scripts/collect-official-data.py
+new file mode 100644
+index 0000000..1841ead
+--- /dev/null
++++ b/vendor/site-collector/scripts/collect-official-data.py
+@@ -0,0 +1,291 @@
++"""Fetch dated official observations and quotes. Credentials are never needed here."""
++import argparse, concurrent.futures, csv, datetime as dt, io, json, pathlib, re, urllib.parse, urllib.request, html, time
++
++p = argparse.ArgumentParser()
++p.add_argument('--output', required=True)
++p.add_argument('--sessions', type=int, default=60)
++p.add_argument('--company-evidence')
++p.add_argument('--issuer-only', action='store_true')
++p.add_argument('--market-only', action='store_true')
++p.add_argument('--macro-only', action='store_true')
++p.add_argument('--cpi-only', action='store_true')
++p.add_argument('--statistics-only', action='store_true')
++# 白天（信用統計當晚才公布）跑一般收集時略過信用統計，不留舊檔、不重試等待；狀態檔照實記「略過」。
++p.add_argument('--skip-statistics', action='store_true')
++args = p.parse_args()
++root = pathlib.Path(args.output); root.mkdir(parents=True, exist_ok=True)
++rawdir = root / 'raw'; rawdir.mkdir(exist_ok=True)
++now = lambda: dt.datetime.now(dt.timezone.utc).isoformat()
++# 網站匯入用 UTC 日期檢查「不得晚於今天」；收集程式也用 UTC，否則台北凌晨抓到 FRED 提前公布的下一日觀測（如 IORB）會整筆被拒。
++utc_today = lambda: dt.datetime.now(dt.timezone.utc).date()
++def fetch(url):
++    error = None
++    for _ in range(2):
++        try:
++            return urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent':'TaiwanStockMaster/1.0','Accept':'application/json,text/csv'}), timeout=25).read().decode('utf-8-sig')
++        except Exception as exc: error = exc
++    raise error
++def save(name, value): (root / name).write_text(json.dumps(value, ensure_ascii=False))
++def number(value):
++    try: return float(re.sub('<[^>]*>', '', str(value)).replace(',', '').strip())
++    except ValueError: return None
++
++def collect_statistics():
++    # MI_INDEX is the session anchor; turnover OpenAPI can lag by a day.
++    target='https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?type=ALLBUT0999&response=json'
++    latest=json.loads(fetch(target))
++    if latest.get('stat')!='OK' or not re.fullmatch(r'\d{8}',str(latest.get('date',''))): raise ValueError('Latest MI_INDEX session unavailable')
++    date_key=latest['date'];date=dt.datetime.strptime(date_key,'%Y%m%d').date().isoformat()
++    (rawdir/'statistics-latest-session.json').write_text(json.dumps(latest,ensure_ascii=False))
++    failures=[]
++    for attempt in range(3):
++        try:
++            calendar_url='https://www.twse.com.tw/holidaySchedule/holidaySchedule?response=json'
++            dates_url='https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK'
++            calendar=json.loads(fetch(calendar_url));dates=json.loads(fetch(dates_url))
++            last=max(str(row['Date']) for row in dates)
++            normalized=(str(int(last[:3])+1911)+last[3:]) if len(last)==7 else last
++            if normalized!=date_key:
++                dates_url='https://www.twse.com.tw/exchangeReport/FMTQIK?date='+date_key[:6]+'01&response=json'
++                dates=json.loads(fetch(dates_url))
++                if dates.get('stat')!='OK' or dates.get('fields',[])[0:3:2]!=['日期','成交金額']: raise ValueError('Official FMTQIK monthly schema mismatch')
++                last=max(str(row[0]) for row in dates['data']);parts=last.split('/')
++                normalized=str(int(parts[0])+1911)+parts[1].zfill(2)+parts[2].zfill(2)
++            if normalized!=date_key: raise ValueError('Official turnover not yet aligned to latest MI_INDEX session')
++            base='https://www.twse.com.tw/rwd/zh/marginTrading/'
++            sources={'calendar':calendar_url,'tradingDates':dates_url,'margin':base+'MI_MARGN?response=json&date='+date_key+'&selectType=MS','marginTrend':base+'MI_MARGN_TREND?response=json&date='+date_key+'&days=30','creditSummary':base+'BFIJ3U?response=json&date='+date_key}
++            stats={'date':date,'sourceUrls':sources,'calendar':calendar,'tradingDates':dates,'latestSessionSource':target,'collectionAttempts':attempt+1,'retryErrors':failures.copy()}
++            for key in ['margin','marginTrend','creditSummary']:
++                raw=fetch(sources[key]);(rawdir/(key+'-'+date+'.json')).write_text(raw);payload=json.loads(raw)
++                if payload.get('stat')!='OK' or payload.get('date')!=date_key: raise ValueError('Official statistics not yet aligned: '+key)
++                stats[key]=payload
++            stats['capturedAt']=now();save('statistics.json',{'schema_version':1,'marketStatistics':stats});return stats
++        except Exception as exc:
++            failures.append(str(exc))
++            if attempt<2: time.sleep(10)
++    raise ValueError('Official statistics incomplete after 3 attempts: '+'; '.join(failures))
++
++def core_cpi_history(points):
++    points=sorted(points,key=lambda row:row['date'])
++    if len(points)<4 or len({row['date'] for row in points})!=len(points): raise ValueError('Insufficient or duplicate core CPI history')
++    last=points[-4:]
++    month=lambda row:int(row['date'][:4])*12+int(row['date'][5:7])
++    if any(month(b)-month(a)!=1 for a,b in zip(last,last[1:])): raise ValueError('Non-consecutive core CPI history')
++    return points[-24:]
++
++def collect_core_cpi():
++    sources=[];errors=[]
++    bls_url='https://download.bls.gov/pub/time.series/cu/cu.data.0.Current'
++    fred_url='https://fred.stlouisfed.org/graph/fredgraph.csv?'+urllib.parse.urlencode({'id':'CPILFESL','cosd':(dt.date.today()-dt.timedelta(days=800)).isoformat()})
++    for family,url in [('BLS',bls_url),('FRED',fred_url)]:
++        try:
++            points=[]
++            if family=='BLS':
++                # AllItems omits SA0L1E. Stream Current; never retain 49 MB in memory.
++                try:
++                    request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0','Accept':'text/plain,*/*;q=0.8'})
++                    with urllib.request.urlopen(request,timeout=30) as response, (rawdir/'BLS-core-CPI-current.txt').open('wb') as raw:
++                        columns=None;size=0
++                        for line in response:
++                            size+=len(line)
++                            if size>80_000_000 or len(line)>4096: raise ValueError('BLS CPI file exceeds expected size')
++                            raw.write(line);cells=line.decode('utf-8-sig').split()
++                            if not cells: continue
++                            if columns is None:
++                                columns=[cells.index(key) for key in ['series_id','year','period','value']]
++                                continue
++                            si,yi,pi,vi=columns
++                            if len(cells)<=max(columns) or cells[si]!='CUSR0000SA0L1E' or not re.fullmatch(r'M(?:0[1-9]|1[0-2])',cells[pi]): continue
++                            date=dt.date(int(cells[yi]),int(cells[pi][1:]),1).isoformat();value=number(cells[vi])
++                            if value is not None and value>0 and date<=utc_today().isoformat(): points.append({'date':date,'value':value})
++                    core_cpi_history(points)
++                except Exception as file_error:
++                    # The keyless official API is a second BLS route, never an
++                    # independent vote. Preserve the failed file attempt too.
++                    url='https://api.bls.gov/publicAPI/v1/timeseries/data/'
++                    try:
++                        request=urllib.request.Request(url,data=json.dumps({'seriesid':['CUSR0000SA0L1E'],'startyear':str(dt.date.today().year-2),'endyear':str(dt.date.today().year)}).encode(),headers={'User-Agent':'Mozilla/5.0','Content-Type':'application/json','Accept':'application/json'})
++                        with urllib.request.urlopen(request,timeout=20) as response: raw=response.read(2_000_001)
++                        if len(raw)>2_000_000: raise ValueError('BLS API response exceeds expected size')
++                        (rawdir/'BLS-core-CPI-api.json').write_bytes(raw);body=json.loads(raw)
++                        result=body.get('Results',{}).get('series',[])
++                        if body.get('status')!='REQUEST_SUCCEEDED' or len(result)!=1 or result[0].get('seriesID')!='CUSR0000SA0L1E': raise ValueError('BLS API series/status mismatch: '+str(body.get('message',[])))
++                        points=[]
++                        for row in result[0].get('data',[]):
++                            if not re.fullmatch(r'M(?:0[1-9]|1[0-2])',row.get('period','')): continue
++                            date=dt.date(int(row['year']),int(row['period'][1:]),1).isoformat();value=number(row['value'])
++                            if value is not None and value>0 and date<=utc_today().isoformat(): points.append({'date':date,'value':value})
++                        core_cpi_history(points)
++                    except Exception as api_error: raise ValueError('BLS Current: '+str(file_error)+'; BLS API: '+str(api_error)) from api_error
++                    errors.append({'source':'BLS-core-CPI','error':('BLS Current: '+str(file_error)+'; official API fallback used')[:500]})
++            else:
++                raw=fetch(url);(rawdir/'FRED-core-CPI.csv').write_text(raw)
++                for row in csv.DictReader(io.StringIO(raw)):
++                    value=number(row['CPILFESL']);date=dt.date.fromisoformat(row['observation_date']).isoformat()
++                    if value is not None and value>0 and date<=utc_today().isoformat(): points.append({'date':date,'value':value})
++            history=core_cpi_history(points)
++            sources.append({'series':'CUSR0000SA0L1E' if family=='BLS' else 'CPILFESL','sourceFamily':family,'source':url,'fetchedAt':now(),'history':history})
++        except Exception as exc: errors.append({'source':family+'-core-CPI','error':str(exc)[:500]})
++    # Write even an empty result, so reusing a folder cannot import an old success.
++    save('cpi.json',{'schema_version':1,'coreCpiSources':sources,'coreCpiFailures':errors})
++    same_month=len(sources)==2 and sources[0]['history'][-1]['date']==sources[1]['history'][-1]['date']
++    passed=same_month and abs(sources[0]['history'][-1]['value']-sources[1]['history'][-1]['value'])<=.02
++    status={'sources':[{'family':row['sourceFamily'],'date':row['history'][-1]['date'],'value':row['history'][-1]['value'],'fetchedAt':row['fetchedAt']} for row in sources],'passed':passed,'errors':errors}
++    save('cpi-collection-status.json',status)
++    return status
++
++def collect_macro():
++    series=[]; errors=[]
++    source_ids={key:key for key in ['DCOILBRENTEU','DHHNGSP','DEXJPUS','DCOILWTICO','IORB','DTWEXAFEGS']}
++    source_ids.update({'US3M':'DTB3','US10Y':'DGS10','US30Y':'DGS30'})
++    for key,source_id in source_ids.items():
++        try:
++            start=(dt.date.today()-dt.timedelta(days=145 if key in ('DEXJPUS','DTWEXAFEGS') else 45)).isoformat()
++            url='https://fred.stlouisfed.org/graph/fredgraph.csv?'+urllib.parse.urlencode({'id':source_id,'cosd':start})
++            raw=fetch(url); (rawdir/(key+'.csv')).write_text(raw); history=[]
++            for row in csv.DictReader(io.StringIO(raw)):
++                value=number(row[source_id])
++                if value is not None and value>0 and row['observation_date']<=utc_today().isoformat(): history.append({'date':row['observation_date'],'value':value})
++            if len(history)<(65 if key=='DEXJPUS' else 26 if key=='DTWEXAFEGS' else 3): raise ValueError('Insufficient official history: '+key)
++            record={'id':key,'source':url,'fetchedAt':now(),'history':history}
++            try:
++                source='https://fred.stlouisfed.org/series/'+source_id
++                page=fetch(source); (rawdir/(key+'-release.html')).write_text(page)
++                latest=re.search(r'(\d{4}-\d{2}-\d{2}):\s*<span[^>]*class="series-meta-observation-value"[^>]*>([\d.,]+)</span>',page)
++                release=re.search(r'Next Release Date:\s*<span[^>]*>([^<]+)</span>',page)
++                if latest and release and latest[1]<=utc_today().isoformat():
++                    next_date=dt.datetime.strptime(html.unescape(release[1]).strip(),'%b %d, %Y').date().isoformat()
++                    if latest[1]!=history[-1]['date'] or abs(number(latest[2])-history[-1]['value'])>1e-8: raise ValueError('FRED page/CSV latest observation mismatch')
++                    if not 0<=(dt.date.fromisoformat(next_date)-dt.date.fromisoformat(latest[1])).days<=21: raise ValueError('Unbounded FRED next-release window')
++                    record['releaseVerification']={'source':source,'date':latest[1],'value':number(latest[2]),'nextReleaseDate':next_date,'fetchedAt':now()}
++            except Exception as exc: errors.append({'source':key+'-release','error':str(exc)})
++            series.append(record)
++        except Exception as exc: errors.append({'source':key,'error':str(exc)})
++    if series: save('series.json', {'schema_version':1,'series':series})
++    stats=None
++    (root/'statistics.json').unlink(missing_ok=True)
++    if args.skip_statistics: errors.append({'source':'TWSE-statistics','error':'skipped: --skip-statistics'})
++    else:
++        try: stats=collect_statistics()
++        except Exception as exc: errors.append({'source':'TWSE-statistics','error':str(exc)});stats=None
++    cpi=collect_core_cpi();errors.extend(cpi['errors'])
++    status={'checkedAt':now(),'series':[{'id':row['id'],'date':row['history'][-1]['date'],'nextReleaseDate':row.get('releaseVerification',{}).get('nextReleaseDate')} for row in series],'coreCpi':cpi,'marketStatisticsDate':stats and stats['date'],'errors':errors}
++    save('macro-collection-status.json',status);print(json.dumps(status,ensure_ascii=False),flush=True)
++    return status
++
++if args.statistics_only:
++    (root/'statistics.json').unlink(missing_ok=True)
++    try:
++        stats=collect_statistics();print(json.dumps({'date':stats['date'],'source':stats['sourceUrls']['tradingDates'],'attempts':stats['collectionAttempts']}),flush=True)
++    except Exception as exc:
++        save('statistics-collection-status.json',{'checkedAt':now(),'error':str(exc)});raise
++    raise SystemExit(0)
++
++if args.cpi_only:
++    status=collect_core_cpi();print(json.dumps(status,ensure_ascii=False),flush=True)
++    raise SystemExit(0 if status['passed'] else 1)
++
++if not args.issuer_only and not args.market_only:
++    macro_status=collect_macro()
++    if args.macro_only:
++        raise SystemExit(0 if len(macro_status['series'])==9 and (args.skip_statistics or macro_status['marketStatisticsDate']) and macro_status['coreCpi']['passed'] else 1)
++
++sources = {'twse':'https://openapi.twse.com.tw/v1/opendata/t187ap03_L','tpex':'https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O'}
++meta = {}; metadata_errors = []
++metadata_url = 'https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockInfo'
++try:
++    for item in sorted(json.loads(fetch(metadata_url))['data'], key=lambda x:x.get('date','')):
++        meta[str(item['stock_id'])] = item
++except Exception as exc:
++    metadata_errors.append({'source':metadata_url,'error':str(exc),'fallback':'Official issuer industry codes; no inferred industry names'})
++    print('OPTIONAL_METADATA_FAILED',str(exc),flush=True)
++issuers = {}
++for market, code, name, industry in [('twse','公司代號','公司簡稱','產業別'),('tpex','SecuritiesCompanyCode','CompanyAbbreviation','SecuritiesIndustryCode')]:
++    payload = json.loads(fetch(sources[market])); (rawdir / (market+'-issuers.json')).write_text(json.dumps(payload, ensure_ascii=False))
++    for item in payload:
++        symbol = str(item[code])
++        if re.fullmatch(r'[1-9]\d{3}', symbol):
++            industry_code = str(item[industry]).strip()
++            label = meta.get(symbol,{}).get('industry_category')
++            fallback_label = '官方產業別 '+industry_code if re.fullmatch(r'\d{1,2}',industry_code) else '產業未分類'
++            issuers[symbol] = {'id':symbol,'name':item[name],'market':market,'industry_code':industry_code,'industry':label or fallback_label,'industry_source':metadata_url if label else sources[market]}
++            listing = str(item.get('上市日期' if market == 'twse' else 'DateOfListing', '')).strip()
++            if re.fullmatch(r'\d{8}', listing):
++                try:
++                    listing_date = dt.datetime.strptime(listing, '%Y%m%d').date()
++                    if listing_date <= utc_today():
++                        issuers[symbol].update(listingDate=listing_date.isoformat(), listingSource=sources[market])
++                except ValueError: pass
++# STOCK_DAY_ALL can still contain the prior session after today's close.
++# Use the date actually published by the exchange's latest after-trading report.
++latest_url = 'https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?type=ALLBUT0999&response=json'
++latest_raw = fetch(latest_url); (rawdir / 'latest-twse-report.json').write_text(latest_raw)
++latest = json.loads(latest_raw)
++if str(latest.get('stat', '')).lower() != 'ok' or not any('證券代號' in table.get('fields', []) for table in latest.get('tables', [])):
++    raise ValueError('Latest official after-trading report unavailable or schema changed')
++asof_date = dt.datetime.strptime(str(latest.get('date', '')), '%Y%m%d').date()
++if asof_date > dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).date():
++    raise ValueError('Latest official after-trading date is in the future')
++asof = asof_date.isoformat()
++universe = {market:sum(row['market']==market for row in issuers.values()) for market in sources}; universe['total']=sum(universe.values())
++save('universe.json', {'schema_version':1,'issuerUniverse':{'asOf':asof,'capturedAt':now(),'sources':sources,'classificationSource':metadata_url if meta else 'TWSE/TPEx official issuer industry codes','metadataErrors':metadata_errors,'rows':list(issuers.values())}})
++if args.issuer_only:
++    print(json.dumps({'issuers':len(issuers),'listingDates':sum(bool(row.get('listingDate')) for row in issuers.values()),'asOf':asof}))
++    raise SystemExit(0)
++def quote(day):
++    urls={'twse':'https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?'+urllib.parse.urlencode({'date':day.replace('-',''),'type':'ALLBUT0999','response':'json'}),'tpex':'https://www.tpex.org.tw/www/zh-tw/afterTrading/otc?'+urllib.parse.urlencode({'date':day.replace('-','/'),'type':'AL','response':'json'})}
++    rows=[]; no_trade_rows=[]; volume_rows=[]; seen=set()
++    for market,url in urls.items():
++        cache=rawdir/(day+'-'+market+'.json')
++        if cache.exists() and dt.datetime.now().timestamp()-cache.stat().st_mtime<30*3600: text=cache.read_text(); captured=dt.datetime.fromtimestamp(cache.stat().st_mtime,dt.timezone.utc).isoformat()
++        else: text=fetch(url); cache.write_text(text); captured=now()
++        payload=json.loads(text)
++        if payload.get('stat','').lower()!='ok': return None
++        if payload.get('date')!=day.replace('-',''): raise ValueError('Official date mismatch '+market+' '+day)
++        code='證券代號' if market=='twse' else '代號'
++        table=next((t for t in payload.get('tables',[]) if code in [x.strip() for x in t.get('fields',[])] and '成交股數' in [x.strip() for x in t.get('fields',[])]),None)
++        if table is None: raise ValueError('Official quote schema changed '+market)
++        for values in table['data']:
++            item=dict(zip([x.strip() for x in table['fields']],values)); symbol=str(item[code]).strip(); base=issuers.get(symbol)
++            if not base or base['market']!=market: continue
++            seen.add(symbol)
++            base={key:value for key,value in base.items() if key not in ('listingDate','listingSource')}
++            close=number(item.get('收盤價',item.get('收盤'))); volume=number(item['成交股數']); amount=number(item.get('成交金額',item.get('成交金額(元)'))); change=number(item.get('漲跌價差',item.get('漲跌')))
++            if volume == 0 and amount == 0:
++                no_trade_rows.append({**base,'volume':0,'amount':0,'close':None,'state':'official_no_trade'})
++                continue
++            if any(x is None for x in [close,volume,amount,change]) or close<=0 or volume<=0:
++                if volume is not None and volume>0 and amount is not None and amount>=0:
++                    volume_rows.append({**base,'volume':volume,'amount':amount,'close':close if close is not None and close>0 else None,'state':'official_volume_only'})
++                continue
++            if market=='twse' and '-' in str(item.get('漲跌(+/-)','')): change=-abs(change)
++            rows.append({**base,'close':close,'volume':volume,'amount':amount,'change':change})
++    # 名冊有、當天官方行情表沒有（多為停止買賣／暫停交易）：列出來，不補價（網站 missingBreakdown 依此重算）
++    not_quoted_rows=[{**{k:v for k,v in row.items() if k not in ('listingDate','listingSource')},'close':None,'state':'official_not_quoted'} for symbol,row in issuers.items() if symbol not in seen]
++    counts={market:sum(row['market']==market for row in rows) for market in urls}
++    if any(counts[m]/universe[m]<.9 for m in urls): raise ValueError('Official coverage below 90% '+day)
++    return {'date':day,'capturedAt':captured,'sourceUrls':urls,'universe':universe,'universeAsOf':asof,'classificationAsOf':asof,'source_method':'同日官方盤後普通股行情；產業分類採目前名冊，歷史成分未校正存活偏誤。','rows':rows,'noTradeRows':no_trade_rows,'volumeRows':volume_rows,'notQuotedRows':not_quoted_rows}
++
++day=dt.date.fromisoformat(asof); snapshots=[]; errors=[]
++while len(snapshots)<args.sessions and (dt.date.fromisoformat(asof)-day).days<145:
++    batch=[]
++    while len(batch)<min(12, max(1, args.sessions-len(snapshots))):
++        if day.weekday()<5: batch.append(day.isoformat())
++        day-=dt.timedelta(days=1)
++    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
++        futures={executor.submit(quote,date):date for date in batch}
++        for future in concurrent.futures.as_completed(futures):
++            date=futures[future]
++            try:
++                result=future.result()
++                if result: snapshots.append(result); print(date,len(result['rows']),flush=True)
++            except Exception as exc: errors.append({'date':date,'error':str(exc)}); print(date,str(exc),flush=True)
++snapshots=sorted(snapshots,key=lambda x:x['date'])[-args.sessions:]
++for item in snapshots: save(item['date']+'.json',{'schema_version':1,'marketSnapshots':[item]})
++if args.company_evidence:
++    evidence=json.loads(pathlib.Path(args.company_evidence).read_text())
++    for record in evidence['records']: record.pop('local_pdf',None)
++    save('company.json',{'schema_version':1,'companies':[{'symbol':evidence['symbol'],'records':evidence['records']}]})
++save('collection-status.json',{'checkedAt':now(),'asOf':asof,'sessions':len(snapshots),'requested':args.sessions,'errors':errors,'metadataErrors':metadata_errors,'universe':universe})
++print('COMPLETE',len(snapshots),'sessions',universe,'errors',len(errors),flush=True)
++if len(snapshots)<args.sessions: raise SystemExit('Required history incomplete; do not claim completion')
+diff --git a/vendor/site-collector/scripts/collect-source-research.mjs b/vendor/site-collector/scripts/collect-source-research.mjs
+new file mode 100644
+index 0000000..6b9790c
+--- /dev/null
++++ b/vendor/site-collector/scripts/collect-source-research.mjs
+@@ -0,0 +1,27 @@
++import {readFile,writeFile,mkdir} from 'node:fs/promises';
++import path from 'node:path';
++// Build replaces this marker in the downloadable bundle. No credentials needed.
++let sourceModule = '__SOURCE_RESEARCH_MODULE__';
++let newsModule = '__OFFICIAL_NEWS_MODULE__';
++if(newsModule==='__OFFICIAL_NEWS_MODULE__')newsModule=await readFile(new URL('../worker/official-news.js',import.meta.url),'utf8');
++if(sourceModule==='__SOURCE_RESEARCH_MODULE__')sourceModule=await readFile(new URL('../worker/source-research.js',import.meta.url),'utf8');
++const isDate=value=>{const t=Date.parse(`${value}T00:00:00Z`);return /^\d{4}-\d{2}-\d{2}$/.test(value)&&Number.isFinite(t)&&new Date(t).toISOString().slice(0,10)===value;};
++const {SOURCE_FEED_REGISTRY,collectSourceFeed}=new Function('officialImportDate',sourceModule+'\nreturn {SOURCE_FEED_REGISTRY,collectSourceFeed};')(isDate);
++const folder=process.argv[2];if(!folder)throw Error('Usage: node collect-source-research.mjs <payload-folder>');
++await mkdir(folder,{recursive:true});
++const results=await Promise.all(Object.entries(SOURCE_FEED_REGISTRY).map(async([key,spec])=>{
++  try {return await collectSourceFeed(key,{timeoutMs:15000});}
++  catch(error){return {key,source:spec.url,error:String(error.message||error),attempts:error.sourceAttempts||[]};}
++}));
++const feeds=results.filter(x=>!x.error),errors=results.filter(x=>x.error);
++if(feeds.length)await writeFile(path.join(folder,'sources.json'),JSON.stringify({schema_version:1,researchFeeds:feeds}));
++await writeFile(path.join(folder,'source-collection-status.json'),JSON.stringify({checkedAt:new Date().toISOString(),feeds:feeds.map(({key,source,fetchedAt,records,attempts})=>({key,source,fetchedAt,records:records.length,attempts})),errors}));
++console.log(JSON.stringify({saved:feeds.length,records:feeds.reduce((n,x)=>n+x.records.length,0),errors}));
++const newsApi=new Function(newsModule+'\nreturn {NEWS_FEEDS,officialNews};')();
++const newsFeeds=await Promise.all(newsApi.NEWS_FEEDS.map(newsApi.officialNews));
++const officialNewsCapture={capturedAt:new Date().toISOString(),feeds:newsFeeds};
++await writeFile(path.join(folder,'news.json'),JSON.stringify({schema_version:1,officialNewsCapture}));
++const newsStatus={capturedAt:officialNewsCapture.capturedAt,feeds:newsFeeds.map(feed=>({topic:feed.topic,source:feed.source,items:feed.items.length,error:feed.error,delivery:feed.delivery,primary_error:feed.primary_error}))};
++await writeFile(path.join(folder,'news-collection-status.json'),JSON.stringify(newsStatus));
++console.log('OFFICIAL_NEWS',JSON.stringify(newsStatus));
++if(!feeds.length)process.exitCode=1;
+diff --git a/vendor/site-collector/worker/official-news.js b/vendor/site-collector/worker/official-news.js
+new file mode 100644
+index 0000000..5f83e1b
+--- /dev/null
++++ b/vendor/site-collector/worker/official-news.js
+@@ -0,0 +1,76 @@
++const NEWS_FEEDS = [
++  { topic: '政策／利率', name: '聯準會', candidates: [
++    { name: '聯準會', url: 'https://www.federalreserve.gov/feeds/press_monetary.xml', host: 'www.federalreserve.gov' },
++  ] },
++  { topic: '能源供給', name: '美國能源署', candidates: [
++    { name: '美國能源署｜Today in Energy', url: 'https://www.eia.gov/rss/todayinenergy.xml', host: 'www.eia.gov' },
++    { name: '美國能源署｜新聞稿備援', url: 'https://www.eia.gov/rss/press_rss.xml', host: 'www.eia.gov' },
++    { name: '美國能源署｜Today in Energy 官方網頁', url: 'https://www.eia.gov/todayinenergy/', host: 'www.eia.gov', format:'eia_html' },
++  ] },
++  { topic: '通膨／就業', name: '美國勞工統計局', candidates: [
++    { name: '美國勞工統計局｜Employment Situation RSS', url: 'https://www.bls.gov/feed/empsit.rss', host: 'www.bls.gov' },
++    { name: '美國勞工統計局｜最新公告 RSS 備援', url: 'https://www.bls.gov/feed/bls_latest.rss', host: 'www.bls.gov' },
++    { name: '美國勞工統計局｜CPI 官方公告', url: 'https://www.bls.gov/news.release/cpi.nr0.htm', host: 'www.bls.gov', format:'bls_html' },
++    { name: '美國勞工統計局｜就業官方公告', url: 'https://www.bls.gov/news.release/empsit.nr0.htm', host: 'www.bls.gov', format:'bls_html' },
++  ] },
++];
++function validateOfficialNewsCapture(input,now=Date.now()) {
++  if(!input||!recentOfficialCapture(input.capturedAt,now)||!Array.isArray(input.feeds)||input.feeds.length!==NEWS_FEEDS.length)throw Error('invalid_official_news_capture');
++  const topics=new Set();
++  for(const feed of input.feeds){
++    const spec=NEWS_FEEDS.find(x=>x.topic===feed.topic);if(!spec||topics.has(feed.topic)||!Array.isArray(feed.items)||feed.items.length>3)throw Error('invalid_official_news_feed');topics.add(feed.topic);
++    if(!feed.items.length&&typeof feed.error!=='string')throw Error('missing_official_news_failure');
++    for(const item of feed.items){
++      const url=new URL(item.url),date=Date.parse(item.date+'T00:00:00Z');
++      if(url.protocol!=='https:'||url.username||url.password||url.hash||url.port||!spec.candidates.some(x=>x.host===url.hostname)||!spec.candidates.some(x=>x.name===item.source)||item.topic!==feed.topic||typeof item.title!=='string'||!item.title.trim()||item.title.length>240||!/^\d{4}-\d{2}-\d{2}$/.test(item.date)||!Number.isFinite(date)||new Date(date).toISOString().slice(0,10)!==item.date||date>now)throw Error('invalid_official_news_article');
++    }
++  }
++  return input;
++}
++function xmlText(s) {
++  return String(s || '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim().slice(0, 240);
++}
++function tag(s, name) { return s.match(new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${name}>`, 'i'))?.[1] || ''; }
++function parseOfficialNewsHtml(html,candidate,feed,now=Date.now()) {
++  let articles=[];
++  if(candidate.format==='eia_html')articles=[...html.matchAll(/<span\s+class=["']date["'][^>]*>([^<]+)<\/span>\s*<h[1-3][^>]*>\s*<a\s+href=["'](detail\.php\?id=\d+)["'][^>]*>([\s\S]*?)<\/a>/gi)].map(m=>({title:xmlText(m[3]),url:new URL(m[2],candidate.url).href,stamp:Date.parse(m[1])}));
++  if(candidate.format==='bls_html'){
++    const plain=html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' '),date=plain.match(/Transmission of material in this (?:news )?release is embargoed until[\s\S]{0,220}?\b((?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, 20\d{2})/i);
++    if(date)articles=[{title:xmlText(tag(html,'title')).replace(/\s+/g,' '),url:candidate.url,stamp:Date.parse(date[1]+' 00:00:00 GMT')}];
++  }
++  return articles.filter(x=>x.title&&Number.isFinite(x.stamp)&&x.stamp<=now).sort((a,b)=>b.stamp-a.stamp).slice(0,3).map(({stamp,...x})=>({...x,date:new Date(stamp).toISOString().slice(0,10),topic:feed.topic,source:candidate.name}));
++}
++async function officialNews(feed) {
++  const errors = [];
++  for (const candidate of feed.candidates || [feed]) {
++    const controller = new AbortController(), timer = setTimeout(() => controller.abort(), candidate.format?10000:7000);
++    try {
++      const r = await fetch(candidate.url, { signal: controller.signal, headers: { Accept: candidate.format?'text/html':'application/rss+xml, application/xml, text/xml','User-Agent':'TaiwanStockMaster/1.0 (official public releases)' } });
++      if (!r.ok) throw Error(`HTTP ${r.status}`);
++      const xml = await r.text();
++      if(candidate.format){
++        if(xml.length>500000)throw Error('公告網頁超出預期大小');
++        const items=parseOfficialNewsHtml(xml,candidate,feed);if(!items.length)throw Error('官方網頁缺少可核對標題／原始發布日');
++        return {topic:feed.topic,source:candidate.name,items,error:null,delivery:'official_html_fallback',primary_error:errors.join('；')||null,sourceUrl:candidate.url};
++      }
++      if (xml.length > 450000 || !/<(?:rss|feed)\b/i.test(xml)) throw Error('公告格式不符');
++      const articles = [...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi)].slice(0, 18).map(m => {
++        const body = m[1], title = xmlText(tag(body, 'title'));
++        const raw = xmlText(tag(body, 'link'));
++        const date = new Date(xmlText(tag(body, 'pubDate') || tag(body, 'dc:date')));
++        try {
++          const link = new URL(raw);
++          if (link.protocol !== 'https:' || ![candidate.host, candidate.host.replace(/^www\./, '')].includes(link.hostname) || !title || !Number.isFinite(date.getTime()) || date.getTime()>Date.now()) return null;
++          return { title, url: link.href, date: date.toISOString().slice(0, 10), topic: feed.topic, source: candidate.name };
++        } catch { return null; }
++      }).filter(Boolean).sort((a,b) => b.date.localeCompare(a.date)).slice(0, 3);
++      if (!articles.length) throw Error('未找到可核對的近期公告');
++      return { topic: feed.topic, source: candidate.name, items: articles, error: null,
++        delivery: candidate === feed.candidates?.[0] ? 'primary' : 'official_fallback',
++        ...(errors.length ? { primary_error: errors[0] } : {}) };
++    } catch (e) {
++      errors.push(`${candidate.name}：${e.name === 'AbortError' ? '來源逾時' : e.message}`);
++    } finally { clearTimeout(timer); }
++  }
++  return { topic: feed.topic, source: feed.name, items: [], error: errors.join('；') || '官方公告來源暫不可用' };
++}
+diff --git a/vendor/site-collector/worker/source-research.js b/vendor/site-collector/worker/source-research.js
+new file mode 100644
+index 0000000..6d11d69
+--- /dev/null
++++ b/vendor/site-collector/worker/source-research.js
+@@ -0,0 +1,175 @@
++// Deterministic source collection. No model API, keys, or inferred consensus.
++const SOURCE_RESEARCH_VERSION = 'stock-sources-v1';
++const SOURCE_FEED_REGISTRY = {
++  twse: {url:'https://openapi.twse.com.tw/v1/opendata/t187ap04_L',name:'TWSE 每日重大訊息',kind:'company_announcement'},
++  tpex: {url:'https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O',name:'TPEx 每日重大訊息',kind:'company_announcement'},
++  semiconductors: {url:'https://www.trendforce.com/feed/Semiconductors.html',name:'TrendForce 半導體研究',kind:'industry_report'},
++  display: {url:'https://www.trendforce.com/feed/Display.html',name:'TrendForce 顯示器研究',kind:'industry_report'},
++  energy: {url:'https://www.trendforce.com/feed/Energy.html',name:'TrendForce 能源研究',kind:'industry_report'},
++  consumer: {url:'https://www.trendforce.com/feed/Consumer_electronics.html',fallbackUrls:['https://www.trendforce.com/presscenter/news/Consumer%20Electronics'],name:'TrendForce 消費電子研究',kind:'industry_report'},
++  steel: {url:'https://worldsteel.org/feed/',name:'世界鋼鐵協會產業資料',kind:'industry_report'},
++  aviation: {url:'https://www.iata.org/api/rss/pressrelease',name:'IATA 航空市場資料',kind:'industry_report'},
++};
++const sourceResearchTasks = new Map(), sourceFeedTasks = new Map();
++function sourceText(value,limit=400) {
++  return String(value||'').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/\s+/g,' ').trim().slice(0,limit);
++}
++function sourceDate(value) {
++  let s=String(value||'').trim();
++  if(/^\d{7}$/.test(s))s=`${Number(s.slice(0,3))+1911}-${s.slice(3,5)}-${s.slice(5,7)}`;
++  if(/^\d{3}[/.]\d{1,2}[/.]\d{1,2}$/.test(s)){const [y,m,d]=s.split(/[/.]/);s=`${Number(y)+1911}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;}
++  if(/^\d{8}$/.test(s))s=`${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`;
++  s=s.replaceAll('/','-');
++  if(!officialImportDate(s)||s>new Date().toISOString().slice(0,10))return null;
++  return s;
++}
++function validSourceRecord(row,key) {
++  const spec=SOURCE_FEED_REGISTRY[key];if(!spec||row.kind!==spec.kind||!sourceDate(row.source_date)||!row.id||!row.title)return false;
++  try {const u=new URL(row.source_url);return u.protocol==='https:'&&(spec.kind==='company_announcement'?u.href===spec.url&&/^\d{4}$/.test(row.symbol):key==='steel'?u.hostname==='worldsteel.org'&&/^\/media\/press-releases\/\d{4}\/[a-z0-9-]+\/$/.test(u.pathname):key==='aviation'?u.hostname==='www.iata.org'&&/^\/en\/pressroom\/\d{4}-releases\/[a-z0-9-]+\/?$/.test(u.pathname):u.hostname==='www.trendforce.com'&&/^\/presscenter\/news\/\d{8}-\d+\.html$/.test(u.pathname));}catch{return false;}
++}
++function parseSourceFeed(text,key) {
++  const spec=SOURCE_FEED_REGISTRY[key],records=[];
++  if(!spec)throw Error('unknown_source');
++  if(spec.kind==='company_announcement') {
++    const rows=JSON.parse(text);if(!Array.isArray(rows))throw Error('invalid_announcement_format');
++    for(const raw of rows.slice(0,5000)) {
++      const row=Object.fromEntries(Object.entries(raw).map(([key,value])=>[key.trim(),value]));
++      const symbol=String(row['公司代號']||row.SecuritiesCompanyCode||row.CompanyCode||'').trim();
++      const date=sourceDate(row['發言日期']||row['公告日期']||row.DateOfAnnouncement||row.Date||row.AnnouncementDate);
++      const title=sourceText(row['主旨']||row.Subject||row.SubjectOfAnnouncement,200);
++      if(!/^\d{4}$/.test(symbol)||!date||!title)continue;
++      // 官方開放資料沒有「序號」欄；公開資訊觀測站以 公司代號＋發言日期＋發言時間 辨識同一則重大訊息，用這三欄當原始識別，不用標題自編。
++      const time=String(row['發言時間']||row.TimeOfAnnouncement||'').trim().padStart(6,'0'),officialTime=/^\d{6}$/.test(time)&&time!=='000000'?time:null;
++      const serial=String(row['序號']||row.SerialNumber||'').trim()||null;
++      const record={id:`${key}:${symbol}:${date}:${serial||officialTime||title}`,symbol,kind:spec.kind,title,source_url:spec.url,source_date:date,provider:spec.name,validation_status:'VERIFIED_SOURCE',summary:sourceText(row['說明']||row.Description||row.Explanation,300),
++        announcement_time:officialTime,official_key:officialTime?{symbol,spoke_date:date,spoke_time:officialTime,serial}:null,id_basis:serial?'官方序號':officialTime?'公司代號＋發言日期＋發言時間（官方欄位）':'標題（官方未提供發言時間）',
++        fact_date:sourceDate(row['事實發生日']||row.FactDate)||null,clause:sourceText(row['符合條款']||row.Clause,40)||null};
++      if(validSourceRecord(record,key))records.push(record);
++    }
++  } else {
++    if(!/<rss[\s>]/i.test(text))throw Error('invalid_report_feed');
++    const blocks=[...text.matchAll(/<item>([\s\S]*?)<\/item>/gi)];
++    for(const [,block] of blocks.slice(0,60)) {
++      const field=name=>sourceText(block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)<\\/${name}>`,'i'))?.[1],500);
++      const url=field('link'),published=Date.parse(field('pubDate'));
++      if(!Number.isFinite(published)||published>Date.now()+60000)continue;
++      const record={id:url,kind:spec.kind,title:field('title').split(/\s+/).slice(0,22).join(' '),source_url:url,source_date:new Date(published).toISOString().slice(0,10),published_at:new Date(published).toISOString(),provider:spec.name,validation_status:'VERIFIED_SOURCE',summary:key==='steel'?'世界鋼鐵協會原始產業資料；日期由原始 RSS 核對。全球粗鋼資料不等同特殊鋼需求或個別公司訂單。':'研究機構發布的產業研究；標題與發布日期已由原始 RSS 核對。報告預測不視為公司指引或市場 EPS 共識。'};
++      if(key==='aviation')record.summary='IATA 原始航空市場資料；發布日期由 RSS 核對。旅運／貨運需求不等同航太零件訂單或個別公司獲利。';
++      record.source_excerpt=sourceText(field('description'),360);
++      record.read_state=record.source_excerpt?'rss_excerpt':'metadata_only';
++      if(record.source_excerpt)record.summary=`RSS 原文摘要：${record.source_excerpt}；僅作產業研究參考，未核對全文，不替代公司指引或 EPS 共識。`;
++      if(validSourceRecord(record,key))records.push(record);
++    }
++    if(!blocks.length)throw Error('empty_report_feed');
++    if(!records.length)throw Error('no_valid_report_dates');
++  }
++  return [...new Map(records.map(row=>[row.id,row])).values()].sort((a,b)=>b.source_date.localeCompare(a.source_date));
++}
++function validSourceFeedUrl(key,url){const spec=SOURCE_FEED_REGISTRY[key];return !!spec&&[spec.url,...(spec.fallbackUrls||[])].includes(url);}
++function parseSourceReportPage(text,key){
++  const spec=SOURCE_FEED_REGISTRY[key];if(!spec?.fallbackUrls?.length)throw Error('unsupported_report_page');
++  const records=[];
++  const pattern=/<h3\b[^>]*>[\s\S]*?<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>[\s\S]*?<\/h3>\s*<h4\b[^>]*>([\s\S]*?)<\/h4>(?:\s*<p\b[^>]*>([\s\S]*?)<\/p>)?/gi;
++  for(const match of text.matchAll(pattern)){
++    // 「8 October 2026」按 UTC 解析；Date.parse 會用執行環境時區（台北時區會變成前一天，網址日期對不上而整頁 0 筆）。
++    const dateText=sourceText(match[3]),dm=dateText.match(/^(\d{1,2}) ([A-Za-z]+) (20\d{2})$/),month=dm?['january','february','march','april','may','june','july','august','september','october','november','december'].indexOf(dm[2].toLowerCase()):-1;
++    const timestamp=month>=0?Date.UTC(Number(dm[3]),month,Number(dm[1])):NaN;
++    if(!Number.isFinite(timestamp)||timestamp>Date.now()+8*3600000)continue; // 台北當天凌晨 UTC 仍是前一天，容許 8 小時
++    const date=new Date(timestamp).toISOString().slice(0,10),url=new URL(match[1],spec.url).href;
++    if(!url.includes('/'+date.replaceAll('-','')+'-'))continue;
++    const excerpt=sourceText(match[4],360),row={id:url,kind:'industry_report',title:sourceText(match[2],200),source_url:url,source_date:date,published_at:null,date_precision:'day',provider:spec.name,validation_status:'VERIFIED_SOURCE',source_excerpt:excerpt,read_state:excerpt?'category_excerpt':'metadata_only',summary:excerpt?`官方分類頁原文摘要：${excerpt}；僅作產業研究參考，未核對全文，不替代公司指引或EPS共識。`:'官方分類頁標題與發布日；未核對全文，不替代公司指引或EPS共識。'};
++    if(validSourceRecord(row,key))records.push(row);
++  }
++  if(!records.length)throw Error('no_valid_report_page_records');
++  return [...new Map(records.map(r=>[r.id,r])).values()].sort((a,b)=>b.source_date.localeCompare(a.source_date));
++}
++async function collectSourceFeed(key,{fetchImpl=fetch,timeoutMs=9000}={}){
++  const spec=SOURCE_FEED_REGISTRY[key];if(!spec)throw Error('unknown_source');
++  const attempts=[];
++  for(const source of [spec.url,...(spec.fallbackUrls||[])]){
++    let httpStatus=null;
++    try{
++      // TrendForce 對不帶 User-Agent（或 Node 預設 "node"）的請求回 403；GitHub 實測帶瀏覽器式字串 200。
++      const response=await fetchImpl(source,{headers:{'User-Agent':'Mozilla/5.0 (compatible; TaiwanStockMaster/1.0; +official public data)',Accept:spec.kind==='industry_report'?'application/rss+xml,application/xml,text/html':'application/json'},signal:AbortSignal.timeout(timeoutMs)});httpStatus=response.status;
++      if(!response.ok)throw Error(`HTTP ${httpStatus}`);
++      const text=await response.text();if(text.length>2500000)throw Error('source_too_large');
++      const records=source===spec.url?parseSourceFeed(text,key):parseSourceReportPage(text,key);
++      attempts.push({source,httpStatus,status:'ok',records:records.length});
++      return {key,source,primarySource:spec.url,fetchedAt:new Date().toISOString(),records,status:'ok',error:null,attempts,content_version:2};
++    }catch(error){attempts.push({source,httpStatus,status:'error',error:String(error.message||error).slice(0,160)});}
++  }
++  throw Object.assign(Error(attempts.map(a=>a.error).join('; ')),{sourceAttempts:attempts});
++}
++function freshSourceFeed(saved,key,now=Date.now()){
++  const row=saved?.payload,captured=Date.parse(row?.fetchedAt||'');
++  return saved?.fresh===true&&row?.status==='ok'&&row?.content_version===2&&validSourceFeedUrl(key,row.source||SOURCE_FEED_REGISTRY[key]?.url)&&Number.isFinite(captured)&&captured<=now+60000&&now-captured<=6*3600000&&Array.isArray(row.records)&&(SOURCE_FEED_REGISTRY[key]?.kind==='company_announcement'||row.records.length>0)&&row.records.every(r=>validSourceRecord(r,key));
++}
++function sourceIndustryProfile(issuer) {
++  const code=String(issuer.industry_code||'').padStart(2,'0');
++  const memory=new Set(['8299','5289','2408','2344','3260','4967','2451']);
++  if(memory.has(issuer.id))return {category:'semiconductors',label:'記憶體／儲存',test:/memory|DRAM|NAND|SSD|storage|HBM/i,basis:'記憶體／儲存產品分類'};
++  if(issuer.id==='2404')return {category:'semiconductors',label:'半導體廠務工程',test:/semiconductor|foundry|fab|capacity|capital expenditure|chip/i,basis:'廠務工程與半導體資本支出關聯，屬間接產業證據'};
++  if(code==='10'||/鋼鐵/.test(issuer.industry)||['5009','2027'].includes(issuer.id))return {category:'steel',label:'鋼鐵業',test:/crude steel production|short range outlook|steel demand/i,basis:'鋼鐵產業統計；特殊鋼、航太訂單與公司轉嫁能力須另行核對'};
++  if(['2618','2610','2634','4572','4541','3004'].includes(issuer.id))return {category:'aviation',label:'航空／航太',test:/passenger|cargo|demand|profit|outlook|fuel/i,basis:'航空市場需求；航太供應鏈僅作下游客戶背景，不能替代訂單驗證'};
++  if(code==='24'||/半導體/.test(issuer.industry))return {category:'semiconductors',label:'半導體業',test:/\b(?:semiconductor|foundry|chips?|IC|packaging|wafers?|HBM)\b/i,basis:'官方名冊產業代碼優先；尚未核對個別產品曝險'};
++  if(code==='26'||/光電/.test(issuer.industry))return {category:'display',label:'光電業',test:/display|panel|OLED|LCD|monitor/i,basis:'官方名冊產業代碼優先；尚未核對個別產品曝險'};
++  if(['25','27','28'].includes(code)||/電腦|電子零組件|通信|通訊/.test(issuer.industry))return {category:'consumer',label:issuer.industry,test:/\b(?:PC|computer|notebook|smartphone|server|consumer|component)s?\b/i,basis:'官方名冊產業代碼優先；尚未核對個別產品曝險'};
++  if(code==='35'||/綠能|能源/.test(issuer.industry))return {category:'energy',label:issuer.industry,test:/energy|solar|battery|storage|power/i,basis:'官方名冊產業代碼優先；尚未核對個別產品曝險'};
++  return {category:null,label:issuer.industry,basis:'此產業尚無已驗證的自動報告來源；公司公告與財報仍獨立抓取'};
++}
++async function fetchSourceFeed(key,env,force=false) {
++  const cacheKey=`source-feed:v1:${key}`,saved=await readRuntimeCache(env,cacheKey);
++  if(freshSourceFeed(saved,key)&&(!force||saved.payload.captureMode==='external_collector'))return {...saved.payload,cache:'fresh'};
++  if(sourceFeedTasks.has(key))return sourceFeedTasks.get(key);
++  const task=(async()=>{
++    const spec=SOURCE_FEED_REGISTRY[key],fetchedAt=new Date().toISOString();
++    try {
++      const payload=await collectSourceFeed(key);
++      if(!await writeRuntimeCache(env,cacheKey,payload,6*3600000))throw Error('source_storage_failed');
++      return payload;
++    }catch(error){
++      const latest=await readRuntimeCache(env,cacheKey);
++      if(freshSourceFeed(latest,key)&&(!saved||Date.parse(latest.updatedAt)>Date.parse(saved.updatedAt)))return {...latest.payload,cache:'external_saved',primaryError:String(error.message||error).slice(0,160)};
++      return {key,source:spec.url,fetchedAt:saved?.payload?.fetchedAt||null,records:saved?.payload?.records||[],status:saved?.payload?'stale':'source_error',error:String(error.message||error).slice(0,160),attempts:error.sourceAttempts||[]};
++    }
++  })().finally(()=>sourceFeedTasks.delete(key));sourceFeedTasks.set(key,task);return task;
++}
++async function resolveResearchIssuer(id,env) {
++  const roster=await readRuntimeCache(env,'market-official-universe:v1');
++  let issuer=roster?.payload?.rows?.find(row=>row.id===id);
++  if(issuer)return {...issuer,identitySource:'TWSE／TPEx 官方公司名冊',identityStale:!roster.fresh};
++  const response=await searchTaiwanStocks(new Request(`https://site.internal/api/taiwan-stock-search?q=${id}`),env),result=await response.json();
++  issuer=result.results?.find(row=>row.id===id);
++  if(!issuer||!['TWSE','TPEX'].includes(issuer.market))throw Error('issuer_not_verified');
++  return {...issuer,market:issuer.market.toLowerCase(),identitySource:result.source,identityStale:false};
++}
++async function collectStockSources(id,env,force=false) {
++  const issuer=await resolveResearchIssuer(id,env),profile=sourceIndustryProfile(issuer);
++  const keys=[issuer.market,...(profile.category?[profile.category]:[])];
++  const feeds=await Promise.all(keys.map(key=>fetchSourceFeed(key,env,force)));
++  const old=await readRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`),cutoff=new Date(Date.now()-180*86400000).toISOString().slice(0,10);
++  const announcements=feeds[0].records.filter(row=>row.symbol===id);
++  const industry=feeds.slice(1).flatMap(feed=>feed.records.map(row=>({...row,source_feed_key:feed.key,source_fetched_at:feed.fetchedAt,source_stale:feed.status!=='ok'}))).filter(row=>profile.test?.test(row.title));
++  const records=[...new Map([...(old?.payload?.records||[]).filter(row=>row.kind==='company_announcement'&&row.source_date>=cutoff),...announcements,...industry].map(row=>[row.id,row])).values()].sort((a,b)=>b.source_date.localeCompare(a.source_date)).slice(0,50);
++  const roster=await readRuntimeCache(env,'market-official-universe:v1');
++  const peers=(roster?.payload?.rows||[]).filter(row=>row.id!==id&&(issuer.industry_code?row.industry_code===issuer.industry_code:row.industry===issuer.industry)).slice(0,8).map(row=>({symbol:row.id,name:row.name,industry:row.industry,relation:'同名冊產業候選；尚未核對直接競爭關係',production_eligible:false}));
++  const errors=feeds.filter(feed=>feed.error).map(feed=>({source:feed.source,error:feed.error,stale:feed.status==='stale'}));
++  const payload={version:SOURCE_RESEARCH_VERSION,content_version:2,symbol:id,name:issuer.name,industry:issuer.industry,identitySource:issuer.identitySource,identityStale:issuer.identityStale,profile:{label:profile.label,basis:profile.basis},checkedAt:new Date().toISOString(),status:errors.length?'partial':industry.length?'sources_ready':'partial',records,errors,feeds:feeds.map(({key,source,fetchedAt,status,error,attempts})=>({key,source,fetchedAt,status,error,attempts})),peerCandidates:peers,gaps:[...(!profile.category?['此產業的研究報告來源尚未接入']:industry.length?[]:['目前原始來源未找到符合產品分類的產業報告']),...(!announcements.length?['每日重大訊息來源本次無此公司公告；不代表沒有歷史法說或風險']:[]),'2026／2027 可追溯 EPS 共識及至少三家直接同業估值仍待核對','八期事前公司指引與財報前 EPS 共識尚未由此來源建立'],gatesPromoted:false};
++  const remaining=feeds.map(feed=>6*3600000-(Date.now()-Date.parse(feed.fetchedAt))).filter(Number.isFinite);
++  const ttl=errors.length?5*60000:Math.max(60000,Math.min(6*3600000,...remaining));
++  if(!await writeRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`,payload,ttl))throw Error('research_storage_failed');
++  return payload;
++}
++async function stockSourceResearchResponse(request,env={},ctx={}) {
++  if(!['GET','POST'].includes(request.method))return Response.json({error:'method_not_allowed'},{status:405,headers:jsonHeaders});
++  const url=new URL(request.url),id=url.searchParams.get('id');
++  if(!/^[1-9]\d{3}$/.test(id||''))return Response.json({error:'invalid_symbol'},{status:400,headers:jsonHeaders});
++  const cached=await readRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`);
++  if(cached?.fresh&&cached.payload.content_version===2&&url.searchParams.get('refresh')!=='1')return Response.json({...cached.payload,cache:'fresh'},{headers:jsonHeaders});
++  if(!sourceResearchTasks.has(id)) {
++    const task=collectStockSources(id,env,url.searchParams.get('refresh')==='1').catch(async error=>{const payload={symbol:id,status:'source_error',checkedAt:new Date().toISOString(),records:cached?.payload?.records||[],is_stale:!!cached?.payload,gaps:[String(error.message||error)],gatesPromoted:false};await writeRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`,payload,5*60000);return payload;}).finally(()=>sourceResearchTasks.delete(id));
++    sourceResearchTasks.set(id,task);try{ctx.waitUntil?.(task);}catch{}
++  }
++  if(typeof ctx.waitUntil!=='function')return Response.json(await sourceResearchTasks.get(id),{headers:jsonHeaders});
++  return Response.json({...cached?.payload,symbol:id,status:cached?.payload?.status||'pending',pending:true,refreshing:!!cached?.payload,is_stale:!!cached?.payload,records:cached?.payload?.records||[],gatesPromoted:false},{headers:jsonHeaders});
++}
+-- 
+2.43.0
+

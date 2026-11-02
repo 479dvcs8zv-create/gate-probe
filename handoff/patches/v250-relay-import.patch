@@ -1,0 +1,368 @@
+diff --git a/OPERATIONS.md b/OPERATIONS.md
+index fea689b..b8a7a30 100644
+--- a/OPERATIONS.md
++++ b/OPERATIONS.md
+@@ -364,3 +364,25 @@ CSV可下載但TPEx JSON端點回傳非JSON，兩個來源的取數狀況分開
+ 紐約新訂單以官方摘要月份及 NOCDISA CSV 同月同值交叉核對，不使用未來新訂單欄。M1B−M2 保留實際觀測月份，另核對央行最新金融情況新聞稿的日平均年增率、發布日及下次預告發布時間；到時失效，不能以延長擷取時間冒充新觀測。
+ 
+ `sourceCollectorNode` 除既有八項公司／產業來源外，另保存 `news.json` 與 `news-collection-status.json`。公告先試 RSS，再試 EIA Today in Energy 與 BLS CPI／就業原始公告 HTML；HTML 必須解析原始發布日，不取下次公布日期。`importerNode` 匯入 `news.json`，官方公告快照最多保留 36 小時擷取有效期。RSS 失敗紀錄保留，HTML 成功不代表數值序列已核驗；BLS 數值 API 與新聞公告用途分開，無須為 RSS 403 假定缺少 API key。
++
++## GitHub relay official import (v250)
++
++The public relay `wcr0936531039-png/macro-relay-service` runs the same official
++collectors on a GitHub schedule (Taipei about 05:55, 16:20, 22:40 and 23:10 on
++weekdays) and force-pushes only the payload files plus `manifest.json`
++(schema 1, `generatedAt`, each part's kind, bytes and SHA-256, collector errors)
++to its orphan branch `official-import`. No credentials, site URL or project ID
++are involved; the relay never deploys or calls the Site.
++
++When the Site env has `RELAY_OFFICIAL_IMPORT_ENABLED=true`, every
++`/api/automation/refresh-all` run first reads that manifest (rejected when it is
++older than 36 hours, malformed or names an unknown kind), then imports one group
++per poll — market snapshots with the roster, macro series, credit statistics,
++core CPI, industry sources and official news — through the same validation as
++`/api/official-data-import`. A part whose SHA-256 differs from the manifest is
++never submitted. A group whose hashes match the last successful import is
++skipped. A failed or rejected group is recorded with its reason and retried on
++the next patrol; it never blocks the scanner, modules or Gate audits, and the
++Worker's own direct capture still runs. Read the run's `officialImport`
++coverage row and `relayImport` in history. Without the env flag the patrol is
++unchanged; the manual collector and importer above remain the fallback.
+diff --git a/package.json b/package.json
+index 33b920f..d0da42b 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/scripts/collect-official-data.py b/scripts/collect-official-data.py
+index 31ccd38..1841ead 100644
+--- a/scripts/collect-official-data.py
++++ b/scripts/collect-official-data.py
+@@ -10,6 +10,8 @@ p.add_argument('--market-only', action='store_true')
+ p.add_argument('--macro-only', action='store_true')
+ p.add_argument('--cpi-only', action='store_true')
+ p.add_argument('--statistics-only', action='store_true')
++# 白天（信用統計當晚才公布）跑一般收集時略過信用統計，不留舊檔、不重試等待；狀態檔照實記「略過」。
++p.add_argument('--skip-statistics', action='store_true')
+ args = p.parse_args()
+ root = pathlib.Path(args.output); root.mkdir(parents=True, exist_ok=True)
+ rawdir = root / 'raw'; rawdir.mkdir(exist_ok=True)
+@@ -161,10 +163,11 @@ def collect_macro():
+         except Exception as exc: errors.append({'source':key,'error':str(exc)})
+     if series: save('series.json', {'schema_version':1,'series':series})
+     stats=None
+-    try:
+-        (root/'statistics.json').unlink(missing_ok=True)
+-        stats=collect_statistics()
+-    except Exception as exc: errors.append({'source':'TWSE-statistics','error':str(exc)});stats=None
++    (root/'statistics.json').unlink(missing_ok=True)
++    if args.skip_statistics: errors.append({'source':'TWSE-statistics','error':'skipped: --skip-statistics'})
++    else:
++        try: stats=collect_statistics()
++        except Exception as exc: errors.append({'source':'TWSE-statistics','error':str(exc)});stats=None
+     cpi=collect_core_cpi();errors.extend(cpi['errors'])
+     status={'checkedAt':now(),'series':[{'id':row['id'],'date':row['history'][-1]['date'],'nextReleaseDate':row.get('releaseVerification',{}).get('nextReleaseDate')} for row in series],'coreCpi':cpi,'marketStatisticsDate':stats and stats['date'],'errors':errors}
+     save('macro-collection-status.json',status);print(json.dumps(status,ensure_ascii=False),flush=True)
+@@ -185,7 +188,7 @@ if args.cpi_only:
+ if not args.issuer_only and not args.market_only:
+     macro_status=collect_macro()
+     if args.macro_only:
+-        raise SystemExit(0 if len(macro_status['series'])==9 and macro_status['marketStatisticsDate'] and macro_status['coreCpi']['passed'] else 1)
++        raise SystemExit(0 if len(macro_status['series'])==9 and (args.skip_statistics or macro_status['marketStatisticsDate']) and macro_status['coreCpi']['passed'] else 1)
+ 
+ sources = {'twse':'https://openapi.twse.com.tw/v1/opendata/t187ap03_L','tpex':'https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O'}
+ meta = {}; metadata_errors = []
+diff --git a/tests/v250-relay-import.test.mjs b/tests/v250-relay-import.test.mjs
+new file mode 100644
+index 0000000..b8fba68
+--- /dev/null
++++ b/tests/v250-relay-import.test.mjs
+@@ -0,0 +1,138 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import crypto from 'node:crypto';
++import {refreshLeaseStatement} from './helpers/refresh-lease.mjs';
++
++// 擁有者 2026-11-03 03:11「第二項照做」：官方資料收集改由 GitHub 中繼排程跑，網站巡檢開頭自己匯入，
++// GPT 不再手動跑收集程式＋匯入。網站環境變數 RELAY_OFFICIAL_IMPORT_ENABLED=true 才啟用（預設關閉，可隨時關掉）。
++const source=fs.readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const RELAY='https://raw.githubusercontent.com/wcr0936531039-png/macro-relay-service/official-import/';
++const sha=text=>crypto.createHash('sha256').update(text).digest('hex');
++let serial=0;
++
++function bundle(parts,{generatedAt=new Date(Date.now()-3600000).toISOString(),tamper}={}){
++  const files={},manifest={schema_version:1,generatedAt,window:'test',collector:{repo:'macro-relay-service'},parts:[],errors:[{source:'BLS-core-CPI',error:'HTTP 403'}]};
++  for(const p of parts){const text=JSON.stringify(p.body);files[p.name]=tamper===p.name?text.replace('}',',"x":1}'):text;manifest.parts.push({name:p.name,kind:p.kind,sha256:sha(text),bytes:text.length});}
++  files['manifest.json']=JSON.stringify(manifest);return files;
++}
++const snapshot=date=>({name:`${date}.json`,kind:'market',body:{schema_version:1,marketSnapshots:[{date,rows:[{id:'2330'}]}]}});
++const fullParts=()=>[
++  {name:'universe.json',kind:'universe',body:{schema_version:1,issuerUniverse:{asOf:'2026-11-02',rows:[{id:'2330'}]}}},
++  ...['2026-10-22','2026-10-23','2026-10-26','2026-10-27','2026-10-28','2026-10-29','2026-10-30'].map(snapshot),
++  {name:'series.json',kind:'series',body:{schema_version:1,series:['DCOILBRENTEU','DHHNGSP','DEXJPUS','DCOILWTICO','IORB','US3M','US10Y','US30Y','DTWEXAFEGS'].map(id=>({id,history:[]}))}},
++  {name:'cpi.json',kind:'cpi',body:{schema_version:1,coreCpiSources:[],coreCpiFailures:[{source:'BLS-core-CPI',error:'HTTP 403'}]}},
++  {name:'news.json',kind:'news',body:{schema_version:1,officialNewsCapture:{capturedAt:new Date().toISOString(),feeds:[]}}},
++];
++
++class DB{
++  rows=new Map();leases=new Map();
++  prepare(sql){const lease=refreshLeaseStatement(this,sql);if(lease)return lease;return {run:async()=>({success:true}),bind:(...args)=>({all:async()=>({results:this.rows.has(args[0])?[this.rows.get(args[0])]:[]}),run:async()=>{this.rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true};}})};}
++}
++const hooks=`
++ captureFullMarketSnapshot=async()=>{globalThis.__v250.order.push('scanner');return {status:'collecting_history',date:'2026-10-30',sessions:76,captured:{total:600},universe:{total:600}};};
++ runSiteModule=async id=>({id,status:'ok',usable:1,total:1,observations:[]});
++ refreshSiteStock=async row=>({id:row.id,name:row.name,status:'fresh'});
++ stockSourceResearchResponse=async request=>Response.json({status:'ok',records:[]});
++ masterModelResponse=async request=>Response.json({status:'valuation_divergence',auditStatus:'blocked',symbol:new URL(request.url).searchParams.get('id'),gates:[]});
++ officialDataImport=async(request,env)=>{const body=await request.json();globalThis.__v250.imports.push(body);globalThis.__v250.order.push('import');
++   const reason=globalThis.__v250.reject?.(body);return reason?Response.json({error:reason},{status:422}):Response.json({ok:true});};
++`;
++async function patrol(env,files,reject){
++  globalThis.__v250={imports:[],order:[],fetched:[],reject};
++  const oldFetch=globalThis.fetch;
++  globalThis.fetch=async(input,init)=>{const url=String(input?.url||input);if(!url.startsWith(RELAY))return oldFetch(input,init);
++    const name=url.slice(RELAY.length);globalThis.__v250.fetched.push(name);
++    return files&&Object.hasOwn(files,name)?new Response(files[name],{headers:{'Content-Type':'text/plain'}}):new Response('404: Not Found',{status:404});};
++  try{
++    const request=(path='status')=>new Request('https://site.test/api/automation/'+path,{method:path==='refresh-all'?'POST':'GET'});
++    const load=()=>import('data:text/javascript;base64,'+Buffer.from(source+hooks+`\n// v250-${serial++}`).toString('base64'));
++    await (await load()).default.fetch(request('refresh-all'),env,{});
++    let result;for(let i=0;i<80&&!result?.completedAt;i++)result=await (await (await load()).default.fetch(request(),env,{})).json();
++    assert.ok(result.completedAt,'巡檢跑完');return result;
++  }finally{globalThis.fetch=oldFetch;}
++}
++const coverage=result=>result.coverage.find(row=>row.id==='officialImport');
++
++test('中繼清單驗證：格式、36 小時、檔名、雜湊、重複、行情檔名必須是日期',async()=>{
++  const api=await import('data:text/javascript;base64,'+Buffer.from(source+`\nexport {validRelayOfficialManifest,relayOfficialImportEnabled};\n// v250-m`).toString('base64'));
++  const now=Date.parse('2026-11-03T00:00:00Z'),good={schema_version:1,generatedAt:'2026-11-02T08:30:00Z',parts:[{name:'2026-11-02.json',kind:'market',sha256:'a'.repeat(64),bytes:10},{name:'series.json',kind:'series',sha256:'b'.repeat(64)}],errors:[]};
++  assert.equal(api.validRelayOfficialManifest(good,now).parts.length,2);
++  const bad=patch=>api.validRelayOfficialManifest({...good,...patch},now);
++  assert.equal(bad({schema_version:2}),null);
++  assert.equal(bad({generatedAt:'2026-11-01T11:00:00Z'}),null,'超過 36 小時不匯入');
++  assert.equal(bad({generatedAt:'2026-11-03T01:00:00Z'}),null,'未來時間不匯入');
++  assert.equal(bad({parts:[{name:'../x.json',kind:'series',sha256:'a'.repeat(64)}]}),null);
++  assert.equal(bad({parts:[{name:'series.json',kind:'series',sha256:'xyz'}]}),null);
++  assert.equal(bad({parts:[{name:'series.json',kind:'companies',sha256:'a'.repeat(64)}]}),null,'只收固定幾類');
++  assert.equal(bad({parts:[{name:'latest.json',kind:'market',sha256:'a'.repeat(64)}]}),null);
++  assert.equal(bad({parts:[good.parts[1],good.parts[1]]}),null);
++  assert.equal(bad({parts:[]}),null);
++  assert.equal(api.relayOfficialImportEnabled({}),false,'預設關閉');
++  assert.equal(api.relayOfficialImportEnabled({RELAY_OFFICIAL_IMPORT_ENABLED:'true'}),true);
++});
++
++test('未啟用：巡檢不碰中繼、沒有匯入紀錄，與 v249 相同',async()=>{
++  const result=await patrol({DB:new DB()},bundle(fullParts()));
++  assert.deepEqual(globalThis.__v250.fetched,[]);assert.deepEqual(globalThis.__v250.imports,[]);
++  assert.equal(result.relayImport,undefined);assert.equal(coverage(result),undefined);
++});
++
++test('啟用：掃描前先匯入；行情每次最多 5 天、名冊只送一次；總經 9 條分兩批；沒收到的類別照實標示；第二次清單沒變就不重匯',async()=>{
++  const env={DB:new DB(),RELAY_OFFICIAL_IMPORT_ENABLED:'true'},files=bundle(fullParts());
++  const result=await patrol(env,files),imports=globalThis.__v250.imports;
++  assert.equal(globalThis.__v250.order.indexOf('scanner'),globalThis.__v250.order.lastIndexOf('import')+1,'全部匯入完才掃描');
++  const market=imports.filter(b=>b.marketSnapshots);
++  assert.deepEqual(market.map(b=>b.marketSnapshots.map(s=>s.date)),[['2026-10-22','2026-10-23','2026-10-26','2026-10-27','2026-10-28'],['2026-10-29','2026-10-30']]);
++  assert.ok(market[0].issuerUniverse);assert.equal(market[1].issuerUniverse,undefined,'名冊只送一次');
++  assert.deepEqual(imports.filter(b=>b.series).map(b=>b.series.length),[5,4]);
++  assert.equal(imports.filter(b=>b.coreCpiSources).length,1);assert.equal(imports.filter(b=>b.officialNewsCapture).length,1);
++  assert.ok(imports.every(b=>b.schema_version===1));
++  const groups=Object.fromEntries(result.relayImport.groups.map(g=>[g.id,g.status]));
++  assert.deepEqual(groups,{market:'imported',series:'imported',statistics:'not_in_bundle',cpi:'imported',sources:'not_in_bundle',news:'imported'});
++  assert.equal(result.relayImport.status,'ok');assert.equal(coverage(result).status,'automatic');
++  assert.match(coverage(result).detail,/信用統計這次沒收到/);assert.match(coverage(result).detail,/收集端回報 1 項失敗/);
++  const history=JSON.parse(env.DB.rows.get('site-auto-refresh-history:v1').payload);
++  assert.equal(history.runs.at(-1).relayImport.groups.market,'imported');
++  const again=await patrol(env,files);
++  assert.deepEqual(globalThis.__v250.imports,[],'同一份清單不重匯');assert.deepEqual(globalThis.__v250.fetched,['manifest.json'],'只讀清單');
++  assert.ok(again.relayImport.groups.filter(g=>g.status!=='not_in_bundle').every(g=>g.status==='unchanged'));
++  assert.equal(again.relayImport.status,'ok');
++});
++
++test('雜湊不符或匯入被拒：只有那一組記失敗、不記雜湊，其他組照常；下一次巡檢會重試',async()=>{
++  const env={DB:new DB(),RELAY_OFFICIAL_IMPORT_ENABLED:'true'};
++  const parts=fullParts();
++  let result=await patrol(env,bundle(parts,{tamper:'series.json'}));
++  let groups=Object.fromEntries(result.relayImport.groups.map(g=>[g.id,g]));
++  assert.equal(groups.series.status,'error');assert.match(groups.series.error,/雜湊與清單不符/);
++  assert.equal(globalThis.__v250.imports.filter(b=>b.series).length,0,'雜湊不符不送進網站');
++  assert.equal(groups.market.status,'imported');assert.equal(groups.cpi.status,'imported');
++  assert.equal(result.relayImport.status,'partial');assert.equal(coverage(result).status,'source_error');assert.match(coverage(result).detail,/總經序列失敗/);
++  assert.ok(globalThis.__v250.order.includes('scanner'),'失敗不擋巡檢');
++  const saved=JSON.parse(env.DB.rows.get('relay-official-import:v1').payload);
++  assert.equal(saved.parts['series.json'],undefined);assert.ok(saved.parts['universe.json']);
++  // 下一次：清單正常 → 總經補上；行情、CPI、新聞沒變不重匯
++  result=await patrol(env,bundle(parts));groups=Object.fromEntries(result.relayImport.groups.map(g=>[g.id,g.status]));
++  assert.equal(groups.series,'imported');assert.equal(groups.market,'unchanged');assert.equal(groups.cpi,'unchanged');
++  assert.deepEqual(globalThis.__v250.imports.map(b=>Object.keys(b).filter(k=>k!=='schema_version')),[['series'],['series']]);
++  assert.equal(result.relayImport.status,'ok');
++});
++
++test('網站拒收：照實記錄被拒原因，不記雜湊',async()=>{
++  const env={DB:new DB(),RELAY_OFFICIAL_IMPORT_ENABLED:'true'},files=bundle(fullParts());
++  const result=await patrol(env,files,body=>body.officialNewsCapture?'invalid_news':null),groups=Object.fromEntries(result.relayImport.groups.map(g=>[g.id,g]));
++  assert.equal(groups.news.status,'error');assert.match(groups.news.error,/HTTP 422：invalid_news/);
++  assert.equal(groups.series.status,'imported');
++  assert.equal(JSON.parse(env.DB.rows.get('relay-official-import:v1').payload).parts['news.json'],undefined,'被拒的下次重試');
++});
++
++test('讀不到清單或清單過期：記錄「讀不到」，直接進掃描，網站照舊自己抓',async()=>{
++  const env={DB:new DB(),RELAY_OFFICIAL_IMPORT_ENABLED:'true'};
++  let result=await patrol(env,null);
++  assert.equal(result.relayImport.status,'not_available');assert.match(result.relayImport.error,/HTTP 404/);
++  assert.deepEqual(globalThis.__v250.imports,[]);assert.ok(globalThis.__v250.order.includes('scanner'));
++  assert.equal(coverage(result).status,'source_error');assert.match(coverage(result).detail,/讀不到中繼清單/);
++  result=await patrol(env,bundle(fullParts(),{generatedAt:new Date(Date.now()-40*3600000).toISOString()}));
++  assert.equal(result.relayImport.status,'not_available');assert.match(result.relayImport.error,/36 小時/);assert.deepEqual(globalThis.__v250.imports,[]);
++});
+diff --git a/worker/data-import.js b/worker/data-import.js
+index 3833bc7..11eaf48 100644
+--- a/worker/data-import.js
++++ b/worker/data-import.js
+@@ -229,3 +229,87 @@ async function captureAddressableMarketSnapshot(env) {
+   if(!await writeRuntimeCache(env,MARKET_SCANNER_LATEST_KEY,result,365*86400000))throw Error('市場摘要寫入失敗');
+   return result;
+ }
++
++// v250（擁有者 2026-11-03 03:11「第二項照做」）：官方資料收集器改由 GitHub 中繼排程執行，網站巡檢時自己讀取並匯入，
++// 不再靠 GPT 手動跑收集器與匯入。中繼只放官方公開資料；每份檔案用清單裡的 SHA-256 核對，再走與手動匯入完全相同的驗證。
++const RELAY_OFFICIAL_IMPORT_BASE='https://raw.githubusercontent.com/wcr0936531039-png/macro-relay-service/official-import/';
++const RELAY_OFFICIAL_IMPORT_KEY='relay-official-import:v1';
++const RELAY_IMPORT_KINDS=['universe','market','series','statistics','cpi','sources','news'];
++// 預設關閉；網站環境變數 RELAY_OFFICIAL_IMPORT_ENABLED=true 才在巡檢開頭匯入（可隨時關掉，網站照舊自己抓＋人工匯入）。
++function relayOfficialImportEnabled(env){return String(env?.RELAY_OFFICIAL_IMPORT_ENABLED||'').toLowerCase()==='true';}
++const RELAY_GROUP_NAMES={manifest:'清單',market:'行情＋名冊',series:'總經序列',statistics:'信用統計',cpi:'核心 CPI',sources:'產業來源',news:'官方新聞'};
++const RELAY_STATUS_NAMES={imported:'已匯入',unchanged:'沒變（不重匯）',not_in_bundle:'這次沒收到',error:'失敗',pending:'未完成'};
++function relayImportCoverageDetail(relay){
++  if(!relay.manifest)return `讀不到中繼清單（${relay.error||'未知'}）；本輪照舊由網站自己抓。`;
++  const groups=(relay.groups||[]).map(g=>`${RELAY_GROUP_NAMES[g.id]||g.id}${RELAY_STATUS_NAMES[g.status]||g.status}${g.error?`（${g.error}）`:''}`).join('、');
++  return `中繼收集時間 ${relay.manifest.generatedAt}；${groups||'未匯入'}${relay.manifest.collectorErrors?.length?`；收集端回報 ${relay.manifest.collectorErrors.length} 項失敗`:''}。`;
++}
++const RELAY_IMPORT_GROUPS=[{id:'market',kinds:['universe','market']},{id:'series',kinds:['series']},{id:'statistics',kinds:['statistics']},{id:'cpi',kinds:['cpi']},{id:'sources',kinds:['sources']},{id:'news',kinds:['news']}];
++async function fetchRelayOfficialText(name,timeoutMs=8000){
++  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeoutMs);
++  try{const response=await fetch(RELAY_OFFICIAL_IMPORT_BASE+name,{signal:controller.signal,headers:{Accept:'application/json'}});if(!response.ok)throw Error(`中繼 ${name} HTTP ${response.status}`);return await response.text();}
++  catch(error){throw Error(error?.name==='AbortError'?`中繼 ${name} 逾時`:String(error?.message||error));}
++  finally{clearTimeout(timer);}
++}
++function validRelayOfficialManifest(manifest,now=Date.now()){
++  const generated=Date.parse(manifest?.generatedAt||'');
++  if(manifest?.schema_version!==1||!Number.isFinite(generated)||generated>now+300000||now-generated>36*3600000||!Array.isArray(manifest.parts))return null;
++  const names=new Set(),parts=[];
++  for(const part of manifest.parts){
++    if(!/^[a-z0-9-]+\.json$/.test(String(part?.name||''))||!/^[0-9a-f]{64}$/.test(String(part?.sha256||''))||!RELAY_IMPORT_KINDS.includes(part.kind)||names.has(part.name))return null;
++    if(part.kind==='market'&&!/^\d{4}-\d{2}-\d{2}\.json$/.test(part.name))return null;
++    names.add(part.name);parts.push({name:part.name,kind:part.kind,sha256:part.sha256,bytes:Number(part.bytes)||null});
++  }
++  return parts.length?{generatedAt:manifest.generatedAt,window:manifest.window||null,collector:manifest.collector||null,parts,collectorErrors:Array.isArray(manifest.errors)?manifest.errors.slice(0,20):[]}:null;
++}
++function relayImportBodies(groupId,parts,bodies){
++  if(groupId==='market'){
++    const universe=parts.find(p=>p.kind==='universe')?bodies[parts.find(p=>p.kind==='universe').name]?.issuerUniverse:null;
++    const snapshots=parts.filter(p=>p.kind==='market').sort((a,b)=>a.name.localeCompare(b.name)).flatMap(p=>bodies[p.name]?.marketSnapshots||[]);
++    const batches=[];let current={schema_version:1,...(universe?{issuerUniverse:universe}:{}),marketSnapshots:[]};
++    for(const item of snapshots){
++      const candidate={...current,marketSnapshots:[...current.marketSnapshots,item]};
++      if(current.marketSnapshots.length&&(candidate.marketSnapshots.length>5||JSON.stringify(candidate).length>3900000)){batches.push(current);current={schema_version:1,marketSnapshots:[item]};}
++      else current=candidate;
++    }
++    if(current.marketSnapshots.length||current.issuerUniverse)batches.push(current.marketSnapshots.length?current:{schema_version:1,issuerUniverse:current.issuerUniverse});
++    return batches;
++  }
++  if(groupId==='series'){const data=bodies[parts[0].name]||{},rows=data.series||[],out=[];for(let i=0;i<rows.length;i+=5)out.push({...data,series:rows.slice(i,i+5)});return out;}
++  return parts.map(p=>bodies[p.name]);
++}
++// 巡檢的一步：index 0 讀清單；之後每一步匯入一組（行情＋名冊、總經序列、信用統計、核心 CPI、產業來源、官方新聞）。
++// 回傳下一個 index；null＝這個階段結束。內容沒變（雜湊相同）就不重匯；任何一組失敗只記錄，不擋巡檢。
++async function relayOfficialImportStep(env,run,index){
++  if(index===0){
++    let manifest=null,error=null;
++    try{manifest=validRelayOfficialManifest(JSON.parse(await fetchRelayOfficialText('manifest.json')));if(!manifest)error='中繼清單缺少、格式不符或超過 36 小時';}
++    catch(e){error=String(e?.message||e).slice(0,200);}
++    run.relayImport={checkedAt:new Date().toISOString(),status:manifest?'importing':'not_available',manifest,groups:[],error};
++    return manifest?1:null;
++  }
++  const manifest=run.relayImport?.manifest,group=RELAY_IMPORT_GROUPS[index-1];
++  if(!manifest||!group)return null;
++  const parts=manifest.parts.filter(p=>group.kinds.includes(p.kind)),result={id:group.id,parts:parts.map(p=>p.name),status:parts.length?'pending':'not_in_bundle'};
++  if(parts.length){
++    try{
++      const saved=(await readRuntimeCache(env,RELAY_OFFICIAL_IMPORT_KEY))?.payload||{};
++      if(parts.every(p=>saved.parts?.[p.name]===p.sha256))result.status='unchanged';
++      else{
++        const bodies={};
++        await Promise.all(parts.map(async p=>{const text=await fetchRelayOfficialText(p.name);if(await sha256Hex(text)!==p.sha256)throw Error(`${p.name} 雜湊與清單不符`);bodies[p.name]=JSON.parse(text);}));
++        const calls=relayImportBodies(group.id,parts,bodies),responses=[];
++        for(const body of calls){
++          const response=await officialDataImport(new Request('https://site.internal/api/official-data-import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}),env),json=await response.json().catch(()=>({}));
++          responses.push({http:response.status,ok:json.ok===true});
++          if(!response.ok||json.ok!==true)throw Error(`匯入被拒 HTTP ${response.status}：${json.error||'未知'}`);
++        }
++        await writeRuntimeCache(env,RELAY_OFFICIAL_IMPORT_KEY,{parts:{...(saved.parts||{}),...Object.fromEntries(parts.map(p=>[p.name,p.sha256]))},updatedAt:new Date().toISOString(),generatedAt:manifest.generatedAt},30*86400000);
++        result.status='imported';result.calls=responses.length;
++      }
++    }catch(error){result.status='error';result.error=String(error?.message||error).slice(0,240);}
++  }
++  run.relayImport.groups=[...(run.relayImport.groups||[]).filter(g=>g.id!==group.id),result];
++  if(index>=RELAY_IMPORT_GROUPS.length){run.relayImport.status=run.relayImport.groups.some(g=>g.status==='error')?'partial':'ok';return null;}
++  return index+1;
++}
+diff --git a/worker/macro.js b/worker/macro.js
+index 4628a9f..4330845 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -1557,6 +1557,7 @@ async function persistSiteRefreshStatus(env, payload) {
+       deferredStockCount: Number(payload.deferredStockCount || 0), stockCursor: Number(payload.stockCursor || 0), watchlistSource: payload.watchlistSource || null,
+       researchCount: Array.isArray(payload.research) ? payload.research.length : 0,
+       gateAuditCount: (payload.gateAudits||[]).filter(row=>row.recorded===true).length,
++      relayImport: payload.relayImport ? { status: payload.relayImport.status || null, generatedAt: payload.relayImport.manifest?.generatedAt || null, groups: Object.fromEntries((payload.relayImport.groups || []).map(g => [g.id, g.status])) } : null,
+     };
+     const next = [...history.filter(item => item.runId !== summary.runId), summary]
+       .sort((a, b) => String(a.startedAt || '').localeCompare(String(b.startedAt || '')))
+@@ -1595,7 +1596,8 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     run.stockCursor=watchlist.length?(previousCursor+batch.length)%watchlist.length:0;
+     const ids=new Set(batch.map(row=>row.id));run.deferredStocks=watchlist.filter(row=>!ids.has(row.id)).map(row=>({id:row.id,name:row.name,status:'deferred',reason:'本次每日個股更新批次上限；保留於後續輪替'}));
+     run.deferredStockCount=run.deferredStocks.length;run.stockRotation=run.deferredStockCount?'輪替更新；其餘追蹤股會在後續每日巡檢依序更新':'追蹤清單全數納入本次巡檢';
+-    run.checkpoint={version:1,stage:'scanner',index:0};return commit();
++    run.relayImportEnabled=relayOfficialImportEnabled(env);
++    run.checkpoint={version:1,stage:run.relayImportEnabled?'relayImport':'scanner',index:0};return commit();
+   }
+   const modules = [
+     ['macro', () => macroResponse(false, env, ctx)],
+@@ -1608,6 +1610,20 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     ['usSectors', async () => Response.json(await readUSSectorSnapshot(env, ctx, true))],
+     ['officialNews', () => macroNewsResponse(env, ctx)],
+   ];
++  // v250：先把 GitHub 中繼收好的官方資料匯入（行情＋名冊、總經序列、信用統計、核心 CPI、產業來源、官方新聞），再做全市場掃描。
++  if(step.stage==='relayImport'){
++    let next=null;
++    try{next=await boundedSiteRefreshStep(()=>relayOfficialImportStep(env,run,step.index));}
++    catch(error){
++      // 逾時或例外：照實記錄這一組失敗，繼續下一組；清單本身失敗就整段略過（網站照舊自己抓）。
++      const message=String(error?.message||error).slice(0,240);
++      if(!step.index)run.relayImport={checkedAt:new Date().toISOString(),status:'not_available',manifest:null,groups:[],error:message};
++      else{const group=RELAY_IMPORT_GROUPS[step.index-1]?.id||'unknown';run.relayImport={...run.relayImport,groups:[...(run.relayImport?.groups||[]).filter(g=>g.id!==group),{id:group,status:'error',error:message}]};}
++      next=step.index>0&&step.index<RELAY_IMPORT_GROUPS.length?step.index+1:null;
++      if(step.index&&next==null)run.relayImport.status='partial';
++    }
++    run.checkpoint=next==null?{version:1,stage:'scanner',index:0}:{version:1,stage:'relayImport',index:next};return commit();
++  }
+   if(step.stage==='scanner'){
+     try{run.fullMarketScanner=await boundedSiteRefreshStep(()=>captureFullMarketSnapshot(env));}
+     catch(error){run.fullMarketScanner={status:'source_error',capturedAt:new Date().toISOString(),sessions:(await readMarketScannerSnapshots(env)).length,errors:{scanner:String(error?.message||error).slice(0,240)}};}
+@@ -1695,6 +1711,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     { id: 'gateAudit',label:'逐檔 Gate 判讀與原始證據快照',status:run.gateAudits.every(row=>row.recorded)?'automatic':'source_error',detail:`已保存 ${run.gateAudits.filter(row=>row.recorded).length}/${stockBatch.length} 檔；保存成功不等於 Gate 通過。`},
+     { id: 'guidance', label: 'Gate 5A 法說指引與已公布實績', status: 'verification_required', detail: '來源搜尋結果只作候選；正式回測紀錄仍須確認公司原始公告、期別與數值。' },
+     { id: 'epsConsensus', label: 'Gate 5B／Gate 8 分析師共識與 EPS surprise', status: 'verification_required', detail: '不能以事後文章倒填財報前共識；來源授權與日期未確認時不寫入正式樣本。' },
++    ...(run.relayImport ? [{ id: 'officialImport', label: 'GitHub 中繼官方資料自動匯入（行情、名冊、總經、信用、CPI、產業來源、新聞）', status: run.relayImport.status === 'ok' ? 'automatic' : 'source_error', detail: relayImportCoverageDetail(run.relayImport) }] : []),
+     { id: 'fullMarketScanner', label: '全市場產業廣度、A/D 歷史線、20/60 日擴散與全市場掃描', status: run.fullMarketScanner?.status === 'scan_ready' ? 'history_ready' : run.fullMarketScanner?.status === 'collecting_history' ? 'collecting_history' : 'source_error', detail: scannerCoverageDetail(run.fullMarketScanner) },
+   ];
+   const states = [...Object.values(run.modules || {}).map(x => x.status), ...(run.stocks || []).map(x => x.status), ...(run.deferredStocks || []).map(x => x.status)];

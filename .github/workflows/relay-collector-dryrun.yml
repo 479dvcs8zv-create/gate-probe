@@ -1,0 +1,47 @@
+name: relay-collector-dryrun
+# 交接前試跑：把 handoff/patches/relay-official-collector.patch 套到公開中繼的 main，在 GitHub 上實際跑一次收集＋整理套件，
+# 但不推送任何東西（不碰中繼 repo、不連網站）。只印出套件清單（檔名、大小、失敗項目）。
+on:
+  workflow_dispatch:
+    inputs:
+      sessions:
+        default: '5'
+      statistics:
+        default: 'auto'
+permissions:
+  contents: read
+jobs:
+  dryrun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: probe
+      - uses: actions/checkout@v4
+        with:
+          repository: wcr0936531039-png/macro-relay-service
+          ref: main
+          path: relay
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply relay patch
+        working-directory: relay
+        run: git -c user.name=dryrun -c user.email=dryrun@example.invalid am "$GITHUB_WORKSPACE/probe/handoff/patches/relay-official-collector.patch"
+      - name: Unit tests
+        working-directory: relay
+        run: python -m unittest discover -s tests -v
+      - name: Collect and build bundle (no push)
+        working-directory: relay
+        run: scripts/run_official_collector.sh "$RUNNER_TEMP/official" "${{ inputs.sessions }}" "${{ inputs.statistics }}"
+      - name: Bundle summary
+        if: always()
+        run: |
+          m="$RUNNER_TEMP/official/bundle/manifest.json"
+          python -c "import json,sys;m=json.load(open(sys.argv[1]));print('BUNDLE',m['generatedAt'],m['window']);[print('PART',p['kind'],p['name'],p['bytes']) for p in m['parts']];print('ERRORS',len(m['errors']));[print('ERR',e['source'],'|',e['error'][:300]) for e in m['errors']]" "$m"
+          du -sh "$RUNNER_TEMP/official/bundle"
