@@ -9,6 +9,8 @@
    最新紀錄標題寫 Gate 審計 n/m 且 n<m、或最新一份當輪紀錄停在「進行中」超過 2 小時 → 異常。
 2. 中繼資料：data/*.json 的 generated_at 太舊 → 異常（GitHub 排程常延後或略過，門檻放寬）。
 3. 交接：GPT_NEXT.md 指定的報告檔（hotfixN.md）在交接更新 24 小時後仍不存在 → 異常。
+4. 官方資料收集套件（relay 的 official-import 分支，2026-11-03 起）：清單超過 30 小時沒更新 → 異常（網站超過 36 小時就不匯入）；
+   分支還不存在＝尚未啟用，只列資訊。
 """
 import datetime as dt
 import json
@@ -85,6 +87,25 @@ def main(relay, probe, now_text=None):
         age = hours(now, generated)
         if age > limit:
             alerts.append(f"{NAMES[name]}已 {age:.0f} 小時沒更新（GitHub 排程可能被略過）")
+
+    # 4. 官方資料收集套件（git clone 會帶下所有分支）
+    shown = subprocess.run(["git", "-C", str(relay), "show", "origin/official-import:manifest.json"], capture_output=True, text=True)
+    if shown.returncode == 0:
+        try:
+            manifest = json.loads(shown.stdout)
+            generated = parse_time(manifest.get("generatedAt"))
+        except ValueError:
+            manifest, generated = {}, None
+        if not generated:
+            alerts.append("官方資料收集套件的清單讀不到產生時間")
+        else:
+            age = hours(now, generated)
+            kinds = sorted({p.get("kind") for p in manifest.get("parts") or []})
+            info.append(f"官方資料收集套件 {generated.astimezone(TPE):%m/%d %H:%M}（{age:.0f} 小時前）：{'、'.join(kinds) or '無'}；收集失敗 {len(manifest.get('errors') or [])} 項")
+            if age > 30:
+                alerts.append(f"官方資料收集套件已 {age:.0f} 小時沒更新（網站超過 36 小時就不匯入）")
+    else:
+        info.append("官方資料收集套件：分支尚未建立（中繼 patch 還沒套用）")
 
     # 3. 交接是否有人處理
     handoff = probe / "handoff" / "GPT_NEXT.md"
