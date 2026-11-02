@@ -1,0 +1,334 @@
+diff --git a/dist/index.html b/dist/index.html
+index a1d4859..cda0f21 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -957,8 +957,8 @@ function renderBackendMasterModel(model){
+   const article=document.createElement('article');article.className='gate';
+   const top=document.createElement('div');top.className='gate-top';
+   const title=document.createElement('h4');title.textContent=`Gate ${gate.id}｜${gate.title}`;
+-  const badge=document.createElement('span');badge.className=`badge ${gate.status==='evaluated'?'state-validated':gate.status==='warning'||gate.status==='partial'?'state-warning':['needs_user_records','conditional','not_applicable'].includes(gate.status)?'state-fetched':'state-blocked'}`;
+-  badge.textContent=gate.badgeLabel||(gate.status==='evaluated'?'後台核驗':gate.status==='warning'?'品質警訊':gate.status==='partial'?'資料已接入／待補齊':gate.status==='needs_user_records'?'待核實來源':gate.status==='conditional'?'條件式完成':'阻擋／缺資料');
++  const badge=document.createElement('span');badge.className=`badge ${gate.status==='evaluated'?'state-validated':gate.status==='warning'||gate.status==='partial'?'state-warning':['needs_user_records','conditional','not_applicable','not_used'].includes(gate.status)?'state-fetched':'state-blocked'}`;
++  badge.textContent=gate.badgeLabel||(gate.status==='evaluated'?'後台核驗':gate.status==='warning'?'品質警訊':gate.status==='partial'?'資料已接入／待補齊':gate.status==='needs_user_records'?'待核實來源':gate.status==='conditional'?'條件式完成':gate.status==='not_used'?'不採用':'阻擋／缺資料');
+   top.append(title,badge);
+   // v247（擁有者 2026-10-29 14:41「收起來好了」）：Gate 卡只顯示一句結論；含數字的判讀說明與替代規則收進「完整判讀說明」，點開才看。
+   if(gate.headline){const head=document.createElement('p');head.className='gate-headline';head.textContent=gate.headline;article.append(top,head);
+@@ -1008,7 +1008,7 @@ function renderAdaptiveRating(rating,model=null,stockData=null){
+   document.getElementById('qualifiedBasis').textContent=rating.valuationDivergence?.divergent?rating.valuationDivergence.reason:historical?`本次分級主情境：${epsBasis?.from??'起年待核'}–${epsBasis?.through??'迄年待核'} 完整年度 EPS 中位數 × 歷史 P/E 中位數＝Base 情境（數字見估值區）。這是歷史自身參考；新獲利水準的持續性仍須核對。`:'本次分級使用已列示的個股估值情境（數字見估值區）；原始模型總分仍待核。';
+  document.getElementById('qualifiedConclusion').textContent=rating.reasons.join(' ');
+  const current=model?.qualifiedOutput?.research?.consensus?.primary;
+-  document.getElementById('qualifiedConsensus').textContent=current?.status==='verified'?`${current.year}E 共識 EPS ${fmt(current.eps,2)} 元，${current.analysts} 位分析師，日期 ${current.asOf}；Forward P/E ${fmt(current.forwardPe,2)}x。${historical?`與主情境 EPS ${fmt(base.eps,2)} 元為不同口徑，相差 ${fmt(current.eps/base.eps,2)} 倍。`:''}共識只作旁列參考，未納入本次分級；${fmt(rating.forecastFactor,2)} 是保留的政策係數，尚未套用為加權分數。`:`採用已讀取的個股估值；未核驗共識不填數值。政策係數 ${fmt(rating.forecastFactor,2)} 不代表準確率或已完成加權評分。`;
++  document.getElementById('qualifiedConsensus').textContent=rating.consensusUsage==='not_used'?'分析師共識、EPS surprise 與法說指引不列入評級（擁有者 2026-11-03 決定）；估值用自身 EPS × 歷史本益比情境，時機用均線。':current?.status==='verified'?`${current.year}E 共識 EPS ${fmt(current.eps,2)} 元，${current.analysts} 位分析師，日期 ${current.asOf}；Forward P/E ${fmt(current.forwardPe,2)}x。${historical?`與主情境 EPS ${fmt(base.eps,2)} 元為不同口徑，相差 ${fmt(current.eps/base.eps,2)} 倍。`:''}共識只作旁列參考，未納入本次分級；${fmt(rating.forecastFactor,2)} 是保留的政策係數，尚未套用為加權分數。`:`採用已讀取的個股估值；未核驗共識不填數值。政策係數 ${fmt(rating.forecastFactor,2)} 不代表準確率或已完成加權評分。`;
+  const limits=document.getElementById('qualifiedLimits'),details=document.getElementById('qualifiedLimitDetails');limits.replaceChildren();if(details){details.dataset.loaded='';mountLazyDetails(details,()=>appendBoundedRows(limits,[rating.basis,...rating.adjustments.map(row=>`Gate ${row.gate}｜${row.detail}`),rating.riskPermission==='vetoed'?'已核實否決，剔除；其他条件不能覆蓋。':rating.riskPermission==='not_cleared'?'已核實警訊與未知否決條件仍限制風險預算；產出評級不代表所有風控已解除。':'依總經風險預算與部位規則使用。'],text=>{const row=document.createElement('p');row.textContent=text;return row}))}
+  const status=document.getElementById('overallReportStatus');if(status){status.textContent=`退避評級 ${rating.grade??'未評'}｜${rating.label}`;status.className='badge watch'}
+  const overall=document.getElementById('overallGate');if(overall){overall.textContent=model?.adaptiveRating===rating?model.summary:`個股退避評級 ${rating.grade??'未評'}｜${rating.label}；已採用現有資料，後台資料更新獨立進行。`;overall.dataset.outputStatus=rating.status==='vetoed'?'vetoed':rating.status==='valuation_divergence'?'not_rated':'graded';}
+diff --git a/package.json b/package.json
+index d0da42b..eed5f6a 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/fallback-rating.test.mjs b/tests/fallback-rating.test.mjs
+index e1558de..ff2216f 100644
+--- a/tests/fallback-rating.test.mjs
++++ b/tests/fallback-rating.test.mjs
+@@ -6,21 +6,22 @@ const today=new Date(Date.now()+8*3600000).toISOString().slice(0,10);
+ const base={stockFresh:true,price:90,priceDate:today,scenarios:[{value:100},{value:150},{value:200}],vetoStatus:'clear',scoringReady:false,guidanceReady:false,surprisesReady:false,peerReady:false,nextConsensusReady:false,currentConsensusReady:true,qualityWarning:false,qualityReady:true,coreReady:true,timingWeak:false,
+  history:{from:'2020-01-01',through:today,observations:1250,p20:10,median:15,p80:20}};
+ let result=ctx.computeFallbackRating(base);
+-assert.equal(result.available,true);assert.equal(result.grade,'B+','missing guidance caps an otherwise favorable observed valuation');
+-assert.equal(result.forecastFactor,.85);assert.equal(result.forecastReferenceWeight,.85);
+-assert.equal(result.isOriginalMasterScore,false);assert.equal(result.consensusUsage,'reference_only');assert.equal(result.forecastCoefficientApplied,false,'a retained policy coefficient is not presented as an applied weighted score');
++// v251（擁有者 2026-11-03 06:48）：分析師共識、EPS surprise 與法說指引不列入評級——缺這些不再壓到 B+、也沒有 0.85 參考係數。
++assert.equal(result.available,true);assert.equal(result.grade,'A','missing analyst/guidance data no longer caps the observed valuation');
++assert.equal(result.forecastFactor,null);assert.equal(result.forecastReferenceWeight,0);
++assert.ok(!result.adjustments.some(row=>[5,8].includes(row.gate)),'Gate 5／8 are not used, so they add no fallback adjustment');
++assert.equal(result.analystPolicy.usage,'not_used');assert.equal(result.policyVersion,'user-fallback-251');
++assert.equal(result.isOriginalMasterScore,false);assert.equal(result.consensusUsage,'not_used');assert.equal(result.forecastCoefficientApplied,false,'a retained policy coefficient is not presented as an applied weighted score');
+ assert.equal(result.adjustments.find(row=>row.gate===4).weight,0,'missing original grades contribute neither positive nor negative points');
+-assert.equal(result.adjustments.find(row=>row.gate===8).rule,'self_historical_pe');
+ assert.equal(result.score,null,'policy grades do not invent an original numerical total');
+-result=ctx.computeFallbackRating({...base,qualityWarning:true});assert.equal(result.grade,'B','cash risk lowers the capped grade by one');
++result=ctx.computeFallbackRating({...base,qualityWarning:true});assert.equal(result.grade,'B+','cash risk lowers the grade by one');
+ result=ctx.computeFallbackRating({...base,price:250,qualityWarning:true});assert.equal(result.grade,'D');
+ result=ctx.computeFallbackRating({...base,vetoStatus:'pending'});assert.equal(result.grade,'B');assert.equal(result.riskPermission,'not_cleared');
+ result=ctx.computeFallbackRating({...base,coreReady:false});assert.equal(result.available,true);assert.equal(result.grade,'C');assert.equal(result.riskPermission,'not_cleared','missing macro still produces a constrained observation, without risk clearance');
+-result=ctx.computeFallbackRating({...base,history:{...base.history,p20:100,median:5}});assert.equal(result.adjustments.find(row=>row.gate===8).rule,'existing_verified_valuation','invalid history cannot become a benchmark');
+ for(const damaged of [{stockFresh:false},{price:NaN},{priceDate:'2099-01-01'},{scenarios:[{value:200},{value:150},{value:100}]}])assert.equal(ctx.computeFallbackRating({...base,...damaged}).available,false);
+ result=ctx.computeFallbackRating({...base,vetoStatus:'triggered',stockFresh:false});assert.equal(result.grade,'VETO');assert.equal(result.score,0);
+ // 2026-10-27 起評級只在後台算一次：網頁不再內嵌第二份評級引擎或估值分歧規則。
+ const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
+ assert.ok(!/FALLBACK_ENGINE_START|function computeFallbackRating|function evaluateValuationDivergence/.test(html),'the page carries no second copy of the rating policy');
+ const server=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');assert.ok(server.includes('function computeFallbackRating('),'the backend keeps the single policy');
+-console.log('fallback risk rating: zero neutral contribution, B+ cap, 15% reference discount, historical substitute, risk deductions, veto priority, date guards and backend-only policy passed');
++console.log('fallback risk rating: zero neutral contribution, analyst/guidance not used (no B+ cap), risk deductions, veto priority, date guards and backend-only policy passed');
+diff --git a/tests/financial-analysis.test.mjs b/tests/financial-analysis.test.mjs
+index abee2d3..c1f53a6 100644
+--- a/tests/financial-analysis.test.mjs
++++ b/tests/financial-analysis.test.mjs
+@@ -70,7 +70,8 @@ try {
+   assert.equal(model.gates[0].status,'evaluated');
+   assert.equal(model.gates[1].status,'evaluated');
+   assert.equal(model.gates[5].status,'warning','negative cash conversion must remain a quality warning');
+-  assert.equal(model.gates[7].status,'needs_user_records','client-only consensus records must not be guessed');
++  // v251（擁有者 2026-11-03）：Gate 8 分析師共識不列入評級；原本讀到的狀態照實保留在 collectedStatus，不自行補共識。
++  assert.equal(model.gates[7].status,'not_used');assert.equal(model.gates[7].collectedStatus,'needs_user_records','client-only consensus records must not be guessed');assert.equal(model.gates[7].blocksOverall,false);
+   assert.equal(model.status,'blocked','the full rating stays blocked while any Gate is unresolved');
+   if(model.report.advisoryDecision){assert.equal(model.report.advisoryDecision.holding.rule,'D10','大盤持股用擁有者核准的看方向規則');assert.ok([55,65,75].includes(model.report.advisoryDecision.holding.target));}
+   if(model.report.advisoryPanels)assert.ok(['enter','avoid','wait','insufficient'].includes(model.report.advisoryPanels.entryCondition.status));
+diff --git a/tests/master-model-validation.test.mjs b/tests/master-model-validation.test.mjs
+index a0d4b35..4c6aaff 100644
+--- a/tests/master-model-validation.test.mjs
++++ b/tests/master-model-validation.test.mjs
+@@ -29,8 +29,8 @@ assert.equal(site.summarizeMasterPeers(peerInputs.map(row=>({...row,price:{...ro
+ const stock={id:'8299',checkedAt:today,price:{value:100,date:today},financialQuality:{observedThrough:'2026-06-30',roic:{value:20,date:'2026-06-30'},cfoToNetIncome:{value:1},freeCashFlow:{value:1},workingCapitalQuality:{dsoDays:10,dioDays:20},dcf:{status:'ok',perShare:100,assumptions:{riskFreeRateMeasured:false,betaMeasured:false,costOfDebtMeasured:false}}}};
+ const freshness={stockFresh:true,macroFresh:true,marketFresh:true,scannerFresh:true};
+ let model=site.evaluateMasterModel(stock,null,null,freshness,{guidance,surprises,estimates,peerInputs});
+-assert.equal(model.gates.find(row=>row.id===5).status,'evaluated','complete validated samples release the formerly hardcoded Gate 5');
+-assert.equal(model.gates.find(row=>row.id===8).status,'evaluated','validated same-account evidence releases the formerly hardcoded Gate 8');
++assert.equal(model.gates.find(row=>row.id===5).collectedStatus,'evaluated','complete validated samples release the formerly hardcoded Gate 5');assert.equal(model.gates.find(row=>row.id===5).status,'not_used','v251：擁有者 2026-11-03 決定分析師／法說不列入評級');
++assert.equal(model.gates.find(row=>row.id===8).collectedStatus,'evaluated','validated same-account evidence releases the formerly hardcoded Gate 8');assert.equal(model.gates.find(row=>row.id===8).status,'not_used','v251：擁有者 2026-11-03 決定分析師／法說不列入評級');
+ assert.equal(model.gates.find(row=>row.id===9).status,'partial','a calculated DCF with static assumptions is not verified');
+ assert.equal(model.gates.find(row=>row.id===4).status,'partial','missing 10D evidence is distinct from a financial warning');
+ stock.financialQuality.dcf.assumptions={riskFreeRateMeasured:true,betaMeasured:true,costOfDebtMeasured:true};
+diff --git a/tests/phison-panel.test.mjs b/tests/phison-panel.test.mjs
+index 2444fa7..e3e216d 100644
+--- a/tests/phison-panel.test.mjs
++++ b/tests/phison-panel.test.mjs
+@@ -16,12 +16,15 @@ try{
+  assert.equal(updated.gates.find(g=>g.id===5).checks[0].state,'not_applicable');
+  assert.equal(updated.gates.find(g=>g.id===5).checks[0].applicability,'structural_unavailable');
+  assert.equal(updated.gates.find(g=>g.id===5).checks[1].available,0,'structural guidance cannot create surprise samples');
+- assert.equal(updated.gates.find(g=>g.id===5).blocksOverall,true);
++ // v251（擁有者 2026-11-03）：Gate 5／8 不列入評級，不再阻擋；原本的判讀照實留在 collectedStatus。
++ assert.equal(updated.gates.find(g=>g.id===5).blocksOverall,false);assert.equal(updated.gates.find(g=>g.id===5).status,'not_used');assert.ok(updated.gates.find(g=>g.id===5).collectedStatus);
+  const coverage=updated.gates.find(g=>g.id===8).coverageObservations;
+  assert.equal(coverage.find(row=>row.year===2027).analysts,12);
+  assert.equal(coverage.find(row=>row.year===2027).epsAverage,281.54);
+  assert.ok(coverage.every(row=>row.productionEligible===false&&row.accountingBasis===null));
+- assert.deepEqual(updated.gates.find(g=>g.id===8).checks,old.gates.find(g=>g.id===8).checks,'Yahoo coverage cannot be borrowed by a different provider or approve a Gate');
++ const asReference=checks=>checks.map(row=>row.state==='missing'||row.state==='reference'?{...row,state:'reference'}:row);
++ assert.deepEqual(asReference(updated.gates.find(g=>g.id===8).checks),asReference(old.gates.find(g=>g.id===8).checks),'Yahoo coverage cannot be borrowed by a different provider or approve a Gate');
++ assert.ok(updated.gates.find(g=>g.id===8).checks.every(row=>row.state!=='verified'),'reference rows never count as verified consensus');
+  const facts=updated.gates.find(g=>g.id===4).annualEvidence.facts;
+  assert.equal(facts.find(row=>row.metric==='market_share').value,null);
+  assert.equal(facts.find(row=>row.metric==='supplier_purchase_share').value,28.33);
+diff --git a/tests/qualified-output.test.mjs b/tests/qualified-output.test.mjs
+index a0c4151..4cb5b05 100644
+--- a/tests/qualified-output.test.mjs
++++ b/tests/qualified-output.test.mjs
+@@ -37,7 +37,7 @@ assert.equal(model.qualifiedOutput.research.consensus.primary.forwardPe,stock.pr
+ assert.equal(model.qualifiedOutput.research.consensus.auxiliary.status,'coverage_pending');
+ assert.equal(model.qualifiedOutput.research.consensus.auxiliary.eps,null,'unverified next-year coverage is not weighted into an estimate');
+ assert.equal(model.qualifiedOutput.research.consensus.peerBenchmark.status,'unavailable');
+-assert.ok(model.gates.find(row=>row.id===8).blocksOverall);
++assert.equal(model.gates.find(row=>row.id===8).blocksOverall,false,'v251：分析師共識不列入評級（擁有者 2026-11-03），Gate 8 不再阻擋');assert.equal(model.gates.find(row=>row.id===8).status,'not_used');
+ assert.ok(model.qualifiedOutput.limits.some(row=>row.includes('否決')));
+ assert.ok(model.qualifiedOutput.limits.some(row=>row.includes('負現金流')));
+ 
+diff --git a/tests/site-automation.test.mjs b/tests/site-automation.test.mjs
+index 01223ea..5e62a47 100644
+--- a/tests/site-automation.test.mjs
++++ b/tests/site-automation.test.mjs
+@@ -99,7 +99,9 @@ assert.equal(result.fullMarketScanner.breadth.advancers, 300);
+ assert.equal(result.fullMarketScanner.breadth.decliners, 300);
+ assert.equal(result.coverage.find(item => item.id === 'fullMarketScanner').status, 'collecting_history');
+ assert.match(result.coverage.find(item => item.id === 'fullMarketScanner').detail, /已保存 2026-10-07 全市場快照 600/);
+-assert.ok(result.coverage.some(item => item.id === 'epsConsensus' && item.status === 'verification_required'));
++// v251（擁有者 2026-11-03）：分析師共識與法說指引不列入評級；巡檢覆蓋列標「不採用」，不再讓巡檢永遠 partial。
++assert.ok(result.coverage.some(item => item.id === 'epsConsensus' && item.status === 'not_used'));
++assert.ok(result.coverage.some(item => item.id === 'guidance' && item.status === 'not_used'));
+ assert.equal(result.gateAudits.length,4);
+ assert.ok(result.gateAudits.every(row=>row.recorded),'each per-stock Gate snapshot is written and read back');
+ for(const audit of result.gateAudits){const saved=JSON.parse(db.rows.get(audit.key).payload);assert.equal(saved.runId,result.runId);assert.equal(saved.symbol,audit.symbol);assert.ok(saved.model);}
+diff --git a/tests/stock-relay.test.mjs b/tests/stock-relay.test.mjs
+index d7882d0..8b4a81c 100644
+--- a/tests/stock-relay.test.mjs
++++ b/tests/stock-relay.test.mjs
+@@ -70,7 +70,7 @@ try {
+  for(const result of stocks){assert.equal(result.price.value,expected[result.id]);assert.equal(result.price.date,'2026-10-13');assert.equal(result.price.source_url.includes(result.id==='2404'?'stockNo=2404':'tpex_mainboard_daily_close_quotes'),true);assert.equal(result.quoteIntegration.status,'VERIFIED');assert.equal(result.forecastEps.status,'insufficient','quote data cannot manufacture financial forecasts');assert.equal(result.financialQuality.roic,null);}
+  assert.equal(relayRequests,1,'all four stocks share one relay request');assert.ok(dbRows.has('official-stock-relay:v2'));
+  const report=await(await api.default.fetch(new Request('https://site.test/api/master-model?id=8299'),{DB:db})).json();
+- assert.equal(report.stockPriceValue,1965);assert.equal(report.stockPriceDate,'2026-10-13');assert.equal(report.report.quoteIntegration.status,'VERIFIED');assert.ok(report.report.valuation.includes('官方行情已接入'));assert.equal(report.gates[7].status,'needs_user_records','quotes never clear the consensus Gate');
++ assert.equal(report.stockPriceValue,1965);assert.equal(report.stockPriceDate,'2026-10-13');assert.equal(report.report.quoteIntegration.status,'VERIFIED');assert.ok(report.report.valuation.includes('官方行情已接入'));assert.equal(report.gates[7].collectedStatus,'needs_user_records','quotes never clear the consensus Gate');assert.equal(report.gates[7].status,'not_used');
+  const stored=JSON.parse(dbRows.get('stock:v5:8299').payload);assert.equal(stored.price.value,1965,'background stock snapshots persist the official source used in the report');
+ }finally{globalThis.fetch=originalFetch;}
+ globalThis.Date=RealDate;
+diff --git a/tests/v251-analyst-not-used.test.mjs b/tests/v251-analyst-not-used.test.mjs
+new file mode 100644
+index 0000000..7b4c5ae
+--- /dev/null
++++ b/tests/v251-analyst-not-used.test.mjs
+@@ -0,0 +1,59 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// 擁有者 2026-11-03 06:48「第一條我同意」：分析師共識、EPS surprise 與法說指引不列入評級
++// （市場分析與投顧報告差異太大；擁有者用自身 EPS × 歷史本益比估值、均線看進出場）。
++// Gate 5、Gate 8 改列「不採用」：不阻擋、不把評級壓在 B+、不參與估值分歧；已讀到的資料只作參考。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++const site=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {evaluateMasterModel,computeFallbackRating};\n// v251').toString('base64'));
++const today=new Date(Date.now()+8*3600000).toISOString().slice(0,10),year=Number(today.slice(0,4)),years=[year,year+1];
++const freshness={stockFresh:true,macroFresh:true,marketFresh:true,scannerFresh:true};
++
++test('評級：缺法說、EPS surprise、分析師共識不再壓到 B+，也沒有 0.85 係數；其他扣級照舊',()=>{
++  const base={stockFresh:true,price:90,priceDate:today,scenarios:[{value:100},{value:150},{value:200}],vetoStatus:'clear',scoringReady:true,guidanceReady:false,surprisesReady:false,peerReady:false,nextConsensusReady:false,currentConsensusReady:false,qualityWarning:false,qualityReady:true,coreReady:true,timingWeak:false};
++  const rating=site.computeFallbackRating(base);
++  assert.equal(rating.grade,'A','現價低於 Bear 情境，沒有其他扣級就是 A');
++  assert.deepEqual(rating.adjustments,[],'不再出現 Gate 5／8 的替代規則');
++  assert.equal(rating.consensusUsage,'not_used');assert.equal(rating.forecastFactor,null);assert.equal(rating.forecastReferenceWeight,0);
++  assert.match(rating.basis,/分析師共識與法說指引不列入/);
++  assert.equal(site.computeFallbackRating({...base,guidanceReady:true,surprisesReady:true,currentConsensusReady:true,nextConsensusReady:true,peerReady:true}).grade,'A','有沒有分析師資料，評級都一樣');
++  assert.equal(site.computeFallbackRating({...base,timingWeak:true}).grade,'B+','均線時機扣級照舊');
++  assert.equal(site.computeFallbackRating({...base,qualityWarning:true}).grade,'B+','財報品質扣級照舊');
++  assert.equal(site.computeFallbackRating({...base,vetoStatus:'pending'}).grade,'B','否決未排除的上限照舊');
++  assert.equal(site.computeFallbackRating({...base,coreReady:false}).grade,'C','總經／市場缺資料的上限照舊');
++});
++
++test('Gate 5、Gate 8：不採用、不阻擋；原判讀留在 collectedStatus；逐項核對改列參考，不出現「待補」',()=>{
++  const stock={id:'8299',checkedAt:today,price:{value:100,date:today},financialQuality:{observedThrough:'2026-06-30',roic:{value:20,date:'2026-06-30'},cfoToNetIncome:{value:1},freeCashFlow:{value:1},workingCapitalQuality:{dsoDays:10,dioDays:20},dcf:{status:'ok',perShare:100,assumptions:{riskFreeRateMeasured:true,betaMeasured:true,costOfDebtMeasured:true}}}};
++  const model=site.evaluateMasterModel(stock,null,null,freshness,{});
++  for(const id of [5,8]){
++    const gate=model.gates.find(row=>row.id===id);
++    assert.equal(gate.status,'not_used');assert.equal(gate.blocksOverall,false);assert.equal(gate.dataState,'not_applicable');
++    assert.equal(gate.collectedStatus,'needs_user_records','原本的判讀照實保留，不自行補資料');
++    assert.equal(gate.badgeLabel,'不採用（擁有者決定）');assert.equal(gate.nextAction,null);
++    assert.match(gate.headline,/^不採用/);assert.doesNotMatch(gate.headline,/替代規則/);
++    assert.match(gate.detail,/^擁有者 2026-11-03 決定/);
++    assert.ok(!gate.checks.some(row=>row.state==='missing'),'不採用的 Gate 不列待補');
++    assert.ok(!gate.checks.some(row=>row.state==='verified'),'參考資料不算已核驗');
++  }
++  assert.ok(!model.report.risks.some(row=>/^Gate [58] /.test(row)),'風險清單不再列 Gate 5／8');
++  assert.ok(!model.adaptiveRating.adjustments?.some(row=>[5,8].includes(row.gate)));
++});
++
++test('估值分歧：分析師共識不參與（即使資料齊全）；其他 EPS 來源照舊',()=>{
++  const estimates=years.map(y=>({ticker:'8299',year:y,eps_low:9,eps_mid:10,eps_high:11,analysts_count:3,update_date:today,source:'Consensus provider',source_url:'https://provider.test/consensus',estimate_type:'provider_consensus',currency:'TWD',userVerified:true}));
++  const stock={id:'8299',checkedAt:today,price:{value:100,date:today},epsHistory:{ttm:12},financialQuality:{observedThrough:'2026-06-30',roic:{value:20,date:'2026-06-30'},cfoToNetIncome:{value:1},freeCashFlow:{value:1},workingCapitalQuality:{dsoDays:10,dioDays:20},dcf:{status:'ok',perShare:100,assumptions:{riskFreeRateMeasured:true,betaMeasured:true,costOfDebtMeasured:true}}}};
++  const model=site.evaluateMasterModel(stock,null,null,freshness,{estimates});
++  assert.equal(model.gates.find(row=>row.id===8).status,'not_used');
++  const rows=Object.fromEntries(model.report.valuationDivergence.rows.map(row=>[row.id,row]));
++  assert.equal(rows.consensus.included,false);assert.match(rows.consensus.reason,/擁有者 2026-11-03 決定/);
++  assert.equal(rows.ttm.included,true,'近四季 EPS 照舊參與');
++});
++
++test('網頁：不採用顯示中性標籤與擁有者決定說明，不再顯示 0.85 係數',()=>{
++  assert.match(html,/\['needs_user_records','conditional','not_applicable','not_used'\]\.includes\(gate\.status\)\?'state-fetched'/);
++  assert.match(html,/gate\.status==='not_used'\?'不採用'/);
++  assert.match(html,/rating\.consensusUsage==='not_used'\?'分析師共識、EPS surprise 與法說指引不列入評級（擁有者 2026-11-03 決定）/);
++});
+diff --git a/worker/fallback-rating.js b/worker/fallback-rating.js
+index c4acc78..c6885fd 100644
+--- a/worker/fallback-rating.js
++++ b/worker/fallback-rating.js
+@@ -3,29 +3,26 @@
+ function computeFallbackRating(input) {
+   const order=['D','C','B','B+','A'],reasons=[],adjustments=[];
+   const cap=(grade,ceiling)=>order[Math.min(order.indexOf(grade),order.indexOf(ceiling))];
+-  if(input.vetoStatus==='triggered')return {available:true,status:'vetoed',grade:'VETO',label:'否決／剔除',score:0,forecastFactor:0,forecastReferenceWeight:0,basis:'已核實否決優先，其他分級條件不能覆蓋。',policyVersion:'user-fallback-210',reasons:['已核實否決紅線優先，退避規則不能解除。'],adjustments:[],riskPermission:'vetoed'};
++  if(input.vetoStatus==='triggered')return {available:true,status:'vetoed',grade:'VETO',label:'否決／剔除',score:0,forecastFactor:0,forecastReferenceWeight:0,basis:'已核實否決優先，其他分級條件不能覆蓋。',policyVersion:'user-fallback-251',reasons:['已核實否決紅線優先，退避規則不能解除。'],adjustments:[],riskPermission:'vetoed'};
+   const validDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(String(value||''))&&Number.isFinite(Date.parse(value))&&new Date(value).toISOString().slice(0,10)===value;
+   const today=new Date(Date.now()+8*3600000).toISOString().slice(0,10);
+   const values=(input.scenarios||[]).map(row=>row.value),valid=values.length===3&&values.every(Number.isFinite)&&values[0]>0&&values[0]<=values[1]&&values[1]<=values[2]&&validDate(input.priceDate)&&input.priceDate<=today;
+-  if(!input.stockFresh||!Number.isFinite(input.price)||input.price<=0||!valid)return {available:false,status:'data_unavailable',grade:null,score:null,policyVersion:'user-fallback-210',reasons:['缺有效日期的行情或可驗證估值；已取得資料仍可顯示，不能生成當前價格評級。'],adjustments:[],riskPermission:'not_cleared'};
++  if(!input.stockFresh||!Number.isFinite(input.price)||input.price<=0||!valid)return {available:false,status:'data_unavailable',grade:null,score:null,policyVersion:'user-fallback-251',reasons:['缺有效日期的行情或可驗證估值；已取得資料仍可顯示，不能生成當前價格評級。'],adjustments:[],riskPermission:'not_cleared'};
+   let grade=input.price<=values[0]?'A':input.price<=values[1]?'B+':input.price<=values[2]?'B':'C';
+   const valuationGrade=grade;
+   reasons.push(`現價 ${input.price.toFixed(2)} 元，依已核驗 Bear／Base／Bull ${values.map(x=>x.toFixed(2)).join('／')} 元作自身估值對照：${grade}。`);
+   if(!input.scoringReady)adjustments.push({gate:4,rule:'neutral',weight:0,detail:'10D／短期籌碼原始分級未齊，貢獻權重為0，不扣分也不加分；否決紅線獨立保留。'});
+-  const guidanceMissing=!input.guidanceReady||!input.surprisesReady;
+-  const forecastFactor=guidanceMissing ? 0.85 : 1;
+-  if(guidanceMissing){grade=cap(grade,'B+');adjustments.push({gate:5,rule:'zero_guidance_weight_and_grade_cap',weight:0,ceiling:'B+',forecastFactor,detail:'指引／季度回測不足：指引權重0，評級最高B+；共識預測參考權重乘0.85（15%政策折減，不是準確率）。'});}
+-  const historical=input.history;
+-  const historicalReady=historical&&Number.isInteger(historical.observations)&&historical.observations>=250&&[historical.p20,historical.median,historical.p80].every(Number.isFinite)&&historical.p20>0&&historical.p20<=historical.median&&historical.median<=historical.p80&&validDate(historical.from)&&historical.from<=historical.through&&historical.through===input.priceDate;
+-  if(!input.peerReady||!input.nextConsensusReady)adjustments.push({gate:8,rule:historicalReady?'self_historical_pe':'existing_verified_valuation',weight:0,detail:historicalReady?`共識／直接同業不足，採自身歷史 P/E P20／中位／P80 ${historical.p20.toFixed(2)}／${historical.median.toFixed(2)}／${historical.p80.toFixed(2)}x；${historical.observations}筆，${historical.from}–${historical.through}。`: '共識／同業不足，沿用已核驗的個股估值情境；未取得的 P/B 或次產業中位數不補造。'});
++  // v251（擁有者 2026-11-03 06:48「第一條我同意」）：分析師共識、EPS surprise 與法說指引不列入評級——
++  // 不再因缺這些資料把評級壓在 B+，也不再保留 0.85 共識參考係數；Gate 5、Gate 8 改列「不採用」。估值照舊用自身 EPS × 歷史本益比情境（Gate 7／Gate 9）。
++  const forecastFactor=null;
+   if(input.qualityWarning){const before=grade;grade=order[Math.max(0,order.indexOf(grade)-1)];reasons.push(`現金流／財報品質警訊使風險評級下調一級：${before} → ${grade}；CFO 與 FCF 同源警訊不重複扣減。`);adjustments.push({gate:6,rule:'one_grade_risk_deduction',grades:-1,detail:'實質風險列入評級與警告，持續產出；不解除原始否決。'});}
+   if(input.vetoStatus!=='clear'){grade=cap(grade,'B');reasons.push('部分否決條件尚未排除：保留風險限制，退避評級最高B。');}
+   if(!input.coreReady||!input.qualityReady){grade=cap(grade,'C');reasons.push('總經／市場或必要財報欄位尚未齊：仍輸出已有資料的風險觀察，評級最高C。');}
+   if(input.timingWeak){const before=grade;grade=order[Math.max(0,order.indexOf(grade)-1)];reasons.push(before===grade?'價格低於 MA20 與 MA60；已是最低級，保留時機風險警訊。':`價格低於 MA20 與 MA60，時機風險下調一級：${before} → ${grade}。`);}
+   const result={available:true,status:'degraded',grade,label:grade==='D'?'風險偏高':grade==='C'?'保守觀察':grade==='B'?'附限制觀察':grade==='B+'?'估值具條件吸引力':'條件較有利',score:null,
+-    policyVersion:'user-fallback-210',policyLabel:'自訂退避風險評級',isOriginalMasterScore:false,valuationGrade,forecastFactor,forecastReferenceWeight:input.currentConsensusReady?forecastFactor:0,consensusUsage:'reference_only',forecastCoefficientApplied:false,
++    policyVersion:'user-fallback-251',policyLabel:'自訂退避風險評級',isOriginalMasterScore:false,valuationGrade,forecastFactor,forecastReferenceWeight:0,consensusUsage:'not_used',analystPolicy:{decidedAt:'2026-11-03',usage:'not_used',scope:['Gate 5 法說指引／EPS surprise','Gate 8 分析師共識／同業共識'],reason:'市場分析與投顧報告差異太大；估值用自身 EPS × 歷史本益比情境，時機用均線'},forecastCoefficientApplied:false,
+     reasons,adjustments,riskPermission:input.vetoStatus==='clear'&&input.coreReady&&input.qualityReady&&!input.qualityWarning?'subject_to_macro_budget':'not_cleared',
+-    basis:'先按現價與自身三情境對照分級，再套用資料上限、品質與時機扣減；不是阮慕驊原始10D總分。'};
++    basis:'先按現價與自身三情境對照分級，再套用資料上限、品質與時機扣減；分析師共識與法說指引不列入（擁有者 2026-11-03 決定）；不是阮慕驊原始10D總分。'};
+   if(input.valuationDivergence?.divergent)return {...result,status:'valuation_divergence',grade:null,label:'未評（估值分歧）',valuationGrade:null,valuationDivergence:input.valuationDivergence,reasons:[input.valuationDivergence.reason,...(input.qualityWarning?['現金流／財報品質警訊保留，未因估值分歧解除。']:[]),...(input.timingWeak?['價格低於MA20與MA60，時機風險保留。']:[]),...(input.vetoStatus!=='clear'?['未知否決條件仍限制風險預算。']:[]),...(!input.coreReady||!input.qualityReady?['必要資料未齊的限制仍保留。']:[])],retainedRiskRestrictions:{riskPermission:result.riskPermission,qualityWarning:!!input.qualityWarning,timingWeak:!!input.timingWeak,vetoStatus:input.vetoStatus},basis:'估值分歧不產出貴或便宜等級；原風險限制與預算不放寬。'};
+   return result;
+ }
+diff --git a/worker/macro.js b/worker/macro.js
+index 4330845..e8b5cad 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -679,6 +679,7 @@ async function readMasterResearchPool(env, userId, symbol) {
+     return { guidance: unique.filter(row => row.record_type === 'guidance_5a_candidate').length, consensus: unique.filter(row => row.record_type === 'shadow_consensus_candidate').length, status: 'loaded' };
+   } catch { return { guidance: 0, consensus: 0, status: 'read_error' }; }
+ }
++const ANALYST_NOT_USED_REASON='擁有者 2026-11-03 決定：分析師共識、EPS surprise 與法說指引不列入評級（市場分析與投顧報告差異太大）；估值用自身 EPS × 歷史本益比情境，時機用均線。';
+ function evaluateMasterModel(stock, macro, market, freshness = {}, gateEvidence = {}) {
+   stock=enforceLatestRoicSnapshot(stock);
+   const fq = stock?.financialQuality || {}, cfo = fq.cfoToNetIncome, price = stock?.price;
+@@ -831,13 +832,20 @@ function evaluateMasterModel(stock, macro, market, freshness = {}, gateEvidence
+   gates.find(gate=>gate.id===4).detail+=` 跨市場判讀 ${crossMarket.status}／${crossMarket.label}僅共用上游證據，10D新增分數0。`;
+   scoring.crossMarketContext={status:crossMarket.status,classification:crossMarket.classification,scoreContribution:0};
+   veto.crossMarketContext={status:crossMarket.status,warning:crossMarket.status==='RED',triggered:false,reason:'跨市場背離不構成獨立否決；已核實VETO優先保留'};
+-  for (const gate of gates) gate.blocksOverall = gate.status !== 'evaluated' && !(gate.id === 9 && gate.status === 'conditional' && freshness.stockFresh && dcfFallback);
++  // v251（擁有者 2026-11-03 06:48「第一條我同意」）：分析師共識、EPS surprise 與法說指引不列入評級。
++  // Gate 5、Gate 8 改列「不採用」：不阻擋、不壓評級上限；已讀到的資料與來源照舊列出，只作參考。
++  for(const gate of gates.filter(row=>[5,8].includes(row.id))){
++    gate.collectedStatus=gate.status;gate.status='not_used';gate.dataState='not_applicable';gate.badgeLabel='不採用（擁有者決定）';gate.nextAction=null;
++    gate.detail=`${ANALYST_NOT_USED_REASON}以下只作參考：${gate.detail}`;
++    gate.checks=(gate.checks||[]).map(row=>row.state==='missing'?{...row,state:'reference'}:row);
++  }
++  for (const gate of gates) gate.blocksOverall = gate.status !== 'evaluated' && gate.status !== 'not_used' && !(gate.id === 9 && gate.status === 'conditional' && freshness.stockFresh && dcfFallback);
+   const blocked = gates.filter(gate => gate.blocksOverall);
+   const conditionalGates = gates.filter(gate => gate.status === 'conditional' && !gate.blocksOverall);
+   const missingGates=gates.filter(gate=>['partial','stale'].includes(gate.dataState)),riskGates=gates.filter(gate=>gate.status==='warning'),applicabilityGates=gates.filter(gate=>gate.dataState==='not_applicable');
+   const vetoGates=gates.filter(gate=>gate.status==='veto');
+   const qualifiedOutput=masterQualifiedOutput({gates,stock,primaryValuation,veto,scoring,guidance,surprises,consensus,peers,tenDimensionChecks});
+-  const valuationDivergence=evaluateValuationDivergence(stock,consensus,today,companyRecords);
++  const valuationDivergence=evaluateValuationDivergence(stock,consensus.map(row=>({...row,ready:false,missingReason:ANALYST_NOT_USED_REASON})),today,companyRecords);
+   const adaptiveRating=computeFallbackRating({valuationDivergence,stockFresh:freshness.stockFresh,price:stock.price?.value,priceDate:stock.price?.date,scenarios:primaryValuation?.scenarios,
+     history:fq.cycleValuation?.pe||stock.valuation?.peBand,vetoStatus:veto.status,scoringReady:scoring.ready,guidanceReady:guidance.ready,surprisesReady:surprises.ready,
+     peerReady:peers.length>=3,currentConsensusReady:consensus[0].ready,nextConsensusReady:consensus[1].ready,qualityWarning:qualityRisk||legalRisks.length>0,qualityReady,
+@@ -852,10 +860,10 @@ function evaluateMasterModel(stock, macro, market, freshness = {}, gateEvidence
+     2:g=>g.status==='evaluated'?'台股盤後市場結構資料齊全':g.status==='partial'?'台股市場結構有欄位缺漏（缺項見完整判讀說明）':'尚無有效的台股市場結構資料',
+     3:g=>g.status==='evaluated'?'全市場與產業資金流向已核驗':g.status==='partial'?'全市場掃描已擷取，產業資金流向未達覆蓋門檻':'尚無全市場掃描資料',
+     4:g=>staleStock?'個股快照待更新，本次不判讀':g.status==='veto'?'一票否決已觸發：剔除':g.status==='warning'?`${[qualityText?`財報品質有警訊（${qualityText}）`:'',legalRisks.length?'有已核實的訴訟／治理風險':''].filter(Boolean).join('；')}；10D 評分與五條否決條件${scoring.ready?'已核驗':'仍待逐項核對'}（財報數字見財報品質卡）`:g.status==='evaluated'?'10D 評分與五條否決條件已核驗':'10D 評分與五條否決條件仍待逐項核對',
+-    5:g=>g.status==='evaluated'?'法說指引與 EPS surprise 樣本已足夠':g.status==='partial'?'已有部分法說／實績紀錄，樣本仍不足':'尚缺可追溯的法說指引與財報公布前共識',
++    5:g=>g.status==='not_used'?'不採用：法說指引與 EPS surprise 不列入評級（擁有者 2026-11-03 決定）':g.status==='evaluated'?'法說指引與 EPS surprise 樣本已足夠':g.status==='partial'?'已有部分法說／實績紀錄，樣本仍不足':'尚缺可追溯的法說指引與財報公布前共識',
+     6:g=>staleStock?'個股快照待更新，本次不判讀':g.status==='warning'?`財報品質有警訊：${qualityText||'品質指標異常'}（數字見財報品質卡）`:g.dataState==='not_applicable'?'ROIC 口徑不適用此產業（說明見完整判讀說明）':g.status==='evaluated'?'財報品質已核驗，未見警訊（數字見財報品質卡）':'財報欄位待補（數字見財報品質卡）',
+     7:g=>staleStock?'個股快照待更新，本次不判讀':g.status==='evaluated'?'今年 EPS × 歷史 P/E 估值情境已計算（情境價見估值區）':'估值資料未達計算條件',
+-    8:g=>g.status==='evaluated'?'市場 EPS 共識與直接同業比較已核驗':g.status==='partial'?'已有部分共識或同業資料，仍不足以比較':'尚缺可追溯的市場 EPS 共識與直接同業',
++    8:g=>g.status==='not_used'?'不採用：分析師共識不列入評級；估值用自身 EPS × 歷史本益比（見 Gate 7）':g.status==='evaluated'?'市場 EPS 共識與直接同業比較已核驗':g.status==='partial'?'已有部分共識或同業資料，仍不足以比較':'尚缺可追溯的市場 EPS 共識與直接同業',
+     9:g=>staleStock?'個股快照待更新，本次不判讀':g.status==='evaluated'?'DCF 參數已核驗（估值數字見估值區）':g.status==='conditional'?'DCF 不適用，改用跨週期 EPS × 歷史 P/E 替代估值（條件式完成；數字見估值區）':g.status==='partial'?'DCF 已計算，部分參數未實測':g.status==='not_applicable'?'常態自由現金流非正，DCF 不適用；替代估值尚未通過驗證':'估值資料或適用性待核',
+     10:g=>staleStock?'個股快照待更新，本次不判讀':g.status==='evaluated'?'價格與均線資料齊全，可判斷技術時機（價格見追蹤清單卡、均線見「持有與強弱」）':'價格或均線資料不足，不能判斷技術時機'
+   };
+@@ -1709,13 +1717,13 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     { id: 'stocks', label: '追蹤清單行情、營收、財報品質、估值與市場活動', status: 'automatic', detail: '逐檔更新並保存快照；依來源更新頻率與快取期限。' },
+     { id: 'sourceResearch',label:'依股票代號取得公司公告／產業報告',status:run.research.every(row=>!row.errors?.length&&row.status!=='source_error')?'automatic_limited':'source_error',detail:'已保存原始來源與發布日期；未接入的產業及事前 EPS 共識缺項另列，不自動升級 Gate。'},
+     { id: 'gateAudit',label:'逐檔 Gate 判讀與原始證據快照',status:run.gateAudits.every(row=>row.recorded)?'automatic':'source_error',detail:`已保存 ${run.gateAudits.filter(row=>row.recorded).length}/${stockBatch.length} 檔；保存成功不等於 Gate 通過。`},
+-    { id: 'guidance', label: 'Gate 5A 法說指引與已公布實績', status: 'verification_required', detail: '來源搜尋結果只作候選；正式回測紀錄仍須確認公司原始公告、期別與數值。' },
+-    { id: 'epsConsensus', label: 'Gate 5B／Gate 8 分析師共識與 EPS surprise', status: 'verification_required', detail: '不能以事後文章倒填財報前共識；來源授權與日期未確認時不寫入正式樣本。' },
++    { id: 'guidance', label: 'Gate 5A 法說指引與已公布實績', status: 'not_used', detail: '不列入評級（擁有者 2026-11-03 決定）；來源搜尋結果只作參考。' },
++    { id: 'epsConsensus', label: 'Gate 5B／Gate 8 分析師共識與 EPS surprise', status: 'not_used', detail: '不列入評級（擁有者 2026-11-03 決定：市場分析與投顧報告差異太大）；已讀到的共識只作參考。' },
+     ...(run.relayImport ? [{ id: 'officialImport', label: 'GitHub 中繼官方資料自動匯入（行情、名冊、總經、信用、CPI、產業來源、新聞）', status: run.relayImport.status === 'ok' ? 'automatic' : 'source_error', detail: relayImportCoverageDetail(run.relayImport) }] : []),
+     { id: 'fullMarketScanner', label: '全市場產業廣度、A/D 歷史線、20/60 日擴散與全市場掃描', status: run.fullMarketScanner?.status === 'scan_ready' ? 'history_ready' : run.fullMarketScanner?.status === 'collecting_history' ? 'collecting_history' : 'source_error', detail: scannerCoverageDetail(run.fullMarketScanner) },
+   ];
+   const states = [...Object.values(run.modules || {}).map(x => x.status), ...(run.stocks || []).map(x => x.status), ...(run.deferredStocks || []).map(x => x.status)];
+-  const coverageIncomplete = run.coverage.some(x => !['automatic', 'automatic_limited'].includes(x.status));
++  const coverageIncomplete = run.coverage.some(x => !['automatic', 'automatic_limited', 'not_used'].includes(x.status));
+   run.status = coverageIncomplete || states.some(x => ['error', 'missing', 'pending', 'auth_required', 'daily_limit', 'partial', 'deferred'].includes(x)) ? 'partial' : 'complete';
+   run.completedAt = new Date().toISOString();
+   run.manualCheckpoints = ['管理層指引、財報前 EPS 共識與實際 EPS surprise 仍需可追溯原始來源；候選資料不自動通過 Gate 5A／5B／8。', 'DCF 與總經判讀按已保存資料重新計算；任何缺值保留缺項，不自動升級風險預算。'];

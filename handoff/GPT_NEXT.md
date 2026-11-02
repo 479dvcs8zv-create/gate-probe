@@ -1,9 +1,9 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-03 04:10 台北（Claude）
+更新：2026-11-03 07:20 台北（Claude）
 
-## ★ 本輪工作（11/03 04:10 更新；只讀這一段就夠，下方各節是細節備查）
-**已授權**：擁有者 11/03 00:36「好」＝網站 v249；**11/03 03:11「第二項照做」＝官方資料收集搬到 GitHub 中繼排程、網站巡檢自己匯入（中繼 patch＋網站 v250）**。**提醒：改網站程式一律先經擁有者授權，再部署；不要自行修改後部署。**
+## ★ 本輪工作（11/03 07:20 更新；只讀這一段就夠，下方各節是細節備查）
+**已授權**：擁有者 11/03 00:36「好」＝網站 v249；**11/03 03:11「第二項照做」＝官方資料收集搬到 GitHub 中繼排程、網站巡檢自己匯入（中繼 patch＋網站 v250）**；**11/03 06:48「第一條我同意」＝分析師共識、EPS surprise、法說指引不列入評級（網站 v251）**。**提醒：改網站程式一律先經擁有者授權，再部署；不要自行修改後部署。**
 **目的**：之後你每天只要觸發巡檢、讀結果、有異常才回報；不必再手動跑官方收集程式和匯入。
 **最新巡檢紀錄停在 10/31 22:42（run f2a63289… 還在 stocks 階段）**，11/01、11/02 沒有任何紀錄。請先補記：10/31 晚間那次是否完成（completedAt、Gate N/N），以及 11/01～11/03 每天 06:30／22:30 排程是否有跑（平台 runId、網站 runId、狀態）；沒跑就寫 HTTP 與原因。
 
@@ -11,17 +11,20 @@
    - 內容：新工作流程 Official data collector（台北 05:55 每天、16:20／22:40／23:10 週一至週五）在 GitHub 跑網站同一份官方收集程式（`vendor/site-collector/`，只有官方公開網址與解析，沒有金鑰、沒有網站網址），把部分檔＋`manifest.json`（每個檔的類別、大小、SHA-256、收集失敗項目）強制推到 `official-import` 分支，只留最新一份。格式不符、超過 3.9MB、只有失敗紀錄的 CPI／新聞不發布。
    - Claude 已在乾淨 main 上 `git am` 重放（樹完全相同）、中繼全部單元測試通過；GitHub 試跑（gate-probe 的 relay-collector-dryrun，不推送）：上市 1093＋上櫃 897 檔 5 個交易日、名冊、總經 9 條、信用統計、核心 CPI 兩來源（BLS 走官方 API 備援）、產業來源、官方新聞全部收到；套件約 3.4MB，每檔都在網站單次上限內。再用網站 v250 真正的匯入驗證離線跑這份套件：7 組全部通過並寫入（掃描 11/02、覆蓋 98%；CPI BLS＋FRED 一致；IORB 含發布日核對；信用 11/02），匯入過程沒有任何對外連線。
    - push 後：Actions → Official data collector → Run workflow（publish 用預設 true）跑一次；確認 `official-import` 分支有 `manifest.json`，記下 parts 與 errors。
-2. **網站 v249＋v250（已授權，依序套用、只部署一次，現行版留回滾）**：
+2. **網站 v249＋v250＋v251（都已授權，依序套用、只部署一次，現行版留回滾）**：
    - v249：`handoff/patches/v249-credit-gate-20261102.patch`，SHA-256 `c938cf2a4a52161dd278c99e7bb67f2724644b3f3afc42e63f297b437b63f55f`（內容同上一版交接：晚上信用 `previousDate` 改前一交易日；Gate 審計單步逾時重試一次）。
-   - v250：`handoff/patches/v250-relay-import.patch`，SHA-256 `34ac240175ff6fdbd7ac27827244b037e088a661cab83c2767551f10075d1896`，基線＝v249（Claude tag v249-patch-head）。只改後台、說明與測試；`dist/index.html` 仍 `878292cd…`，後台檔 SHA-256 應為 `be94072079f15dcd55832bfea0c5f35a6ff26be2dc741e51e6f833f363df6923`。
+   - v250：`handoff/patches/v250-relay-import.patch`，SHA-256 `34ac240175ff6fdbd7ac27827244b037e088a661cab83c2767551f10075d1896`，基線＝v249（Claude tag v249-patch-head）。只改後台、說明與測試。
    - v250 內容：巡檢開頭（scanner 之前）讀 `official-import` 清單（超過 36 小時、格式不符就不匯入）→ 每次輪詢匯入一組（行情＋名冊、總經序列、信用統計、核心 CPI、產業來源、官方新聞），走和 `/api/official-data-import` 完全相同的驗證；雜湊不符不送、內容沒變不重匯、失敗只記錄並在下次巡檢重試，不擋掃描與 Gate。巡檢紀錄多 `relayImport` 與覆蓋列 `officialImport`。收集程式多 `--skip-statistics`；抓 FRED 時第一次改用 Python 預設 User-Agent（GitHub 實測：FRED 只讓這個字串通過，其他逾時或中斷），第二次仍用原本字串。
    - **環境變數**：部署時設 `RELAY_OFFICIAL_IMPORT_ENABLED=true`（沒設＝與 v249 完全相同；要停用就移除）。
    - 測試：新增 `tests/v250-relay-import.test.mjs` 6 項（未啟用的那項在基線上也過，其他 5 項在基線上失敗、套用後全過）。Claude 在乾淨基線重放 v250 無衝突、完整 `TZ=UTC npm test` exit 0、HTML 與後台檔都相同。
-3. **部署後第一次巡檢讀回**：`relayImport.status`、各組 status（imported／unchanged／not_in_bundle／error 與原因）、`officialImport` 覆蓋列；再直接讀 `/api/market-scanner`（場次數、最新日）、`/api/macro`（9 條序列觀測日）、`/api/core-cpi-history`，和匯入結果比對。另照上一版交接讀回 v249：信用七欄 `previousDate` 是否為前一交易日；Gate N/N 與有無 `retried`。
+   - v251：`handoff/patches/v251-analyst-not-used.patch`，SHA-256 `209106b7cfccfd6e04c2fa56fcdfbadf7daa5073d455ddf3b2e01483c47a343a`，基線＝v250（Claude tag v250-patch-head）。內容：Gate 5（法說指引／EPS surprise）、Gate 8（分析師共識／同業共識）改列「不採用（擁有者決定）」——不阻擋、評級不再因缺這些資料壓在 B+、取消 0.85 共識係數、共識不參與估值分歧；原本讀到的狀態保留在 `collectedStatus`，資料與來源照舊列出只作參考。巡檢覆蓋列 guidance／epsConsensus 改 `not_used`（不再讓巡檢永遠 partial）。估值（自身 EPS × 歷史本益比）、財報品質、否決、均線扣級、估值分歧 2 倍規則都不變。
+   - v251 測試：新增 `tests/v251-analyst-not-used.test.mjs` 4 項（在 v250 上全部失敗、套用後全過）；更新 7 個舊測試裡「Gate 5／8 阻擋、B+ 上限、0.85」的斷言。Claude 在乾淨 v250 重放無衝突、完整 `TZ=UTC npm test` exit 0、HTML 與後台檔都相同。
+   - **三份都套完後**：`dist/index.html` SHA-256 應為 `b48e85a4dbb8680d9174f646ad2ec023711579b51c06618e2bba57efa13899b9`，後台檔 `fa751deb43b1199fc342461f57c78247365f4839e12a56df14837c4352682ba8`。
+3. **部署後第一次巡檢讀回**：`relayImport.status`、各組 status（imported／unchanged／not_in_bundle／error 與原因）、`officialImport` 覆蓋列；再直接讀 `/api/market-scanner`（場次數、最新日）、`/api/macro`（9 條序列觀測日）、`/api/core-cpi-history`，和匯入結果比對。另照上一版交接讀回 v249：信用七欄 `previousDate` 是否為前一交易日；Gate N/N 與有無 `retried`。v251：5 檔的 Gate 5、Gate 8 卡都顯示「不採用（擁有者決定）」、不再是阻擋；列出 5 檔部署前後的評級（預期只有原本被 B+ 上限壓住的會變）。
 4. **之後的例行（讀回正常後開始）**：晨間＋晚間各有一次巡檢 `officialImport` 為 automatic（或只有 not_in_bundle）之後，**停止手動跑官方收集程式和匯入**。每天只做：照原排程 POST `/api/automation/refresh-all` → 輪詢到 `completedAt` → 寫一筆簡短紀錄；**只有異常才詳細回報**（Gate n<m、`officialImport` 為 source_error、巡檢卡住、中繼套件超過 30 小時沒更新）。`officialImport` 連續兩次失敗時，才改回手動收集＋匯入當備援。
 5. **SLOOS 換期（11/03 起的晨間巡檢核對）**：你的 SLOOS 發布窗到 11/03 03:00（台北）到期；Fed 11/02 14:00（美東）公布 10 月調查。請讀回 SLOOS 那一列的觀測日、數值、status、reason：應換成 2026-10-01 新一期且 ok；若變 stale，寫出原因，不要延長舊窗。
 
-**報告**：寫 `diagnostics/deploy-20261026/hotfix9.md`（15 行內）：上面「補記」；中繼 patch 與第一次 Official data collector 的 run 與清單摘要；v249＋v250 版本、後台檔 SHA、環境變數；第 3 項讀回；第 5 項。
+**報告**：寫 `diagnostics/deploy-20261026/hotfix9.md`（15 行內）：上面「補記」；中繼 patch 與第一次 Official data collector 的 run 與清單摘要；v249＋v250＋v251 版本、HTML 與後台檔 SHA、環境變數；第 3 項讀回（含 5 檔評級前後）；第 5 項。
 
 <details><summary>10/29 的工作區塊（已完成，備查）</summary>
 
