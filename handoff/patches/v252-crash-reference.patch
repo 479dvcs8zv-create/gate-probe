@@ -1,0 +1,338 @@
+diff --git a/build.mjs b/build.mjs
+index d85d3f0..842e6d6 100644
+--- a/build.mjs
++++ b/build.mjs
+@@ -37,6 +37,7 @@ const masterEvidence = readFileSync(new URL('./worker/master-evidence.js', impor
+ const masterInputs = readFileSync(new URL('./worker/master-inputs.js', import.meta.url), 'utf8');
+ const issuerContext = 'const ISSUER_CONTEXT_SEED = '+JSON.stringify(JSON.parse(readFileSync(new URL('./data/official/phison-panel-20261019.json',import.meta.url),'utf8')))+';\n'+readFileSync(new URL('./worker/issuer-context.js',import.meta.url),'utf8');
+ const gate5bBoundaries = readFileSync(new URL('./worker/gate5b-boundaries.js', import.meta.url), 'utf8');
++const marketCrash = readFileSync(new URL('./worker/market-crash.js', import.meta.url), 'utf8');
+ const sharedNames=['masterEvidenceDate','masterEvidenceHttps','masterEvidenceSymbol','masterEvidencePeriod','masterPeriodEnd','summarizeMasterGuidance','summarizeMasterSurprises','masterGuidanceProblem','masterSurpriseProblem','gate5bQuarter','gate5bTimestamp','snapshotBeforeBoundary'];
+ const evidenceSource=masterEvidence+'\n'+masterInputs+'\n'+gate5bBoundaries;
+ const sharedValidation=sharedNames.map(name=>{const start=evidenceSource.indexOf(`function ${name}(`);if(start<0)throw Error(`Missing shared validator ${name}`);const rest=evidenceSource.slice(start),next=rest.slice(1).search(/^(?:async )?function /m);return next<0?rest:rest.slice(0,next+1);}).join('\n');
+@@ -50,6 +51,6 @@ const officialNewsModule=readFileSync(new URL('./worker/official-news.js',import
+ updateTools.sourceCollectorNode=updateTools.sourceCollectorNode.replace("let newsModule = '__OFFICIAL_NEWS_MODULE__';",`let newsModule = ${JSON.stringify(officialNewsModule)};`);
+ const macro = `${panelCalculations}\n${panelSources}\n${advisoryDecision}\n${readFileSync(new URL('./worker/macro.js', import.meta.url), 'utf8')}`;
+ mkdirSync(new URL('./dist/server/', import.meta.url), { recursive: true });
+-const serverBundle = `const HTML = ${JSON.stringify(html)};\nconst CPI_SEED = ${JSON.stringify(cpiSeed)};\nconst OFFICIAL_UPDATE_TOOLS = ${JSON.stringify(updateTools)};\n${observations}\n${fixpack}\n${observationFreshness}\nconst RELAY_SEED = ${JSON.stringify(relaySeed)};\n${relay}\n${research}\n${macroScoring}\n${dataImport}\n${sourceResearch}\n${reportContext}\n${stockRelay}\n${valuationDivergence}\n${fallbackRating}\n${gate5bBoundaries}\n${masterEvidence}\n${masterInputs}\n${issuerContext}\n${crossMarketCore}\n${crossMarket}\n${usSectorCore}\n${usSectorSession}\n${tiingoMarket}\n${tiingoStore}\n${usSectors}\n${tiingoSite}\n${marketTimeline}\n${officialNewsModule}\n${macro}`;
++const serverBundle = `const HTML = ${JSON.stringify(html)};\nconst CPI_SEED = ${JSON.stringify(cpiSeed)};\nconst OFFICIAL_UPDATE_TOOLS = ${JSON.stringify(updateTools)};\n${observations}\n${fixpack}\n${observationFreshness}\nconst RELAY_SEED = ${JSON.stringify(relaySeed)};\n${relay}\n${research}\n${macroScoring}\n${dataImport}\n${sourceResearch}\n${reportContext}\n${stockRelay}\n${valuationDivergence}\n${fallbackRating}\n${gate5bBoundaries}\n${masterEvidence}\n${masterInputs}\n${issuerContext}\n${crossMarketCore}\n${crossMarket}\n${usSectorCore}\n${usSectorSession}\n${tiingoMarket}\n${tiingoStore}\n${usSectors}\n${tiingoSite}\n${marketTimeline}\n${officialNewsModule}\n${marketCrash}\n${macro}`;
+ // 程式版本指紋：存好的計算結果只在「同一版程式＋同一份輸入」時重用；換版就重算（擁有者 2026-10-27：後台只算一次）。
+ writeFileSync(new URL('./dist/server/index.js', import.meta.url), `const SITE_BUILD_ID = ${JSON.stringify(createHash('sha256').update(serverBundle).digest('hex').slice(0,16))};\n${serverBundle}`);
+diff --git a/dist/index.html b/dist/index.html
+index cda0f21..531b07a 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -205,6 +205,9 @@
+     <p class="note" id="historicalScenarioReference">歷史 P/E 分位乘上今年模型預估 EPS，列出年末估值及折現回目前估值日的現值。</p>
+     <div class="calc-verdict" id="calcVerdict"></div>
+     <p class="note" id="valuationBasis">今年預估 EPS 以已公告季度 EPS 加上過去完整年度同季 EPS 樣本推估；依同期營收年增倍率調整，再用市場歷史 P/E 分位計算年末股價。8%／10%／12% 是股權折現率敏感度假設，不是公司專屬 WACC 或分析師共識。</p>
++    <!-- CRASH_REFERENCE_HTML_START -->
++    <p class="note" id="crashReference">股災本益比參考價（左側交易參考）：等待後台計算。</p>
++    <!-- CRASH_REFERENCE_HTML_END -->
+   </section>
+ 
+   <section class="workspace">
+@@ -949,8 +952,19 @@ function renderAdvisoryDecision(host,decision){
+  const discipline=document.createElement('p');discipline.className='tiny';discipline.textContent=decision.discipline;box.append(discipline);host.append(box);
+ }
+ /* ADVISORY_PANEL_DISPLAY_END */
++// v252（擁有者 2026-11-03 07:20「好」）：股災本益比參考價——後台算好，這裡只顯示；只作左側交易參考，不影響評級。
++function renderCrashReference(model){
++ const node=document.getElementById('crashReference');if(!node)return;const ref=model?.report?.crashReference;
++ if(!ref){node.textContent='股災本益比參考價（左側交易參考）：等待後台計算。';return}
++ const money=v=>Number.isFinite(v)?fmt(v,2):'—',m=ref.market;
++ const marketText=m?`大盤 ${m.date}：距前一年高點 ${fmt(m.drawdown*100,1)}%（${m.inCrash?'正處股災（跌幅 ≥15%）':'未達股災（跌幅 <15%）'}${m.stale?'；股災資料較舊':''}）。`:'';
++ const where={below_low:'在低標以下',low_to_mid:'在低標～中位之間',mid_to_high:'在中位～高標之間',above_high:'高於高標'};
++ const parts=ref.status==='ok'?[`股災本益比參考價（左側交易參考，不影響評級）｜${model.symbol||''}：低 ${money(ref.prices.low)}／中 ${money(ref.prices.mid)}／高 ${money(ref.prices.high)} 元＝${ref.epsYear} 年 EPS ${money(ref.eps)} 元 × 股災時本益比 ${fmt(ref.band.p20,1)}／${fmt(ref.band.median,1)}／${fmt(ref.band.p80,1)} 倍（${ref.band.observations} 個股災日，${ref.band.from}～${ref.band.through}）。`,ref.price?`現價 ${money(ref.price)} 元${where[ref.position]||''}。`:'',marketText,ref.cyclePeak?.text||'',ref.backtest||'']:[`股災本益比參考價（左側交易參考）｜${model.symbol||''}：${ref.reason||'資料不足'}`,marketText,ref.cyclePeak?.text||''];
++ node.textContent=parts.filter(Boolean).join(' ');
++}
+ function renderBackendMasterModel(model){
+  renderAdvisoryPanels(model);
++ if(typeof renderCrashReference==='function')renderCrashReference(model);
+  if(!model?.gates)return;
+  const list=document.getElementById('gateList'),overall=document.getElementById('overallGate');
+  if(list&&list.renderedModel!==model){list.replaceChildren();list.renderedModel=model;for(const gate of model.gates){
+diff --git a/package.json b/package.json
+index eed5f6a..f60d032 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/cross-market-live.test.mjs b/tests/cross-market-live.test.mjs
+index b16f7a1..6b8bc25 100644
+--- a/tests/cross-market-live.test.mjs
++++ b/tests/cross-market-live.test.mjs
+@@ -28,6 +28,8 @@ originalLayout=originalLayout.replace(/<!-- ADVISORY_PANEL_STYLE_START -->\n[\s\
+ // 隱藏重複的樣式另有標記排除；個股區新順序的版面指紋記在 layout-v212.json 的 stockSectionV243（原始 v212 指紋保留作對照）。
+ originalLayout=originalLayout.replace(/<style>\/\* STOCK_DEDUP_CSS_START \*\/[\s\S]*?\/\* STOCK_DEDUP_CSS_END \*\/<\/style>\n/,'');
+ originalLayout=originalLayout.replace(/<style>\/\* DOLLAR_INDEX_CSS_START \*\/[\s\S]*?\/\* DOLLAR_INDEX_CSS_END \*\/<\/style>\n/,'').replace(/    <!-- DOLLAR_INDEX_HTML_START -->\n[\s\S]*?    <!-- DOLLAR_INDEX_HTML_END -->\n/,'');
++// 擁有者 2026-11-03 07:20「好」：估值區多一行股災本益比參考價（有標記）；排除後其餘版面仍鎖定。
++originalLayout=originalLayout.replace(/    <!-- CRASH_REFERENCE_HTML_START -->\n[\s\S]*?    <!-- CRASH_REFERENCE_HTML_END -->\n/,'');
+ const originalForms=JSON.parse(readFileSync(new URL('./fixtures/gate-forms-v224.json',import.meta.url),'utf8'));
+ for(const [id,original] of Object.entries(originalForms)){
+  const current=originalLayout.split(/(?<=\n)/).find(line=>line.includes(`id="${id}"`));
+diff --git a/tests/financial-analysis.test.mjs b/tests/financial-analysis.test.mjs
+index c1f53a6..1bca18b 100644
+--- a/tests/financial-analysis.test.mjs
++++ b/tests/financial-analysis.test.mjs
+@@ -21,6 +21,8 @@ globalThis.fetch = async input => {
+  const url=new URL(String(input));
+  if(url.hostname==='doc.twse.com.tw'){filingLookups++;return new Response('<html>No PDF listed</html>',{status:200,headers:{'content-type':'text/html'}});}
+  if(url.href==='https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/exports/gate5b/latest.json')return new Response('',{status:503});
++ // v252：股災日匯出（gate-probe 公開檔，非模型供應商）
++ if(url.href==='https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/exports/market-crash/latest.json')return new Response('',{status:503});
+  const official=url.href==='https://openapi.twse.com.tw/v1/opendata/t187ap03_L'||url.href==='https://mopsfin.twse.com.tw/opendata/t187ap03_O.csv'||url.href==='https://www.tpex.org.tw/openapi/v1/tpex_margin_sbl'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD5_data'||url.href==='https://www.tpex.org.tw/openapi/v1/bond_ISSBD6_data'||url.href==='https://opendata.tdcc.com.tw/getOD.ashx?id=1-5'||url.href==='https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/MI_MARGN'||url.hostname==='www.twse.com.tw'&&url.pathname==='/rwd/zh/marginTrading/TWT93U'||url.href==='https://www.tpex.org.tw/www/zh-tw/bond/cbnote?response=json'||url.hostname==='mopsov.twse.com.tw'&&/^\/nas\/t120\/CBTRN\d{6}\.htm$/.test(url.pathname)||url.href==='https://raw.githubusercontent.com/wcr0936531039-png/macro-relay-service/main/data/cb_snapshot.json'||url.href==='https://raw.githubusercontent.com/wcr0936531039-png/macro-relay-service/main/data/keyless_snapshot.json';
+  if(official){officialDataCalls++;return url.pathname.endsWith('.csv')?new Response('公司代號,產業別,已發行普通股數或TDR原股發行股數\n'):Response.json([]);}
+  providerCalls++;throw Error('Unexpected external provider');
+diff --git a/tests/v252-crash-reference.test.mjs b/tests/v252-crash-reference.test.mjs
+new file mode 100644
+index 0000000..7dc9cc4
+--- /dev/null
++++ b/tests/v252-crash-reference.test.mjs
+@@ -0,0 +1,107 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import vm from 'node:vm';
++
++// 擁有者 2026-11-03 07:17／07:20「好」：股災時的本益比 × 今年獲利＝參考價，當左側交易依據；只作參考，不影響評級。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++let serial=0;
++const load=()=>import('data:text/javascript;base64,'+Buffer.from(source+`\nexport {validMarketCrashExport,crashPeBand,buildCrashReference,readMarketCrashExport,evaluateMasterModel,MARKET_CRASH_URL};\n// v252-${serial++}`).toString('base64'));
++const site=await load();
++const today=new Date(Date.now()+8*3600000).toISOString().slice(0,10),year=Number(today.slice(0,4));
++const crashDays=Array.from({length:30},(_,i)=>`2025-04-${String(i+1).padStart(2,'0')}`).filter(d=>!['2025-04-31'].includes(d)).slice(0,25);
++const exportData=(patch={})=>({schema:'gate-probe/market-crash/v1',generated_at:'2026-11-03T07:00:00+00:00',rule:{threshold:0.85,window:250,since:'2015-01-01'},source:'TWSE MI_5MINS_HIST',
++  through:'2026-10-30',crash_days:crashDays,periods:[{from:'2025-04-01',to:'2025-04-25',low_date:'2025-04-09',low_drawdown:-0.2869}],
++  current:{date:'2026-10-30',close:45211.83,max250:49822.55,max250_date:'2026-10-06',drawdown:-0.0925,in_crash:false},...patch});
++const perHistory=[...crashDays.map((date,i)=>({date,PER:8+i*0.5})),{date:'2026-10-30',PER:30},{date:'2025-03-31',PER:25}];
++const stock=(patch={})=>({id:'2404',price:{value:500,date:today},forecastEps:{status:'estimate',year,median:50,basis:'test'},panelInputs:{perHistory},
++  financialQuality:{cycleValuation:{eps:{median:30,from:2019,through:2025}}},...patch});
++
++test('股災日匯出：規則、日期、排序、當天回檔要一致才收',()=>{
++  const ok=site.validMarketCrashExport(exportData(),Date.parse('2026-11-03T00:00:00Z'));
++  assert.equal(ok.crashDays.length,25);assert.equal(ok.current.inCrash,false);assert.equal(ok.current.max250Date,'2026-10-06');
++  const bad=patch=>site.validMarketCrashExport(exportData(patch),Date.parse('2026-11-03T00:00:00Z'));
++  assert.equal(bad({rule:{threshold:0.8,window:250}}),null,'規則不同不收');
++  assert.equal(bad({crash_days:[...crashDays].reverse()}),null,'日期要由舊到新');
++  assert.equal(bad({crash_days:[...crashDays,'2026-11-01']}),null,'不得晚於最後收盤日');
++  assert.equal(bad({current:{...exportData().current,in_crash:true}}),null,'是否股災要和收盤／前一年最高一致');
++  assert.equal(bad({through:'2026-12-31',current:{...exportData().current,date:'2026-12-31'}}),null,'未來日期不收');
++});
++
++test('股災本益比：只用股災日、本益比 > 0；少於 20 天不算',()=>{
++  const band=site.crashPeBand(perHistory,crashDays);
++  assert.equal(band.status,'ok');assert.equal(band.observations,25);assert.equal(band.from,'2025-04-01');
++  assert.equal(band.median,8+12*0.5,'中位數＝第 13 個股災日的本益比');
++  assert.ok(band.p20<band.median&&band.median<band.p80);
++  assert.equal(site.crashPeBand(perHistory.slice(0,10),crashDays).status,'insufficient');
++  assert.equal(site.crashPeBand(perHistory.map(r=>({...r,PER:-1})),crashDays).status,'insufficient','負本益比不算');
++});
++
++test('參考價＝今年 EPS × 股災本益比；標出現價位置、大盤現況、景氣高峰提醒',()=>{
++  const crash=site.validMarketCrashExport(exportData());
++  const ref=site.buildCrashReference(stock(),crash,null);
++  assert.equal(ref.status,'ok');assert.equal(ref.policy,'reference_only');assert.equal(ref.eps,50);
++  assert.equal(ref.prices.mid,50*14);assert.equal(ref.prices.low,50*ref.band.p20);assert.equal(ref.prices.high,50*ref.band.p80);
++  assert.equal(ref.prices.low,520);assert.equal(ref.position,'below_low','現價 500 低於低標 520');
++  assert.equal(site.buildCrashReference(stock({price:{value:600,date:today}}),crash,null).position,'low_to_mid');
++  assert.equal(ref.market.inCrash,false);assert.equal(ref.market.drawdown,-0.0925);
++  assert.equal(ref.cyclePeak,null,'今年 EPS 50 是常態 30 的 1.7 倍，不算高峰');
++  const peak=site.buildCrashReference(stock({forecastEps:{status:'estimate',year,median:90}}),crash,null);
++  assert.ok(peak.cyclePeak.ratio>2);assert.match(peak.cyclePeak.text,/景氣高峰/);
++  // 網站有比匯出更新的加權指數：用匯出的前一年最高重算回檔
++  const newer=site.buildCrashReference(stock(),crash,{rows:[{id:'TWSE_TAIEX',status:'ok',value:41000,date:'2026-11-02'}]});
++  assert.equal(newer.market.date,'2026-11-02');assert.equal(newer.market.inCrash,true);assert.ok(Math.abs(newer.market.drawdown-(41000/49822.55-1))<1e-12);
++});
++
++test('缺資料照實說，不自行補：沒有匯出、還沒有本益比歷史、股災日太少、今年 EPS 不足',()=>{
++  const crash=site.validMarketCrashExport(exportData());
++  assert.equal(site.buildCrashReference(stock(),null).status,'unavailable');
++  assert.equal(site.buildCrashReference(stock({panelInputs:{}}),crash).status,'pending');
++  assert.equal(site.buildCrashReference(stock({panelInputs:{perHistory:perHistory.slice(0,5)}}),crash).status,'insufficient');
++  const noEps=site.buildCrashReference(stock({forecastEps:{status:'insufficient',year,reason:'樣本不足'}}),crash);
++  assert.equal(noEps.status,'insufficient');assert.equal(noEps.prices,undefined);assert.match(noEps.reason,/樣本不足/);
++  assert.equal(site.buildCrashReference(stock({forecastEps:{status:'estimate',year:year-1,median:50}}),crash).status,'insufficient','不是今年的 EPS 不算');
++});
++
++test('讀匯出：成功就存 D1；之後讀不到就用上次存的並標「舊」；從沒讀到就沒有',async()=>{
++  const rows=new Map();
++  const DB={prepare(sql){return {run:async()=>({success:true}),bind:(...args)=>({all:async()=>({results:rows.has(args[0])?[{payload:rows.get(args[0]).payload,updated_at:rows.get(args[0]).updated_at,expires_at:rows.get(args[0]).expires_at}]:[]}),run:async()=>{rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true};}})};}};
++  const oldFetch=globalThis.fetch;
++  try{
++    globalThis.fetch=async url=>{assert.equal(String(url),site.MARKET_CRASH_URL);return Response.json(exportData());};
++    const first=await (await load()).readMarketCrashExport({DB});
++    assert.equal(first.stale,false);assert.equal(first.through,'2026-10-30');assert.ok(rows.has('market-crash-export:v1'));
++    const entry=rows.get('market-crash-export:v1');entry.updated_at='2026-01-01T00:00:00Z';
++    globalThis.fetch=async()=>new Response('nope',{status:503});
++    const second=await (await load()).readMarketCrashExport({DB});
++    assert.equal(second.stale,true);assert.equal(second.through,'2026-10-30');
++    globalThis.fetch=async()=>{throw Error('offline');};
++    assert.equal(await (await load()).readMarketCrashExport({DB:{prepare(){return {run:async()=>({success:true}),bind:()=>({all:async()=>({results:[]}),run:async()=>({success:true})})};}}}),null);
++  }finally{globalThis.fetch=oldFetch;}
++});
++
++test('個股模型：附上參考價，但評級完全不受影響',()=>{
++  const s={id:'2404',checkedAt:today,price:{value:500,date:today},forecastEps:{status:'estimate',year,median:50},panelInputs:{perHistory},financialQuality:{observedThrough:'2026-06-30',roic:{value:20,date:'2026-06-30'},cfoToNetIncome:{value:1},freeCashFlow:{value:1},workingCapitalQuality:{dsoDays:10,dioDays:20},dcf:{status:'ok',perShare:100,assumptions:{riskFreeRateMeasured:true,betaMeasured:true,costOfDebtMeasured:true}}}};
++  const freshness={stockFresh:true,macroFresh:true,marketFresh:true,scannerFresh:true};
++  const without=site.evaluateMasterModel(s,null,null,freshness,{}),withRef=site.evaluateMasterModel(s,null,null,freshness,{marketCrash:site.validMarketCrashExport(exportData())});
++  assert.equal(without.report.crashReference.status,'unavailable');assert.equal(withRef.report.crashReference.status,'ok');
++  assert.deepEqual(withRef.adaptiveRating,without.adaptiveRating,'參考價不進評級');
++  assert.deepEqual(withRef.gates.map(g=>[g.id,g.status]),without.gates.map(g=>[g.id,g.status]));
++});
++
++test('網頁：估值區顯示參考價一行；後台沒算好時顯示等待',()=>{
++  assert.match(html,/<p class="note" id="crashReference">/);
++  const start=html.indexOf('function renderCrashReference('),end=html.indexOf('function renderBackendMasterModel(');
++  const node={textContent:''},ctx={document:{getElementById:id=>id==='crashReference'?node:null},fmt:(n,d=1)=>n==null?'MISSING':Number(n).toFixed(d)};
++  vm.runInNewContext(html.slice(start,end),ctx);
++  const ref=site.buildCrashReference(stock(),site.validMarketCrashExport(exportData()),null);
++  ctx.renderCrashReference({symbol:'2404',report:{crashReference:ref}});
++  assert.match(node.textContent,/股災本益比參考價（左側交易參考，不影響評級）｜2404：低 [\d.]+／中 700\.00／高 [\d.]+ 元/);
++  assert.match(node.textContent,/現價 500\.00 元在低標以下/);
++  assert.match(node.textContent,/未達股災/);assert.doesNotMatch(node.textContent,/MISSING|undefined|NaN/);
++  ctx.renderCrashReference({symbol:'2404',report:{crashReference:site.buildCrashReference(stock({panelInputs:{}}),site.validMarketCrashExport(exportData()))}});
++  assert.match(node.textContent,/下次個股更新後出現/);
++  ctx.renderCrashReference({symbol:'2404',report:{}});assert.match(node.textContent,/等待後台計算/);
++  assert.match(html,/renderCrashReference\(model\);/);
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index e8b5cad..f86aeaf 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -589,7 +589,7 @@ async function buildTaiwanStockSnapshot(id, env = {}) {
+       .filter(e=>(e.cashDate&&e.cash>0)||(e.stockDate&&e.stockBonus>0)).filter(e=>(e.cashDate||e.stockDate)>=new Date(Date.now()-730*86400000).toISOString().slice(0,10)),
+     priceHistory:priceRows.slice(-800).map(row=>({date:row.date,close:Number(row.close),...(finiteNumber(row.Trading_Volume)?{Trading_Volume:Number(row.Trading_Volume)}:{}),...(finiteNumber(row.Trading_money)?{Trading_money:Number(row.Trading_money)}:{})})),
+     valuationInputs:{issuedShares,shareSource,shareErrors:officialShares.errors,revenueHistory:revenueRows.slice(-24)},
+-    panelInputs:{issuer:shareRecord||null,revenueHistory:revenueRows,pbrHistory:per.rows.map(row=>({date:row.date,PBR:row.PBR})),yieldHistory:per.rows.map(row=>({date:row.date,dividend_yield:row.dividend_yield})),pbrRequestedFrom:peSince,epsBasis:'single_quarter',epsBasisSource:'https://finmind.github.io/tutor/TaiwanMarket/Fundamental/'},
++    panelInputs:{issuer:shareRecord||null,revenueHistory:revenueRows,perHistory:per.rows.filter(row=>/^\d{4}-\d{2}-\d{2}$/.test(row.date)&&Number(row.PER)>0).map(row=>({date:row.date,PER:Number(row.PER)})),pbrHistory:per.rows.map(row=>({date:row.date,PBR:row.PBR})),yieldHistory:per.rows.map(row=>({date:row.date,dividend_yield:row.dividend_yield})),pbrRequestedFrom:peSince,epsBasis:'single_quarter',epsBasisSource:'https://finmind.github.io/tutor/TaiwanMarket/Fundamental/'},
+     datasetStatus,
+     errors: { price: prices.error || (!latestPrice && '沒有可用收盤價'), revenue: revenues.error || (!latestRevenue && '沒有可用月營收'),
+       valuation: !estimateAvailable ? (forecastEps.reason || '今年預估 EPS 資料不足') : !valuationPe ? (per.error || `本代號缺少歷史 P/E 區間，且無核准模型倍數（${peValues.length}/250）`) : !Object.values(valuationEps).every(x=>Number.isFinite(x)&&x>0) ? '今年 EPS 情境含非正值；P/E 乘數不適用，需改用 DCF／資產價值等方法' : null,
+@@ -898,6 +898,8 @@ function evaluateMasterModel(stock, macro, market, freshness = {}, gateEvidence
+   if(typeof PANEL_CALCULATIONS!=='undefined')report.advisoryPanels=PANEL_CALCULATIONS.buildStockPanels(stock,freshness.marketFresh?market?.rows||[]:[],usSectorContext,{taiexHistory:gateEvidence.crossMarketSnapshot?.markets?.TWSE_TAIEX?.history||[]});
+   if(typeof ADVISORY_DECISION!=='undefined'&&report.advisoryPanels)report.advisoryDecision=ADVISORY_DECISION.buildAdvisoryDecision({stock,panels:report.advisoryPanels,sectorContext:usSectorContext,macroRows:freshness.macroFresh?rows:[],marketRows:freshness.marketFresh?market?.rows||[]:[],crossSnapshot:gateEvidence.crossMarketSnapshot,existingRating:adaptiveRating,veto,gates,freshness});
+   report.valuationDivergence=valuationDivergence;
++  // v252（擁有者 2026-11-03 07:20「好」）：股災本益比參考價，只作左側交易參考，不影響評級。
++  report.crashReference=buildCrashReference(stock,gateEvidence.marketCrash,freshness.marketFresh?market:null);
+   if(valuationDivergence.divergent)report.valuation=valuationDivergence.reason+' 下次'+valuationDivergence.nextDisclosure.period+'：'+valuationDivergence.nextDisclosure.date+'（'+valuationDivergence.nextDisclosure.basis+'）。歷史情境僅作原始數據參考。';
+   report.quoteIntegration=stock.quoteIntegration||null;
+   if(stock.quoteIntegration)report.valuation+=` ${stock.quoteIntegration.summary}`;
+@@ -968,7 +970,7 @@ async function masterModelResponse(request, env = {}, ctx = {}) {
+   const userId = String(request.headers.get('oai-authenticated-user-id') || '').trim() || (ctx?.useSiteOwnerEvidence===true ? await readSiteOwnerId(env) : '');
+   const scores=await macroScoreSnapshot(env,ctx);
+   const {macro,market,expanded,macroState,marketState,macroRecent,marketRecent}=scores;
+-  const [evidence, scanner, automation, pool, company, sources, crossSnapshot, usSectorSnapshot, gate5bBoundaries] = await Promise.all([userId ? readRuntimeCache(env, `master-gate-evidence:v1:${userId}:${id}`) : null, readRuntimeCache(env, MARKET_SCANNER_LATEST_KEY), readRuntimeCache(env, SITE_AUTO_REFRESH_KEY), readMasterResearchPool(env, userId, id),readRuntimeCache(env,`company-evidence:v1:${id}`),readRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`),readCrossMarketSnapshot(env,ctx),readUSSectorSnapshot(env,ctx),readMasterGate5bBoundaries(id)]);
++  const [evidence, scanner, automation, pool, company, sources, crossSnapshot, usSectorSnapshot, gate5bBoundaries, marketCrash] = await Promise.all([userId ? readRuntimeCache(env, `master-gate-evidence:v1:${userId}:${id}`) : null, readRuntimeCache(env, MARKET_SCANNER_LATEST_KEY), readRuntimeCache(env, SITE_AUTO_REFRESH_KEY), readMasterResearchPool(env, userId, id),readRuntimeCache(env,`company-evidence:v1:${id}`),readRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`),readCrossMarketSnapshot(env,ctx),readUSSectorSnapshot(env,ctx),readMasterGate5bBoundaries(id),readMarketCrashExport(env).catch(()=>null)]);
+   const peerInputs=await readMasterPeerInputs(env,id,company?.payload?.records,userId,stock.price?.date);
+   const scannerAge = Date.now() - Date.parse(scanner?.payload?.checkedAt || '');
+   const marketPayload = { ...(marketState || {}), fullMarketScanner: scanner?.payload || null, scannerFailure: automation?.payload?.fullMarketScanner || null };
+@@ -977,7 +979,7 @@ async function masterModelResponse(request, env = {}, ctx = {}) {
+   const holdingDays=await macroScoreDays(env);
+   const macroPayload=macroState ? {...macroState,riskAssessment:riskModel,light:riskModel?.complete&&macroState.coverage?.missingCore?.length===0?`${riskModel.band.light}｜既有網站模型 ${riskModel.score}/100，評分指標覆蓋 ${riskModel.coverage}%`:macroState.light} : null;
+   const freshness={ stockFresh, macroFresh: macroRecent, marketFresh: marketRecent, scannerFresh: scannerAge >= 0 && scannerAge < 36 * 3600000 };
+-  const gateEvidence={ ...(evidence?.payload || {}), pool, peerInputs, officialCompany:company?.payload,sourceResearch:sources?.payload?{...sources.payload,is_stale:!sources.fresh}:null,crossMarketSnapshot:crossSnapshot,usSectorSnapshot,gate5bBoundaries };
++  const gateEvidence={ ...(evidence?.payload || {}), pool, peerInputs, officialCompany:company?.payload,sourceResearch:sources?.payload?{...sources.payload,is_stale:!sources.fresh}:null,crossMarketSnapshot:crossSnapshot,usSectorSnapshot,gate5bBoundaries,marketCrash };
+   // 計算內部有以「現在」判斷的時效（例如快照 36 小時、財報公告日）；以台北「日期＋小時」為界，資料沒變也最多每小時重算一次，避免沿用跨過時效線的舊結果。
+   const taipeiDate=new Date(Date.now()+8*3600000).toISOString().slice(0,13);
+   const fingerprint=await sha256Hex(fingerprintJson([typeof SITE_BUILD_ID==='string'?SITE_BUILD_ID:'dev',taipeiDate,stock,scores.record.fingerprint,macroPayload,marketPayload,freshness,gateEvidence,holdingDays]));
+diff --git a/worker/market-crash.js b/worker/market-crash.js
+new file mode 100644
+index 0000000..92d2eb9
+--- /dev/null
++++ b/worker/market-crash.js
+@@ -0,0 +1,86 @@
++// v252（擁有者 2026-11-03 07:17／07:20「好」）：股災本益比參考價——只當左側交易（逢低承接）的參考，不影響評級。
++// 參考價＝今年 EPS（網站模型中位數）× 這檔股票在「股災日」的本益比 P20／中位／P80。
++// 股災日＝加權指數收盤 ≤ 前 250 個交易日（含當天）最高收盤 × 85%（與第 38 輪回測相同），由 gate-probe 依證交所 MI_5MINS_HIST 每日匯出。
++// 第 38 輪補充回測（2019～2026）：大盤真的在股災時照參考價承接，1 年後約 1/4 虧損；平常時期跌到參考價以下，1 年後約一半仍虧損；
++// 今年獲利遠高於過去常態（景氣高峰）時參考價會被墊高，容易是陷阱。這些提醒照實列出。
++var MARKET_CRASH_URL = 'https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/exports/market-crash/latest.json';
++var MARKET_CRASH_SCHEMA = 'gate-probe/market-crash/v1';
++var MARKET_CRASH_KEY = 'market-crash-export:v1';
++var MARKET_CRASH_FRESH_MS = 12 * 3600000;
++let marketCrashMemory = null, marketCrashMemoryAt = 0;
++
++function marketCrashDate(value) {
++  const t = Date.parse(`${value}T00:00:00Z`);
++  return /^\d{4}-\d{2}-\d{2}$/.test(String(value || '')) && Number.isFinite(t) && new Date(t).toISOString().slice(0, 10) === value;
++}
++
++function validMarketCrashExport(data, now = Date.now()) {
++  if (!data || data.schema !== MARKET_CRASH_SCHEMA || data.rule?.threshold !== 0.85 || data.rule?.window !== 250) return null;
++  const through = data.through, current = data.current || {};
++  if (!marketCrashDate(through) || Date.parse(`${through}T00:00:00Z`) > now + 86400000) return null;
++  const days = Array.isArray(data.crash_days) ? data.crash_days : null;
++  if (!days || days.some((d, i) => !marketCrashDate(d) || d > through || (i && d <= days[i - 1]))) return null;
++  if (current.date !== through || ![current.close, current.max250, current.drawdown].every(Number.isFinite) || current.close <= 0 || current.max250 < current.close || typeof current.in_crash !== 'boolean') return null;
++  if (current.in_crash !== (current.close <= current.max250 * 0.85)) return null;
++  return { schema: data.schema, generatedAt: data.generated_at || null, through, source: data.source || null, rule: data.rule, crashDays: days,
++    periods: Array.isArray(data.periods) ? data.periods.filter(p => marketCrashDate(p?.from) && marketCrashDate(p?.to)).slice(-40) : [],
++    current: { date: current.date, close: current.close, max250: current.max250, max250Date: marketCrashDate(current.max250_date) ? current.max250_date : null, drawdown: current.drawdown, inCrash: current.in_crash } };
++}
++
++async function readMarketCrashExport(env = {}) {
++  if (marketCrashMemory && Date.now() - marketCrashMemoryAt < 30 * 60000) return marketCrashMemory;
++  const saved = await readRuntimeCache(env, MARKET_CRASH_KEY).catch(() => null);
++  const savedAge = Date.now() - Date.parse(saved?.updatedAt || '');
++  if (saved?.payload && savedAge >= 0 && savedAge < MARKET_CRASH_FRESH_MS) { marketCrashMemory = { ...saved.payload, stale: false }; marketCrashMemoryAt = Date.now(); return marketCrashMemory; }
++  const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 6000);
++  try {
++    const response = await fetch(MARKET_CRASH_URL, { cache: 'no-store', signal: controller.signal });
++    const data = response.ok ? validMarketCrashExport(await response.json()) : null;
++    if (data) {
++      await writeRuntimeCache(env, MARKET_CRASH_KEY, data, 30 * 86400000);
++      marketCrashMemory = { ...data, stale: false }; marketCrashMemoryAt = Date.now();
++      return marketCrashMemory;
++    }
++  } catch {} finally { clearTimeout(timer); }
++  // 讀不到新的就用上次存好的（照實標「舊」）；從來沒讀到就沒有參考價。
++  return saved?.payload ? { ...saved.payload, stale: true } : null;
++}
++
++function crashPeBand(perHistory, crashDays) {
++  if (!Array.isArray(perHistory) || !Array.isArray(crashDays) || !crashDays.length) return null;
++  const days = new Set(crashDays);
++  const rows = perHistory.filter(r => days.has(r?.date) && Number.isFinite(Number(r.PER)) && Number(r.PER) > 0).sort((a, b) => a.date.localeCompare(b.date));
++  if (rows.length < 20) return { status: 'insufficient', observations: rows.length, reason: `這檔股票在股災日的本益比只有 ${rows.length} 天（至少 20 天）` };
++  const values = rows.map(r => Number(r.PER)).sort((a, b) => a - b);
++  const q = p => { const at = (values.length - 1) * p, lo = Math.floor(at), hi = Math.ceil(at); return values[lo] + (values[hi] - values[lo]) * (at - lo); };
++  const years = [...new Set(rows.map(r => r.date.slice(0, 7)))];
++  return { status: 'ok', p20: q(.2), median: q(.5), p80: q(.8), observations: rows.length, from: rows[0].date, through: rows.at(-1).date, months: years };
++}
++
++function buildCrashReference(stock, crash, taiwanMarket = null) {
++  const out = { note: '只作左側交易（逢低承接）參考，不影響評級；參考價＝今年 EPS × 這檔股票在股災時的本益比。', policy: 'reference_only', decidedAt: '2026-11-03' };
++  if (!crash) return { ...out, status: 'unavailable', reason: '讀不到大盤股災日資料（gate-probe 匯出）；不自行推算。' };
++  const year = Number(String(stock?.price?.date || '').slice(0, 4));
++  const forecast = stock?.forecastEps || stock?.valuation?.forecastEps;
++  const eps = forecast?.year === year && ['estimate', 'actual'].includes(forecast?.status) && Number.isFinite(forecast?.median) ? forecast.median : null;
++  const perHistory = stock?.panelInputs?.perHistory;
++  const band = Array.isArray(perHistory) ? crashPeBand(perHistory, crash.crashDays) : null;
++  // 大盤現況：匯出檔當天的回檔幅度；網站有更新的加權指數就用匯出的「前一年最高」重算，不自行補歷史。
++  let market = { date: crash.current.date, close: crash.current.close, max250: crash.current.max250, drawdown: crash.current.drawdown, inCrash: crash.current.inCrash, basis: 'gate-probe 匯出', stale: crash.stale === true };
++  const tw = taiwanMarket?.rows ? taiwanMarket.rows.find(r => r.id === 'TWSE_TAIEX' && ['ok', 'snapshot'].includes(r.status) && Number.isFinite(r.value) && r.value > 0) : null;
++  if (tw && marketCrashDate(tw.date) && tw.date > crash.current.date) {
++    const max250 = Math.max(crash.current.max250, tw.value);
++    market = { date: tw.date, close: tw.value, max250, drawdown: tw.value / max250 - 1, inCrash: tw.value <= max250 * 0.85, basis: '網站最新加權指數 ÷ 匯出的前一年最高', stale: crash.stale === true };
++  }
++  const normal = stock?.financialQuality?.cycleValuation?.eps?.median;
++  const cyclePeak = eps > 0 && normal > 0 && eps / normal > 2 ? { ratio: eps / normal, normal, text: `今年 EPS 是過去常態（${stock.financialQuality.cycleValuation.eps.from}–${stock.financialQuality.cycleValuation.eps.through} 中位數 ${normal.toFixed(2)} 元）的 ${(eps / normal).toFixed(1)} 倍，屬景氣高峰；參考價可能被墊高，「便宜」容易是陷阱。` } : null;
++  const base = { ...out, market, cyclePeak, crashSource: { url: MARKET_CRASH_URL, through: crash.through, generatedAt: crash.generatedAt, rule: '加權指數 ≤ 前 250 個交易日最高收盤 × 85%' } };
++  if (!Array.isArray(perHistory)) return { ...base, status: 'pending', reason: '個股快照還沒有本益比歷史（下次個股更新後出現）。' };
++  if (!band || band.status !== 'ok') return { ...base, status: 'insufficient', band, reason: band?.reason || '近 5 年本益比歷史裡沒有股災日。' };
++  if (!(eps > 0)) return { ...base, status: 'insufficient', band, reason: forecast?.reason || '今年 EPS 估計不足或不是正數，不算參考價。' };
++  const prices = { low: eps * band.p20, mid: eps * band.median, high: eps * band.p80 };
++  const price = Number(stock?.price?.value);
++  const position = !(price > 0) ? null : price <= prices.low ? 'below_low' : price <= prices.mid ? 'low_to_mid' : price <= prices.high ? 'mid_to_high' : 'above_high';
++  return { ...base, status: 'ok', eps, epsYear: year, epsBasis: forecast.basis || null, band, prices, price: price > 0 ? price : null, priceDate: stock?.price?.date || null, position,
++    backtest: '第 38 輪補充回測（2019～2026）：大盤正在股災時跌到低標以下承接，1 年後約 1/4 虧損；平常時期跌到低標以下，1 年後約一半仍虧損。' };
++}
