@@ -1,0 +1,131 @@
+diff --git a/package.json b/package.json
+index 28eb523..33b920f 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v249-fixes.test.mjs b/tests/v249-fixes.test.mjs
+new file mode 100644
+index 0000000..1707bab
+--- /dev/null
++++ b/tests/v249-fixes.test.mjs
+@@ -0,0 +1,66 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import {refreshLeaseStatement} from './helpers/refresh-lease.mjs';
++
++// GPT 10/30～10/31 讀回的兩個新問題：
++// 1. 晚上直接抓的信用統計，previousDate 標成當天（10/30），歷史前一筆其實是 10/29。
++// 2. 10/31 晨間巡檢 8299 Gate 審計單步逾時，只存 4/5；後台多半已算完，下一次輪詢再試一次即可。
++const source=fs.readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++let serial=0;
++
++function upstream(fmtqik){return async input=>{
++  const url=new URL(input);
++  if(url.pathname.endsWith('/FMTQIK'))return Response.json(fmtqik.map(d=>({Date:d,TradeValue:'900000000000'})));
++  if(url.pathname.endsWith('/MI_MARGN'))return Response.json({stat:'OK',date:'20261021',tables:[{fields:['項目','買進','賣出','償還','前日餘額','今日餘額'],data:[['融資(交易單位)',0,0,0,100,110],['融券(交易單位)',0,0,0,200,210],['融資金額(仟元)',0,0,0,300000000,310000000]]}]});
++  if(url.pathname.endsWith('/MI_MARGN_TREND'))return Response.json({stat:'OK',date:'20261021',data:[{date:'20261021',marginAmt:310000000,marketValue:1000000}]});
++  if(url.pathname.endsWith('/BFIJ3U'))return Response.json({stat:'OK',date:'20261021',crdAmt:12000000000});
++  throw Error('Unexpected test request: '+url.pathname);
++};}
++const emptyDb={prepare(){return {run:async()=>({success:true}),bind(){return {all:async()=>({results:[]}),run:async()=>({success:true})};}};}};
++async function nightCapture(fmtqik){
++  const oldNow=Date.now,oldFetch=globalThis.fetch;
++  Date.now=()=>Date.parse('2026-10-21T14:35:00Z');globalThis.fetch=upstream(fmtqik);
++  try{
++    const api=await import('data:text/javascript;base64,'+Buffer.from(source+`\nrelaySeries=async()=>null;\nexport {loadTaiwanDashboard};\n// v249-${serial++}`).toString('base64'));
++    return await api.loadTaiwanDashboard({DB:emptyDb});
++  }finally{Date.now=oldNow;globalThis.fetch=oldFetch;}
++}
++
++test('晚上直接抓的信用：previousDate＝官方交易日中前一個交易日，不再標成當天；查不到就留空',async()=>{
++  const rows=await nightCapture(['1151016','1151020','1151021']);
++  const margin=rows.find(r=>r.id==='TWSE_MARGIN_BALANCE_NTD');
++  assert.equal(margin.date,'2026-10-21');assert.equal(margin.previousDate,'2026-10-20');assert.equal(margin.previousDateBasis,'official_trading_calendar');
++  assert.ok(margin.capturedAt,'晚上直接抓取也標抓取時間');
++  const single=(await nightCapture(['1151021'])).find(r=>r.id==='TWSE_MARGIN_BALANCE_NTD');
++  assert.equal(single.previousDate,null,'交易日曆只有當天時不自己推算前一天');assert.equal(single.previousDateBasis,'unknown');
++  assert.notEqual(single.previousDate,single.date);
++});
++
++class DB{
++  rows=new Map();leases=new Map();
++  prepare(sql){const lease=refreshLeaseStatement(this,sql);if(lease)return lease;return {run:async()=>({success:true}),bind:(...args)=>({all:async()=>({results:this.rows.has(args[0])?[this.rows.get(args[0])]:[]}),run:async()=>{this.rows.set(args[0],{payload:args[1],updated_at:args[2],expires_at:args[3]});return {success:true};}})};}
++}
++const hooks=`
++ captureFullMarketSnapshot=async()=>({status:'collecting_history',date:'2026-10-30',sessions:76,captured:{total:600},universe:{total:600}});
++ runSiteModule=async id=>({id,status:'ok',usable:1,total:1,observations:[]});
++ refreshSiteStock=async row=>({id:row.id,name:row.name,status:'fresh'});
++ stockSourceResearchResponse=async request=>Response.json({status:'ok',records:[]});
++ masterModelResponse=async request=>{const id=new URL(request.url).searchParams.get('id');globalThis.__v249gate[id]=(globalThis.__v249gate[id]||0)+1;
++   if(id==='8299'&&globalThis.__v249gate[id]===1)throw Error('step_timeout: 本步驟逾時；保存缺項並繼續其他項目');
++   if(id==='5289')throw Error('step_timeout: 本步驟逾時；保存缺項並繼續其他項目');
++   return Response.json({status:'valuation_divergence',auditStatus:'blocked',symbol:id,gates:[]});};
++`;
++test('Gate 審計單步逾時：下一次輪詢再試一次；成功就照常保存並註明重試，兩次都逾時就照實記錄缺項',async()=>{
++  globalThis.__v249gate={};
++  const env={DB:new DB()},request=(path='status')=>new Request('https://site.test/api/automation/'+path,{method:path==='refresh-all'?'POST':'GET'});
++  await (await import('data:text/javascript;base64,'+Buffer.from(source+hooks+`\n// v249-run-${serial++}`).toString('base64'))).default.fetch(request('refresh-all'),env,{});
++  let result;
++  for(let i=0;i<80&&!result?.completedAt;i++)result=await (await (await import('data:text/javascript;base64,'+Buffer.from(source+hooks+`\n// v249-poll-${serial++}`).toString('base64'))).default.fetch(request(),env,{})).json();
++  assert.ok(result.completedAt);
++  const by=Object.fromEntries(result.gateAudits.map(a=>[a.symbol,a]));
++  assert.equal(by['8299'].recorded,true,'第二次成功保存');assert.equal(by['8299'].retried,1);assert.equal(globalThis.__v249gate['8299'],2);
++  assert.equal(by['5289'].recorded,false,'兩次都逾時：照實記錄，不補');assert.match(by['5289'].error,/step_timeout/);assert.equal(globalThis.__v249gate['5289'],2,'只重試一次');
++  assert.equal(globalThis.__v249gate['2404'],1,'沒逾時的不重跑');
++  assert.equal(result.gateAudits.filter(a=>a.recorded).length,result.gateAudits.length-1);
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 6766771..4628a9f 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -1654,6 +1654,13 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+       return {symbol:row.id,status:model.status||'unknown',auditStatus:model.auditStatus||null,recorded,key,gates:(model.gates||[]).map(gate=>({id:gate.id,status:gate.status,dataState:gate.dataState})),entry:model.report?.advisoryPanels?.entryCondition?{status:model.report.advisoryPanels.entryCondition.status,label:model.report.advisoryPanels.entryCondition.label,reason:model.report.advisoryPanels.entryCondition.reason,exit:model.report.advisoryPanels.entryCondition.exitSignal?.status||null}:null,holdingTarget:model.report?.advisoryDecision?.holding?.target??null};
+     }catch(error){return {symbol:row.id,status:'error',recorded:false,error:String(error?.message||error).slice(0,240)};}
+     });}catch(error){run.gateAudits[step.index]={symbol:row.id,status:'error',recorded:false,error:String(error?.message||error).slice(0,240)};}
++    // v249（GPT 10/31 晨間讀回：8299 Gate 審計單步逾時、只存 4/5）：逾時的那一檔下一次輪詢再試一次；
++    // 後台多半已算完並存好（只算一次），第二次會直接讀到。仍失敗就照實記錄，不補。
++    const audit=run.gateAudits[step.index],gateTries=run.gateAttempts?.[row?.id]||0;
++    if(row&&audit&&audit.recorded!==true&&/step_timeout|逾時/.test(String(audit.error||''))&&gateTries<1){
++      run.gateAttempts={...run.gateAttempts,[row.id]:gateTries+1};return commit();
++    }
++    if(row&&gateTries&&audit)run.gateAudits[step.index]={...audit,retried:gateTries};
+     run.checkpoint=step.index+1<stockBatch.length?{version:1,stage:'gates',index:step.index+1}:{version:1,stage:'finalize',index:0};return commit();
+   }
+   if(step.stage!=='finalize')throw Error('invalid_refresh_checkpoint');
+diff --git a/worker/observations.js b/worker/observations.js
+index bef6dee..981289b 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -1750,10 +1750,11 @@ async function loadTaiwanDashboard(env={}) {
+   const creditSummaryApi='https://www.twse.com.tw/rwd/zh/marginTrading/BFIJ3U';
+   const fail=(id,name,unit,source,reason)=>({id,name,group:'台股市場',unit,value:null,date:null,delta:null,status:'missing',provider:'臺灣證券交易所',source,reason});
+   const tradeValueFail=fail('TWSE_TOTAL_TRADE_VALUE','集中市場成交值','億元',api,'證交所成交值暫不可用');
+-  let trade,tradingDates=[];
++  let trade,tradingDates=[],sessionDates=[];
+   const relayedTrade=await relaySeries('TWSE_TOTAL_TRADE_VALUE');
+   if(relayedTrade?.status==='ok'&&Number.isFinite(Number(relayedTrade.value))&&relayedTrade.date){
+     trade={date:relayedTrade.date,raw:Number(relayedTrade.value)*1e8};tradingDates=[trade.date];
++    sessionDates=(relayedTrade.history||[]).map(point=>point?.date).filter(date=>/^\d{4}-\d{2}-\d{2}$/.test(String(date||'')));
+     Object.assign(tradeValueFail,relayedTrade);
+   }
+   try {
+@@ -1882,7 +1883,9 @@ async function loadTaiwanDashboard(env={}) {
+     } else creditTradeReason='證交所信用交易摘要日期或成交值欄位校驗不符';
+   } else creditTradeReason=summaryResult.reason?.name==='AbortError'?'證交所信用交易摘要逾時':String(summaryResult.reason?.message||creditTradeReason);
+   const stale=age(creditDate)>5;
+-  const make=(id,name,unit,value,delta,detail,source=creditSource,provider='臺灣證券交易所｜MI_MARGN 市場信用彙總')=>({id,name,group:'台股市場',unit,value,date:creditDate,capturedAt:new Date().toISOString(),capturedAtBasis:'capturedAt',delta,percent:delta!=null&&value-delta!==0?delta/(value-delta)*100:null,previousDate:creditDate,changeLabel:'較前日餘額',status:stale?'stale':'ok',reason:stale?'資料較舊，暫不納入判讀':null,provider,source,detail});
++  // v249（GPT 10/30 讀回：previousDate 標成當天 10/30，歷史前一筆是 10/29）：前一筆＝官方交易日中早於信用日的最近一天；查不到就留空，不補。
++  const previousSession=[...new Set([...tradingDates,...sessionDates])].filter(date=>date<creditDate).sort().at(-1)||null;
++  const make=(id,name,unit,value,delta,detail,source=creditSource,provider='臺灣證券交易所｜MI_MARGN 市場信用彙總')=>({id,name,group:'台股市場',unit,value,date:creditDate,capturedAt:new Date().toISOString(),capturedAtBasis:'capturedAt',delta,percent:delta!=null&&value-delta!==0?delta/(value-delta)*100:null,previousDate:previousSession,previousDateBasis:previousSession?'official_trading_calendar':'unknown',changeLabel:'較前日餘額',status:stale?'stale':'ok',reason:stale?'資料較舊，暫不納入判讀':null,provider,source,detail});
+   const [muPrev,muNow]=credit.marginUnits?[credit.marginUnits[3],credit.marginUnits[4]]:[NaN,NaN], [suPrev,suNow]=credit.shortUnits?[credit.shortUnits[3],credit.shortUnits[4]]:[NaN,NaN], [maPrev,maNow]=credit.marginAmount?[credit.marginAmount[3],credit.marginAmount[4]]:[NaN,NaN];
+   const marginValue=credit.marginBalance??(Number.isFinite(maNow)?maNow/1e5:null),marginDelta=credit.marginChange??(Number.isFinite(maNow)&&Number.isFinite(maPrev)?(maNow-maPrev)/1e5:null),shortValue=credit.shortBalance??(Number.isFinite(suNow)?suNow:null);
+   const unavailable=(id,name,unit,source,reason,provider='臺灣證券交易所｜MI_MARGN 市場信用彙總')=>({id,name,group:'台股市場',unit,value:null,date:creditDate,delta:null,status:'missing',provider,source,reason});
