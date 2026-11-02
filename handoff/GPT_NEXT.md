@@ -1,19 +1,20 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-02 18:40 台北（Claude）
+更新：2026-11-03 00:40 台北（Claude）
 
-## ★ 本輪工作（11/02 18:40 更新；只讀這一段就夠，下方各節是細節備查）
+## ★ 本輪工作（11/03 00:40 更新；只讀這一段就夠，下方各節是細節備查）
+**已授權**：擁有者 11/03 00:36「好」＝網站 v249。**提醒：改網站程式一律先經擁有者授權，再部署；不要自行修改後部署。**
 **已完成，不用再做**：v246＋v247＋v248 已上線（你的 hotfix8.md，HTML `878292cd…`）；你 10/30 16:12 自行部署的可靠性修補（SLOOS 發布窗、stepStatus／previousStepStatus、capturedAtBasis）Claude 已讀過並同步到本地，內容一致，v249 以它為基線。
 **最新巡檢紀錄停在 10/31 22:42（run f2a63289… 還在 stocks 階段）**，11/01、11/02 沒有任何紀錄。請先補記：10/31 晚間那次是否完成（completedAt、Gate N/N），以及 11/01、11/02 每天 06:30／22:30 排程是否有跑（平台 runId、網站 runId、狀態）；沒跑就寫 HTTP 與原因。
 
-1. **網站 v249（等擁有者授權後才部署；授權前不要套用）**：`handoff/patches/v249-credit-gate-20261102.patch`，SHA-256 `c938cf2a4a52161dd278c99e7bb67f2724644b3f3afc42e63f297b437b63f55f`，基線＝你 10/30 16:12 部署的版本（Claude tag gpt-reliability-20261030；只改後台與測試，`dist/index.html` 仍 `878292cd…`）。
+1. **網站 v249（已授權，部署一次，現行版留回滾）**：`handoff/patches/v249-credit-gate-20261102.patch`，SHA-256 `c938cf2a4a52161dd278c99e7bb67f2724644b3f3afc42e63f297b437b63f55f`，基線＝你 10/30 16:12 部署的版本（Claude tag gpt-reliability-20261030；只改後台與測試，`dist/index.html` 仍 `878292cd…`）。
    - ① 晚上直接抓的信用：`previousDate` 改成官方交易日中前一個交易日（你 10/30 發現標成當天 10/30、歷史前筆 10/29），另標 `previousDateBasis`；查不到就留空，不補。
    - ② 巡檢 Gate 審計單步逾時（你 10/31 晨間 8299 只存 4/5）：下一次輪詢對那一檔再試一次，成功就保存並標 `retried`；兩次都逾時照實記錄。
    - 測試：新增 `tests/v249-fixes.test.mjs` 2 項（在基線上全部失敗、套用後全過）；Claude 在乾淨基線重放無衝突、完整 `TZ=UTC npm test` exit 0、HTML 與後台檔都相同。
    - 讀回（部署後第一個晚間巡檢）：信用七欄 `previousDate` 是否為前一交易日；Gate N/N 與有無 `retried`。
 2. **SLOOS 換期（11/03 起的晨間巡檢核對）**：你的 SLOOS 發布窗到 11/03 03:00（台北）到期；Fed 11/02 14:00（美東）公布 10 月調查。請讀回 SLOOS 那一列的觀測日、數值、status、reason：應換成 2026-10-01 新一期且 ok；若變 stale，寫出原因，不要延長舊窗。
 
-**報告**：寫 `diagnostics/deploy-20261026/hotfix9.md`（12 行內）：上面「補記」；第 2 項；v249 授權並部署後再補第 1 項。
+**報告**：寫 `diagnostics/deploy-20261026/hotfix9.md`（12 行內）：上面「補記」；v249 版本與後台檔讀回；第 2 項；第 1 項的晚間讀回（部署後第一個 22:30 巡檢）。
 
 <details><summary>10/29 的工作區塊（已完成，備查）</summary>
 
