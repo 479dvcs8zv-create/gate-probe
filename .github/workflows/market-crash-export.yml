@@ -1,0 +1,33 @@
+name: market-crash-export
+# 網站 v252「股災本益比參考價」用的大盤股災日（擁有者 2026-11-03 07:20「好」）。
+# 證交所 MI_5MINS_HIST 官方加權指數收盤，免金鑰；只寫 exports/market-crash/。
+on:
+  workflow_dispatch:
+  schedule:
+    # 台北 14:45、21:40（週一至週五）；GitHub 排程常延後或略過，所以一天兩次。
+    - cron: '45 6 * * 1-5'
+    - cron: '40 13 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: market-crash-export
+  cancel-in-progress: false
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build export
+        run: python3 -I tools/build_market_crash_export.py exports/market-crash results/backtest-data/taiex-usd-40780768142/taiex_usd.csv
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exports/market-crash
+          git commit -qm "market crash export $(python3 -c "import json;print(json.load(open('exports/market-crash/latest.json'))['through'])")" || exit 0
+          for n in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1
