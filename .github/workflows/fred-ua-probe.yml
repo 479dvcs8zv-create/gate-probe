@@ -1,0 +1,24 @@
+name: fred-ua-probe
+# 排查：GitHub 上 FRED fredgraph.csv 逾時是否跟 User-Agent／Accept 有關。唯讀 GET，不寫入任何 repo。
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Fetch FRED with several headers
+        run: |
+          u='https://fred.stlouisfed.org/graph/fredgraph.csv?id=IORB&cosd=2026-09-20'
+          for round in 1 2; do
+            for ua in 'TaiwanStockMaster/1.0' 'TaiwanStockMaster-MacroRelay/1.0 (scheduled official-data snapshot)' 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/128 Safari/537.36' 'Python-urllib/3.12'; do
+              for accept in 'application/json,text/csv' 'text/csv'; do
+                r=$(curl -sS --max-time 40 -A "$ua" -H "Accept: $accept" -o body.csv -w '%{http_code} %{time_total}' "$u" 2>&1 || true)
+                echo "PROBE round=$round ua=[$ua] accept=[$accept] -> $r lines=$(wc -l < body.csv 2>/dev/null || echo 0)"
+                sleep 2
+              done
+            done
+          done
+          r=$(curl -sS --max-time 40 -A 'TaiwanStockMaster/1.0' -o page.html -w '%{http_code} %{time_total}' 'https://fred.stlouisfed.org/series/IORB' 2>&1 || true); echo "PROBE series-page -> $r"
