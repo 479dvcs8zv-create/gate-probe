@@ -54,17 +54,20 @@ def main(relay, probe, now_text=None):
 
     # 1. 巡檢紀錄（GPT 寫入；bot 的資料更新不算）
     gpt = last_commit(relay, "diagnostics", author_filter="wcr0936531039")
+    stale_record = False
     latest = (relay / "diagnostics" / "latest.md")
     heading = next((line.strip("# ").strip() for line in latest.read_text(encoding="utf-8").splitlines() if line.startswith("# 最新")), "") if latest.exists() else ""
     if gpt:
         age = hours(now, gpt[0])
         info.append(f"最後巡檢紀錄 {gpt[0].astimezone(TPE):%m/%d %H:%M}（{age:.0f} 小時前）：{heading[:60]}")
         if age > 14:
+            stale_record = True
             alerts.append(f"超過 {age:.0f} 小時沒有巡檢紀錄（最後一筆 {gpt[0].astimezone(TPE):%m/%d %H:%M}）")
     else:
         alerts.append("找不到任何巡檢紀錄")
+    # 紀錄已經過期時，舊紀錄裡的 Gate n/m 與「進行中」都併進上面那一則，不再各列一次（2026-11-03 擁有者回報看門狗重複／過時）。
     m = re.search(r"Gate\s*(?:審計|audit|快照)?\s*(\d)\s*/\s*(\d)", heading, re.I)
-    if m and int(m.group(1)) < int(m.group(2)):
+    if m and int(m.group(1)) < int(m.group(2)) and not stale_record:
         alerts.append(f"最近一次巡檢 Gate 只存 {m.group(1)}/{m.group(2)}")
     runs = sorted((relay / "diagnostics").glob("source-reliability-*/*-run.md"), key=lambda p: p.name)
     if runs:
@@ -72,7 +75,11 @@ def main(relay, probe, now_text=None):
         first = newest.read_text(encoding="utf-8").splitlines()[0] if newest.stat().st_size else ""
         touched = last_commit(relay, str(newest.relative_to(relay)))
         if "進行中" in first and touched and hours(now, touched[0]) > 2:
-            alerts.append(f"巡檢紀錄停在「進行中」：{newest.stem}（{hours(now, touched[0]):.0f} 小時沒有更新）")
+            text = f"巡檢紀錄停在「進行中」：{newest.stem}（{hours(now, touched[0]):.0f} 小時沒有更新）"
+            if stale_record:
+                alerts[next(i for i, a in enumerate(alerts) if a.startswith("超過"))] += f"；最後一筆停在「進行中」（{newest.stem}）"
+            else:
+                alerts.append(text)
 
     # 2. 中繼資料新鮮度
     for name, limit in FRESH_HOURS.items():
@@ -88,7 +95,8 @@ def main(relay, probe, now_text=None):
         if age > limit:
             alerts.append(f"{NAMES[name]}已 {age:.0f} 小時沒更新（GitHub 排程可能被略過）")
 
-    # 4. 官方資料收集套件（git clone 會帶下所有分支）
+    # 4. 官方資料收集套件。排程用 --depth clone 只會帶 main，所以這裡另外抓這個分支（抓不到＝分支還不存在）。
+    subprocess.run(["git", "-C", str(relay), "fetch", "-q", "--depth", "1", "origin", "+refs/heads/official-import:refs/remotes/origin/official-import"], capture_output=True, text=True)
     shown = subprocess.run(["git", "-C", str(relay), "show", "origin/official-import:manifest.json"], capture_output=True, text=True)
     if shown.returncode == 0:
         try:
