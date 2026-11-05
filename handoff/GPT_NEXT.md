@@ -1,25 +1,30 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-04 23:55 台北（Claude）
+更新：2026-11-05 22:10 台北（Claude）
 
-## ★ 本輪工作（11/04 23:55 更新；只讀這一段就夠，下方各節是細節備查）
-**已授權（不變）**：v249～v252、中繼 patch（擁有者 11/03 00:36／03:11／06:48／07:20）。**改網站程式一律先經擁有者授權，再部署；不要自行修改後部署。**
+## ★ 本輪工作（11/05 22:10 更新；只讀這一段就夠，下方各節是細節備查）
+**已授權**：v249～v252、中繼 patch（擁有者 11/03 00:36／03:11／06:48／07:20）；**新增 11/05 21:54「好」＝收集程式下載中斷重試（網站 v253＋中繼 patch 2）**。**改網站程式一律先經擁有者授權，再部署；不要自行修改後部署。**
 **Claude 已讀你的 hotfix9.md（11/04 23:30），核對結果**：
 - 中繼 patch：你推的 fe9b5a1 九個檔與 Claude 的版本逐一相同（含執行權限），✅。
 - 網站四包：HTML `de5a6d6b…` 完全吻合，✅。
 
+**新增（11/05）：收集程式下載中斷重試**——11/05 第一次 Official data collector（排程 05:55 被 GitHub 拖到 09:52 才跑）抓證交所上市公司名單時兩次下載中斷（`http.client.IncompleteRead`），名冊與 5 天行情都沒收到（其他 5 類正常，Claude 已用網站 v250 匯入驗證離線核對通過）。改法：下載中斷（IncompleteRead、連線被重設）最多試 4 次、間隔 5／10／20 秒；逾時、HTTP 錯誤照舊最多 2 次、不等待。
+- 中繼 patch 2：`handoff/patches/relay-collector-retry.patch`，SHA-256 `3767e66c69c1062e28002fa6638c9718ec7656333756c56938b0fd2edeb83011`，在中繼 main 上 `git am` → push（只改 vendored 收集程式、單元測試 +3、README／腳本註解的版本號）。Claude 在 GitHub 現在的 main（261bc2a）上重放，樹完全相同，47/47 通過。
+- 網站 v253：`handoff/patches/v253-collector-retry.patch`，SHA-256 `89d4971f4c192746178ffb78154968e83369084569570d6d8582e0bc1b5b4e50`，基線＝v252（Claude tag v252-patch-head），只改 `scripts/collect-official-data.py`（和中繼那份逐字相同）。Claude 在乾淨 v252 重放無衝突、完整 `TZ=UTC npm test` exit 0（11/05 08:00 後，v237 那項也過了）。HTML 仍 `de5a6d6b…`；Claude 版後台檔 `4113671d9830f9ee413ef70060e1aea3f02e0b632ee96e87201685d2ffcb9892`。
+- **部署鏈改為 v249→v250→v251→v252→v253，一樣只部署一次。**
+
 **你列的三個阻擋，處理方式：**
-1. **後台 SHA 不同（39c50457… vs 交接 ff8dfc94…）＝預期中，不是問題。** 後台檔會把 OPERATIONS.md 原文包進去；Claude 手上的 OPERATIONS.md 第 5 行把專案 ID 換成字面 `REDACTED_PROJECT_ID`（公開 repo 不能寫專案 ID），所以只差這一處。核對法（只在本機、做完還原，**不要把專案 ID 寫進任何公開檔或報告**）：把 OPERATIONS.md 裡的專案 ID 暫時換成 `REDACTED_PROJECT_ID` → `node build.mjs` → 後台檔 SHA 應為 `ff8dfc94f54fa4aa0673dbe6f7d0ee69fdfe0c019da3e2a3dd627258d704a0c3` → `git checkout OPERATIONS.md` → 再 `node build.mjs`，回到 `39c50457…`，**部署用這一份**。若換完仍不是 ff8dfc94，停下並把 `git diff` 的檔名（不含內容）寫進報告。
+1. **後台 SHA 不同（39c50457… vs 交接 ff8dfc94…）＝預期中，不是問題。** 後台檔會把 OPERATIONS.md 原文包進去；Claude 手上的 OPERATIONS.md 第 5 行把專案 ID 換成字面 `REDACTED_PROJECT_ID`（公開 repo 不能寫專案 ID），所以只差這一處。核對法（只在本機、做完還原，**不要把專案 ID 寫進任何公開檔或報告**）：把 OPERATIONS.md 裡的專案 ID 暫時換成 `REDACTED_PROJECT_ID` → `node build.mjs` → 後台檔 SHA 應為 `ff8dfc94f54fa4aa0673dbe6f7d0ee69fdfe0c019da3e2a3dd627258d704a0c3`（v252 為止；套完 v253 後應為 `4113671d9830f9ee413ef70060e1aea3f02e0b632ee96e87201685d2ffcb9892`）→ `git checkout OPERATIONS.md` → 再 `node build.mjs`，回到你自己的 SHA，**部署用這一份**。若換完對不上，停下並把 `git diff` 的檔名（不含內容）寫進報告。
 2. **v237-fixes.test.mjs:30 失敗＝測試本身的日期邊界，不是網站錯誤。** 網站把「觀測月 2026-08-01」算到當天 23:59:59，測試的預期值從 00:00 起算，兩者差 1 天；只有在台北 11/04 08:00～11/05 08:00 這 24 小時會不一致（網站 94.7 天＝仍有效，測試算 95.7 天＝預期過期）。**台北 11/05 08:00 以後重跑完整 `TZ=UTC npm test` 就會 exit 0**；不要改程式或測試。
-3. **official-import 清單還沒有＝正常，不用你手動觸發。** Official data collector 有排程（台北 05:55 每天、16:20／22:40／23:10 平日），第一次排程就會建立分支。Claude 會在 11/05 06:40 檢查；若到 08:00 還沒有，擁有者會在 GitHub 網頁按一次 Run workflow。**部署也不必等清單**：沒有清單時巡檢只記「讀不到中繼清單」並照舊自己抓，不會出錯。
+3. **official-import 清單：已經有了**（11/05 09:52 第一次排程建立；擁有者也可在 GitHub 網頁按 Run workflow）。**部署也不必等清單齊全**：缺的類別巡檢只記「這次沒收到」並照舊自己抓，不會出錯。
 
 **接下來（11/05 08:00 以後）：**
-- A. 重跑完整 `TZ=UTC npm test`（應 exit 0）＋上面第 1 點核對 → **部署一次**（v249～v252，現行 v248 留回滾），同時設 `RELAY_OFFICIAL_IMPORT_ENABLED=true`。
+- A. 先套中繼 patch 2 並 push；網站依序套 v249～v253 → 重跑完整 `TZ=UTC npm test`（應 exit 0）＋上面第 1 點核對 → **部署一次**（現行 v248 留回滾），同時設 `RELAY_OFFICIAL_IMPORT_ENABLED=true`。
 - B. **巡檢排程壞了，請查清楚並修好（這是最重要的一件）**：11/01～11/04 每天 06:30／22:30 的排程都沒有產生網站 run，11/04 22:30 那次 3 秒就 `no_update` 結束。請讀出排程任務的設定與最近幾次的輸出，寫出「為什麼沒呼叫 refresh-all」；修正排程指令讓它每次都 POST `/api/automation/refresh-all` 並輪詢到 `completedAt`（巡檢已於 10/26 授權啟用；只改排程指令，不改網站程式）。修好後手動觸發一次排程驗證。
 - C. 部署後第一次巡檢讀回（同上一版第 3 項）：`relayImport`／`officialImport`、信用 `previousDate`、Gate N/N 與 `retried`、5 檔 Gate 5／8「不採用」、5 檔部署前後評級、股災參考價那一行原文。
 - D. 之後例行同上一版第 4 項：晨晚各一次 `officialImport` 正常後，停止手動收集＋匯入；每天只觸發巡檢、有異常才詳細回報。
 
-**報告**：寫 `diagnostics/deploy-20261026/hotfix10.md`（12 行內）：第 1 點核對結果（只寫 SHA，不寫專案 ID）、完整測試結果、部署版本與 SHA、環境變數、B 的原因與修正、C 的讀回。
+**報告**：寫 `diagnostics/deploy-20261026/hotfix10.md`（12 行內）：中繼 patch 2 的 commit、第 1 點核對結果（只寫 SHA，不寫專案 ID）、完整測試結果、部署版本與 SHA、環境變數、B 的原因與修正、C 的讀回。
 
 <details><summary>11/03 07:35 版工作區塊（hotfix9 已交，備查）</summary>
 
