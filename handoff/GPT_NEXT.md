@@ -1,8 +1,23 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-05 22:10 台北（Claude）
+更新：2026-11-05 23:05 台北（Claude）
 
-## ★ 本輪工作（11/05 22:10 更新；只讀這一段就夠，下方各節是細節備查）
+## ★ 本輪工作（11/05 23:05 更新；只讀這一段就夠，下方各節是細節備查）
+**Claude 已核對 hotfix10（11/05 22:44）**：v249～v252 部署正確——HTML `de5a6d6b…` 相符、匿名化核對後台 `ff8dfc94…` 相符（證實差異只在 OPERATIONS.md 的專案 ID）、完整測試 exit 0、環境變數已設、`relayImport=ok`、五類 imported、`market=not_in_bundle`（09:52 那份清單本來就缺行情）、Gate 5／8 不採用、股災參考價五檔原文都正確。辛苦了。
+**改網站程式一律先經擁有者授權，再部署；不要自行修改後部署。** 下面 1、2 項要等擁有者在你的對話裡親口授權後才做。
+
+1. **中繼 patch 2＋網站 v253（擁有者 11/05 21:54 已在 Claude 對話說「好」；請等擁有者在你的對話裡再確認一次）**：`handoff/patches/relay-collector-retry.patch`（SHA-256 `3767e66c69c1062e28002fa6638c9718ec7656333756c56938b0fd2edeb83011`）在中繼 main `git am` → push；`handoff/patches/v253-collector-retry.patch`（SHA-256 `89d4971f4c192746178ffb78154968e83369084569570d6d8582e0bc1b5b4e50`）。Claude 11/05 22:04 已在 GitHub 上試跑 patch 2（不推送）：上市櫃 1990 檔 5 天行情（含 11/05）、名冊、總經、11/05 信用、CPI、產業來源、新聞全部收到，再用網站匯入驗證 7 類全過。
+2. **網站 v254（新，等擁有者授權）：你回報的「信用七列缺 previousDate」**——原因是 v250 以後信用七列改從 GitHub 收集套件匯入（`importedTaiwanStatistics` 優先），這條路的 `validateTaiwanStatistics` 沒有這幾個欄位；v249 只修了網站自己直接抓的那條路。v254 在匯入路補上 `capturedAt`、`capturedAtBasis='external_collector_capture'`、`captureDeferred=false`、`previousDate`（同一份官方成交日表裡早於信用日的最近一天；表裡沒有就留空、標 `unknown`）。`handoff/patches/v254-imported-credit.patch`，SHA-256 `9f5da93cb360a3cd78d72a29e35c6bfb1bd0d72be77801590885e6acdbabea98`，基線＝v253（Claude tag v253-patch-head）；新增 `tests/v254-imported-credit.test.mjs` 2 項（在 v253 上失敗、套用後全過）；Claude 在乾淨 v253 重放無衝突、完整 `TZ=UTC npm test` exit 0。
+   - v253＋v254 一起部署一次（現行 v249～v252 留回滾）。套完後 HTML 仍 `de5a6d6b…`；匿名化核對的後台應為 `99f2ce82f426493402e5bd6784f989e6f2396d022d9c9aa7113e1ef22abf5944`（只套 v253 時為 `4113671d…`）。
+   - 讀回：下一次信用匯入後，信用七列 `previousDate`＝前一交易日、`capturedAt` 有值、`captureDeferred=false`。
+3. **排程巡檢（最重要，不需改網站程式）**：今晨排程成功、22:30 平台 run 6 秒 failed、手動 22:41 成功。請比對失敗那次與手動那次：失敗時是否卡在「自動核准審查」或使用量限制（你這次推中繼 main 也是被自動核准審查擋下）。如果是，請在排程指令裡寫明「擁有者 2026-10-26 21:25 授權每日 06:30／22:30 自動巡檢：只做 POST `/api/automation/refresh-all` 與 GET status／history」，讓審查能認得授權；只改排程指令，不改時段與開關。寫出比對結果與修改內容。
+4. **已知、先觀察**：GitHub 的 Official data collector 排程很不準（11/05 05:55 拖到 09:52，16:20、22:40 都還沒跑）。清單超過 36 小時網站就不匯入、照舊自己抓；Claude 的看門狗會在 30 小時時提醒擁有者手動按 Run workflow。你不用處理。
+
+**報告**：寫 `diagnostics/deploy-20261026/hotfix11.md`（10 行內）：1、2 是否獲授權與部署結果（commit、SHA）、信用七列讀回、第 3 項比對與修改。
+
+<details><summary>11/04 23:55 版工作區塊（hotfix10 已交，備查）</summary>
+
+### 11/04 23:55 版（11/05 22:10 補 v253）
 **已授權**：v249～v252、中繼 patch（擁有者 11/03 00:36／03:11／06:48／07:20）；**新增 11/05 21:54「好」＝收集程式下載中斷重試（網站 v253＋中繼 patch 2）**。**改網站程式一律先經擁有者授權，再部署；不要自行修改後部署。**
 **Claude 已讀你的 hotfix9.md（11/04 23:30），核對結果**：
 - 中繼 patch：你推的 fe9b5a1 九個檔與 Claude 的版本逐一相同（含執行權限），✅。
@@ -25,6 +40,8 @@
 - D. 之後例行同上一版第 4 項：晨晚各一次 `officialImport` 正常後，停止手動收集＋匯入；每天只觸發巡檢、有異常才詳細回報。
 
 **報告**：寫 `diagnostics/deploy-20261026/hotfix10.md`（12 行內）：中繼 patch 2 的 commit、第 1 點核對結果（只寫 SHA，不寫專案 ID）、完整測試結果、部署版本與 SHA、環境變數、B 的原因與修正、C 的讀回。
+
+</details>
 
 <details><summary>11/03 07:35 版工作區塊（hotfix9 已交，備查）</summary>
 

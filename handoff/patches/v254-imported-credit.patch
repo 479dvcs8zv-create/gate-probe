@@ -1,0 +1,69 @@
+diff --git a/package.json b/package.json
+index f60d032..b84ec86 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v254-imported-credit.test.mjs b/tests/v254-imported-credit.test.mjs
+new file mode 100644
+index 0000000..15d29a5
+--- /dev/null
++++ b/tests/v254-imported-credit.test.mjs
+@@ -0,0 +1,34 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// v254（GPT 11/05 hotfix10 讀回）：自動匯入的信用七列（巡檢從 GitHub 收集套件匯入時走這條路）缺 previousDate／capturedAt／captureDeferred，
++// v249 只修了網站自己晚上直接抓的那條路。補上同一套欄位；前一筆只取官方成交日表裡早於信用日的最近一天，查不到就留空。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const api=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {validateTaiwanStatistics};\n// v254').toString('base64'));
++const originalNow=Date.now;
++const now='2026-10-10T03:00:00Z';Date.now=()=>Date.parse(now);
++const year=2026,calendar={stat:'ok',fields:['日期','名稱','說明'],queryYear:year,data:[...Array.from({length:10},(_,i)=>[`2026-01-${String(i+1).padStart(2,'0')}`,'官方表項','']),['2026-10-09','國慶日','補假'],['2026-10-10','國慶日','放假']]};
++const date='2026-10-08',dateKey='20261008',base='https://www.twse.com.tw/rwd/zh/marginTrading/';
++const statistics={date,capturedAt:now,calendar,tradingDates:[{Date:'1151008',TradeValue:'924509097873'}],sourceUrls:{calendar:'https://www.twse.com.tw/holidaySchedule/holidaySchedule?response=json',tradingDates:'https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK',margin:base+'MI_MARGN?response=json&date='+dateKey+'&selectType=MS',marginTrend:base+'MI_MARGN_TREND?response=json&date='+dateKey+'&days=30',creditSummary:base+'BFIJ3U?response=json&date='+dateKey},margin:{stat:'OK',date:dateKey,tables:[{fields:['項目','買進','賣出','現金(券)償還','前日餘額','今日餘額'],data:[['融資(交易單位)',0,0,0,'9,358,244','9,406,720'],['融券(交易單位)',0,0,0,'215,104','211,949'],['融資金額(仟元)',0,0,0,'640,000,774','646,405,767']]}]},marginTrend:{stat:'OK',date:dateKey,data:[{date:dateKey,marginAmt:646405767,marginShr:9406720,shortShr:211949,marketValue:1613576.55}]},creditSummary:{stat:'OK',date:dateKey,crdAmt:136915226630}};
++const credit=['TWSE_MARGIN_BALANCE_NTD','TWSE_MARGIN_CHANGE_NTD','TWSE_MARGIN_BALANCE_UNITS','TWSE_SHORT_BALANCE','TWSE_SHORT_CHANGE','TWSE_MARGIN_MARKET_CAP_RATIO','TWSE_CREDIT_TRADE_VALUE'];
++
++test('匯入的信用列：previousDate＝成交日表裡前一個交易日，並標 capturedAt 與未延後',()=>{
++  try{
++    const rows=api.validateTaiwanStatistics({...statistics,tradingDates:[{Date:'1151006',TradeValue:'900000000000'},{Date:'1151007',TradeValue:'910000000000'},{Date:'1151008',TradeValue:'924509097873'}]});
++    for(const id of credit){
++      const row=rows.find(r=>r.id===id);
++      assert.equal(row.date,'2026-10-08');assert.equal(row.previousDate,'2026-10-07',id);assert.equal(row.previousDateBasis,'official_trading_calendar');
++      assert.equal(row.capturedAt,now);assert.equal(row.capturedAtBasis,'external_collector_capture');assert.equal(row.captureDeferred,false);
++      assert.notEqual(row.previousDate,row.date);
++    }
++  }finally{Date.now=originalNow;}
++});
++
++test('成交日表只有當天（例如月初第一個交易日）：previousDate 留空、標 unknown，不自己推算',()=>{
++  Date.now=()=>Date.parse(now);
++  try{
++    const row=api.validateTaiwanStatistics(statistics).find(r=>r.id==='TWSE_MARGIN_BALANCE_NTD');
++    assert.equal(row.previousDate,null);assert.equal(row.previousDateBasis,'unknown');assert.equal(row.capturedAt,now);
++  }finally{Date.now=originalNow;}
++});
+diff --git a/worker/observation-freshness.js b/worker/observation-freshness.js
+index 2d63420..6b28166 100644
+--- a/worker/observation-freshness.js
++++ b/worker/observation-freshness.js
+@@ -155,7 +155,10 @@ function validateTaiwanStatistics(item,now=Date.now()) {
+   const matched=trend.data?.find(row=>row.date===dateKey);
+   if(!units||!shorts||!amount||![units[3],units[4],shorts[3],shorts[4],amount[3],amount[4],matched?.marginAmt,matched?.marketValue,summary.crdAmt].every(Number.isFinite)||amount[4]<=0||matched.marketValue<=0||summary.crdAmt<=0||Math.abs(amount[4]-matched.marginAmt)>1||units[4]!==matched.marginShr||shorts[4]!==matched.shortShr)throw Error('statistics_value_mismatch');
+   const verification={source:sources.tradingDates,calendarSource:sources.calendar,year:item.calendar.queryYear,calendar:item.calendar,fetchedAt:item.capturedAt,latestSession:item.date,expectedSession:calendarDate,basis:'official_actual_sessions',calendarDiscrepancy:calendarDate!==item.date,tradingDates:sessions.map(row=>row.date)};
+-  const make=(id,name,unit,value,delta,source,detail)=>({id,name,unit,group:'台股市場',date:item.date,value,delta,status:'ok',is_stale:false,snapshot:true,provider:'臺灣證券交易所｜官方統計外部擷取備援',source,fetchedAt:item.capturedAt,verifiedAt:item.capturedAt,sessionVerification:verification,sourceValidation:{state:'passed',method:'官方交易日／休市表核對；MI_MARGN 與 MI_MARGN_TREND 同日餘額交叉驗證'},detail:`${detail}；觀測 ${item.date}，核對 ${item.capturedAt}。`});
++  // v254（GPT 11/05 hotfix10 讀回：自動匯入的信用七列缺 previousDate／capturedAt／captureDeferred）：和網站直接抓的那條路同一套欄位。
++  // 前一筆＝這份官方成交日表裡早於信用日的最近一天；表裡沒有（例如月初第一個交易日）就留空、標 unknown，不自己推算。
++  const previousSession=sessions.map(row=>row.date).filter(date=>date<item.date).at(-1)||null;
++  const make=(id,name,unit,value,delta,source,detail)=>({id,name,unit,group:'台股市場',date:item.date,value,delta,status:'ok',is_stale:false,snapshot:true,provider:'臺灣證券交易所｜官方統計外部擷取備援',source,fetchedAt:item.capturedAt,verifiedAt:item.capturedAt,capturedAt:item.capturedAt,capturedAtBasis:'external_collector_capture',captureDeferred:false,previousDate:previousSession,previousDateBasis:previousSession?'official_trading_calendar':'unknown',sessionVerification:verification,sourceValidation:{state:'passed',method:'官方交易日／休市表核對；MI_MARGN 與 MI_MARGN_TREND 同日餘額交叉驗證'},detail:`${detail}；觀測 ${item.date}，核對 ${item.capturedAt}。`});
+   return [
+     make('TWSE_TOTAL_TRADE_VALUE','集中市場成交值','億元',sessions.at(-1).value/1e8,null,sources.tradingDates,'FMTQIK TradeValue（元）÷ 1 億'),
+     make('TWSE_MARGIN_BALANCE_NTD','融資餘額','億元',amount[4]/1e5,(amount[4]-amount[3])/1e5,sources.margin,'融資金額（仟元）÷ 10 萬'),
