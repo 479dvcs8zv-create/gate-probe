@@ -74,7 +74,9 @@ def main(relay, probe, now_text=None):
         newest = runs[-1]
         first = newest.read_text(encoding="utf-8").splitlines()[0] if newest.stat().st_size else ""
         touched = last_commit(relay, str(newest.relative_to(relay)))
-        if "進行中" in first and touched and hours(now, touched[0]) > 2:
+        # 之後 GPT 已有更新的巡檢紀錄＝這份舊紀錄只是沒收尾，不再報（2026-11-06 擁有者回報：10/31 那份標題沒改，每次都被報）。
+        superseded = gpt and touched and gpt[0] > touched[0] + dt.timedelta(hours=1)
+        if "進行中" in first and touched and hours(now, touched[0]) > 2 and not superseded:
             text = f"巡檢紀錄停在「進行中」：{newest.stem}（{hours(now, touched[0]):.0f} 小時沒有更新）"
             if stale_record:
                 alerts[next(i for i, a in enumerate(alerts) if a.startswith("超過"))] += f"；最後一筆停在「進行中」（{newest.stem}）"
