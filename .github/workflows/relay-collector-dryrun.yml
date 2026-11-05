@@ -38,7 +38,8 @@ jobs:
           node-version: '22'
       - name: Apply relay patch
         working-directory: relay
-        run: case "${{ inputs.patch }}" in *[!A-Za-z0-9._-]*|"") echo "bad patch name"; exit 1;; esac
+        run: |
+          case "${{ inputs.patch }}" in *[!A-Za-z0-9._-]*|"") echo "bad patch name"; exit 1;; esac
           git -c user.name=dryrun -c user.email=dryrun@example.invalid am "$GITHUB_WORKSPACE/probe/handoff/patches/${{ inputs.patch }}"
       - name: Unit tests
         working-directory: relay
