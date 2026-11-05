@@ -1,0 +1,85 @@
+{
+ "schema_version": 1,
+ "generatedAt": "2026-11-05T14:04:03Z",
+ "window": "night",
+ "collector": {
+  "repo": "479dvcs8zv-create/gate-probe",
+  "commit": "92e09aa94d167664c4e720115577f451877794fa",
+  "run": "42041171281",
+  "siteCollector": "v253"
+ },
+ "parts": [
+  {
+   "name": "universe.json",
+   "kind": "universe",
+   "sha256": "ba41ff123891a2336adab55e5332ef6c9d0f567206e43f317a2a5599e26b441c",
+   "bytes": 586326
+  },
+  {
+   "name": "series.json",
+   "kind": "series",
+   "sha256": "7cba06f6bd6a6bd80b95babbf6ddc89ad148226e43117a16bae619e22d16acb6",
+   "bytes": 20612
+  },
+  {
+   "name": "statistics.json",
+   "kind": "statistics",
+   "sha256": "26f22cc25047ee7a193d1c19949192462907a6921d955e8cff5cb04cf2aec041",
+   "bytes": 10281
+  },
+  {
+   "name": "cpi.json",
+   "kind": "cpi",
+   "sha256": "4a0dea533bd0467c56175440a711a3c6c2249d33cc9733a2665647fabaaf554c",
+   "bytes": 2556
+  },
+  {
+   "name": "sources.json",
+   "kind": "sources",
+   "sha256": "3a556fbb929fb5f105825d3b44441ef60a2a120f6ad2d11cf47d78f55238f8b0",
+   "bytes": 570955
+  },
+  {
+   "name": "news.json",
+   "kind": "news",
+   "sha256": "72af0f6f34976f7c1f6584465724a1634c699eff24556c41fd0e7dc78dfc0e20",
+   "bytes": 2154
+  },
+  {
+   "name": "2026-10-30.json",
+   "kind": "market",
+   "sha256": "886697376db0417b834ced034b4503b12f45fb2e5d81b106afa9e77671b3e07e",
+   "bytes": 530620
+  },
+  {
+   "name": "2026-11-02.json",
+   "kind": "market",
+   "sha256": "33fcdc1bf983354694ee70a233166ff0774d4baa8c5f2d91b24d46508f97a6d5",
+   "bytes": 529090
+  },
+  {
+   "name": "2026-11-03.json",
+   "kind": "market",
+   "sha256": "f8067a6871cd4aaef6b2ebaf92deaab46d56f7aa21867d34ba494d709eda9d16",
+   "bytes": 531007
+  },
+  {
+   "name": "2026-11-04.json",
+   "kind": "market",
+   "sha256": "1bf93f740f3a98cb68bc80dda671d9fb5271884b5e2d078c0d6121c9a1c4f810",
+   "bytes": 530090
+  },
+  {
+   "name": "2026-11-05.json",
+   "kind": "market",
+   "sha256": "9c6a2eebd15c307763c88545ea0e4e368591a40ab4634b2ef18d15834cba6081",
+   "bytes": 530628
+  }
+ ],
+ "errors": [
+  {
+   "source": "BLS-core-CPI",
+   "error": "BLS Current: HTTP Error 403: Forbidden; official API fallback used"
+  }
+ ]
+}
