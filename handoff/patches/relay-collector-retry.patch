@@ -1,0 +1,178 @@
+From ab6637e19745a6fcc8b50922d19be5de510e4025 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 5 Nov 2026 22:00:56 +0800
+Subject: [PATCH] Official collector: retry broken downloads up to 4 times
+ (site v253)
+
+Owner 2026-11-05 21:54 approved. The 11/05 morning run lost the TWSE
+issuer roster to two truncated downloads (http.client.IncompleteRead), so
+the roster and market snapshots were skipped. The vendored collector now
+retries a broken transfer (IncompleteRead or connection reset) up to four
+times with 5/10/20 s waits; timeouts and HTTP errors keep two immediate
+attempts so a blocked source does not stall the run. FRED still alternates
+Python's default and the named User-Agent. Unit tests cover all three
+paths.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ README.md                                     |  2 +-
+ scripts/publish_official_import.py            |  2 +-
+ scripts/run_official_collector.sh             |  2 +-
+ tests/test_official_import.py                 | 58 +++++++++++++++++++
+ .../scripts/collect-official-data.py          | 21 +++++--
+ 5 files changed, 77 insertions(+), 8 deletions(-)
+
+diff --git a/README.md b/README.md
+index 171fe3a..d3219dc 100644
+--- a/README.md
++++ b/README.md
+@@ -73,7 +73,7 @@ python -m py_compile scripts/sync_macro.py
+ 
+ ## 官方資料收集套件（official-import 分支，2026-11-03）
+ 
+-- `.github/workflows/official_collector.yml` 在台北約 05:55（每天）、16:20、22:40、23:10（週一至週五）跑 `vendor/site-collector/` 裡與網站 v250 相同的官方收集程式（TWSE／TPEx 行情與名冊、FRED 總經序列、證交所信用統計、BLS／FRED 核心 CPI、產業來源、官方新聞）。台北 12:00～20:59 略過信用統計（當晚才公布）。
++- `.github/workflows/official_collector.yml` 在台北約 05:55（每天）、16:20、22:40、23:10（週一至週五）跑 `vendor/site-collector/` 裡與網站 v253 相同的官方收集程式（TWSE／TPEx 行情與名冊、FRED 總經序列、證交所信用統計、BLS／FRED 核心 CPI、產業來源、官方新聞）。台北 12:00～20:59 略過信用統計（當晚才公布）。
+ - `scripts/publish_official_import.py` 只把網站認得的部分檔與 `manifest.json`（每個檔的類別、大小、SHA-256、收集失敗項目）強制推到 `official-import` 分支，只保留最新一份；raw 原始檔、狀態檔不發布。格式不符、超過 3.9MB、只有失敗紀錄的 CPI／新聞都不發布，原因寫進清單。
+ - 網站在環境變數 `RELAY_OFFICIAL_IMPORT_ENABLED=true` 時，巡檢開頭讀這個分支、核對雜湊後匯入；這裡不需要任何金鑰、不連網站、不部署。
+ - `vendor/site-collector/` 要與網站原始碼同步：網站改了收集程式，同一份檔案要一起更新（`tests/test_official_import.py` 檢查檔案存在且不含任何憑證字樣）。
+diff --git a/scripts/publish_official_import.py b/scripts/publish_official_import.py
+index 4466003..7903af1 100644
+--- a/scripts/publish_official_import.py
++++ b/scripts/publish_official_import.py
+@@ -132,7 +132,7 @@ def main(argv=None):
+     ap.add_argument("--keep-sessions", type=int, default=5)
+     ap.add_argument("--exit", action="append", default=[], help="名稱=結束碼，例如 official=0")
+     args = ap.parse_args(argv)
+-    collector = {k: v for k, v in {"repo": os.environ.get("GITHUB_REPOSITORY"), "commit": os.environ.get("GITHUB_SHA"), "run": os.environ.get("GITHUB_RUN_ID"), "siteCollector": "v250"}.items() if v}
++    collector = {k: v for k, v in {"repo": os.environ.get("GITHUB_REPOSITORY"), "commit": os.environ.get("GITHUB_SHA"), "run": os.environ.get("GITHUB_RUN_ID"), "siteCollector": "v253"}.items() if v}
+     exits = dict(item.split("=", 1) for item in args.exit if "=" in item)
+     manifest = build(args.src, args.out, args.window, args.keep_sessions, collector=collector, exits=exits)
+     print(json.dumps({"parts": [(p["name"], p["bytes"]) for p in manifest["parts"]], "errors": manifest["errors"]}, ensure_ascii=False))
+diff --git a/scripts/run_official_collector.sh b/scripts/run_official_collector.sh
+index ac1270b..8386a44 100755
+--- a/scripts/run_official_collector.sh
++++ b/scripts/run_official_collector.sh
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env bash
+-# 在 GitHub 上跑網站的官方資料收集程式（vendor/site-collector，與網站 v250 相同），整理成匯入套件。
++# 在 GitHub 上跑網站的官方資料收集程式（vendor/site-collector，與網站 v253 相同），整理成匯入套件。
+ # 用法：scripts/run_official_collector.sh <工作資料夾> [交易日數，預設 5] [信用統計 auto|on|off，預設 auto]
+ # auto：台北 12:00～20:59 略過信用統計（當晚才公布），其他時間照收。
+ # 不需要任何金鑰、不連網站；推送由工作流程另外做。結束碼＝套件是否有內容（publish_official_import.py）。
+diff --git a/tests/test_official_import.py b/tests/test_official_import.py
+index 1dd6d24..91ce177 100644
+--- a/tests/test_official_import.py
++++ b/tests/test_official_import.py
+@@ -106,6 +106,64 @@ class BuildBundleTests(unittest.TestCase):
+         self.assertEqual(len(manifest["errors"]), 2)
+ 
+ 
++class CollectorRetryTests(unittest.TestCase):
++    """擁有者 2026-11-05 21:54「好」：下載中斷（IncompleteRead、連線被重設）最多 4 次、間隔 5／10／20 秒；逾時與 HTTP 錯誤照舊 2 次、不等待。"""
++
++    def setUp(self):
++        import http.client
++        import types
++        import urllib.error
++        import urllib.parse
++        import urllib.request
++        src = (Path(__file__).resolve().parents[1] / "vendor" / "site-collector" / "scripts" / "collect-official-data.py").read_text(encoding="utf-8")
++        self.code = src[src.index("RETRY_WAITS = "):src.index("def save(")]
++        self.mods = types.SimpleNamespace(http=http, urllib=urllib, types=types)
++        self.inc = http.client.IncompleteRead(b"x" * 10, 5)
++
++    def run_fetch(self, outcomes, url="https://openapi.twse.com.tw/v1/opendata/t187ap03_L"):
++        sleeps, agents, it = [], [], iter(outcomes)
++
++        class Body:
++            def __init__(self, data):
++                self.data = data
++
++            def read(self):
++                return self.data
++
++        def fake_open(request, timeout):
++            agents.append(request.get_header("User-agent"))
++            item = next(it)
++            if isinstance(item, BaseException):
++                raise item
++            return Body(item)
++
++        urllib = self.mods.types.SimpleNamespace(parse=self.mods.urllib.parse, request=self.mods.types.SimpleNamespace(Request=self.mods.urllib.request.Request, urlopen=fake_open))
++        ns = {"urllib": urllib, "http": self.mods.http, "time": self.mods.types.SimpleNamespace(sleep=sleeps.append)}
++        exec(self.code, ns)
++        try:
++            return ns["fetch"](url), sleeps, agents
++        except Exception as exc:  # noqa: BLE001
++            return type(exc).__name__, sleeps, agents
++
++    def test_broken_download_is_retried_with_waits(self):
++        self.assertEqual(self.run_fetch([self.inc, self.inc, b"ok"])[:2], ("ok", [5, 10]))
++        result, sleeps, agents = self.run_fetch([self.inc] * 4)
++        self.assertEqual((result, sleeps, len(agents)), ("IncompleteRead", [5, 10, 20], 4))
++        self.assertEqual(self.run_fetch([self.mods.urllib.error.URLError(ConnectionResetError()), b"ok"])[:2], ("ok", [5]))
++
++    def test_timeouts_and_http_errors_keep_two_quick_attempts(self):
++        result, sleeps, agents = self.run_fetch([TimeoutError(), TimeoutError(), b"never"])
++        self.assertEqual((result, sleeps, len(agents)), ("TimeoutError", [], 2))
++        result, sleeps, agents = self.run_fetch([self.mods.urllib.error.HTTPError("u", 404, "nf", {}, None)] * 2 + [b"never"])
++        self.assertEqual((result, sleeps, len(agents)), ("HTTPError", [], 2))
++
++    def test_fred_alternates_default_and_named_user_agent(self):
++        result, _, agents = self.run_fetch([self.inc, self.inc, self.inc, b"ok"], "https://fred.stlouisfed.org/graph/fredgraph.csv?id=IORB")
++        self.assertEqual(result, "ok")
++        self.assertEqual(agents, [None, "TaiwanStockMaster/1.0", None, "TaiwanStockMaster/1.0"])
++        self.assertEqual(self.run_fetch([b"ok"])[2], ["TaiwanStockMaster/1.0"], "other sites keep the named agent")
++
++
+ class VendoredCollectorTests(unittest.TestCase):
+     def test_vendored_site_collector_files_exist_and_carry_no_credentials(self):
+         root = Path(__file__).resolve().parents[1] / "vendor" / "site-collector"
+diff --git a/vendor/site-collector/scripts/collect-official-data.py b/vendor/site-collector/scripts/collect-official-data.py
+index 9f9490b..395c8f7 100644
+--- a/vendor/site-collector/scripts/collect-official-data.py
++++ b/vendor/site-collector/scripts/collect-official-data.py
+@@ -1,5 +1,5 @@
+ """Fetch dated official observations and quotes. Credentials are never needed here."""
+-import argparse, concurrent.futures, csv, datetime as dt, io, json, pathlib, re, urllib.parse, urllib.request, html, time
++import argparse, concurrent.futures, csv, datetime as dt, io, json, pathlib, re, urllib.parse, urllib.request, html, time, http.client
+ 
+ p = argparse.ArgumentParser()
+ p.add_argument('--output', required=True)
+@@ -18,17 +18,28 @@ rawdir = root / 'raw'; rawdir.mkdir(exist_ok=True)
+ now = lambda: dt.datetime.now(dt.timezone.utc).isoformat()
+ # 網站匯入用 UTC 日期檢查「不得晚於今天」；收集程式也用 UTC，否則台北凌晨抓到 FRED 提前公布的下一日觀測（如 IORB）會整筆被拒。
+ utc_today = lambda: dt.datetime.now(dt.timezone.utc).date()
++RETRY_WAITS = (5, 10, 20)
++def broken_transfer(exc):
++    # 下載到一半被切斷（2026-11-05 GitHub 早上抓證交所上市公司名單：IncompleteRead，兩次都斷）或連線被重設。
++    reason = getattr(exc, 'reason', None)
++    return isinstance(exc, (http.client.IncompleteRead, ConnectionResetError)) or isinstance(reason, ConnectionResetError)
+ def fetch(url):
+     # FRED 在 GitHub 雲端主機上擋自訂 User-Agent（2026-11-03 GitHub 實測：只有 Python 預設字串回 200，其他逾時或連線中斷）；
+-    # 對 FRED 第一次用 Python 預設字串、第二次用原本字串；其他網站不變。
++    # 對 FRED 輪流用 Python 預設字串（先）與原本字串；其他網站不變。
++    # 擁有者 2026-11-05 21:54「好」：下載中斷最多試 4 次、間隔 5／10／20 秒；逾時、HTTP 錯誤等照舊最多 2 次、不等待，來源封鎖時不拖長。
+     error = None
+     fred = urllib.parse.urlparse(url).hostname == 'fred.stlouisfed.org'
+-    for attempt in range(2):
++    for attempt in range(4):
+         headers = {'Accept':'application/json,text/csv'}
+-        if not (fred and attempt == 0): headers['User-Agent'] = 'TaiwanStockMaster/1.0'
++        if not (fred and attempt % 2 == 0): headers['User-Agent'] = 'TaiwanStockMaster/1.0'
+         try:
+             return urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=25).read().decode('utf-8-sig')
+-        except Exception as exc: error = exc
++        except Exception as exc:
++            error = exc
++            if broken_transfer(exc):
++                if attempt < 3: time.sleep(RETRY_WAITS[attempt])
++            elif attempt >= 1:
++                break
+     raise error
+ def save(name, value): (root / name).write_text(json.dumps(value, ensure_ascii=False))
+ def number(value):
+-- 
+2.43.0
+

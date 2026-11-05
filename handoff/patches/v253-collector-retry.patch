@@ -1,0 +1,44 @@
+diff --git a/scripts/collect-official-data.py b/scripts/collect-official-data.py
+index 9f9490b..395c8f7 100644
+--- a/scripts/collect-official-data.py
++++ b/scripts/collect-official-data.py
+@@ -1,5 +1,5 @@
+ """Fetch dated official observations and quotes. Credentials are never needed here."""
+-import argparse, concurrent.futures, csv, datetime as dt, io, json, pathlib, re, urllib.parse, urllib.request, html, time
++import argparse, concurrent.futures, csv, datetime as dt, io, json, pathlib, re, urllib.parse, urllib.request, html, time, http.client
+ 
+ p = argparse.ArgumentParser()
+ p.add_argument('--output', required=True)
+@@ -18,17 +18,28 @@ rawdir = root / 'raw'; rawdir.mkdir(exist_ok=True)
+ now = lambda: dt.datetime.now(dt.timezone.utc).isoformat()
+ # 網站匯入用 UTC 日期檢查「不得晚於今天」；收集程式也用 UTC，否則台北凌晨抓到 FRED 提前公布的下一日觀測（如 IORB）會整筆被拒。
+ utc_today = lambda: dt.datetime.now(dt.timezone.utc).date()
++RETRY_WAITS = (5, 10, 20)
++def broken_transfer(exc):
++    # 下載到一半被切斷（2026-11-05 GitHub 早上抓證交所上市公司名單：IncompleteRead，兩次都斷）或連線被重設。
++    reason = getattr(exc, 'reason', None)
++    return isinstance(exc, (http.client.IncompleteRead, ConnectionResetError)) or isinstance(reason, ConnectionResetError)
+ def fetch(url):
+     # FRED 在 GitHub 雲端主機上擋自訂 User-Agent（2026-11-03 GitHub 實測：只有 Python 預設字串回 200，其他逾時或連線中斷）；
+-    # 對 FRED 第一次用 Python 預設字串、第二次用原本字串；其他網站不變。
++    # 對 FRED 輪流用 Python 預設字串（先）與原本字串；其他網站不變。
++    # 擁有者 2026-11-05 21:54「好」：下載中斷最多試 4 次、間隔 5／10／20 秒；逾時、HTTP 錯誤等照舊最多 2 次、不等待，來源封鎖時不拖長。
+     error = None
+     fred = urllib.parse.urlparse(url).hostname == 'fred.stlouisfed.org'
+-    for attempt in range(2):
++    for attempt in range(4):
+         headers = {'Accept':'application/json,text/csv'}
+-        if not (fred and attempt == 0): headers['User-Agent'] = 'TaiwanStockMaster/1.0'
++        if not (fred and attempt % 2 == 0): headers['User-Agent'] = 'TaiwanStockMaster/1.0'
+         try:
+             return urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=25).read().decode('utf-8-sig')
+-        except Exception as exc: error = exc
++        except Exception as exc:
++            error = exc
++            if broken_transfer(exc):
++                if attempt < 3: time.sleep(RETRY_WAITS[attempt])
++            elif attempt >= 1:
++                break
+     raise error
+ def save(name, value): (root / name).write_text(json.dumps(value, ensure_ascii=False))
+ def number(value):

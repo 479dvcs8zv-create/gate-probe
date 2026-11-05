@@ -8,6 +8,9 @@ on:
         default: '5'
       statistics:
         default: 'auto'
+      patch:
+        description: 'handoff/patches 裡要套到中繼 main 上試跑的 patch 檔名'
+        default: 'relay-collector-retry.patch'
       keep:
         description: 'true = 把套件（官方公開資料）存進 gate-probe results/official-import-dryrun/ 供 Claude 用網站驗證程式離線核對'
         default: 'false'
@@ -35,7 +38,8 @@ jobs:
           node-version: '22'
       - name: Apply relay patch
         working-directory: relay
-        run: git -c user.name=dryrun -c user.email=dryrun@example.invalid am "$GITHUB_WORKSPACE/probe/handoff/patches/relay-official-collector.patch"
+        run: case "${{ inputs.patch }}" in *[!A-Za-z0-9._-]*|"") echo "bad patch name"; exit 1;; esac
+          git -c user.name=dryrun -c user.email=dryrun@example.invalid am "$GITHUB_WORKSPACE/probe/handoff/patches/${{ inputs.patch }}"
       - name: Unit tests
         working-directory: relay
         run: python -m unittest discover -s tests -v
