@@ -1,0 +1,29 @@
+HTTP/2 307 
+date: Fri, 06 Nov 2026 09:28:36 GMT
+content-type: text/html; charset=UTF-8
+location: https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv
+strict-transport-security: max-age=15552000; includeSubDomains; preload
+set-cookie: __cf_bm=Hca7aqaPUQml1CITSV3HXKpL8q9T2EyRlqkkPWtWPos-1793957316.8104727-1.0.1.1-B2PXJATsxRK2uKiVH_X5Zmbo8HFP6Uf.4AR6NXsDB8VknIPU0AomYHBChQEgCwZkO_71Pjr6Wcin9WlagotnFOELz.1hldT.oKmyNtwaIsd7wcgDkoFlehvshqBD3js_; HttpOnly; SameSite=None; Secure; Path=/; Domain=cboe.com; Expires=Fri, 06 Nov 2026 09:58:36 GMT
+server: cloudflare
+cf-ray: a56311ae0bdc15b4-SJC
+
+HTTP/2 200 
+date: Fri, 06 Nov 2026 09:28:36 GMT
+content-type: text/csv
+server: cloudflare
+last-modified: Fri, 06 Nov 2026 02:10:56 GMT
+etag: W/"b32cee997a931213e84f7ed72174c652"
+x-amz-server-side-encryption: AES256
+cache-control: max-age=60, s-maxage=900, stale-while-revalidate=900
+strict-transport-security: max-age=15552000; includeSubDomains; preload
+vary: Accept-Encoding
+vary: Origin
+x-cache: Hit from cloudfront
+via: 1.1 ac1b0b590fa34d8efd3e06ea595821ac.cloudfront.net (CloudFront)
+x-amz-cf-pop: LAX54-P4
+x-amz-cf-id: vyLHRjmo8IsLSD49XI2rr2rcB4Nag68rZviDB6zK-d-oL8D0WFT9tQ==
+set-cookie: __cf_bm=FT0NKhT1HmYdSoosAsBPR0LV86h.FhWRg3sO8Br4F28-1793957316.8655488-1.0.1.1-JOC3o9iaT0rl2HOfC1ySce5ub5vv3szFPQhbuo0aCwfYrL_nkxS_NSezyxTSU8Vx0whRronxVJM2Gdnqw356fhmrPd6dAaEpOfBJkOVBkkNyuTpz4IFB2pH5xCY.PJE6; HttpOnly; SameSite=None; Secure; Path=/; Domain=cboe.com; Expires=Fri, 06 Nov 2026 09:58:36 GMT
+age: 816
+cf-cache-status: HIT
+cf-ray: a56311ae6b379447-SJC
+

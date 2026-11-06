@@ -1,0 +1,2 @@
+{"n":1,"url":"https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv","started_at":"2026-11-06T09:28:36Z","http_status":"200","ttfb_s":"0.147915","total_s":"0.152939","ua":"none","sha256":"89d2c4f6015903fa1c86f0ace7d37393d2eb9fd037183688eb35bdeb25b2f0b7","bytes":474553}
+{"n":2,"url":"https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=2026-10-01","started_at":"2026-11-06T09:28:39Z","http_status":"200","ttfb_s":"0.318095","total_s":"0.318312","ua":"none","sha256":"486f9828c65b7012aab6e6bc1bdca1d4a600b031ddabcd6d8de72ded2cbaae68","bytes":449}
