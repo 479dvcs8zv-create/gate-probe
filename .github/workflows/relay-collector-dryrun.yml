@@ -51,7 +51,7 @@ jobs:
         if: always()
         run: |
           m="$RUNNER_TEMP/official/bundle/manifest.json"
-          python -c "import json,sys;m=json.load(open(sys.argv[1]));print('BUNDLE',m['generatedAt'],m['window']);[print('PART',p['kind'],p['name'],p['bytes']) for p in m['parts']];print('ERRORS',len(m['errors']));[print('ERR',e['source'],'|',e['error'][:300]) for e in m['errors']]" "$m"
+          python -c "import json,sys;m=json.load(open(sys.argv[1]));print('BUNDLE',m['generatedAt'],m['window']);print('CARRIED',m.get('carried'),'|',m.get('carryNote'));[print('PART',p['kind'],p['name'],p['bytes']) for p in m['parts']];print('ERRORS',len(m['errors']));[print('ERR',e['source'],'|',e['error'][:300]) for e in m['errors']]" "$m"
           du -sh "$RUNNER_TEMP/official/bundle"
       - name: Keep bundle for offline validation
         if: ${{ inputs.keep == 'true' }}

@@ -1,0 +1,321 @@
+From 8d817b62d0a15faa62aa8d7da2325f742d3e6ad1 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 6 Nov 2026 17:38:04 +0800
+Subject: [PATCH] Official collector: publish credit statistics only when
+ captured 22:30-23:59 Taipei; carry the last night capture unchanged
+
+GPT's 2026-11-06 morning report: the morning bundle carried credit statistics
+captured at 05:26/09:50 Taipei, which conflicts with the Site rule
+"no credit re-capture before 22:30 Taipei; keep the original observation date
+and check time".
+
+- run_official_collector.sh auto mode collects credit statistics only from
+  22:30 to 23:59 Taipei (same rule as the Site's taiwanCreditCaptureAllowed).
+- publish_official_import.py refuses a statistics.json captured outside that
+  window (reported in errors), whatever the mode.
+- When a run has no new night capture, the previous bundle's statistics.json
+  is carried byte for byte (same SHA, original capturedAt) if it is a night
+  capture no older than 30 hours; the manifest lists it under "carried" or
+  explains why not in "carryNote".
+- Third night schedule at 23:35 Taipei because GitHub often delays or skips.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ .github/workflows/official_collector.yml |  9 +--
+ scripts/publish_official_import.py       | 70 +++++++++++++++++++++++-
+ scripts/run_official_collector.sh        | 15 +++--
+ tests/test_official_import.py            | 70 ++++++++++++++++++++++++
+ 4 files changed, 153 insertions(+), 11 deletions(-)
+
+diff --git a/.github/workflows/official_collector.yml b/.github/workflows/official_collector.yml
+index eb33d3f..ca2283d 100644
+--- a/.github/workflows/official_collector.yml
++++ b/.github/workflows/official_collector.yml
+@@ -8,19 +8,20 @@ on:
+         description: 'Trading sessions to (re)collect'
+         default: '5'
+       statistics:
+-        description: 'Credit statistics: auto (skip 12:00-20:59 Taipei), on, off'
++        description: 'Credit statistics: auto (collect only 22:30-23:59 Taipei, else carry the last night capture), on, off'
+         default: 'auto'
+       publish:
+         description: 'Push the bundle to the official-import branch (false = dry run)'
+         default: 'true'
+   schedule:
+-    # 台北 05:55（每天，前一交易日收盤＋信用統計；週末也跑，讓清單不超過 36 小時）
++    # 台北 05:55（每天，前一交易日收盤；信用統計沿用前一晚 22:30 後收的那份；週末也跑，讓清單不超過 36 小時）
+     - cron: '55 21 * * *'
+     # 台北 16:20（週一至週五，當天收盤；信用統計略過）
+     - cron: '20 8 * * 1-5'
+-    # 台北 22:40、23:10（週一至週五，當晚信用統計；兩次是因為 GitHub 排程常延後或略過）
++    # 台北 22:40、23:10、23:35（週一至週五，當晚信用統計；只有 22:30～23:59 收的才發布。三次是因為 GitHub 排程常延後或略過）
+     - cron: '40 14 * * 1-5'
+     - cron: '10 15 * * 1-5'
++    - cron: '35 15 * * 1-5'
+ permissions:
+   contents: write
+ concurrency:
+@@ -61,7 +62,7 @@ jobs:
+           {
+             echo '### Official import bundle'
+             if [ -f "$m" ]; then
+-              python -c "import json,sys;m=json.load(open(sys.argv[1]));print('generatedAt',m['generatedAt'],'window',m['window']);print();[print('-',p['kind'],p['name'],p['bytes'],'bytes') for p in m['parts']];print();print('Collector errors:',len(m['errors']));[print('-',e['source'],':',e['error'][:200]) for e in m['errors']]" "$m"
++              python -c "import json,sys;m=json.load(open(sys.argv[1]));print('generatedAt',m['generatedAt'],'window',m['window']);print('Credit statistics carried:',m.get('carried') or m.get('carryNote') or 'new capture or none');print();[print('-',p['kind'],p['name'],p['bytes'],'bytes') for p in m['parts']];print();print('Collector errors:',len(m['errors']));[print('-',e['source'],':',e['error'][:200]) for e in m['errors']]" "$m"
+             else
+               echo 'No manifest was built.'
+             fi
+diff --git a/scripts/publish_official_import.py b/scripts/publish_official_import.py
+index 7903af1..d4b916b 100644
+--- a/scripts/publish_official_import.py
++++ b/scripts/publish_official_import.py
+@@ -9,6 +9,9 @@
+ - 清單記錄每個檔的類別、位元組數與 SHA-256（網站讀到的內容雜湊不符就不匯入）。
+ - 收集端失敗（狀態檔的 errors、收集程式結束碼）照實寫進 errors；一個部分檔都沒有就失敗結束，不發布空套件。
+ - 這裡不連網站、不需要任何金鑰；GitHub 工作流程把套件強制推到 official-import 分支（只保留最新一份）。
++- 信用統計（2026-11-06 GPT 晨間回報的缺口）：和網站同一條規則，只發布台北 22:30～23:59 擷取的那份；
++  其他時間的擷取不發布。這次沒有新的夜間信用統計時，沿用上一份套件裡的夜間信用統計（原檔一個位元組都不改，
++  保留原觀測日與原核對時間），超過 30 小時就不再沿用（網站 36 小時後不收，留時間給巡檢延後）。
+ """
+ import argparse
+ import datetime as dt
+@@ -30,6 +33,9 @@ FIXED = {
+ }
+ MARKET = re.compile(r"^\d{4}-\d{2}-\d{2}\.json$")
+ MAX_PART_BYTES = 3_900_000
++TPE = dt.timezone(dt.timedelta(hours=8))
++CREDIT_CAPTURE_FROM = (22, 30)  # 網站 taiwanCreditCaptureAllowed：台北時間 22:30 起才抓信用統計
++CARRY_MAX_HOURS = 30
+ STATUS_FILES = [
+     "collection-status.json",
+     "macro-collection-status.json",
+@@ -40,6 +46,25 @@ STATUS_FILES = [
+ ]
+ 
+ 
++def credit_captured_at(data):
++    stats = data.get("marketStatistics") if isinstance(data, dict) else None
++    try:
++        captured = dt.datetime.fromisoformat(str((stats or {}).get("capturedAt")).replace("Z", "+00:00"))
++    except ValueError:
++        return None
++    return captured if captured.tzinfo else None
++
++
++def credit_capture_problem(data):
++    captured = credit_captured_at(data)
++    if not captured:
++        return "信用統計沒有可辨識的擷取時間（需含時區）"
++    local = captured.astimezone(TPE)
++    if (local.hour, local.minute) < CREDIT_CAPTURE_FROM:
++        return f"信用統計擷取於台北 {local:%m/%d %H:%M}，早於 22:30（網站規則：22:30 前不重抓信用統計，保留原觀測日及原核對時間）"
++    return None
++
++
+ def check_part(name, data):
+     if not isinstance(data, dict) or data.get("schema_version") != 1:
+         return "schema_version 不是 1"
+@@ -58,9 +83,34 @@ def check_part(name, data):
+         return "核心 CPI 沒有任何可用來源（只有失敗紀錄）"
+     if key == "officialNewsCapture" and not any(isinstance(f, dict) and f.get("items") for f in (data[key] or {}).get("feeds") or []):
+         return "官方新聞全部抓取失敗"
++    if key == "marketStatistics":
++        return credit_capture_problem(data)
+     return None
+ 
+ 
++def carry_statistics(path, now):
++    """沿用上一份套件的夜間信用統計。回傳 (原始位元組, 說明) 或 (None, 不沿用的原因)。"""
++    path = Path(path)
++    if not path.exists() or not path.stat().st_size:
++        return None, "上一份套件沒有信用統計"
++    raw = path.read_bytes()
++    try:
++        data = json.loads(raw.decode("utf-8"))
++        problem = check_part("statistics.json", data)
++    except (ValueError, AttributeError, TypeError):
++        return None, "上一份信用統計不是 JSON"
++    if problem:
++        return None, "上一份" + problem
++    captured = credit_captured_at(data)
++    age = (now - captured).total_seconds() / 3600
++    if age < 0:
++        return None, "上一份信用統計的擷取時間晚於現在"
++    if age > CARRY_MAX_HOURS:
++        return None, f"上一份信用統計擷取於 {age:.0f} 小時前，超過 {CARRY_MAX_HOURS} 小時不再沿用"
++    stats = data["marketStatistics"]
++    return raw, {"name": "statistics.json", "date": stats.get("date"), "capturedAt": stats.get("capturedAt")}
++
++
+ def collector_errors(src, exits):
+     errors = []
+     for status in STATUS_FILES:
+@@ -90,7 +140,7 @@ def collector_errors(src, exits):
+     return unique
+ 
+ 
+-def build(src, out, window=None, keep_sessions=5, now=None, collector=None, exits=None):
++def build(src, out, window=None, keep_sessions=5, now=None, collector=None, exits=None, previous_statistics=None):
+     src, out = Path(src), Path(out)
+     if out.exists():
+         shutil.rmtree(out)
+@@ -111,6 +161,15 @@ def build(src, out, window=None, keep_sessions=5, now=None, collector=None, exit
+             continue
+         (out / name).write_bytes(raw)
+         parts.append({"name": name, "kind": "market" if MARKET.match(name) else FIXED[name][0], "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw)})
++    carried, carry_note = [], None
++    if previous_statistics and not any(p["name"] == "statistics.json" for p in parts):
++        raw, note = carry_statistics(previous_statistics, now)
++        if raw:
++            (out / "statistics.json").write_bytes(raw)
++            parts.append({"name": "statistics.json", "kind": "statistics", "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw), "carried": True})
++            carried.append(note)
++        else:
++            carry_note = note
+     errors = collector_errors(src, exits or {}) + errors
+     manifest = {
+         "schema_version": 1,
+@@ -120,6 +179,10 @@ def build(src, out, window=None, keep_sessions=5, now=None, collector=None, exit
+         "parts": parts,
+         "errors": errors[:50],
+     }
++    if carried:
++        manifest["carried"] = carried
++    if carry_note:
++        manifest["carryNote"] = carry_note
+     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
+     return manifest
+ 
+@@ -131,11 +194,12 @@ def main(argv=None):
+     ap.add_argument("--window")
+     ap.add_argument("--keep-sessions", type=int, default=5)
+     ap.add_argument("--exit", action="append", default=[], help="名稱=結束碼，例如 official=0")
++    ap.add_argument("--previous-statistics", help="上一份套件的 statistics.json；這次沒有新的夜間信用統計時沿用")
+     args = ap.parse_args(argv)
+     collector = {k: v for k, v in {"repo": os.environ.get("GITHUB_REPOSITORY"), "commit": os.environ.get("GITHUB_SHA"), "run": os.environ.get("GITHUB_RUN_ID"), "siteCollector": "v253"}.items() if v}
+     exits = dict(item.split("=", 1) for item in args.exit if "=" in item)
+-    manifest = build(args.src, args.out, args.window, args.keep_sessions, collector=collector, exits=exits)
+-    print(json.dumps({"parts": [(p["name"], p["bytes"]) for p in manifest["parts"]], "errors": manifest["errors"]}, ensure_ascii=False))
++    manifest = build(args.src, args.out, args.window, args.keep_sessions, collector=collector, exits=exits, previous_statistics=args.previous_statistics)
++    print(json.dumps({"parts": [(p["name"], p["bytes"]) for p in manifest["parts"]], "carried": manifest.get("carried"), "carryNote": manifest.get("carryNote"), "errors": manifest["errors"]}, ensure_ascii=False))
+     if not manifest["parts"]:
+         print("NO_PARTS: 沒有可發布的部分檔，保留上一份套件", file=sys.stderr)
+         return 1
+diff --git a/scripts/run_official_collector.sh b/scripts/run_official_collector.sh
+index 8386a44..3159699 100755
+--- a/scripts/run_official_collector.sh
++++ b/scripts/run_official_collector.sh
+@@ -1,18 +1,25 @@
+ #!/usr/bin/env bash
+ # 在 GitHub 上跑網站的官方資料收集程式（vendor/site-collector，與網站 v253 相同），整理成匯入套件。
+ # 用法：scripts/run_official_collector.sh <工作資料夾> [交易日數，預設 5] [信用統計 auto|on|off，預設 auto]
+-# auto：台北 12:00～20:59 略過信用統計（當晚才公布），其他時間照收。
++# auto：只在台北 22:30～23:59 收信用統計（和網站規則相同：22:30 前不重抓，保留原觀測日及原核對時間）；
++#       其他時間略過，改沿用上一份套件裡的夜間信用統計（原檔不改，30 小時內；publish_official_import.py 再核對一次）。
+ # 不需要任何金鑰、不連網站；推送由工作流程另外做。結束碼＝套件是否有內容（publish_official_import.py）。
+ set -uo pipefail
+ work="$1"; sessions="${2:-5}"; stats="${3:-auto}"
+ src="$work/collected"; out="$work/bundle"; mkdir -p "$src"
+-hour=$((10#$(TZ=Asia/Taipei date +%H)))
++hm=$((10#$(TZ=Asia/Taipei date +%H%M))); hour=$((hm / 100))
+ skip=""
+-if [ "$stats" = off ] || { [ "$stats" = auto ] && [ "$hour" -ge 12 ] && [ "$hour" -lt 21 ]; }; then skip="--skip-statistics"; fi
++if [ "$stats" = off ] || { [ "$stats" = auto ] && [ "$hm" -lt 2230 ]; }; then skip="--skip-statistics"; fi
++previous="$work/previous-statistics.json"; rm -f "$previous"
++if git fetch -q --depth 1 origin official-import 2>/dev/null && git show FETCH_HEAD:statistics.json > "$previous" 2>/dev/null; then
++  echo "上一份套件有信用統計（這次沒有新的夜間信用統計時沿用）"
++else
++  rm -f "$previous"; echo "上一份套件沒有信用統計"
++fi
+ if [ "$hour" -lt 12 ]; then window=morning; elif [ "$hour" -lt 21 ]; then window=afternoon; else window=night; fi
+ echo "台北 ${hour} 時｜${window}｜交易日 ${sessions}｜${skip:-含信用統計}"
+ python vendor/site-collector/scripts/collect-official-data.py --output "$src" --sessions "$sessions" $skip > "$work/official.log" 2>&1; official=$?
+ echo "官方收集結束碼 ${official}"; tail -n 15 "$work/official.log"
+ node vendor/site-collector/scripts/collect-source-research.mjs "$src" > "$work/sources.log" 2>&1; sources=$?
+ echo "產業來源／新聞結束碼 ${sources}"; tail -c 1500 "$work/sources.log"; echo
+-python scripts/publish_official_import.py "$src" "$out" --window "${window}${skip:+-no-statistics}" --keep-sessions "$sessions" --exit "official=${official}" --exit "sources=${sources}"
++python scripts/publish_official_import.py "$src" "$out" --window "${window}${skip:+-no-statistics}" --keep-sessions "$sessions" --exit "official=${official}" --exit "sources=${sources}" --previous-statistics "$previous"
+diff --git a/tests/test_official_import.py b/tests/test_official_import.py
+index 91ce177..acb5eb0 100644
+--- a/tests/test_official_import.py
++++ b/tests/test_official_import.py
+@@ -106,6 +106,76 @@ class BuildBundleTests(unittest.TestCase):
+         self.assertEqual(len(manifest["errors"]), 2)
+ 
+ 
++def statistics(captured_at, date="2026-11-05"):
++    return {"schema_version": 1, "marketStatistics": {"date": date, "capturedAt": captured_at, "margin": {"stat": "OK"}}}
++
++
++class CreditCaptureWindowTests(unittest.TestCase):
++    """GPT 2026-11-06 晨間回報：早上的套件帶了新抓的信用統計，和網站「22:30 前不重抓、保留原觀測日及原核對時間」不符。"""
++
++    MORNING = dt.datetime(2026, 11, 5, 22, 0, tzinfo=dt.timezone.utc)  # 台北 11/06 06:00
++
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        root = Path(self.tmp.name)
++        self.src, self.out, self.prev = root / "src", root / "out", root / "previous-statistics.json"
++        self.src.mkdir()
++        write(self.src, "series.json", {"schema_version": 1, "series": [{"id": "IORB"}]})
++
++    def tearDown(self):
++        self.tmp.cleanup()
++
++    def test_only_captures_from_2230_to_2359_taipei_are_published(self):
++        for captured, ok in [("2026-11-05T14:30:00+00:00", True), ("2026-11-05T15:59:59Z", True), ("2026-11-05T14:29:59+00:00", False),
++                             ("2026-11-05T21:26:51.318980+00:00", False), ("2026-11-06T01:50:50.160775+00:00", False), ("2026-11-05T16:00:05+00:00", False), ("2026-11-05T22:40:00", False)]:
++            write(self.src, "statistics.json", statistics(captured))
++            manifest = pub.build(self.src, self.out, "x", 5, now=self.MORNING)
++            names = [p["name"] for p in manifest["parts"]]
++            self.assertEqual("statistics.json" in names, ok, captured)
++            if not ok:
++                reason = {e["source"]: e["error"] for e in manifest["errors"]}["statistics.json"]
++                self.assertRegex(reason, "早於 22:30|擷取時間", captured)
++
++    def test_previous_night_capture_is_carried_byte_for_byte(self):
++        write(self.src, "macro-collection-status.json", {"errors": [{"source": "TWSE-statistics", "error": "skipped: --skip-statistics"}]})
++        self.prev.write_text(json.dumps(statistics("2026-11-05T14:41:07.5+00:00"), ensure_ascii=False, indent=1), encoding="utf-8")
++        manifest = pub.build(self.src, self.out, "morning-no-statistics", 5, now=self.MORNING, previous_statistics=self.prev)
++        part = next(p for p in manifest["parts"] if p["name"] == "statistics.json")
++        self.assertEqual((self.out / "statistics.json").read_bytes(), self.prev.read_bytes(), "原檔不改：保留原觀測日與原核對時間")
++        self.assertEqual(part["sha256"], hashlib.sha256(self.prev.read_bytes()).hexdigest())
++        self.assertEqual((part["kind"], part["carried"]), ("statistics", True))
++        self.assertEqual(manifest["carried"], [{"name": "statistics.json", "date": "2026-11-05", "capturedAt": "2026-11-05T14:41:07.5+00:00"}])
++        self.assertNotIn("carryNote", manifest)
++
++    def test_new_night_capture_wins_over_previous(self):
++        write(self.src, "statistics.json", statistics("2026-11-06T14:45:00+00:00", "2026-11-06"))
++        self.prev.write_text(json.dumps(statistics("2026-11-05T14:41:00+00:00")), encoding="utf-8")
++        manifest = pub.build(self.src, self.out, "night", 5, now=dt.datetime(2026, 11, 6, 14, 50, tzinfo=dt.timezone.utc), previous_statistics=self.prev)
++        self.assertEqual(json.loads((self.out / "statistics.json").read_text())["marketStatistics"]["date"], "2026-11-06")
++        self.assertNotIn("carried", manifest)
++
++    def test_morning_capture_or_old_capture_is_not_carried(self):
++        cases = [("2026-11-05T21:26:51+00:00", self.MORNING, "早於 22:30"),
++                 ("2026-11-04T14:41:00+00:00", self.MORNING, "超過 30 小時"),
++                 ("2026-11-05T14:41:00+00:00", dt.datetime(2026, 11, 5, 14, 0, tzinfo=dt.timezone.utc), "晚於現在")]
++        for captured, now, note in cases:
++            self.prev.write_text(json.dumps(statistics(captured)), encoding="utf-8")
++            manifest = pub.build(self.src, self.out, "morning-no-statistics", 5, now=now, previous_statistics=self.prev)
++            self.assertNotIn("statistics.json", [p["name"] for p in manifest["parts"]], captured)
++            self.assertFalse((self.out / "statistics.json").exists())
++            self.assertIn(note, manifest["carryNote"], captured)
++            self.assertNotIn("carried", manifest)
++        self.prev.unlink()
++        manifest = pub.build(self.src, self.out, "morning-no-statistics", 5, now=self.MORNING, previous_statistics=self.prev)
++        self.assertEqual(manifest["carryNote"], "上一份套件沒有信用統計")
++
++    def test_runner_collects_credit_statistics_only_from_2230(self):
++        text = (Path(__file__).resolve().parents[1] / "scripts" / "run_official_collector.sh").read_text(encoding="utf-8")
++        self.assertIn('[ "$stats" = auto ] && [ "$hm" -lt 2230 ]', text)
++        self.assertIn('git show FETCH_HEAD:statistics.json > "$previous"', text)
++        self.assertIn('--previous-statistics "$previous"', text)
++
++
+ class CollectorRetryTests(unittest.TestCase):
+     """擁有者 2026-11-05 21:54「好」：下載中斷（IncompleteRead、連線被重設）最多 4 次、間隔 5／10／20 秒；逾時與 HTTP 錯誤照舊 2 次、不等待。"""
+ 
+-- 
+2.43.0
+
