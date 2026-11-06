@@ -1,8 +1,31 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-05 23:05 台北（Claude）
+更新：2026-11-06 18:20 台北（Claude）
 
-## ★ 本輪工作（11/05 23:05 更新；只讀這一段就夠，下方各節是細節備查）
+## ★ 本輪工作（11/06 18:20 更新；只讀這一段就夠，下方各節是細節備查）
+**Claude 已核對 hotfix11（11/06 12:20）與今晨紀錄**：三包 SHA、中繼 `e8b3759`、Sites 原生 250、HTML `de5a6d6b…`、匿名化後台 `99f2ce82…` 都相符；信用七列 `previousDate=11/03`、`capturedAt`、`captureDeferred=false` 欄位讀回正確。你指出「重讀舊快照不算新匯入驗收」「早上 05:26 的信用不能拿來湊」都是對的；你發現的中繼信用時段缺口，下面第 2 項就是修正。
+**改程式一律先經擁有者在你的對話裡親口授權**；兩包都只改中繼，網站程式不用動、不用部署。
+
+1. **中繼 patch 3：VIX 改抓 Cboe 官方收盤＋FRED 連線修正（擁有者 11/06 17:27 已在 Claude 對話說「好」；請等擁有者在你的對話裡再確認一次）**：`handoff/patches/relay-vix-fred.patch`，SHA-256 `41536a3d717ad7e418f9560a552ff48fe65b820cf02e316842cb3a06e3b5dea3`。
+   - 內容：`sync_keyless.py` 的 VIXCLS 先讀 Cboe 官方 `VIX_History.csv`（當天美股收盤後就有），讀不到才用 FRED VIXCLS（約晚一天）；所有 FRED 下載先用 Python 預設連線方式、中斷最多重試 4 次（和網站 v253 同一套）；`sync_cross_market.py` 的 FRED 下載同樣先用預設方式。
+   - 原因：現行中繼今天 14:59 那次 61 項只成功 17 項（44 項失敗，其中 38 項是 FRED 逾時）；VIX 停在 11/04 16.61，但 Cboe 已公布 11/05 收盤 28.18。
+   - Claude 已在 GitHub 上試跑（不推送）：61 項成功 55 項，剩下 6 項是證交所 11/06 信用／當沖（當時 17:30 還沒公布，正常）；VIXCLS 來源＝Cboe，11/03 20.83、11/04 16.61、11/05 28.18；DGS10、SOFR、DTWEXAFEGS 由 FRED 正常取得。
+2. **中繼 patch 4：信用統計只在台北 22:30～23:59 收（新，修你今晨回報的缺口；等擁有者授權）**：`handoff/patches/relay-credit-window.patch`，SHA-256 `9a72b4595bd05015a98cd9bf4f019988420271579a9d4bcfbe4b82c07e797b48`。
+   - `run_official_collector.sh` 的 auto 改成只在 22:30～23:59 收信用統計（和網站 `taiwanCreditCaptureAllowed` 同一條規則）；`publish_official_import.py` 不論模式，22:30 前擷取的 `statistics.json` 一律不發布（寫進 errors）。
+   - 沒有新的夜間信用統計時（早上、下午、或夜間抓失敗），沿用上一份套件的 `statistics.json`：**原檔一個位元組都不改**（同 SHA、保留原觀測日與原 capturedAt），只沿用 22:30 後擷取、30 小時內的；清單 `carried` 列出沿用了什麼，不沿用就在 `carryNote` 寫原因。這樣 06:30 巡檢才收得到前一晚 22:40／23:10 的信用（22:30 巡檢比收集早，收不到當晚的）。
+   - 夜間排程多加 23:35 一次（GitHub 排程常延後或略過）。
+   - Claude 已用網站 v254 的真實匯入程式離線核對：沿用的信用統計可正常匯入，`capturedAt` 保持原值。
+   - Claude 11/06 17:39 已在 GitHub 上試跑（不推送）：auto 正確略過信用統計、讀到上一份套件；現在那份是今早 09:50 擷取的，`carryNote` 寫明「早於 22:30」所以不沿用；11/06 行情、名冊、總經、CPI、產業來源、新聞照常收到。
+3. **套用順序**：中繼 main 依序 `git am relay-vix-fred.patch relay-credit-window.patch` → push。Claude 已在中繼 main `02c559a` 上依序重放：兩包都套得上、測試 61/61 過（47＋VIX 9＋信用時段 5）。
+4. **讀回**：
+   - 第 1 項：下一次免金鑰中繼（`data/keyless_snapshot.json`）的 coverage 明顯高於 17/61；VIXCLS 最新日期＝Cboe 最新收盤日、provider 寫 Cboe。
+   - 第 2 項：之後的早上／下午清單 `window` 帶 `-no-statistics`，`carried` 裡的 `capturedAt` 落在前一晚 22:30～23:59（台北）；**套用後第一次 06:30 巡檢匯入的那份夜間信用，就是你保留的「v254 合規新匯入七列驗收」**（`capturedAt` 在前一晚 22:30 後、`previousDate`＝前一交易日、`captureDeferred=false`）。
+   - 套用前的過渡期：若巡檢自動匯入了早上擷取的信用統計，照實記錄原 `capturedAt`，不算合規驗收；不要為此另建 run。
+
+**報告**：寫 `diagnostics/deploy-20261026/hotfix12.md`（10 行內）：1、2 是否獲授權、中繼 commit、測試結果、兩項讀回。
+
+<details><summary>11/05 23:05 版工作區塊（hotfix11 已交，備查）</summary>
+
 **Claude 已核對 hotfix10（11/05 22:44）**：v249～v252 部署正確——HTML `de5a6d6b…` 相符、匿名化核對後台 `ff8dfc94…` 相符（證實差異只在 OPERATIONS.md 的專案 ID）、完整測試 exit 0、環境變數已設、`relayImport=ok`、五類 imported、`market=not_in_bundle`（09:52 那份清單本來就缺行情）、Gate 5／8 不採用、股災參考價五檔原文都正確。辛苦了。
 **改網站程式一律先經擁有者授權，再部署；不要自行修改後部署。** 下面 1、2 項要等擁有者在你的對話裡親口授權後才做。
 
@@ -14,6 +37,8 @@
 4. **已知、先觀察**：GitHub 的 Official data collector 排程很不準（11/05 05:55 拖到 09:52，16:20、22:40 都還沒跑）。清單超過 36 小時網站就不匯入、照舊自己抓；Claude 的看門狗會在 30 小時時提醒擁有者手動按 Run workflow。你不用處理。
 
 **報告**：寫 `diagnostics/deploy-20261026/hotfix11.md`（10 行內）：1、2 是否獲授權與部署結果（commit、SHA）、信用七列讀回、第 3 項比對與修改。
+
+</details>
 
 <details><summary>11/04 23:55 版工作區塊（hotfix10 已交，備查）</summary>
 
