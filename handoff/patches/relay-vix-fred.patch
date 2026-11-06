@@ -1,0 +1,316 @@
+From 711e441f720db7a55cde4878cb26c6e4d473fa9c Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 6 Nov 2026 17:30:17 +0800
+Subject: [PATCH] VIX from Cboe's official daily close (FRED as fallback); FRED
+ fetches try Python's default agent first
+
+Owner 2026-11-06 17:27 approved. The relay's 11/06 14:59 run lost VIXCLS to a
+FRED timeout, and FRED republishes the Cboe close about a day late, so the
+site still showed 11/04 (16.61) after the 11/05 spike. The relay now reads
+Cboe's VIX_History.csv first (11/06 17:28 Taipei it already had the 11/05
+close 28.18; past closes equal FRED's) and falls back to FRED VIXCLS with a
+note. FRED requests in the keyless and cross-market relays try Python's
+default User-Agent first, then the named one; broken downloads are retried
+up to four times with 5/10/20 s waits. The site reads the row unchanged.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ scripts/sync_cross_market.py                  |   7 +-
+ scripts/sync_keyless.py                       |  61 ++++++++-
+ .../cboe_vix_history_tail_20261106.csv        |  31 +++++
+ tests/test_vix_fred_fetch.py                  | 128 ++++++++++++++++++
+ 4 files changed, 222 insertions(+), 5 deletions(-)
+ create mode 100644 tests/fixtures/cboe_vix_history_tail_20261106.csv
+ create mode 100644 tests/test_vix_fred_fetch.py
+
+diff --git a/scripts/sync_cross_market.py b/scripts/sync_cross_market.py
+index 7f8c782..2de674d 100644
+--- a/scripts/sync_cross_market.py
++++ b/scripts/sync_cross_market.py
+@@ -53,10 +53,15 @@ def available_at(day, market):
+ 
+ 
+ def fetch_text(url):
++    # FRED 在 GitHub 上會擋自訂 User-Agent（擁有者 2026-11-06「好」）：FRED 第一次用 Python 預設字串、第二次用原本字串；其他網站不變。
+     last = None
++    fred = url.startswith("https://fred.stlouisfed.org/")
+     for attempt in range(2):
+         try:
+-            req = Request(url, headers={"User-Agent": UA, "Accept": "application/json,text/csv,*/*", "Referer": "https://www.twse.com.tw/" if "twse.com" in url else "https://www.nasdaq.com/"})
++            headers = {"User-Agent": UA, "Accept": "application/json,text/csv,*/*", "Referer": "https://www.twse.com.tw/" if "twse.com" in url else "https://www.nasdaq.com/"}
++            if fred and attempt == 0:
++                del headers["User-Agent"], headers["Referer"]
++            req = Request(url, headers=headers)
+             with urlopen(req, timeout=18) as response:
+                 body = response.read(5_000_001)
+             if len(body) > 5_000_000:
+diff --git a/scripts/sync_keyless.py b/scripts/sync_keyless.py
+index 1bcf1c1..07a869a 100644
+--- a/scripts/sync_keyless.py
++++ b/scripts/sync_keyless.py
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env python3
+ """Sequential official public-feed ingestion; no provider API keys."""
+-import csv, io, json, math, os, sys, zipfile
++import csv, http.client, io, json, math, os, sys, time, zipfile
+ from datetime import datetime, timezone, timedelta
+ from pathlib import Path
+ from urllib.request import Request, urlopen
+@@ -26,12 +26,37 @@ OUT=Path('data/keyless_snapshot.json')
+ NDC_OPEN_DATA_ZIP=('https://ws.ndc.gov.tw/Download.ashx?icon=.zip&n=5pmv5rCj5oyH5qiZ5Y%2BK54eI6JmfLnppcA%3D%3D'
+  '&u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvNTc4MS82MzkyL2VhMjM1YmQ5LWQwNTItNGE2OS1hYmZjLWQ1Yzc4NWQzZDBlMi56aXA%3D')
+ 
++RETRY_WAITS=(5,10,20)
++def broken_transfer(exc):
++    reason=getattr(exc,'reason',None)
++    return isinstance(exc,(http.client.IncompleteRead,ConnectionResetError)) or isinstance(reason,ConnectionResetError)
++
++def fetch_public(url,accept,limit,prefer_default_agent=False):
++    """擁有者 2026-11-06 17:27「好」：FRED 在 GitHub 上會擋自訂 User-Agent（11/06 14:59 VIX 抓取逾時；11/03 實測只有 Python 預設字串回 200），
++    所以 FRED 先用 Python 預設字串、再輪流用中繼原本字串；其他網站先用原本字串。下載中斷最多試 4 次、間隔 5／10／20 秒；
++    逾時與 HTTP 錯誤最多 2 次、不等待。"""
++    error=None
++    for attempt in range(4):
++        default=(attempt%2==0)==prefer_default_agent
++        headers={'Accept':accept}
++        if not default:headers['User-Agent']=legacy.USER_AGENT
++        try:
++            with urlopen(Request(url,headers=headers),timeout=25) as response:body=response.read(limit+1)
++        except Exception as exc:
++            error=exc
++            if broken_transfer(exc):
++                if attempt<3:time.sleep(RETRY_WAITS[attempt])
++                continue
++            if attempt>=1:break
++            continue
++        if len(body)>limit:raise ValueError('response too large')
++        return body
++    raise error
++
+ def fred_csv(sid):
+     since=(datetime.now(timezone.utc)-timedelta(days=650)).date().isoformat()
+     url=f'https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}&cosd={since}'
+-    with urlopen(Request(url,headers={'User-Agent':legacy.USER_AGENT,'Accept':'text/csv'}),timeout=25) as response:
+-        body=response.read(2000001)
+-    if len(body)>2000000:raise ValueError('CSV too large')
++    body=fetch_public(url,'text/csv',2000000,prefer_default_agent=True)
+     reader=csv.DictReader(io.StringIO(body.decode('utf-8-sig')))
+     if reader.fieldnames not in (['observation_date',sid],['DATE',sid]):raise ValueError('CSV series/header mismatch')
+     rows={}
+@@ -51,6 +76,33 @@ def fred_csv(sid):
+         if sid=='RSAFS' and a['value']<=0:raise ValueError('Invalid retail denominator')
+     return {'history':history[-HISTORY_KEEP.get(sid,20):],'source':url,'provider':f'FRED 官方公開 CSV｜{sid}'}
+ 
++# Cboe 自己的 VIX 每日收盤檔：美股收盤後當天就更新（11/06 實測 17:28 台北已有 11/05 收盤 28.18，FRED 還停在 11/04）。
++# FRED VIXCLS 是同一指數的轉載、晚約一天，只在 Cboe 抓不到或格式不符時當備援。
++CBOE_VIX_URL='https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv'
++
++def cboe_vix_history(body=None):
++    if body is None:body=fetch_public(CBOE_VIX_URL,'text/csv',3000000)
++    reader=csv.DictReader(io.StringIO(body.decode('utf-8-sig') if isinstance(body,bytes) else body))
++    if [str(f).strip().upper() for f in reader.fieldnames or []]!=['DATE','OPEN','HIGH','LOW','CLOSE']:raise ValueError('Cboe VIX CSV header mismatch')
++    rows={}
++    for row in reader:
++        try:
++            day=datetime.strptime(row['DATE'].strip(),'%m/%d/%Y').date().isoformat()
++            o,h,l,c=(float(row[k]) for k in ('OPEN','HIGH','LOW','CLOSE'))
++        except (ValueError,TypeError,AttributeError):continue
++        if all(math.isfinite(x) for x in (o,h,l,c)) and 0<l<=c<=h<200:rows[day]={'date':day,'value':c,'open':o,'high':h,'low':l}
++    history=sorted(rows.values(),key=lambda p:p['date'])[-20:]
++    if len(history)<5:raise ValueError('Cboe VIX history insufficient')
++    last=history[-1]
++    return {'history':[{'date':p['date'],'value':p['value']} for p in history],'source':CBOE_VIX_URL,'provider':'Cboe 官方 VIX 每日收盤｜VIX_History.csv',
++            'method':f"Cboe 官方每日收盤；{last['date']} 開 {last['open']:.2f}、高 {last['high']:.2f}、低 {last['low']:.2f}、收 {last['value']:.2f}。FRED VIXCLS 為同一指數轉載、晚約一天，作備援。"}
++
++def vix_metric():
++    try:return cboe_vix_history()
++    except Exception as cboe_error:
++        entry=fred_csv('VIXCLS')
++        return {**entry,'method':f'Cboe 官方收盤檔不可用（{str(cboe_error)[:120]}）；改用 FRED VIXCLS 轉載（晚約一天）。'}
++
+ # 聯準會每天 16:30（美東）就公布「下一個營業日」的 IORB，FRED 會先列出未來日期（週五可到下週一）；這不是錯誤資料。
+ FUTURE_DATED_DAYS={'IORB':4}
+ 
+@@ -754,6 +806,7 @@ def main():
+         if sid=='DEXJPUS':return ecb_usd_jpy_cross()
+         if sid=='WCESTUS1':return eia_commercial_crude_stocks()
+         if sid in ('ICE_DXY','XAU'):return yahoo_chart_metric(sid)
++        if sid=='VIXCLS':return vix_metric()
+         return fred_csv(sid)
+     tasks += [(sid,days,lambda sid=sid:additional_source(sid)) for sid,days in MORE_SPECS]
+     def current_market_date():
+diff --git a/tests/fixtures/cboe_vix_history_tail_20261106.csv b/tests/fixtures/cboe_vix_history_tail_20261106.csv
+new file mode 100644
+index 0000000..0a7cb83
+--- /dev/null
++++ b/tests/fixtures/cboe_vix_history_tail_20261106.csv
+@@ -0,0 +1,31 @@
++DATE,OPEN,HIGH,LOW,CLOSE
++09/25/2026,15.610000,15.940000,14.680000,14.870000
++09/28/2026,16.160000,16.620000,15.680000,16.070000
++09/29/2026,16.170000,16.440000,15.730000,16.040000
++09/30/2026,15.930000,16.610000,15.620000,16.340000
++10/01/2026,16.330000,17.590000,16.210000,16.390000
++10/02/2026,16.150000,16.240000,15.300000,15.310000
++10/05/2026,16.240000,16.380000,15.480000,15.520000
++10/06/2026,15.500000,15.540000,14.960000,15.010000
++10/07/2026,15.210000,16.010000,14.970000,15.080000
++10/08/2026,15.680000,16.460000,15.150000,15.410000
++10/09/2026,15.340000,15.340000,14.770000,14.840000
++10/12/2026,15.390000,15.530000,15.110000,15.210000
++10/13/2026,15.610000,15.610000,15.170000,15.270000
++10/14/2026,15.170000,17.450000,14.980000,16.870000
++10/15/2026,17.550000,18.010000,16.340000,16.460000
++10/16/2026,16.020000,22.310000,15.720000,19.990000
++10/19/2026,18.370000,18.930000,17.390000,18.440000
++10/20/2026,18.420000,19.130000,17.250000,17.310000
++10/21/2026,17.250000,17.580000,16.510000,16.680000
++10/22/2026,18.290000,20.310000,17.710000,19.030000
++10/23/2026,19.180000,20.660000,18.870000,19.450000
++10/26/2026,19.660000,19.840000,17.790000,18.390000
++10/27/2026,18.430000,18.550000,17.430000,17.520000
++10/28/2026,17.470000,17.770000,16.210000,16.910000
++10/29/2026,17.150000,17.360000,16.210000,17.200000
++10/30/2026,18.430000,23.930000,18.030000,19.420000
++11/02/2026,19.050000,21.770000,18.030000,21.150000
++11/03/2026,21.660000,21.910000,20.290000,20.830000
++11/04/2026,19.200000,19.220000,16.570000,16.610000
++11/05/2026,17.140000,28.360000,16.700000,28.180000
+diff --git a/tests/test_vix_fred_fetch.py b/tests/test_vix_fred_fetch.py
+new file mode 100644
+index 0000000..b6344b0
+--- /dev/null
++++ b/tests/test_vix_fred_fetch.py
+@@ -0,0 +1,128 @@
++"""擁有者 2026-11-06 17:27「好」：VIX 先用 Cboe 官方每日收盤（比 FRED 快約一天），FRED 當備援；
++抓 FRED 先用 Python 預設 User-Agent（GitHub 上 FRED 會擋自訂字串），下載中斷多試幾次。"""
++import sys
++import unittest
++import urllib.error
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT / "scripts"))
++import sync_keyless as keyless  # noqa: E402
++import sync_cross_market as cross  # noqa: E402
++
++FIXTURE = (ROOT / "tests" / "fixtures" / "cboe_vix_history_tail_20261106.csv").read_text(encoding="utf-8")
++
++
++class Body:
++    def __init__(self, data):
++        self.data = data
++
++    def read(self, limit=-1):
++        return self.data
++
++    def __enter__(self):
++        return self
++
++    def __exit__(self, *args):
++        return False
++
++
++class FakeNet:
++    def __init__(self, outcomes):
++        self.outcomes, self.agents, self.urls = list(outcomes), [], []
++
++    def __call__(self, request, timeout=None):
++        self.agents.append(request.get_header("User-agent"))
++        self.urls.append(request.full_url)
++        item = self.outcomes.pop(0)
++        if isinstance(item, BaseException):
++            raise item
++        return Body(item)
++
++
++class CboeVixTests(unittest.TestCase):
++    def test_parses_official_daily_close(self):
++        entry = keyless.cboe_vix_history(FIXTURE)
++        self.assertEqual(entry["history"][-1], {"date": "2026-11-05", "value": 28.18})
++        self.assertEqual(entry["history"][-2], {"date": "2026-11-04", "value": 16.61}, "same closes FRED republishes")
++        self.assertEqual(len(entry["history"]), 20)
++        self.assertEqual(entry["source"], keyless.CBOE_VIX_URL)
++        self.assertIn("高 28.36", entry["method"])
++
++    def test_rejects_wrong_header_or_too_little_history(self):
++        with self.assertRaises(ValueError):
++            keyless.cboe_vix_history("Date,Close\n11/05/2026,28.18\n")
++        with self.assertRaises(ValueError):
++            keyless.cboe_vix_history("\n".join(FIXTURE.splitlines()[:4]))
++
++    def test_impossible_rows_are_skipped_not_used(self):
++        bad = FIXTURE.rstrip("\n") + "\n11/06/2026,20,19,21,25\n"
++        self.assertEqual(keyless.cboe_vix_history(bad)["history"][-1]["date"], "2026-11-05", "low>high row is ignored")
++
++    def test_falls_back_to_fred_when_cboe_fails(self):
++        old_cboe, old_fred = keyless.cboe_vix_history, keyless.fred_csv
++        try:
++            keyless.cboe_vix_history = lambda: (_ for _ in ()).throw(ValueError("Cboe VIX CSV header mismatch"))
++            keyless.fred_csv = lambda sid: {"history": [{"date": "2026-11-04", "value": 16.61}], "source": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS", "provider": "FRED 官方公開 CSV｜VIXCLS"}
++            entry = keyless.vix_metric()
++            self.assertEqual(entry["provider"], "FRED 官方公開 CSV｜VIXCLS")
++            self.assertIn("改用 FRED", entry["method"])
++        finally:
++            keyless.cboe_vix_history, keyless.fred_csv = old_cboe, old_fred
++
++
++class FetchPublicTests(unittest.TestCase):
++    def setUp(self):
++        self.old_open, self.old_sleep, self.sleeps = keyless.urlopen, keyless.time.sleep, []
++        keyless.time.sleep = self.sleeps.append
++
++    def tearDown(self):
++        keyless.urlopen, keyless.time.sleep = self.old_open, self.old_sleep
++
++    def test_fred_tries_python_default_agent_first(self):
++        net = FakeNet([TimeoutError(), b"ok"])
++        keyless.urlopen = net
++        self.assertEqual(keyless.fetch_public("https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS", "text/csv", 100, prefer_default_agent=True), b"ok")
++        self.assertEqual(net.agents, [None, keyless.legacy.USER_AGENT])
++        self.assertEqual(self.sleeps, [])
++
++    def test_broken_download_retried_four_times_with_waits(self):
++        import http.client
++        broken = http.client.IncompleteRead(b"x", 5)
++        net = FakeNet([broken, broken, broken, b"ok"])
++        keyless.urlopen = net
++        self.assertEqual(keyless.fetch_public(keyless.CBOE_VIX_URL, "text/csv", 100), b"ok")
++        self.assertEqual(self.sleeps, [5, 10, 20])
++        self.assertEqual(net.agents[0], keyless.legacy.USER_AGENT, "other sites keep the named agent first")
++
++    def test_http_errors_stop_after_two_quick_attempts(self):
++        net = FakeNet([urllib.error.HTTPError("u", 403, "no", {}, None)] * 3)
++        keyless.urlopen = net
++        with self.assertRaises(urllib.error.HTTPError):
++            keyless.fetch_public(keyless.CBOE_VIX_URL, "text/csv", 100)
++        self.assertEqual((len(net.agents), self.sleeps), (2, []))
++
++    def test_oversized_response_is_rejected(self):
++        keyless.urlopen = FakeNet([b"x" * 101])
++        with self.assertRaises(ValueError):
++            keyless.fetch_public(keyless.CBOE_VIX_URL, "text/csv", 100)
++
++
++class CrossMarketFredAgentTests(unittest.TestCase):
++    def test_fred_first_attempt_uses_default_agent(self):
++        old_open, old_sleep = cross.urlopen, cross.time.sleep
++        try:
++            net = FakeNet([TimeoutError(), b"observation_date,SP500\n"])
++            cross.urlopen, cross.time.sleep = net, (lambda s: None)
++            self.assertEqual(cross.fetch_text("https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500"), "observation_date,SP500\n")
++            self.assertEqual(net.agents, [None, cross.UA])
++            net = FakeNet([b"{}"])
++            cross.urlopen = net
++            cross.fetch_text("https://www.twse.com.tw/x")
++            self.assertEqual(net.agents, [cross.UA], "non-FRED unchanged")
++        finally:
++            cross.urlopen, cross.time.sleep = old_open, old_sleep
++
++
++if __name__ == "__main__":
++    unittest.main()
+-- 
+2.43.0
+

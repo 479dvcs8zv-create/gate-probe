@@ -1,0 +1,52 @@
+name: relay-keyless-dryrun
+# 交接前試跑：把 handoff/patches 裡的中繼 patch 套到公開中繼 main，在 GitHub 上跑一次 sync_keyless.py（不推送、不碰中繼 repo），
+# 只印出 PASS／BLOCK 與指定指標的最新觀測。
+on:
+  workflow_dispatch:
+    inputs:
+      patch:
+        default: 'relay-vix-fred.patch'
+      show:
+        description: '要印出的指標（逗號分隔）'
+        default: 'VIXCLS,DGS10,SOFR,DTWEXAFEGS'
+permissions:
+  contents: read
+jobs:
+  dryrun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: probe
+      - uses: actions/checkout@v4
+        with:
+          repository: wcr0936531039-png/macro-relay-service
+          ref: main
+          path: relay
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply patch and run unit tests
+        working-directory: relay
+        run: |
+          case "${{ inputs.patch }}" in *[!A-Za-z0-9._-]*|"") echo "bad patch name"; exit 1;; esac
+          git -c user.name=dryrun -c user.email=dryrun@example.invalid am "$GITHUB_WORKSPACE/probe/handoff/patches/${{ inputs.patch }}"
+          python -m unittest discover -s tests 2>&1 | tail -3
+      - name: Run keyless sync (no push)
+        working-directory: relay
+        env:
+          SHOW: ${{ inputs.show }}
+        run: |
+          case "$SHOW" in *[!A-Za-z0-9_,]*) echo "bad show"; exit 1;; esac
+          python scripts/sync_keyless.py | grep -E "^(PASS|BLOCK)" | sed 's/^/LINE /'
+          python -c "
+          import json,os
+          d=json.load(open('data/keyless_snapshot.json'))
+          for sid in os.environ['SHOW'].split(','):
+              e=d['series'].get(sid) or {}
+              h=e.get('history') or []
+              print('SHOW',sid,e.get('status'),h[-3:],e.get('provider'),(e.get('error') or '')[:120])
+          print('COVERAGE',d['coverage'])
+          "
