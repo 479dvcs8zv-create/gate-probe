@@ -1,0 +1,198 @@
+From e3aea94353f71b498972d3c5fa106a6b2e6197a1 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 7 Nov 2026 16:08:22 +0800
+Subject: [PATCH] Official collector: queue the night credit capture early
+ (18:05/20:05 Taipei) and wait until 22:31
+
+GitHub delays this repo's scheduled runs by 1.5-6 hours: after the 11/06
+evening the runs started at 23:59, 04:33, 04:49, 05:01 and 09:19 Taipei, so
+none of the 22:40/23:10/23:35 schedules captured credit statistics inside the
+Site's 22:30-23:59 window.
+
+- New daily schedules at 18:05 and 20:05 Taipei. A small wait-night job
+  sleeps until 22:31 Taipei (at most 330 minutes; no wait if already past
+  22:31 or if 22:31 is further away), then the usual collect-publish job runs
+  and, being inside the window, includes credit statistics.
+- Manual runs can do the same with the new input night=true.
+- The wait job holds no concurrency slot; the collect job keeps the
+  official-collector queue (moved from workflow level to job level), so other
+  runs are not blocked while a night run waits.
+- Weekend nights run too: if Friday night is missed, Saturday night captures
+  Friday's statistics under the same Site rule.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ .github/workflows/official_collector.yml | 25 +++++++++--
+ scripts/wait_night_capture.py            | 50 ++++++++++++++++++++++
+ tests/test_night_wait.py                 | 54 ++++++++++++++++++++++++
+ 3 files changed, 126 insertions(+), 3 deletions(-)
+ create mode 100644 scripts/wait_night_capture.py
+ create mode 100644 tests/test_night_wait.py
+
+diff --git a/.github/workflows/official_collector.yml b/.github/workflows/official_collector.yml
+index ca2283d..85e73f5 100644
+--- a/.github/workflows/official_collector.yml
++++ b/.github/workflows/official_collector.yml
+@@ -13,6 +13,9 @@ on:
+       publish:
+         description: 'Push the bundle to the official-import branch (false = dry run)'
+         default: 'true'
++      night:
++        description: 'true = wait until 22:31 Taipei first (up to 330 min), then collect including credit statistics'
++        default: 'false'
+   schedule:
+     # 台北 05:55（每天，前一交易日收盤；信用統計沿用前一晚 22:30 後收的那份；週末也跑，讓清單不超過 36 小時）
+     - cron: '55 21 * * *'
+@@ -22,13 +25,29 @@ on:
+     - cron: '40 14 * * 1-5'
+     - cron: '10 15 * * 1-5'
+     - cron: '35 15 * * 1-5'
++    # 台北 18:05、20:05（每天）：先排隊，跑到時若還沒 22:31 就等到 22:31 再收（含信用統計）。
++    # GitHub 排程在這個 repo 常延後 1.5～6 小時，上面三個夜間排程一次都沒在 22:30～23:59 之間跑到（2026-11-07 實查）。
++    # 週末也跑：週五晚上沒收到時，週六晚上照網站規則收週五那天的信用統計。
++    - cron: '5 10 * * *'
++    - cron: '5 12 * * *'
+ permissions:
+   contents: write
+-concurrency:
+-  group: official-collector
+-  cancel-in-progress: false
+ jobs:
++  wait-night:
++    # 等待不佔用收集的排隊位置：等的時候，其他時段的收集照常跑。
++    runs-on: ubuntu-latest
++    timeout-minutes: 345
++    steps:
++      - uses: actions/checkout@v4
++        if: ${{ github.event.schedule == '5 10 * * *' || github.event.schedule == '5 12 * * *' || inputs.night == 'true' }}
++      - name: Wait until 22:31 Taipei for the night credit capture
++        if: ${{ github.event.schedule == '5 10 * * *' || github.event.schedule == '5 12 * * *' || inputs.night == 'true' }}
++        run: python3 scripts/wait_night_capture.py
+   collect-publish:
++    needs: wait-night
++    concurrency:
++      group: official-collector
++      cancel-in-progress: false
+     runs-on: ubuntu-latest
+     timeout-minutes: 40
+     steps:
+diff --git a/scripts/wait_night_capture.py b/scripts/wait_night_capture.py
+new file mode 100644
+index 0000000..82c3d82
+--- /dev/null
++++ b/scripts/wait_night_capture.py
+@@ -0,0 +1,50 @@
++#!/usr/bin/env python3
++"""夜間信用統計：先排隊、等到台北 22:31 再收集。
++
++GitHub 排程在這個 repo 常延後 1.5～6 小時（實際紀錄：11/06 晚上之後的執行在 23:59、04:33、04:49、05:01、09:19 才開始），
++結果一次都沒收到夜間（22:30～23:59）的信用統計。改成 18:05、20:05 先排隊：
++跑到這一步時若還沒到 22:31，就在這裡等到 22:31，再讓後面的收集工作照常跑（網站規則：22:30 前不抓信用統計）。
++
++- 最多等 330 分鐘（GitHub 單一工作上限 360 分鐘）；離 22:31 更久就不等，這次照常收集但不含信用統計。
++- 已過 22:31 就不等；23:59 前收到的信用統計才會發布（publish_official_import.py 再核對一次）。
++- 不連任何網站、不需要金鑰；只算時間、睡覺、印出原因。
++
++用法：python3 scripts/wait_night_capture.py [現在時間 ISO，測試用]
++"""
++import datetime as dt
++import sys
++import time
++
++TPE = dt.timezone(dt.timedelta(hours=8))
++TARGET = (22, 31)
++MAX_WAIT_MINUTES = 330
++
++
++def plan(now):
++    """回傳 (要等幾秒, 說明)。"""
++    local = now.astimezone(TPE)
++    target = local.replace(hour=TARGET[0], minute=TARGET[1], second=0, microsecond=0)
++    wait = (target - local).total_seconds()
++    if wait <= 0:
++        return 0, f"台北 {local:%m/%d %H:%M}，已過 22:31，直接收集"
++    if wait > MAX_WAIT_MINUTES * 60:
++        return 0, f"台北 {local:%m/%d %H:%M}，離 22:31 還有 {wait / 60:.0f} 分鐘，超過 {MAX_WAIT_MINUTES} 分鐘不等；這次不含信用統計"
++    return int(wait), f"台北 {local:%m/%d %H:%M}，等 {wait / 60:.0f} 分鐘到 22:31 再收集信用統計"
++
++
++def main(argv):
++    now = dt.datetime.fromisoformat(argv[0].replace("Z", "+00:00")) if argv else dt.datetime.now(dt.timezone.utc)
++    seconds, reason = plan(now)
++    print(reason, flush=True)
++    if argv:
++        return 0
++    end = time.monotonic() + seconds
++    while (left := end - time.monotonic()) > 0:
++        time.sleep(min(left, 1800))
++        if end - time.monotonic() > 0:
++            print(f"還要等 {(end - time.monotonic()) / 60:.0f} 分鐘", flush=True)
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main(sys.argv[1:]))
+diff --git a/tests/test_night_wait.py b/tests/test_night_wait.py
+new file mode 100644
+index 0000000..45537c2
+--- /dev/null
++++ b/tests/test_night_wait.py
+@@ -0,0 +1,54 @@
++import datetime as dt
++import sys
++import unittest
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT / "scripts"))
++import wait_night_capture as night
++
++UTC = dt.timezone.utc
++
++
++class NightWaitTests(unittest.TestCase):
++    """2026-11-07：GitHub 排程延後 1.5～6 小時，夜間排程一次都沒在 22:30～23:59 跑到；改成提早排隊、等到 22:31。"""
++
++    def at(self, hhmm, day=7):
++        return dt.datetime(2026, 11, day, int(hhmm[:2]), int(hhmm[2:]), tzinfo=UTC) - dt.timedelta(hours=8)
++
++    def test_waits_until_2231_taipei(self):
++        self.assertEqual(night.plan(self.at("1805"))[0], 266 * 60)
++        self.assertEqual(night.plan(self.at("2005"))[0], 146 * 60)
++        self.assertEqual(night.plan(self.at("1701"))[0], 330 * 60, "最多等 330 分鐘")
++        self.assertEqual(night.plan(self.at("2230"))[0], 60)
++
++    def test_no_wait_inside_window_or_when_too_early(self):
++        for hhmm in ("2231", "2300", "2359"):
++            seconds, reason = night.plan(self.at(hhmm))
++            self.assertEqual(seconds, 0)
++            self.assertIn("直接收集", reason)
++        for hhmm in ("1600", "0005", "0933"):
++            seconds, reason = night.plan(self.at(hhmm))
++            self.assertEqual(seconds, 0, hhmm)
++            self.assertIn("不含信用統計", reason)
++
++    def test_dry_run_with_explicit_time_does_not_sleep(self):
++        self.assertEqual(night.main(["2026-11-07T10:05:00Z"]), 0)
++
++    def test_workflow_queues_early_and_waits_outside_the_collector_queue(self):
++        text = (ROOT / ".github" / "workflows" / "official_collector.yml").read_text(encoding="utf-8")
++        for cron in ("'5 10 * * *'", "'5 12 * * *'", "'40 14 * * 1-5'", "'55 21 * * *'"):
++            self.assertIn("- cron: " + cron, text)
++        wait = text.split("  wait-night:", 1)[1].split("  collect-publish:", 1)[0]
++        collect = text.split("  collect-publish:", 1)[1]
++        self.assertIn("timeout-minutes: 345", wait)
++        self.assertIn("python3 scripts/wait_night_capture.py", wait)
++        self.assertEqual(wait.count("github.event.schedule == '5 10 * * *' || github.event.schedule == '5 12 * * *' || inputs.night == 'true'"), 2)
++        self.assertNotIn("concurrency", wait, "等待時不佔收集的排隊位置")
++        self.assertIn("needs: wait-night", collect)
++        self.assertIn("group: official-collector", collect)
++        self.assertNotIn("\nconcurrency:", text.split("jobs:", 1)[0], "排隊改在收集工作上")
++
++
++if __name__ == "__main__":
++    unittest.main()
+-- 
+2.43.0
+
