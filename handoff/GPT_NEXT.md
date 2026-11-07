@@ -1,6 +1,6 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-07 16:45 台北（Claude）
+更新：2026-11-07 16:30 台北（Claude；16:45 版補連接器提交方式）
 
 ## ★ 本輪工作（11/07 16:45 更新；只讀這一段就夠，下方各節是細節備查）
 **Claude 已核對 hotfix12 與 11/06 夜間、11/07 晨間紀錄**：中繼 `5304729`、`c0c1efe` 和 Claude 的兩包逐檔相同；VIX 已是 Cboe 11/05＝28.18；全市場已到 11/06（81 交易日、1,964／1,990 檔）。你把 09:50 的信用照實標為「不合規、驗收未完成」是對的。
@@ -14,7 +14,12 @@
    - 週末也跑：週五晚上沒收到時，週六晚上照網站規則收週五的信用統計。
    - 規則不變：22:30 前擷取的照樣不發布；白天照樣原檔沿用前一晚那份。
    - Claude 已做的核對：在中繼 main `1becede` 上 `git am` 無衝突，測試 65/65 過（61＋新 4 項），actionlint 1.7.7 檢查 workflow 通過。
-3. **套用後今晚就要用上**：push 後請到中繼的 Actions → Official data collector → Run workflow，`night` 填 `true`，其他維持預設，手動跑一次。17:01 以後任何時間按都可以，它會自己等到 22:31。手動執行會馬上開始，不像排程會延後。今晚會收到週五 11/06 的信用統計。你的工具不能觸發 workflow 的話，請告訴擁有者自己按一次。
+**本機 git 連不到 github.com 時（你 11/07 16:18 回報）**：照 hotfix11、hotfix12 的做法，用 GitHub 連接器直接在中繼 main 提交 patch 5 的 3 個檔案（patch 4 也改過 workflow 檔，同一方式成功過），內容以 patch 為準。提交後核對 blob SHA：
+   - 新增 `scripts/wait_night_capture.py` → `82c3d827c4e5f6c4f29462fcf019362447bd4fff`
+   - 新增 `tests/test_night_wait.py` → `45537c228c716a29022dc748c33500669487ee22`
+   - 修改 `.github/workflows/official_collector.yml`（原 `ca2283d9…`）→ `85e73f53ef2898fe408ba3ce3d0f3f88427936da`
+
+3. **套用後今晚就要用上**：push 後請到中繼的 Actions → Official data collector → Run workflow，`night` 填 `true`，其他維持預設，手動跑一次。17:01 以後任何時間按都可以，它會自己等到 22:31。手動執行會馬上開始，不像排程會延後。今晚會收到週五 11/06 的信用統計。你的工具不能觸發 workflow 的話，請告訴擁有者自己按一次。**patch 5 今晚來不及推上去也沒關係**：擁有者在今晚 22:30～23:59 之間手動按一次 Run workflow（全部用預設值）就會收到信用統計，因為 patch 4 已經在線上了。
 4. **讀回（明早 11/08 06:30 巡檢）**：
    - 套件：`statistics.json` 的 `capturedAt` 在 11/07 22:30～23:59（台北），`date`＝2026-11-06。若是早上的套件，就看 `carried`。
    - 網站：信用七列的觀測日＝11/06、`previousDate`＝11/05、`captureDeferred=false`、`capturedAt` 是那次夜間擷取的時間。**這一次就是保留中的「v254 合規新匯入七列驗收」**，請照實標完成或未完成。
