@@ -1,0 +1,241 @@
+diff --git a/OPERATIONS.md b/OPERATIONS.md
+index b8a7a30..bcc66b4 100644
+--- a/OPERATIONS.md
++++ b/OPERATIONS.md
+@@ -6,7 +6,7 @@ For a cloud run, use Sites `get_site` for `REDACTED_PROJECT_ID`. Confirm the own
+ 
+ 1. Read `/api/market-scanner` first. Run the retrieved Python collector with `--output <scratch-directory> --sessions 60` when fewer than 60 sessions are saved; otherwise use `--sessions 1` to append or replace the latest official session. It downloads official FRED CSV observations, their matching latest observation and next release date from FRED's official series pages, the TWSE holiday calendar/FMTQIK trading dates and same-day MI_MARGN, MI_MARGN_TREND and BFIJ3U raw statistics, the current TWSE/TPEx issuer roster, and date-matched TWSE MI_INDEX / TPEx OTC quotes. The latest date comes from the actual MI_INDEX after-trading report, because STOCK_DAY_ALL can lag after market close. `--macro-only` refreshes the FRED observations and market statistics without recollecting stock history. FRED provider failures are isolated by series; read `macro-collection-status.json` and report remaining failures. FinMind public metadata supplies industry labels only. Retain raw sources and collection status for review. Do not mix TPEx OTC quotes with fixed-price after-hours quotes, or replace a rejected historical date with the latest day. Current classifications do not establish a historical survivorship-corrected universe.
+ 2. Launch `stty -echo` then `node <retrieved-importer.mjs> <scratch-directory>` in a PTY. At the hidden-stdin prompt supply a single JSON line with the current `token` and the deployed `origin` from `get_site`. Do not include credentials in arguments, files, logs or task text. The importer posts the universe, observations and dated snapshots, then reads saved status. Abort on a rejected write; do not claim a successful update based only on collection. Existing company evidence remains saved; import newly verified filings separately when available.
+-3. POST `/api/automation/refresh-all`, poll `/api/automation/status` at 10-second intervals until the matching run has `completedAt`, and read `/api/automation/history`. GET `/api/macro`, `/api/macro-expanded` and `/api/master-model?id=8299` to verify source observation dates, usable coverage, scanner session count and eligible history. An initial cached response may start a background refresh; read again after completion.
++3. POST `/api/automation/refresh-all`, poll `/api/automation/status` at 10-second intervals until the matching run has `completedAt`, and read `/api/automation/history`. Routine patrols add `?compact=1` to the POST and to every status poll (v255): the same checkpoint step runs, but the reply carries only `runId`, `status`, `checkpoint`, `completedAt`, `summary` (the history row plus `gateAuditTotal` and `stockBatch`) and `problems` (coverage rows that are not ok／automatic／not_used). Without the parameter the full payload is returned unchanged. GET `/api/macro`, `/api/macro-expanded` and `/api/master-model?id=8299` to verify source observation dates, usable coverage, scanner session count and eligible history. An initial cached response may start a background refresh; read again after completion.
+ 4. Preserve the existing macro score rules, raw financial warnings, candidate-only research and Gate criteria. Verify company filings separately before importing additional evidence through `companies`; published actual EPS is not an advance forecast or pre-announcement consensus. Eight distinct verified periods and direct-peer estimates remain required by the relevant Gates. Report unavailable sources and incomplete checks explicitly.
+ 
+ The Worker attempts the same official quote basis during refresh when the imported roster is fresh. The external collector is the fallback for Worker egress failures. Holiday/no-trade observations, suspended securities and newly listed stocks remain excluded or ineligible rather than filled with invented values. No Gemini or model-generated values are involved.
+diff --git a/package.json b/package.json
+index b84ec86..a6279b2 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v255-compact-status.test.mjs b/tests/v255-compact-status.test.mjs
+new file mode 100644
+index 0000000..280918a
+--- /dev/null
++++ b/tests/v255-compact-status.test.mjs
+@@ -0,0 +1,116 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { pathToFileURL } from 'node:url';
++import {refreshLeaseStatement} from './helpers/refresh-lease.mjs';
++
++const workerUrl = pathToFileURL(new URL('../dist/server/index.js', import.meta.url).pathname).href;
++const { default: worker } = await import(workerUrl);
++
++class MemoryD1 {
++  rows = new Map();
++  prepare(sql) {
++    const lease=refreshLeaseStatement(this,sql);if(lease)return lease;
++    return {
++      bind: (...args) => ({
++        run: async () => {
++          if (sql.includes('INSERT INTO site_runtime_cache')) {
++            this.rows.set(args[0], { payload: args[1], updated_at: args[2], expires_at: args[3] });
++          }
++          return { success: true };
++        },
++        all: async () => {
++          if (sql.includes('SELECT payload, updated_at, expires_at FROM site_runtime_cache')) {
++            const row = this.rows.get(args[0]);
++            return { results: row ? [row] : [] };
++          }
++          if (sql.includes('WHERE cache_key LIKE')) {
++            return { results: [...this.rows.entries()].filter(([key]) => key.startsWith(String(args[0]).replace('%', ''))).slice(-Number(args[1])).map(([cache_key, row]) => ({ cache_key, ...row })) };
++          }
++          return { results: [] };
++        },
++      }),
++      run: async () => ({ success: true }),
++    };
++  }
++}
++
++// v255（擁有者 2026-11-09「GPT 額度消耗太快」）：巡檢輪詢加 ?compact=1 只回進度與摘要；不帶參數時回應不變。
++const db = new MemoryD1();
++const originalFetch = globalThis.fetch;
++const universeRows = [
++  ...Array.from({ length: 300 }, (_, i) => ({ stock_id: String(1000 + i), stock_name: `上市測試${i}`, type: 'twse', industry_category: i % 2 ? '半導體業' : '電子零組件業' })),
++  ...Array.from({ length: 300 }, (_, i) => ({ stock_id: String(2000 + i), stock_name: `上櫃測試${i}`, type: 'tpex', industry_category: i % 2 ? '半導體業' : '電子零組件業' })),
++];
++const twseRows = universeRows.filter(x => x.type === 'twse').map((x, i) => ({ Date: '1151007', Code: x.stock_id, Name: x.stock_name, ClosingPrice: '100.00', Change: i % 2 ? '+1.00' : '-1.00', TradeVolume: '10000', TradeValue: '1000000' }));
++const tpexRows = universeRows.filter(x => x.type === 'tpex').map((x, i) => ({ Date: '1151007', SecuritiesCompanyCode: x.stock_id, CompanyName: x.stock_name, Close: '100.00', Change: i % 2 ? '+1.00' : '-1.00', TradingShares: '10000', TransactionAmount: '1000000' }));
++globalThis.fetch = async (input, init) => {
++  const url = String(input);
++  if (url.includes('dataset=TaiwanStockInfo')) return Response.json({ status: 200, data: universeRows });
++  if (url.includes('/exchangeReport/STOCK_DAY_ALL')) return Response.json(twseRows);
++  if (url.includes('/tpex_mainboard_daily_close_quotes')) return Response.json(tpexRows);
++  return new Response('No upstream test fixture configured', {status:503});
++};
++const now = new Date().toISOString(), future = new Date(Date.now() + 86400000).toISOString(), currentDate=now.slice(0,10);
++const seed = (key, payload, updatedAt = now, expiresAt = future) => db.rows.set(key, {
++  payload: JSON.stringify(payload), updated_at: updatedAt, expires_at: expiresAt,
++});
++seed('macro:v1', { checkedAt: now, rows: [{ id: 'SOFR', name: 'SOFR', value: 4.1, date: '2026-10-06', status: 'ok', source: 'https://fred.stlouisfed.org/series/SOFR' }], coverage: { usable: 1, total: 1 }, light: '灰燈', fiveLines: ['風險預算不增加。'] });
++seed('macro-expanded:v1', { checkedAt: now, rows: [{ id: 'UNRATE', name: '失業率', value: 4.1, date: '2026-09-01', status: 'ok' }], derived: [] });
++seed('macro-market:v7', { checkedAt: now, rows: [
++  { id: 'XAU', name: '金價', value: 4100, unit: 'USD/oz', date: currentDate, status: 'ok', source: 'https://api.gold-api.com/price/XAU' },
++  { id: 'XAG', name: '銀價', value: 60, unit: 'USD/oz', date: currentDate, status: 'ok', source: 'https://api.gold-api.com/price/XAG' },
++  { id: 'XAU_XAG', name: '金銀比', value: 68.33, unit: '倍', date: currentDate, status: 'ok', historyObservations: 1 },
++ ] });
++seed('us-indices:v1', { checkedAt: now, rows: [{ id: 'SP500', value: 7000, date: '2026-10-06', status: 'ok' }] });
++seed('macro-news:v1', { checkedAt: now, feeds: [
++  { topic: '政策', source: 'Fed', items: [{ title: '公告', date: '2026-10-07', url: 'https://www.federalreserve.gov/news' }] },
++  { topic: '能源', source: 'EIA', items: [{ title: '公告', date: '2026-10-07', url: 'https://www.eia.gov/news' }] },
++  { topic: '就業', source: 'BLS', items: [{ title: '公告', date: '2026-10-07', url: 'https://www.bls.gov/news' }] },
++ ] });
++for (const [id, name] of [['8299', '群聯'], ['5289', '宜鼎'], ['2404', '漢唐'], ['5009', '榮剛']]) {
++  seed(`stock:v5:${id}`, { id, checkedAt: now, price: { value: 100, date: '2026-10-06' }, revenue: { month: '2026-09' }, datasetStatus: {}, exRightsEvents: [] });
++}
++
++const env = { DB: db };
++let background;
++const ctx = { waitUntil(promise) { background = promise; } };
++const call=(path,init)=>worker.fetch(new Request('https://site.test'+path,init),env,ctx);
++async function settle(){if(background){await background;background=null;}}
++
++test('compact=1：每次輪詢都很小、照樣推進到完成，摘要和 history 一致',async()=>{
++  let response=await call('/api/automation/refresh-all?compact=1',{method:'POST'});
++  assert.equal(response.status,202);
++  const started=await response.json();
++  assert.equal(started.compact,true);assert.equal(started.status,'running');assert.equal(started.checkpoint.stage,'initialize');assert.ok(started.runId);
++  const sizes=[];let last;
++  for(let i=0;i<80&&!last?.completedAt;i++){
++    response=await call('/api/automation/status?compact=1');const text=await response.text();
++    assert.equal(response.status,200,text);sizes.push(text.length);last=JSON.parse(text);await settle();
++    assert.equal(last.runId,started.runId);assert.equal(last.compact,true);
++  }
++  assert.ok(last.completedAt,'同一個 run 跑完');
++  assert.ok(Math.max(...sizes)<4000,`每次回應都在 4 千字元內（最大 ${Math.max(...sizes)}）`);
++  assert.equal(last.checkpoint.stage,'done');
++  assert.equal(last.summary.gateAuditCount,4);assert.equal(last.summary.gateAuditTotal,4);
++  assert.deepEqual(last.summary.stockBatch,['8299','5289','2404','5009']);
++  assert.ok(last.problems.includes('sourceResearch:source_error'),'有問題的覆蓋列照實列出');
++  assert.ok(!last.problems.some(p=>/:(automatic|not_used|ok)$/.test(p)),'正常列不列');
++  assert.equal(last.fullMarketScanner,undefined);assert.equal(last.modules,undefined);
++  const history=(await (await call('/api/automation/history')).json()).runs[0];
++  const {gateAuditTotal,stockBatch,...summary}=last.summary;
++  assert.deepEqual(summary,history,'摘要和 history 同一套欄位、同樣的值');
++  // 不帶參數：回應和以前一樣是整包
++  const full=await (await call('/api/automation/status')).json();
++  assert.equal(full.compact,undefined);assert.ok(full.fullMarketScanner);assert.ok(full.modules.macro);assert.equal(full.gateAudits.length,4);
++  assert.equal(full.runId,last.runId);assert.equal(full.completedAt,last.completedAt);
++});
++
++test('compact=1：已在跑的 run 只回進度',async()=>{
++  let response=await call('/api/automation/refresh-all',{method:'POST'});const run=await response.json();
++  await call('/api/automation/status');await settle();
++  response=await call('/api/automation/refresh-all?compact=1',{method:'POST'});
++  const again=await response.json();
++  assert.equal(response.status,202);assert.equal(again.alreadyRunning,true);assert.equal(again.compact,true);assert.equal(again.runId,run.runId);
++  assert.ok(JSON.stringify(again).length<4000);
++  for(let i=0;i<80;i++){const r=await (await call('/api/automation/status?compact=1')).json();await settle();if(r.completedAt)break;}
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index f86aeaf..16b4a81 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -1548,6 +1548,31 @@ async function readbackSiteStock(row, env, since) {
+   }
+ }
+ 
++function siteRefreshSummary(payload) {
++  return {
++    runId: payload.runId, startedAt: payload.startedAt || null, completedAt: payload.completedAt || null,
++    status: payload.status || 'running', trigger: payload.trigger || null,
++    moduleCounts: Object.fromEntries(Object.entries(payload.modules || {}).map(([id, value]) => [id, value.status || 'unknown'])),
++    stockCount: Array.isArray(payload.stocks) ? payload.stocks.length : 0,
++    deferredStockCount: Number(payload.deferredStockCount || 0), stockCursor: Number(payload.stockCursor || 0), watchlistSource: payload.watchlistSource || null,
++    researchCount: Array.isArray(payload.research) ? payload.research.length : 0,
++    gateAuditCount: (payload.gateAudits||[]).filter(row=>row.recorded===true).length,
++    relayImport: payload.relayImport ? { status: payload.relayImport.status || null, generatedAt: payload.relayImport.manifest?.generatedAt || null, groups: Object.fromEntries((payload.relayImport.groups || []).map(g => [g.id, g.status])) } : null,
++  };
++}
++// v255（擁有者 2026-11-09「GPT 額度消耗太快」）：巡檢每次輪詢 status 都回整包（網站測試資料實測：一次 23～29 萬字元、一輪 36 次共約 930 萬字元；
++// 正式資料大小不同），GPT 每次都得讀完。加 ?compact=1：照樣推進同一步，只回進度與摘要（約 1 千字元內）；不帶參數時回應完全不變。
++const SITE_REFRESH_QUIET_COVERAGE=new Set(['ok','automatic','not_used']);
++function compactSiteRefresh(payload) {
++  if(!payload||typeof payload!=='object')return payload;
++  const pick=Object.fromEntries(['runId','status','startedAt','completedAt','updatedAt','alreadyRunning','persisted','reason','message','note'].filter(key=>payload[key]!==undefined).map(key=>[key,payload[key]]));
++  const gateAudits=Array.isArray(payload.gateAudits)?payload.gateAudits:[];
++  return {compact:true,...pick,checkpoint:payload.checkpoint?{stage:payload.checkpoint.stage||null,index:payload.checkpoint.index??null}:null,
++    ...(payload.runId?{summary:{...siteRefreshSummary(payload),gateAuditTotal:gateAudits.length,stockBatch:(payload.stockBatch||[]).map(row=>row.id)},
++      problems:(Array.isArray(payload.coverage)?payload.coverage:[]).filter(row=>row&&!SITE_REFRESH_QUIET_COVERAGE.has(row.status)).map(row=>`${row.id}:${row.status}`).slice(0,20)}:{})};
++}
++const wantsCompactRefresh=request=>{try{return new URL(request.url).searchParams.get('compact')==='1';}catch{return false;}};
++
+ async function persistSiteRefreshStatus(env, payload) {
+   const ttl = 365 * 86400000;
+   const latest = payload?.runId ? await readRuntimeCache(env, SITE_AUTO_REFRESH_KEY) : null;
+@@ -1559,16 +1584,7 @@ async function persistSiteRefreshStatus(env, payload) {
+     writes.push(writeRuntimeCache(env, `site-auto-refresh-run:v1:${payload.runId}`, payload, ttl));
+     const prior = await readRuntimeCache(env, SITE_AUTO_REFRESH_HISTORY_KEY);
+     const history = Array.isArray(prior?.payload?.runs) ? prior.payload.runs : [];
+-    const summary = {
+-      runId: payload.runId, startedAt: payload.startedAt || null, completedAt: payload.completedAt || null,
+-      status: payload.status || 'running', trigger: payload.trigger || null,
+-      moduleCounts: Object.fromEntries(Object.entries(payload.modules || {}).map(([id, value]) => [id, value.status || 'unknown'])),
+-      stockCount: Array.isArray(payload.stocks) ? payload.stocks.length : 0,
+-      deferredStockCount: Number(payload.deferredStockCount || 0), stockCursor: Number(payload.stockCursor || 0), watchlistSource: payload.watchlistSource || null,
+-      researchCount: Array.isArray(payload.research) ? payload.research.length : 0,
+-      gateAuditCount: (payload.gateAudits||[]).filter(row=>row.recorded===true).length,
+-      relayImport: payload.relayImport ? { status: payload.relayImport.status || null, generatedAt: payload.relayImport.manifest?.generatedAt || null, groups: Object.fromEntries((payload.relayImport.groups || []).map(g => [g.id, g.status])) } : null,
+-    };
++    const summary = siteRefreshSummary(payload);
+     const next = [...history.filter(item => item.runId !== summary.runId), summary]
+       .sort((a, b) => String(a.startedAt || '').localeCompare(String(b.startedAt || '')))
+       .slice(-SITE_AUTO_REFRESH_HISTORY_LIMIT);
+@@ -1751,17 +1767,18 @@ async function releaseSiteRefreshLease(env,runId,token){
+   try{await env.DB.prepare('DELETE FROM site_refresh_leases WHERE run_id = ? AND token = ?').bind(runId,token).run();}catch{}
+ }
+ async function pollSiteRefresh(request,env,ctx){
++  const shape=wantsCompactRefresh(request)?compactSiteRefresh:value=>value;
+   const saved=await siteAutoRefreshStatus(env);
+-  if(saved.completedAt||saved.checkpoint?.version!==1)return Response.json(saved,{headers:jsonHeaders});
++  if(saved.completedAt||saved.checkpoint?.version!==1)return Response.json(shape(saved),{headers:jsonHeaders});
+   if((researchUserId(request)||null)!==(saved.userScope||null))return Response.json({runId:saved.runId,status:'auth_required',reason:'巡檢接續需維持啟動時的實際使用者身分。'},{status:403,headers:jsonHeaders});
+   let token;
+   try{
+     token=await claimSiteRefreshLease(env,saved.runId);
+-    if(!token)return Response.json({...saved,alreadyRunning:true},{headers:jsonHeaders});
++    if(!token)return Response.json(shape({...saved,alreadyRunning:true}),{headers:jsonHeaders});
+     const latest=await siteAutoRefreshStatus(env);
+-    if(latest.runId!==saved.runId||latest.completedAt)return Response.json(latest,{headers:jsonHeaders});
++    if(latest.runId!==saved.runId||latest.completedAt)return Response.json(shape(latest),{headers:jsonHeaders});
+     const run=structuredClone(latest);
+-    return Response.json(await executeFullSiteRefresh(request,env,ctx,run,token),{headers:jsonHeaders});
++    return Response.json(shape(await executeFullSiteRefresh(request,env,ctx,run,token)),{headers:jsonHeaders});
+   }catch(error){const reason=String(error?.message||error).slice(0,240),lost=reason.startsWith('lease_lost:'),status=lost?'lease_lost':reason.startsWith('storage_error:')?'storage_error':'error';return Response.json({runId:saved.runId,status,persisted:false,checkpoint:saved.checkpoint,reason},{status:lost?409:503,headers:jsonHeaders});}
+   finally{if(token)await releaseSiteRefreshLease(env,saved.runId,token);}
+ }
+@@ -1804,12 +1821,13 @@ async function startSiteRefresh(request,env,ctx){
+   const previousAge = Date.now() - Date.parse(previous.startedAt || '');
+   const activeStatus = ['running', 'updating_market_modules', 'updating_stocks', 'updating_research'].includes(previous.status);
+   const storedRunFresh = activeStatus && Number.isFinite(previousAge) && previousAge < SITE_AUTO_REFRESH_LOCK_TIMEOUT_MS;
++  const shape=wantsCompactRefresh(request)?compactSiteRefresh:value=>value;
+   if (activeStatus&&(previous.checkpoint?.version===1||storedRunFresh)) {
+-    return Response.json({ ...previous, alreadyRunning: true }, { status: 202, headers: jsonHeaders });
++    return Response.json(shape({ ...previous, alreadyRunning: true }), { status: 202, headers: jsonHeaders });
+   }
+   const run={runId:crypto.randomUUID(),status:'running',startedAt:new Date().toISOString(),trigger:'scheduled_site_refresh',executionMode:'poll_driven_checkpoint',userScope:researchUserId(request)||null,checkpoint:{version:1,stage:'initialize',index:0},modules:{},stocks:[],research:[],gateAudits:[]};
+   try{await persistSiteRefreshStatus(env,run);}catch(error){return Response.json({runId:run.runId,status:'storage_error',persisted:false,reason:String(error?.message||error).slice(0,240)},{status:503,headers:jsonHeaders});}
+-  return Response.json({...run,message:'全站巡檢已保存起點；持續輪詢status逐步執行並接續，同一runId完成後再核對history。'},{status:202,headers:jsonHeaders});
++  return Response.json(shape({...run,message:'全站巡檢已保存起點；持續輪詢status逐步執行並接續，同一runId完成後再核對history。'}),{status:202,headers:jsonHeaders});
+ }
+ 
+ export default {

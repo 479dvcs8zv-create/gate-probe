@@ -1,8 +1,34 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-08 23:55 台北（Claude）
+更新：2026-11-09 21:18 台北（Claude）
 
-## ★ 本輪工作（11/08 23:55 更新；只讀這一段就夠，下方各節是細節備查）
+## ★ 本輪工作（11/09 21:18 更新；只讀這一段就夠，下方各節是細節備查）
+**等每週額度恢復（週三 11/11 23:19 後）再做。** 擁有者 2026-11-09 21:12 已在 Claude 對話說「好」；開始前請擁有者在你的對話裡再確認一次。**部署一律要擁有者授權。**
+
+**省額度規則（這輪起一直適用）**
+- 只讀這一段和下面點名的檔案，不要重新瀏覽整個 repo。
+- 每做完一步，就在 `diagnostics/deploy-20261026/hotfix13.md` 加一行（commit／SHA／結果）並提交。中斷後從還沒完成的那一步接續，已完成的不要重做。
+- 完整測試 `TZ=UTC npm test` 只跑一次；失敗時只重跑失敗的那一個檔。
+
+**原因**：Claude 量到，巡檢每查一次 status，網站都回整包資料（網站測試資料實測：一次 23～29 萬字元，一輪 36 次約 930 萬字元）。你的紀錄是每輪 40～61 次，再加上約 9 萬字元的證據 JSON、每輪提交 5 次。每週額度大多花在這裡。
+
+1. **網站 v255：查進度加 `?compact=1`**
+   - 檔案：`handoff/patches/v255-compact-status.patch`，SHA-256 `20fc9d2ee2914be3c9d8db31cf9e968665de99247bda053d5ca37924d4d2fbde`，基線＝v254（Claude tag v254-patch-head）。
+   - 內容：POST `/api/automation/refresh-all?compact=1` 和 GET `/api/automation/status?compact=1` 照樣推進同一步，但只回 `runId`、`status`、`checkpoint`、`completedAt`、`summary`、`problems`。`summary`＝history 那一列，再加 `gateAuditTotal`、`stockBatch`；`problems`＝不是 ok／automatic／not_used 的覆蓋列。不帶參數時回應完全不變。
+   - 新增 `tests/v255-compact-status.test.mjs` 2 項：在 v254 上失敗、套用後通過。每次回應都在 4 千字元內，摘要和 history 逐欄相同。
+   - Claude 已在乾淨 v254 上重放：無衝突，完整 `TZ=UTC npm test` exit 0。
+   - 套用後 HTML 仍是 `de5a6d6b…`；匿名化核對的後台應為 `029de2cc50331bb7c50462c93d1c96cc681f07bf33d003dcad5e7e588b8df6e3`。現行版本留作回滾。
+   - 部署後只驗一件事：GET `/api/automation/status?compact=1` 的回應有 `"compact":true`，且長度在 4 千字元內。
+2. **部署驗證通過後，把排程巡檢指令換成精簡版**（只改指令，不改 06:30／22:30 時段與開關）。全文在 `handoff/patrol_prompt_v255.md`。保留你現有指令裡「怎麼連到網站」那一段（私人網址、驗證方式都不要寫進任何 repo），其餘換成這份。
+3. **報告** `diagnostics/deploy-20261026/hotfix13.md`（逐步追加，最後 8 行內）：
+   - v255 是否獲授權，部署結果（commit、SHA）；
+   - compact 讀回長度；
+   - 排程指令已換成精簡版；
+   - 第一次精簡巡檢的 3 行紀錄；
+   - 確認 patch 5 沒有套用、v254 驗收結案（理由見下方 11/08 23:55 版）。
+
+<details><summary>11/08 23:55 版工作區塊（併入本輪報告 hotfix13，備查）</summary>
+
 **不用改任何程式、不用部署。** 這輪只有巡檢和一份短報告。
 
 1. **今晚 22:30 的巡檢沒有紀錄**（看門狗 23:47 提醒：最後一筆是 11/08 06:48）。請現在補做一次夜間巡檢，照平常的方式做：POST `/api/automation/refresh-all`，再 GET status／history。另外查一下 22:30 排程為什麼沒跑或沒寫紀錄（是平台 run 失敗、自動核准審查、使用量限制，還是其他原因），照實寫。不要改時段與開關。
@@ -10,6 +36,8 @@
 3. **v254 驗收：可以結案。** v254 的範圍只是「匯入的信用七列要帶 `previousDate`／`capturedAt`／`captureDeferred=false`」。這已在你 11/06 夜間巡檢的實際匯入驗證過：statistics=imported，`previousDate=11/04`、`capturedAt` 有值、`captureDeferred=false`。那次擷取時間不合規是中繼的問題，已由 patch 4 修正，不屬於 v254。
    - 另外，網站直接抓到的新值本來就不帶 `captureDeferred` 欄；只有 22:30 前沿用舊值時才標 `true`。這是正常的，不算錯，也不用補。
 4. **報告**：寫 `diagnostics/deploy-20261026/hotfix13.md`（6 行內）：第 1 項補做結果與 22:30 沒跑的原因；第 2 項確認沒有套用 patch 5；第 3 項 v254 結案。
+
+</details>
 
 <details><summary>11/07 16:09 版工作區塊（patch 5 已撤回，備查）</summary>
 
