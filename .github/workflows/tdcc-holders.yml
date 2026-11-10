@@ -1,0 +1,51 @@
+name: tdcc-holders
+# 集保股權分散表（大戶／散戶持股），擁有者 2026-11-10 22:27。只讀公開資料、不使用金鑰；只寫入 gate-probe 的 results/tdcc/。
+# 開放資料只有最新一週，所以每週存一次；指定股票的過去一年用查詢頁補（history）。
+on:
+  schedule:
+    # 台北週六 11:17、週日 11:17（同一週已存過就跳過；GitHub 排程常延後）
+    - cron: '17 3 * * 6'
+    - cron: '17 3 * * 0'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'latest（最新一週全部股票）或 history（指定股票過去約一年）'
+        default: 'latest'
+      codes:
+        description: 'history 用的股票代號，逗號分隔'
+        default: '2618,8299,5289,2404,5009,2330'
+permissions:
+  contents: write
+concurrency:
+  group: tdcc-holders
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python -m unittest tests.test_tdcc_holders -v
+      - name: Collect
+        env:
+          MODE: ${{ inputs.mode || 'latest' }}
+          CODES: ${{ inputs.codes || '' }}
+        run: |
+          set -euo pipefail
+          case "$MODE" in
+            latest) python3 -I tools/tdcc_holders.py latest results/tdcc ;;
+            history) case "$CODES" in *[!0-9A-Z,]*|"") echo "bad codes"; exit 1;; esac
+                     python3 -I tools/tdcc_holders.py history "$CODES" results/tdcc ;;
+            *) echo "bad mode"; exit 1 ;;
+          esac
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/tdcc
+          git commit -qm "tdcc holders ${{ inputs.mode || 'latest' }} run ${GITHUB_RUN_ID}" || exit 0
+          for n in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
