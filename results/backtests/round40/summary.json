@@ -197,95 +197,140 @@
  },
  "decision": "not_supported",
  "tdcc_exploratory": {
-  "events": 1,
-  "first": "2026-03-02",
-  "last": "2026-03-02",
+  "events": 185,
+  "first": "2025-12-15",
+  "last": "2026-04-27",
   "big_up": {
    "hold": {
-    "mean": -0.02754820936639113,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.4152786449402324,
+    "se": 0.2060999153232016,
+    "events": 81,
+    "months": 5
    },
    "hold_ex": {
-    "mean": -0.2012192619517531,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.26091748485900657,
+    "se": 0.17193506043296117,
+    "events": 81,
+    "months": 5
    },
    "r5h": {
-    "mean": 0.0,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.2835260799457898,
+    "se": 0.15022594299992562,
+    "events": 81,
+    "months": 5
    },
-   "reclaim5": 0.0,
-   "n": 1
+   "reclaim5": 0.7160493827160493,
+   "n": 81
   },
   "big_down": {
-   "hold": null,
-   "hold_ex": null,
-   "r5h": null,
-   "reclaim5": null,
-   "n": 0
+   "hold": {
+    "mean": 0.5586711569798892,
+    "se": 0.11689218275143617,
+    "events": 104,
+    "months": 5
+   },
+   "hold_ex": {
+    "mean": 0.37892955198401485,
+    "se": 0.07834900329151928,
+    "events": 104,
+    "months": 5
+   },
+   "r5h": {
+    "mean": 0.3872101993451952,
+    "se": 0.09506133290998918,
+    "events": 104,
+    "months": 5
+   },
+   "reclaim5": 0.7788461538461539,
+   "n": 104
   },
   "holders_down": {
    "hold": {
-    "mean": -0.02754820936639113,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.49796674615443565,
+    "se": 0.11884877776615212,
+    "events": 68,
+    "months": 5
    },
    "hold_ex": {
-    "mean": -0.2012192619517531,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.3465539927809091,
+    "se": 0.116520796633555,
+    "events": 68,
+    "months": 5
    },
    "r5h": {
-    "mean": 0.0,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.33347188007812323,
+    "se": 0.1073032892623867,
+    "events": 68,
+    "months": 5
    },
-   "reclaim5": 0.0,
-   "n": 1
+   "reclaim5": 0.7058823529411765,
+   "n": 68
   },
   "holders_up": {
-   "hold": null,
-   "hold_ex": null,
-   "r5h": null,
-   "reclaim5": null,
-   "n": 0
+   "hold": {
+    "mean": 0.5184785028052024,
+    "se": 0.15994570359957275,
+    "events": 117,
+    "months": 5
+   },
+   "hold_ex": {
+    "mean": 0.3445056692902249,
+    "se": 0.13119267024841214,
+    "events": 117,
+    "months": 5
+   },
+   "r5h": {
+    "mean": 0.3784947473990158,
+    "se": 0.09984889530400343,
+    "events": 117,
+    "months": 5
+   },
+   "reclaim5": 0.7777777777777778,
+   "n": 117
   },
   "both_conc_foreign_buy": {
    "hold": {
-    "mean": -0.02754820936639113,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.43262586789339963,
+    "se": 0.24115860956797364,
+    "events": 56,
+    "months": 5
    },
    "hold_ex": {
-    "mean": -0.2012192619517531,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.27784184878405405,
+    "se": 0.23255776839773085,
+    "events": 56,
+    "months": 5
    },
    "r5h": {
-    "mean": 0.0,
-    "se": null,
-    "events": 1,
-    "months": 1
+    "mean": 0.33894476739343304,
+    "se": 0.19661148804691445,
+    "events": 56,
+    "months": 5
    },
-   "reclaim5": 0.0,
-   "n": 1
+   "reclaim5": 0.7321428571428571,
+   "n": 56
   },
   "both_dist_foreign_sell": {
-   "hold": null,
-   "hold_ex": null,
-   "r5h": null,
-   "reclaim5": null,
-   "n": 0
+   "hold": {
+    "mean": 0.557323462975839,
+    "se": 0.14391422957036026,
+    "events": 69,
+    "months": 5
+   },
+   "hold_ex": {
+    "mean": 0.37596718427219566,
+    "se": 0.12104747387358288,
+    "events": 69,
+    "months": 5
+   },
+   "r5h": {
+    "mean": 0.40073229471813254,
+    "se": 0.07680798131845636,
+    "events": 69,
+    "months": 5
+   },
+   "reclaim5": 0.7971014492753623,
+   "n": 69
   }
  }
 }
