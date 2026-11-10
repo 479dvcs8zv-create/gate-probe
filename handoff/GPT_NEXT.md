@@ -1,8 +1,8 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-09 21:18 台北（Claude）
+更新：2026-11-10 21:10 台北（Claude；補 U-6）
 
-## ★ 本輪工作（11/09 21:18 更新；只讀這一段就夠，下方各節是細節備查）
+## ★ 本輪工作（11/09 21:18 更新、11/10 21:10 補 U-6；只讀這一段就夠，下方各節是細節備查）
 **等每週額度恢復（週三 11/11 23:19 後）再做。** 擁有者 2026-11-09 21:12 已在 Claude 對話說「好」；開始前請擁有者在你的對話裡再確認一次。**部署一律要擁有者授權。**
 
 **省額度規則（這輪起一直適用）**
@@ -17,11 +17,17 @@
    - 內容：POST `/api/automation/refresh-all?compact=1` 和 GET `/api/automation/status?compact=1` 照樣推進同一步，但只回 `runId`、`status`、`checkpoint`、`completedAt`、`summary`、`problems`。`summary`＝history 那一列，再加 `gateAuditTotal`、`stockBatch`；`problems`＝不是 ok／automatic／not_used 的覆蓋列。不帶參數時回應完全不變。
    - 新增 `tests/v255-compact-status.test.mjs` 2 項：在 v254 上失敗、套用後通過。每次回應都在 4 千字元內，摘要和 history 逐欄相同。
    - Claude 已在乾淨 v254 上重放：無衝突，完整 `TZ=UTC npm test` exit 0。
-   - 套用後 HTML 仍是 `de5a6d6b…`；匿名化核對的後台應為 `029de2cc50331bb7c50462c93d1c96cc681f07bf33d003dcad5e7e588b8df6e3`。現行版本留作回滾。
+   - 和第 1b 項的 v256 一起部署一次。套用後 HTML 仍是 `de5a6d6b…`。匿名化核對的後台：只套 v255 是 `029de2cc…`；v255＋v256 是 `e5d736dc7c026c2768147d4f5256dbd52917ac92b634b97c18a0ccafaf11cd42`。現行版本留作回滾。
    - 部署後只驗一件事：GET `/api/automation/status?compact=1` 的回應有 `"compact":true`，且長度在 4 千字元內。
+1b. **網站 v256＋中繼 U-6（擁有者 2026-11-10 21:01 已在 Claude 對話說「好」）**：擴展總經多一列「美國 U-6 廣義失業率」，只顯示，不進任何評分或門檻。
+   - 中繼：`handoff/patches/relay-u6rate.patch`，SHA-256 `0e06a67d7d55361723c01b8bcbc80eade7adfda61e3c5de5db3d5bfae3aa023c`。在中繼 main `git am` → push；本機 git 連不到時，用連接器提交，核對 blob：`scripts/sync_keyless.py` → `48aba82986a7a6a3bfa12fa9be8606c5086b23ef`、`tests/test_keyless.py` → `482a09b57372fe8c05e88bfd8c65c9f3d936ef67`。
+     - Claude 11/10 21:04 已在 GitHub 上試跑（不推送）：U6RATE＝9 月 7.6%、10 月 7.9%（FRED），61 項全成功，加上 U-6 共 62／62；中繼測試 62 項全過。
+   - 網站：`handoff/patches/v256-u6rate.patch`，SHA-256 `979bdf669db8453a3b51835a9e738578f5e3b95bab29c63832e8273a758fc576`，基線＝v255。新增 `tests/v256-u6rate.test.mjs` 3 項（在 v255 上失敗、套用後通過）。
+     - Claude 已在乾淨 v254 上依序套 v255、v256：無衝突，建出來和 Claude 的完全相同，完整 `TZ=UTC npm test` exit 0（末組 94／94）。
+   - 部署後擴展總經會變成 13 項（原 12 項）。這是正常的，不是異常。
 2. **部署驗證通過後，把排程巡檢指令換成精簡版**（只改指令，不改 06:30／22:30 時段與開關）。全文在 `handoff/patrol_prompt_v255.md`。保留你現有指令裡「怎麼連到網站」那一段（私人網址、驗證方式都不要寫進任何 repo），其餘換成這份。
 3. **報告** `diagnostics/deploy-20261026/hotfix13.md`（逐步追加，最後 8 行內）：
-   - v255 是否獲授權，部署結果（commit、SHA）；
+   - v255＋v256、中繼 U-6 是否獲授權，部署結果（commit、SHA）；
    - compact 讀回長度；
    - 排程指令已換成精簡版；
    - 第一次精簡巡檢的 3 行紀錄；

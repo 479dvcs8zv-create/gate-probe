@@ -1,0 +1,102 @@
+diff --git a/package.json b/package.json
+index a6279b2..ed8e5ae 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v256-u6rate.test.mjs b/tests/v256-u6rate.test.mjs
+new file mode 100644
+index 0000000..f9c33f0
+--- /dev/null
++++ b/tests/v256-u6rate.test.mjs
+@@ -0,0 +1,38 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// v256（擁有者 2026-11-10 21:01「好」）：擴展總經加 U-6 廣義失業率（中繼 U6RATE）；只顯示，不進任何評分或門檻。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++let serial=0;
++const load=()=>import('data:text/javascript;base64,'+Buffer.from(source+`\nexport {SERIES,EXPANDED_SERIES_IDS,loadExpandedSeries,buildExpandedMacroSnapshot,backendMarketScoreModels,RELAY_URL};\n// v256-${serial++}`).toString('base64'));
++// 日期跟著現在走（上個月與前兩個月的 1 號），測試不會因為時間過去而失效。
++const month=back=>{const d=new Date();d.setUTCDate(1);d.setUTCMonth(d.getUTCMonth()-back);return d.toISOString().slice(0,10);};
++const relay=series=>({schema_version:1,generated_at:new Date().toISOString(),series});
++const u6={status:'ok',fetched_at:new Date().toISOString(),max_age_days:85,provider:'FRED 官方公開 CSV｜U6RATE',source:'https://fred.stlouisfed.org/graph/fredgraph.csv?id=U6RATE',
++  history:[{date:month(3),value:7.7},{date:month(2),value:7.6},{date:month(1),value:7.9}]};
++async function withFetch(handler,fn){const old=globalThis.fetch;globalThis.fetch=handler;try{return await fn();}finally{globalThis.fetch=old;}}
++
++test('目錄：U-6 在擴展總經、需求／就業、單位 %，不算進核心 55 項',async()=>{
++  const site=await load();
++  assert.deepEqual(site.SERIES.U6RATE,['美國 U-6 廣義失業率','需求／就業','%',85]);
++  assert.ok(site.EXPANDED_SERIES_IDS.has('U6RATE'));
++});
++
++test('讀中繼：有 U6RATE 就照原值顯示；中繼沒有、FRED 也抓不到就是缺值，不補',async()=>{
++  const site=await load();
++  const row=await withFetch(async url=>String(url)===site.RELAY_URL?Response.json(relay({U6RATE:u6})):new Response('no',{status:503}),()=>site.loadExpandedSeries('U6RATE',{}));
++  assert.equal(row.status,'ok');assert.equal(row.value,7.9);assert.equal(row.date,month(1));assert.equal(row.unit,'%');assert.match(row.provider,/U6RATE/);
++  const fresh=await load();
++  const none=await withFetch(async url=>String(url)===fresh.RELAY_URL?Response.json(relay({})):new Response('no',{status:503}),()=>fresh.loadExpandedSeries('U6RATE',{}));
++  assert.notEqual(none.status,'ok');assert.equal(none.value??null,null,'沒有來源就不給數字');
++});
++
++test('擴展總經快照多一列 U-6；總經分數完全不受影響',async()=>{
++  const site=await load();
++  const snap=await withFetch(async url=>String(url)===site.RELAY_URL?Response.json(relay({U6RATE:u6})):new Response('no',{status:503}),()=>site.buildExpandedMacroSnapshot({}));
++  const row=snap.rows.find(r=>r.id==='U6RATE');
++  assert.ok(row);assert.equal(row.value,7.9);assert.equal(snap.rows.length,13);
++  const withU6=site.backendMarketScoreModels({rows:[],derived:[]},{rows:[row],derived:[]}),without=site.backendMarketScoreModels({rows:[],derived:[]},{rows:[],derived:[]});
++  assert.deepEqual(withU6,without,'U-6 不進任何評分');
++});
+diff --git a/worker/observations.js b/worker/observations.js
+index 981289b..c50133e 100644
+--- a/worker/observations.js
++++ b/worker/observations.js
+@@ -20,6 +20,8 @@ const SERIES = {
+   T5YIE: ['5 年損益兩平通膨（FRED 官方）', '通膨／政策', '%', 7],
+   PAYEMS: ['非農就業人數（總量）', '需求／就業', '千人', 85],
+   UNRATE: ['美國失業率', '需求／就業', '%', 85],
++  // v256（擁有者 2026-11-10 21:01「好」）：U-6 廣義失業率（含想做全職卻只能兼職、暫時放棄找工作者）；只顯示，不進任何評分或門檻。
++  U6RATE: ['美國 U-6 廣義失業率', '需求／就業', '%', 85],
+   RSAFS: ['美國零售銷售（名目）', '需求／就業', '百萬美元', 85],
+   NOCDFSA066MSFRBPHI: ['費城聯儲製造業新訂單（區域參照）', '需求／就業', '指數', 45],
+   NYFED_EMPIRE_ORDERS: ['紐約聯儲 Empire State 新訂單（區域參照）', '需求／就業', '指數', 45],
+@@ -62,7 +64,7 @@ const SERIES = {
+   TW_M1B_M2: ['M1B−M2 年增率差', '台灣景氣', '百分點', 95],
+ };
+ const INTERNAL_SERIES_IDS = new Set(['IC4WSA','SAHMREALTIME']);
+-const EXPANDED_SERIES_IDS = new Set(['PAYEMS','UNRATE','RSAFS','SAHMREALTIME','NOCDFSA066MSFRBPHI','NYFED_EMPIRE_ORDERS','DALLAS_TMOS_ORDERS','GDPNOW','TW_EXPORT_ORDERS','TW_NDC_SIGNAL','TW_M1B_M2','WCESTUS1']);
++const EXPANDED_SERIES_IDS = new Set(['PAYEMS','UNRATE','U6RATE','RSAFS','SAHMREALTIME','NOCDFSA066MSFRBPHI','NYFED_EMPIRE_ORDERS','DALLAS_TMOS_ORDERS','GDPNOW','TW_EXPORT_ORDERS','TW_NDC_SIGNAL','TW_M1B_M2','WCESTUS1']);
+ const FRED_WINDOWS_DAYS = { SOFR: 21, IORB: 21, CPILFESL: 270, PCEPILFE: 270, ICSA: 84, IC4WSA: 84, CCSA: 84, SAHMREALTIME: 270, T10Y2Y: 30, T10YIE: 30, BAMLH0A0HYM2: 30, BAMLC0A0CM: 30, STLFSI4: 45, DFII10: 30, T5YIE: 30, DCOILWTICO: 30, RSAFS: 120, RRSFS: 120, T10Y3M: 30, NOCDFSA066MSFRBPHI: 120, GDPNOW: 730, DEXJPUS: 180, WCESTUS1: 90 };
+ const FRED_MIN_OBSERVATIONS = { SOFR: 5, IORB: 5, CPILFESL: 4, PCEPILFE: 4, ICSA: 2, IC4WSA: 1, CCSA: 4, SAHMREALTIME: 1, T10Y2Y: 3, T10YIE: 3, BAMLH0A0HYM2: 3, BAMLC0A0CM: 3, STLFSI4: 3, DFII10: 3, T5YIE: 3, DCOILWTICO: 3, RSAFS: 2, RRSFS: 2, T10Y3M: 3, NOCDFSA066MSFRBPHI: 2, GDPNOW: 1, DEXJPUS: 65, WCESTUS1: 2 };
+ const FRED_RETRY_IDS = new Set(Object.keys(FRED_MIN_OBSERVATIONS));
+@@ -551,11 +553,11 @@ async function loadExpandedSeries(id,env={}){
+    }
+   }
+  }
+- const names={RSAFS:'FRED／RSAFS 名目零售銷售',NOCDFSA066MSFRBPHI:'費城聯儲｜製造業新訂單季調擴散指數',GDPNOW:'Atlanta Fed GDPNow（FRED 整理之季度序列）',BAMLH0A0HYM2:'ICE BofA 高收益債 OAS｜FRED'};
++ const names={U6RATE:'FRED／U6RATE 廣義失業率（BLS）',RSAFS:'FRED／RSAFS 名目零售銷售',NOCDFSA066MSFRBPHI:'費城聯儲｜製造業新訂單季調擴散指數',GDPNOW:'Atlanta Fed GDPNow（FRED 整理之季度序列）',BAMLH0A0HYM2:'ICE BofA 高收益債 OAS｜FRED'};
+  const normalize=row=>id==='GDPNOW'&&row.value!=null?{...row,status:row.status==='stale'?'stale':'proxy',reason:[row.status==='stale'?'FRED 序列觀測較舊':'','季度標籤不等於 GDPNow 預測發布日；須核對 Atlanta Fed 最新更新'].filter(Boolean).join('；'),detail:'這是 FRED 整理的季度代理序列，不等同 Atlanta Fed 當季即時預測；請由 Atlanta Fed 原始頁面核對預測發布日。'}:row;
+  let directError=null;
+  if(id==='GDPNOW')try{return await loadAtlantaFedGDPNow()}catch(error){directError=error.message||'Atlanta Fed 官方頁面不可用'}
+- if(['RSAFS','NOCDFSA066MSFRBPHI','GDPNOW','BAMLH0A0HYM2'].includes(id)){
++ if(['U6RATE','RSAFS','NOCDFSA066MSFRBPHI','GDPNOW','BAMLH0A0HYM2'].includes(id)){
+   const primary=await loadSeries(id,env);
+   if((primary.status==='ok'||primary.status==='stale')&&(id!=='NOCDFSA066MSFRBPHI'||String(primary.date||'')>='2026-09-01'))return normalize(primary);
+   if(id==='RSAFS')try{return await loadCensusRetailSales()}catch(error){directError=error.message||'Census 官方零售銷售備援不可用'}
+@@ -617,7 +619,7 @@ async function newerPersistedSnapshot(env,key,memory){
+ }
+ async function buildExpandedMacroSnapshot(env={}){
+   const payload=await (async()=>{
+-  const ids=['PAYEMS','UNRATE','SAHMREALTIME','RSAFS','NOCDFSA066MSFRBPHI','NYFED_EMPIRE_ORDERS','DALLAS_TMOS_ORDERS','GDPNOW','BAMLH0A0HYM2','TW_EXPORT_ORDERS','TW_NDC_SIGNAL','TW_M1B_M2'];
++  const ids=['PAYEMS','UNRATE','U6RATE','SAHMREALTIME','RSAFS','NOCDFSA066MSFRBPHI','NYFED_EMPIRE_ORDERS','DALLAS_TMOS_ORDERS','GDPNOW','BAMLH0A0HYM2','TW_EXPORT_ORDERS','TW_NDC_SIGNAL','TW_M1B_M2'];
+   const rows=await limitedMap(ids,4,id=>loadExpandedSeries(id,env));
+   const payload={checkedAt:new Date().toISOString(),rows:rows.map(({history,...x})=>x),derived:evaluateExpanded(rows)};
+   console.log('expanded macro sources',JSON.stringify({rows:rows.map(x=>({id:x.id,status:x.status,date:x.date,provider:x.provider,reason:x.reason})),derived:evaluateExpanded(rows).map(x=>({name:x.name,value:x.value,status:x.status,date:x.date,method:x.method}))}));
