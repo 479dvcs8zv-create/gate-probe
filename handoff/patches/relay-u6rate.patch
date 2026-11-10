@@ -1,0 +1,65 @@
+From 66125ba1ef5131e90115178118a9e35e6daac1f2 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 10 Nov 2026 21:03:30 +0800
+Subject: [PATCH] Keyless relay: collect U-6 unemployment (FRED U6RATE,
+ monthly, 85 days); display only
+
+Owner 2026-11-10 21:01. Same path as UNRATE (FRED public CSV). The Site shows
+it next to the unemployment rate; it is not used in any score or threshold.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ scripts/sync_keyless.py |  5 ++++-
+ tests/test_keyless.py   | 22 ++++++++++++++++++++++
+ 2 files changed, 26 insertions(+), 1 deletion(-)
+
+diff --git a/scripts/sync_keyless.py b/scripts/sync_keyless.py
+index 07a869a..48aba82 100644
+--- a/scripts/sync_keyless.py
++++ b/scripts/sync_keyless.py
+@@ -19,7 +19,10 @@ MORE_SPECS = [
+  ('DTB3',7),('DGS10',7),('DGS30',7),('T10Y3M',7),('VIXCLS',7),('DEXJPUS',7),
+  ('WALCL',14),('WCESTUS1',14),('NOCDFSA066MSFRBPHI',45),('DRTSCILM',120),('DTWEXBGS',10),
+  # 網站「美元指數零軸」用的先進經濟體美元指數（聯準會 H.10 每週一更新，最新觀測最多約 10 天前）；零軸要 26 筆以上，多留歷史
+- ('DTWEXAFEGS',12)
++ ('DTWEXAFEGS',12),
++ # 擁有者 2026-11-10 21:01「好」：U-6 廣義失業率（BLS 月報，FRED U6RATE；含想做全職卻只能兼職、暫時放棄找工作者），
++ # 和 UNRATE 同樣是月資料、同樣 85 天。網站只顯示、不進任何評分或門檻。
++ ('U6RATE',85)
+ ]
+ HISTORY_KEEP={'DTWEXAFEGS':40}
+ OUT=Path('data/keyless_snapshot.json')
+diff --git a/tests/test_keyless.py b/tests/test_keyless.py
+index 7cd8c11..482a09b 100644
+--- a/tests/test_keyless.py
++++ b/tests/test_keyless.py
+@@ -85,3 +85,25 @@ class DollarIndexRelay(unittest.TestCase):
+         self.assertEqual(entry["history"][-1]["date"], "2026-10-23")
+         with _patch.object(keyless, "urlopen", lambda *a, **k: R(body.replace(b"DTWEXAFEGS", b"DTWEXBGS"))):
+             self.assertEqual(len(keyless.fred_csv("DTWEXBGS")["history"]), 20)
++
++
++class U6RateRelay(unittest.TestCase):
++    """擁有者 2026-11-10 21:01「好」：加 U-6 廣義失業率（FRED U6RATE），只顯示、不進評分。"""
++
++    def test_u6rate_is_collected_monthly_from_fred(self):
++        import io as _io
++        from unittest.mock import patch as _patch
++        self.assertIn(('U6RATE', 85), keyless.MORE_SPECS)
++        self.assertNotIn('U6RATE', [sid for sid, _ in keyless.SPECS], "只加一次")
++        body = b"observation_date,U6RATE\n2026-08-01,7.7\n2026-09-01,7.6\n2026-10-01,7.9\n"
++
++        class R(_io.BytesIO):
++            def __enter__(self): return self
++            def __exit__(self, *a): return False
++        with _patch.object(keyless, "urlopen", lambda *a, **k: R(body)):
++            entry = keyless.fred_csv("U6RATE")
++        self.assertEqual(entry["history"][-1], {"date": "2026-10-01", "value": 7.9})
++        self.assertEqual(entry["provider"], "FRED 官方公開 CSV｜U6RATE")
++        with _patch.object(keyless, "urlopen", lambda *a, **k: R(body.replace(b"U6RATE", b"UNRATE"))):
++            with self.assertRaises(ValueError):
++                keyless.fred_csv("U6RATE")
+-- 
+2.43.0
+
