@@ -1,0 +1,13 @@
+HTTP/2 200 
+server: HiNetCDN
+date: Tue, 10 Nov 2026 14:28:12 GMT
+content-type: text/html;charset=UTF-8
+vary: Accept-Encoding
+strict-transport-security: max-age=31536000; includeSubdomains
+vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+set-cookie: JSESSIONID=NcCqEQi9JpmSi_bqjqTLil9yf_N7CpEESBFKH_hG.tdccap01p; path=/portal
+content-language: zh-
+content-security-policy: frame-ancestors 'self' *.tdcc.com.tw https://data.twse.com.tw
+x-cache: EXPIRED, MISS
+x-request-id: 6b98fb280028274ef601f253f2b2949d
+
