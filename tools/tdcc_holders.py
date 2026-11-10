@@ -8,6 +8,9 @@
       讀集保開放資料 1-5（只有最新一週、全部股票），存原始檔與每檔摘要；同一週已存過就跳過。
   python3 -I tools/tdcc_holders.py history <代號,代號,...> <輸出資料夾>
       用集保「股權分散表查詢」頁（約最近一年的每週資料），補指定股票的歷史；每次查詢間隔 3 秒，已存過的週次跳過。
+  python3 -I tools/tdcc_holders.py batch <代號清單檔> <第幾份> <共幾份> <分鐘上限> <輸出資料夾>
+      清單分成幾份、每份各跑一個工作（擁有者 2026-11-10 22:54「好」：約 300 檔成交量大的股票）；每檔存完就寫檔，
+      時間快到就停下、下次接續（已存過的週次跳過）。
 
 持股分級（集保官方）：1＝1～999 股 … 8＝40,001～50,000 股（≤50 張）、12～15＝400,001 股以上（≥400 張）、15＝1,000,001 股以上（≥1,000 張）、17＝合計。
 摘要欄位：holders（總人數）、ge1000_pct／ge1000_holders（千張大戶）、ge400_pct（400 張以上）、le50_pct（50 張以下，散戶）。
@@ -151,13 +154,16 @@ def parse_result(body, code, date):
     return summarize(levels)
 
 
-def history(codes, out):
+def history(codes, out, deadline=None):
     out = Path(out) / "history"
     out.mkdir(parents=True, exist_ok=True)
     s = Session()
     dates = s.start()
     print(f"查詢頁週次：{dates[-1]}～{dates[0]}，共 {len(dates)} 週")
     for code in codes:
+        if deadline and time.monotonic() > deadline:
+            print(f"時間到，停在 {code} 之前；下次接續")
+            break
         path = out / f"{code}.csv"
         have = {}
         if path.exists():
@@ -191,4 +197,8 @@ if __name__ == "__main__":
         sys.exit(latest(sys.argv[2]))
     if mode == "history":
         sys.exit(history([c for c in sys.argv[2].split(",") if re.fullmatch(r"[0-9A-Z]{4,6}", c)], sys.argv[3]))
+    if mode == "batch":
+        listed = [c.strip() for c in Path(sys.argv[2]).read_text().split() if re.fullmatch(r"[0-9A-Z]{4,6}", c.strip())]
+        part, parts, minutes = int(sys.argv[3]), int(sys.argv[4]), float(sys.argv[5])
+        sys.exit(history(listed[part::parts], sys.argv[6], deadline=time.monotonic() + minutes * 60))
     raise SystemExit("mode 要是 latest 或 history")

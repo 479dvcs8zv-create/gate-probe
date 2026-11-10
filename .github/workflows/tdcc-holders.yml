@@ -9,8 +9,11 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'latest（最新一週全部股票）或 history（指定股票過去約一年）'
+        description: 'latest（最新一週全部股票）、history（指定股票過去約一年）或 batch（清單檔分 3 份同時跑）'
         default: 'latest'
+      list:
+        description: 'batch 用的代號清單檔（results/tdcc/ 底下）'
+        default: 'universe-2026-11.txt'
       codes:
         description: 'history 用的股票代號，逗號分隔'
         default: '2618,8299,5289,2404,5009,2330'
@@ -21,6 +24,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   collect:
+    if: ${{ inputs.mode != 'batch' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -49,3 +53,34 @@ jobs:
           git add results/tdcc
           git commit -qm "tdcc holders ${{ inputs.mode || 'latest' }} run ${GITHUB_RUN_ID}" || exit 0
           for n in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+  batch:
+    # 約 300 檔 × 51 週：分 3 份同時跑，每份每次最多約 5 小時；沒跑完就再按一次，已存的會跳過。
+    if: ${{ inputs.mode == 'batch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [0, 1, 2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python -m unittest tests.test_tdcc_holders -v
+      - name: Collect one part
+        env:
+          LIST: ${{ inputs.list }}
+        run: |
+          set -euo pipefail
+          case "$LIST" in *[!A-Za-z0-9._-]*|"") echo "bad list"; exit 1;; esac
+          python3 -I tools/tdcc_holders.py batch "results/tdcc/$LIST" ${{ matrix.part }} 3 290 results/tdcc
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/tdcc/history
+          git commit -qm "tdcc holders batch part ${{ matrix.part }} run ${GITHUB_RUN_ID}" || exit 0
+          for n in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep $((5 * n)); done
