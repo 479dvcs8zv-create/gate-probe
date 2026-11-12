@@ -1,0 +1,63 @@
+diff --git a/OPERATIONS.md b/OPERATIONS.md
+index bcc66b4..0346870 100644
+--- a/OPERATIONS.md
++++ b/OPERATIONS.md
+@@ -6,7 +6,7 @@ For a cloud run, use Sites `get_site` for `REDACTED_PROJECT_ID`. Confirm the own
+ 
+ 1. Read `/api/market-scanner` first. Run the retrieved Python collector with `--output <scratch-directory> --sessions 60` when fewer than 60 sessions are saved; otherwise use `--sessions 1` to append or replace the latest official session. It downloads official FRED CSV observations, their matching latest observation and next release date from FRED's official series pages, the TWSE holiday calendar/FMTQIK trading dates and same-day MI_MARGN, MI_MARGN_TREND and BFIJ3U raw statistics, the current TWSE/TPEx issuer roster, and date-matched TWSE MI_INDEX / TPEx OTC quotes. The latest date comes from the actual MI_INDEX after-trading report, because STOCK_DAY_ALL can lag after market close. `--macro-only` refreshes the FRED observations and market statistics without recollecting stock history. FRED provider failures are isolated by series; read `macro-collection-status.json` and report remaining failures. FinMind public metadata supplies industry labels only. Retain raw sources and collection status for review. Do not mix TPEx OTC quotes with fixed-price after-hours quotes, or replace a rejected historical date with the latest day. Current classifications do not establish a historical survivorship-corrected universe.
+ 2. Launch `stty -echo` then `node <retrieved-importer.mjs> <scratch-directory>` in a PTY. At the hidden-stdin prompt supply a single JSON line with the current `token` and the deployed `origin` from `get_site`. Do not include credentials in arguments, files, logs or task text. The importer posts the universe, observations and dated snapshots, then reads saved status. Abort on a rejected write; do not claim a successful update based only on collection. Existing company evidence remains saved; import newly verified filings separately when available.
+-3. POST `/api/automation/refresh-all`, poll `/api/automation/status` at 10-second intervals until the matching run has `completedAt`, and read `/api/automation/history`. Routine patrols add `?compact=1` to the POST and to every status poll (v255): the same checkpoint step runs, but the reply carries only `runId`, `status`, `checkpoint`, `completedAt`, `summary` (the history row plus `gateAuditTotal` and `stockBatch`) and `problems` (coverage rows that are not ok／automatic／not_used). Without the parameter the full payload is returned unchanged. GET `/api/macro`, `/api/macro-expanded` and `/api/master-model?id=8299` to verify source observation dates, usable coverage, scanner session count and eligible history. An initial cached response may start a background refresh; read again after completion.
++3. POST `/api/automation/refresh-all`, poll `/api/automation/status` at 10-second intervals until the matching run has `completedAt`, and read `/api/automation/history`. Routine patrols add `?compact=1` to the POST and to every status poll (v255): the same checkpoint step runs, but the reply carries only `runId`, `status`, `checkpoint`, `completedAt`, `summary` (the history row plus `gateAuditTotal` and `stockBatch`) and `problems` (coverage rows that are not ok／automatic／automatic_limited／not_used／history_ready). Without the parameter the full payload is returned unchanged. GET `/api/macro`, `/api/macro-expanded` and `/api/master-model?id=8299` to verify source observation dates, usable coverage, scanner session count and eligible history. An initial cached response may start a background refresh; read again after completion.
+ 4. Preserve the existing macro score rules, raw financial warnings, candidate-only research and Gate criteria. Verify company filings separately before importing additional evidence through `companies`; published actual EPS is not an advance forecast or pre-announcement consensus. Eight distinct verified periods and direct-peer estimates remain required by the relevant Gates. Report unavailable sources and incomplete checks explicitly.
+ 
+ The Worker attempts the same official quote basis during refresh when the imported roster is fresh. The external collector is the fallback for Worker egress failures. Holiday/no-trade observations, suspended securities and newly listed stocks remain excluded or ineligible rather than filled with invented values. No Gemini or model-generated values are involved.
+diff --git a/package.json b/package.json
+index ed8e5ae..98faea7 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v257-compact-quiet.test.mjs b/tests/v257-compact-quiet.test.mjs
+new file mode 100644
+index 0000000..26ec76b
+--- /dev/null
++++ b/tests/v257-compact-quiet.test.mjs
+@@ -0,0 +1,17 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// v257（擁有者 2026-11-12 08:08）：精簡巡檢的 problems 不再把正常狀態（全市場掃描 history_ready、產業來源 automatic_limited）列成異常。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++const site=await import('data:text/javascript;base64,'+Buffer.from(source+'\nexport {compactSiteRefresh};').toString('base64'));
++const run=coverage=>({runId:'r1',status:'partial',startedAt:'2026-11-12T00:00:00Z',completedAt:'2026-11-12T00:10:00Z',checkpoint:{version:1,stage:'done',index:0},coverage,gateAudits:[],stockBatch:[]});
++
++test('正常狀態不列進 problems；真的有問題的照列',()=>{
++  const ok=site.compactSiteRefresh(run([{id:'macro',status:'automatic'},{id:'sourceResearch',status:'automatic_limited'},{id:'fullMarketScanner',status:'history_ready'},{id:'guidance',status:'not_used'}]));
++  assert.deepEqual(ok.problems,[]);
++  const bad=site.compactSiteRefresh(run([{id:'sourceResearch',status:'source_error'},{id:'fullMarketScanner',status:'source_error'},{id:'officialImport',status:'source_error'}]));
++  assert.deepEqual(bad.problems,['sourceResearch:source_error','fullMarketScanner:source_error','officialImport:source_error']);
++  const building=site.compactSiteRefresh(run([{id:'fullMarketScanner',status:'collecting_history'}]));
++  assert.deepEqual(building.problems,['fullMarketScanner:collecting_history'],'歷史還在累積照列，提醒還沒完整');
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 16b4a81..e396ddc 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -1562,7 +1562,8 @@ function siteRefreshSummary(payload) {
+ }
+ // v255（擁有者 2026-11-09「GPT 額度消耗太快」）：巡檢每次輪詢 status 都回整包（網站測試資料實測：一次 23～29 萬字元、一輪 36 次共約 930 萬字元；
+ // 正式資料大小不同），GPT 每次都得讀完。加 ?compact=1：照樣推進同一步，只回進度與摘要（約 1 千字元內）；不帶參數時回應完全不變。
+-const SITE_REFRESH_QUIET_COVERAGE=new Set(['ok','automatic','not_used']);
++// v257（擁有者 2026-11-12 08:08「一起處理」）：automatic_limited（產業來源正常但涵蓋有限）、history_ready（全市場掃描歷史已足）是正常狀態，不列進 problems。
++const SITE_REFRESH_QUIET_COVERAGE=new Set(['ok','automatic','automatic_limited','not_used','history_ready']);
+ function compactSiteRefresh(payload) {
+   if(!payload||typeof payload!=='object')return payload;
+   const pick=Object.fromEntries(['runId','status','startedAt','completedAt','updatedAt','alreadyRunning','persisted','reason','message','note'].filter(key=>payload[key]!==undefined).map(key=>[key,payload[key]]));
