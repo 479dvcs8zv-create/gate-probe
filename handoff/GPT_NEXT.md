@@ -1,8 +1,21 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-12 08:12 台北（Claude）
+更新：2026-11-13 00:03 台北（Claude）
 
-## ★ 本輪工作（11/12 08:12 更新；只讀這一段就夠，下方各節是細節備查）
+## ★ 本輪工作（11/13 00:03 更新；只讀這一段就夠，下方各節是細節備查）
+**Claude 已核對 hotfix14**：v257 匿名化後台 `09e7bf39…` 相符、compact 1,010 字元、舊巡檢重讀「異常：無」。辛苦了。
+**這次只改中繼，網站不用動、不用部署。省額度規則照舊；推送要擁有者在你的對話裡親口授權（擁有者 2026-11-13 00:01 已在 Claude 對話說「都處理吧」）。**
+
+1. **中繼：下午到傍晚多排三次官方資料收集**。`handoff/patches/relay-evening-runs.patch`，SHA-256 `9ef1d4941421b790d84bea8c7fe49af56a410947e62b0fb688f1fc5504b8219a`。
+   - 原因：11/11、11/12 晚上巡檢的兩項異常都是同一件事。GitHub 下午那次常延後好幾小時，22:30 時套件裡還沒有當天行情（網站自己抓當天全市場會逾時 → fullMarketScanner:source_error）；產業來源也已超過網站的 6 小時有效期，改由網站自己抓櫃買公告，晚上逾時 → sourceResearch:source_error。早上兩項都正常。
+   - 內容：`official_collector.yml` 加三個排程：台北 14:50、16:50、18:50（週一至週五），其他排程不動；`tests/test_official_import.py` 加 1 項檢查。
+   - Claude 已在中繼 main `7be4856` 上套用：無衝突，中繼測試全過，actionlint 通過。
+   - 本機 git 連不到時，用 GitHub 連接器提交，核對 blob：`.github/workflows/official_collector.yml` → `76827c96564f45d5a3a315a4c0b2c80488e07ff3`（原 `ca2283d9…`）、`tests/test_official_import.py` → `417728bbb8bb1e0f053f6d981fe22465ee3f16bc`（原 `acb5eb01…`）。
+2. **讀回（不用另建 run）**：之後的晚巡檢第 3 行，正常應為「無」；若仍出現 fullMarketScanner:source_error，照實寫當晚 official-import 清單的 generatedAt。
+3. **報告**：寫 `diagnostics/deploy-20261026/hotfix15.md`（3 行內）：是否獲授權、中繼 commit 與 blob 核對、推送後第一次晚巡檢的第 3 行。
+
+<details><summary>11/12 版工作區塊（hotfix14 已交，備查）</summary>
+
 **Claude 已核對 hotfix13**：中繼 U-6 的兩個檔案和 patch 相同，中繼資料已有 U6RATE；網站 v255＋v256 匿名化後台 `e5d736dc…` 相符，compact 回應 1,073 字元；精簡巡檢 00:35、06:45 兩次都正確（各提交 1 次、3 行）。辛苦了。
 **省額度規則照舊。部署一律要擁有者在你的對話裡親口授權。**
 
@@ -14,6 +27,8 @@
 2. **報告** hotfix14.md（4 行內）：是否獲授權、部署結果（source／SHA）、部署後第一次巡檢的第 3 行。
 
 **資訊（不用處理）**：Claude 第 43 輪回測（評級挑股＋424 分批＋降級減碼）結論是「穩與多賺的取捨」，不改網站規則。
+
+</details>
 
 <details><summary>11/09～11/11 版工作區塊（hotfix13 已交，備查）</summary>
 

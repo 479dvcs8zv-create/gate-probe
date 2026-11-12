@@ -1,0 +1,57 @@
+From 906b20363bdfa8a9c572ede0a2daa3d7ca9b235a Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 13 Nov 2026 00:02:43 +0800
+Subject: [PATCH] Official collector: three more weekday runs (14:50, 16:50,
+ 18:50 Taipei) so the night patrol gets today's quotes and fresh source feeds
+
+GitHub delays this repo's schedules by 1.5-6 hours; on 11/11 and 11/12 the
+22:30 patrol found no same-day market data and source feeds older than the
+Site's 6-hour window. Owner 2026-11-13 00:01.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ .github/workflows/official_collector.yml |  5 +++++
+ tests/test_official_import.py            | 10 ++++++++++
+ 2 files changed, 15 insertions(+)
+
+diff --git a/.github/workflows/official_collector.yml b/.github/workflows/official_collector.yml
+index ca2283d..76827c9 100644
+--- a/.github/workflows/official_collector.yml
++++ b/.github/workflows/official_collector.yml
+@@ -18,6 +18,11 @@ on:
+     - cron: '55 21 * * *'
+     # 台北 16:20（週一至週五，當天收盤；信用統計略過）
+     - cron: '20 8 * * 1-5'
++    # 台北 14:50、16:50、18:50（週一至週五；擁有者 2026-11-13 00:01「都處理吧」）：GitHub 排程在這個 repo 常延後 1.5～6 小時，
++    # 11/11、11/12 晚上 22:30 巡檢時當天行情都還沒進套件、產業來源也超過網站的 6 小時有效期。多排三次，讓至少一次在晚上巡檢前送到。
++    - cron: '50 6 * * 1-5'
++    - cron: '50 8 * * 1-5'
++    - cron: '50 10 * * 1-5'
+     # 台北 22:40、23:10、23:35（週一至週五，當晚信用統計；只有 22:30～23:59 收的才發布。三次是因為 GitHub 排程常延後或略過）
+     - cron: '40 14 * * 1-5'
+     - cron: '10 15 * * 1-5'
+diff --git a/tests/test_official_import.py b/tests/test_official_import.py
+index acb5eb0..417728b 100644
+--- a/tests/test_official_import.py
++++ b/tests/test_official_import.py
+@@ -176,6 +176,16 @@ class CreditCaptureWindowTests(unittest.TestCase):
+         self.assertIn('--previous-statistics "$previous"', text)
+ 
+ 
++class EveningScheduleTests(unittest.TestCase):
++    """擁有者 2026-11-13 00:01：晚上 22:30 巡檢前要有當天行情與 6 小時內的產業來源，下午到傍晚多排三次。"""
++
++    def test_evening_runs_are_scheduled_on_weekdays(self):
++        text = (Path(__file__).resolve().parents[1] / ".github" / "workflows" / "official_collector.yml").read_text(encoding="utf-8")
++        for cron in ("'50 6 * * 1-5'", "'50 8 * * 1-5'", "'50 10 * * 1-5'", "'20 8 * * 1-5'", "'55 21 * * *'", "'40 14 * * 1-5'"):
++            self.assertIn("- cron: " + cron, text)
++        self.assertIn("cancel-in-progress: false", text)
++
++
+ class CollectorRetryTests(unittest.TestCase):
+     """擁有者 2026-11-05 21:54「好」：下載中斷（IncompleteRead、連線被重設）最多 4 次、間隔 5／10／20 秒；逾時與 HTTP 錯誤照舊 2 次、不等待。"""
+ 
+-- 
+2.43.0
+
