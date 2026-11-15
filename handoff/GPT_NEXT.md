@@ -1,8 +1,26 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-13 00:03 台北（Claude）
+更新：2026-11-16 01:48 台北（Claude）
 
-## ★ 本輪工作（11/13 00:03 更新；只讀這一段就夠，下方各節是細節備查）
+## ★ 本輪工作（11/16 01:48 更新；只讀這一段就夠，下方各節是細節備查）
+**Claude 已核對 hotfix15**：兩個 blob 相符，晚間排程已生效（11/14 晚巡檢全市場掃描恢復正常）。
+**省額度規則照舊。推送中繼、部署網站都要擁有者在你的對話裡親口授權。**
+
+**Claude 查到的新問題（11/14 起 officialImport:source_error）**：巡檢第 2 行 `statistics=error`，只要套件裡有夜間收的信用統計就發生（11/14 早、11/14 晚、11/15 早）。原因：證交所休市表網址不帶年份，11 月起回的是**明年**（queryYear=2027），網站核對「休市表年份＝今年」就擋下（`statistics_not_latest_session`）。Claude 用 11/13 22:56 實際收到的那份重放網站匯入，結果相同。網站自己直接抓信用不用休市表，所以信用數字本身沒有斷，只是匯入那條路全被擋。
+
+1. **中繼 patch：收集程式改抓「交易日那一年」的休市表**。`handoff/patches/relay-calendar-year.patch`，SHA-256 `7f0558924ca4bcfb25d019c22d38502999a72cb802eb03dc6d7d892fef93134b`。
+   - 內容：`vendor/site-collector/scripts/collect-official-data.py` 改用 `https://www.twse.com.tw/rwd/zh/holidaySchedule/holidaySchedule?date=<年>0101&response=json`（Claude 實測回 queryYear=2026）；版本字樣 v253→v258；`tests/test_official_import.py` 加 1 項。
+   - Claude 已在中繼 main 上套用：無衝突，中繼測試全過；GitHub 上試跑（不推送）收集結束碼 0、信用統計用新網址收成（凌晨擷取，照規則不發布）。
+   - 連接器提交時核對 blob：`vendor/site-collector/scripts/collect-official-data.py` → `47519d027dec8b507c4409725241b3a8fd67102f`、`scripts/publish_official_import.py` → `000c38d0055c377cd711a4e05a21749794bc6e15`、`scripts/run_official_collector.sh` → `84d5d26721aff9e388281695f204cc166a73b8fb`（保留可執行權限 100755）、`tests/test_official_import.py` → `8e31d3bd02f33ef411d9ab84cc5934862e6f597b`。
+2. **網站 v258＋v259 一起部署一次**（現行 v257 留回滾）：
+   - v258 `handoff/patches/v258-calendar-year.patch`，SHA-256 `2e10b312bb18d7e6fda1e597334d08f1ae3acbe363ae9a3ea01b01b6273ed70b`，基線 v257：網站收集程式同上改網址；匯入核對接受「指定交易日年份」的休市表網址（舊網址照收），休市表年份改對「要找的交易日」（1 月初找去年最後一個交易日也能核對）。新增 `tests/v258-calendar-year.test.mjs` 3 項與實際案例 `tests/fixtures/twse-statistics-20261113.json`。
+   - v259 `handoff/patches/v259-recent-source-feed.patch`，SHA-256 `50fdc7f0e0665567aecad15abbd09ad09ff4ce3cc484e7ccb0987ca4f3e0ee61`，基線 v258：產業來源抓不到時照舊沿用上次成功那份並標 stale；若那份是 24 小時內成功收的，另標 `recent`，巡檢覆蓋列不算來源錯誤（晚上櫃買公告常逾時，GitHub 上也回 HTTP 525）。超過 24 小時照舊算錯誤。新增 `tests/v259-recent-source-feed.test.mjs` 3 項。
+   - Claude 在乾淨 v254 上依序套 v255～v259：無衝突、建出來完全相同，完整 `TZ=UTC npm test` exit 0（末組 101／101）。HTML 仍 `de5a6d6b…`；匿名化後台：只套 v258 是 `d24d6cb3…`；v258＋v259 是 `d29c20618ac0d11a52dc18af835dc34c1aa1f1baa576d2a97f0cfbd480fda524`。
+3. **讀回（不用另建 run）**：之後第一次「套件含夜間信用統計」的巡檢，第 2 行 `statistics=imported`（不是 error）；第 3 行不再出現 officialImport:source_error；sourceResearch 只因 24 小時內來源抓不到時不再列異常。
+4. **報告**：寫 `diagnostics/deploy-20261026/hotfix16.md`（4 行內）：授權、中繼 commit 與 blob、網站部署 source／SHA、第 3 項讀回。
+
+<details><summary>11/13 版工作區塊（hotfix15 已交，備查）</summary>
+
 **Claude 已核對 hotfix14**：v257 匿名化後台 `09e7bf39…` 相符、compact 1,010 字元、舊巡檢重讀「異常：無」。辛苦了。
 **這次只改中繼，網站不用動、不用部署。省額度規則照舊；推送要擁有者在你的對話裡親口授權（擁有者 2026-11-13 00:01 已在 Claude 對話說「都處理吧」）。**
 
@@ -13,6 +31,8 @@
    - 本機 git 連不到時，用 GitHub 連接器提交，核對 blob：`.github/workflows/official_collector.yml` → `76827c96564f45d5a3a315a4c0b2c80488e07ff3`（原 `ca2283d9…`）、`tests/test_official_import.py` → `417728bbb8bb1e0f053f6d981fe22465ee3f16bc`（原 `acb5eb01…`）。
 2. **讀回（不用另建 run）**：之後的晚巡檢第 3 行，正常應為「無」；若仍出現 fullMarketScanner:source_error，照實寫當晚 official-import 清單的 generatedAt。
 3. **報告**：寫 `diagnostics/deploy-20261026/hotfix15.md`（3 行內）：是否獲授權、中繼 commit 與 blob 核對、推送後第一次晚巡檢的第 3 行。
+
+</details>
 
 <details><summary>11/12 版工作區塊（hotfix14 已交，備查）</summary>
 

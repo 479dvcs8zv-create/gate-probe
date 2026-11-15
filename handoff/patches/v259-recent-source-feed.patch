@@ -1,0 +1,101 @@
+diff --git a/package.json b/package.json
+index c32e949..c722b75 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs tests/v258-calendar-year.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs tests/v258-calendar-year.test.mjs tests/v259-recent-source-feed.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v259-recent-source-feed.test.mjs b/tests/v259-recent-source-feed.test.mjs
+new file mode 100644
+index 0000000..e58d7de
+--- /dev/null
++++ b/tests/v259-recent-source-feed.test.mjs
+@@ -0,0 +1,34 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++
++// v259（擁有者 2026-11-13「都處理吧」）：晚上櫃買公告抓不到時，24 小時內成功收過的那份照原擷取時間沿用（標 recent）；超過 24 小時照舊記錯誤。
++const source=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++let serial=0;
++const load=()=>import('data:text/javascript;base64,'+Buffer.from(source+`\nexport {fetchSourceFeed};\n// v259-${serial++}`).toString('base64'));
++const db=(rows)=>({prepare(sql){const exec=a=>({async all(){if(/^SELECT/.test(sql)&&rows.has(a[0]))return {results:[rows.get(a[0])]};return {results:[]};},async run(){if(/^INSERT INTO site_runtime_cache/.test(sql))rows.set(a[0],{payload:a[1],updated_at:a[2],expires_at:a[3]});return {success:true,meta:{changes:1}};}});return {...exec([]),bind:(...a)=>exec(a)};}});
++const saved=(hoursAgo)=>{const fetchedAt=new Date(Date.now()-hoursAgo*3600000).toISOString();return new Map([['source-feed:v1:tpex',{payload:JSON.stringify({key:'tpex',source:'https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O',fetchedAt,records:[{id:'a',symbol:'8299'}],status:'ok',error:null,content_version:2,captureMode:'external_collector'}),updated_at:fetchedAt,expires_at:new Date(Date.parse(fetchedAt)+6*3600000).toISOString()}]]);};
++
++test('抓不到時：13 小時前成功收的那份照原時間沿用、標 stale＋recent，錯誤照記',async()=>{
++  const old=globalThis.fetch;globalThis.fetch=async()=>{throw Error('The operation was aborted due to timeout');};
++  try{
++    const site=await load(),feed=await site.fetchSourceFeed('tpex',{DB:db(saved(13))});
++    assert.equal(feed.status,'stale');assert.equal(feed.recent,true);assert.match(feed.error,/timeout/);
++    assert.equal(feed.records.length,1);assert.ok(Date.now()-Date.parse(feed.fetchedAt)>12*3600000,'擷取時間保留原值');
++  }finally{globalThis.fetch=old;}
++});
++
++test('超過 24 小時就照舊記錯誤；從沒收過也照舊',async()=>{
++  const old=globalThis.fetch;globalThis.fetch=async()=>new Response('busy',{status:503});
++  try{
++    const stale=await (await load()).fetchSourceFeed('tpex',{DB:db(saved(30))});
++    assert.equal(stale.status,'stale');assert.ok(stale.error);assert.equal(stale.recent,undefined,'超過 24 小時不算 recent');
++    const none=await (await load()).fetchSourceFeed('tpex',{DB:db(new Map())});
++    assert.equal(none.status,'source_error');assert.ok(none.error);
++  }finally{globalThis.fetch=old;}
++});
++
++test('巡檢覆蓋列：只有 recent 的錯誤算正常但有限；其他錯誤照算來源錯誤',()=>{
++  const src=readFileSync(new URL('../worker/macro.js',import.meta.url),'utf8');
++  assert.match(src,/run\.research\.every\(row=>row\.status!=='source_error'&&!\(row\.errors\|\|\[\]\)\.some\(e=>!\(e&&e\.recent\)\)\)\?'automatic_limited':'source_error'/);
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index e396ddc..4564921 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -1734,7 +1734,7 @@ async function executeFullSiteRefresh(request, env, ctx, run, leaseToken) {
+     { id: 'macro', label: '總經五大維度與既有風險判讀', status: 'automatic', detail: '取數、計算與既有判斷摘要保存；保留灰燈與風險預算規則。' },
+     { id: 'market', label: '美股指數、美元、利率、能源、信用、台股市場與貴金屬', status: 'automatic', detail: '保存觀測值、觀測日、來源、有效狀態；金銀比每日累積。' },
+     { id: 'stocks', label: '追蹤清單行情、營收、財報品質、估值與市場活動', status: 'automatic', detail: '逐檔更新並保存快照；依來源更新頻率與快取期限。' },
+-    { id: 'sourceResearch',label:'依股票代號取得公司公告／產業報告',status:run.research.every(row=>!row.errors?.length&&row.status!=='source_error')?'automatic_limited':'source_error',detail:'已保存原始來源與發布日期；未接入的產業及事前 EPS 共識缺項另列，不自動升級 Gate。'},
++    { id: 'sourceResearch',label:'依股票代號取得公司公告／產業報告',status:run.research.every(row=>row.status!=='source_error'&&!(row.errors||[]).some(e=>!(e&&e.recent)))?'automatic_limited':'source_error',detail:'已保存原始來源與發布日期；未接入的產業及事前 EPS 共識缺項另列，不自動升級 Gate。'},
+     { id: 'gateAudit',label:'逐檔 Gate 判讀與原始證據快照',status:run.gateAudits.every(row=>row.recorded)?'automatic':'source_error',detail:`已保存 ${run.gateAudits.filter(row=>row.recorded).length}/${stockBatch.length} 檔；保存成功不等於 Gate 通過。`},
+     { id: 'guidance', label: 'Gate 5A 法說指引與已公布實績', status: 'not_used', detail: '不列入評級（擁有者 2026-11-03 決定）；來源搜尋結果只作參考。' },
+     { id: 'epsConsensus', label: 'Gate 5B／Gate 8 分析師共識與 EPS surprise', status: 'not_used', detail: '不列入評級（擁有者 2026-11-03 決定：市場分析與投顧報告差異太大）；已讀到的共識只作參考。' },
+diff --git a/worker/source-research.js b/worker/source-research.js
+index 6d11d69..f12599e 100644
+--- a/worker/source-research.js
++++ b/worker/source-research.js
+@@ -11,6 +11,7 @@ const SOURCE_FEED_REGISTRY = {
+   aviation: {url:'https://www.iata.org/api/rss/pressrelease',name:'IATA 航空市場資料',kind:'industry_report'},
+ };
+ const sourceResearchTasks = new Map(), sourceFeedTasks = new Map();
++const SOURCE_FEED_RECENT_MS = 24*3600000;
+ function sourceText(value,limit=400) {
+   return String(value||'').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]+>/g,' ').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/\s+/g,' ').trim().slice(0,limit);
+ }
+@@ -130,6 +131,11 @@ async function fetchSourceFeed(key,env,force=false) {
+     }catch(error){
+       const latest=await readRuntimeCache(env,cacheKey);
+       if(freshSourceFeed(latest,key)&&(!saved||Date.parse(latest.updatedAt)>Date.parse(saved.updatedAt)))return {...latest.payload,cache:'external_saved',primaryError:String(error.message||error).slice(0,160)};
++      // v259（擁有者 2026-11-13「都處理吧」）：晚上巡檢時櫃買公告常逾時（GitHub 上也會 HTTP 525），GitHub 早上收的那份又已超過 6 小時。
++      // 抓不到時照舊沿用上次成功的那份並標 stale（不改日期、不補值）；另外標出「24 小時內成功收過」（recent），巡檢覆蓋列不把這種算成來源錯誤。
++      const age=Date.now()-Date.parse(saved?.payload?.fetchedAt||'');
++      if(saved?.payload?.status==='ok'&&Number.isFinite(age)&&age>=0&&age<=SOURCE_FEED_RECENT_MS)
++        return {key,source:spec.url,fetchedAt:saved.payload.fetchedAt,records:saved.payload.records||[],status:'stale',recent:true,error:String(error.message||error).slice(0,160),attempts:error.sourceAttempts||[]};
+       return {key,source:spec.url,fetchedAt:saved?.payload?.fetchedAt||null,records:saved?.payload?.records||[],status:saved?.payload?'stale':'source_error',error:String(error.message||error).slice(0,160),attempts:error.sourceAttempts||[]};
+     }
+   })().finally(()=>sourceFeedTasks.delete(key));sourceFeedTasks.set(key,task);return task;
+@@ -153,8 +159,8 @@ async function collectStockSources(id,env,force=false) {
+   const records=[...new Map([...(old?.payload?.records||[]).filter(row=>row.kind==='company_announcement'&&row.source_date>=cutoff),...announcements,...industry].map(row=>[row.id,row])).values()].sort((a,b)=>b.source_date.localeCompare(a.source_date)).slice(0,50);
+   const roster=await readRuntimeCache(env,'market-official-universe:v1');
+   const peers=(roster?.payload?.rows||[]).filter(row=>row.id!==id&&(issuer.industry_code?row.industry_code===issuer.industry_code:row.industry===issuer.industry)).slice(0,8).map(row=>({symbol:row.id,name:row.name,industry:row.industry,relation:'同名冊產業候選；尚未核對直接競爭關係',production_eligible:false}));
+-  const errors=feeds.filter(feed=>feed.error).map(feed=>({source:feed.source,error:feed.error,stale:feed.status==='stale'}));
+-  const payload={version:SOURCE_RESEARCH_VERSION,content_version:2,symbol:id,name:issuer.name,industry:issuer.industry,identitySource:issuer.identitySource,identityStale:issuer.identityStale,profile:{label:profile.label,basis:profile.basis},checkedAt:new Date().toISOString(),status:errors.length?'partial':industry.length?'sources_ready':'partial',records,errors,feeds:feeds.map(({key,source,fetchedAt,status,error,attempts})=>({key,source,fetchedAt,status,error,attempts})),peerCandidates:peers,gaps:[...(!profile.category?['此產業的研究報告來源尚未接入']:industry.length?[]:['目前原始來源未找到符合產品分類的產業報告']),...(!announcements.length?['每日重大訊息來源本次無此公司公告；不代表沒有歷史法說或風險']:[]),'2026／2027 可追溯 EPS 共識及至少三家直接同業估值仍待核對','八期事前公司指引與財報前 EPS 共識尚未由此來源建立'],gatesPromoted:false};
++  const errors=feeds.filter(feed=>feed.error).map(feed=>({source:feed.source,error:feed.error,stale:feed.status==='stale',...(feed.recent?{recent:true}:{})}));
++  const payload={version:SOURCE_RESEARCH_VERSION,content_version:2,symbol:id,name:issuer.name,industry:issuer.industry,identitySource:issuer.identitySource,identityStale:issuer.identityStale,profile:{label:profile.label,basis:profile.basis},checkedAt:new Date().toISOString(),status:errors.length?'partial':industry.length?'sources_ready':'partial',records,errors,feeds:feeds.map(({key,source,fetchedAt,status,error,attempts,recent})=>({key,source,fetchedAt,status,error,attempts,...(recent?{recent:true}:{})})),peerCandidates:peers,gaps:[...(!profile.category?['此產業的研究報告來源尚未接入']:industry.length?[]:['目前原始來源未找到符合產品分類的產業報告']),...(!announcements.length?['每日重大訊息來源本次無此公司公告；不代表沒有歷史法說或風險']:[]),'2026／2027 可追溯 EPS 共識及至少三家直接同業估值仍待核對','八期事前公司指引與財報前 EPS 共識尚未由此來源建立'],gatesPromoted:false};
+   const remaining=feeds.map(feed=>6*3600000-(Date.now()-Date.parse(feed.fetchedAt))).filter(Number.isFinite);
+   const ttl=errors.length?5*60000:Math.max(60000,Math.min(6*3600000,...remaining));
+   if(!await writeRuntimeCache(env,`${SOURCE_RESEARCH_VERSION}:${id}`,payload,ttl))throw Error('research_storage_failed');
