@@ -1,0 +1,97 @@
+{
+ "schema_version": 1,
+ "generatedAt": "2026-11-13T21:35:41Z",
+ "window": "morning-no-statistics",
+ "collector": {
+  "repo": "wcr0936531039-png/macro-relay-service",
+  "commit": "2b51758f7759de4ec9ce4d53cabd502d9dbc8bc9",
+  "run": "43511957519",
+  "siteCollector": "v253"
+ },
+ "parts": [
+  {
+   "name": "universe.json",
+   "kind": "universe",
+   "sha256": "002e7be632d597bc16db5b4875a8e5ec0e445d766c24281e11c5c4f1220b15a7",
+   "bytes": 586311
+  },
+  {
+   "name": "series.json",
+   "kind": "series",
+   "sha256": "95635e46307d875e9e47d78e5f870f1fb16513fc9d981c1dc82efb5769746b8e",
+   "bytes": 20488
+  },
+  {
+   "name": "cpi.json",
+   "kind": "cpi",
+   "sha256": "77f8d81997481fbea35cc48e2a7e050618484e93f2547fa66b9adcb9f1370251",
+   "bytes": 2552
+  },
+  {
+   "name": "sources.json",
+   "kind": "sources",
+   "sha256": "7de29a4b27dc613d5f7b3684f6275e11d673669be34616a0333cae25dcacf1a1",
+   "bytes": 1041358
+  },
+  {
+   "name": "news.json",
+   "kind": "news",
+   "sha256": "2601d83a5f3d04f663f9ea9b8cece43f8d3827d1185ca6cb32daf4e9ec81bd73",
+   "bytes": 2158
+  },
+  {
+   "name": "2026-11-09.json",
+   "kind": "market",
+   "sha256": "b5ffec4b9396d32aaa38bbef3da2dfbfa56311a9168c09edc0dbe407bfef8e8b",
+   "bytes": 529317
+  },
+  {
+   "name": "2026-11-10.json",
+   "kind": "market",
+   "sha256": "ac9dd93eb6b90a790308b3159d38ebc2c788bc319caf3181d4d7868911d90adb",
+   "bytes": 529801
+  },
+  {
+   "name": "2026-11-11.json",
+   "kind": "market",
+   "sha256": "2c0dd8067af84a8fb53960e689fb20f2cc2b798c544f947dd38ae59a033c1aa5",
+   "bytes": 529385
+  },
+  {
+   "name": "2026-11-12.json",
+   "kind": "market",
+   "sha256": "328049b91b40753a22689ad3ef83b2148be0348e9b47f6c677949fdd5175e8d8",
+   "bytes": 530256
+  },
+  {
+   "name": "2026-11-13.json",
+   "kind": "market",
+   "sha256": "fcde2a2c0e5770c2a616c1e525b99fba1b2656bdab7788d9f09cd6ceacac9671",
+   "bytes": 529189
+  },
+  {
+   "name": "statistics.json",
+   "kind": "statistics",
+   "sha256": "b8d002d229a4f16d333912955a51ce2fe25d00cf873064af375c4516395ff2f9",
+   "bytes": 11502,
+   "carried": true
+  }
+ ],
+ "errors": [
+  {
+   "source": "TWSE-statistics",
+   "error": "skipped: --skip-statistics"
+  },
+  {
+   "source": "BLS-core-CPI",
+   "error": "BLS Current: HTTP Error 403: Forbidden; official API fallback used"
+  }
+ ],
+ "carried": [
+  {
+   "name": "statistics.json",
+   "date": "2026-11-13",
+   "capturedAt": "2026-11-13T14:56:37.099230+00:00"
+  }
+ ]
+}
