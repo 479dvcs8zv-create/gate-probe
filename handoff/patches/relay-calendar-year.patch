@@ -1,0 +1,77 @@
+From 3718e8e16c5bb018a39ee2ea4ce300b9affbc4e7 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 16 Nov 2026 01:39:14 +0800
+Subject: [PATCH] Official collector: request the holiday calendar for the
+ session's year (site v258)
+
+TWSE's default holiday schedule switched to 2027 in November 2026, so every
+night-captured credit statistics bundle was rejected by the Site
+(statistics_not_latest_session) on 11/14 and 11/15.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PERuCJaQBxpqs7Rn24Bma8
+---
+ scripts/publish_official_import.py                     | 2 +-
+ scripts/run_official_collector.sh                      | 2 +-
+ tests/test_official_import.py                          | 6 ++++++
+ vendor/site-collector/scripts/collect-official-data.py | 3 ++-
+ 4 files changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/scripts/publish_official_import.py b/scripts/publish_official_import.py
+index d4b916b..000c38d 100644
+--- a/scripts/publish_official_import.py
++++ b/scripts/publish_official_import.py
+@@ -196,7 +196,7 @@ def main(argv=None):
+     ap.add_argument("--exit", action="append", default=[], help="名稱=結束碼，例如 official=0")
+     ap.add_argument("--previous-statistics", help="上一份套件的 statistics.json；這次沒有新的夜間信用統計時沿用")
+     args = ap.parse_args(argv)
+-    collector = {k: v for k, v in {"repo": os.environ.get("GITHUB_REPOSITORY"), "commit": os.environ.get("GITHUB_SHA"), "run": os.environ.get("GITHUB_RUN_ID"), "siteCollector": "v253"}.items() if v}
++    collector = {k: v for k, v in {"repo": os.environ.get("GITHUB_REPOSITORY"), "commit": os.environ.get("GITHUB_SHA"), "run": os.environ.get("GITHUB_RUN_ID"), "siteCollector": "v258"}.items() if v}
+     exits = dict(item.split("=", 1) for item in args.exit if "=" in item)
+     manifest = build(args.src, args.out, args.window, args.keep_sessions, collector=collector, exits=exits, previous_statistics=args.previous_statistics)
+     print(json.dumps({"parts": [(p["name"], p["bytes"]) for p in manifest["parts"]], "carried": manifest.get("carried"), "carryNote": manifest.get("carryNote"), "errors": manifest["errors"]}, ensure_ascii=False))
+diff --git a/scripts/run_official_collector.sh b/scripts/run_official_collector.sh
+index 3159699..84d5d26 100755
+--- a/scripts/run_official_collector.sh
++++ b/scripts/run_official_collector.sh
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env bash
+-# 在 GitHub 上跑網站的官方資料收集程式（vendor/site-collector，與網站 v253 相同），整理成匯入套件。
++# 在 GitHub 上跑網站的官方資料收集程式（vendor/site-collector，與網站 v258 相同），整理成匯入套件。
+ # 用法：scripts/run_official_collector.sh <工作資料夾> [交易日數，預設 5] [信用統計 auto|on|off，預設 auto]
+ # auto：只在台北 22:30～23:59 收信用統計（和網站規則相同：22:30 前不重抓，保留原觀測日及原核對時間）；
+ #       其他時間略過，改沿用上一份套件裡的夜間信用統計（原檔不改，30 小時內；publish_official_import.py 再核對一次）。
+diff --git a/tests/test_official_import.py b/tests/test_official_import.py
+index 417728b..8e31d3b 100644
+--- a/tests/test_official_import.py
++++ b/tests/test_official_import.py
+@@ -245,6 +245,12 @@ class CollectorRetryTests(unittest.TestCase):
+ 
+ 
+ class VendoredCollectorTests(unittest.TestCase):
++    def test_holiday_calendar_is_requested_for_the_session_year(self):
++        # 2026-11-13：不帶年份的休市表在 11 月起回明年（queryYear=2027），網站匯入時信用統計全被擋；收集端要指定交易日那一年（網站 v258）。
++        text = (Path(__file__).resolve().parents[1] / "vendor" / "site-collector" / "scripts" / "collect-official-data.py").read_text(encoding="utf-8")
++        self.assertIn("rwd/zh/holidaySchedule/holidaySchedule?date='+date_key[:4]+'0101&response=json", text)
++        self.assertNotIn("calendar_url='https://www.twse.com.tw/holidaySchedule/holidaySchedule?response=json'", text)
++
+     def test_vendored_site_collector_files_exist_and_carry_no_credentials(self):
+         root = Path(__file__).resolve().parents[1] / "vendor" / "site-collector"
+         files = ["scripts/collect-official-data.py", "scripts/collect-source-research.mjs", "worker/source-research.js", "worker/official-news.js"]
+diff --git a/vendor/site-collector/scripts/collect-official-data.py b/vendor/site-collector/scripts/collect-official-data.py
+index 395c8f7..47519d0 100644
+--- a/vendor/site-collector/scripts/collect-official-data.py
++++ b/vendor/site-collector/scripts/collect-official-data.py
+@@ -56,7 +56,8 @@ def collect_statistics():
+     failures=[]
+     for attempt in range(3):
+         try:
+-            calendar_url='https://www.twse.com.tw/holidaySchedule/holidaySchedule?response=json'
++            # v258：不帶年份的休市表在 11 月起會回明年（2026-11-13 實測 queryYear=2027），網站就驗不過；改指定交易日那一年。
++            calendar_url='https://www.twse.com.tw/rwd/zh/holidaySchedule/holidaySchedule?date='+date_key[:4]+'0101&response=json'
+             dates_url='https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK'
+             calendar=json.loads(fetch(calendar_url));dates=json.loads(fetch(dates_url))
+             last=max(str(row['Date']) for row in dates)
+-- 
+2.43.0
+
