@@ -1,0 +1,121 @@
+{
+  "archive_version": "4.32-archive",
+  "co_id": "2454",
+  "adr": null,
+  "typek": "sii",
+  "base_url": "https://web.archive.org",
+  "started_at": "2026-11-16T02:35:12.745716+00:00",
+  "targets": [
+    {
+      "id": "tradingview_tw_forecast",
+      "vendor": "TradingView",
+      "unit": "新台幣（頁面標示 TWD；GAAP／調整後未寫）",
+      "url": "https://tw.tradingview.com/symbols/TWSE-2454/forecast-actuals-and-estimates/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-11-16T02:36:48.789232+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261116023753/https://tw.tradingview.com/symbols/TWSE-2454/financials-estimates/"
+        },
+        "cdx_file": "cdx/tradingview_tw_forecast_2.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "NOT_IN_INDEX_YET",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-11-16T02:35:12.745726+00:00",
+          "http_status": null,
+          "error": "URLError: [Errno 111] Connection refused",
+          "headers": {},
+          "cdx_error": "URLError: [Errno 111] Connection refused"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-11-16T02:36:48.789232+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261116023753/https://tw.tradingview.com/symbols/TWSE-2454/financials-estimates/"
+          },
+          "cdx_file": "cdx/tradingview_tw_forecast_2.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ],
+      "capture_timestamp_from_headers": "20261116023753"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "新台幣／股",
+      "url": "https://finance.yahoo.com/quote/2454.TW/analysis/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-11-16T02:40:18.969841+00:00",
+        "http_status": 302,
+        "error": null,
+        "headers": {
+          "location": "https://web.archive.org/web/20261116024022/https://finance.yahoo.com/quote/2454.TW/analysis/"
+        },
+        "cdx_file": "cdx/yahoo_tw_analysis_2.json",
+        "cdx_sha256": "b9338fa666e73f08129ab6e5ce7fa07e3e0a845bc49f6f462efef3745c30882b",
+        "found_in_index": "20261116024022"
+      },
+      "capture": {
+        "timestamp": "20261116024022",
+        "captured_at_tpe": "2026-11-16T10:40:22+08:00",
+        "archive_url": "https://web.archive.org/web/20261116024022/https://finance.yahoo.com/quote/2454.TW/analysis/",
+        "cdx_digest": "CWHQ3ELRYOGJWUIPXHBXEYSDNGP6WOY4",
+        "digest_matched": true,
+        "file": "captures/yahoo_tw_analysis_20261116024022.bin",
+        "sha256": "d9747ed4c62a7d6b65a6048ada81be4e867acd5bdf0828d5202cfa4758a7b00f",
+        "length": 194784,
+        "content_type": "text/html; charset=utf-8",
+        "content_encoding": "gzip",
+        "sent_ts": "20261116024018",
+        "decoded_length": 987171,
+        "decoded_sha256": "34b0b4372df9ff89d01ef7b489d79ec60152b4f885b9cce046cf24052ee1586a",
+        "payload_compression": "gzip"
+      },
+      "status": "ARCHIVED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-11-16T02:38:38.451719+00:00",
+          "http_status": null,
+          "error": "URLError: [Errno 111] Connection refused",
+          "headers": {},
+          "cdx_error": "URLError: [Errno 111] Connection refused"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-11-16T02:40:18.969841+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261116024022/https://finance.yahoo.com/quote/2454.TW/analysis/"
+          },
+          "cdx_file": "cdx/yahoo_tw_analysis_2.json",
+          "cdx_sha256": "b9338fa666e73f08129ab6e5ce7fa07e3e0a845bc49f6f462efef3745c30882b",
+          "found_in_index": "20261116024022"
+        }
+      ]
+    }
+  ],
+  "notes": [],
+  "skipped": [],
+  "order_basis": [
+    {
+      "id": "tradingview_tw_forecast",
+      "last_archived": "20261019092426"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "last_archived": "20261102022913"
+    }
+  ],
+  "finished_at": "2026-11-16T02:41:00.054851+00:00"
+}
