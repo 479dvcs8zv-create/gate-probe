@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T15:47:16+00:00",
+ "generated_at": "2026-11-23T18:47:07+00:00",
  "schema": "gate-probe/market-crash/v1",
  "url": "https://raw.githubusercontent.com/479dvcs8zv-create/gate-probe/main/exports/market-crash/latest.json",
  "use": "網站 v252 股災本益比參考價：只作左側交易參考，不影響評級。股災日＝加權指數收盤 ≤ 前 250 個交易日（含當天）最高收盤 × 85%。",
@@ -10,7 +10,7 @@
  },
  "source": "臺灣證券交易所 MI_5MINS_HIST（發行量加權股價指數歷史資料，每月一檔）",
  "source_url_pattern": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date={y}{m:02d}01&response=json",
- "through": "2026-11-20",
+ "through": "2026-11-23",
  "history_from": "2006-01-02",
  "crash_days": [
   "2015-08-06",
@@ -374,7 +374,8 @@
   "2026-11-17",
   "2026-11-18",
   "2026-11-19",
-  "2026-11-20"
+  "2026-11-20",
+  "2026-11-23"
  ],
  "periods": [
   {
@@ -535,17 +536,17 @@
   },
   {
    "from": "2026-11-16",
-   "to": "2026-11-20",
+   "to": "2026-11-23",
    "low_date": "2026-11-20",
    "low_drawdown": -0.2768
   }
  ],
  "current": {
-  "date": "2026-11-20",
-  "close": 36033.29,
+  "date": "2026-11-23",
+  "close": 36811.89,
   "max250": 49822.55,
   "max250_date": "2026-10-06",
-  "drawdown": -0.2768,
+  "drawdown": -0.2611,
   "in_crash": true
  },
  "failures": []
