@@ -1,0 +1,72 @@
+{
+  "archive_version": "4.32-archive",
+  "co_id": "8299",
+  "adr": null,
+  "typek": "otc",
+  "base_url": "https://web.archive.org",
+  "started_at": "2026-11-23T09:25:56.667502+00:00",
+  "targets": [
+    {
+      "id": "tradingview_tw_forecast",
+      "vendor": "TradingView",
+      "unit": "新台幣（頁面標示 TWD；GAAP／調整後未寫）",
+      "url": "https://tw.tradingview.com/symbols/TPEX-8299/forecast-actuals-and-estimates/",
+      "save": {
+        "attempt": 2,
+        "sent_at": "2026-11-23T09:29:02.180746+00:00",
+        "http_status": null,
+        "error": "URLError: _ssl.c:994: The handshake operation timed out",
+        "headers": {},
+        "cdx_file": "cdx/tradingview_tw_forecast_2.json",
+        "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      "capture": null,
+      "status": "SAVE_FAILED",
+      "save_attempts": [
+        {
+          "attempt": 1,
+          "sent_at": "2026-11-23T09:25:56.667512+00:00",
+          "http_status": 302,
+          "error": null,
+          "headers": {
+            "location": "https://web.archive.org/web/20261123092638/https://tw.tradingview.com/symbols/TPEX-8299/financials-estimates/"
+          },
+          "cdx_error": "URLError: timed out"
+        },
+        {
+          "attempt": 2,
+          "sent_at": "2026-11-23T09:29:02.180746+00:00",
+          "http_status": null,
+          "error": "URLError: _ssl.c:994: The handshake operation timed out",
+          "headers": {},
+          "cdx_file": "cdx/tradingview_tw_forecast_2.json",
+          "cdx_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      ]
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "vendor": "Yahoo Finance",
+      "unit": "新台幣／股",
+      "url": "https://finance.yahoo.com/quote/8299.TWO/analysis/",
+      "save": null,
+      "capture": null,
+      "status": "TIMEOUT"
+    }
+  ],
+  "notes": [
+    "時間上限 300 秒已到，部分網站未送出"
+  ],
+  "skipped": [],
+  "order_basis": [
+    {
+      "id": "tradingview_tw_forecast",
+      "last_archived": "20261019093347"
+    },
+    {
+      "id": "yahoo_tw_analysis",
+      "last_archived": "20261116024604"
+    }
+  ],
+  "finished_at": "2026-11-23T09:31:10.421765+00:00"
+}
