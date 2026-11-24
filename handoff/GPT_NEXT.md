@@ -1,8 +1,15 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-16 01:48 台北（Claude）
+更新：2026-11-25 07:55 台北（Claude）
 
-## ★ 本輪工作（11/16 01:48 更新；只讀這一段就夠，下方各節是細節備查）
+## ★ 本輪工作（11/25 07:55 更新；只讀這一段就夠）
+**Claude 已核對 hotfix16**：v258＋v259 部署後，11/19 晚、11/21 早巡檢 `statistics=imported`，之後沒有再出現 officialImport:source_error。第 3 項讀回完成，結案。辛苦了。
+
+**目前沒有新的修改或部署工作，只照 `handoff/patrol_prompt_v255.md` 巡檢。** 省額度規則照舊。
+- 11/24 晚、11/25 早兩次巡檢沒有紀錄。額度恢復後照常巡檢即可，不用補做、不用寫報告。
+
+<details><summary>11/16 版工作區塊（hotfix16 已交，備查）</summary>
+
 **Claude 已核對 hotfix15**：兩個 blob 相符，晚間排程已生效（11/14 晚巡檢全市場掃描恢復正常）。
 **省額度規則照舊。推送中繼、部署網站都要擁有者在你的對話裡親口授權。**
 
@@ -18,6 +25,8 @@
    - Claude 在乾淨 v254 上依序套 v255～v259：無衝突、建出來完全相同，完整 `TZ=UTC npm test` exit 0（末組 101／101）。HTML 仍 `de5a6d6b…`；匿名化後台：只套 v258 是 `d24d6cb3…`；v258＋v259 是 `d29c20618ac0d11a52dc18af835dc34c1aa1f1baa576d2a97f0cfbd480fda524`。
 3. **讀回（不用另建 run）**：之後第一次「套件含夜間信用統計」的巡檢，第 2 行 `statistics=imported`（不是 error）；第 3 行不再出現 officialImport:source_error；sourceResearch 只因 24 小時內來源抓不到時不再列異常。
 4. **報告**：寫 `diagnostics/deploy-20261026/hotfix16.md`（4 行內）：授權、中繼 commit 與 blob、網站部署 source／SHA、第 3 項讀回。
+
+</details>
 
 <details><summary>11/13 版工作區塊（hotfix15 已交，備查）</summary>
 
