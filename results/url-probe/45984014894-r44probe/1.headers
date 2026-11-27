@@ -1,0 +1,7 @@
+HTTP/2 200 
+access-control-allow-origin: *
+content-type: application/json
+date: Fri, 27 Nov 2026 10:40:19 GMT
+server: uvicorn
+vary: Accept-Encoding
+
