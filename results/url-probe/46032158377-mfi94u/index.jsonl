@@ -1,0 +1,2 @@
+{"n":1,"url":"https://www.twse.com.tw/rwd/zh/TAIEX/MFI94U?date=20060101&response=json","started_at":"2026-11-27T16:16:34Z","http_status":"200","ttfb_s":"0.876602","total_s":"0.876747","ua":"mozilla","sha256":"21ec9fd58ea92aed97153286be239cc65119a5f5da82babf2d7ac3a834d036e3","bytes":615}
+{"n":2,"url":"https://www.twse.com.tw/rwd/zh/TAIEX/MFI94U?date=20261001&response=json","started_at":"2026-11-27T16:16:38Z","http_status":"200","ttfb_s":"0.512304","total_s":"0.512472","ua":"mozilla","sha256":"e1d8c7ab1dc78c8a0ae09e3cdc61c07dba926dd2bf47b89caa5deb2e608b0a1d","bytes":679}
