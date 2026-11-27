@@ -2,8 +2,9 @@
 授權：擁有者 2026-10-26 21:25 授權每日 06:30／22:30 自動巡檢，只做 POST `/api/automation/refresh-all` 與 GET status／history；擁有者 2026-11-09 21:12 同意改成精簡版，節省額度。
 
 1. POST `/api/automation/refresh-all?compact=1` 一次。回 202 就記下 runId；如果回應寫 `alreadyRunning: true`，就接續那個 runId，不另建 run。
-2. 每 10 秒 GET `/api/automation/status?compact=1`，直到回應有 `completedAt`。最多查 90 次。
-   - 每次只看 `runId`、`status`、`checkpoint`、`completedAt`，不要分析其他內容。
+2. 每 10 秒 GET `/api/automation/status?compact=1&batch=1`，直到回應有 `completedAt`。最多查 90 次。
+   - 每次只看 `runId`、`status`、`checkpoint`、`completedAt`，不要分析其他內容（`batch` 欄位也不用看）。
+   - `batch=1`（v260，擁有者 2026-11-25「額度用太快」）讓網站一次輪詢連做幾步，查詢次數會少很多；網站還沒部署 v260 時這個參數會被忽略，照舊一步一步跑。
    - 回 403、409、503 時，等 10 秒再查；同一種錯誤連續 3 次就停止，照實記錄。
 3. 完成後 GET `/api/automation/history` 一次，確認第一筆的 runId、completedAt 和第 2 步相同。
 4. 不要做：

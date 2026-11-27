@@ -1,12 +1,39 @@
 # GPT 下一個工作（一次只做這一項；只讀這份，不必讀 CLAUDE_TO_GPT_LATEST.md 全文）
 
-更新：2026-11-25 07:55 台北（Claude）
+更新：2026-11-27 21:31 台北（Claude）
 
-## ★ 本輪工作（11/25 07:55 更新；只讀這一段就夠）
+## ★ 本輪工作（11/27 21:31 更新；只讀這一段就夠）
+**目的：巡檢少查很多次（省你的額度），另外個股卡多三張只顯示的卡片。省額度規則照舊。部署要擁有者在你的對話裡親口授權。**
+
+基線：擁有者 11/27 從你這邊匯出的正式站原始碼（source `3cc372119c89890664ae0ddd37259c0eaba653c4`，v259）。Claude 重建後與部署版完全相同，完整測試通過。
+
+1. **依序套兩個 patch**（`git apply --index`，套完再建置）：
+   - `handoff/patches/v260-batch-poll.patch`，SHA-256 `8f5c7d0ee378e68ec0e3bcdb6d53d2110dcb04d8e4079c4ccbba29d0dc6b5fa9`
+     - 內容：status 輪詢加 `batch=1` 時，一次輪詢連做幾步。遇到下列任一情況就停：跑完、這步在等待、做滿 8 步、或已用 8 秒。
+     - 每多做一步前先續租約。第一步失敗照舊回錯誤。
+     - 沒加 `batch=1` 時行為完全不變。
+   - `handoff/patches/v261-display-panels.patch`，SHA-256 `3fb973e9e6eebe390a2480b613056f335597f563fa86f1332d9fc0182a65720c`
+     - 內容：個股「補充觀測」多三張只顯示的卡片：投本比、季線扣抵價、單季毛利率季增／年增。
+     - 依據第 45～47 輪回測，不改評級、Gate、進場判斷。
+2. **建置與測試**：`node build.mjs`，再跑 `TZ=UTC npm test`，要 exit 0（最後一組 111／111）。
+3. **核對**：
+   - `dist/index.html` 的 SHA-256 要是 `902fd1420f8e88dc6805643c19d5e8ed4d4f1db3b540a8dbe34d6426b6cd8a7c`。
+   - 匿名化後台：把 `dist/server/index.js` 裡 `.openai/hosting.json` 的 project_id 字串換成 `REDACTED_PROJECT_ID` 後，SHA-256 要是 `28980c0b9d3e09e8f290cdbb8d51db87463903a9e5d7dba47b5f68514c6a7e93`。
+   - 先用同方法算現行 v259，應得 `9038804cc9be7c8e5565079f23aec1727a27526ebd158bd6a8836d398851bc9c`，確認算法一致。
+4. **部署一次**；現行 v259（3cc3721）留作回滾。
+5. **讀回**：部署後照 `handoff/patrol_prompt_v255.md` 巡檢（已改成輪詢加 `batch=1`，不用另建 run）。
+   - 第 1 行要 Gate 5/5。
+   - 第 2 行「查詢 N 次」要明顯少於 40（Claude 測試環境：36 次 → 10 次）。
+6. **報告**：寫 `diagnostics/deploy-20261026/hotfix17.md`（4 行內），內容：授權、部署 source／兩個 SHA、測試結果、第一次巡檢的查詢次數。
+
+<details><summary>11/25 版工作區塊（只巡檢，備查）</summary>
+
 **Claude 已核對 hotfix16**：v258＋v259 部署後，11/19 晚、11/21 早巡檢 `statistics=imported`，之後沒有再出現 officialImport:source_error。第 3 項讀回完成，結案。辛苦了。
 
 **目前沒有新的修改或部署工作，只照 `handoff/patrol_prompt_v255.md` 巡檢。** 省額度規則照舊。
 - 11/24 晚、11/25 早兩次巡檢沒有紀錄。額度恢復後照常巡檢即可，不用補做、不用寫報告。
+
+</details>
 
 <details><summary>11/16 版工作區塊（hotfix16 已交，備查）</summary>
 

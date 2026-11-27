@@ -1,0 +1,217 @@
+diff --git a/dist/index.html b/dist/index.html
+index 531b07a..8eb0020 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -881,8 +881,12 @@ function renderAdvisoryPanels(model){
+  const ma=p.movingAverages||{};
+  const maCard=card('均線強弱 −4～+4',`${ma.score===null||ma.score===undefined?'樣本不足':(ma.score>=0?'+':'')+ma.score}｜${(ma.averages||[]).map(x=>`${x.sessions}日 MA ${show(x.ma)}／${x.contribution===null?'缺值':x.contribution>0?'+1':String(x.contribution)}`).join('；')}`,`觀測 ${ma.date||'缺值'}；${ma.observations||0}筆；須同時滿足價位與均線斜率。`);
+  if(Number.isFinite(ma.score))advisoryAxis(maCard,{status:'ok',value:ma.score},'均線強弱',{min:-4,max:4,step:1});
++ // v261（擁有者 2026-11-27；第 46 輪）：季線扣抵價，只顯示，不當出場規則。
++ const md=p.ma60Deduction||{};card('季線（60日）扣抵價',md.status==='ok'?`季線 ${show(md.ma60)}（${md.rising?'上彎':'下彎'}）｜明天扣抵 ${show(md.nextDeduction)}：明天收盤高於它季線續上彎、低於則下彎｜收盤 ${show(md.close)}，比扣抵價${md.closeVsNextDeductionPct>=0?'高':'低'} ${show(Math.abs(md.closeVsNextDeductionPct))}%｜之後 5 天扣抵 ${(md.nextDeductions||[]).map(x=>show(x.price)).join('、')}`:`待補：${md.reason||'缺值'}`,`還原除權息收盤；${md.backtest||''}；只顯示。`);
+  const rev=p.revenue||{};card('月營收創高',`${rev.newHigh===true?'觀測區間創高':rev.newHigh===false?'未創觀測區間新高':'資料不足'}｜${rev.period||'月份缺值'}；近3月YoY連續為正：${rev.threePositiveYoY===null||rev.threePositiveYoY===undefined?'待確認':rev.threePositiveYoY?'是':'否'}`,`${rev.from||'起月缺值'}起 ${rev.observations||0}月；${rev.source||rev.reason||''}；不是全歷史紀錄。`);
+  const eps=p.quarterEps||{};card('季 EPS 創高',`${eps.newHigh===true?'觀測區間創高':eps.newHigh===false?'未創觀測區間新高':'資料不足'}｜${eps.date||'期別缺值'} EPS ${show(eps.value)}`,`${eps.observations||0}季；${eps.source||eps.reason||''}；單季、已調整股數口徑，不代表季度共識。`);
++ // v261（擁有者 2026-11-27；第 47 輪）：單季毛利率季增／年增，只顯示，不改評級。
++ const gm=p.grossMarginTrend||{},pct=x=>Number.isFinite(x)?x.toFixed(2)+'%':'缺值';card('單季毛利率 季增／年增',gm.status==='ok'?`${gm.label}｜${gm.date} ${pct(gm.margin)}；上季 ${pct(gm.previousQuarter?.margin)}、去年同季 ${pct(gm.sameQuarterLastYear?.margin)}`:`待補：${gm.reason||'缺值'}${Number.isFinite(gm.margin)?`（${gm.date} ${pct(gm.margin)}）`:''}`,`${gm.source||'FinMind 財報'}；營業毛利 ÷ 營業收入；${gm.backtest||''}；只顯示。`);
+  const lend=p.lending||{};card('借券賣出餘額',`${lend.status==='ok'?Number(lend.balanceShares).toLocaleString('zh-TW')+' 股':'待確認'}｜占同日發行股數 ${show(lend.balanceRatioPct)}%`,`${lend.date||'日期缺值'}；${lend.market||''}；${lend.history?.length||0}筆已保存日資料；${lend.sourceUrl||lend.reason||''}${lend.ratioReason?'；'+lend.ratioReason:''}`);
+  const cb=p.convertibleBonds||{};{const fmt=(x,d=0)=>Number.isFinite(x)?x.toLocaleString('zh-TW',{maximumFractionDigits:d}):'缺值';
+  const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜${b.conversionPriceBasis==='MOPS_MONTHLY'?`目前轉換價 ${fmt(b.conversionPriceCurrent,2)}（觀測站 ${b.conversionPriceMonth} 月報${b.conversionResetDate?`，${b.conversionResetDate} 重設`:''}；發行時 ${fmt(b.conversionPriceAtIssue,2)}）`:`發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}（未含後續調整）`}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
+@@ -891,6 +895,8 @@ function renderAdvisoryPanels(model){
+  const pctText=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';
+  const tqw=p.threeQuestions?.questions?.chips?.windows||{},lotsText=x=>Number.isFinite(x)?(x>0?'+':'')+Math.round(x/1000).toLocaleString('zh-TW')+'張':'缺值';
+  card('法人買賣超 5／10／20日',['d5','d10','d20'].map(k=>{const w=tqw[k];return `${k.slice(1)}日 外資 ${lotsText(w?.foreignShares)}、投信 ${lotsText(w?.trustShares)}`;}).join('；'),'FinMind 三大法人日資料；日期須與股價日期逐日對齊，不足就標缺值。');
++ // v261（擁有者 2026-11-27；第 45 輪）：投本比，只顯示，不改評級或進場判斷。
++ const tc=p.trustToCapital||{},sp=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';card('投本比（投信淨買 ÷ 發行股數）',tc.status==='ok'?`5日 ${sp(tc.d5)}、10日 ${sp(tc.d10)}、20日 ${sp(tc.d20)}${Math.abs(tc.d20)>=1?`｜20日已${tc.d20>0?'超過 +1%':'低於 −1%'}`:''}`:`待補：${tc.reason||'缺值'}`,`${tc.to||'日期缺值'}；${tc.source||''}；${tc.backtest||''}；只顯示。`);
+  const dy=p.dividendYield||{};card('殖利率歷史區間',dy.status==='ok'?`殖利率 ${show(dy.current)}%｜P20 ${show(dy.p20)}／中位 ${show(dy.median)}／P80 ${show(dy.p80)}｜目前位於 ${show(dy.percentileRank)} 百分位`:`待補：${dy.reason||'缺值'}`,`${dy.from||'起日缺值'}～${dy.through||p.asOf||'迄日缺值'}；${dy.observations||0}筆；${dy.source||''}；只顯示。`);
+  const rsi=p.rsi||{};card('RSI（14日）',rsi.status==='ok'?`${show(rsi.value)}｜${rsi.note}`:`待補：${rsi.reason||'缺值'}`,`${rsi.date||'日期缺值'}；${rsi.method||'Wilder RSI(14)'}；只顯示。`);
+  const beta=p.beta||{};card('Beta（對加權指數，近120日）',beta.status==='ok'?`${show(beta.value)}｜${beta.value>1?'波動大於大盤':'波動小於大盤'}`:`待補：${beta.reason||'缺值'}`,`${beta.from||'起日缺值'}～${beta.to||'迄日缺值'}；${beta.method||''}；只顯示。`);
+diff --git a/package.json b/package.json
+index 98410c7..5e5efb0 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs tests/v258-calendar-year.test.mjs tests/v259-recent-source-feed.test.mjs tests/v260-batch-poll.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs tests/v258-calendar-year.test.mjs tests/v259-recent-source-feed.test.mjs tests/v260-batch-poll.test.mjs tests/v261-display-panels.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/financial-quality.test.mjs b/tests/financial-quality.test.mjs
+index 6ec1fb3..455f2b5 100644
+--- a/tests/financial-quality.test.mjs
++++ b/tests/financial-quality.test.mjs
+@@ -86,6 +86,10 @@ try {
+   assert.ok(Number.isFinite(result.financialQuality.workingCapitalQuality.dsoDays));
+   assert.ok(Number.isFinite(result.financialQuality.workingCapitalQuality.dioDays));
+   assert.equal(result.financialQuality.workingCapitalQuality.revenue, 10000, 'DSO uses the directly reported revenue line when available');
++  // v261：單季毛利率歷史（營業毛利 4000 ÷ 營業收入 10000）。
++  assert.equal(result.financialQuality.grossMarginHistory.length, 9);
++  assert.equal(result.financialQuality.grossMarginHistory.at(-1).date, '2026-06-30');
++  assert.equal(result.financialQuality.grossMarginHistory.at(-1).margin, 40);
+   assert.equal(result.financialQuality.workingCapitalQuality.method.includes('本季營收'), true);
+   const fcffHistory = result.financialQuality.normalizedFcff.history.map(row => row.value).sort((a,b)=>a-b);
+   const expectedFcffMedian = fcffHistory.length % 2 ? fcffHistory[(fcffHistory.length-1)/2] : (fcffHistory[fcffHistory.length/2-1]+fcffHistory[fcffHistory.length/2])/2;
+diff --git a/tests/v261-display-panels.test.mjs b/tests/v261-display-panels.test.mjs
+new file mode 100644
+index 0000000..ee5872e
+--- /dev/null
++++ b/tests/v261-display-panels.test.mjs
+@@ -0,0 +1,62 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { readFileSync } from 'node:fs';
++import { trustToCapital, ma60Deduction, grossMarginTrend } from '../worker/panel-calculations.mjs';
++
++// v261（擁有者 2026-11-27）：第 45～47 輪回測後的三個只顯示項目；都不改評級、Gate 或進場判斷。
++
++const businessDays=(start,count)=>{const out=[];const d=new Date(start+'T00:00:00Z');while(out.length<count){if(d.getUTCDay()%6)out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;};
++
++test('投本比：投信 20 日淨買 ÷ 發行股數；缺股數或法人未對齊就不算',()=>{
++  const tq={questions:{chips:{windows:{d5:{trustShares:5000,to:'2026-11-20'},d10:{trustShares:-2000,to:'2026-11-20'},d20:{trustShares:12000,to:'2026-11-20'}}}}};
++  const r=trustToCapital({valuationInputs:{issuedShares:1000000,shareSource:'TWSE 公司基本資料'}},tq);
++  assert.equal(r.status,'ok');assert.equal(r.d20,1.2);assert.equal(r.d5,0.5);assert.equal(r.d10,-0.2);assert.equal(r.to,'2026-11-20');
++  assert.equal(r.scoreContribution,0);assert.match(r.backtest,/第 45 輪/);
++  assert.equal(trustToCapital({valuationInputs:{}},tq).reason,'ISSUED_SHARES_MISSING');
++  assert.equal(trustToCapital({valuationInputs:{issuedShares:1000000}},{questions:{chips:{windows:{}}}}).status,'insufficient');
++});
++
++test('季線扣抵價：明天扣掉的是 60 日窗口最舊那筆；收盤高於它季線才會續上彎',()=>{
++  const dates=businessDays('2026-08-03',65),priceHistory=dates.map((date,i)=>({date,close:i+1}));
++  const stock={priceHistory,exRightsEvents:[]},asOf=dates.at(-1);
++  const r=ma60Deduction(stock,{asOf});
++  assert.equal(r.status,'ok');
++  assert.equal(r.ma60,35.5);assert.equal(r.ma60Previous,34.5);assert.equal(r.rising,true);
++  assert.equal(r.nextDeduction,6);assert.deepEqual(r.nextDeductions.map(x=>x.price),[6,7,8,9,10]);
++  assert.equal(r.nextDeductions[0].date,dates[5]);
++  // 驗證定義：明天收盤 = 扣抵價時季線持平
++  const tomorrow=[...priceHistory.slice(-59).map(x=>x.close),r.nextDeduction];
++  assert.equal(tomorrow.reduce((s,x)=>s+x,0)/60,r.ma60,'明天收盤剛好等於扣抵價 → 季線持平');
++  assert.equal(r.scoreContribution,0);assert.match(r.backtest,/第 46 輪/);
++  assert.equal(ma60Deduction({priceHistory:priceHistory.slice(1),exRightsEvents:[]},{asOf}).status,'insufficient','64 筆不夠');
++  assert.equal(ma60Deduction(stock,{asOf:'2026-12-31'}).reason,'PRICE_HISTORY_NOT_ALIGNED');
++});
++
++test('季線扣抵價：除息日之前的價格要還原，扣抵價跟著還原',()=>{
++  const dates=businessDays('2026-08-03',65),priceHistory=dates.map(date=>({date,close:100}));
++  priceHistory[30]={...priceHistory[30],close:95};for(let i=31;i<65;i++)priceHistory[i]={...priceHistory[i],close:95};
++  const r=ma60Deduction({priceHistory,exRightsEvents:[{cashDate:dates[30],cash:5,stockDate:null,stockBonus:0}]},{asOf:dates.at(-1)});
++  assert.equal(r.status,'ok');assert.ok(Math.abs(r.nextDeduction-95)<1e-9,'除息前 100 元還原成 95 元');assert.ok(Math.abs(r.ma60-95)<1e-9);
++  assert.equal(r.adjustedFor.length,1);
++});
++
++test('單季毛利率：比上季、比去年同季；缺期別不判斷',()=>{
++  const key=y=>q=>y*4+q-1,row=(y,q,m)=>({date:`${y}-${['03-31','06-30','09-30','12-31'][q-1]}`,key:key(y)(q),margin:m});
++  const fq=rows=>({financialQuality:{source:'FinMind 財報',grossMarginHistory:rows}});
++  const base=[row(2025,2,40),row(2025,3,41),row(2025,4,42),row(2026,1,43)];
++  let r=grossMarginTrend(fq([...base,row(2026,2,44)]));
++  assert.equal(r.label,'季增且年增');assert.equal(r.qoqUp,true);assert.equal(r.yoyUp,true);assert.equal(r.sameQuarterLastYear.date,'2025-06-30');
++  assert.equal(grossMarginTrend(fq([...base,row(2026,2,39)])).label,'季減且年減');
++  assert.equal(grossMarginTrend(fq([...base,row(2026,2,42)])).label,'只有年增');
++  assert.equal(grossMarginTrend(fq([row(2025,2,45),...base.slice(1),row(2026,2,44)])).label,'只有季增');
++  assert.equal(grossMarginTrend(fq(base.slice(1).concat(row(2026,2,44)))).reason,'SAME_QUARTER_LAST_YEAR_MISSING');
++  assert.equal(grossMarginTrend({}).reason,'FINANCIAL_QUALITY_NOT_LOADED');
++  assert.equal(r.scoreContribution,0);assert.match(r.backtest,/第 47 輪/);
++});
++
++test('網頁有三張新卡片，都標只顯示',()=>{
++  const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++  for(const label of ['投本比（投信淨買 ÷ 發行股數）','季線（60日）扣抵價','單季毛利率 季增／年增'])assert.ok(html.includes(label),label);
++  const server=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8');
++  for(const name of ['trustToCapital:trustToCapital(stock,tq)','ma60Deduction:ma60Deduction(stock,{asOf})','grossMarginTrend:grossMarginTrend(stock)','grossMarginHistory, roe'])assert.ok(server.includes(name),name);
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 976f1f5..8180b11 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -315,7 +315,9 @@ function calculateFinancialQuality(incomeRows, balanceRows, cashFlowRows) {
+   const latestTaxBase=commonKeys.length?income.pretax.get(commonKeys.at(-1))?.value:null;
+   const latestNet=commonKeys.length?income.net.get(commonKeys.at(-1))?.value:null;
+   const effectiveTaxRate=latestTaxBase>0&&finiteNumber(latestNet)?Math.max(0,Math.min(.5,(latestTaxBase-latestNet)/latestTaxBase)):null;
+-  return { roe, cashConversionTTM, revenueTTM, roic, roicApplicability, normalizedRoic, roicHistory:roicHistory.slice(-20), cfoToNetIncome, freeCashFlow:fcf, workingCapitalQuality, workingCapitalWarnings, normalizedFcff, fcffAnnual:fcffSample, fcffQuarterly:fcffQuarterly.slice(-32), capitalStructure:latestBalance&&latestBalance.equity!=null&&latestBalance.cash!=null?{date:latestBalance.date,bookEquity:latestBalance.equity,cash:latestBalance.cash,interestBearingDebt:latestBalance.debt,effectiveTaxRate,source:'FinMind TaiwanStockBalanceSheet + TaiwanStockFinancialStatements'}:null, qualityErrors,
++  // v261（擁有者 2026-11-27；第 47 輪）：單季毛利率＝營業毛利 ÷ 營業收入（營收缺就用營業成本＋毛利），最近 9 季，給補充觀測的季增／年增；只顯示。
++  const grossMarginHistory=[...income.gross.keys()].sort((a,b)=>a-b).map(key=>{const gross=income.gross.get(key),revenue=income.revenue.has(key)?income.revenue.get(key).value:income.cogs.has(key)?income.cogs.get(key).value+gross.value:null;return revenue>0&&finiteNumber(gross.value)?{date:gross.date,key,revenue,gross:gross.value,margin:gross.value/revenue*100}:null;}).filter(Boolean).slice(-9);
++  return { grossMarginHistory, roe, cashConversionTTM, revenueTTM, roic, roicApplicability, normalizedRoic, roicHistory:roicHistory.slice(-20), cfoToNetIncome, freeCashFlow:fcf, workingCapitalQuality, workingCapitalWarnings, normalizedFcff, fcffAnnual:fcffSample, fcffQuarterly:fcffQuarterly.slice(-32), capitalStructure:latestBalance&&latestBalance.equity!=null&&latestBalance.cash!=null?{date:latestBalance.date,bookEquity:latestBalance.equity,cash:latestBalance.cash,interestBearingDebt:latestBalance.debt,effectiveTaxRate,source:'FinMind TaiwanStockBalanceSheet + TaiwanStockFinancialStatements'}:null, qualityErrors,
+     errors: { roic: roicError || (!incomeRows.length ? '財報來源沒有回傳資料' : null), cfoToNetIncome: cfoError || (!cashFlowRows.length ? '現金流量表來源沒有回傳資料' : null),
+       normalizedRoic:normalizedRoic?null:`最新財報往回 20 季的 ROIC 樣本不足（${roicWindow.history.length}/12 個有效滾動四季值）；不向更早年度補樣本`, freeCashFlow:fcf?null:`近三年 CFO／資本支出期別不足（${commonFcfKeys.length}/12 季）`,...qualityErrors },
+     observedThrough: currentDate, source: 'FinMind TaiwanStockFinancialStatements + TaiwanStockBalanceSheet + TaiwanStockCashFlowsStatement' };
+diff --git a/worker/panel-calculations.mjs b/worker/panel-calculations.mjs
+index 861d18f..2e1d600 100644
+--- a/worker/panel-calculations.mjs
++++ b/worker/panel-calculations.mjs
+@@ -271,6 +271,42 @@ export function largeHolders(input,{asOf}={}){
+   const last=rows.at(-1);
+   return {status:'ok',date:last.date,pct15:last.pct15,holders15:last.holders15??null,totalHolders:last.totalHolders??null,weeks:rows,changeVsFirst:rows.length>1?last.pct15-rows[0].pct15:null,weeksObserved:rows.length,source:'集保結算所 集保戶股權分散表（週）',scoreContribution:0};
+ }
++/** v261 投本比（擁有者 2026-11-27；第 45 輪）：投信 5／10／20 日淨買股數 ÷ 官方發行股數。只顯示，不改評級或進場判斷。
++ *  法人日期須與股價逐日對齊（同三問籌碼題）；缺發行股數或未對齊就標缺值。 */
++export function trustToCapital(stock,tq){
++  const shares=number(stock?.valuationInputs?.issuedShares),windows=tq?.questions?.chips?.windows||{};
++  const backtest='第 45 輪（2012–2026 上市）：投本比突破 1% 之後 60 日超額 +1.6～2.6%，但投信大賣（≤ −1%）之後也有 +0.6～2.3%；強的主要是投信大量進出的股票，買進本身訊號弱，市值 100 億以下沒有優勢';
++  if(!(shares>0))return missing('ISSUED_SHARES_MISSING',{backtest,scoreContribution:0});
++  const pct=w=>w&&Number.isFinite(w.trustShares)?w.trustShares/shares*100:null;
++  const out={status:pct(windows.d20)===null?'insufficient':'ok',reason:pct(windows.d20)===null?'INSTITUTIONAL_HISTORY_NOT_ALIGNED':null,
++    d5:pct(windows.d5),d10:pct(windows.d10),d20:pct(windows.d20),issuedShares:shares,to:windows.d20?.to||null,
++    source:`投信買賣超：FinMind 三大法人日資料；發行股數：${stock?.valuationInputs?.shareSource||'TWSE／TPEx 公司基本資料'}`,backtest,scoreContribution:0};
++  return out;
++}
++/** v261 季線扣抵價（擁有者 2026-11-27；第 46 輪）：60 日線明天會不會上彎，看明天收盤是否高於「明天要被扣掉的那天收盤」。
++ *  用還原除權息收盤（同出場訊號、均線排列）。只顯示，不當出場規則。 */
++export function ma60Deduction(stock,{asOf}={}){
++  const backtest='第 46 輪（2010–2025）：季線下彎通常比跌破季線晚（平均晚 13 天）；等季線下彎才賣，最差 10% 多虧約 3～4 個百分點，所以不當出場規則';
++  const a=adjustedCloses(stock,asOf,65);
++  if(!a.ok)return missing(a.aligned===false?'PRICE_HISTORY_NOT_ALIGNED':'REQUIRE_65_OBSERVED_SESSIONS',{observations:a.count,backtest,scoreContribution:0});
++  const rows=(stock?.priceHistory||[]).filter(r=>day(r.date)&&r.date<=asOf&&Number.isFinite(r.close)&&r.close>0).sort((x,y)=>x.date.localeCompare(y.date)).slice(-65);
++  const adj=a.adj,n=adj.length,ma60=mean(adj.slice(n-60)),previous=mean(adj.slice(n-61,n-1)),close=adj[n-1];
++  // 未來第 k 個交易日會扣掉的收盤＝目前 60 日窗口裡最舊的第 k 筆（窗口從 n−60 開始）。
++  const next=[1,2,3,4,5].map(k=>({session:k,date:rows[n-61+k]?.date||null,price:adj[n-61+k]}));
++  return {status:'ok',date:asOf,close,ma60,ma60Previous:previous,rising:ma60>previous,closeAboveMa60:close>=ma60,
++    nextDeduction:next[0].price,nextDeductions:next,closeVsNextDeductionPct:(close/next[0].price-1)*100,adjustedFor:a.applied,backtest,scoreContribution:0};
++}
++/** v261 單季毛利率季增／年增（擁有者 2026-11-27；第 47 輪）。用財報品質卡同一份 FinMind 單季損益（營業毛利 ÷ 營業收入）。只顯示，不改評級。 */
++export function grossMarginTrend(stock){
++  const backtest='第 47 輪（2014–2026 上市櫃，等法定公告期限隔天才算）：季增且年增的股票之後 60 日比其他股票多 +2.4～2.6 個百分點，50 季中約 85% 的季度贏；兩個都下降的那組 60 日超額 −1.4%';
++  const rows=(stock?.financialQuality?.grossMarginHistory||[]).filter(r=>day(r?.date)&&Number.isFinite(r.margin)&&Number.isInteger(r.key));
++  if(!rows.length)return missing(stock?.financialQuality?'GROSS_MARGIN_NOT_AVAILABLE':'FINANCIAL_QUALITY_NOT_LOADED',{backtest,scoreContribution:0});
++  const byKey=new Map(rows.map(r=>[r.key,r])),latest=rows.at(-1),prevQ=byKey.get(latest.key-1),prevY=byKey.get(latest.key-4);
++  if(!prevQ||!prevY)return missing(!prevQ?'PREVIOUS_QUARTER_MISSING':'SAME_QUARTER_LAST_YEAR_MISSING',{date:latest.date,margin:latest.margin,backtest,scoreContribution:0});
++  const qoqUp=latest.margin>prevQ.margin,yoyUp=latest.margin>prevY.margin;
++  return {status:'ok',date:latest.date,margin:latest.margin,previousQuarter:{date:prevQ.date,margin:prevQ.margin},sameQuarterLastYear:{date:prevY.date,margin:prevY.margin},
++    qoqUp,yoyUp,label:qoqUp&&yoyUp?'季增且年增':qoqUp?'只有季增':yoyUp?'只有年增':'季減且年減',source:stock.financialQuality.source||'FinMind 財報',backtest,scoreContribution:0};
++}
+ export function buildStockPanels(stock,marketRows=[],sectorContext=null,{asOf=stock.price?.date,taiexHistory=[]}={}){
+   asOf=day(asOf)?asOf:'0000-01-01';
+   const inputs=stock.panelInputs||{},ma=movingAverageStrength(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),mapping=mapIndustry(inputs.issuer,{asOf});
+@@ -278,5 +314,5 @@ export function buildStockPanels(stock,marketRows=[],sectorContext=null,{asOf=st
+   const available=r=>r&&['ok','snapshot'].includes(r.status)&&!r.is_stale&&day(r.date)&&r.date<=asOf;
+   const axis=r=>available(r)&&r.history?.at(-1)?.date===r.date?{...zeroAxis(r.history,{id:r.id,asOf}),source:r.source,sourceDate:r.date}:missing('SOURCE_MISSING_STALE_OR_NOT_ALIGNED',{id:r?.id||null});
+   const sector=mapping.sector?sectorContext?.sectors?.[mapping.sector]:null;
+-  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:dollarAxis(inputs.dollarIndex,{asOf}),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:tq,entryCondition:entryCondition(stock,ma,tq,{asOf}),dividendYield:dividendYieldBand(inputs.yieldHistory||[],{asOf}),rsi:rsi14(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),beta:betaVsTaiex(stock.priceHistory||[],taiexHistory,{asOf}),largeHolders:largeHolders(inputs.holders,{asOf}),marginMaintenance:inputs.marginMaintenance||missing('MARGIN_MAINTENANCE_NOT_COLLECTED',{scoreContribution:0}),convertibleBonds:convertibleBonds(inputs.cbRegistry,{symbol:stock.id,price:stock.price?.value??null,priceDate:stock.price?.date??null,issuedShares:inputs.issuer?.date&&inputs.issuer.date<=asOf&&Number.isFinite(inputs.issuer.shares)?inputs.issuer.shares:stock.valuationInputs?.issuedShares??null})};
++  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:dollarAxis(inputs.dollarIndex,{asOf}),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:tq,entryCondition:entryCondition(stock,ma,tq,{asOf}),trustToCapital:trustToCapital(stock,tq),ma60Deduction:ma60Deduction(stock,{asOf}),grossMarginTrend:grossMarginTrend(stock),dividendYield:dividendYieldBand(inputs.yieldHistory||[],{asOf}),rsi:rsi14(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),beta:betaVsTaiex(stock.priceHistory||[],taiexHistory,{asOf}),largeHolders:largeHolders(inputs.holders,{asOf}),marginMaintenance:inputs.marginMaintenance||missing('MARGIN_MAINTENANCE_NOT_COLLECTED',{scoreContribution:0}),convertibleBonds:convertibleBonds(inputs.cbRegistry,{symbol:stock.id,price:stock.price?.value??null,priceDate:stock.price?.date??null,issuedShares:inputs.issuer?.date&&inputs.issuer.date<=asOf&&Number.isFinite(inputs.issuer.shares)?inputs.issuer.shares:stock.valuationInputs?.issuedShares??null})};
+ }
+diff --git a/worker/panel-display.js b/worker/panel-display.js
+index d2edde6..a16cdfc 100644
+--- a/worker/panel-display.js
++++ b/worker/panel-display.js
+@@ -25,8 +25,12 @@ function renderAdvisoryPanels(model){
+  const ma=p.movingAverages||{};
+  const maCard=card('均線強弱 −4～+4',`${ma.score===null||ma.score===undefined?'樣本不足':(ma.score>=0?'+':'')+ma.score}｜${(ma.averages||[]).map(x=>`${x.sessions}日 MA ${show(x.ma)}／${x.contribution===null?'缺值':x.contribution>0?'+1':String(x.contribution)}`).join('；')}`,`觀測 ${ma.date||'缺值'}；${ma.observations||0}筆；須同時滿足價位與均線斜率。`);
+  if(Number.isFinite(ma.score))advisoryAxis(maCard,{status:'ok',value:ma.score},'均線強弱',{min:-4,max:4,step:1});
++ // v261（擁有者 2026-11-27；第 46 輪）：季線扣抵價，只顯示，不當出場規則。
++ const md=p.ma60Deduction||{};card('季線（60日）扣抵價',md.status==='ok'?`季線 ${show(md.ma60)}（${md.rising?'上彎':'下彎'}）｜明天扣抵 ${show(md.nextDeduction)}：明天收盤高於它季線續上彎、低於則下彎｜收盤 ${show(md.close)}，比扣抵價${md.closeVsNextDeductionPct>=0?'高':'低'} ${show(Math.abs(md.closeVsNextDeductionPct))}%｜之後 5 天扣抵 ${(md.nextDeductions||[]).map(x=>show(x.price)).join('、')}`:`待補：${md.reason||'缺值'}`,`還原除權息收盤；${md.backtest||''}；只顯示。`);
+  const rev=p.revenue||{};card('月營收創高',`${rev.newHigh===true?'觀測區間創高':rev.newHigh===false?'未創觀測區間新高':'資料不足'}｜${rev.period||'月份缺值'}；近3月YoY連續為正：${rev.threePositiveYoY===null||rev.threePositiveYoY===undefined?'待確認':rev.threePositiveYoY?'是':'否'}`,`${rev.from||'起月缺值'}起 ${rev.observations||0}月；${rev.source||rev.reason||''}；不是全歷史紀錄。`);
+  const eps=p.quarterEps||{};card('季 EPS 創高',`${eps.newHigh===true?'觀測區間創高':eps.newHigh===false?'未創觀測區間新高':'資料不足'}｜${eps.date||'期別缺值'} EPS ${show(eps.value)}`,`${eps.observations||0}季；${eps.source||eps.reason||''}；單季、已調整股數口徑，不代表季度共識。`);
++ // v261（擁有者 2026-11-27；第 47 輪）：單季毛利率季增／年增，只顯示，不改評級。
++ const gm=p.grossMarginTrend||{},pct=x=>Number.isFinite(x)?x.toFixed(2)+'%':'缺值';card('單季毛利率 季增／年增',gm.status==='ok'?`${gm.label}｜${gm.date} ${pct(gm.margin)}；上季 ${pct(gm.previousQuarter?.margin)}、去年同季 ${pct(gm.sameQuarterLastYear?.margin)}`:`待補：${gm.reason||'缺值'}${Number.isFinite(gm.margin)?`（${gm.date} ${pct(gm.margin)}）`:''}`,`${gm.source||'FinMind 財報'}；營業毛利 ÷ 營業收入；${gm.backtest||''}；只顯示。`);
+  const lend=p.lending||{};card('借券賣出餘額',`${lend.status==='ok'?Number(lend.balanceShares).toLocaleString('zh-TW')+' 股':'待確認'}｜占同日發行股數 ${show(lend.balanceRatioPct)}%`,`${lend.date||'日期缺值'}；${lend.market||''}；${lend.history?.length||0}筆已保存日資料；${lend.sourceUrl||lend.reason||''}${lend.ratioReason?'；'+lend.ratioReason:''}`);
+  const cb=p.convertibleBonds||{};{const fmt=(x,d=0)=>Number.isFinite(x)?x.toLocaleString('zh-TW',{maximumFractionDigits:d}):'缺值';
+  const list=(cb.bonds||[]).map(b=>`${b.name||b.id}（${b.kind==='overseas'?'海外':'國內'}）｜${b.currency||'幣別待核'} 餘額 ${fmt(b.outstandingFace)}｜${b.conversionPriceBasis==='MOPS_MONTHLY'?`目前轉換價 ${fmt(b.conversionPriceCurrent,2)}（觀測站 ${b.conversionPriceMonth} 月報${b.conversionResetDate?`，${b.conversionResetDate} 重設`:''}；發行時 ${fmt(b.conversionPriceAtIssue,2)}）`:`發行時轉換價 ${fmt(b.conversionPriceAtIssue,2)}（未含後續調整）`}｜${b.inTheMoney===null?'價內外待核':b.inTheMoney?'價內':'價外'}${Number.isFinite(b.conversionPremiumPct)?`（轉換價比現價${b.conversionPremiumPct>=0?'高':'低'} ${fmt(Math.abs(b.conversionPremiumPct),1)}%）`:''}｜潛在稀釋 ${Number.isFinite(b.dilutionPct)?fmt(b.dilutionPct,2)+'%':b.dilutionReason==='FOREIGN_CURRENCY_FIXED_FX_NOT_IN_REGISTRY'?'外幣債，匯率待核':'待核'}｜賣回 ${b.putDate||'無'}`);
+@@ -35,6 +39,8 @@ function renderAdvisoryPanels(model){
+  const pctText=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';
+  const tqw=p.threeQuestions?.questions?.chips?.windows||{},lotsText=x=>Number.isFinite(x)?(x>0?'+':'')+Math.round(x/1000).toLocaleString('zh-TW')+'張':'缺值';
+  card('法人買賣超 5／10／20日',['d5','d10','d20'].map(k=>{const w=tqw[k];return `${k.slice(1)}日 外資 ${lotsText(w?.foreignShares)}、投信 ${lotsText(w?.trustShares)}`;}).join('；'),'FinMind 三大法人日資料；日期須與股價日期逐日對齊，不足就標缺值。');
++ // v261（擁有者 2026-11-27；第 45 輪）：投本比，只顯示，不改評級或進場判斷。
++ const tc=p.trustToCapital||{},sp=x=>Number.isFinite(x)?(x>=0?'+':'')+x.toFixed(2)+'%':'缺值';card('投本比（投信淨買 ÷ 發行股數）',tc.status==='ok'?`5日 ${sp(tc.d5)}、10日 ${sp(tc.d10)}、20日 ${sp(tc.d20)}${Math.abs(tc.d20)>=1?`｜20日已${tc.d20>0?'超過 +1%':'低於 −1%'}`:''}`:`待補：${tc.reason||'缺值'}`,`${tc.to||'日期缺值'}；${tc.source||''}；${tc.backtest||''}；只顯示。`);
+  const dy=p.dividendYield||{};card('殖利率歷史區間',dy.status==='ok'?`殖利率 ${show(dy.current)}%｜P20 ${show(dy.p20)}／中位 ${show(dy.median)}／P80 ${show(dy.p80)}｜目前位於 ${show(dy.percentileRank)} 百分位`:`待補：${dy.reason||'缺值'}`,`${dy.from||'起日缺值'}～${dy.through||p.asOf||'迄日缺值'}；${dy.observations||0}筆；${dy.source||''}；只顯示。`);
+  const rsi=p.rsi||{};card('RSI（14日）',rsi.status==='ok'?`${show(rsi.value)}｜${rsi.note}`:`待補：${rsi.reason||'缺值'}`,`${rsi.date||'日期缺值'}；${rsi.method||'Wilder RSI(14)'}；只顯示。`);
+  const beta=p.beta||{};card('Beta（對加權指數，近120日）',beta.status==='ok'?`${show(beta.value)}｜${beta.value>1?'波動大於大盤':'波動小於大盤'}`:`待補：${beta.reason||'缺值'}`,`${beta.from||'起日缺值'}～${beta.to||'迄日缺值'}；${beta.method||''}；只顯示。`);

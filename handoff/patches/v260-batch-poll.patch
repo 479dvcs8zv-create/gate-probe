@@ -1,0 +1,252 @@
+diff --git a/OPERATIONS.md b/OPERATIONS.md
+index c2af67c..9f95742 100644
+--- a/OPERATIONS.md
++++ b/OPERATIONS.md
+@@ -6,7 +6,7 @@ For a cloud run, use Sites `get_site` for `appgprj_6ab2cc2055ac8191a2244d934f738
+ 
+ 1. Read `/api/market-scanner` first. Run the retrieved Python collector with `--output <scratch-directory> --sessions 60` when fewer than 60 sessions are saved; otherwise use `--sessions 1` to append or replace the latest official session. It downloads official FRED CSV observations, their matching latest observation and next release date from FRED's official series pages, the TWSE holiday calendar/FMTQIK trading dates and same-day MI_MARGN, MI_MARGN_TREND and BFIJ3U raw statistics, the current TWSE/TPEx issuer roster, and date-matched TWSE MI_INDEX / TPEx OTC quotes. The latest date comes from the actual MI_INDEX after-trading report, because STOCK_DAY_ALL can lag after market close. `--macro-only` refreshes the FRED observations and market statistics without recollecting stock history. FRED provider failures are isolated by series; read `macro-collection-status.json` and report remaining failures. FinMind public metadata supplies industry labels only. Retain raw sources and collection status for review. Do not mix TPEx OTC quotes with fixed-price after-hours quotes, or replace a rejected historical date with the latest day. Current classifications do not establish a historical survivorship-corrected universe.
+ 2. Launch `stty -echo` then `node <retrieved-importer.mjs> <scratch-directory>` in a PTY. At the hidden-stdin prompt supply a single JSON line with the current `token` and the deployed `origin` from `get_site`. Do not include credentials in arguments, files, logs or task text. The importer posts the universe, observations and dated snapshots, then reads saved status. Abort on a rejected write; do not claim a successful update based only on collection. Existing company evidence remains saved; import newly verified filings separately when available.
+-3. POST `/api/automation/refresh-all`, poll `/api/automation/status` at 10-second intervals until the matching run has `completedAt`, and read `/api/automation/history`. Routine patrols add `?compact=1` to the POST and to every status poll (v255): the same checkpoint step runs, but the reply carries only `runId`, `status`, `checkpoint`, `completedAt`, `summary` (the history row plus `gateAuditTotal` and `stockBatch`) and `problems` (coverage rows that are not ok／automatic／automatic_limited／not_used／history_ready). Without the parameter the full payload is returned unchanged. GET `/api/macro`, `/api/macro-expanded` and `/api/master-model?id=8299` to verify source observation dates, usable coverage, scanner session count and eligible history. An initial cached response may start a background refresh; read again after completion.
++3. POST `/api/automation/refresh-all`, poll `/api/automation/status` at 10-second intervals until the matching run has `completedAt`, and read `/api/automation/history`. Routine patrols add `?compact=1` to the POST and to every status poll (v255): the same checkpoint step runs, but the reply carries only `runId`, `status`, `checkpoint`, `completedAt`, `summary` (the history row plus `gateAuditTotal` and `stockBatch`) and `problems` (coverage rows that are not ok／automatic／automatic_limited／not_used／history_ready). Without the parameter the full payload is returned unchanged. Routine patrols may also add `&batch=1` to the status polls (v260): one poll then keeps running the next checkpoint steps until the run completes, a step is waiting (checkpoint unchanged: background refresh, sector batches, Gate retry), 8 steps are done, or 8 seconds have passed; the lease is renewed before each extra step and a failure after the first step returns the last saved state with `batch.stop` explaining why. The reply adds `batch:{steps,ms,stop}`. Without `batch=1` each poll runs exactly one step as before. GET `/api/macro`, `/api/macro-expanded` and `/api/master-model?id=8299` to verify source observation dates, usable coverage, scanner session count and eligible history. An initial cached response may start a background refresh; read again after completion.
+ 4. Preserve the existing macro score rules, raw financial warnings, candidate-only research and Gate criteria. Verify company filings separately before importing additional evidence through `companies`; published actual EPS is not an advance forecast or pre-announcement consensus. Eight distinct verified periods and direct-peer estimates remain required by the relevant Gates. Report unavailable sources and incomplete checks explicitly.
+ 
+ The Worker attempts the same official quote basis during refresh when the imported roster is fresh. The external collector is the fallback for Worker egress failures. Holiday/no-trade observations, suspended securities and newly listed stocks remain excluded or ineligible rather than filled with invented values. No Gemini or model-generated values are involved.
+diff --git a/package.json b/package.json
+index c722b75..98410c7 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs tests/v258-calendar-year.test.mjs tests/v259-recent-source-feed.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs tests/v258-calendar-year.test.mjs tests/v259-recent-source-feed.test.mjs tests/v260-batch-poll.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/helpers/refresh-lease.mjs b/tests/helpers/refresh-lease.mjs
+index 34d391c..8c2fd07 100644
+--- a/tests/helpers/refresh-lease.mjs
++++ b/tests/helpers/refresh-lease.mjs
+@@ -9,6 +9,11 @@ export function refreshLeaseStatement(db,sql){
+     if(old&&old.expires_at>now)return {success:true,meta:{changes:0}};
+     db.leases.set(id,{token,expires_at:expires});return {success:true,meta:{changes:1}};
+    }
++   if(sql.startsWith('UPDATE')){
++    const [expires,id,token,now]=args,old=db.leases.get(id);
++    if(db.refuseLeaseRenewal||!old||old.token!==token||!(old.expires_at>now))return {success:true,meta:{changes:0}};
++    old.expires_at=expires;return {success:true,meta:{changes:1}};
++   }
+    if(sql.startsWith('DELETE')){if(db.leases.get(args[0])?.token===args[1])db.leases.delete(args[0]);return {success:true,meta:{changes:1}};}
+    return {success:true,meta:{changes:0}};
+   },
+diff --git a/tests/v260-batch-poll.test.mjs b/tests/v260-batch-poll.test.mjs
+new file mode 100644
+index 0000000..8462721
+--- /dev/null
++++ b/tests/v260-batch-poll.test.mjs
+@@ -0,0 +1,151 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { pathToFileURL } from 'node:url';
++import {refreshLeaseStatement} from './helpers/refresh-lease.mjs';
++
++const workerUrl = pathToFileURL(new URL('../dist/server/index.js', import.meta.url).pathname).href;
++const { default: worker } = await import(workerUrl);
++
++class MemoryD1 {
++  rows = new Map();
++  prepare(sql) {
++    const lease=refreshLeaseStatement(this,sql);if(lease)return lease;
++    return {
++      bind: (...args) => ({
++        run: async () => {
++          if (sql.includes('INSERT INTO site_runtime_cache')) {
++            if (this.failCacheWrites > 0) { this.failCacheWrites--; return { success: false }; }
++            if (String(args[0]).startsWith('site-auto-refresh-run:v1:') && this.failRunWriteAfter != null) {
++              if (this.failRunWriteAfter === 0) { this.failRunWriteAfter = null; return { success: false }; }
++              this.failRunWriteAfter--;
++            }
++            this.rows.set(args[0], { payload: args[1], updated_at: args[2], expires_at: args[3] });
++          }
++          return { success: true };
++        },
++        all: async () => {
++          if (sql.includes('SELECT payload, updated_at, expires_at FROM site_runtime_cache')) {
++            const row = this.rows.get(args[0]);
++            return { results: row ? [row] : [] };
++          }
++          if (sql.includes('WHERE cache_key LIKE')) {
++            return { results: [...this.rows.entries()].filter(([key]) => key.startsWith(String(args[0]).replace('%', ''))).slice(-Number(args[1])).map(([cache_key, row]) => ({ cache_key, ...row })) };
++          }
++          return { results: [] };
++        },
++      }),
++      run: async () => ({ success: true }),
++    };
++  }
++}
++
++// v260（擁有者 2026-11-25「沒額度 為何用那麼快？」）：?batch=1 時一次輪詢連做幾步；不帶參數時行為不變。
++const db = new MemoryD1();
++const originalFetch = globalThis.fetch;
++const universeRows = [
++  ...Array.from({ length: 300 }, (_, i) => ({ stock_id: String(1000 + i), stock_name: `上市測試${i}`, type: 'twse', industry_category: i % 2 ? '半導體業' : '電子零組件業' })),
++  ...Array.from({ length: 300 }, (_, i) => ({ stock_id: String(2000 + i), stock_name: `上櫃測試${i}`, type: 'tpex', industry_category: i % 2 ? '半導體業' : '電子零組件業' })),
++];
++const twseRows = universeRows.filter(x => x.type === 'twse').map((x, i) => ({ Date: '1151007', Code: x.stock_id, Name: x.stock_name, ClosingPrice: '100.00', Change: i % 2 ? '+1.00' : '-1.00', TradeVolume: '10000', TradeValue: '1000000' }));
++const tpexRows = universeRows.filter(x => x.type === 'tpex').map((x, i) => ({ Date: '1151007', SecuritiesCompanyCode: x.stock_id, CompanyName: x.stock_name, Close: '100.00', Change: i % 2 ? '+1.00' : '-1.00', TradingShares: '10000', TransactionAmount: '1000000' }));
++globalThis.fetch = async (input, init) => {
++  const url = String(input);
++  if (url.includes('dataset=TaiwanStockInfo')) return Response.json({ status: 200, data: universeRows });
++  if (url.includes('/exchangeReport/STOCK_DAY_ALL')) return Response.json(twseRows);
++  if (url.includes('/tpex_mainboard_daily_close_quotes')) return Response.json(tpexRows);
++  return new Response('No upstream test fixture configured', {status:503});
++};
++const now = new Date().toISOString(), future = new Date(Date.now() + 86400000).toISOString(), currentDate=now.slice(0,10);
++const seed = (key, payload, updatedAt = now, expiresAt = future) => db.rows.set(key, {
++  payload: JSON.stringify(payload), updated_at: updatedAt, expires_at: expiresAt,
++});
++seed('macro:v1', { checkedAt: now, rows: [{ id: 'SOFR', name: 'SOFR', value: 4.1, date: '2026-10-06', status: 'ok', source: 'https://fred.stlouisfed.org/series/SOFR' }], coverage: { usable: 1, total: 1 }, light: '灰燈', fiveLines: ['風險預算不增加。'] });
++seed('macro-expanded:v1', { checkedAt: now, rows: [{ id: 'UNRATE', name: '失業率', value: 4.1, date: '2026-09-01', status: 'ok' }], derived: [] });
++seed('macro-market:v7', { checkedAt: now, rows: [
++  { id: 'XAU', name: '金價', value: 4100, unit: 'USD/oz', date: currentDate, status: 'ok', source: 'https://api.gold-api.com/price/XAU' },
++  { id: 'XAG', name: '銀價', value: 60, unit: 'USD/oz', date: currentDate, status: 'ok', source: 'https://api.gold-api.com/price/XAG' },
++  { id: 'XAU_XAG', name: '金銀比', value: 68.33, unit: '倍', date: currentDate, status: 'ok', historyObservations: 1 },
++ ] });
++seed('us-indices:v1', { checkedAt: now, rows: [{ id: 'SP500', value: 7000, date: '2026-10-06', status: 'ok' }] });
++seed('macro-news:v1', { checkedAt: now, feeds: [
++  { topic: '政策', source: 'Fed', items: [{ title: '公告', date: '2026-10-07', url: 'https://www.federalreserve.gov/news' }] },
++  { topic: '能源', source: 'EIA', items: [{ title: '公告', date: '2026-10-07', url: 'https://www.eia.gov/news' }] },
++  { topic: '就業', source: 'BLS', items: [{ title: '公告', date: '2026-10-07', url: 'https://www.bls.gov/news' }] },
++ ] });
++for (const [id, name] of [['8299', '群聯'], ['5289', '宜鼎'], ['2404', '漢唐'], ['5009', '榮剛']]) {
++  seed(`stock:v5:${id}`, { id, checkedAt: now, price: { value: 100, date: '2026-10-06' }, revenue: { month: '2026-09' }, datasetStatus: {}, exRightsEvents: [] });
++}
++
++const env = { DB: db };
++let background;
++const ctx = { waitUntil(promise) { background = promise; } };
++const call=(path,init)=>worker.fetch(new Request('https://site.test'+path,init),env,ctx);
++async function settle(){if(background){await background;background=null;}}
++
++
++async function patrol(query,{onPoll}={}){
++  const started=await (await call(`/api/automation/refresh-all?compact=1`,{method:'POST'})).json();
++  let last,polls=0;const batches=[];
++  for(let i=0;i<120&&!last?.completedAt;i++){
++    const response=await call(`/api/automation/status?compact=1${query}`);const text=await response.text();
++    assert.equal(response.status,200,text);last=JSON.parse(text);polls++;await settle();
++    assert.equal(last.runId,started.runId);
++    if(last.batch)batches.push(last.batch);
++    if(onPoll)await onPoll(last,polls);
++  }
++  return {started,last,polls,batches};
++}
++
++test('batch=1：同一個 run 跑完，查詢次數至少少一半，結果和逐步一樣',async()=>{
++  const single=await patrol('');
++  assert.ok(single.last.completedAt);assert.equal(single.batches.length,0,'不帶 batch：回應沒有 batch 欄（行為不變）');
++  const batched=await patrol('&batch=1');
++  assert.ok(batched.last.completedAt,'同一個 run 跑完');
++  assert.ok(batched.polls*2<=single.polls,`查詢次數 ${batched.polls} 次，逐步 ${single.polls} 次`);
++  assert.equal(batched.last.checkpoint.stage,'done');
++  assert.equal(batched.last.summary.gateAuditCount,4);assert.equal(batched.last.summary.gateAuditTotal,4);
++  assert.deepEqual(batched.last.summary.stockBatch,['8299','5289','2404','5009']);
++  assert.deepEqual(batched.last.problems,single.last.problems,'覆蓋列問題和逐步相同');
++  for(const b of batched.batches){
++    assert.ok(b.steps>=1&&b.steps<=8,`每次 1～8 步（${b.steps}）`);
++    assert.ok(['completed','waiting','max_steps','time_budget','lease_not_renewed'].includes(b.stop),b.stop);
++  }
++  assert.equal(batched.batches.at(-1).stop,'completed');
++  const history=(await (await call('/api/automation/history')).json()).runs[0];
++  const {gateAuditTotal,stockBatch,...summary}=batched.last.summary;
++  assert.deepEqual(summary,history,'摘要和 history 一致');
++});
++
++test('batch=1：租約續不到就只做一步，照樣能接續跑完',async()=>{
++  db.refuseLeaseRenewal=true;
++  try{
++    const run=await patrol('&batch=1');
++    assert.ok(run.last.completedAt);
++    assert.ok(run.batches.every(b=>b.steps===1),'每次只做一步');
++    assert.ok(run.batches.slice(0,-1).every(b=>['lease_not_renewed','waiting'].includes(b.stop)));
++  }finally{db.refuseLeaseRenewal=false;}
++});
++
++test('batch=1：第二步以後寫入失敗，回上一個已保存的狀態（HTTP 200），下一次輪詢從那裡重試',async()=>{
++  let failed=false;
++  const run=await patrol('&batch=1',{onPoll:async(last,polls)=>{
++    if(polls===1){db.failRunWriteAfter=1;failed=true;return;}   // 下一次輪詢：第一步的巡檢紀錄寫入成功、第二步失敗
++  }});
++  assert.ok(failed&&run.last.completedAt,'失敗之後照樣跑完');
++  const errored=run.batches.find(b=>String(b.stop).startsWith('error:'));
++  assert.ok(errored,'有一次在第二步以後停下並照實寫原因');
++  assert.match(errored.stop,/storage_error/);
++  assert.ok(errored.steps>=1);
++});
++
++test('batch=1：第一步就失敗時照舊回 503，不假裝成功',async()=>{
++  await call('/api/automation/refresh-all?compact=1',{method:'POST'});
++  db.failCacheWrites=1;
++  const response=await call('/api/automation/status?compact=1&batch=1');
++  assert.equal(response.status,503);
++  const body=await response.json();assert.equal(body.status,'storage_error');assert.equal(body.persisted,false);
++  db.failCacheWrites=0;
++  for(let i=0;i<120;i++){const r=await (await call('/api/automation/status?compact=1&batch=1')).json();await settle();if(r.completedAt)break;}
++});
++
++test('globalThis.fetch 還原',()=>{globalThis.fetch=originalFetch;});
+diff --git a/worker/macro.js b/worker/macro.js
+index 4564921..976f1f5 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -1573,6 +1573,9 @@ function compactSiteRefresh(payload) {
+       problems:(Array.isArray(payload.coverage)?payload.coverage:[]).filter(row=>row&&!SITE_REFRESH_QUIET_COVERAGE.has(row.status)).map(row=>`${row.id}:${row.status}`).slice(0,20)}:{})};
+ }
+ const wantsCompactRefresh=request=>{try{return new URL(request.url).searchParams.get('compact')==='1';}catch{return false;}};
++const wantsBatchRefresh=request=>{try{return new URL(request.url).searchParams.get('batch')==='1';}catch{return false;}};
++const SITE_BATCH_MAX_STEPS=8;
++const SITE_BATCH_START_BUDGET_MS=8000;
+ 
+ async function persistSiteRefreshStatus(env, payload) {
+   const ttl = 365 * 86400000;
+@@ -1764,6 +1767,12 @@ async function siteRefreshLeaseOwned(env,runId,token){
+   const result=await env.DB.prepare('SELECT token, expires_at FROM site_refresh_leases WHERE run_id = ?').bind(runId).all();
+   const row=result?.results?.[0];return row?.token===token&&row.expires_at>Date.now();
+ }
++async function renewSiteRefreshLease(env,runId,token){
++  try{
++    const now=Date.now(),result=await env.DB.prepare('UPDATE site_refresh_leases SET expires_at = ? WHERE run_id = ? AND token = ? AND expires_at > ?').bind(now+SITE_AUTO_REFRESH_LEASE_MS,runId,token,now).run();
++    return result?.success!==false&&result?.meta?.changes===1;
++  }catch{return false;}
++}
+ async function releaseSiteRefreshLease(env,runId,token){
+   try{await env.DB.prepare('DELETE FROM site_refresh_leases WHERE run_id = ? AND token = ?').bind(runId,token).run();}catch{}
+ }
+@@ -1779,7 +1788,24 @@ async function pollSiteRefresh(request,env,ctx){
+     const latest=await siteAutoRefreshStatus(env);
+     if(latest.runId!==saved.runId||latest.completedAt)return Response.json(shape(latest),{headers:jsonHeaders});
+     const run=structuredClone(latest);
+-    return Response.json(shape(await executeFullSiteRefresh(request,env,ctx,run,token)),{headers:jsonHeaders});
++    if(!wantsBatchRefresh(request))return Response.json(shape(await executeFullSiteRefresh(request,env,ctx,run,token)),{headers:jsonHeaders});
++    // v260（擁有者 2026-11-25「沒額度 為何用那麼快？」）：?batch=1 時同一次輪詢接著做下一步，直到
++    // 跑完、這一步在等待（checkpoint 沒前進：背景更新、板塊分批、Gate 重試都要等下一次輪詢）、已做 SITE_BATCH_MAX_STEPS 步，
++    // 或本次請求已用超過 SITE_BATCH_START_BUDGET_MS（單步上限 16 秒，整次約 25 秒內）。每多做一步前先續租約，續不到就停。
++    // 第一步失敗照舊回錯誤；之後的步驟失敗就停在上一個已保存的狀態（下一次輪詢會從那裡重試，持續失敗時第一步就會照實回錯誤）。
++    const began=Date.now();let steps=0,stop='',persisted=null;
++    for(;;){
++      const before=JSON.stringify(run.checkpoint);
++      try{await executeFullSiteRefresh(request,env,ctx,run,token);}
++      catch(error){if(!steps)throw error;stop=`error: ${String(error?.message||error).slice(0,160)}`;break;}
++      steps++;persisted=structuredClone(run);
++      if(run.completedAt){stop='completed';break;}
++      if(JSON.stringify(run.checkpoint)===before){stop='waiting';break;}
++      if(steps>=SITE_BATCH_MAX_STEPS){stop='max_steps';break;}
++      if(Date.now()-began>=SITE_BATCH_START_BUDGET_MS){stop='time_budget';break;}
++      if(!await renewSiteRefreshLease(env,run.runId,token)){stop='lease_not_renewed';break;}
++    }
++    return Response.json({...shape(persisted),batch:{steps,ms:Date.now()-began,stop}},{headers:jsonHeaders});
+   }catch(error){const reason=String(error?.message||error).slice(0,240),lost=reason.startsWith('lease_lost:'),status=lost?'lease_lost':reason.startsWith('storage_error:')?'storage_error':'error';return Response.json({runId:saved.runId,status,persisted:false,checkpoint:saved.checkpoint,reason},{status:lost?409:503,headers:jsonHeaders});}
+   finally{if(token)await releaseSiteRefreshLease(env,saved.runId,token);}
+ }
