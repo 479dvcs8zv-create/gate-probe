@@ -12,6 +12,7 @@
    - 修改任何程式、設定或排程。
 5. 紀錄：只提交一次，寫到 `wcr0936531039-png/macro-relay-service` 的 `diagnostics/latest.md`。在最上面加 3 行，舊內容保留在下面：
    - `# 最新：MM/DD HH:MM 早巡檢｜晚巡檢 完成｜未完成｜Gate <summary.gateAuditCount>/<summary.gateAuditTotal>`
+     （兩個數字都取自**最後一次 status?compact=1 回應**的 summary；history 的資料列本來就沒有 gateAuditTotal，不要從 history 讀。）
    - `runId <runId>｜completedAt <completedAt>｜查詢 <次數> 次｜relayImport <summary.relayImport.status>（<各組 id=狀態>）`
    - `異常：<problems 逐項列出；沒有就寫「無」>`
    未完成（超過次數或連續錯誤）時，第 3 行照實寫停在哪一步（checkpoint）和錯誤原文的前 100 字。
