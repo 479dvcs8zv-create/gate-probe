@@ -1,0 +1,195 @@
+diff --git a/dist/index.html b/dist/index.html
+index 8eb0020..56c5536 100644
+--- a/dist/index.html
++++ b/dist/index.html
+@@ -957,6 +957,22 @@ function renderAdvisoryDecision(host,decision){
+  for(const change of decision.changeConditions||[]){const row=document.createElement('p');row.className='tiny';row.textContent='何時改變觀察：'+change;details.append(row);}box.append(details);
+  const discipline=document.createElement('p');discipline.className='tiny';discipline.textContent=decision.discipline;box.append(discipline);host.append(box);
+ }
++// v262（擁有者 2026-11-28；第 49 輪）：主結論放在評級卡最上面；估值評級改成一行參考。
++function renderMainConclusion(model){
++ const p=model?.report?.advisoryPanels,mc=p?.mainConclusion,report=document.getElementById('qualifiedReport');
++ if(!mc||!report||model.symbol&&p.symbol&&p.symbol!==model.symbol)return;
++ report.hidden=false;
++ const set=(id,text)=>{const node=document.getElementById(id);if(node)node.textContent=text;};
++ const rating=model.adaptiveRating;
++ set('qualifiedTitle','主結論｜回測有效的訊號');
++ set('qualifiedStatus',mc.label);
++ set('qualifiedGrade',`${mc.label}｜${mc.reason}`);
++ set('qualifiedPolicyNotice',`${mc.warning?`！ ${mc.warning}。`:''}估值參考：${rating?.available?`退避評級 ${rating.grade??'未評'}｜${rating.label}`:'未產出'}（${mc.valuationNote}）。`);
++ set('qualifiedBasis',`${mc.rule}。${mc.backtest}。`);
++ const conclusion=document.getElementById('qualifiedConclusion');if(conclusion&&conclusion.textContent&&!conclusion.textContent.startsWith('估值參考的理由：'))conclusion.textContent=`估值參考的理由：${conclusion.textContent}`;
++ const status=document.getElementById('overallReportStatus');if(status){status.textContent=`主結論 ${mc.label}`;status.className='badge watch';}
++ const overall=document.getElementById('overallGate');if(overall)overall.textContent=`主結論：${mc.label}（${mc.reason}）。估值評級只當參考。`;
++}
+ /* ADVISORY_PANEL_DISPLAY_END */
+ // v252（擁有者 2026-11-03 07:20「好」）：股災本益比參考價——後台算好，這裡只顯示；只作左側交易參考，不影響評級。
+ function renderCrashReference(model){
+@@ -1010,6 +1026,7 @@ function renderBackendMasterModel(model){
+  put('overallReportOpportunity',model.report?.positives?.join('　｜　')||'後台沒有列出機會訊號');put('overallReportRisks',model.report?.risks?.length?model.report.risks.map(x=>/^Gate \S+ [^：]+：/.test(x)?x.split('：')[0]:x).join('、'):(model.gates.filter(x=>x.status!=='evaluated').map(x=>`Gate ${x.id} ${x.title}`).join('、')||'未發現未核實 Gate'));
+  put('overallReportNext',model.report?.action||(model.status==='evaluated'?'所有必要 Gate 均完成核驗。':'依各 Gate 的逐項核對補齊資料，已核實警訊仍保留。'))
+  if(model.adaptiveRating?.available&&['degraded','vetoed','valuation_divergence'].includes(model.status))renderAdaptiveRating(model.adaptiveRating,model);
++ if(typeof renderMainConclusion==='function')renderMainConclusion(model);
+  if(model.crossMarket){const cross=model.crossMarket,node=document.getElementById('overallReportSummary');if(node)node.textContent+=` 跨市場背離：${cross.status}／${cross.label}（台股${cross.asOf||'UNKNOWN'}、美股${cross.usAsOf||'UNKNOWN'}）；5D／10D／20D與缺項見Gate 1完整判讀，新增評分0。`;if(['evaluated','conditional'].includes(model.status)&&cross.status==='UNKNOWN'){const status=document.getElementById('overallReportStatus');if(status)status.textContent='既有核驗完成｜跨市場 UNKNOWN';}if(cross.status==='RED'&&model.status!=='vetoed'){const next=document.getElementById('overallReportNext');if(next)next.textContent+=' 假性脫鉤風險：維持原風險預算，不僅因相對強弱提高部位。';}}
+  renderReportContext(model);
+ }
+diff --git a/package.json b/package.json
+index 5e5efb0..b4003e0 100644
+--- a/package.json
++++ b/package.json
+@@ -23,7 +23,7 @@
+     "test:c2": "node --test tests/valuation-divergence.test.mjs",
+     "test:owner-20261025": "node --test tests/three-questions.test.mjs tests/convertible-bonds.test.mjs tests/dollar-axis.test.mjs && node tests/ndc-export-orders.test.mjs",
+     "test:owner-bundle2": "node --test tests/owner-bundle2.test.mjs",
+-    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs tests/v258-calendar-year.test.mjs tests/v259-recent-source-feed.test.mjs tests/v260-batch-poll.test.mjs tests/v261-display-panels.test.mjs"
++    "test:v235-hotfix": "node --test tests/v235-hotfix.test.mjs tests/v236-keepalive.test.mjs tests/v236-sources.test.mjs tests/v236-watchlist.test.mjs tests/v236-time-rules.test.mjs tests/v237-cb-relay.test.mjs tests/v237-fixes.test.mjs tests/v237-rules.test.mjs tests/v238-exit.test.mjs tests/v238-dollar.test.mjs tests/v239-fixes.test.mjs tests/v239-collector-utc.test.mjs tests/v240-shares.test.mjs tests/v240-dollar-macro.test.mjs tests/v241-compute-once.test.mjs tests/v243-stock-dedup.test.mjs tests/v244-patrol-summary.test.mjs tests/v245-finalize-wait.test.mjs tests/v246-dollar-channel.test.mjs tests/v247-gate-fold.test.mjs tests/v248-sources.test.mjs tests/reliability-20261030.test.mjs tests/v249-fixes.test.mjs tests/v250-relay-import.test.mjs tests/v251-analyst-not-used.test.mjs tests/v252-crash-reference.test.mjs tests/v254-imported-credit.test.mjs tests/v255-compact-status.test.mjs tests/v256-u6rate.test.mjs tests/v257-compact-quiet.test.mjs tests/v258-calendar-year.test.mjs tests/v259-recent-source-feed.test.mjs tests/v260-batch-poll.test.mjs tests/v261-display-panels.test.mjs tests/v262-main-conclusion.test.mjs"
+   },
+   "devDependencies": {
+     "drizzle-kit": "0.31.10",
+diff --git a/tests/v262-main-conclusion.test.mjs b/tests/v262-main-conclusion.test.mjs
+new file mode 100644
+index 0000000..99e04a6
+--- /dev/null
++++ b/tests/v262-main-conclusion.test.mjs
+@@ -0,0 +1,49 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { readFileSync } from 'node:fs';
++import { mainConclusion } from '../worker/panel-calculations.mjs';
++
++// v262（擁有者 2026-11-28「先部署」；第 49、50 輪）：主結論＝可進場／觀望／避開（否決＝剔除）；估值評級只當參考。
++
++const businessDays=(start,count)=>{const out=[];const d=new Date(start+'T00:00:00Z');while(out.length<count){if(d.getUTCDay()%6)out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;};
++const stockOf=closes=>{const dates=businessDays('2026-07-01',closes.length);return {stock:{priceHistory:dates.map((date,i)=>({date,close:closes[i]})),exRightsEvents:[]},asOf:dates.at(-1)};};
++
++test('收盤在 20 與 60 日線下 → 避開（就算符合進場條件也一樣）',()=>{
++  const {stock,asOf}=stockOf(Array.from({length:70},(_,i)=>200-i));
++  const r=mainConclusion(stock,{status:'enter'},{asOf});
++  assert.equal(r.status,'avoid');assert.equal(r.label,'避開');assert.match(r.reason,/20 日線.*60 日線/);
++  assert.equal(r.scoreContribution,0);assert.match(r.backtest,/第 49 輪/);assert.match(r.valuationNote,/只當參考/);
++});
++
++test('只跌破 20 日線、仍在 60 日線上 → 觀望',()=>{
++  const {stock,asOf}=stockOf([...Array.from({length:69},(_,i)=>100+i),150]);
++  const r=mainConclusion(stock,{status:'enter'},{asOf});
++  assert.equal(r.status,'watch');assert.match(r.reason,/跌破 20 日線/);
++});
++
++test('在 20 日線上且符合進場三條件 → 可進場；離 20 日線超過 10% 加風險提示',()=>{
++  let {stock,asOf}=stockOf(Array.from({length:70},(_,i)=>100+i));
++  let r=mainConclusion(stock,{status:'enter'},{asOf});
++  assert.equal(r.status,'enter');assert.equal(r.label,'可進場');assert.equal(r.warning,null);assert.ok(r.bias20Pct<10);
++  ({stock,asOf}=stockOf(Array.from({length:70},(_,i)=>100*1.02**i)));
++  r=mainConclusion(stock,{status:'enter'},{asOf});
++  assert.equal(r.status,'enter');assert.ok(r.bias20Pct>10);assert.match(r.warning,/第 50 輪/);
++});
++
++test('在 20 日線上但不符合或資料不足 → 觀望；股價不足 60 筆 → 資料不足',()=>{
++  const {stock,asOf}=stockOf(Array.from({length:70},(_,i)=>100+i));
++  assert.equal(mainConclusion(stock,{status:'avoid'},{asOf}).label,'觀望');
++  const r=mainConclusion(stock,{status:'insufficient',reason:'營收缺值'},{asOf});
++  assert.equal(r.label,'觀望');assert.match(r.reason,/營收缺值/);
++  const short=stockOf(Array.from({length:59},(_,i)=>100+i));
++  assert.equal(mainConclusion(short.stock,{status:'enter'},{asOf:short.asOf}).status,'insufficient');
++});
++
++test('後台：否決改剔除、市場資料不齊不再壓評級；網頁：主結論蓋在評級卡最上面',()=>{
++  const server=readFileSync(new URL('../dist/server/index.js',import.meta.url),'utf8'),html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
++  for(const s of ['mainConclusion:mainConclusion(stock,ec,{asOf})',"status:'excluded',label:'剔除'",'coreReady:[7,9,10].every','不再壓低個股評級（v262）'])assert.ok(server.includes(s),s);
++  assert.ok(html.includes('function renderMainConclusion(model)'));
++  const a=html.indexOf('renderAdaptiveRating(model.adaptiveRating,model);'),b=html.indexOf('renderMainConclusion(model);');
++  assert.ok(a>0&&b>a,'主結論在評級卡之後套上，不會被蓋掉');
++  assert.ok(html.includes("主結論｜回測有效的訊號"));
++});
+diff --git a/worker/macro.js b/worker/macro.js
+index 8180b11..52b526e 100644
+--- a/worker/macro.js
++++ b/worker/macro.js
+@@ -851,8 +851,11 @@ function evaluateMasterModel(stock, macro, market, freshness = {}, gateEvidence
+   const adaptiveRating=computeFallbackRating({valuationDivergence,stockFresh:freshness.stockFresh,price:stock.price?.value,priceDate:stock.price?.date,scenarios:primaryValuation?.scenarios,
+     history:fq.cycleValuation?.pe||stock.valuation?.peBand,vetoStatus:veto.status,scoringReady:scoring.ready,guidanceReady:guidance.ready,surprisesReady:surprises.ready,
+     peerReady:peers.length>=3,currentConsensusReady:consensus[0].ready,nextConsensusReady:consensus[1].ready,qualityWarning:qualityRisk||legalRisks.length>0,qualityReady,
+-    coreReady:[1,2,3,7,9,10].every(id=>{const row=gates.find(x=>x.id===id);return row.status==='evaluated'||id===9&&row.status==='conditional'&&!row.blocksOverall}),
++    coreReady:[7,9,10].every(id=>{const row=gates.find(x=>x.id===id);return row.status==='evaluated'||id===9&&row.status==='conditional'&&!row.blocksOverall}),
+     timingWeak:finiteNumber(stock.technical?.ma20)&&finiteNumber(stock.technical?.ma60)&&price?.value<stock.technical.ma20&&price?.value<stock.technical.ma60});
++  // v262（擁有者 2026-11-28；第 49 輪）：總經、台股市場、全市場掃描（Gate 1～3）不齊是網站資料問題，不再把每一檔的估值參考壓到最高 C；缺項照舊列在 Gate 與總經區。
++  const marketGatesIncomplete=[1,2,3].filter(id=>{const row=gates.find(x=>x.id===id);return row&&row.status!=='evaluated';});
++  if(adaptiveRating.available&&marketGatesIncomplete.length)adaptiveRating.reasons.push(`Gate ${marketGatesIncomplete.join('、')} 市場資料未齊：另列於 Gate 與總經區，不再壓低個股評級（v262）。`);
+   for(const adjustment of adaptiveRating.adjustments){const gate=gates.find(row=>row.id===adjustment.gate);gate.outputState='fallback';gate.fallback=adjustment;gate.badgeLabel=adjustment.gate===4?'10D 中立／否決另列':adjustment.gate===5?'權重0／最高B+':adjustment.gate===8?'自身歷史估值接替':'風險扣級／持續產出';}
+   // v247（擁有者 2026-10-29 14:41「收起來好了」）：每個 Gate 卡只顯示一句結論，不重抄收盤、均線、估值情境、ROIC／CFO／FCF 等數字；
+   // 數字仍留在 detail（網頁收進「完整判讀說明」，點開才看）。數字的主要位置：收盤＝追蹤清單卡、均線＝持有與強弱、估值情境＝估值區、財報＝財報品質卡、總經＝總經區。
+@@ -992,6 +995,9 @@ async function masterModelResponse(request, env = {}, ctx = {}) {
+   if(typeof ADVISORY_DECISION!=='undefined'&&result?.report?.advisoryDecision)result.report.advisoryDecision.holding=ADVISORY_DECISION.macroDirectionHolding(holdingDays);
+   // 觸發否決紅線（網站既有規則）的股票，進場條件一律「避開」。
+   const ec=result?.report?.advisoryPanels?.entryCondition;
++  // v262：主結論遇到否決紅線一律「剔除」。
++  const mc=result?.report?.advisoryPanels?.mainConclusion;
++  if(mc&&result.status==='vetoed')result.report.advisoryPanels.mainConclusion={...mc,status:'excluded',label:'剔除',reason:`觸發否決紅線（${(result.gates||[]).filter(g=>g.status==='veto'||g.veto).map(g=>g.title||g.id).join('、')||'見 Gate'}）`,warning:null};
+   if(ec&&result.status==='vetoed')result.report.advisoryPanels.entryCondition={...ec,status:'avoid',label:'避開',reason:`觸發否決紅線（${(result.gates||[]).filter(g=>g.status==='veto'||g.veto).map(g=>g.title||g.id).join('、')||'見 Gate'}）→ 避開；${ec.reason||''}`};
+   const output={...result,stockPriceDate:stock.price?.date||null,stockPriceValue:stock.price?.value??null,macroScoresComputedAt:scores.record.computedAt};
+   const computedAt=new Date().toISOString();
+diff --git a/worker/panel-calculations.mjs b/worker/panel-calculations.mjs
+index 2e1d600..4faa8b5 100644
+--- a/worker/panel-calculations.mjs
++++ b/worker/panel-calculations.mjs
+@@ -271,6 +271,24 @@ export function largeHolders(input,{asOf}={}){
+   const last=rows.at(-1);
+   return {status:'ok',date:last.date,pct15:last.pct15,holders15:last.holders15??null,totalHolders:last.totalHolders??null,weeks:rows,changeVsFirst:rows.length>1?last.pct15-rows[0].pct15:null,weeksObserved:rows.length,source:'集保結算所 集保戶股權分散表（週）',scoreContribution:0};
+ }
++/** v262 主結論（擁有者 2026-11-28 01:27「先部署」；第 49、50 輪）：避開＝收盤（還原）同時在 20 日與 60 日線下；
++ *  只跌破 20 日線＝觀望；其餘符合進場三條件＝可進場；再其餘＝觀望。否決紅線在後台另外改成「剔除」。
++ *  估值評級改成參考（第 38、42 輪：評為便宜的股票之後沒有比較好）。只產出判斷，不改 Gate 或風險預算。 */
++export function mainConclusion(stock,ec,{asOf}={}){
++  const backtest='第 49 輪（2006–2026 上市櫃，每 5 個交易日評估）：可進場之後 20 日超額 +1.2～1.4%、60 日 +2.5～3.7%；避開 20 日 −0.5～−0.65%、60 日 −1.2～−2.0%；三段期間都照這個順序';
++  const rule='避開＝收盤（還原除權息）同時在 20 日與 60 日線下；只跌破 20 日線＝觀望；可進場＝進場三條件；其餘＝觀望；否決紅線＝剔除';
++  const valuationNote='估值評級（A～D）只當參考：第 38、42 輪回測，評為便宜的股票之後沒有比較好';
++  const a=adjustedCloses(stock,asOf,60);
++  if(!a.ok)return {status:'insufficient',label:'資料不足',reason:a.aligned===false?'股價日期與基準日不一致':`股價 ${a.count}/60 筆，季線不足`,rule,backtest,valuationNote,scoreContribution:0};
++  const ma20=mean(a.adj.slice(-20)),ma60=mean(a.adj),close=a.adj.at(-1),bias=(close/ma20-1)*100;
++  const base={asOf,close,ma20,ma60,bias20Pct:bias,rule,backtest,valuationNote,warning:null,scoreContribution:0};
++  if(close<ma20&&close<ma60)return {...base,status:'avoid',label:'避開',reason:`收盤 ${close.toFixed(2)} 在 20 日線 ${ma20.toFixed(2)} 與 60 日線 ${ma60.toFixed(2)} 之下`};
++  if(close<ma20)return {...base,status:'watch',label:'觀望',reason:`收盤 ${close.toFixed(2)} 跌破 20 日線 ${ma20.toFixed(2)}，仍在 60 日線上；若持有，依出場訊號處理`};
++  if(ec?.status==='enter')return {...base,status:'enter',label:'可進場',reason:'符合進場三條件（技術強＋近 3 月營收年增 > 10%＋均線排列強）',
++    warning:bias>10?`離 20 日線 +${bias.toFixed(1)}%（超過 10%）：第 50 輪回測，這種位置報酬較高，但虧損超過 10% 的比例約是一般的 3 倍`:null};
++  if(ec?.status==='insufficient')return {...base,status:'watch',label:'觀望',reason:`收盤在 20 日線上；進場條件資料不足（${ec.reason||'缺值'}），不判斷可進場`};
++  return {...base,status:'watch',label:'觀望',reason:'收盤在 20 日線上，但未符合進場三條件'};
++}
+ /** v261 投本比（擁有者 2026-11-27；第 45 輪）：投信 5／10／20 日淨買股數 ÷ 官方發行股數。只顯示，不改評級或進場判斷。
+  *  法人日期須與股價逐日對齊（同三問籌碼題）；缺發行股數或未對齊就標缺值。 */
+ export function trustToCapital(stock,tq){
+@@ -311,8 +329,9 @@ export function buildStockPanels(stock,marketRows=[],sectorContext=null,{asOf=st
+   asOf=day(asOf)?asOf:'0000-01-01';
+   const inputs=stock.panelInputs||{},ma=movingAverageStrength(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),mapping=mapIndustry(inputs.issuer,{asOf});
+   const gold=marketRows.find(r=>r.id==='XAU'),tq=threeQuestions(stock,{asOf});
++  const ec=entryCondition(stock,ma,tq,{asOf});
+   const available=r=>r&&['ok','snapshot'].includes(r.status)&&!r.is_stale&&day(r.date)&&r.date<=asOf;
+   const axis=r=>available(r)&&r.history?.at(-1)?.date===r.date?{...zeroAxis(r.history,{id:r.id,asOf}),source:r.source,sourceDate:r.date}:missing('SOURCE_MISSING_STALE_OR_NOT_ALIGNED',{id:r?.id||null});
+   const sector=mapping.sector?sectorContext?.sectors?.[mapping.sector]:null;
+-  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:dollarAxis(inputs.dollarIndex,{asOf}),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:tq,entryCondition:entryCondition(stock,ma,tq,{asOf}),trustToCapital:trustToCapital(stock,tq),ma60Deduction:ma60Deduction(stock,{asOf}),grossMarginTrend:grossMarginTrend(stock),dividendYield:dividendYieldBand(inputs.yieldHistory||[],{asOf}),rsi:rsi14(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),beta:betaVsTaiex(stock.priceHistory||[],taiexHistory,{asOf}),largeHolders:largeHolders(inputs.holders,{asOf}),marginMaintenance:inputs.marginMaintenance||missing('MARGIN_MAINTENANCE_NOT_COLLECTED',{scoreContribution:0}),convertibleBonds:convertibleBonds(inputs.cbRegistry,{symbol:stock.id,price:stock.price?.value??null,priceDate:stock.price?.date??null,issuedShares:inputs.issuer?.date&&inputs.issuer.date<=asOf&&Number.isFinite(inputs.issuer.shares)?inputs.issuer.shares:stock.valuationInputs?.issuedShares??null})};
++  return {version:'panel-calculations-v1',symbol:stock.id,asOf,draft:true,pointInTimeVerified:false,activeScoreContribution:0,movingAverages:ma,revenue:revenueHigh(inputs.revenueHistory||stock.valuationInputs?.revenueHistory||[],{asOf}),quarterEps:quarterEpsHigh(stock.epsHistory?.quarterly||[],{basis:inputs.epsBasis,asOf}),lending:inputs.lending||missing('LENDING_SOLD_BALANCE_NOT_CONNECTED'),priceBook:priceBookBand(inputs.pbrHistory||[],{asOf,requestedFrom:inputs.pbrRequestedFrom}),industryMapping:mapping,linkedUSSector:sector?{...sector,symbol:mapping.sector,source:sectorContext.source,observedAt:sectorContext.observedAt,draftContribution:sector.classification==='LEADING'?1:sector.classification==='LAGGING'?-1:sector.status==='OK'?0:null}:missing('MAPPED_SECTOR_SOURCE_UNAVAILABLE'),dollarZeroAxis:dollarAxis(inputs.dollarIndex,{asOf}),goldZeroAxis:{...axis(gold),informationalOnly:true,activeScoreContribution:0},threeQuestions:tq,entryCondition:ec,mainConclusion:mainConclusion(stock,ec,{asOf}),trustToCapital:trustToCapital(stock,tq),ma60Deduction:ma60Deduction(stock,{asOf}),grossMarginTrend:grossMarginTrend(stock),dividendYield:dividendYieldBand(inputs.yieldHistory||[],{asOf}),rsi:rsi14(stock.priceHistory||[],{asOf,aligned:stock.technical?.historyState!=='UNKNOWN'}),beta:betaVsTaiex(stock.priceHistory||[],taiexHistory,{asOf}),largeHolders:largeHolders(inputs.holders,{asOf}),marginMaintenance:inputs.marginMaintenance||missing('MARGIN_MAINTENANCE_NOT_COLLECTED',{scoreContribution:0}),convertibleBonds:convertibleBonds(inputs.cbRegistry,{symbol:stock.id,price:stock.price?.value??null,priceDate:stock.price?.date??null,issuedShares:inputs.issuer?.date&&inputs.issuer.date<=asOf&&Number.isFinite(inputs.issuer.shares)?inputs.issuer.shares:stock.valuationInputs?.issuedShares??null})};
+ }
+diff --git a/worker/panel-display.js b/worker/panel-display.js
+index a16cdfc..76e2c26 100644
+--- a/worker/panel-display.js
++++ b/worker/panel-display.js
+@@ -101,4 +101,20 @@ function renderAdvisoryDecision(host,decision){
+  for(const change of decision.changeConditions||[]){const row=document.createElement('p');row.className='tiny';row.textContent='何時改變觀察：'+change;details.append(row);}box.append(details);
+  const discipline=document.createElement('p');discipline.className='tiny';discipline.textContent=decision.discipline;box.append(discipline);host.append(box);
+ }
++// v262（擁有者 2026-11-28；第 49 輪）：主結論放在評級卡最上面；估值評級改成一行參考。
++function renderMainConclusion(model){
++ const p=model?.report?.advisoryPanels,mc=p?.mainConclusion,report=document.getElementById('qualifiedReport');
++ if(!mc||!report||model.symbol&&p.symbol&&p.symbol!==model.symbol)return;
++ report.hidden=false;
++ const set=(id,text)=>{const node=document.getElementById(id);if(node)node.textContent=text;};
++ const rating=model.adaptiveRating;
++ set('qualifiedTitle','主結論｜回測有效的訊號');
++ set('qualifiedStatus',mc.label);
++ set('qualifiedGrade',`${mc.label}｜${mc.reason}`);
++ set('qualifiedPolicyNotice',`${mc.warning?`！ ${mc.warning}。`:''}估值參考：${rating?.available?`退避評級 ${rating.grade??'未評'}｜${rating.label}`:'未產出'}（${mc.valuationNote}）。`);
++ set('qualifiedBasis',`${mc.rule}。${mc.backtest}。`);
++ const conclusion=document.getElementById('qualifiedConclusion');if(conclusion&&conclusion.textContent&&!conclusion.textContent.startsWith('估值參考的理由：'))conclusion.textContent=`估值參考的理由：${conclusion.textContent}`;
++ const status=document.getElementById('overallReportStatus');if(status){status.textContent=`主結論 ${mc.label}`;status.className='badge watch';}
++ const overall=document.getElementById('overallGate');if(overall)overall.textContent=`主結論：${mc.label}（${mc.reason}）。估值評級只當參考。`;
++}
+ /* ADVISORY_PANEL_DISPLAY_END */
